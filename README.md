@@ -1,5 +1,5 @@
 # Eclipse Project
-https://projects.eclipse.org/projects/automotive.tractu
+https://projects.eclipse.org/projects/automotive.tractusx
  
 ## Background
 The Catena-X alliance sees itself as an extensible ecosystem in which automotive manufacturers and suppliers, dealer associations and equipment suppliers, including the providers of applications, platforms and infrastructure, can all participate equally. The purpose of Catena-X is to create a uniform standard for information and data-sharing throughout the entire automotive value chain.
