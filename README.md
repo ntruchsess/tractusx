@@ -27,17 +27,6 @@ Since this is a PoC project we do not yet have pre-existing code.
 ## PoC Scheduling
 Tractus-X and its involved parties intend to move to Eclipse as soon as possible. We hope to have the initial commit accomplished by 05/2021.
 
-## Contributing to Eclipse Tractus-X
-The project maintains the following source code repositories:
-https://github.com/eclipse/tractusx
-
-Before your contribution can be accepted by the project team, contributors must electronically sign the Eclipse Contributor Agreement (ECA).
-http://www.eclipse.org/legal/ECA.php
-
-Commits that are provided by non-committers must have a Signed-off-by field in the footer indicating that the author is aware of the terms by which the contribution has been provided to the project. The non-committer must additionally have an Eclipse Foundation account and must have a signed Eclipse Contributor Agreement (ECA) on file.
-
-For more information, please see the Eclipse Committer Handbook: https://www.eclipse.org/projects/handbook/#resources-commit
-
 ## Contact
 Contact the project developers via the Tractus-X "dev" list: 
 https://accounts.eclipse.org/mailing-list/tractusx-dev
