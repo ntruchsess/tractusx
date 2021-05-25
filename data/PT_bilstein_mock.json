@@ -1,0 +1,3982 @@
+[
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_1",
+        "isParentOf": [
+            "ERROR_CP_6"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_1",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_1"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_2",
+        "isParentOf": [
+            "ERROR_CP_15"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_2",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_2"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_3",
+        "isParentOf": [
+            "ERROR_CP_24"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_3",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_3"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_4",
+        "isParentOf": [
+            "ERROR_CP_33"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_4",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_4"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_5",
+        "isParentOf": [
+            "ERROR_CP_42"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_5",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_5"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_6",
+        "isParentOf": [
+            "ERROR_CP_51"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_6",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_6"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_7",
+        "isParentOf": [
+            "ERROR_CP_60"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_7",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_7"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_8",
+        "isParentOf": [
+            "ERROR_CP_69"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_8",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_8"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_9",
+        "isParentOf": [
+            "ERROR_CP_78"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_9",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_9"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_10",
+        "isParentOf": [
+            "ERROR_CP_87"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_10",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_10"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_11",
+        "isParentOf": [
+            "ERROR_CP_96"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_11",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_11"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_12",
+        "isParentOf": [
+            "ERROR_CP_105"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_12",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_12"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_13",
+        "isParentOf": [
+            "ERROR_CP_114"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_13",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_13"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_14",
+        "isParentOf": [
+            "ERROR_CP_123"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_14",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_14"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_15",
+        "isParentOf": [
+            "ERROR_CP_132"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_15",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_15"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_16",
+        "isParentOf": [
+            "ERROR_CP_141"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_16",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_16"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_17",
+        "isParentOf": [
+            "ERROR_CP_150"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_17",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_17"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_18",
+        "isParentOf": [
+            "ERROR_CP_159"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_18",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_18"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_19",
+        "isParentOf": [
+            "ERROR_CP_168"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_19",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_19"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_20",
+        "isParentOf": [
+            "ERROR_CP_177"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_20",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_20"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_21",
+        "isParentOf": [
+            "ERROR_CP_186"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_21",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_21"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_22",
+        "isParentOf": [
+            "ERROR_CP_195"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_22",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_22"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_23",
+        "isParentOf": [
+            "ERROR_CP_204"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_23",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_23"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_24",
+        "isParentOf": [
+            "ERROR_CP_213"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_24",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_24"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_25",
+        "isParentOf": [
+            "ERROR_CP_222"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_25",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_25"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_26",
+        "isParentOf": [
+            "ERROR_CP_231"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_26",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_26"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_27",
+        "isParentOf": [
+            "ERROR_CP_240"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_27",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_27"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_28",
+        "isParentOf": [
+            "ERROR_CP_249"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_28",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_28"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_29",
+        "isParentOf": [
+            "ERROR_CP_258"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_29",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_29"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_30",
+        "isParentOf": [
+            "ERROR_CP_267"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_30",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_30"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_31",
+        "isParentOf": [
+            "ERROR_CP_276"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_31",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_31"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_32",
+        "isParentOf": [
+            "ERROR_CP_285"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_32",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_32"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_33",
+        "isParentOf": [
+            "ERROR_CP_294"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_33",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_33"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_34",
+        "isParentOf": [
+            "ERROR_CP_303"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_34",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_34"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_35",
+        "isParentOf": [
+            "ERROR_CP_312"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_35",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_35"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_36",
+        "isParentOf": [
+            "ERROR_CP_321"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_36",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_36"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_37",
+        "isParentOf": [
+            "ERROR_CP_330"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_37",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_37"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_38",
+        "isParentOf": [
+            "ERROR_CP_339"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_38",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_38"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_39",
+        "isParentOf": [
+            "ERROR_CP_348"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_39",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_39"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_40",
+        "isParentOf": [
+            "ERROR_CP_357"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_40",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_40"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_41",
+        "isParentOf": [
+            "ERROR_CP_366"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_41",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_41"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_42",
+        "isParentOf": [
+            "ERROR_CP_375"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_42",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_42"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_43",
+        "isParentOf": [
+            "ERROR_CP_384"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_43",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_43"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_44",
+        "isParentOf": [
+            "ERROR_CP_393"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_44",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_44"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_45",
+        "isParentOf": [
+            "ERROR_CP_402"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_45",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_45"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_46",
+        "isParentOf": [
+            "ERROR_CP_411"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_46",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_46"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_47",
+        "isParentOf": [
+            "ERROR_CP_420"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_47",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_47"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_48",
+        "isParentOf": [
+            "ERROR_CP_429"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_48",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_48"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_49",
+        "isParentOf": [
+            "ERROR_CP_438"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_49",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_49"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_50",
+        "isParentOf": [
+            "ERROR_CP_447"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_50",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_50"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_51",
+        "isParentOf": [
+            "ERROR_CP_456"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_51",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_51"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_52",
+        "isParentOf": [
+            "ERROR_CP_465"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_52",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_52"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_53",
+        "isParentOf": [
+            "ERROR_CP_474"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_53",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_53"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_54",
+        "isParentOf": [
+            "ERROR_CP_483"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_54",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_54"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_55",
+        "isParentOf": [
+            "ERROR_CP_492"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_55",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_55"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_56",
+        "isParentOf": [
+            "ERROR_CP_501"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_56",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_56"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_57",
+        "isParentOf": [
+            "ERROR_CP_510"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_57",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_57"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_58",
+        "isParentOf": [
+            "ERROR_CP_519"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_58",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_58"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_59",
+        "isParentOf": [
+            "ERROR_CP_528"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_59",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_59"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_60",
+        "isParentOf": [
+            "ERROR_CP_537"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_60",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_60"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_61",
+        "isParentOf": [
+            "ERROR_CP_546"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_61",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_61"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_62",
+        "isParentOf": [
+            "ERROR_CP_555"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_62",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_62"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_63",
+        "isParentOf": [
+            "ERROR_CP_564"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_63",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_63"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_64",
+        "isParentOf": [
+            "ERROR_CP_573"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_64",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_64"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_65",
+        "isParentOf": [
+            "ERROR_CP_582"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_65",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_65"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_66",
+        "isParentOf": [
+            "ERROR_CP_591"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_66",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_66"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_67",
+        "isParentOf": [
+            "ERROR_CP_600"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_67",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_67"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_68",
+        "isParentOf": [
+            "ERROR_CP_609"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_68",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_68"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_69",
+        "isParentOf": [
+            "ERROR_CP_618"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_69",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_69"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_70",
+        "isParentOf": [
+            "ERROR_CP_627"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_70",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_70"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_71",
+        "isParentOf": [
+            "ERROR_CP_636"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_71",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_71"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_72",
+        "isParentOf": [
+            "ERROR_CP_645"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_72",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_72"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_73",
+        "isParentOf": [
+            "ERROR_CP_654"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_73",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_73"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_74",
+        "isParentOf": [
+            "ERROR_CP_663"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_74",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_74"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_75",
+        "isParentOf": [
+            "ERROR_CP_672"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_75",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_75"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_76",
+        "isParentOf": [
+            "ERROR_CP_681"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_76",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_76"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_77",
+        "isParentOf": [
+            "ERROR_CP_690"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_77",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_77"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_78",
+        "isParentOf": [
+            "ERROR_CP_699"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_78",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_78"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_79",
+        "isParentOf": [
+            "ERROR_CP_708"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_79",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_79"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_80",
+        "isParentOf": [
+            "ERROR_CP_717"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_80",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_80"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_81",
+        "isParentOf": [
+            "ERROR_CP_726"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_81",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_81"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_82",
+        "isParentOf": [
+            "ERROR_CP_735"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_82",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_82"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_83",
+        "isParentOf": [
+            "ERROR_CP_744"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_83",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_83"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_84",
+        "isParentOf": [
+            "ERROR_CP_753"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_84",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_84"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_85",
+        "isParentOf": [
+            "ERROR_CP_762"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_85",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_85"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_86",
+        "isParentOf": [
+            "ERROR_CP_771"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_86",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_86"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_87",
+        "isParentOf": [
+            "ERROR_CP_780"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_87",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_87"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_88",
+        "isParentOf": [
+            "ERROR_CP_789"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_88",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_88"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_89",
+        "isParentOf": [
+            "ERROR_CP_798"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_89",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_89"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_90",
+        "isParentOf": [
+            "ERROR_CP_807"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_90",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_90"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_91",
+        "isParentOf": [
+            "ERROR_CP_816"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_91",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_91"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_92",
+        "isParentOf": [
+            "ERROR_CP_825"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_92",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_92"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_93",
+        "isParentOf": [
+            "ERROR_CP_834"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_93",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_93"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_94",
+        "isParentOf": [
+            "ERROR_CP_843"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_94",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_94"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_95",
+        "isParentOf": [
+            "ERROR_CP_852"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_95",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_95"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_96",
+        "isParentOf": [
+            "ERROR_CP_861"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_96",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_96"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_97",
+        "isParentOf": [
+            "ERROR_CP_870"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_97",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_97"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_98",
+        "isParentOf": [
+            "ERROR_CP_879"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_98",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_98"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_99",
+        "isParentOf": [
+            "ERROR_CP_888"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_99",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_99"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_100",
+        "isParentOf": [
+            "ERROR_CP_7"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_100",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_100"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_101",
+        "isParentOf": [
+            "ERROR_CP_16"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_101",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_101"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_102",
+        "isParentOf": [
+            "ERROR_CP_25"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_102",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_102"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_103",
+        "isParentOf": [
+            "ERROR_CP_34"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_103",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_103"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_104",
+        "isParentOf": [
+            "ERROR_CP_43"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_104",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_104"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_105",
+        "isParentOf": [
+            "ERROR_CP_52"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_105",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_105"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_106",
+        "isParentOf": [
+            "ERROR_CP_61"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_106",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_106"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_107",
+        "isParentOf": [
+            "ERROR_CP_70"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_107",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_107"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_108",
+        "isParentOf": [
+            "ERROR_CP_79"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_108",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_108"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_109",
+        "isParentOf": [
+            "ERROR_CP_88"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_109",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_109"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_110",
+        "isParentOf": [
+            "ERROR_CP_97"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_110",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_110"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_111",
+        "isParentOf": [
+            "ERROR_CP_106"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_111",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_111"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_112",
+        "isParentOf": [
+            "ERROR_CP_115"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_112",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_112"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_113",
+        "isParentOf": [
+            "ERROR_CP_124"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_113",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_113"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_114",
+        "isParentOf": [
+            "ERROR_CP_133"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_114",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_114"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_115",
+        "isParentOf": [
+            "ERROR_CP_142"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_115",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_115"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_116",
+        "isParentOf": [
+            "ERROR_CP_151"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_116",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_116"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_117",
+        "isParentOf": [
+            "ERROR_CP_160"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_117",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_117"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_118",
+        "isParentOf": [
+            "ERROR_CP_169"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_118",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_118"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_119",
+        "isParentOf": [
+            "ERROR_CP_178"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_119",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_119"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_120",
+        "isParentOf": [
+            "ERROR_CP_187"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_120",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_120"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_121",
+        "isParentOf": [
+            "ERROR_CP_196"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_121",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_121"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_122",
+        "isParentOf": [
+            "ERROR_CP_205"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_122",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_122"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_123",
+        "isParentOf": [
+            "ERROR_CP_214"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_123",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_123"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_124",
+        "isParentOf": [
+            "ERROR_CP_223"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_124",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_124"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_125",
+        "isParentOf": [
+            "ERROR_CP_232"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_125",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_125"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_126",
+        "isParentOf": [
+            "ERROR_CP_241"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_126",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_126"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_127",
+        "isParentOf": [
+            "ERROR_CP_250"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_127",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_127"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_128",
+        "isParentOf": [
+            "ERROR_CP_259"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_128",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_128"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_129",
+        "isParentOf": [
+            "ERROR_CP_268"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_129",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_129"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_130",
+        "isParentOf": [
+            "ERROR_CP_277"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_130",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_130"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_131",
+        "isParentOf": [
+            "ERROR_CP_286"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_131",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_131"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_132",
+        "isParentOf": [
+            "ERROR_CP_295"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_132",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_132"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_133",
+        "isParentOf": [
+            "ERROR_CP_304"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_133",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_133"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_134",
+        "isParentOf": [
+            "ERROR_CP_313"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_134",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_134"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_135",
+        "isParentOf": [
+            "ERROR_CP_322"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_135",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_135"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_136",
+        "isParentOf": [
+            "ERROR_CP_331"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_136",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_136"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_137",
+        "isParentOf": [
+            "ERROR_CP_340"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_137",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_137"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_138",
+        "isParentOf": [
+            "ERROR_CP_349"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_138",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_138"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_139",
+        "isParentOf": [
+            "ERROR_CP_358"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_139",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_139"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_140",
+        "isParentOf": [
+            "ERROR_CP_367"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_140",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_140"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_141",
+        "isParentOf": [
+            "ERROR_CP_376"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_141",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_141"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_142",
+        "isParentOf": [
+            "ERROR_CP_385"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_142",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_142"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_143",
+        "isParentOf": [
+            "ERROR_CP_394"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_143",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_143"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_144",
+        "isParentOf": [
+            "ERROR_CP_403"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_144",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_144"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_145",
+        "isParentOf": [
+            "ERROR_CP_412"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_145",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_145"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_146",
+        "isParentOf": [
+            "ERROR_CP_421"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_146",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_146"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_147",
+        "isParentOf": [
+            "ERROR_CP_430"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_147",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_147"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_148",
+        "isParentOf": [
+            "ERROR_CP_439"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_148",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_148"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_149",
+        "isParentOf": [
+            "ERROR_CP_448"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_149",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_149"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_150",
+        "isParentOf": [
+            "ERROR_CP_457"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_150",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_150"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_151",
+        "isParentOf": [
+            "ERROR_CP_466"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_151",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_151"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_152",
+        "isParentOf": [
+            "ERROR_CP_475"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_152",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_152"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_153",
+        "isParentOf": [
+            "ERROR_CP_484"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_153",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_153"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_154",
+        "isParentOf": [
+            "ERROR_CP_493"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_154",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_154"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_155",
+        "isParentOf": [
+            "ERROR_CP_502"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_155",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_155"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_156",
+        "isParentOf": [
+            "ERROR_CP_511"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_156",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_156"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_157",
+        "isParentOf": [
+            "ERROR_CP_520"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_157",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_157"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_158",
+        "isParentOf": [
+            "ERROR_CP_529"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_158",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_158"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_159",
+        "isParentOf": [
+            "ERROR_CP_538"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_159",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_159"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_160",
+        "isParentOf": [
+            "ERROR_CP_547"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_160",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_160"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_161",
+        "isParentOf": [
+            "ERROR_CP_556"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_161",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_161"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_162",
+        "isParentOf": [
+            "ERROR_CP_565"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_162",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_162"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_163",
+        "isParentOf": [
+            "ERROR_CP_574"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_163",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_163"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_164",
+        "isParentOf": [
+            "ERROR_CP_583"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_164",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_164"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_165",
+        "isParentOf": [
+            "ERROR_CP_592"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_165",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_165"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_166",
+        "isParentOf": [
+            "ERROR_CP_601"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_166",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_166"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_167",
+        "isParentOf": [
+            "ERROR_CP_610"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_167",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_167"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_168",
+        "isParentOf": [
+            "ERROR_CP_619"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_168",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_168"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_169",
+        "isParentOf": [
+            "ERROR_CP_628"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_169",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_169"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_170",
+        "isParentOf": [
+            "ERROR_CP_637"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_170",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_170"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_171",
+        "isParentOf": [
+            "ERROR_CP_646"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_171",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_171"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_172",
+        "isParentOf": [
+            "ERROR_CP_655"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_172",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_172"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_173",
+        "isParentOf": [
+            "ERROR_CP_664"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_173",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_173"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_174",
+        "isParentOf": [
+            "ERROR_CP_673"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_174",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_174"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_175",
+        "isParentOf": [
+            "ERROR_CP_682"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_175",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_175"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_176",
+        "isParentOf": [
+            "ERROR_CP_691"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_176",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_176"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_177",
+        "isParentOf": [
+            "ERROR_CP_700"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_177",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_177"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_178",
+        "isParentOf": [
+            "ERROR_CP_709"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_178",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_178"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_179",
+        "isParentOf": [
+            "ERROR_CP_718"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_179",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_179"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_180",
+        "isParentOf": [
+            "ERROR_CP_727"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_180",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_180"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_181",
+        "isParentOf": [
+            "ERROR_CP_736"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_181",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_181"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_182",
+        "isParentOf": [
+            "ERROR_CP_745"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_182",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_182"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_183",
+        "isParentOf": [
+            "ERROR_CP_754"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_183",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_183"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_184",
+        "isParentOf": [
+            "ERROR_CP_763"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_184",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_184"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_185",
+        "isParentOf": [
+            "ERROR_CP_772"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_185",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_185"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_186",
+        "isParentOf": [
+            "ERROR_CP_781"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_186",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_186"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_187",
+        "isParentOf": [
+            "ERROR_CP_790"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_187",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_187"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_188",
+        "isParentOf": [
+            "ERROR_CP_799"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_188",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_188"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_189",
+        "isParentOf": [
+            "ERROR_CP_808"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_189",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_189"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_190",
+        "isParentOf": [
+            "ERROR_CP_817"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_190",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_190"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_191",
+        "isParentOf": [
+            "ERROR_CP_826"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_191",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_191"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_192",
+        "isParentOf": [
+            "ERROR_CP_835"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_192",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_192"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_193",
+        "isParentOf": [
+            "ERROR_CP_844"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_193",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_193"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_194",
+        "isParentOf": [
+            "ERROR_CP_853"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_194",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_194"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_195",
+        "isParentOf": [
+            "ERROR_CP_862"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_195",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_195"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_196",
+        "isParentOf": [
+            "ERROR_CP_871"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_196",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_196"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_197",
+        "isParentOf": [
+            "ERROR_CP_880"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_197",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_197"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_198",
+        "isParentOf": [
+            "ERROR_CP_889"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_198",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_198"
+    },
+    {
+        "customerContractOneId": "",
+        "customerOneId": "ZF",
+        "customerUniqueId": "BILSTEIN_199",
+        "isParentOf": [
+            "ERROR_CP_898"
+        ],
+        "manufacturerContractOneId": "",
+        "manufacturerOneId": "BILSTEIN",
+        "manufacturerUniqueId": "BILSTEIN_199",
+        "partNameCustomer": "Valve",
+        "partNameManufacturer": "Valve",
+        "partNumberCustomer": "18592",
+        "partNumberManufacturer": "18592",
+        "productionCountryCode": "DE",
+        "productionDateGmt": "2021-05-10",
+        "qualityAlert": false,
+        "qualityType": "",
+        "uniqueId": "BILSTEIN_199"
+    }
+]
