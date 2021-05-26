@@ -1,2081 +1,3170 @@
 [
     {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_1",
-        "isParentOf": [
-            "ZF_2",
-            "BOSCH_1"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_1",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_1"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_2",
-        "isParentOf": [
-            "ZF_4",
-            "BOSCH_4"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_2",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_2"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_3",
-        "isParentOf": [
-            "ZF_6",
-            "BOSCH_7"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_3",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_3"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_4",
-        "isParentOf": [
-            "ZF_8",
-            "BOSCH_10"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_4",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_4"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_5",
-        "isParentOf": [
-            "ZF_10",
-            "BOSCH_13"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_5",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_5"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_6",
-        "isParentOf": [
-            "ZF_12",
-            "BOSCH_16"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_6",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_6"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_7",
-        "isParentOf": [
-            "ZF_14",
-            "BOSCH_19"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_7",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_7"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_8",
-        "isParentOf": [
-            "ZF_16",
-            "BOSCH_22"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_8",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_8"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_9",
-        "isParentOf": [
-            "ZF_18",
-            "BOSCH_25"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_9",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_9"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_10",
-        "isParentOf": [
-            "ZF_20",
-            "BOSCH_28"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_10",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_10"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_11",
-        "isParentOf": [
-            "ZF_22",
-            "BOSCH_31"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_11",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_11"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_12",
-        "isParentOf": [
-            "ZF_24",
-            "BOSCH_34"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_12",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_12"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_13",
-        "isParentOf": [
-            "ZF_26",
-            "BOSCH_37"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_13",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_13"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_14",
-        "isParentOf": [
-            "ZF_28",
-            "BOSCH_40"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_14",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_14"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_15",
-        "isParentOf": [
-            "ZF_30",
-            "BOSCH_43"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_15",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_15"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_16",
-        "isParentOf": [
-            "ZF_32",
-            "BOSCH_46"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_16",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_16"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_17",
-        "isParentOf": [
-            "ZF_34",
-            "BOSCH_49"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_17",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_17"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_18",
-        "isParentOf": [
-            "ZF_36",
-            "BOSCH_52"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_18",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_18"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_19",
-        "isParentOf": [
-            "ZF_38",
-            "BOSCH_55"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_19",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_19"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_20",
-        "isParentOf": [
-            "ZF_40",
-            "BOSCH_58"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_20",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_20"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_21",
-        "isParentOf": [
-            "ZF_42",
-            "BOSCH_61"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_21",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_21"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_22",
-        "isParentOf": [
-            "ZF_44",
-            "BOSCH_64"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_22",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_22"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_23",
-        "isParentOf": [
-            "ZF_46",
-            "BOSCH_67"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_23",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_23"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_24",
-        "isParentOf": [
-            "ZF_48",
-            "BOSCH_70"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_24",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_24"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_25",
-        "isParentOf": [
-            "ZF_50",
-            "BOSCH_73"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_25",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_25"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_26",
-        "isParentOf": [
-            "ZF_52",
-            "BOSCH_76"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_26",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_26"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_27",
-        "isParentOf": [
-            "ZF_54",
-            "BOSCH_79"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_27",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_27"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_28",
-        "isParentOf": [
-            "ZF_56",
-            "BOSCH_82"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_28",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_28"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_29",
-        "isParentOf": [
-            "ZF_58",
-            "BOSCH_85"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_29",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_29"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_30",
-        "isParentOf": [
-            "ZF_60",
-            "BOSCH_88"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_30",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_30"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_31",
-        "isParentOf": [
-            "ZF_62",
-            "BOSCH_91"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_31",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_31"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_32",
-        "isParentOf": [
-            "ZF_64",
-            "BOSCH_94"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_32",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_32"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_33",
-        "isParentOf": [
-            "ZF_66",
-            "BOSCH_97"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_33",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_33"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_34",
-        "isParentOf": [
-            "ZF_68",
-            "BOSCH_100"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_34",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_34"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_35",
-        "isParentOf": [
-            "ZF_70",
-            "BOSCH_103"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_35",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_35"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_36",
-        "isParentOf": [
-            "ZF_72",
-            "BOSCH_106"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_36",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_36"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_37",
-        "isParentOf": [
-            "ZF_74",
-            "BOSCH_109"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_37",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_37"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_38",
-        "isParentOf": [
-            "ZF_76",
-            "BOSCH_112"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_38",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_38"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_39",
-        "isParentOf": [
-            "ZF_78",
-            "BOSCH_115"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_39",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_39"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_40",
-        "isParentOf": [
-            "ZF_80",
-            "BOSCH_118"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_40",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_40"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_41",
-        "isParentOf": [
-            "ZF_82",
-            "BOSCH_121"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_41",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_41"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_42",
-        "isParentOf": [
-            "ZF_84",
-            "BOSCH_124"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_42",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_42"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_43",
-        "isParentOf": [
-            "ZF_86",
-            "BOSCH_127"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_43",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_43"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_44",
-        "isParentOf": [
-            "ZF_88",
-            "BOSCH_130"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_44",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_44"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_45",
-        "isParentOf": [
-            "ZF_90",
-            "BOSCH_133"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_45",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_45"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_46",
-        "isParentOf": [
-            "ZF_92",
-            "BOSCH_136"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_46",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_46"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_47",
-        "isParentOf": [
-            "ZF_94",
-            "BOSCH_139"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_47",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_47"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_48",
-        "isParentOf": [
-            "ZF_96",
-            "BOSCH_142"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_48",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_48"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_49",
-        "isParentOf": [
-            "ZF_98",
-            "BOSCH_145"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_49",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_49"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_50",
-        "isParentOf": [
-            "ZF_100",
-            "BOSCH_148"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_50",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_50"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_51",
-        "isParentOf": [
-            "ZF_102",
-            "BOSCH_151"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_51",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_51"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_52",
-        "isParentOf": [
-            "ZF_104",
-            "BOSCH_154"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_52",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_52"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_53",
-        "isParentOf": [
-            "ZF_106",
-            "BOSCH_157"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_53",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_53"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_54",
-        "isParentOf": [
-            "ZF_108",
-            "BOSCH_160"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_54",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_54"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_55",
-        "isParentOf": [
-            "ZF_110",
-            "BOSCH_163"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_55",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_55"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_56",
-        "isParentOf": [
-            "ZF_112",
-            "BOSCH_166"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_56",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_56"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_57",
-        "isParentOf": [
-            "ZF_114",
-            "BOSCH_169"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_57",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_57"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_58",
-        "isParentOf": [
-            "ZF_116",
-            "BOSCH_172"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_58",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_58"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_59",
-        "isParentOf": [
-            "ZF_118",
-            "BOSCH_175"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_59",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_59"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_60",
-        "isParentOf": [
-            "ZF_120",
-            "BOSCH_178"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_60",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_60"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_61",
-        "isParentOf": [
-            "ZF_122",
-            "BOSCH_181"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_61",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_61"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_62",
-        "isParentOf": [
-            "ZF_124",
-            "BOSCH_184"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_62",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_62"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_63",
-        "isParentOf": [
-            "ZF_126",
-            "BOSCH_187"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_63",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_63"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_64",
-        "isParentOf": [
-            "ZF_128",
-            "BOSCH_190"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_64",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_64"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_65",
-        "isParentOf": [
-            "ZF_130",
-            "BOSCH_193"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_65",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_65"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_66",
-        "isParentOf": [
-            "ZF_132",
-            "BOSCH_196"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_66",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_66"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_67",
-        "isParentOf": [
-            "ZF_134",
-            "BOSCH_199"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_67",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_67"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_68",
-        "isParentOf": [
-            "ZF_136",
-            "BOSCH_202"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_68",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_68"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_69",
-        "isParentOf": [
-            "ZF_138",
-            "BOSCH_205"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_69",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_69"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_70",
-        "isParentOf": [
-            "ZF_140",
-            "BOSCH_208"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_70",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_70"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_71",
-        "isParentOf": [
-            "ZF_142",
-            "BOSCH_211"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_71",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_71"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_72",
-        "isParentOf": [
-            "ZF_144",
-            "BOSCH_214"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_72",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_72"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_73",
-        "isParentOf": [
-            "ZF_146",
-            "BOSCH_217"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_73",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_73"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_74",
-        "isParentOf": [
-            "ZF_148",
-            "BOSCH_220"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_74",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_74"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_75",
-        "isParentOf": [
-            "ZF_150",
-            "BOSCH_223"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_75",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_75"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_76",
-        "isParentOf": [
-            "ZF_152",
-            "BOSCH_226"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_76",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_76"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_77",
-        "isParentOf": [
-            "ZF_154",
-            "BOSCH_229"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_77",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_77"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_78",
-        "isParentOf": [
-            "ZF_156",
-            "BOSCH_232"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_78",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_78"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_79",
-        "isParentOf": [
-            "ZF_158",
-            "BOSCH_235"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_79",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_79"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_80",
-        "isParentOf": [
-            "ZF_160",
-            "BOSCH_238"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_80",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_80"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_81",
-        "isParentOf": [
-            "ZF_162",
-            "BOSCH_241"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_81",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_81"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_82",
-        "isParentOf": [
-            "ZF_164",
-            "BOSCH_244"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_82",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_82"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_83",
-        "isParentOf": [
-            "ZF_166",
-            "BOSCH_247"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_83",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_83"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_84",
-        "isParentOf": [
-            "ZF_168",
-            "BOSCH_250"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_84",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_84"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_85",
-        "isParentOf": [
-            "ZF_170",
-            "BOSCH_253"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_85",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_85"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_86",
-        "isParentOf": [
-            "ZF_172",
-            "BOSCH_256"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_86",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_86"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_87",
-        "isParentOf": [
-            "ZF_174",
-            "BOSCH_259"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_87",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_87"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_88",
-        "isParentOf": [
-            "ZF_176",
-            "BOSCH_262"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_88",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_88"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_89",
-        "isParentOf": [
-            "ZF_178",
-            "BOSCH_265"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_89",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_89"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_90",
-        "isParentOf": [
-            "ZF_180",
-            "BOSCH_268"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_90",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_90"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_91",
-        "isParentOf": [
-            "ZF_182",
-            "BOSCH_271"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_91",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_91"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_92",
-        "isParentOf": [
-            "ZF_184",
-            "BOSCH_274"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_92",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_92"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_93",
-        "isParentOf": [
-            "ZF_186",
-            "BOSCH_277"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_93",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_93"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_94",
-        "isParentOf": [
-            "ZF_188",
-            "BOSCH_280"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_94",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_94"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_95",
-        "isParentOf": [
-            "ZF_190",
-            "BOSCH_283"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_95",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_95"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_96",
-        "isParentOf": [
-            "ZF_192",
-            "BOSCH_286"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_96",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_96"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_97",
-        "isParentOf": [
-            "ZF_194",
-            "BOSCH_289"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_97",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_97"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_98",
-        "isParentOf": [
-            "ZF_196",
-            "BOSCH_292"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_98",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_98"
-    },
-    {
-        "customerContractOneId": "",
-        "customerOneId": "",
-        "customerUniqueId": "MB_99",
-        "isParentOf": [
-            "ZF_198",
-            "BOSCH_295"
-        ],
-        "manufacturerContractOneId": "",
-        "manufacturerOneId": "MB",
-        "manufacturerUniqueId": "MB_99",
-        "partNameCustomer": "C Class",
-        "partNameManufacturer": "C Class",
-        "partNumberCustomer": "",
-        "partNumberManufacturer": "205",
-        "productionCountryCode": "DE",
-        "productionDateGmt": "2021-05-25",
-        "qualityAlert": false,
-        "qualityType": "",
-        "uniqueId": "MB_99"
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_2",
+                "BOSCH_1"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_4",
+                "BOSCH_4"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_6",
+                "BOSCH_7"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_8",
+                "BOSCH_10"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_10",
+                "BOSCH_13"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_12",
+                "BOSCH_16"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_14",
+                "BOSCH_19"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_16",
+                "BOSCH_22"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_18",
+                "BOSCH_25"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_20",
+                "BOSCH_28"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_22",
+                "BOSCH_31"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_24",
+                "BOSCH_34"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_26",
+                "BOSCH_37"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_28",
+                "BOSCH_40"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_30",
+                "BOSCH_43"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_32",
+                "BOSCH_46"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_34",
+                "BOSCH_49"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_36",
+                "BOSCH_52"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_38",
+                "BOSCH_55"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_40",
+                "BOSCH_58"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_42",
+                "BOSCH_61"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_44",
+                "BOSCH_64"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_46",
+                "BOSCH_67"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_48",
+                "BOSCH_70"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_50",
+                "BOSCH_73"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_52",
+                "BOSCH_76"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_54",
+                "BOSCH_79"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_56",
+                "BOSCH_82"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_58",
+                "BOSCH_85"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_60",
+                "BOSCH_88"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_62",
+                "BOSCH_91"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_64",
+                "BOSCH_94"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_66",
+                "BOSCH_97"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_68",
+                "BOSCH_100"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_70",
+                "BOSCH_103"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_72",
+                "BOSCH_106"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_74",
+                "BOSCH_109"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_76",
+                "BOSCH_112"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_78",
+                "BOSCH_115"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_80",
+                "BOSCH_118"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_82",
+                "BOSCH_121"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_84",
+                "BOSCH_124"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_86",
+                "BOSCH_127"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_88",
+                "BOSCH_130"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_90",
+                "BOSCH_133"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_92",
+                "BOSCH_136"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_94",
+                "BOSCH_139"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_96",
+                "BOSCH_142"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_98",
+                "BOSCH_145"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_100",
+                "BOSCH_148"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_102",
+                "BOSCH_151"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_104",
+                "BOSCH_154"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_106",
+                "BOSCH_157"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_108",
+                "BOSCH_160"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_110",
+                "BOSCH_163"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_112",
+                "BOSCH_166"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_114",
+                "BOSCH_169"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_116",
+                "BOSCH_172"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_118",
+                "BOSCH_175"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_120",
+                "BOSCH_178"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_122",
+                "BOSCH_181"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_124",
+                "BOSCH_184"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_126",
+                "BOSCH_187"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_128",
+                "BOSCH_190"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_130",
+                "BOSCH_193"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_132",
+                "BOSCH_196"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_134",
+                "BOSCH_199"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_136",
+                "BOSCH_202"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_138",
+                "BOSCH_205"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_140",
+                "BOSCH_208"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_142",
+                "BOSCH_211"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_144",
+                "BOSCH_214"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_146",
+                "BOSCH_217"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_148",
+                "BOSCH_220"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_150",
+                "BOSCH_223"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_152",
+                "BOSCH_226"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_154",
+                "BOSCH_229"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_156",
+                "BOSCH_232"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_158",
+                "BOSCH_235"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_160",
+                "BOSCH_238"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_162",
+                "BOSCH_241"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_164",
+                "BOSCH_244"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_166",
+                "BOSCH_247"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_168",
+                "BOSCH_250"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_170",
+                "BOSCH_253"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_172",
+                "BOSCH_256"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_174",
+                "BOSCH_259"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_176",
+                "BOSCH_262"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_178",
+                "BOSCH_265"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_180",
+                "BOSCH_268"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_182",
+                "BOSCH_271"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_184",
+                "BOSCH_274"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_186",
+                "BOSCH_277"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_188",
+                "BOSCH_280"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_190",
+                "BOSCH_283"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_192",
+                "BOSCH_286"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_194",
+                "BOSCH_289"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_196",
+                "BOSCH_292"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-25"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_198",
+                "BOSCH_295"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "MB",
+            "partNameCustomer": "C Class",
+            "partNameManufacturer": "C Class",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "205"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "MB",
+            "manufacturerUniqueId": "MB",
+            "uniqueId": "MB"
+        }
     }
 ]
