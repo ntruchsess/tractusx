@@ -2,7 +2,7 @@
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -26,15 +26,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_1",
+            "manufacturerUniqueId": "BMW_1",
+            "uniqueId": "BMW_1"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -58,15 +58,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_2",
+            "manufacturerUniqueId": "BMW_2",
+            "uniqueId": "BMW_2"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -90,15 +90,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_3",
+            "manufacturerUniqueId": "BMW_3",
+            "uniqueId": "BMW_3"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -122,15 +122,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_4",
+            "manufacturerUniqueId": "BMW_4",
+            "uniqueId": "BMW_4"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -154,15 +154,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_5",
+            "manufacturerUniqueId": "BMW_5",
+            "uniqueId": "BMW_5"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -186,15 +186,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_6",
+            "manufacturerUniqueId": "BMW_6",
+            "uniqueId": "BMW_6"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -218,15 +218,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_7",
+            "manufacturerUniqueId": "BMW_7",
+            "uniqueId": "BMW_7"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -250,15 +250,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_8",
+            "manufacturerUniqueId": "BMW_8",
+            "uniqueId": "BMW_8"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -282,15 +282,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_9",
+            "manufacturerUniqueId": "BMW_9",
+            "uniqueId": "BMW_9"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -314,15 +314,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_10",
+            "manufacturerUniqueId": "BMW_10",
+            "uniqueId": "BMW_10"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -346,15 +346,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_11",
+            "manufacturerUniqueId": "BMW_11",
+            "uniqueId": "BMW_11"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -378,15 +378,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_12",
+            "manufacturerUniqueId": "BMW_12",
+            "uniqueId": "BMW_12"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -410,15 +410,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_13",
+            "manufacturerUniqueId": "BMW_13",
+            "uniqueId": "BMW_13"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -442,15 +442,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_14",
+            "manufacturerUniqueId": "BMW_14",
+            "uniqueId": "BMW_14"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -474,15 +474,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_15",
+            "manufacturerUniqueId": "BMW_15",
+            "uniqueId": "BMW_15"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -506,15 +506,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_16",
+            "manufacturerUniqueId": "BMW_16",
+            "uniqueId": "BMW_16"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -538,15 +538,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_17",
+            "manufacturerUniqueId": "BMW_17",
+            "uniqueId": "BMW_17"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -570,15 +570,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_18",
+            "manufacturerUniqueId": "BMW_18",
+            "uniqueId": "BMW_18"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -602,15 +602,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_19",
+            "manufacturerUniqueId": "BMW_19",
+            "uniqueId": "BMW_19"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -634,15 +634,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_20",
+            "manufacturerUniqueId": "BMW_20",
+            "uniqueId": "BMW_20"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -666,15 +666,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_21",
+            "manufacturerUniqueId": "BMW_21",
+            "uniqueId": "BMW_21"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -698,15 +698,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_22",
+            "manufacturerUniqueId": "BMW_22",
+            "uniqueId": "BMW_22"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -730,15 +730,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_23",
+            "manufacturerUniqueId": "BMW_23",
+            "uniqueId": "BMW_23"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -762,15 +762,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_24",
+            "manufacturerUniqueId": "BMW_24",
+            "uniqueId": "BMW_24"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -794,15 +794,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_25",
+            "manufacturerUniqueId": "BMW_25",
+            "uniqueId": "BMW_25"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -826,15 +826,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_26",
+            "manufacturerUniqueId": "BMW_26",
+            "uniqueId": "BMW_26"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -858,15 +858,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_27",
+            "manufacturerUniqueId": "BMW_27",
+            "uniqueId": "BMW_27"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -890,15 +890,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_28",
+            "manufacturerUniqueId": "BMW_28",
+            "uniqueId": "BMW_28"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -922,15 +922,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_29",
+            "manufacturerUniqueId": "BMW_29",
+            "uniqueId": "BMW_29"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -954,15 +954,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_30",
+            "manufacturerUniqueId": "BMW_30",
+            "uniqueId": "BMW_30"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -986,15 +986,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_31",
+            "manufacturerUniqueId": "BMW_31",
+            "uniqueId": "BMW_31"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -1018,15 +1018,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_32",
+            "manufacturerUniqueId": "BMW_32",
+            "uniqueId": "BMW_32"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -1050,15 +1050,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_33",
+            "manufacturerUniqueId": "BMW_33",
+            "uniqueId": "BMW_33"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -1082,15 +1082,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_34",
+            "manufacturerUniqueId": "BMW_34",
+            "uniqueId": "BMW_34"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -1114,15 +1114,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_35",
+            "manufacturerUniqueId": "BMW_35",
+            "uniqueId": "BMW_35"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -1146,15 +1146,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_36",
+            "manufacturerUniqueId": "BMW_36",
+            "uniqueId": "BMW_36"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -1178,15 +1178,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_37",
+            "manufacturerUniqueId": "BMW_37",
+            "uniqueId": "BMW_37"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -1210,15 +1210,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_38",
+            "manufacturerUniqueId": "BMW_38",
+            "uniqueId": "BMW_38"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -1242,15 +1242,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_39",
+            "manufacturerUniqueId": "BMW_39",
+            "uniqueId": "BMW_39"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -1274,15 +1274,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_40",
+            "manufacturerUniqueId": "BMW_40",
+            "uniqueId": "BMW_40"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -1306,15 +1306,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_41",
+            "manufacturerUniqueId": "BMW_41",
+            "uniqueId": "BMW_41"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -1338,15 +1338,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_42",
+            "manufacturerUniqueId": "BMW_42",
+            "uniqueId": "BMW_42"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -1370,15 +1370,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_43",
+            "manufacturerUniqueId": "BMW_43",
+            "uniqueId": "BMW_43"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -1402,15 +1402,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_44",
+            "manufacturerUniqueId": "BMW_44",
+            "uniqueId": "BMW_44"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -1434,15 +1434,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_45",
+            "manufacturerUniqueId": "BMW_45",
+            "uniqueId": "BMW_45"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -1466,15 +1466,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_46",
+            "manufacturerUniqueId": "BMW_46",
+            "uniqueId": "BMW_46"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -1498,15 +1498,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_47",
+            "manufacturerUniqueId": "BMW_47",
+            "uniqueId": "BMW_47"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -1530,15 +1530,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_48",
+            "manufacturerUniqueId": "BMW_48",
+            "uniqueId": "BMW_48"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -1562,15 +1562,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_49",
+            "manufacturerUniqueId": "BMW_49",
+            "uniqueId": "BMW_49"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -1594,15 +1594,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_50",
+            "manufacturerUniqueId": "BMW_50",
+            "uniqueId": "BMW_50"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -1626,15 +1626,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_51",
+            "manufacturerUniqueId": "BMW_51",
+            "uniqueId": "BMW_51"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -1658,15 +1658,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_52",
+            "manufacturerUniqueId": "BMW_52",
+            "uniqueId": "BMW_52"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -1690,15 +1690,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_53",
+            "manufacturerUniqueId": "BMW_53",
+            "uniqueId": "BMW_53"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -1722,15 +1722,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_54",
+            "manufacturerUniqueId": "BMW_54",
+            "uniqueId": "BMW_54"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -1754,15 +1754,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_55",
+            "manufacturerUniqueId": "BMW_55",
+            "uniqueId": "BMW_55"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -1786,15 +1786,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_56",
+            "manufacturerUniqueId": "BMW_56",
+            "uniqueId": "BMW_56"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -1818,15 +1818,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_57",
+            "manufacturerUniqueId": "BMW_57",
+            "uniqueId": "BMW_57"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -1850,15 +1850,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_58",
+            "manufacturerUniqueId": "BMW_58",
+            "uniqueId": "BMW_58"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -1882,15 +1882,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_59",
+            "manufacturerUniqueId": "BMW_59",
+            "uniqueId": "BMW_59"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -1914,15 +1914,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_60",
+            "manufacturerUniqueId": "BMW_60",
+            "uniqueId": "BMW_60"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -1946,15 +1946,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_61",
+            "manufacturerUniqueId": "BMW_61",
+            "uniqueId": "BMW_61"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -1978,15 +1978,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_62",
+            "manufacturerUniqueId": "BMW_62",
+            "uniqueId": "BMW_62"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -2010,15 +2010,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_63",
+            "manufacturerUniqueId": "BMW_63",
+            "uniqueId": "BMW_63"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -2042,15 +2042,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_64",
+            "manufacturerUniqueId": "BMW_64",
+            "uniqueId": "BMW_64"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -2074,15 +2074,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_65",
+            "manufacturerUniqueId": "BMW_65",
+            "uniqueId": "BMW_65"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -2106,15 +2106,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_66",
+            "manufacturerUniqueId": "BMW_66",
+            "uniqueId": "BMW_66"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -2138,15 +2138,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_67",
+            "manufacturerUniqueId": "BMW_67",
+            "uniqueId": "BMW_67"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -2170,15 +2170,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_68",
+            "manufacturerUniqueId": "BMW_68",
+            "uniqueId": "BMW_68"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -2202,15 +2202,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_69",
+            "manufacturerUniqueId": "BMW_69",
+            "uniqueId": "BMW_69"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -2234,15 +2234,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_70",
+            "manufacturerUniqueId": "BMW_70",
+            "uniqueId": "BMW_70"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -2266,15 +2266,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_71",
+            "manufacturerUniqueId": "BMW_71",
+            "uniqueId": "BMW_71"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -2298,15 +2298,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_72",
+            "manufacturerUniqueId": "BMW_72",
+            "uniqueId": "BMW_72"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -2330,15 +2330,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_73",
+            "manufacturerUniqueId": "BMW_73",
+            "uniqueId": "BMW_73"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -2362,15 +2362,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_74",
+            "manufacturerUniqueId": "BMW_74",
+            "uniqueId": "BMW_74"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -2394,15 +2394,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_75",
+            "manufacturerUniqueId": "BMW_75",
+            "uniqueId": "BMW_75"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -2426,15 +2426,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_76",
+            "manufacturerUniqueId": "BMW_76",
+            "uniqueId": "BMW_76"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -2458,15 +2458,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_77",
+            "manufacturerUniqueId": "BMW_77",
+            "uniqueId": "BMW_77"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -2490,15 +2490,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_78",
+            "manufacturerUniqueId": "BMW_78",
+            "uniqueId": "BMW_78"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -2522,15 +2522,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_79",
+            "manufacturerUniqueId": "BMW_79",
+            "uniqueId": "BMW_79"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -2554,15 +2554,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_80",
+            "manufacturerUniqueId": "BMW_80",
+            "uniqueId": "BMW_80"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -2586,15 +2586,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_81",
+            "manufacturerUniqueId": "BMW_81",
+            "uniqueId": "BMW_81"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -2618,15 +2618,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_82",
+            "manufacturerUniqueId": "BMW_82",
+            "uniqueId": "BMW_82"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -2650,15 +2650,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_83",
+            "manufacturerUniqueId": "BMW_83",
+            "uniqueId": "BMW_83"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -2682,15 +2682,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_84",
+            "manufacturerUniqueId": "BMW_84",
+            "uniqueId": "BMW_84"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -2714,15 +2714,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_85",
+            "manufacturerUniqueId": "BMW_85",
+            "uniqueId": "BMW_85"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -2746,15 +2746,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_86",
+            "manufacturerUniqueId": "BMW_86",
+            "uniqueId": "BMW_86"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -2778,15 +2778,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_87",
+            "manufacturerUniqueId": "BMW_87",
+            "uniqueId": "BMW_87"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -2810,15 +2810,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_88",
+            "manufacturerUniqueId": "BMW_88",
+            "uniqueId": "BMW_88"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -2842,15 +2842,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_89",
+            "manufacturerUniqueId": "BMW_89",
+            "uniqueId": "BMW_89"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -2874,15 +2874,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_90",
+            "manufacturerUniqueId": "BMW_90",
+            "uniqueId": "BMW_90"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -2906,15 +2906,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_91",
+            "manufacturerUniqueId": "BMW_91",
+            "uniqueId": "BMW_91"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -2938,15 +2938,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_92",
+            "manufacturerUniqueId": "BMW_92",
+            "uniqueId": "BMW_92"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -2970,15 +2970,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_93",
+            "manufacturerUniqueId": "BMW_93",
+            "uniqueId": "BMW_93"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -3002,15 +3002,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_94",
+            "manufacturerUniqueId": "BMW_94",
+            "uniqueId": "BMW_94"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -3034,15 +3034,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_95",
+            "manufacturerUniqueId": "BMW_95",
+            "uniqueId": "BMW_95"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -3066,15 +3066,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_96",
+            "manufacturerUniqueId": "BMW_96",
+            "uniqueId": "BMW_96"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -3098,15 +3098,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_97",
+            "manufacturerUniqueId": "BMW_97",
+            "uniqueId": "BMW_97"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -3130,15 +3130,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_98",
+            "manufacturerUniqueId": "BMW_98",
+            "uniqueId": "BMW_98"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-25"
+            "productionDateGmt": "2021-05-26"
         },
         "partTree": {
             "isParentOf": [
@@ -3162,9 +3162,41 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW",
-            "manufacturerUniqueId": "BMW",
-            "uniqueId": "BMW"
+            "customerUniqueId": "BMW_99",
+            "manufacturerUniqueId": "BMW_99",
+            "uniqueId": "BMW_99"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-26"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ZF_199",
+                "TIER1_100"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "BMW",
+            "partNameCustomer": "3 Series",
+            "partNameManufacturer": "3 Series",
+            "partNumberCustomer": "",
+            "partNumberManufacturer": "G20"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "BMW_100",
+            "manufacturerUniqueId": "BMW_100",
+            "uniqueId": "BMW_100"
         }
     }
 ]
