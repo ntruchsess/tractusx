@@ -2,7 +2,7 @@
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -25,15 +25,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_1",
+            "manufacturerUniqueId": "BILSTEIN_1",
+            "uniqueId": "BILSTEIN_1"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -56,15 +56,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_2",
+            "manufacturerUniqueId": "BILSTEIN_2",
+            "uniqueId": "BILSTEIN_2"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -87,15 +87,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_3",
+            "manufacturerUniqueId": "BILSTEIN_3",
+            "uniqueId": "BILSTEIN_3"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -118,15 +118,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_4",
+            "manufacturerUniqueId": "BILSTEIN_4",
+            "uniqueId": "BILSTEIN_4"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -149,15 +149,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_5",
+            "manufacturerUniqueId": "BILSTEIN_5",
+            "uniqueId": "BILSTEIN_5"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -180,15 +180,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_6",
+            "manufacturerUniqueId": "BILSTEIN_6",
+            "uniqueId": "BILSTEIN_6"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -211,15 +211,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_7",
+            "manufacturerUniqueId": "BILSTEIN_7",
+            "uniqueId": "BILSTEIN_7"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -242,15 +242,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_8",
+            "manufacturerUniqueId": "BILSTEIN_8",
+            "uniqueId": "BILSTEIN_8"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -273,15 +273,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_9",
+            "manufacturerUniqueId": "BILSTEIN_9",
+            "uniqueId": "BILSTEIN_9"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -304,15 +304,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_10",
+            "manufacturerUniqueId": "BILSTEIN_10",
+            "uniqueId": "BILSTEIN_10"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -335,15 +335,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_11",
+            "manufacturerUniqueId": "BILSTEIN_11",
+            "uniqueId": "BILSTEIN_11"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -366,15 +366,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_12",
+            "manufacturerUniqueId": "BILSTEIN_12",
+            "uniqueId": "BILSTEIN_12"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -397,15 +397,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_13",
+            "manufacturerUniqueId": "BILSTEIN_13",
+            "uniqueId": "BILSTEIN_13"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -428,15 +428,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_14",
+            "manufacturerUniqueId": "BILSTEIN_14",
+            "uniqueId": "BILSTEIN_14"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -459,15 +459,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_15",
+            "manufacturerUniqueId": "BILSTEIN_15",
+            "uniqueId": "BILSTEIN_15"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -490,15 +490,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_16",
+            "manufacturerUniqueId": "BILSTEIN_16",
+            "uniqueId": "BILSTEIN_16"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -521,15 +521,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_17",
+            "manufacturerUniqueId": "BILSTEIN_17",
+            "uniqueId": "BILSTEIN_17"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -552,15 +552,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_18",
+            "manufacturerUniqueId": "BILSTEIN_18",
+            "uniqueId": "BILSTEIN_18"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -583,15 +583,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_19",
+            "manufacturerUniqueId": "BILSTEIN_19",
+            "uniqueId": "BILSTEIN_19"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -614,15 +614,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_20",
+            "manufacturerUniqueId": "BILSTEIN_20",
+            "uniqueId": "BILSTEIN_20"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -645,15 +645,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_21",
+            "manufacturerUniqueId": "BILSTEIN_21",
+            "uniqueId": "BILSTEIN_21"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -676,15 +676,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_22",
+            "manufacturerUniqueId": "BILSTEIN_22",
+            "uniqueId": "BILSTEIN_22"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -707,15 +707,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_23",
+            "manufacturerUniqueId": "BILSTEIN_23",
+            "uniqueId": "BILSTEIN_23"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -738,15 +738,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_24",
+            "manufacturerUniqueId": "BILSTEIN_24",
+            "uniqueId": "BILSTEIN_24"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -769,15 +769,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_25",
+            "manufacturerUniqueId": "BILSTEIN_25",
+            "uniqueId": "BILSTEIN_25"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -800,15 +800,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_26",
+            "manufacturerUniqueId": "BILSTEIN_26",
+            "uniqueId": "BILSTEIN_26"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -831,15 +831,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_27",
+            "manufacturerUniqueId": "BILSTEIN_27",
+            "uniqueId": "BILSTEIN_27"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -862,15 +862,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_28",
+            "manufacturerUniqueId": "BILSTEIN_28",
+            "uniqueId": "BILSTEIN_28"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -893,15 +893,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_29",
+            "manufacturerUniqueId": "BILSTEIN_29",
+            "uniqueId": "BILSTEIN_29"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -924,15 +924,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_30",
+            "manufacturerUniqueId": "BILSTEIN_30",
+            "uniqueId": "BILSTEIN_30"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -955,15 +955,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_31",
+            "manufacturerUniqueId": "BILSTEIN_31",
+            "uniqueId": "BILSTEIN_31"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -986,15 +986,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_32",
+            "manufacturerUniqueId": "BILSTEIN_32",
+            "uniqueId": "BILSTEIN_32"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1017,15 +1017,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_33",
+            "manufacturerUniqueId": "BILSTEIN_33",
+            "uniqueId": "BILSTEIN_33"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1048,15 +1048,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_34",
+            "manufacturerUniqueId": "BILSTEIN_34",
+            "uniqueId": "BILSTEIN_34"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1079,15 +1079,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_35",
+            "manufacturerUniqueId": "BILSTEIN_35",
+            "uniqueId": "BILSTEIN_35"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1110,15 +1110,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_36",
+            "manufacturerUniqueId": "BILSTEIN_36",
+            "uniqueId": "BILSTEIN_36"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1141,15 +1141,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_37",
+            "manufacturerUniqueId": "BILSTEIN_37",
+            "uniqueId": "BILSTEIN_37"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1172,15 +1172,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_38",
+            "manufacturerUniqueId": "BILSTEIN_38",
+            "uniqueId": "BILSTEIN_38"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1203,15 +1203,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_39",
+            "manufacturerUniqueId": "BILSTEIN_39",
+            "uniqueId": "BILSTEIN_39"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1234,15 +1234,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_40",
+            "manufacturerUniqueId": "BILSTEIN_40",
+            "uniqueId": "BILSTEIN_40"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1265,15 +1265,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_41",
+            "manufacturerUniqueId": "BILSTEIN_41",
+            "uniqueId": "BILSTEIN_41"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1296,15 +1296,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_42",
+            "manufacturerUniqueId": "BILSTEIN_42",
+            "uniqueId": "BILSTEIN_42"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1327,15 +1327,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_43",
+            "manufacturerUniqueId": "BILSTEIN_43",
+            "uniqueId": "BILSTEIN_43"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1358,15 +1358,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_44",
+            "manufacturerUniqueId": "BILSTEIN_44",
+            "uniqueId": "BILSTEIN_44"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1389,15 +1389,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_45",
+            "manufacturerUniqueId": "BILSTEIN_45",
+            "uniqueId": "BILSTEIN_45"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1420,15 +1420,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_46",
+            "manufacturerUniqueId": "BILSTEIN_46",
+            "uniqueId": "BILSTEIN_46"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1451,15 +1451,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_47",
+            "manufacturerUniqueId": "BILSTEIN_47",
+            "uniqueId": "BILSTEIN_47"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1482,15 +1482,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_48",
+            "manufacturerUniqueId": "BILSTEIN_48",
+            "uniqueId": "BILSTEIN_48"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1513,15 +1513,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_49",
+            "manufacturerUniqueId": "BILSTEIN_49",
+            "uniqueId": "BILSTEIN_49"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1544,15 +1544,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_50",
+            "manufacturerUniqueId": "BILSTEIN_50",
+            "uniqueId": "BILSTEIN_50"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1575,15 +1575,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_51",
+            "manufacturerUniqueId": "BILSTEIN_51",
+            "uniqueId": "BILSTEIN_51"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1606,15 +1606,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_52",
+            "manufacturerUniqueId": "BILSTEIN_52",
+            "uniqueId": "BILSTEIN_52"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1637,15 +1637,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_53",
+            "manufacturerUniqueId": "BILSTEIN_53",
+            "uniqueId": "BILSTEIN_53"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1668,15 +1668,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_54",
+            "manufacturerUniqueId": "BILSTEIN_54",
+            "uniqueId": "BILSTEIN_54"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1699,15 +1699,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_55",
+            "manufacturerUniqueId": "BILSTEIN_55",
+            "uniqueId": "BILSTEIN_55"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1730,15 +1730,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_56",
+            "manufacturerUniqueId": "BILSTEIN_56",
+            "uniqueId": "BILSTEIN_56"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1761,15 +1761,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_57",
+            "manufacturerUniqueId": "BILSTEIN_57",
+            "uniqueId": "BILSTEIN_57"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1792,15 +1792,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_58",
+            "manufacturerUniqueId": "BILSTEIN_58",
+            "uniqueId": "BILSTEIN_58"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1823,15 +1823,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_59",
+            "manufacturerUniqueId": "BILSTEIN_59",
+            "uniqueId": "BILSTEIN_59"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1854,15 +1854,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_60",
+            "manufacturerUniqueId": "BILSTEIN_60",
+            "uniqueId": "BILSTEIN_60"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1885,15 +1885,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_61",
+            "manufacturerUniqueId": "BILSTEIN_61",
+            "uniqueId": "BILSTEIN_61"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1916,15 +1916,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_62",
+            "manufacturerUniqueId": "BILSTEIN_62",
+            "uniqueId": "BILSTEIN_62"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1947,15 +1947,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_63",
+            "manufacturerUniqueId": "BILSTEIN_63",
+            "uniqueId": "BILSTEIN_63"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -1978,15 +1978,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_64",
+            "manufacturerUniqueId": "BILSTEIN_64",
+            "uniqueId": "BILSTEIN_64"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2009,15 +2009,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_65",
+            "manufacturerUniqueId": "BILSTEIN_65",
+            "uniqueId": "BILSTEIN_65"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2040,15 +2040,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_66",
+            "manufacturerUniqueId": "BILSTEIN_66",
+            "uniqueId": "BILSTEIN_66"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2071,15 +2071,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_67",
+            "manufacturerUniqueId": "BILSTEIN_67",
+            "uniqueId": "BILSTEIN_67"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2102,15 +2102,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_68",
+            "manufacturerUniqueId": "BILSTEIN_68",
+            "uniqueId": "BILSTEIN_68"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2133,15 +2133,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_69",
+            "manufacturerUniqueId": "BILSTEIN_69",
+            "uniqueId": "BILSTEIN_69"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2164,15 +2164,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_70",
+            "manufacturerUniqueId": "BILSTEIN_70",
+            "uniqueId": "BILSTEIN_70"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2195,15 +2195,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_71",
+            "manufacturerUniqueId": "BILSTEIN_71",
+            "uniqueId": "BILSTEIN_71"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2226,15 +2226,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_72",
+            "manufacturerUniqueId": "BILSTEIN_72",
+            "uniqueId": "BILSTEIN_72"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2257,15 +2257,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_73",
+            "manufacturerUniqueId": "BILSTEIN_73",
+            "uniqueId": "BILSTEIN_73"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2288,15 +2288,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_74",
+            "manufacturerUniqueId": "BILSTEIN_74",
+            "uniqueId": "BILSTEIN_74"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2319,15 +2319,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_75",
+            "manufacturerUniqueId": "BILSTEIN_75",
+            "uniqueId": "BILSTEIN_75"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2350,15 +2350,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_76",
+            "manufacturerUniqueId": "BILSTEIN_76",
+            "uniqueId": "BILSTEIN_76"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2381,15 +2381,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_77",
+            "manufacturerUniqueId": "BILSTEIN_77",
+            "uniqueId": "BILSTEIN_77"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2412,15 +2412,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_78",
+            "manufacturerUniqueId": "BILSTEIN_78",
+            "uniqueId": "BILSTEIN_78"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2443,15 +2443,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_79",
+            "manufacturerUniqueId": "BILSTEIN_79",
+            "uniqueId": "BILSTEIN_79"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2474,15 +2474,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_80",
+            "manufacturerUniqueId": "BILSTEIN_80",
+            "uniqueId": "BILSTEIN_80"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2505,15 +2505,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_81",
+            "manufacturerUniqueId": "BILSTEIN_81",
+            "uniqueId": "BILSTEIN_81"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2536,15 +2536,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_82",
+            "manufacturerUniqueId": "BILSTEIN_82",
+            "uniqueId": "BILSTEIN_82"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2567,15 +2567,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_83",
+            "manufacturerUniqueId": "BILSTEIN_83",
+            "uniqueId": "BILSTEIN_83"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2598,15 +2598,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_84",
+            "manufacturerUniqueId": "BILSTEIN_84",
+            "uniqueId": "BILSTEIN_84"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2629,15 +2629,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_85",
+            "manufacturerUniqueId": "BILSTEIN_85",
+            "uniqueId": "BILSTEIN_85"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2660,15 +2660,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_86",
+            "manufacturerUniqueId": "BILSTEIN_86",
+            "uniqueId": "BILSTEIN_86"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2691,15 +2691,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_87",
+            "manufacturerUniqueId": "BILSTEIN_87",
+            "uniqueId": "BILSTEIN_87"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2722,15 +2722,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_88",
+            "manufacturerUniqueId": "BILSTEIN_88",
+            "uniqueId": "BILSTEIN_88"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2753,15 +2753,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_89",
+            "manufacturerUniqueId": "BILSTEIN_89",
+            "uniqueId": "BILSTEIN_89"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2784,15 +2784,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_90",
+            "manufacturerUniqueId": "BILSTEIN_90",
+            "uniqueId": "BILSTEIN_90"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2815,15 +2815,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_91",
+            "manufacturerUniqueId": "BILSTEIN_91",
+            "uniqueId": "BILSTEIN_91"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2846,15 +2846,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_92",
+            "manufacturerUniqueId": "BILSTEIN_92",
+            "uniqueId": "BILSTEIN_92"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2877,15 +2877,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_93",
+            "manufacturerUniqueId": "BILSTEIN_93",
+            "uniqueId": "BILSTEIN_93"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2908,15 +2908,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_94",
+            "manufacturerUniqueId": "BILSTEIN_94",
+            "uniqueId": "BILSTEIN_94"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2939,15 +2939,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_95",
+            "manufacturerUniqueId": "BILSTEIN_95",
+            "uniqueId": "BILSTEIN_95"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -2970,15 +2970,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_96",
+            "manufacturerUniqueId": "BILSTEIN_96",
+            "uniqueId": "BILSTEIN_96"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3001,15 +3001,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_97",
+            "manufacturerUniqueId": "BILSTEIN_97",
+            "uniqueId": "BILSTEIN_97"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3032,15 +3032,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_98",
+            "manufacturerUniqueId": "BILSTEIN_98",
+            "uniqueId": "BILSTEIN_98"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3063,15 +3063,46 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_99",
+            "manufacturerUniqueId": "BILSTEIN_99",
+            "uniqueId": "BILSTEIN_99"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
+        },
+        "partTree": {
+            "isParentOf": [
+                "ERROR_CP_897"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "ZF",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "BILSTEIN",
+            "partNameCustomer": "Valve",
+            "partNameManufacturer": "Valve",
+            "partNumberCustomer": "18592",
+            "partNumberManufacturer": "18592"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "BILSTEIN_100",
+            "manufacturerUniqueId": "BILSTEIN_100",
+            "uniqueId": "BILSTEIN_100"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3094,15 +3125,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_101",
+            "manufacturerUniqueId": "BILSTEIN_101",
+            "uniqueId": "BILSTEIN_101"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3125,15 +3156,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_102",
+            "manufacturerUniqueId": "BILSTEIN_102",
+            "uniqueId": "BILSTEIN_102"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3156,15 +3187,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_103",
+            "manufacturerUniqueId": "BILSTEIN_103",
+            "uniqueId": "BILSTEIN_103"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3187,15 +3218,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_104",
+            "manufacturerUniqueId": "BILSTEIN_104",
+            "uniqueId": "BILSTEIN_104"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3218,15 +3249,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_105",
+            "manufacturerUniqueId": "BILSTEIN_105",
+            "uniqueId": "BILSTEIN_105"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3249,15 +3280,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_106",
+            "manufacturerUniqueId": "BILSTEIN_106",
+            "uniqueId": "BILSTEIN_106"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3280,15 +3311,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_107",
+            "manufacturerUniqueId": "BILSTEIN_107",
+            "uniqueId": "BILSTEIN_107"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3311,15 +3342,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_108",
+            "manufacturerUniqueId": "BILSTEIN_108",
+            "uniqueId": "BILSTEIN_108"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3342,15 +3373,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_109",
+            "manufacturerUniqueId": "BILSTEIN_109",
+            "uniqueId": "BILSTEIN_109"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3373,15 +3404,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_110",
+            "manufacturerUniqueId": "BILSTEIN_110",
+            "uniqueId": "BILSTEIN_110"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3404,15 +3435,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_111",
+            "manufacturerUniqueId": "BILSTEIN_111",
+            "uniqueId": "BILSTEIN_111"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3435,15 +3466,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_112",
+            "manufacturerUniqueId": "BILSTEIN_112",
+            "uniqueId": "BILSTEIN_112"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3466,15 +3497,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_113",
+            "manufacturerUniqueId": "BILSTEIN_113",
+            "uniqueId": "BILSTEIN_113"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3497,15 +3528,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_114",
+            "manufacturerUniqueId": "BILSTEIN_114",
+            "uniqueId": "BILSTEIN_114"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3528,15 +3559,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_115",
+            "manufacturerUniqueId": "BILSTEIN_115",
+            "uniqueId": "BILSTEIN_115"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3559,15 +3590,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_116",
+            "manufacturerUniqueId": "BILSTEIN_116",
+            "uniqueId": "BILSTEIN_116"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3590,15 +3621,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_117",
+            "manufacturerUniqueId": "BILSTEIN_117",
+            "uniqueId": "BILSTEIN_117"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3621,15 +3652,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_118",
+            "manufacturerUniqueId": "BILSTEIN_118",
+            "uniqueId": "BILSTEIN_118"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3652,15 +3683,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_119",
+            "manufacturerUniqueId": "BILSTEIN_119",
+            "uniqueId": "BILSTEIN_119"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3683,15 +3714,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_120",
+            "manufacturerUniqueId": "BILSTEIN_120",
+            "uniqueId": "BILSTEIN_120"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3714,15 +3745,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_121",
+            "manufacturerUniqueId": "BILSTEIN_121",
+            "uniqueId": "BILSTEIN_121"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3745,15 +3776,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_122",
+            "manufacturerUniqueId": "BILSTEIN_122",
+            "uniqueId": "BILSTEIN_122"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3776,15 +3807,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_123",
+            "manufacturerUniqueId": "BILSTEIN_123",
+            "uniqueId": "BILSTEIN_123"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3807,15 +3838,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_124",
+            "manufacturerUniqueId": "BILSTEIN_124",
+            "uniqueId": "BILSTEIN_124"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3838,15 +3869,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_125",
+            "manufacturerUniqueId": "BILSTEIN_125",
+            "uniqueId": "BILSTEIN_125"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3869,15 +3900,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_126",
+            "manufacturerUniqueId": "BILSTEIN_126",
+            "uniqueId": "BILSTEIN_126"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3900,15 +3931,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_127",
+            "manufacturerUniqueId": "BILSTEIN_127",
+            "uniqueId": "BILSTEIN_127"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3931,15 +3962,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_128",
+            "manufacturerUniqueId": "BILSTEIN_128",
+            "uniqueId": "BILSTEIN_128"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3962,15 +3993,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_129",
+            "manufacturerUniqueId": "BILSTEIN_129",
+            "uniqueId": "BILSTEIN_129"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -3993,15 +4024,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_130",
+            "manufacturerUniqueId": "BILSTEIN_130",
+            "uniqueId": "BILSTEIN_130"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4024,15 +4055,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_131",
+            "manufacturerUniqueId": "BILSTEIN_131",
+            "uniqueId": "BILSTEIN_131"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4055,15 +4086,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_132",
+            "manufacturerUniqueId": "BILSTEIN_132",
+            "uniqueId": "BILSTEIN_132"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4086,15 +4117,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_133",
+            "manufacturerUniqueId": "BILSTEIN_133",
+            "uniqueId": "BILSTEIN_133"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4117,15 +4148,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_134",
+            "manufacturerUniqueId": "BILSTEIN_134",
+            "uniqueId": "BILSTEIN_134"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4148,15 +4179,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_135",
+            "manufacturerUniqueId": "BILSTEIN_135",
+            "uniqueId": "BILSTEIN_135"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4179,15 +4210,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_136",
+            "manufacturerUniqueId": "BILSTEIN_136",
+            "uniqueId": "BILSTEIN_136"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4210,15 +4241,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_137",
+            "manufacturerUniqueId": "BILSTEIN_137",
+            "uniqueId": "BILSTEIN_137"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4241,15 +4272,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_138",
+            "manufacturerUniqueId": "BILSTEIN_138",
+            "uniqueId": "BILSTEIN_138"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4272,15 +4303,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_139",
+            "manufacturerUniqueId": "BILSTEIN_139",
+            "uniqueId": "BILSTEIN_139"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4303,15 +4334,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_140",
+            "manufacturerUniqueId": "BILSTEIN_140",
+            "uniqueId": "BILSTEIN_140"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4334,15 +4365,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_141",
+            "manufacturerUniqueId": "BILSTEIN_141",
+            "uniqueId": "BILSTEIN_141"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4365,15 +4396,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_142",
+            "manufacturerUniqueId": "BILSTEIN_142",
+            "uniqueId": "BILSTEIN_142"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4396,15 +4427,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_143",
+            "manufacturerUniqueId": "BILSTEIN_143",
+            "uniqueId": "BILSTEIN_143"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4427,15 +4458,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_144",
+            "manufacturerUniqueId": "BILSTEIN_144",
+            "uniqueId": "BILSTEIN_144"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4458,15 +4489,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_145",
+            "manufacturerUniqueId": "BILSTEIN_145",
+            "uniqueId": "BILSTEIN_145"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4489,15 +4520,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_146",
+            "manufacturerUniqueId": "BILSTEIN_146",
+            "uniqueId": "BILSTEIN_146"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4520,15 +4551,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_147",
+            "manufacturerUniqueId": "BILSTEIN_147",
+            "uniqueId": "BILSTEIN_147"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4551,15 +4582,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_148",
+            "manufacturerUniqueId": "BILSTEIN_148",
+            "uniqueId": "BILSTEIN_148"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4582,15 +4613,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_149",
+            "manufacturerUniqueId": "BILSTEIN_149",
+            "uniqueId": "BILSTEIN_149"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4613,15 +4644,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_150",
+            "manufacturerUniqueId": "BILSTEIN_150",
+            "uniqueId": "BILSTEIN_150"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4644,15 +4675,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_151",
+            "manufacturerUniqueId": "BILSTEIN_151",
+            "uniqueId": "BILSTEIN_151"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4675,15 +4706,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_152",
+            "manufacturerUniqueId": "BILSTEIN_152",
+            "uniqueId": "BILSTEIN_152"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4706,15 +4737,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_153",
+            "manufacturerUniqueId": "BILSTEIN_153",
+            "uniqueId": "BILSTEIN_153"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4737,15 +4768,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_154",
+            "manufacturerUniqueId": "BILSTEIN_154",
+            "uniqueId": "BILSTEIN_154"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4768,15 +4799,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_155",
+            "manufacturerUniqueId": "BILSTEIN_155",
+            "uniqueId": "BILSTEIN_155"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4799,15 +4830,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_156",
+            "manufacturerUniqueId": "BILSTEIN_156",
+            "uniqueId": "BILSTEIN_156"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4830,15 +4861,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_157",
+            "manufacturerUniqueId": "BILSTEIN_157",
+            "uniqueId": "BILSTEIN_157"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4861,15 +4892,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_158",
+            "manufacturerUniqueId": "BILSTEIN_158",
+            "uniqueId": "BILSTEIN_158"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4892,15 +4923,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_159",
+            "manufacturerUniqueId": "BILSTEIN_159",
+            "uniqueId": "BILSTEIN_159"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4923,15 +4954,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_160",
+            "manufacturerUniqueId": "BILSTEIN_160",
+            "uniqueId": "BILSTEIN_160"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4954,15 +4985,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_161",
+            "manufacturerUniqueId": "BILSTEIN_161",
+            "uniqueId": "BILSTEIN_161"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -4985,15 +5016,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_162",
+            "manufacturerUniqueId": "BILSTEIN_162",
+            "uniqueId": "BILSTEIN_162"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5016,15 +5047,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_163",
+            "manufacturerUniqueId": "BILSTEIN_163",
+            "uniqueId": "BILSTEIN_163"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5047,15 +5078,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_164",
+            "manufacturerUniqueId": "BILSTEIN_164",
+            "uniqueId": "BILSTEIN_164"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5078,15 +5109,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_165",
+            "manufacturerUniqueId": "BILSTEIN_165",
+            "uniqueId": "BILSTEIN_165"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5109,15 +5140,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_166",
+            "manufacturerUniqueId": "BILSTEIN_166",
+            "uniqueId": "BILSTEIN_166"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5140,15 +5171,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_167",
+            "manufacturerUniqueId": "BILSTEIN_167",
+            "uniqueId": "BILSTEIN_167"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5171,15 +5202,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_168",
+            "manufacturerUniqueId": "BILSTEIN_168",
+            "uniqueId": "BILSTEIN_168"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5202,15 +5233,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_169",
+            "manufacturerUniqueId": "BILSTEIN_169",
+            "uniqueId": "BILSTEIN_169"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5233,15 +5264,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_170",
+            "manufacturerUniqueId": "BILSTEIN_170",
+            "uniqueId": "BILSTEIN_170"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5264,15 +5295,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_171",
+            "manufacturerUniqueId": "BILSTEIN_171",
+            "uniqueId": "BILSTEIN_171"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5295,15 +5326,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_172",
+            "manufacturerUniqueId": "BILSTEIN_172",
+            "uniqueId": "BILSTEIN_172"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5326,15 +5357,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_173",
+            "manufacturerUniqueId": "BILSTEIN_173",
+            "uniqueId": "BILSTEIN_173"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5357,15 +5388,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_174",
+            "manufacturerUniqueId": "BILSTEIN_174",
+            "uniqueId": "BILSTEIN_174"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5388,15 +5419,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_175",
+            "manufacturerUniqueId": "BILSTEIN_175",
+            "uniqueId": "BILSTEIN_175"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5419,15 +5450,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_176",
+            "manufacturerUniqueId": "BILSTEIN_176",
+            "uniqueId": "BILSTEIN_176"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5450,15 +5481,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_177",
+            "manufacturerUniqueId": "BILSTEIN_177",
+            "uniqueId": "BILSTEIN_177"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5481,15 +5512,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_178",
+            "manufacturerUniqueId": "BILSTEIN_178",
+            "uniqueId": "BILSTEIN_178"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5512,15 +5543,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_179",
+            "manufacturerUniqueId": "BILSTEIN_179",
+            "uniqueId": "BILSTEIN_179"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5543,15 +5574,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_180",
+            "manufacturerUniqueId": "BILSTEIN_180",
+            "uniqueId": "BILSTEIN_180"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5574,15 +5605,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_181",
+            "manufacturerUniqueId": "BILSTEIN_181",
+            "uniqueId": "BILSTEIN_181"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5605,15 +5636,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_182",
+            "manufacturerUniqueId": "BILSTEIN_182",
+            "uniqueId": "BILSTEIN_182"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5636,15 +5667,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_183",
+            "manufacturerUniqueId": "BILSTEIN_183",
+            "uniqueId": "BILSTEIN_183"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5667,15 +5698,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_184",
+            "manufacturerUniqueId": "BILSTEIN_184",
+            "uniqueId": "BILSTEIN_184"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5698,15 +5729,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_185",
+            "manufacturerUniqueId": "BILSTEIN_185",
+            "uniqueId": "BILSTEIN_185"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5729,15 +5760,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_186",
+            "manufacturerUniqueId": "BILSTEIN_186",
+            "uniqueId": "BILSTEIN_186"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5760,15 +5791,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_187",
+            "manufacturerUniqueId": "BILSTEIN_187",
+            "uniqueId": "BILSTEIN_187"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5791,15 +5822,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_188",
+            "manufacturerUniqueId": "BILSTEIN_188",
+            "uniqueId": "BILSTEIN_188"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5822,15 +5853,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_189",
+            "manufacturerUniqueId": "BILSTEIN_189",
+            "uniqueId": "BILSTEIN_189"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5853,15 +5884,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_190",
+            "manufacturerUniqueId": "BILSTEIN_190",
+            "uniqueId": "BILSTEIN_190"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5884,15 +5915,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_191",
+            "manufacturerUniqueId": "BILSTEIN_191",
+            "uniqueId": "BILSTEIN_191"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5915,15 +5946,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_192",
+            "manufacturerUniqueId": "BILSTEIN_192",
+            "uniqueId": "BILSTEIN_192"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5946,15 +5977,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_193",
+            "manufacturerUniqueId": "BILSTEIN_193",
+            "uniqueId": "BILSTEIN_193"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -5977,15 +6008,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_194",
+            "manufacturerUniqueId": "BILSTEIN_194",
+            "uniqueId": "BILSTEIN_194"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -6008,15 +6039,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_195",
+            "manufacturerUniqueId": "BILSTEIN_195",
+            "uniqueId": "BILSTEIN_195"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -6039,15 +6070,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_196",
+            "manufacturerUniqueId": "BILSTEIN_196",
+            "uniqueId": "BILSTEIN_196"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -6070,15 +6101,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_197",
+            "manufacturerUniqueId": "BILSTEIN_197",
+            "uniqueId": "BILSTEIN_197"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -6101,15 +6132,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_198",
+            "manufacturerUniqueId": "BILSTEIN_198",
+            "uniqueId": "BILSTEIN_198"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -6132,15 +6163,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_199",
+            "manufacturerUniqueId": "BILSTEIN_199",
+            "uniqueId": "BILSTEIN_199"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-10"
+            "productionDateGmt": "2021-05-18"
         },
         "partTree": {
             "isParentOf": [
@@ -6163,9 +6194,9 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BILSTEIN",
-            "manufacturerUniqueId": "BILSTEIN",
-            "uniqueId": "BILSTEIN"
+            "customerUniqueId": "BILSTEIN_200",
+            "manufacturerUniqueId": "BILSTEIN_200",
+            "uniqueId": "BILSTEIN_200"
         }
     }
 ]

@@ -2,7 +2,7 @@
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -28,15 +28,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_1",
+            "manufacturerUniqueId": "ZF_1",
+            "uniqueId": "ZF_1"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -62,15 +62,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_2",
+            "manufacturerUniqueId": "ZF_2",
+            "uniqueId": "ZF_2"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -96,15 +96,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_3",
+            "manufacturerUniqueId": "ZF_3",
+            "uniqueId": "ZF_3"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -130,15 +130,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_4",
+            "manufacturerUniqueId": "ZF_4",
+            "uniqueId": "ZF_4"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -164,15 +164,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_5",
+            "manufacturerUniqueId": "ZF_5",
+            "uniqueId": "ZF_5"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -198,15 +198,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_6",
+            "manufacturerUniqueId": "ZF_6",
+            "uniqueId": "ZF_6"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -232,15 +232,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_7",
+            "manufacturerUniqueId": "ZF_7",
+            "uniqueId": "ZF_7"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -266,15 +266,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_8",
+            "manufacturerUniqueId": "ZF_8",
+            "uniqueId": "ZF_8"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -300,15 +300,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_9",
+            "manufacturerUniqueId": "ZF_9",
+            "uniqueId": "ZF_9"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -334,15 +334,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_10",
+            "manufacturerUniqueId": "ZF_10",
+            "uniqueId": "ZF_10"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -368,15 +368,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_11",
+            "manufacturerUniqueId": "ZF_11",
+            "uniqueId": "ZF_11"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -402,15 +402,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_12",
+            "manufacturerUniqueId": "ZF_12",
+            "uniqueId": "ZF_12"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -436,15 +436,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_13",
+            "manufacturerUniqueId": "ZF_13",
+            "uniqueId": "ZF_13"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -470,15 +470,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_14",
+            "manufacturerUniqueId": "ZF_14",
+            "uniqueId": "ZF_14"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -504,15 +504,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_15",
+            "manufacturerUniqueId": "ZF_15",
+            "uniqueId": "ZF_15"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -538,15 +538,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_16",
+            "manufacturerUniqueId": "ZF_16",
+            "uniqueId": "ZF_16"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -572,15 +572,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_17",
+            "manufacturerUniqueId": "ZF_17",
+            "uniqueId": "ZF_17"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -606,15 +606,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_18",
+            "manufacturerUniqueId": "ZF_18",
+            "uniqueId": "ZF_18"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -640,15 +640,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_19",
+            "manufacturerUniqueId": "ZF_19",
+            "uniqueId": "ZF_19"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -674,15 +674,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_20",
+            "manufacturerUniqueId": "ZF_20",
+            "uniqueId": "ZF_20"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -708,15 +708,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_21",
+            "manufacturerUniqueId": "ZF_21",
+            "uniqueId": "ZF_21"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -742,15 +742,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_22",
+            "manufacturerUniqueId": "ZF_22",
+            "uniqueId": "ZF_22"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -776,15 +776,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_23",
+            "manufacturerUniqueId": "ZF_23",
+            "uniqueId": "ZF_23"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -810,15 +810,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_24",
+            "manufacturerUniqueId": "ZF_24",
+            "uniqueId": "ZF_24"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -844,15 +844,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_25",
+            "manufacturerUniqueId": "ZF_25",
+            "uniqueId": "ZF_25"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -878,15 +878,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_26",
+            "manufacturerUniqueId": "ZF_26",
+            "uniqueId": "ZF_26"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -912,15 +912,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_27",
+            "manufacturerUniqueId": "ZF_27",
+            "uniqueId": "ZF_27"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -946,15 +946,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_28",
+            "manufacturerUniqueId": "ZF_28",
+            "uniqueId": "ZF_28"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -980,15 +980,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_29",
+            "manufacturerUniqueId": "ZF_29",
+            "uniqueId": "ZF_29"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -1014,15 +1014,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_30",
+            "manufacturerUniqueId": "ZF_30",
+            "uniqueId": "ZF_30"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -1048,15 +1048,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_31",
+            "manufacturerUniqueId": "ZF_31",
+            "uniqueId": "ZF_31"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -1082,15 +1082,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_32",
+            "manufacturerUniqueId": "ZF_32",
+            "uniqueId": "ZF_32"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -1116,15 +1116,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_33",
+            "manufacturerUniqueId": "ZF_33",
+            "uniqueId": "ZF_33"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -1150,15 +1150,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_34",
+            "manufacturerUniqueId": "ZF_34",
+            "uniqueId": "ZF_34"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -1184,15 +1184,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_35",
+            "manufacturerUniqueId": "ZF_35",
+            "uniqueId": "ZF_35"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -1218,15 +1218,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_36",
+            "manufacturerUniqueId": "ZF_36",
+            "uniqueId": "ZF_36"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -1252,15 +1252,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_37",
+            "manufacturerUniqueId": "ZF_37",
+            "uniqueId": "ZF_37"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -1286,15 +1286,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_38",
+            "manufacturerUniqueId": "ZF_38",
+            "uniqueId": "ZF_38"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -1320,15 +1320,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_39",
+            "manufacturerUniqueId": "ZF_39",
+            "uniqueId": "ZF_39"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -1354,15 +1354,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_40",
+            "manufacturerUniqueId": "ZF_40",
+            "uniqueId": "ZF_40"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -1388,15 +1388,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_41",
+            "manufacturerUniqueId": "ZF_41",
+            "uniqueId": "ZF_41"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -1422,15 +1422,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_42",
+            "manufacturerUniqueId": "ZF_42",
+            "uniqueId": "ZF_42"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -1456,15 +1456,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_43",
+            "manufacturerUniqueId": "ZF_43",
+            "uniqueId": "ZF_43"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -1490,15 +1490,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_44",
+            "manufacturerUniqueId": "ZF_44",
+            "uniqueId": "ZF_44"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -1524,15 +1524,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_45",
+            "manufacturerUniqueId": "ZF_45",
+            "uniqueId": "ZF_45"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -1558,15 +1558,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_46",
+            "manufacturerUniqueId": "ZF_46",
+            "uniqueId": "ZF_46"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -1592,15 +1592,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_47",
+            "manufacturerUniqueId": "ZF_47",
+            "uniqueId": "ZF_47"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -1626,15 +1626,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_48",
+            "manufacturerUniqueId": "ZF_48",
+            "uniqueId": "ZF_48"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -1660,15 +1660,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_49",
+            "manufacturerUniqueId": "ZF_49",
+            "uniqueId": "ZF_49"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -1694,15 +1694,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_50",
+            "manufacturerUniqueId": "ZF_50",
+            "uniqueId": "ZF_50"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -1728,15 +1728,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_51",
+            "manufacturerUniqueId": "ZF_51",
+            "uniqueId": "ZF_51"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -1762,15 +1762,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_52",
+            "manufacturerUniqueId": "ZF_52",
+            "uniqueId": "ZF_52"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -1796,15 +1796,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_53",
+            "manufacturerUniqueId": "ZF_53",
+            "uniqueId": "ZF_53"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -1830,15 +1830,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_54",
+            "manufacturerUniqueId": "ZF_54",
+            "uniqueId": "ZF_54"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -1864,15 +1864,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_55",
+            "manufacturerUniqueId": "ZF_55",
+            "uniqueId": "ZF_55"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -1898,15 +1898,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_56",
+            "manufacturerUniqueId": "ZF_56",
+            "uniqueId": "ZF_56"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -1932,15 +1932,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_57",
+            "manufacturerUniqueId": "ZF_57",
+            "uniqueId": "ZF_57"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -1966,15 +1966,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_58",
+            "manufacturerUniqueId": "ZF_58",
+            "uniqueId": "ZF_58"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -2000,15 +2000,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_59",
+            "manufacturerUniqueId": "ZF_59",
+            "uniqueId": "ZF_59"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -2034,15 +2034,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_60",
+            "manufacturerUniqueId": "ZF_60",
+            "uniqueId": "ZF_60"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -2068,15 +2068,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_61",
+            "manufacturerUniqueId": "ZF_61",
+            "uniqueId": "ZF_61"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -2102,15 +2102,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_62",
+            "manufacturerUniqueId": "ZF_62",
+            "uniqueId": "ZF_62"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -2136,15 +2136,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_63",
+            "manufacturerUniqueId": "ZF_63",
+            "uniqueId": "ZF_63"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -2170,15 +2170,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_64",
+            "manufacturerUniqueId": "ZF_64",
+            "uniqueId": "ZF_64"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -2204,15 +2204,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_65",
+            "manufacturerUniqueId": "ZF_65",
+            "uniqueId": "ZF_65"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -2238,15 +2238,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_66",
+            "manufacturerUniqueId": "ZF_66",
+            "uniqueId": "ZF_66"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -2272,15 +2272,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_67",
+            "manufacturerUniqueId": "ZF_67",
+            "uniqueId": "ZF_67"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -2306,15 +2306,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_68",
+            "manufacturerUniqueId": "ZF_68",
+            "uniqueId": "ZF_68"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -2340,15 +2340,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_69",
+            "manufacturerUniqueId": "ZF_69",
+            "uniqueId": "ZF_69"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -2374,15 +2374,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_70",
+            "manufacturerUniqueId": "ZF_70",
+            "uniqueId": "ZF_70"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -2408,15 +2408,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_71",
+            "manufacturerUniqueId": "ZF_71",
+            "uniqueId": "ZF_71"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -2442,15 +2442,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_72",
+            "manufacturerUniqueId": "ZF_72",
+            "uniqueId": "ZF_72"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -2476,15 +2476,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_73",
+            "manufacturerUniqueId": "ZF_73",
+            "uniqueId": "ZF_73"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -2510,15 +2510,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_74",
+            "manufacturerUniqueId": "ZF_74",
+            "uniqueId": "ZF_74"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -2544,15 +2544,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_75",
+            "manufacturerUniqueId": "ZF_75",
+            "uniqueId": "ZF_75"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -2578,15 +2578,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_76",
+            "manufacturerUniqueId": "ZF_76",
+            "uniqueId": "ZF_76"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -2612,15 +2612,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_77",
+            "manufacturerUniqueId": "ZF_77",
+            "uniqueId": "ZF_77"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -2646,15 +2646,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_78",
+            "manufacturerUniqueId": "ZF_78",
+            "uniqueId": "ZF_78"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -2680,15 +2680,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_79",
+            "manufacturerUniqueId": "ZF_79",
+            "uniqueId": "ZF_79"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -2714,15 +2714,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_80",
+            "manufacturerUniqueId": "ZF_80",
+            "uniqueId": "ZF_80"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -2748,15 +2748,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_81",
+            "manufacturerUniqueId": "ZF_81",
+            "uniqueId": "ZF_81"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -2782,15 +2782,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_82",
+            "manufacturerUniqueId": "ZF_82",
+            "uniqueId": "ZF_82"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -2816,15 +2816,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_83",
+            "manufacturerUniqueId": "ZF_83",
+            "uniqueId": "ZF_83"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -2850,15 +2850,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_84",
+            "manufacturerUniqueId": "ZF_84",
+            "uniqueId": "ZF_84"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -2884,15 +2884,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_85",
+            "manufacturerUniqueId": "ZF_85",
+            "uniqueId": "ZF_85"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -2918,15 +2918,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_86",
+            "manufacturerUniqueId": "ZF_86",
+            "uniqueId": "ZF_86"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -2952,15 +2952,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_87",
+            "manufacturerUniqueId": "ZF_87",
+            "uniqueId": "ZF_87"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -2986,15 +2986,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_88",
+            "manufacturerUniqueId": "ZF_88",
+            "uniqueId": "ZF_88"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -3020,15 +3020,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_89",
+            "manufacturerUniqueId": "ZF_89",
+            "uniqueId": "ZF_89"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -3054,15 +3054,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_90",
+            "manufacturerUniqueId": "ZF_90",
+            "uniqueId": "ZF_90"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -3088,15 +3088,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_91",
+            "manufacturerUniqueId": "ZF_91",
+            "uniqueId": "ZF_91"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -3122,15 +3122,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_92",
+            "manufacturerUniqueId": "ZF_92",
+            "uniqueId": "ZF_92"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -3156,15 +3156,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_93",
+            "manufacturerUniqueId": "ZF_93",
+            "uniqueId": "ZF_93"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -3190,15 +3190,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_94",
+            "manufacturerUniqueId": "ZF_94",
+            "uniqueId": "ZF_94"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -3224,15 +3224,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_95",
+            "manufacturerUniqueId": "ZF_95",
+            "uniqueId": "ZF_95"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -3258,15 +3258,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_96",
+            "manufacturerUniqueId": "ZF_96",
+            "uniqueId": "ZF_96"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -3292,15 +3292,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_97",
+            "manufacturerUniqueId": "ZF_97",
+            "uniqueId": "ZF_97"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -3326,15 +3326,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_98",
+            "manufacturerUniqueId": "ZF_98",
+            "uniqueId": "ZF_98"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
@@ -3360,21 +3360,55 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_99",
+            "manufacturerUniqueId": "ZF_99",
+            "uniqueId": "ZF_99"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
+        },
+        "partTree": {
+            "isParentOf": [
+                "BOSCH_299",
+                "BILSTEIN_100",
+                "GRIS_100",
+                "ERROR_CP_892"
+            ]
+        },
+        "qualityAlert": {
+            "qualityAlert": false,
+            "qualityType": ""
+        },
+        "staticData": {
+            "customerContractOneId": "",
+            "customerOneId": "BMW",
+            "manufacturerContractOneId": "",
+            "manufacturerOneId": "ZF",
+            "partNameCustomer": "Gearbox",
+            "partNameManufacturer": "Gearbox",
+            "partNumberCustomer": "795840",
+            "partNumberManufacturer": "8AF82"
+        },
+        "supplyTree": {},
+        "uniqueData": {
+            "customerUniqueId": "ZF_100",
+            "manufacturerUniqueId": "ZF_100",
+            "uniqueId": "ZF_100"
+        }
+    },
+    {
+        "individualData": {
+            "productionCountryCode": "DE",
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_3",
-                "BILSTEIN_100",
-                "GRIS_100",
+                "BILSTEIN_101",
+                "GRIS_101",
                 "ERROR_CP_2"
             ]
         },
@@ -3394,21 +3428,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_101",
+            "manufacturerUniqueId": "ZF_101",
+            "uniqueId": "ZF_101"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_6",
-                "BILSTEIN_101",
-                "GRIS_101",
+                "BILSTEIN_102",
+                "GRIS_102",
                 "ERROR_CP_11"
             ]
         },
@@ -3428,21 +3462,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_102",
+            "manufacturerUniqueId": "ZF_102",
+            "uniqueId": "ZF_102"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_9",
-                "BILSTEIN_102",
-                "GRIS_102",
+                "BILSTEIN_103",
+                "GRIS_103",
                 "ERROR_CP_20"
             ]
         },
@@ -3462,21 +3496,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_103",
+            "manufacturerUniqueId": "ZF_103",
+            "uniqueId": "ZF_103"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_12",
-                "BILSTEIN_103",
-                "GRIS_103",
+                "BILSTEIN_104",
+                "GRIS_104",
                 "ERROR_CP_29"
             ]
         },
@@ -3496,21 +3530,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_104",
+            "manufacturerUniqueId": "ZF_104",
+            "uniqueId": "ZF_104"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_15",
-                "BILSTEIN_104",
-                "GRIS_104",
+                "BILSTEIN_105",
+                "GRIS_105",
                 "ERROR_CP_38"
             ]
         },
@@ -3530,21 +3564,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_105",
+            "manufacturerUniqueId": "ZF_105",
+            "uniqueId": "ZF_105"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_18",
-                "BILSTEIN_105",
-                "GRIS_105",
+                "BILSTEIN_106",
+                "GRIS_106",
                 "ERROR_CP_47"
             ]
         },
@@ -3564,21 +3598,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_106",
+            "manufacturerUniqueId": "ZF_106",
+            "uniqueId": "ZF_106"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_21",
-                "BILSTEIN_106",
-                "GRIS_106",
+                "BILSTEIN_107",
+                "GRIS_107",
                 "ERROR_CP_56"
             ]
         },
@@ -3598,21 +3632,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_107",
+            "manufacturerUniqueId": "ZF_107",
+            "uniqueId": "ZF_107"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_24",
-                "BILSTEIN_107",
-                "GRIS_107",
+                "BILSTEIN_108",
+                "GRIS_108",
                 "ERROR_CP_65"
             ]
         },
@@ -3632,21 +3666,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_108",
+            "manufacturerUniqueId": "ZF_108",
+            "uniqueId": "ZF_108"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_27",
-                "BILSTEIN_108",
-                "GRIS_108",
+                "BILSTEIN_109",
+                "GRIS_109",
                 "ERROR_CP_74"
             ]
         },
@@ -3666,21 +3700,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_109",
+            "manufacturerUniqueId": "ZF_109",
+            "uniqueId": "ZF_109"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_30",
-                "BILSTEIN_109",
-                "GRIS_109",
+                "BILSTEIN_110",
+                "GRIS_110",
                 "ERROR_CP_83"
             ]
         },
@@ -3700,21 +3734,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_110",
+            "manufacturerUniqueId": "ZF_110",
+            "uniqueId": "ZF_110"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_33",
-                "BILSTEIN_110",
-                "GRIS_110",
+                "BILSTEIN_111",
+                "GRIS_111",
                 "ERROR_CP_92"
             ]
         },
@@ -3734,21 +3768,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_111",
+            "manufacturerUniqueId": "ZF_111",
+            "uniqueId": "ZF_111"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_36",
-                "BILSTEIN_111",
-                "GRIS_111",
+                "BILSTEIN_112",
+                "GRIS_112",
                 "ERROR_CP_101"
             ]
         },
@@ -3768,21 +3802,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_112",
+            "manufacturerUniqueId": "ZF_112",
+            "uniqueId": "ZF_112"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_39",
-                "BILSTEIN_112",
-                "GRIS_112",
+                "BILSTEIN_113",
+                "GRIS_113",
                 "ERROR_CP_110"
             ]
         },
@@ -3802,21 +3836,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_113",
+            "manufacturerUniqueId": "ZF_113",
+            "uniqueId": "ZF_113"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_42",
-                "BILSTEIN_113",
-                "GRIS_113",
+                "BILSTEIN_114",
+                "GRIS_114",
                 "ERROR_CP_119"
             ]
         },
@@ -3836,21 +3870,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_114",
+            "manufacturerUniqueId": "ZF_114",
+            "uniqueId": "ZF_114"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_45",
-                "BILSTEIN_114",
-                "GRIS_114",
+                "BILSTEIN_115",
+                "GRIS_115",
                 "ERROR_CP_128"
             ]
         },
@@ -3870,21 +3904,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_115",
+            "manufacturerUniqueId": "ZF_115",
+            "uniqueId": "ZF_115"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_48",
-                "BILSTEIN_115",
-                "GRIS_115",
+                "BILSTEIN_116",
+                "GRIS_116",
                 "ERROR_CP_137"
             ]
         },
@@ -3904,21 +3938,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_116",
+            "manufacturerUniqueId": "ZF_116",
+            "uniqueId": "ZF_116"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_51",
-                "BILSTEIN_116",
-                "GRIS_116",
+                "BILSTEIN_117",
+                "GRIS_117",
                 "ERROR_CP_146"
             ]
         },
@@ -3938,21 +3972,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_117",
+            "manufacturerUniqueId": "ZF_117",
+            "uniqueId": "ZF_117"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_54",
-                "BILSTEIN_117",
-                "GRIS_117",
+                "BILSTEIN_118",
+                "GRIS_118",
                 "ERROR_CP_155"
             ]
         },
@@ -3972,21 +4006,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_118",
+            "manufacturerUniqueId": "ZF_118",
+            "uniqueId": "ZF_118"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_57",
-                "BILSTEIN_118",
-                "GRIS_118",
+                "BILSTEIN_119",
+                "GRIS_119",
                 "ERROR_CP_164"
             ]
         },
@@ -4006,21 +4040,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_119",
+            "manufacturerUniqueId": "ZF_119",
+            "uniqueId": "ZF_119"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_60",
-                "BILSTEIN_119",
-                "GRIS_119",
+                "BILSTEIN_120",
+                "GRIS_120",
                 "ERROR_CP_173"
             ]
         },
@@ -4040,21 +4074,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_120",
+            "manufacturerUniqueId": "ZF_120",
+            "uniqueId": "ZF_120"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_63",
-                "BILSTEIN_120",
-                "GRIS_120",
+                "BILSTEIN_121",
+                "GRIS_121",
                 "ERROR_CP_182"
             ]
         },
@@ -4074,21 +4108,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_121",
+            "manufacturerUniqueId": "ZF_121",
+            "uniqueId": "ZF_121"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_66",
-                "BILSTEIN_121",
-                "GRIS_121",
+                "BILSTEIN_122",
+                "GRIS_122",
                 "ERROR_CP_191"
             ]
         },
@@ -4108,21 +4142,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_122",
+            "manufacturerUniqueId": "ZF_122",
+            "uniqueId": "ZF_122"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_69",
-                "BILSTEIN_122",
-                "GRIS_122",
+                "BILSTEIN_123",
+                "GRIS_123",
                 "ERROR_CP_200"
             ]
         },
@@ -4142,21 +4176,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_123",
+            "manufacturerUniqueId": "ZF_123",
+            "uniqueId": "ZF_123"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_72",
-                "BILSTEIN_123",
-                "GRIS_123",
+                "BILSTEIN_124",
+                "GRIS_124",
                 "ERROR_CP_209"
             ]
         },
@@ -4176,21 +4210,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_124",
+            "manufacturerUniqueId": "ZF_124",
+            "uniqueId": "ZF_124"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_75",
-                "BILSTEIN_124",
-                "GRIS_124",
+                "BILSTEIN_125",
+                "GRIS_125",
                 "ERROR_CP_218"
             ]
         },
@@ -4210,21 +4244,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_125",
+            "manufacturerUniqueId": "ZF_125",
+            "uniqueId": "ZF_125"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_78",
-                "BILSTEIN_125",
-                "GRIS_125",
+                "BILSTEIN_126",
+                "GRIS_126",
                 "ERROR_CP_227"
             ]
         },
@@ -4244,21 +4278,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_126",
+            "manufacturerUniqueId": "ZF_126",
+            "uniqueId": "ZF_126"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_81",
-                "BILSTEIN_126",
-                "GRIS_126",
+                "BILSTEIN_127",
+                "GRIS_127",
                 "ERROR_CP_236"
             ]
         },
@@ -4278,21 +4312,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_127",
+            "manufacturerUniqueId": "ZF_127",
+            "uniqueId": "ZF_127"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_84",
-                "BILSTEIN_127",
-                "GRIS_127",
+                "BILSTEIN_128",
+                "GRIS_128",
                 "ERROR_CP_245"
             ]
         },
@@ -4312,21 +4346,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_128",
+            "manufacturerUniqueId": "ZF_128",
+            "uniqueId": "ZF_128"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_87",
-                "BILSTEIN_128",
-                "GRIS_128",
+                "BILSTEIN_129",
+                "GRIS_129",
                 "ERROR_CP_254"
             ]
         },
@@ -4346,21 +4380,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_129",
+            "manufacturerUniqueId": "ZF_129",
+            "uniqueId": "ZF_129"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_90",
-                "BILSTEIN_129",
-                "GRIS_129",
+                "BILSTEIN_130",
+                "GRIS_130",
                 "ERROR_CP_263"
             ]
         },
@@ -4380,21 +4414,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_130",
+            "manufacturerUniqueId": "ZF_130",
+            "uniqueId": "ZF_130"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_93",
-                "BILSTEIN_130",
-                "GRIS_130",
+                "BILSTEIN_131",
+                "GRIS_131",
                 "ERROR_CP_272"
             ]
         },
@@ -4414,21 +4448,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_131",
+            "manufacturerUniqueId": "ZF_131",
+            "uniqueId": "ZF_131"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_96",
-                "BILSTEIN_131",
-                "GRIS_131",
+                "BILSTEIN_132",
+                "GRIS_132",
                 "ERROR_CP_281"
             ]
         },
@@ -4448,21 +4482,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_132",
+            "manufacturerUniqueId": "ZF_132",
+            "uniqueId": "ZF_132"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_99",
-                "BILSTEIN_132",
-                "GRIS_132",
+                "BILSTEIN_133",
+                "GRIS_133",
                 "ERROR_CP_290"
             ]
         },
@@ -4482,21 +4516,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_133",
+            "manufacturerUniqueId": "ZF_133",
+            "uniqueId": "ZF_133"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_102",
-                "BILSTEIN_133",
-                "GRIS_133",
+                "BILSTEIN_134",
+                "GRIS_134",
                 "ERROR_CP_299"
             ]
         },
@@ -4516,21 +4550,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_134",
+            "manufacturerUniqueId": "ZF_134",
+            "uniqueId": "ZF_134"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_105",
-                "BILSTEIN_134",
-                "GRIS_134",
+                "BILSTEIN_135",
+                "GRIS_135",
                 "ERROR_CP_308"
             ]
         },
@@ -4550,21 +4584,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_135",
+            "manufacturerUniqueId": "ZF_135",
+            "uniqueId": "ZF_135"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_108",
-                "BILSTEIN_135",
-                "GRIS_135",
+                "BILSTEIN_136",
+                "GRIS_136",
                 "ERROR_CP_317"
             ]
         },
@@ -4584,21 +4618,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_136",
+            "manufacturerUniqueId": "ZF_136",
+            "uniqueId": "ZF_136"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_111",
-                "BILSTEIN_136",
-                "GRIS_136",
+                "BILSTEIN_137",
+                "GRIS_137",
                 "ERROR_CP_326"
             ]
         },
@@ -4618,21 +4652,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_137",
+            "manufacturerUniqueId": "ZF_137",
+            "uniqueId": "ZF_137"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_114",
-                "BILSTEIN_137",
-                "GRIS_137",
+                "BILSTEIN_138",
+                "GRIS_138",
                 "ERROR_CP_335"
             ]
         },
@@ -4652,21 +4686,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_138",
+            "manufacturerUniqueId": "ZF_138",
+            "uniqueId": "ZF_138"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_117",
-                "BILSTEIN_138",
-                "GRIS_138",
+                "BILSTEIN_139",
+                "GRIS_139",
                 "ERROR_CP_344"
             ]
         },
@@ -4686,21 +4720,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_139",
+            "manufacturerUniqueId": "ZF_139",
+            "uniqueId": "ZF_139"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_120",
-                "BILSTEIN_139",
-                "GRIS_139",
+                "BILSTEIN_140",
+                "GRIS_140",
                 "ERROR_CP_353"
             ]
         },
@@ -4720,21 +4754,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_140",
+            "manufacturerUniqueId": "ZF_140",
+            "uniqueId": "ZF_140"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_123",
-                "BILSTEIN_140",
-                "GRIS_140",
+                "BILSTEIN_141",
+                "GRIS_141",
                 "ERROR_CP_362"
             ]
         },
@@ -4754,21 +4788,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_141",
+            "manufacturerUniqueId": "ZF_141",
+            "uniqueId": "ZF_141"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_126",
-                "BILSTEIN_141",
-                "GRIS_141",
+                "BILSTEIN_142",
+                "GRIS_142",
                 "ERROR_CP_371"
             ]
         },
@@ -4788,21 +4822,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_142",
+            "manufacturerUniqueId": "ZF_142",
+            "uniqueId": "ZF_142"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_129",
-                "BILSTEIN_142",
-                "GRIS_142",
+                "BILSTEIN_143",
+                "GRIS_143",
                 "ERROR_CP_380"
             ]
         },
@@ -4822,21 +4856,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_143",
+            "manufacturerUniqueId": "ZF_143",
+            "uniqueId": "ZF_143"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_132",
-                "BILSTEIN_143",
-                "GRIS_143",
+                "BILSTEIN_144",
+                "GRIS_144",
                 "ERROR_CP_389"
             ]
         },
@@ -4856,21 +4890,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_144",
+            "manufacturerUniqueId": "ZF_144",
+            "uniqueId": "ZF_144"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_135",
-                "BILSTEIN_144",
-                "GRIS_144",
+                "BILSTEIN_145",
+                "GRIS_145",
                 "ERROR_CP_398"
             ]
         },
@@ -4890,21 +4924,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_145",
+            "manufacturerUniqueId": "ZF_145",
+            "uniqueId": "ZF_145"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_138",
-                "BILSTEIN_145",
-                "GRIS_145",
+                "BILSTEIN_146",
+                "GRIS_146",
                 "ERROR_CP_407"
             ]
         },
@@ -4924,21 +4958,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_146",
+            "manufacturerUniqueId": "ZF_146",
+            "uniqueId": "ZF_146"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_141",
-                "BILSTEIN_146",
-                "GRIS_146",
+                "BILSTEIN_147",
+                "GRIS_147",
                 "ERROR_CP_416"
             ]
         },
@@ -4958,21 +4992,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_147",
+            "manufacturerUniqueId": "ZF_147",
+            "uniqueId": "ZF_147"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_144",
-                "BILSTEIN_147",
-                "GRIS_147",
+                "BILSTEIN_148",
+                "GRIS_148",
                 "ERROR_CP_425"
             ]
         },
@@ -4992,21 +5026,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_148",
+            "manufacturerUniqueId": "ZF_148",
+            "uniqueId": "ZF_148"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_147",
-                "BILSTEIN_148",
-                "GRIS_148",
+                "BILSTEIN_149",
+                "GRIS_149",
                 "ERROR_CP_434"
             ]
         },
@@ -5026,21 +5060,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_149",
+            "manufacturerUniqueId": "ZF_149",
+            "uniqueId": "ZF_149"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_150",
-                "BILSTEIN_149",
-                "GRIS_149",
+                "BILSTEIN_150",
+                "GRIS_150",
                 "ERROR_CP_443"
             ]
         },
@@ -5060,21 +5094,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_150",
+            "manufacturerUniqueId": "ZF_150",
+            "uniqueId": "ZF_150"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_153",
-                "BILSTEIN_150",
-                "GRIS_150",
+                "BILSTEIN_151",
+                "GRIS_151",
                 "ERROR_CP_452"
             ]
         },
@@ -5094,21 +5128,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_151",
+            "manufacturerUniqueId": "ZF_151",
+            "uniqueId": "ZF_151"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_156",
-                "BILSTEIN_151",
-                "GRIS_151",
+                "BILSTEIN_152",
+                "GRIS_152",
                 "ERROR_CP_461"
             ]
         },
@@ -5128,21 +5162,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_152",
+            "manufacturerUniqueId": "ZF_152",
+            "uniqueId": "ZF_152"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_159",
-                "BILSTEIN_152",
-                "GRIS_152",
+                "BILSTEIN_153",
+                "GRIS_153",
                 "ERROR_CP_470"
             ]
         },
@@ -5162,21 +5196,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_153",
+            "manufacturerUniqueId": "ZF_153",
+            "uniqueId": "ZF_153"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_162",
-                "BILSTEIN_153",
-                "GRIS_153",
+                "BILSTEIN_154",
+                "GRIS_154",
                 "ERROR_CP_479"
             ]
         },
@@ -5196,21 +5230,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_154",
+            "manufacturerUniqueId": "ZF_154",
+            "uniqueId": "ZF_154"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_165",
-                "BILSTEIN_154",
-                "GRIS_154",
+                "BILSTEIN_155",
+                "GRIS_155",
                 "ERROR_CP_488"
             ]
         },
@@ -5230,21 +5264,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_155",
+            "manufacturerUniqueId": "ZF_155",
+            "uniqueId": "ZF_155"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_168",
-                "BILSTEIN_155",
-                "GRIS_155",
+                "BILSTEIN_156",
+                "GRIS_156",
                 "ERROR_CP_497"
             ]
         },
@@ -5264,21 +5298,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_156",
+            "manufacturerUniqueId": "ZF_156",
+            "uniqueId": "ZF_156"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_171",
-                "BILSTEIN_156",
-                "GRIS_156",
+                "BILSTEIN_157",
+                "GRIS_157",
                 "ERROR_CP_506"
             ]
         },
@@ -5298,21 +5332,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_157",
+            "manufacturerUniqueId": "ZF_157",
+            "uniqueId": "ZF_157"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_174",
-                "BILSTEIN_157",
-                "GRIS_157",
+                "BILSTEIN_158",
+                "GRIS_158",
                 "ERROR_CP_515"
             ]
         },
@@ -5332,21 +5366,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_158",
+            "manufacturerUniqueId": "ZF_158",
+            "uniqueId": "ZF_158"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_177",
-                "BILSTEIN_158",
-                "GRIS_158",
+                "BILSTEIN_159",
+                "GRIS_159",
                 "ERROR_CP_524"
             ]
         },
@@ -5366,21 +5400,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_159",
+            "manufacturerUniqueId": "ZF_159",
+            "uniqueId": "ZF_159"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_180",
-                "BILSTEIN_159",
-                "GRIS_159",
+                "BILSTEIN_160",
+                "GRIS_160",
                 "ERROR_CP_533"
             ]
         },
@@ -5400,21 +5434,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_160",
+            "manufacturerUniqueId": "ZF_160",
+            "uniqueId": "ZF_160"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_183",
-                "BILSTEIN_160",
-                "GRIS_160",
+                "BILSTEIN_161",
+                "GRIS_161",
                 "ERROR_CP_542"
             ]
         },
@@ -5434,21 +5468,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_161",
+            "manufacturerUniqueId": "ZF_161",
+            "uniqueId": "ZF_161"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_186",
-                "BILSTEIN_161",
-                "GRIS_161",
+                "BILSTEIN_162",
+                "GRIS_162",
                 "ERROR_CP_551"
             ]
         },
@@ -5468,21 +5502,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_162",
+            "manufacturerUniqueId": "ZF_162",
+            "uniqueId": "ZF_162"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_189",
-                "BILSTEIN_162",
-                "GRIS_162",
+                "BILSTEIN_163",
+                "GRIS_163",
                 "ERROR_CP_560"
             ]
         },
@@ -5502,21 +5536,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_163",
+            "manufacturerUniqueId": "ZF_163",
+            "uniqueId": "ZF_163"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_192",
-                "BILSTEIN_163",
-                "GRIS_163",
+                "BILSTEIN_164",
+                "GRIS_164",
                 "ERROR_CP_569"
             ]
         },
@@ -5536,21 +5570,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_164",
+            "manufacturerUniqueId": "ZF_164",
+            "uniqueId": "ZF_164"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_195",
-                "BILSTEIN_164",
-                "GRIS_164",
+                "BILSTEIN_165",
+                "GRIS_165",
                 "ERROR_CP_578"
             ]
         },
@@ -5570,21 +5604,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_165",
+            "manufacturerUniqueId": "ZF_165",
+            "uniqueId": "ZF_165"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_198",
-                "BILSTEIN_165",
-                "GRIS_165",
+                "BILSTEIN_166",
+                "GRIS_166",
                 "ERROR_CP_587"
             ]
         },
@@ -5604,21 +5638,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_166",
+            "manufacturerUniqueId": "ZF_166",
+            "uniqueId": "ZF_166"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_201",
-                "BILSTEIN_166",
-                "GRIS_166",
+                "BILSTEIN_167",
+                "GRIS_167",
                 "ERROR_CP_596"
             ]
         },
@@ -5638,21 +5672,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_167",
+            "manufacturerUniqueId": "ZF_167",
+            "uniqueId": "ZF_167"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_204",
-                "BILSTEIN_167",
-                "GRIS_167",
+                "BILSTEIN_168",
+                "GRIS_168",
                 "ERROR_CP_605"
             ]
         },
@@ -5672,21 +5706,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_168",
+            "manufacturerUniqueId": "ZF_168",
+            "uniqueId": "ZF_168"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_207",
-                "BILSTEIN_168",
-                "GRIS_168",
+                "BILSTEIN_169",
+                "GRIS_169",
                 "ERROR_CP_614"
             ]
         },
@@ -5706,21 +5740,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_169",
+            "manufacturerUniqueId": "ZF_169",
+            "uniqueId": "ZF_169"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_210",
-                "BILSTEIN_169",
-                "GRIS_169",
+                "BILSTEIN_170",
+                "GRIS_170",
                 "ERROR_CP_623"
             ]
         },
@@ -5740,21 +5774,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_170",
+            "manufacturerUniqueId": "ZF_170",
+            "uniqueId": "ZF_170"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_213",
-                "BILSTEIN_170",
-                "GRIS_170",
+                "BILSTEIN_171",
+                "GRIS_171",
                 "ERROR_CP_632"
             ]
         },
@@ -5774,21 +5808,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_171",
+            "manufacturerUniqueId": "ZF_171",
+            "uniqueId": "ZF_171"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_216",
-                "BILSTEIN_171",
-                "GRIS_171",
+                "BILSTEIN_172",
+                "GRIS_172",
                 "ERROR_CP_641"
             ]
         },
@@ -5808,21 +5842,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_172",
+            "manufacturerUniqueId": "ZF_172",
+            "uniqueId": "ZF_172"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_219",
-                "BILSTEIN_172",
-                "GRIS_172",
+                "BILSTEIN_173",
+                "GRIS_173",
                 "ERROR_CP_650"
             ]
         },
@@ -5842,21 +5876,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_173",
+            "manufacturerUniqueId": "ZF_173",
+            "uniqueId": "ZF_173"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_222",
-                "BILSTEIN_173",
-                "GRIS_173",
+                "BILSTEIN_174",
+                "GRIS_174",
                 "ERROR_CP_659"
             ]
         },
@@ -5876,21 +5910,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_174",
+            "manufacturerUniqueId": "ZF_174",
+            "uniqueId": "ZF_174"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_225",
-                "BILSTEIN_174",
-                "GRIS_174",
+                "BILSTEIN_175",
+                "GRIS_175",
                 "ERROR_CP_668"
             ]
         },
@@ -5910,21 +5944,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_175",
+            "manufacturerUniqueId": "ZF_175",
+            "uniqueId": "ZF_175"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_228",
-                "BILSTEIN_175",
-                "GRIS_175",
+                "BILSTEIN_176",
+                "GRIS_176",
                 "ERROR_CP_677"
             ]
         },
@@ -5944,21 +5978,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_176",
+            "manufacturerUniqueId": "ZF_176",
+            "uniqueId": "ZF_176"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_231",
-                "BILSTEIN_176",
-                "GRIS_176",
+                "BILSTEIN_177",
+                "GRIS_177",
                 "ERROR_CP_686"
             ]
         },
@@ -5978,21 +6012,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_177",
+            "manufacturerUniqueId": "ZF_177",
+            "uniqueId": "ZF_177"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_234",
-                "BILSTEIN_177",
-                "GRIS_177",
+                "BILSTEIN_178",
+                "GRIS_178",
                 "ERROR_CP_695"
             ]
         },
@@ -6012,21 +6046,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_178",
+            "manufacturerUniqueId": "ZF_178",
+            "uniqueId": "ZF_178"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_237",
-                "BILSTEIN_178",
-                "GRIS_178",
+                "BILSTEIN_179",
+                "GRIS_179",
                 "ERROR_CP_704"
             ]
         },
@@ -6046,21 +6080,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_179",
+            "manufacturerUniqueId": "ZF_179",
+            "uniqueId": "ZF_179"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_240",
-                "BILSTEIN_179",
-                "GRIS_179",
+                "BILSTEIN_180",
+                "GRIS_180",
                 "ERROR_CP_713"
             ]
         },
@@ -6080,21 +6114,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_180",
+            "manufacturerUniqueId": "ZF_180",
+            "uniqueId": "ZF_180"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_243",
-                "BILSTEIN_180",
-                "GRIS_180",
+                "BILSTEIN_181",
+                "GRIS_181",
                 "ERROR_CP_722"
             ]
         },
@@ -6114,21 +6148,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_181",
+            "manufacturerUniqueId": "ZF_181",
+            "uniqueId": "ZF_181"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_246",
-                "BILSTEIN_181",
-                "GRIS_181",
+                "BILSTEIN_182",
+                "GRIS_182",
                 "ERROR_CP_731"
             ]
         },
@@ -6148,21 +6182,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_182",
+            "manufacturerUniqueId": "ZF_182",
+            "uniqueId": "ZF_182"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_249",
-                "BILSTEIN_182",
-                "GRIS_182",
+                "BILSTEIN_183",
+                "GRIS_183",
                 "ERROR_CP_740"
             ]
         },
@@ -6182,21 +6216,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_183",
+            "manufacturerUniqueId": "ZF_183",
+            "uniqueId": "ZF_183"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_252",
-                "BILSTEIN_183",
-                "GRIS_183",
+                "BILSTEIN_184",
+                "GRIS_184",
                 "ERROR_CP_749"
             ]
         },
@@ -6216,21 +6250,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_184",
+            "manufacturerUniqueId": "ZF_184",
+            "uniqueId": "ZF_184"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_255",
-                "BILSTEIN_184",
-                "GRIS_184",
+                "BILSTEIN_185",
+                "GRIS_185",
                 "ERROR_CP_758"
             ]
         },
@@ -6250,21 +6284,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_185",
+            "manufacturerUniqueId": "ZF_185",
+            "uniqueId": "ZF_185"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_258",
-                "BILSTEIN_185",
-                "GRIS_185",
+                "BILSTEIN_186",
+                "GRIS_186",
                 "ERROR_CP_767"
             ]
         },
@@ -6284,21 +6318,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_186",
+            "manufacturerUniqueId": "ZF_186",
+            "uniqueId": "ZF_186"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_261",
-                "BILSTEIN_186",
-                "GRIS_186",
+                "BILSTEIN_187",
+                "GRIS_187",
                 "ERROR_CP_776"
             ]
         },
@@ -6318,21 +6352,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_187",
+            "manufacturerUniqueId": "ZF_187",
+            "uniqueId": "ZF_187"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_264",
-                "BILSTEIN_187",
-                "GRIS_187",
+                "BILSTEIN_188",
+                "GRIS_188",
                 "ERROR_CP_785"
             ]
         },
@@ -6352,21 +6386,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_188",
+            "manufacturerUniqueId": "ZF_188",
+            "uniqueId": "ZF_188"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_267",
-                "BILSTEIN_188",
-                "GRIS_188",
+                "BILSTEIN_189",
+                "GRIS_189",
                 "ERROR_CP_794"
             ]
         },
@@ -6386,21 +6420,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_189",
+            "manufacturerUniqueId": "ZF_189",
+            "uniqueId": "ZF_189"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_270",
-                "BILSTEIN_189",
-                "GRIS_189",
+                "BILSTEIN_190",
+                "GRIS_190",
                 "ERROR_CP_803"
             ]
         },
@@ -6420,21 +6454,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_190",
+            "manufacturerUniqueId": "ZF_190",
+            "uniqueId": "ZF_190"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_273",
-                "BILSTEIN_190",
-                "GRIS_190",
+                "BILSTEIN_191",
+                "GRIS_191",
                 "ERROR_CP_812"
             ]
         },
@@ -6454,21 +6488,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_191",
+            "manufacturerUniqueId": "ZF_191",
+            "uniqueId": "ZF_191"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_276",
-                "BILSTEIN_191",
-                "GRIS_191",
+                "BILSTEIN_192",
+                "GRIS_192",
                 "ERROR_CP_821"
             ]
         },
@@ -6488,21 +6522,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_192",
+            "manufacturerUniqueId": "ZF_192",
+            "uniqueId": "ZF_192"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_279",
-                "BILSTEIN_192",
-                "GRIS_192",
+                "BILSTEIN_193",
+                "GRIS_193",
                 "ERROR_CP_830"
             ]
         },
@@ -6522,21 +6556,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_193",
+            "manufacturerUniqueId": "ZF_193",
+            "uniqueId": "ZF_193"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_282",
-                "BILSTEIN_193",
-                "GRIS_193",
+                "BILSTEIN_194",
+                "GRIS_194",
                 "ERROR_CP_839"
             ]
         },
@@ -6556,21 +6590,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_194",
+            "manufacturerUniqueId": "ZF_194",
+            "uniqueId": "ZF_194"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_285",
-                "BILSTEIN_194",
-                "GRIS_194",
+                "BILSTEIN_195",
+                "GRIS_195",
                 "ERROR_CP_848"
             ]
         },
@@ -6590,21 +6624,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_195",
+            "manufacturerUniqueId": "ZF_195",
+            "uniqueId": "ZF_195"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_288",
-                "BILSTEIN_195",
-                "GRIS_195",
+                "BILSTEIN_196",
+                "GRIS_196",
                 "ERROR_CP_857"
             ]
         },
@@ -6624,21 +6658,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_196",
+            "manufacturerUniqueId": "ZF_196",
+            "uniqueId": "ZF_196"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_291",
-                "BILSTEIN_196",
-                "GRIS_196",
+                "BILSTEIN_197",
+                "GRIS_197",
                 "ERROR_CP_866"
             ]
         },
@@ -6658,21 +6692,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_197",
+            "manufacturerUniqueId": "ZF_197",
+            "uniqueId": "ZF_197"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_294",
-                "BILSTEIN_197",
-                "GRIS_197",
+                "BILSTEIN_198",
+                "GRIS_198",
                 "ERROR_CP_875"
             ]
         },
@@ -6692,21 +6726,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_198",
+            "manufacturerUniqueId": "ZF_198",
+            "uniqueId": "ZF_198"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_297",
-                "BILSTEIN_198",
-                "GRIS_198",
+                "BILSTEIN_199",
+                "GRIS_199",
                 "ERROR_CP_884"
             ]
         },
@@ -6726,21 +6760,21 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_199",
+            "manufacturerUniqueId": "ZF_199",
+            "uniqueId": "ZF_199"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-20"
+            "productionDateGmt": "2021-05-21"
         },
         "partTree": {
             "isParentOf": [
                 "BOSCH_300",
-                "BILSTEIN_199",
-                "GRIS_199",
+                "BILSTEIN_200",
+                "GRIS_200",
                 "ERROR_CP_893"
             ]
         },
@@ -6760,9 +6794,9 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "ZF",
-            "manufacturerUniqueId": "ZF",
-            "uniqueId": "ZF"
+            "customerUniqueId": "ZF_200",
+            "manufacturerUniqueId": "ZF_200",
+            "uniqueId": "ZF_200"
         }
     }
 ]
