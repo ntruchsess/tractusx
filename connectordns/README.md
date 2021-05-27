@@ -4,7 +4,7 @@ Connector "DNS" for the Catena-X PoC.
 
 ## Prerequisites
 
-The following tools need to be installed on your system where you run the deployment:
+The following tools need to be installed on the system where you run the deployment:
 - [Apache Maven](https://maven.apache.org/install.html)
 - [Docker Desktop](https://docs.docker.com/desktop/)
 - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
