@@ -85,7 +85,7 @@ module "aks_services" {
   
   enable_role_based_access_control = true
   rbac_aad_managed                 = true
-  rbac_aad_admin_user_name        = "maraeppl@microsoft.com"
+  rbac_aad_admin_user_name        = "admin@example.com"
 
   enable_http_application_routing  = false
   enable_azure_policy              = false
