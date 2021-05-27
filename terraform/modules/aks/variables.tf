@@ -31,6 +31,12 @@ variable "prefix" {
   type        = string
 }
 
+variable "dns_prefix" {
+  description = "(Optional) The DNS prefix for the cluster"
+  type        = string
+  default     = null
+}
+
 variable "client_id" {
   description = "(Optional) The Client ID (appId) for the Service Principal used for the AKS deployment"
   type        = string

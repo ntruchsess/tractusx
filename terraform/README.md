@@ -18,3 +18,4 @@ Run the following commands to deploy the PoC infrastructure:
 1. From the main directory of this repository, run `terraform init`
 1. Run `terraform plan`
 1. Run `terraform apply`
+1. Deploy the CA cluster issuer for TLS with `kubectl apply -f cluster-issuer.yaml`

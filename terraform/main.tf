@@ -80,11 +80,12 @@ module "aks_services" {
   orchestrator_version             = "1.19.9"
   prefix                           = "${var.prefix}-${var.environment}-aks-services"
   cluster_name                     = "${var.prefix}-${var.environment}-aks-services"
+  dns_prefix                       = "${var.prefix}${var.environment}akssrv"
   network_plugin                   = "kubenet"
   
   enable_role_based_access_control = true
   rbac_aad_managed                 = true
-  rbac_aad_admin_user_name        = "someone@example.com"
+  rbac_aad_admin_user_name        = "maraeppl@microsoft.com"
 
   enable_http_application_routing  = false
   enable_azure_policy              = false
@@ -109,7 +110,7 @@ module "aks_services" {
   log_analytics_workspace_name     = azurerm_log_analytics_workspace.shared.name
 
   tags = {
-    "environment" = "${var.environment}"
+    environment = "${var.environment}"
   }
 
   depends_on = [module.aks_vnet]
@@ -123,10 +124,9 @@ resource "azurerm_role_assignment" "aks_to_acr" {
 }
 
 ####################################################################################################
-# NGINX Ingress Controller
+# NGINX Ingress with TLS
 ####################################################################################################
 
-# create namespace for NGINX ingress controller resources
 provider "kubernetes" {
   host                   = module.aks_services.kube_admin_config.0.host
   username               = module.aks_services.kube_admin_config.0.username
@@ -136,14 +136,32 @@ provider "kubernetes" {
   cluster_ca_certificate = base64decode(module.aks_services.kube_admin_config.0.cluster_ca_certificate)
 }
 
+# create namespace for NGINX ingress controller resources
 resource "kubernetes_namespace" "ingress_nginx_namespace" {
   metadata {
     name = "ingress-nginx"
+    labels = {
+      "cert-manager.io/disable-validation" = "true"
+    }
   }
 }
 
-# deploy NGINX ingress controller with Helm
+# Create static public IP Address to be used by NGINX ingress controller
+resource "azurerm_public_ip" "ingress_ip" {
+  name                = "${var.prefix}-${var.environment}-ingress-pip"
+  location            = azurerm_resource_group.default_rg.location
+  resource_group_name = "${module.aks_services.node_resource_group}"
+  sku                 = "Standard"
+  allocation_method   = "Static"
+  domain_name_label   = "${var.prefix}${var.environment}akssrv"
+  
+  tags = {
+    environment = "${var.environment}"
+  }
+}
+
 provider "helm" {
+    debug = true
     kubernetes {
         host     = module.aks_services.kube_admin_config.0.host
         client_key             = base64decode(module.aks_services.kube_admin_config.0.client_key)
@@ -152,14 +170,74 @@ provider "helm" {
     }  
 }
 
+# deploy NGINX ingress controller with Helm
 resource "helm_release" "nginx_ingress" {
   name       = "ingress-nginx"
   chart      = "ingress-nginx"
   namespace  = kubernetes_namespace.ingress_nginx_namespace.metadata[0].name
   repository = "https://kubernetes.github.io/ingress-nginx"
-
+  timeout    = 300
+  
   set {
-    name  = "service.type"
-    value = "LoadBalancer"
+    name  = "controller.service.loadBalancerIP"
+    value = "${azurerm_public_ip.ingress_ip.ip_address}"
+  }
+  set {
+    name  = "controller.service.annotations.\"service\\.beta\\.kubernetes\\.io/azure-load-balancer-resource-group\""
+    value = "${module.aks_services.node_resource_group}"
+  }
+  set {
+    name  = "controller.service.annotations.\"service\\.beta\\.kubernetes\\.io/azure-dns-label-name\""
+    value = "${var.prefix}${var.environment}akssrv"
+  }
+
+  depends_on = [module.aks_services, azurerm_public_ip.ingress_ip]
+}
+
+####################################################################################################
+# cert-manager for TLS with Letsencrypt certificates
+####################################################################################################
+
+# create namespace for cert-manager resources
+resource "kubernetes_namespace" "cert_manager_namespace" {
+  metadata {
+    name = "cert-manager"
+    labels = {
+      "cert-manager.io/disable-validation" = "true"
+    }
+  }
+}
+
+# Deploy cert-manager for TLS with Helm
+resource "helm_release" "cert-manager" {
+  name       = "cert-manager"
+  chart      = "cert-manager"
+  version    = "1.3.1"
+
+  namespace  = kubernetes_namespace.cert_manager_namespace.metadata[0].name
+  repository = "https://charts.jetstack.io"
+  timeout    = 300
+  
+  set {
+    name  = "installCRDs"
+    value = "true"
+  }
+}
+
+####################################################################################################
+# Create namespaces for services
+####################################################################################################
+
+# Connector DNS
+resource "kubernetes_namespace" "cdns_namespace" {
+  metadata {
+    name = "cdns"
+  }
+}
+
+# Catena-X Portal
+resource "kubernetes_namespace" "portal_namespace" {
+  metadata {
+    name = "portal"
   }
 }

@@ -4,7 +4,7 @@ resource "azurerm_kubernetes_cluster" "main" {
   location                = var.location
   resource_group_name     = var.resource_group_name
   node_resource_group     = var.node_resource_group
-  dns_prefix              = var.prefix
+  dns_prefix              = var.dns_prefix
   sku_tier                = var.sku_tier
   private_cluster_enabled = var.private_cluster_enabled
 
