@@ -23,3 +23,7 @@ Follow these steps to build and deploy the Connector DNS service:
 1. Deploy the service to AKS with `kubectl apply -f .\cdns.yaml -n cdns`
 1. Deploy the ingress route to the service with `kubectl apply -f .\cdns-ingress.yaml -n cdns`
 1. Check if the service is running with `https://catenax<landscape>akssrv.germanywestcentral.cloudapp.azure.com/cdns`
+
+## Automated deployment
+
+GitHub actions are setup for this service to automate the steps above. Please go [here](../.github/workflows/main.yml) for details.
