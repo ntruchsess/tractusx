@@ -19,8 +19,10 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       
-      - name: Build with Maven
-        run: mvn --batch-mode --update-snapshots verify        
+      - name: Build with Maven   
+        run: |
+          cd connectordns
+          mvn --batch-mode --update-snapshots verify 
      
       - name: 'Login via Azure CLI'
         uses: azure/login@v1
