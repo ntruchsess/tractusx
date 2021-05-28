@@ -26,4 +26,4 @@ Follow these steps to build and deploy the Connector DNS service:
 
 ## Automated deployment
 
-GitHub actions are setup for this service to automate the steps above. Please go [here](../.github/workflows/main.yml) for details.
+GitHub actions are setup for this service to automate the steps above. Please see [here](../.github/workflows/main.yml) for details.
