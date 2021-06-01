@@ -85,8 +85,8 @@ stages:
             inputs:
               action: deploy
               manifests: |
-                $(Pipeline.Workspace)/connectordns/cdns.yaml
-                $(Pipeline.Workspace)/connectordns/cdns-ingress.yaml
+                ./connectordns/cdns.yaml
+                ./connectordns/cdns-ingress.yaml
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |
