@@ -4,7 +4,7 @@ name: $(BuildID)
 trigger:
   branches:
     include:
-      - master
+      - main
   paths:
     exclude:
       - 'connectordns/*'
