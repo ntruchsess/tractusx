@@ -12,8 +12,8 @@ info:
     email: felix.gerbig@bmw.de
 
 servers:
-  - url: https://data.catenax-poc-dsc.bmw.cloud 
-  
+  - url: https://data.catenax-poc-dsc.bmw.cloud
+
 paths:
   /cdh-ids/get-data:
     get:
@@ -21,7 +21,7 @@ paths:
       description: Retrieve existing mock data according to information model
       operationId: getData
       tags:
-        - "Mock Data"
+        - "Mock  Data"
       parameters:
         - name: company
           in: query
@@ -31,7 +31,7 @@ paths:
             $ref: "#/components/schemas/OneIDBusinessPartner"
         - name: fromDate
           in: query
-          description: Starting date to include data in the query. 
+          description: Starting date to include data in the query.
           required: true
           schema:
             $ref: "#/components/schemas/Date"
@@ -41,6 +41,12 @@ paths:
           required: true
           schema:
             $ref: "#/components/schemas/Date"
+        - in: header
+          name: x-api-key
+          required: true
+          description: API Key needed to access the API. Contact felix.gerbig@bmw.de.
+          schema:
+            type: string
       responses:
         '200':
           description: Mock Data
@@ -60,7 +66,7 @@ paths:
   /generate-new-data:
     get:
       summary: Generate New Mock Data
-      description: Generates New Mock Data 
+      description: Generates New Mock Data
       operationId: generateData
       tags:
         - "Mock Data"
@@ -71,6 +77,12 @@ paths:
           required: true
           schema:
             $ref: "#/components/schemas/PartMasterData"
+        - in: header
+          name: x-api-key
+          required: true
+          description: API Key needed to access the API. Contact felix.gerbig@bmw.de.
+          schema:
+            type: string
       responses:
         '200':
           description: New Mock Data
@@ -116,13 +128,13 @@ components:
           $ref: "#/components/schemas/PartUniqueData"
         individualData:
           $ref: "#/components/schemas/PartIndividualData"
-          
+
         supplyTree:
           $ref: "#/components/schemas/SupplyTreeParent"
         partTree:
           $ref: "#/components/schemas/PartTreeParent"
         qualityAlert:
-          $ref: "#/components/schemas/QualityAlert" 
+          $ref: "#/components/schemas/QualityAlert"
 
     PartStaticData:
       required:
@@ -167,7 +179,7 @@ components:
           type: string
           description: Type/Part No. of customer product
           example: "1122334455"
-          
+
     PartUniqueData:
       required:
         - uniqueID
@@ -186,7 +198,7 @@ components:
           type: string
           description: SerialNo. Of customer
           example: "333"
-          
+
     PartIndividualData:
       required:
         - productionCountryCode
@@ -202,7 +214,7 @@ components:
           type: string
           description: Production Date without timestamp
           format: date
-          
+
     QualityAlert:
       description: Quality Alert
       properties:
@@ -215,7 +227,7 @@ components:
             - MAJOR
             - MINOR
 
-          
+
     SupplyTreeParent:
       properties:
         isParentOf:
@@ -224,7 +236,7 @@ components:
             type: string
             example: 0000003_ZF
           description: pNM*, pNM
-            
+
     PartTreeParent:
       properties:
         isParentOf:
@@ -233,15 +245,15 @@ components:
             type: string
             example: G05
           description: UID, UID
-          
-      
+
+
     Date:
       description: ISO Conform Date without time
       example: "2020-03-31"
       type: string
       minLength: 10
       maxLength: 10
-          
+
     Error:
       properties:
         code:
@@ -251,4 +263,3 @@ components:
           type: string
         fields:
           type: string
-
