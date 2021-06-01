@@ -17,17 +17,28 @@ Onboarding:
 - Business Partner Management will be integrated with mocked data and services
 - Onboarding is demonstrated with an existing Business Partner OneID
 
+Parts Master Data:
+- Integration Scenario 1a: central service supplied by parts data via app integration through connectors
+- parts data (mocked) is ingested into apps via connector
+- all enterprise parts data comes from a single mock service via connector
+
+App-Integration:
+- Pseudo-Push Eventing for QualityAlerts
+- Adapters need to implement the sending and receiving elements
+- A Connector DNS service will be used to translate between company oneid and connectorid
+
 Upload-App:
 - static mapping of custom fields towards tractus-x information model
 
 IDS Components:
 - Use DAPS instance from Fraunhofer
-- Fraunhofer will provider certificates for connectors
+- Fraunhofer will provide certificates for connectors
 - Broker will be setup as backend component to evaluate the technical integration of different Dataspace Connectors. Connection to fronend to be discussed. Frontend mock will be available.
 
 Infrastructure:
 - Portal, Connectors and services will all be containerized
 - Kubernetes will be used as managed service 
+- Azure natvie monitoring tools
 
 DevOps:
 - Use of Azure DevOps Pipeline (GitHub Actions out of scope)
