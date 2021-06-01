@@ -6,17 +6,12 @@ trigger:
     include:
       - master
   paths:
-    exclude:
+    include:
       - 'connectordns/*'
-      - 'gpm/*'
-      - 'kmuuploadapp/*'
-      - 'partsmasterdata/*'
-      - 'portal/*'
-      - 'terraform/*'
 
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
   - script: |
-      echo "Hello from root folder pipeline."
+      echo "Hello from 'connectordns'"
