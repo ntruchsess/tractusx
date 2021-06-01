@@ -15,7 +15,6 @@ resources:
 variables:
   imageRepository: 'cdns'
   containerRegistry: 'catenaxdevacr.azurecr.io'
-  dockerfilePath: './connectordns/Dockerfile'
   tag: $(BuildID)
   imagePullSecret: 'catenaxdevacr-auth'
 
@@ -80,6 +79,6 @@ stages:
               action: 'deploy'
               kubernetesServiceConnection: 'catenax-dev-aks-services-cdns'
               namespace: 'cdns'
-              manifests: 'manifests/cdns.yaml'
+              manifests: '$(Agent.BuildDirectory)/manifests/cdns.yaml'
               containers: '$(containerRegistry)/$(imageRepository):$(tag)'
               imagePullSecrets: '$(imagePullSecret)'
