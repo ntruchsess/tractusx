@@ -2,7 +2,7 @@
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -13,9 +13,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -23,15 +23,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_1",
-            "manufacturerUniqueId": "TIER1_1",
-            "uniqueId": "TIER1_1"
+            "customerUniqueId": "Partner_00005_TIER1_1",
+            "manufacturerUniqueId": "Partner_00005_TIER1_1",
+            "uniqueId": "Partner_00005_TIER1_1"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -42,9 +42,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -52,15 +52,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_2",
-            "manufacturerUniqueId": "TIER1_2",
-            "uniqueId": "TIER1_2"
+            "customerUniqueId": "Partner_00005_TIER1_2",
+            "manufacturerUniqueId": "Partner_00005_TIER1_2",
+            "uniqueId": "Partner_00005_TIER1_2"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -71,9 +71,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -81,15 +81,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_3",
-            "manufacturerUniqueId": "TIER1_3",
-            "uniqueId": "TIER1_3"
+            "customerUniqueId": "Partner_00005_TIER1_3",
+            "manufacturerUniqueId": "Partner_00005_TIER1_3",
+            "uniqueId": "Partner_00005_TIER1_3"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -100,9 +100,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -110,15 +110,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_4",
-            "manufacturerUniqueId": "TIER1_4",
-            "uniqueId": "TIER1_4"
+            "customerUniqueId": "Partner_00005_TIER1_4",
+            "manufacturerUniqueId": "Partner_00005_TIER1_4",
+            "uniqueId": "Partner_00005_TIER1_4"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -129,9 +129,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -139,15 +139,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_5",
-            "manufacturerUniqueId": "TIER1_5",
-            "uniqueId": "TIER1_5"
+            "customerUniqueId": "Partner_00005_TIER1_5",
+            "manufacturerUniqueId": "Partner_00005_TIER1_5",
+            "uniqueId": "Partner_00005_TIER1_5"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -158,9 +158,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -168,15 +168,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_6",
-            "manufacturerUniqueId": "TIER1_6",
-            "uniqueId": "TIER1_6"
+            "customerUniqueId": "Partner_00005_TIER1_6",
+            "manufacturerUniqueId": "Partner_00005_TIER1_6",
+            "uniqueId": "Partner_00005_TIER1_6"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -187,9 +187,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -197,15 +197,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_7",
-            "manufacturerUniqueId": "TIER1_7",
-            "uniqueId": "TIER1_7"
+            "customerUniqueId": "Partner_00005_TIER1_7",
+            "manufacturerUniqueId": "Partner_00005_TIER1_7",
+            "uniqueId": "Partner_00005_TIER1_7"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -216,9 +216,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -226,15 +226,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_8",
-            "manufacturerUniqueId": "TIER1_8",
-            "uniqueId": "TIER1_8"
+            "customerUniqueId": "Partner_00005_TIER1_8",
+            "manufacturerUniqueId": "Partner_00005_TIER1_8",
+            "uniqueId": "Partner_00005_TIER1_8"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -245,9 +245,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -255,15 +255,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_9",
-            "manufacturerUniqueId": "TIER1_9",
-            "uniqueId": "TIER1_9"
+            "customerUniqueId": "Partner_00005_TIER1_9",
+            "manufacturerUniqueId": "Partner_00005_TIER1_9",
+            "uniqueId": "Partner_00005_TIER1_9"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -274,9 +274,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -284,15 +284,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_10",
-            "manufacturerUniqueId": "TIER1_10",
-            "uniqueId": "TIER1_10"
+            "customerUniqueId": "Partner_00005_TIER1_10",
+            "manufacturerUniqueId": "Partner_00005_TIER1_10",
+            "uniqueId": "Partner_00005_TIER1_10"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -303,9 +303,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -313,15 +313,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_11",
-            "manufacturerUniqueId": "TIER1_11",
-            "uniqueId": "TIER1_11"
+            "customerUniqueId": "Partner_00005_TIER1_11",
+            "manufacturerUniqueId": "Partner_00005_TIER1_11",
+            "uniqueId": "Partner_00005_TIER1_11"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -332,9 +332,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -342,15 +342,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_12",
-            "manufacturerUniqueId": "TIER1_12",
-            "uniqueId": "TIER1_12"
+            "customerUniqueId": "Partner_00005_TIER1_12",
+            "manufacturerUniqueId": "Partner_00005_TIER1_12",
+            "uniqueId": "Partner_00005_TIER1_12"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -361,9 +361,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -371,15 +371,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_13",
-            "manufacturerUniqueId": "TIER1_13",
-            "uniqueId": "TIER1_13"
+            "customerUniqueId": "Partner_00005_TIER1_13",
+            "manufacturerUniqueId": "Partner_00005_TIER1_13",
+            "uniqueId": "Partner_00005_TIER1_13"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -390,9 +390,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -400,15 +400,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_14",
-            "manufacturerUniqueId": "TIER1_14",
-            "uniqueId": "TIER1_14"
+            "customerUniqueId": "Partner_00005_TIER1_14",
+            "manufacturerUniqueId": "Partner_00005_TIER1_14",
+            "uniqueId": "Partner_00005_TIER1_14"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -419,9 +419,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -429,15 +429,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_15",
-            "manufacturerUniqueId": "TIER1_15",
-            "uniqueId": "TIER1_15"
+            "customerUniqueId": "Partner_00005_TIER1_15",
+            "manufacturerUniqueId": "Partner_00005_TIER1_15",
+            "uniqueId": "Partner_00005_TIER1_15"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -448,9 +448,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -458,15 +458,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_16",
-            "manufacturerUniqueId": "TIER1_16",
-            "uniqueId": "TIER1_16"
+            "customerUniqueId": "Partner_00005_TIER1_16",
+            "manufacturerUniqueId": "Partner_00005_TIER1_16",
+            "uniqueId": "Partner_00005_TIER1_16"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -477,9 +477,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -487,15 +487,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_17",
-            "manufacturerUniqueId": "TIER1_17",
-            "uniqueId": "TIER1_17"
+            "customerUniqueId": "Partner_00005_TIER1_17",
+            "manufacturerUniqueId": "Partner_00005_TIER1_17",
+            "uniqueId": "Partner_00005_TIER1_17"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -506,9 +506,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -516,15 +516,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_18",
-            "manufacturerUniqueId": "TIER1_18",
-            "uniqueId": "TIER1_18"
+            "customerUniqueId": "Partner_00005_TIER1_18",
+            "manufacturerUniqueId": "Partner_00005_TIER1_18",
+            "uniqueId": "Partner_00005_TIER1_18"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -535,9 +535,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -545,15 +545,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_19",
-            "manufacturerUniqueId": "TIER1_19",
-            "uniqueId": "TIER1_19"
+            "customerUniqueId": "Partner_00005_TIER1_19",
+            "manufacturerUniqueId": "Partner_00005_TIER1_19",
+            "uniqueId": "Partner_00005_TIER1_19"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -564,9 +564,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -574,15 +574,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_20",
-            "manufacturerUniqueId": "TIER1_20",
-            "uniqueId": "TIER1_20"
+            "customerUniqueId": "Partner_00005_TIER1_20",
+            "manufacturerUniqueId": "Partner_00005_TIER1_20",
+            "uniqueId": "Partner_00005_TIER1_20"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -593,9 +593,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -603,15 +603,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_21",
-            "manufacturerUniqueId": "TIER1_21",
-            "uniqueId": "TIER1_21"
+            "customerUniqueId": "Partner_00005_TIER1_21",
+            "manufacturerUniqueId": "Partner_00005_TIER1_21",
+            "uniqueId": "Partner_00005_TIER1_21"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -622,9 +622,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -632,15 +632,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_22",
-            "manufacturerUniqueId": "TIER1_22",
-            "uniqueId": "TIER1_22"
+            "customerUniqueId": "Partner_00005_TIER1_22",
+            "manufacturerUniqueId": "Partner_00005_TIER1_22",
+            "uniqueId": "Partner_00005_TIER1_22"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -651,9 +651,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -661,15 +661,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_23",
-            "manufacturerUniqueId": "TIER1_23",
-            "uniqueId": "TIER1_23"
+            "customerUniqueId": "Partner_00005_TIER1_23",
+            "manufacturerUniqueId": "Partner_00005_TIER1_23",
+            "uniqueId": "Partner_00005_TIER1_23"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -680,9 +680,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -690,15 +690,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_24",
-            "manufacturerUniqueId": "TIER1_24",
-            "uniqueId": "TIER1_24"
+            "customerUniqueId": "Partner_00005_TIER1_24",
+            "manufacturerUniqueId": "Partner_00005_TIER1_24",
+            "uniqueId": "Partner_00005_TIER1_24"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -709,9 +709,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -719,15 +719,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_25",
-            "manufacturerUniqueId": "TIER1_25",
-            "uniqueId": "TIER1_25"
+            "customerUniqueId": "Partner_00005_TIER1_25",
+            "manufacturerUniqueId": "Partner_00005_TIER1_25",
+            "uniqueId": "Partner_00005_TIER1_25"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -738,9 +738,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -748,15 +748,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_26",
-            "manufacturerUniqueId": "TIER1_26",
-            "uniqueId": "TIER1_26"
+            "customerUniqueId": "Partner_00005_TIER1_26",
+            "manufacturerUniqueId": "Partner_00005_TIER1_26",
+            "uniqueId": "Partner_00005_TIER1_26"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -767,9 +767,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -777,15 +777,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_27",
-            "manufacturerUniqueId": "TIER1_27",
-            "uniqueId": "TIER1_27"
+            "customerUniqueId": "Partner_00005_TIER1_27",
+            "manufacturerUniqueId": "Partner_00005_TIER1_27",
+            "uniqueId": "Partner_00005_TIER1_27"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -796,9 +796,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -806,15 +806,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_28",
-            "manufacturerUniqueId": "TIER1_28",
-            "uniqueId": "TIER1_28"
+            "customerUniqueId": "Partner_00005_TIER1_28",
+            "manufacturerUniqueId": "Partner_00005_TIER1_28",
+            "uniqueId": "Partner_00005_TIER1_28"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -825,9 +825,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -835,15 +835,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_29",
-            "manufacturerUniqueId": "TIER1_29",
-            "uniqueId": "TIER1_29"
+            "customerUniqueId": "Partner_00005_TIER1_29",
+            "manufacturerUniqueId": "Partner_00005_TIER1_29",
+            "uniqueId": "Partner_00005_TIER1_29"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -854,9 +854,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -864,15 +864,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_30",
-            "manufacturerUniqueId": "TIER1_30",
-            "uniqueId": "TIER1_30"
+            "customerUniqueId": "Partner_00005_TIER1_30",
+            "manufacturerUniqueId": "Partner_00005_TIER1_30",
+            "uniqueId": "Partner_00005_TIER1_30"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -883,9 +883,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -893,15 +893,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_31",
-            "manufacturerUniqueId": "TIER1_31",
-            "uniqueId": "TIER1_31"
+            "customerUniqueId": "Partner_00005_TIER1_31",
+            "manufacturerUniqueId": "Partner_00005_TIER1_31",
+            "uniqueId": "Partner_00005_TIER1_31"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -912,9 +912,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -922,15 +922,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_32",
-            "manufacturerUniqueId": "TIER1_32",
-            "uniqueId": "TIER1_32"
+            "customerUniqueId": "Partner_00005_TIER1_32",
+            "manufacturerUniqueId": "Partner_00005_TIER1_32",
+            "uniqueId": "Partner_00005_TIER1_32"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -941,9 +941,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -951,15 +951,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_33",
-            "manufacturerUniqueId": "TIER1_33",
-            "uniqueId": "TIER1_33"
+            "customerUniqueId": "Partner_00005_TIER1_33",
+            "manufacturerUniqueId": "Partner_00005_TIER1_33",
+            "uniqueId": "Partner_00005_TIER1_33"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -970,9 +970,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -980,15 +980,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_34",
-            "manufacturerUniqueId": "TIER1_34",
-            "uniqueId": "TIER1_34"
+            "customerUniqueId": "Partner_00005_TIER1_34",
+            "manufacturerUniqueId": "Partner_00005_TIER1_34",
+            "uniqueId": "Partner_00005_TIER1_34"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -999,9 +999,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1009,15 +1009,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_35",
-            "manufacturerUniqueId": "TIER1_35",
-            "uniqueId": "TIER1_35"
+            "customerUniqueId": "Partner_00005_TIER1_35",
+            "manufacturerUniqueId": "Partner_00005_TIER1_35",
+            "uniqueId": "Partner_00005_TIER1_35"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1028,9 +1028,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1038,15 +1038,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_36",
-            "manufacturerUniqueId": "TIER1_36",
-            "uniqueId": "TIER1_36"
+            "customerUniqueId": "Partner_00005_TIER1_36",
+            "manufacturerUniqueId": "Partner_00005_TIER1_36",
+            "uniqueId": "Partner_00005_TIER1_36"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1057,9 +1057,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1067,15 +1067,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_37",
-            "manufacturerUniqueId": "TIER1_37",
-            "uniqueId": "TIER1_37"
+            "customerUniqueId": "Partner_00005_TIER1_37",
+            "manufacturerUniqueId": "Partner_00005_TIER1_37",
+            "uniqueId": "Partner_00005_TIER1_37"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1086,9 +1086,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1096,15 +1096,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_38",
-            "manufacturerUniqueId": "TIER1_38",
-            "uniqueId": "TIER1_38"
+            "customerUniqueId": "Partner_00005_TIER1_38",
+            "manufacturerUniqueId": "Partner_00005_TIER1_38",
+            "uniqueId": "Partner_00005_TIER1_38"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1115,9 +1115,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1125,15 +1125,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_39",
-            "manufacturerUniqueId": "TIER1_39",
-            "uniqueId": "TIER1_39"
+            "customerUniqueId": "Partner_00005_TIER1_39",
+            "manufacturerUniqueId": "Partner_00005_TIER1_39",
+            "uniqueId": "Partner_00005_TIER1_39"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1144,9 +1144,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1154,15 +1154,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_40",
-            "manufacturerUniqueId": "TIER1_40",
-            "uniqueId": "TIER1_40"
+            "customerUniqueId": "Partner_00005_TIER1_40",
+            "manufacturerUniqueId": "Partner_00005_TIER1_40",
+            "uniqueId": "Partner_00005_TIER1_40"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1173,9 +1173,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1183,15 +1183,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_41",
-            "manufacturerUniqueId": "TIER1_41",
-            "uniqueId": "TIER1_41"
+            "customerUniqueId": "Partner_00005_TIER1_41",
+            "manufacturerUniqueId": "Partner_00005_TIER1_41",
+            "uniqueId": "Partner_00005_TIER1_41"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1202,9 +1202,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1212,15 +1212,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_42",
-            "manufacturerUniqueId": "TIER1_42",
-            "uniqueId": "TIER1_42"
+            "customerUniqueId": "Partner_00005_TIER1_42",
+            "manufacturerUniqueId": "Partner_00005_TIER1_42",
+            "uniqueId": "Partner_00005_TIER1_42"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1231,9 +1231,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1241,15 +1241,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_43",
-            "manufacturerUniqueId": "TIER1_43",
-            "uniqueId": "TIER1_43"
+            "customerUniqueId": "Partner_00005_TIER1_43",
+            "manufacturerUniqueId": "Partner_00005_TIER1_43",
+            "uniqueId": "Partner_00005_TIER1_43"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1260,9 +1260,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1270,15 +1270,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_44",
-            "manufacturerUniqueId": "TIER1_44",
-            "uniqueId": "TIER1_44"
+            "customerUniqueId": "Partner_00005_TIER1_44",
+            "manufacturerUniqueId": "Partner_00005_TIER1_44",
+            "uniqueId": "Partner_00005_TIER1_44"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1289,9 +1289,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1299,15 +1299,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_45",
-            "manufacturerUniqueId": "TIER1_45",
-            "uniqueId": "TIER1_45"
+            "customerUniqueId": "Partner_00005_TIER1_45",
+            "manufacturerUniqueId": "Partner_00005_TIER1_45",
+            "uniqueId": "Partner_00005_TIER1_45"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1318,9 +1318,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1328,15 +1328,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_46",
-            "manufacturerUniqueId": "TIER1_46",
-            "uniqueId": "TIER1_46"
+            "customerUniqueId": "Partner_00005_TIER1_46",
+            "manufacturerUniqueId": "Partner_00005_TIER1_46",
+            "uniqueId": "Partner_00005_TIER1_46"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1347,9 +1347,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1357,15 +1357,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_47",
-            "manufacturerUniqueId": "TIER1_47",
-            "uniqueId": "TIER1_47"
+            "customerUniqueId": "Partner_00005_TIER1_47",
+            "manufacturerUniqueId": "Partner_00005_TIER1_47",
+            "uniqueId": "Partner_00005_TIER1_47"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1376,9 +1376,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1386,15 +1386,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_48",
-            "manufacturerUniqueId": "TIER1_48",
-            "uniqueId": "TIER1_48"
+            "customerUniqueId": "Partner_00005_TIER1_48",
+            "manufacturerUniqueId": "Partner_00005_TIER1_48",
+            "uniqueId": "Partner_00005_TIER1_48"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1405,9 +1405,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1415,15 +1415,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_49",
-            "manufacturerUniqueId": "TIER1_49",
-            "uniqueId": "TIER1_49"
+            "customerUniqueId": "Partner_00005_TIER1_49",
+            "manufacturerUniqueId": "Partner_00005_TIER1_49",
+            "uniqueId": "Partner_00005_TIER1_49"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1434,9 +1434,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1444,15 +1444,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_50",
-            "manufacturerUniqueId": "TIER1_50",
-            "uniqueId": "TIER1_50"
+            "customerUniqueId": "Partner_00005_TIER1_50",
+            "manufacturerUniqueId": "Partner_00005_TIER1_50",
+            "uniqueId": "Partner_00005_TIER1_50"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1463,9 +1463,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1473,15 +1473,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_51",
-            "manufacturerUniqueId": "TIER1_51",
-            "uniqueId": "TIER1_51"
+            "customerUniqueId": "Partner_00005_TIER1_51",
+            "manufacturerUniqueId": "Partner_00005_TIER1_51",
+            "uniqueId": "Partner_00005_TIER1_51"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1492,9 +1492,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1502,15 +1502,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_52",
-            "manufacturerUniqueId": "TIER1_52",
-            "uniqueId": "TIER1_52"
+            "customerUniqueId": "Partner_00005_TIER1_52",
+            "manufacturerUniqueId": "Partner_00005_TIER1_52",
+            "uniqueId": "Partner_00005_TIER1_52"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1521,9 +1521,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1531,15 +1531,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_53",
-            "manufacturerUniqueId": "TIER1_53",
-            "uniqueId": "TIER1_53"
+            "customerUniqueId": "Partner_00005_TIER1_53",
+            "manufacturerUniqueId": "Partner_00005_TIER1_53",
+            "uniqueId": "Partner_00005_TIER1_53"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1550,9 +1550,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1560,15 +1560,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_54",
-            "manufacturerUniqueId": "TIER1_54",
-            "uniqueId": "TIER1_54"
+            "customerUniqueId": "Partner_00005_TIER1_54",
+            "manufacturerUniqueId": "Partner_00005_TIER1_54",
+            "uniqueId": "Partner_00005_TIER1_54"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1579,9 +1579,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1589,15 +1589,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_55",
-            "manufacturerUniqueId": "TIER1_55",
-            "uniqueId": "TIER1_55"
+            "customerUniqueId": "Partner_00005_TIER1_55",
+            "manufacturerUniqueId": "Partner_00005_TIER1_55",
+            "uniqueId": "Partner_00005_TIER1_55"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1608,9 +1608,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1618,15 +1618,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_56",
-            "manufacturerUniqueId": "TIER1_56",
-            "uniqueId": "TIER1_56"
+            "customerUniqueId": "Partner_00005_TIER1_56",
+            "manufacturerUniqueId": "Partner_00005_TIER1_56",
+            "uniqueId": "Partner_00005_TIER1_56"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1637,9 +1637,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1647,15 +1647,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_57",
-            "manufacturerUniqueId": "TIER1_57",
-            "uniqueId": "TIER1_57"
+            "customerUniqueId": "Partner_00005_TIER1_57",
+            "manufacturerUniqueId": "Partner_00005_TIER1_57",
+            "uniqueId": "Partner_00005_TIER1_57"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1666,9 +1666,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1676,15 +1676,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_58",
-            "manufacturerUniqueId": "TIER1_58",
-            "uniqueId": "TIER1_58"
+            "customerUniqueId": "Partner_00005_TIER1_58",
+            "manufacturerUniqueId": "Partner_00005_TIER1_58",
+            "uniqueId": "Partner_00005_TIER1_58"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1695,9 +1695,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1705,15 +1705,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_59",
-            "manufacturerUniqueId": "TIER1_59",
-            "uniqueId": "TIER1_59"
+            "customerUniqueId": "Partner_00005_TIER1_59",
+            "manufacturerUniqueId": "Partner_00005_TIER1_59",
+            "uniqueId": "Partner_00005_TIER1_59"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1724,9 +1724,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1734,15 +1734,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_60",
-            "manufacturerUniqueId": "TIER1_60",
-            "uniqueId": "TIER1_60"
+            "customerUniqueId": "Partner_00005_TIER1_60",
+            "manufacturerUniqueId": "Partner_00005_TIER1_60",
+            "uniqueId": "Partner_00005_TIER1_60"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1753,9 +1753,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1763,15 +1763,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_61",
-            "manufacturerUniqueId": "TIER1_61",
-            "uniqueId": "TIER1_61"
+            "customerUniqueId": "Partner_00005_TIER1_61",
+            "manufacturerUniqueId": "Partner_00005_TIER1_61",
+            "uniqueId": "Partner_00005_TIER1_61"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1782,9 +1782,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1792,15 +1792,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_62",
-            "manufacturerUniqueId": "TIER1_62",
-            "uniqueId": "TIER1_62"
+            "customerUniqueId": "Partner_00005_TIER1_62",
+            "manufacturerUniqueId": "Partner_00005_TIER1_62",
+            "uniqueId": "Partner_00005_TIER1_62"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1811,9 +1811,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1821,15 +1821,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_63",
-            "manufacturerUniqueId": "TIER1_63",
-            "uniqueId": "TIER1_63"
+            "customerUniqueId": "Partner_00005_TIER1_63",
+            "manufacturerUniqueId": "Partner_00005_TIER1_63",
+            "uniqueId": "Partner_00005_TIER1_63"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1840,9 +1840,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1850,15 +1850,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_64",
-            "manufacturerUniqueId": "TIER1_64",
-            "uniqueId": "TIER1_64"
+            "customerUniqueId": "Partner_00005_TIER1_64",
+            "manufacturerUniqueId": "Partner_00005_TIER1_64",
+            "uniqueId": "Partner_00005_TIER1_64"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1869,9 +1869,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1879,15 +1879,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_65",
-            "manufacturerUniqueId": "TIER1_65",
-            "uniqueId": "TIER1_65"
+            "customerUniqueId": "Partner_00005_TIER1_65",
+            "manufacturerUniqueId": "Partner_00005_TIER1_65",
+            "uniqueId": "Partner_00005_TIER1_65"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1898,9 +1898,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1908,15 +1908,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_66",
-            "manufacturerUniqueId": "TIER1_66",
-            "uniqueId": "TIER1_66"
+            "customerUniqueId": "Partner_00005_TIER1_66",
+            "manufacturerUniqueId": "Partner_00005_TIER1_66",
+            "uniqueId": "Partner_00005_TIER1_66"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1927,9 +1927,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1937,15 +1937,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_67",
-            "manufacturerUniqueId": "TIER1_67",
-            "uniqueId": "TIER1_67"
+            "customerUniqueId": "Partner_00005_TIER1_67",
+            "manufacturerUniqueId": "Partner_00005_TIER1_67",
+            "uniqueId": "Partner_00005_TIER1_67"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1956,9 +1956,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1966,15 +1966,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_68",
-            "manufacturerUniqueId": "TIER1_68",
-            "uniqueId": "TIER1_68"
+            "customerUniqueId": "Partner_00005_TIER1_68",
+            "manufacturerUniqueId": "Partner_00005_TIER1_68",
+            "uniqueId": "Partner_00005_TIER1_68"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -1985,9 +1985,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -1995,15 +1995,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_69",
-            "manufacturerUniqueId": "TIER1_69",
-            "uniqueId": "TIER1_69"
+            "customerUniqueId": "Partner_00005_TIER1_69",
+            "manufacturerUniqueId": "Partner_00005_TIER1_69",
+            "uniqueId": "Partner_00005_TIER1_69"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -2014,9 +2014,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -2024,15 +2024,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_70",
-            "manufacturerUniqueId": "TIER1_70",
-            "uniqueId": "TIER1_70"
+            "customerUniqueId": "Partner_00005_TIER1_70",
+            "manufacturerUniqueId": "Partner_00005_TIER1_70",
+            "uniqueId": "Partner_00005_TIER1_70"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -2043,9 +2043,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -2053,15 +2053,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_71",
-            "manufacturerUniqueId": "TIER1_71",
-            "uniqueId": "TIER1_71"
+            "customerUniqueId": "Partner_00005_TIER1_71",
+            "manufacturerUniqueId": "Partner_00005_TIER1_71",
+            "uniqueId": "Partner_00005_TIER1_71"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -2072,9 +2072,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -2082,15 +2082,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_72",
-            "manufacturerUniqueId": "TIER1_72",
-            "uniqueId": "TIER1_72"
+            "customerUniqueId": "Partner_00005_TIER1_72",
+            "manufacturerUniqueId": "Partner_00005_TIER1_72",
+            "uniqueId": "Partner_00005_TIER1_72"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -2101,9 +2101,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -2111,15 +2111,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_73",
-            "manufacturerUniqueId": "TIER1_73",
-            "uniqueId": "TIER1_73"
+            "customerUniqueId": "Partner_00005_TIER1_73",
+            "manufacturerUniqueId": "Partner_00005_TIER1_73",
+            "uniqueId": "Partner_00005_TIER1_73"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -2130,9 +2130,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -2140,15 +2140,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_74",
-            "manufacturerUniqueId": "TIER1_74",
-            "uniqueId": "TIER1_74"
+            "customerUniqueId": "Partner_00005_TIER1_74",
+            "manufacturerUniqueId": "Partner_00005_TIER1_74",
+            "uniqueId": "Partner_00005_TIER1_74"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -2159,9 +2159,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -2169,15 +2169,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_75",
-            "manufacturerUniqueId": "TIER1_75",
-            "uniqueId": "TIER1_75"
+            "customerUniqueId": "Partner_00005_TIER1_75",
+            "manufacturerUniqueId": "Partner_00005_TIER1_75",
+            "uniqueId": "Partner_00005_TIER1_75"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -2188,9 +2188,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -2198,15 +2198,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_76",
-            "manufacturerUniqueId": "TIER1_76",
-            "uniqueId": "TIER1_76"
+            "customerUniqueId": "Partner_00005_TIER1_76",
+            "manufacturerUniqueId": "Partner_00005_TIER1_76",
+            "uniqueId": "Partner_00005_TIER1_76"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -2217,9 +2217,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -2227,15 +2227,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_77",
-            "manufacturerUniqueId": "TIER1_77",
-            "uniqueId": "TIER1_77"
+            "customerUniqueId": "Partner_00005_TIER1_77",
+            "manufacturerUniqueId": "Partner_00005_TIER1_77",
+            "uniqueId": "Partner_00005_TIER1_77"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -2246,9 +2246,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -2256,15 +2256,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_78",
-            "manufacturerUniqueId": "TIER1_78",
-            "uniqueId": "TIER1_78"
+            "customerUniqueId": "Partner_00005_TIER1_78",
+            "manufacturerUniqueId": "Partner_00005_TIER1_78",
+            "uniqueId": "Partner_00005_TIER1_78"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -2275,9 +2275,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -2285,15 +2285,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_79",
-            "manufacturerUniqueId": "TIER1_79",
-            "uniqueId": "TIER1_79"
+            "customerUniqueId": "Partner_00005_TIER1_79",
+            "manufacturerUniqueId": "Partner_00005_TIER1_79",
+            "uniqueId": "Partner_00005_TIER1_79"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -2304,9 +2304,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -2314,15 +2314,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_80",
-            "manufacturerUniqueId": "TIER1_80",
-            "uniqueId": "TIER1_80"
+            "customerUniqueId": "Partner_00005_TIER1_80",
+            "manufacturerUniqueId": "Partner_00005_TIER1_80",
+            "uniqueId": "Partner_00005_TIER1_80"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -2333,9 +2333,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -2343,15 +2343,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_81",
-            "manufacturerUniqueId": "TIER1_81",
-            "uniqueId": "TIER1_81"
+            "customerUniqueId": "Partner_00005_TIER1_81",
+            "manufacturerUniqueId": "Partner_00005_TIER1_81",
+            "uniqueId": "Partner_00005_TIER1_81"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -2362,9 +2362,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -2372,15 +2372,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_82",
-            "manufacturerUniqueId": "TIER1_82",
-            "uniqueId": "TIER1_82"
+            "customerUniqueId": "Partner_00005_TIER1_82",
+            "manufacturerUniqueId": "Partner_00005_TIER1_82",
+            "uniqueId": "Partner_00005_TIER1_82"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -2391,9 +2391,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -2401,15 +2401,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_83",
-            "manufacturerUniqueId": "TIER1_83",
-            "uniqueId": "TIER1_83"
+            "customerUniqueId": "Partner_00005_TIER1_83",
+            "manufacturerUniqueId": "Partner_00005_TIER1_83",
+            "uniqueId": "Partner_00005_TIER1_83"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -2420,9 +2420,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -2430,15 +2430,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_84",
-            "manufacturerUniqueId": "TIER1_84",
-            "uniqueId": "TIER1_84"
+            "customerUniqueId": "Partner_00005_TIER1_84",
+            "manufacturerUniqueId": "Partner_00005_TIER1_84",
+            "uniqueId": "Partner_00005_TIER1_84"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -2449,9 +2449,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -2459,15 +2459,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_85",
-            "manufacturerUniqueId": "TIER1_85",
-            "uniqueId": "TIER1_85"
+            "customerUniqueId": "Partner_00005_TIER1_85",
+            "manufacturerUniqueId": "Partner_00005_TIER1_85",
+            "uniqueId": "Partner_00005_TIER1_85"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -2478,9 +2478,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -2488,15 +2488,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_86",
-            "manufacturerUniqueId": "TIER1_86",
-            "uniqueId": "TIER1_86"
+            "customerUniqueId": "Partner_00005_TIER1_86",
+            "manufacturerUniqueId": "Partner_00005_TIER1_86",
+            "uniqueId": "Partner_00005_TIER1_86"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -2507,9 +2507,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -2517,15 +2517,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_87",
-            "manufacturerUniqueId": "TIER1_87",
-            "uniqueId": "TIER1_87"
+            "customerUniqueId": "Partner_00005_TIER1_87",
+            "manufacturerUniqueId": "Partner_00005_TIER1_87",
+            "uniqueId": "Partner_00005_TIER1_87"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -2536,9 +2536,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -2546,15 +2546,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_88",
-            "manufacturerUniqueId": "TIER1_88",
-            "uniqueId": "TIER1_88"
+            "customerUniqueId": "Partner_00005_TIER1_88",
+            "manufacturerUniqueId": "Partner_00005_TIER1_88",
+            "uniqueId": "Partner_00005_TIER1_88"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -2565,9 +2565,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -2575,15 +2575,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_89",
-            "manufacturerUniqueId": "TIER1_89",
-            "uniqueId": "TIER1_89"
+            "customerUniqueId": "Partner_00005_TIER1_89",
+            "manufacturerUniqueId": "Partner_00005_TIER1_89",
+            "uniqueId": "Partner_00005_TIER1_89"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -2594,9 +2594,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -2604,15 +2604,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_90",
-            "manufacturerUniqueId": "TIER1_90",
-            "uniqueId": "TIER1_90"
+            "customerUniqueId": "Partner_00005_TIER1_90",
+            "manufacturerUniqueId": "Partner_00005_TIER1_90",
+            "uniqueId": "Partner_00005_TIER1_90"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -2623,9 +2623,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -2633,15 +2633,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_91",
-            "manufacturerUniqueId": "TIER1_91",
-            "uniqueId": "TIER1_91"
+            "customerUniqueId": "Partner_00005_TIER1_91",
+            "manufacturerUniqueId": "Partner_00005_TIER1_91",
+            "uniqueId": "Partner_00005_TIER1_91"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -2652,9 +2652,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -2662,15 +2662,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_92",
-            "manufacturerUniqueId": "TIER1_92",
-            "uniqueId": "TIER1_92"
+            "customerUniqueId": "Partner_00005_TIER1_92",
+            "manufacturerUniqueId": "Partner_00005_TIER1_92",
+            "uniqueId": "Partner_00005_TIER1_92"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -2681,9 +2681,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -2691,15 +2691,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_93",
-            "manufacturerUniqueId": "TIER1_93",
-            "uniqueId": "TIER1_93"
+            "customerUniqueId": "Partner_00005_TIER1_93",
+            "manufacturerUniqueId": "Partner_00005_TIER1_93",
+            "uniqueId": "Partner_00005_TIER1_93"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -2710,9 +2710,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -2720,15 +2720,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_94",
-            "manufacturerUniqueId": "TIER1_94",
-            "uniqueId": "TIER1_94"
+            "customerUniqueId": "Partner_00005_TIER1_94",
+            "manufacturerUniqueId": "Partner_00005_TIER1_94",
+            "uniqueId": "Partner_00005_TIER1_94"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -2739,9 +2739,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -2749,15 +2749,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_95",
-            "manufacturerUniqueId": "TIER1_95",
-            "uniqueId": "TIER1_95"
+            "customerUniqueId": "Partner_00005_TIER1_95",
+            "manufacturerUniqueId": "Partner_00005_TIER1_95",
+            "uniqueId": "Partner_00005_TIER1_95"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -2768,9 +2768,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -2778,15 +2778,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_96",
-            "manufacturerUniqueId": "TIER1_96",
-            "uniqueId": "TIER1_96"
+            "customerUniqueId": "Partner_00005_TIER1_96",
+            "manufacturerUniqueId": "Partner_00005_TIER1_96",
+            "uniqueId": "Partner_00005_TIER1_96"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -2797,9 +2797,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -2807,15 +2807,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_97",
-            "manufacturerUniqueId": "TIER1_97",
-            "uniqueId": "TIER1_97"
+            "customerUniqueId": "Partner_00005_TIER1_97",
+            "manufacturerUniqueId": "Partner_00005_TIER1_97",
+            "uniqueId": "Partner_00005_TIER1_97"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -2826,9 +2826,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -2836,15 +2836,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_98",
-            "manufacturerUniqueId": "TIER1_98",
-            "uniqueId": "TIER1_98"
+            "customerUniqueId": "Partner_00005_TIER1_98",
+            "manufacturerUniqueId": "Partner_00005_TIER1_98",
+            "uniqueId": "Partner_00005_TIER1_98"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -2855,9 +2855,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -2865,15 +2865,15 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_99",
-            "manufacturerUniqueId": "TIER1_99",
-            "uniqueId": "TIER1_99"
+            "customerUniqueId": "Partner_00005_TIER1_99",
+            "manufacturerUniqueId": "Partner_00005_TIER1_99",
+            "uniqueId": "Partner_00005_TIER1_99"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-22"
+            "productionDateGmt": "2021-05-28"
         },
         "partTree": {
             "isParentOf": []
@@ -2884,9 +2884,9 @@
         },
         "staticData": {
             "customerContractOneId": "",
-            "customerOneId": "BMW",
+            "customerOneId": "Partner_00007_BMW",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "TIER1",
+            "manufacturerOneId": "Partner_00005_TIER1",
             "partNameCustomer": "Tier1_Component",
             "partNameManufacturer": "Tier1_Component",
             "partNumberCustomer": "572962",
@@ -2894,9 +2894,9 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "TIER1_100",
-            "manufacturerUniqueId": "TIER1_100",
-            "uniqueId": "TIER1_100"
+            "customerUniqueId": "Partner_00005_TIER1_100",
+            "manufacturerUniqueId": "Partner_00005_TIER1_100",
+            "uniqueId": "Partner_00005_TIER1_100"
         }
     }
 ]
