@@ -3,7 +3,12 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
 trigger:
-- main
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - connectordns
 
 resources:
 - repo: self
@@ -14,7 +19,7 @@ variables:
   dockerRegistryServiceConnection: 'bf553167-abb7-40fe-b4f0-7b621d5c9c5e'
   imageRepository: 'cdns'
   containerRegistry: 'catenaxdevacr.azurecr.io'
-  dockerfilePath: '**/Dockerfile'
+  dockerfilePath: '$(Pipeline.Workspace)/connectordns/Dockerfile'
   tag: '$(Build.BuildId)'
   imagePullSecret: 'catenaxdevacrd48f-auth'
 
@@ -70,8 +75,8 @@ stages:
             inputs:
               action: deploy
               manifests: |
-                $(Pipeline.Workspace)/manifests/deployment.yml
-                $(Pipeline.Workspace)/manifests/service.yml
+                $(Pipeline.Workspace)/connectordns/cdns.yaml
+                $(Pipeline.Workspace)/connectordns/cdns-ingress.yaml
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |
