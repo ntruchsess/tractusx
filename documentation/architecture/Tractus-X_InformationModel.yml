@@ -10,8 +10,7 @@ info:
   contact:
     name: Christian Kabelin
     email: christian.kabelin@partner.bmw.de
-  
-  
+
 paths:
   /catena-x/part/masterdata:
     get:
@@ -222,7 +221,6 @@ components:
         eventBody:
           $ref: "#/components/schemas/EventBody"
           
-          
     EventBody:
       description: Content for event
       type: array
@@ -230,78 +228,6 @@ components:
         anyOf:
           - $ref: "#/components/schemas/QualityAlertEvent"
 
-    CatenaXEvent:
-      description: Catena-X generic event. Content specific processing and delivery
-      required:
-        - eventUID
-        - eventName
-        - eventTimestamp
-        - eventOrigin
-        - eventOriginBusinessPartnerOneID
-        - eventDomain
-        - eventType
-      properties:
-        eventUID:
-          type: string
-          description: Should be unique (at least in combination with timestamp)
-          example: "TraceabilityEvent_2021-01-30_T08:30:00Z"
-        eventName:
-          type: string
-          description: Simple describing name for the event (e. g. type)
-          example: "Traceability Escalation"
-        eventTimestamp:
-          type: string
-          format: date-time
-          description: Creation date and time
-          example: "2021-01-30T08:30:00Z"
-        eventOrigin:
-          type: string
-          description: description of the event origin (e. g. companyOneID, AppID)
-          example: "SAP Traceability App for ZF"
-        eventOriginBusinessPartnerOneID:
-          type: string
-          description: OneID of emitting Business Partner
-          example: "BMW AG"
-        eventTargetBusinessPartnerOneID:
-          type: string
-          description: OneID of receiving Business Partner
-          example: "BMW AG"
-        eventDomain:
-          type: string
-          description: functional domain of event
-          enum:
-            - TRACEABILITY
-            - CO2
-            - RECYCLING
-            - BUSINESS_PARTNER_MANAGEMENT
-            - INFRASTRUCTURE
-            - NOT_SPECIFIED
-        eventType:
-          type: string
-          description: event type specification
-          enum:
-            - QUALITY_STATUS_CHANGE
-            - OTHER
-        eventContentType:
-          type: string
-          description: content type of additional data in eventContent
-        eventContent:
-          type: object
-          anyOf:
-            - $ref: "#/components/schemas/PartMasterData"
-    
-    CatenaXEventStatus:
-      properties:
-        eventUID:
-          type: string
-        status:
-          type: string
-          enum:
-            - UNDEFINED
-            - COMMITTED
-            - IN_PROGRESS
-            - DELIVERED
-            
     OneID_BusinessPartner:
       description: Business Partner OneID
       example: 0000001_BMW
@@ -309,7 +235,7 @@ components:
       minLength: 8
       maxLength: 20
     
-    PartMasterData:
+    TraceabilityData:
       required:
         - staticData
       properties:
@@ -322,6 +248,26 @@ components:
           
         supplyTree:
           $ref: "#/components/schemas/SupplyTreeParent"
+        partTree:
+          $ref: "#/components/schemas/PartTreeParent"
+        qualityAlert:
+          $ref: "#/components/schemas/QualityAlert" 
+          
+    PartMasterData:
+      required:
+        - manufacturerOneId
+        - manufactureContractOneId
+      properties:
+        manufacturerOneId:
+          description: OneID of manufacture partner
+          allOf:
+            - $ref: "#/components/schemas/OneID_BusinessPartner"
+        manufactureContractOneId:
+          description: OneID of manufacture contract partner
+          allOf:
+            - $ref: "#/components/schemas/OneID_BusinessPartner"
+        uniqueData:
+          $ref: "#/components/schemas/PartUniqueData"
         partTree:
           $ref: "#/components/schemas/PartTreeParent"
         qualityAlert:
@@ -685,6 +631,3 @@ components:
           type: string
         fields:
           type: string
-
-          
-          
