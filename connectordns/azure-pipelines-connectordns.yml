@@ -49,8 +49,8 @@ stages:
         Dockerfile: './connectordns/Dockerfile'
     - task: PublishPipelineArtifact@1
       inputs:
-        targetPath: '$(Pipeline.Workspace)' # Required 
-        artifactName: 'manifests' # Optional
+        targetPath: '$(Pipeline.Workspace)' 
+        artifactName: 'manifests'
         artifactType: 'pipeline'
 
 - stage: Deploy
@@ -80,6 +80,6 @@ stages:
               action: 'deploy'
               kubernetesServiceConnection: 'catenax-dev-aks-services-cdns'
               namespace: 'cdns'
-              manifests: '$(Pipeline.Workspace)/connectordns/cdns.yml'
+              manifests: '$(Pipeline.Workspace)/manifests/cdns.yaml'
               containers: '$(containerRegistry)/$(imageRepository):$(tag)'
               imagePullSecrets: '$(imagePullSecret)'
