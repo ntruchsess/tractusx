@@ -80,6 +80,6 @@ stages:
               action: 'deploy'
               kubernetesServiceConnection: 'catenax-dev-aks-services-cdns'
               namespace: 'cdns'
-              manifests: '$(Pipeline.Workspace)/manifests/cdns.yaml'
+              manifests: 'manifests/cdns.yaml'
               containers: '$(containerRegistry)/$(imageRepository):$(tag)'
               imagePullSecrets: '$(imagePullSecret)'
