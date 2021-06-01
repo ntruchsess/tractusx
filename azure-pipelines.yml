@@ -19,7 +19,7 @@ variables:
   dockerRegistryServiceConnection: 'bf553167-abb7-40fe-b4f0-7b621d5c9c5e'
   imageRepository: 'cdns'
   containerRegistry: 'catenaxdevacr.azurecr.io'
-  dockerfilePath: '$(Pipeline.Workspace)/connectordns/Dockerfile'
+  dockerfilePath: './connectordns/Dockerfile'
   tag: '$(Build.BuildId)'
   imagePullSecret: 'catenaxdevacrd48f-auth'
 
