@@ -85,8 +85,8 @@ stages:
             inputs:
               action: deploy
               manifests: |
-                connectordns/cdns-ingress.yaml
-                connectordns/cdns.yaml
+                $(Build.SourcesDirectory)/connectordns/cdns-ingress.yaml
+                $(Build.SourcesDirectory)/connectordns/cdns.yaml
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |
