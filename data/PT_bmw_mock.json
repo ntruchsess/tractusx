@@ -2,12 +2,12 @@
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_1",
-                "TIER1_1"
+                "Partner_00004_ZF_1",
+                "Partner_00005_TIER1_1"
             ]
         },
         "qualityAlert": {
@@ -18,7 +18,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -26,20 +26,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_1",
-            "manufacturerUniqueId": "BMW_1",
-            "uniqueId": "BMW_1"
+            "customerUniqueId": "Partner_00007_BMW_1",
+            "manufacturerUniqueId": "Partner_00007_BMW_1",
+            "uniqueId": "Partner_00007_BMW_1"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_3",
-                "TIER1_2"
+                "Partner_00004_ZF_3",
+                "Partner_00005_TIER1_2"
             ]
         },
         "qualityAlert": {
@@ -50,7 +50,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -58,20 +58,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_2",
-            "manufacturerUniqueId": "BMW_2",
-            "uniqueId": "BMW_2"
+            "customerUniqueId": "Partner_00007_BMW_2",
+            "manufacturerUniqueId": "Partner_00007_BMW_2",
+            "uniqueId": "Partner_00007_BMW_2"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_5",
-                "TIER1_3"
+                "Partner_00004_ZF_5",
+                "Partner_00005_TIER1_3"
             ]
         },
         "qualityAlert": {
@@ -82,7 +82,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -90,20 +90,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_3",
-            "manufacturerUniqueId": "BMW_3",
-            "uniqueId": "BMW_3"
+            "customerUniqueId": "Partner_00007_BMW_3",
+            "manufacturerUniqueId": "Partner_00007_BMW_3",
+            "uniqueId": "Partner_00007_BMW_3"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_7",
-                "TIER1_4"
+                "Partner_00004_ZF_7",
+                "Partner_00005_TIER1_4"
             ]
         },
         "qualityAlert": {
@@ -114,7 +114,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -122,20 +122,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_4",
-            "manufacturerUniqueId": "BMW_4",
-            "uniqueId": "BMW_4"
+            "customerUniqueId": "Partner_00007_BMW_4",
+            "manufacturerUniqueId": "Partner_00007_BMW_4",
+            "uniqueId": "Partner_00007_BMW_4"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_9",
-                "TIER1_5"
+                "Partner_00004_ZF_9",
+                "Partner_00005_TIER1_5"
             ]
         },
         "qualityAlert": {
@@ -146,7 +146,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -154,20 +154,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_5",
-            "manufacturerUniqueId": "BMW_5",
-            "uniqueId": "BMW_5"
+            "customerUniqueId": "Partner_00007_BMW_5",
+            "manufacturerUniqueId": "Partner_00007_BMW_5",
+            "uniqueId": "Partner_00007_BMW_5"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_11",
-                "TIER1_6"
+                "Partner_00004_ZF_11",
+                "Partner_00005_TIER1_6"
             ]
         },
         "qualityAlert": {
@@ -178,7 +178,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -186,20 +186,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_6",
-            "manufacturerUniqueId": "BMW_6",
-            "uniqueId": "BMW_6"
+            "customerUniqueId": "Partner_00007_BMW_6",
+            "manufacturerUniqueId": "Partner_00007_BMW_6",
+            "uniqueId": "Partner_00007_BMW_6"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_13",
-                "TIER1_7"
+                "Partner_00004_ZF_13",
+                "Partner_00005_TIER1_7"
             ]
         },
         "qualityAlert": {
@@ -210,7 +210,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -218,20 +218,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_7",
-            "manufacturerUniqueId": "BMW_7",
-            "uniqueId": "BMW_7"
+            "customerUniqueId": "Partner_00007_BMW_7",
+            "manufacturerUniqueId": "Partner_00007_BMW_7",
+            "uniqueId": "Partner_00007_BMW_7"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_15",
-                "TIER1_8"
+                "Partner_00004_ZF_15",
+                "Partner_00005_TIER1_8"
             ]
         },
         "qualityAlert": {
@@ -242,7 +242,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -250,20 +250,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_8",
-            "manufacturerUniqueId": "BMW_8",
-            "uniqueId": "BMW_8"
+            "customerUniqueId": "Partner_00007_BMW_8",
+            "manufacturerUniqueId": "Partner_00007_BMW_8",
+            "uniqueId": "Partner_00007_BMW_8"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_17",
-                "TIER1_9"
+                "Partner_00004_ZF_17",
+                "Partner_00005_TIER1_9"
             ]
         },
         "qualityAlert": {
@@ -274,7 +274,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -282,20 +282,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_9",
-            "manufacturerUniqueId": "BMW_9",
-            "uniqueId": "BMW_9"
+            "customerUniqueId": "Partner_00007_BMW_9",
+            "manufacturerUniqueId": "Partner_00007_BMW_9",
+            "uniqueId": "Partner_00007_BMW_9"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_19",
-                "TIER1_10"
+                "Partner_00004_ZF_19",
+                "Partner_00005_TIER1_10"
             ]
         },
         "qualityAlert": {
@@ -306,7 +306,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -314,20 +314,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_10",
-            "manufacturerUniqueId": "BMW_10",
-            "uniqueId": "BMW_10"
+            "customerUniqueId": "Partner_00007_BMW_10",
+            "manufacturerUniqueId": "Partner_00007_BMW_10",
+            "uniqueId": "Partner_00007_BMW_10"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_21",
-                "TIER1_11"
+                "Partner_00004_ZF_21",
+                "Partner_00005_TIER1_11"
             ]
         },
         "qualityAlert": {
@@ -338,7 +338,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -346,20 +346,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_11",
-            "manufacturerUniqueId": "BMW_11",
-            "uniqueId": "BMW_11"
+            "customerUniqueId": "Partner_00007_BMW_11",
+            "manufacturerUniqueId": "Partner_00007_BMW_11",
+            "uniqueId": "Partner_00007_BMW_11"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_23",
-                "TIER1_12"
+                "Partner_00004_ZF_23",
+                "Partner_00005_TIER1_12"
             ]
         },
         "qualityAlert": {
@@ -370,7 +370,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -378,20 +378,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_12",
-            "manufacturerUniqueId": "BMW_12",
-            "uniqueId": "BMW_12"
+            "customerUniqueId": "Partner_00007_BMW_12",
+            "manufacturerUniqueId": "Partner_00007_BMW_12",
+            "uniqueId": "Partner_00007_BMW_12"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_25",
-                "TIER1_13"
+                "Partner_00004_ZF_25",
+                "Partner_00005_TIER1_13"
             ]
         },
         "qualityAlert": {
@@ -402,7 +402,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -410,20 +410,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_13",
-            "manufacturerUniqueId": "BMW_13",
-            "uniqueId": "BMW_13"
+            "customerUniqueId": "Partner_00007_BMW_13",
+            "manufacturerUniqueId": "Partner_00007_BMW_13",
+            "uniqueId": "Partner_00007_BMW_13"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_27",
-                "TIER1_14"
+                "Partner_00004_ZF_27",
+                "Partner_00005_TIER1_14"
             ]
         },
         "qualityAlert": {
@@ -434,7 +434,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -442,20 +442,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_14",
-            "manufacturerUniqueId": "BMW_14",
-            "uniqueId": "BMW_14"
+            "customerUniqueId": "Partner_00007_BMW_14",
+            "manufacturerUniqueId": "Partner_00007_BMW_14",
+            "uniqueId": "Partner_00007_BMW_14"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_29",
-                "TIER1_15"
+                "Partner_00004_ZF_29",
+                "Partner_00005_TIER1_15"
             ]
         },
         "qualityAlert": {
@@ -466,7 +466,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -474,20 +474,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_15",
-            "manufacturerUniqueId": "BMW_15",
-            "uniqueId": "BMW_15"
+            "customerUniqueId": "Partner_00007_BMW_15",
+            "manufacturerUniqueId": "Partner_00007_BMW_15",
+            "uniqueId": "Partner_00007_BMW_15"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_31",
-                "TIER1_16"
+                "Partner_00004_ZF_31",
+                "Partner_00005_TIER1_16"
             ]
         },
         "qualityAlert": {
@@ -498,7 +498,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -506,20 +506,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_16",
-            "manufacturerUniqueId": "BMW_16",
-            "uniqueId": "BMW_16"
+            "customerUniqueId": "Partner_00007_BMW_16",
+            "manufacturerUniqueId": "Partner_00007_BMW_16",
+            "uniqueId": "Partner_00007_BMW_16"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_33",
-                "TIER1_17"
+                "Partner_00004_ZF_33",
+                "Partner_00005_TIER1_17"
             ]
         },
         "qualityAlert": {
@@ -530,7 +530,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -538,20 +538,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_17",
-            "manufacturerUniqueId": "BMW_17",
-            "uniqueId": "BMW_17"
+            "customerUniqueId": "Partner_00007_BMW_17",
+            "manufacturerUniqueId": "Partner_00007_BMW_17",
+            "uniqueId": "Partner_00007_BMW_17"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_35",
-                "TIER1_18"
+                "Partner_00004_ZF_35",
+                "Partner_00005_TIER1_18"
             ]
         },
         "qualityAlert": {
@@ -562,7 +562,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -570,20 +570,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_18",
-            "manufacturerUniqueId": "BMW_18",
-            "uniqueId": "BMW_18"
+            "customerUniqueId": "Partner_00007_BMW_18",
+            "manufacturerUniqueId": "Partner_00007_BMW_18",
+            "uniqueId": "Partner_00007_BMW_18"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_37",
-                "TIER1_19"
+                "Partner_00004_ZF_37",
+                "Partner_00005_TIER1_19"
             ]
         },
         "qualityAlert": {
@@ -594,7 +594,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -602,20 +602,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_19",
-            "manufacturerUniqueId": "BMW_19",
-            "uniqueId": "BMW_19"
+            "customerUniqueId": "Partner_00007_BMW_19",
+            "manufacturerUniqueId": "Partner_00007_BMW_19",
+            "uniqueId": "Partner_00007_BMW_19"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_39",
-                "TIER1_20"
+                "Partner_00004_ZF_39",
+                "Partner_00005_TIER1_20"
             ]
         },
         "qualityAlert": {
@@ -626,7 +626,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -634,20 +634,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_20",
-            "manufacturerUniqueId": "BMW_20",
-            "uniqueId": "BMW_20"
+            "customerUniqueId": "Partner_00007_BMW_20",
+            "manufacturerUniqueId": "Partner_00007_BMW_20",
+            "uniqueId": "Partner_00007_BMW_20"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_41",
-                "TIER1_21"
+                "Partner_00004_ZF_41",
+                "Partner_00005_TIER1_21"
             ]
         },
         "qualityAlert": {
@@ -658,7 +658,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -666,20 +666,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_21",
-            "manufacturerUniqueId": "BMW_21",
-            "uniqueId": "BMW_21"
+            "customerUniqueId": "Partner_00007_BMW_21",
+            "manufacturerUniqueId": "Partner_00007_BMW_21",
+            "uniqueId": "Partner_00007_BMW_21"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_43",
-                "TIER1_22"
+                "Partner_00004_ZF_43",
+                "Partner_00005_TIER1_22"
             ]
         },
         "qualityAlert": {
@@ -690,7 +690,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -698,20 +698,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_22",
-            "manufacturerUniqueId": "BMW_22",
-            "uniqueId": "BMW_22"
+            "customerUniqueId": "Partner_00007_BMW_22",
+            "manufacturerUniqueId": "Partner_00007_BMW_22",
+            "uniqueId": "Partner_00007_BMW_22"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_45",
-                "TIER1_23"
+                "Partner_00004_ZF_45",
+                "Partner_00005_TIER1_23"
             ]
         },
         "qualityAlert": {
@@ -722,7 +722,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -730,20 +730,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_23",
-            "manufacturerUniqueId": "BMW_23",
-            "uniqueId": "BMW_23"
+            "customerUniqueId": "Partner_00007_BMW_23",
+            "manufacturerUniqueId": "Partner_00007_BMW_23",
+            "uniqueId": "Partner_00007_BMW_23"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_47",
-                "TIER1_24"
+                "Partner_00004_ZF_47",
+                "Partner_00005_TIER1_24"
             ]
         },
         "qualityAlert": {
@@ -754,7 +754,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -762,20 +762,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_24",
-            "manufacturerUniqueId": "BMW_24",
-            "uniqueId": "BMW_24"
+            "customerUniqueId": "Partner_00007_BMW_24",
+            "manufacturerUniqueId": "Partner_00007_BMW_24",
+            "uniqueId": "Partner_00007_BMW_24"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_49",
-                "TIER1_25"
+                "Partner_00004_ZF_49",
+                "Partner_00005_TIER1_25"
             ]
         },
         "qualityAlert": {
@@ -786,7 +786,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -794,20 +794,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_25",
-            "manufacturerUniqueId": "BMW_25",
-            "uniqueId": "BMW_25"
+            "customerUniqueId": "Partner_00007_BMW_25",
+            "manufacturerUniqueId": "Partner_00007_BMW_25",
+            "uniqueId": "Partner_00007_BMW_25"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_51",
-                "TIER1_26"
+                "Partner_00004_ZF_51",
+                "Partner_00005_TIER1_26"
             ]
         },
         "qualityAlert": {
@@ -818,7 +818,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -826,20 +826,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_26",
-            "manufacturerUniqueId": "BMW_26",
-            "uniqueId": "BMW_26"
+            "customerUniqueId": "Partner_00007_BMW_26",
+            "manufacturerUniqueId": "Partner_00007_BMW_26",
+            "uniqueId": "Partner_00007_BMW_26"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_53",
-                "TIER1_27"
+                "Partner_00004_ZF_53",
+                "Partner_00005_TIER1_27"
             ]
         },
         "qualityAlert": {
@@ -850,7 +850,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -858,20 +858,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_27",
-            "manufacturerUniqueId": "BMW_27",
-            "uniqueId": "BMW_27"
+            "customerUniqueId": "Partner_00007_BMW_27",
+            "manufacturerUniqueId": "Partner_00007_BMW_27",
+            "uniqueId": "Partner_00007_BMW_27"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_55",
-                "TIER1_28"
+                "Partner_00004_ZF_55",
+                "Partner_00005_TIER1_28"
             ]
         },
         "qualityAlert": {
@@ -882,7 +882,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -890,20 +890,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_28",
-            "manufacturerUniqueId": "BMW_28",
-            "uniqueId": "BMW_28"
+            "customerUniqueId": "Partner_00007_BMW_28",
+            "manufacturerUniqueId": "Partner_00007_BMW_28",
+            "uniqueId": "Partner_00007_BMW_28"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_57",
-                "TIER1_29"
+                "Partner_00004_ZF_57",
+                "Partner_00005_TIER1_29"
             ]
         },
         "qualityAlert": {
@@ -914,7 +914,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -922,20 +922,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_29",
-            "manufacturerUniqueId": "BMW_29",
-            "uniqueId": "BMW_29"
+            "customerUniqueId": "Partner_00007_BMW_29",
+            "manufacturerUniqueId": "Partner_00007_BMW_29",
+            "uniqueId": "Partner_00007_BMW_29"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_59",
-                "TIER1_30"
+                "Partner_00004_ZF_59",
+                "Partner_00005_TIER1_30"
             ]
         },
         "qualityAlert": {
@@ -946,7 +946,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -954,20 +954,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_30",
-            "manufacturerUniqueId": "BMW_30",
-            "uniqueId": "BMW_30"
+            "customerUniqueId": "Partner_00007_BMW_30",
+            "manufacturerUniqueId": "Partner_00007_BMW_30",
+            "uniqueId": "Partner_00007_BMW_30"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_61",
-                "TIER1_31"
+                "Partner_00004_ZF_61",
+                "Partner_00005_TIER1_31"
             ]
         },
         "qualityAlert": {
@@ -978,7 +978,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -986,20 +986,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_31",
-            "manufacturerUniqueId": "BMW_31",
-            "uniqueId": "BMW_31"
+            "customerUniqueId": "Partner_00007_BMW_31",
+            "manufacturerUniqueId": "Partner_00007_BMW_31",
+            "uniqueId": "Partner_00007_BMW_31"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_63",
-                "TIER1_32"
+                "Partner_00004_ZF_63",
+                "Partner_00005_TIER1_32"
             ]
         },
         "qualityAlert": {
@@ -1010,7 +1010,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -1018,20 +1018,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_32",
-            "manufacturerUniqueId": "BMW_32",
-            "uniqueId": "BMW_32"
+            "customerUniqueId": "Partner_00007_BMW_32",
+            "manufacturerUniqueId": "Partner_00007_BMW_32",
+            "uniqueId": "Partner_00007_BMW_32"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_65",
-                "TIER1_33"
+                "Partner_00004_ZF_65",
+                "Partner_00005_TIER1_33"
             ]
         },
         "qualityAlert": {
@@ -1042,7 +1042,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -1050,20 +1050,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_33",
-            "manufacturerUniqueId": "BMW_33",
-            "uniqueId": "BMW_33"
+            "customerUniqueId": "Partner_00007_BMW_33",
+            "manufacturerUniqueId": "Partner_00007_BMW_33",
+            "uniqueId": "Partner_00007_BMW_33"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_67",
-                "TIER1_34"
+                "Partner_00004_ZF_67",
+                "Partner_00005_TIER1_34"
             ]
         },
         "qualityAlert": {
@@ -1074,7 +1074,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -1082,20 +1082,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_34",
-            "manufacturerUniqueId": "BMW_34",
-            "uniqueId": "BMW_34"
+            "customerUniqueId": "Partner_00007_BMW_34",
+            "manufacturerUniqueId": "Partner_00007_BMW_34",
+            "uniqueId": "Partner_00007_BMW_34"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_69",
-                "TIER1_35"
+                "Partner_00004_ZF_69",
+                "Partner_00005_TIER1_35"
             ]
         },
         "qualityAlert": {
@@ -1106,7 +1106,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -1114,20 +1114,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_35",
-            "manufacturerUniqueId": "BMW_35",
-            "uniqueId": "BMW_35"
+            "customerUniqueId": "Partner_00007_BMW_35",
+            "manufacturerUniqueId": "Partner_00007_BMW_35",
+            "uniqueId": "Partner_00007_BMW_35"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_71",
-                "TIER1_36"
+                "Partner_00004_ZF_71",
+                "Partner_00005_TIER1_36"
             ]
         },
         "qualityAlert": {
@@ -1138,7 +1138,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -1146,20 +1146,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_36",
-            "manufacturerUniqueId": "BMW_36",
-            "uniqueId": "BMW_36"
+            "customerUniqueId": "Partner_00007_BMW_36",
+            "manufacturerUniqueId": "Partner_00007_BMW_36",
+            "uniqueId": "Partner_00007_BMW_36"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_73",
-                "TIER1_37"
+                "Partner_00004_ZF_73",
+                "Partner_00005_TIER1_37"
             ]
         },
         "qualityAlert": {
@@ -1170,7 +1170,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -1178,20 +1178,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_37",
-            "manufacturerUniqueId": "BMW_37",
-            "uniqueId": "BMW_37"
+            "customerUniqueId": "Partner_00007_BMW_37",
+            "manufacturerUniqueId": "Partner_00007_BMW_37",
+            "uniqueId": "Partner_00007_BMW_37"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_75",
-                "TIER1_38"
+                "Partner_00004_ZF_75",
+                "Partner_00005_TIER1_38"
             ]
         },
         "qualityAlert": {
@@ -1202,7 +1202,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -1210,20 +1210,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_38",
-            "manufacturerUniqueId": "BMW_38",
-            "uniqueId": "BMW_38"
+            "customerUniqueId": "Partner_00007_BMW_38",
+            "manufacturerUniqueId": "Partner_00007_BMW_38",
+            "uniqueId": "Partner_00007_BMW_38"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_77",
-                "TIER1_39"
+                "Partner_00004_ZF_77",
+                "Partner_00005_TIER1_39"
             ]
         },
         "qualityAlert": {
@@ -1234,7 +1234,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -1242,20 +1242,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_39",
-            "manufacturerUniqueId": "BMW_39",
-            "uniqueId": "BMW_39"
+            "customerUniqueId": "Partner_00007_BMW_39",
+            "manufacturerUniqueId": "Partner_00007_BMW_39",
+            "uniqueId": "Partner_00007_BMW_39"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_79",
-                "TIER1_40"
+                "Partner_00004_ZF_79",
+                "Partner_00005_TIER1_40"
             ]
         },
         "qualityAlert": {
@@ -1266,7 +1266,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -1274,20 +1274,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_40",
-            "manufacturerUniqueId": "BMW_40",
-            "uniqueId": "BMW_40"
+            "customerUniqueId": "Partner_00007_BMW_40",
+            "manufacturerUniqueId": "Partner_00007_BMW_40",
+            "uniqueId": "Partner_00007_BMW_40"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_81",
-                "TIER1_41"
+                "Partner_00004_ZF_81",
+                "Partner_00005_TIER1_41"
             ]
         },
         "qualityAlert": {
@@ -1298,7 +1298,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -1306,20 +1306,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_41",
-            "manufacturerUniqueId": "BMW_41",
-            "uniqueId": "BMW_41"
+            "customerUniqueId": "Partner_00007_BMW_41",
+            "manufacturerUniqueId": "Partner_00007_BMW_41",
+            "uniqueId": "Partner_00007_BMW_41"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_83",
-                "TIER1_42"
+                "Partner_00004_ZF_83",
+                "Partner_00005_TIER1_42"
             ]
         },
         "qualityAlert": {
@@ -1330,7 +1330,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -1338,20 +1338,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_42",
-            "manufacturerUniqueId": "BMW_42",
-            "uniqueId": "BMW_42"
+            "customerUniqueId": "Partner_00007_BMW_42",
+            "manufacturerUniqueId": "Partner_00007_BMW_42",
+            "uniqueId": "Partner_00007_BMW_42"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_85",
-                "TIER1_43"
+                "Partner_00004_ZF_85",
+                "Partner_00005_TIER1_43"
             ]
         },
         "qualityAlert": {
@@ -1362,7 +1362,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -1370,20 +1370,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_43",
-            "manufacturerUniqueId": "BMW_43",
-            "uniqueId": "BMW_43"
+            "customerUniqueId": "Partner_00007_BMW_43",
+            "manufacturerUniqueId": "Partner_00007_BMW_43",
+            "uniqueId": "Partner_00007_BMW_43"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_87",
-                "TIER1_44"
+                "Partner_00004_ZF_87",
+                "Partner_00005_TIER1_44"
             ]
         },
         "qualityAlert": {
@@ -1394,7 +1394,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -1402,20 +1402,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_44",
-            "manufacturerUniqueId": "BMW_44",
-            "uniqueId": "BMW_44"
+            "customerUniqueId": "Partner_00007_BMW_44",
+            "manufacturerUniqueId": "Partner_00007_BMW_44",
+            "uniqueId": "Partner_00007_BMW_44"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_89",
-                "TIER1_45"
+                "Partner_00004_ZF_89",
+                "Partner_00005_TIER1_45"
             ]
         },
         "qualityAlert": {
@@ -1426,7 +1426,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -1434,20 +1434,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_45",
-            "manufacturerUniqueId": "BMW_45",
-            "uniqueId": "BMW_45"
+            "customerUniqueId": "Partner_00007_BMW_45",
+            "manufacturerUniqueId": "Partner_00007_BMW_45",
+            "uniqueId": "Partner_00007_BMW_45"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_91",
-                "TIER1_46"
+                "Partner_00004_ZF_91",
+                "Partner_00005_TIER1_46"
             ]
         },
         "qualityAlert": {
@@ -1458,7 +1458,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -1466,20 +1466,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_46",
-            "manufacturerUniqueId": "BMW_46",
-            "uniqueId": "BMW_46"
+            "customerUniqueId": "Partner_00007_BMW_46",
+            "manufacturerUniqueId": "Partner_00007_BMW_46",
+            "uniqueId": "Partner_00007_BMW_46"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_93",
-                "TIER1_47"
+                "Partner_00004_ZF_93",
+                "Partner_00005_TIER1_47"
             ]
         },
         "qualityAlert": {
@@ -1490,7 +1490,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -1498,20 +1498,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_47",
-            "manufacturerUniqueId": "BMW_47",
-            "uniqueId": "BMW_47"
+            "customerUniqueId": "Partner_00007_BMW_47",
+            "manufacturerUniqueId": "Partner_00007_BMW_47",
+            "uniqueId": "Partner_00007_BMW_47"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_95",
-                "TIER1_48"
+                "Partner_00004_ZF_95",
+                "Partner_00005_TIER1_48"
             ]
         },
         "qualityAlert": {
@@ -1522,7 +1522,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -1530,20 +1530,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_48",
-            "manufacturerUniqueId": "BMW_48",
-            "uniqueId": "BMW_48"
+            "customerUniqueId": "Partner_00007_BMW_48",
+            "manufacturerUniqueId": "Partner_00007_BMW_48",
+            "uniqueId": "Partner_00007_BMW_48"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_97",
-                "TIER1_49"
+                "Partner_00004_ZF_97",
+                "Partner_00005_TIER1_49"
             ]
         },
         "qualityAlert": {
@@ -1554,7 +1554,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -1562,20 +1562,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_49",
-            "manufacturerUniqueId": "BMW_49",
-            "uniqueId": "BMW_49"
+            "customerUniqueId": "Partner_00007_BMW_49",
+            "manufacturerUniqueId": "Partner_00007_BMW_49",
+            "uniqueId": "Partner_00007_BMW_49"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_99",
-                "TIER1_50"
+                "Partner_00004_ZF_99",
+                "Partner_00005_TIER1_50"
             ]
         },
         "qualityAlert": {
@@ -1586,7 +1586,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -1594,20 +1594,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_50",
-            "manufacturerUniqueId": "BMW_50",
-            "uniqueId": "BMW_50"
+            "customerUniqueId": "Partner_00007_BMW_50",
+            "manufacturerUniqueId": "Partner_00007_BMW_50",
+            "uniqueId": "Partner_00007_BMW_50"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_101",
-                "TIER1_51"
+                "Partner_00004_ZF_101",
+                "Partner_00005_TIER1_51"
             ]
         },
         "qualityAlert": {
@@ -1618,7 +1618,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -1626,20 +1626,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_51",
-            "manufacturerUniqueId": "BMW_51",
-            "uniqueId": "BMW_51"
+            "customerUniqueId": "Partner_00007_BMW_51",
+            "manufacturerUniqueId": "Partner_00007_BMW_51",
+            "uniqueId": "Partner_00007_BMW_51"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_103",
-                "TIER1_52"
+                "Partner_00004_ZF_103",
+                "Partner_00005_TIER1_52"
             ]
         },
         "qualityAlert": {
@@ -1650,7 +1650,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -1658,20 +1658,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_52",
-            "manufacturerUniqueId": "BMW_52",
-            "uniqueId": "BMW_52"
+            "customerUniqueId": "Partner_00007_BMW_52",
+            "manufacturerUniqueId": "Partner_00007_BMW_52",
+            "uniqueId": "Partner_00007_BMW_52"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_105",
-                "TIER1_53"
+                "Partner_00004_ZF_105",
+                "Partner_00005_TIER1_53"
             ]
         },
         "qualityAlert": {
@@ -1682,7 +1682,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -1690,20 +1690,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_53",
-            "manufacturerUniqueId": "BMW_53",
-            "uniqueId": "BMW_53"
+            "customerUniqueId": "Partner_00007_BMW_53",
+            "manufacturerUniqueId": "Partner_00007_BMW_53",
+            "uniqueId": "Partner_00007_BMW_53"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_107",
-                "TIER1_54"
+                "Partner_00004_ZF_107",
+                "Partner_00005_TIER1_54"
             ]
         },
         "qualityAlert": {
@@ -1714,7 +1714,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -1722,20 +1722,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_54",
-            "manufacturerUniqueId": "BMW_54",
-            "uniqueId": "BMW_54"
+            "customerUniqueId": "Partner_00007_BMW_54",
+            "manufacturerUniqueId": "Partner_00007_BMW_54",
+            "uniqueId": "Partner_00007_BMW_54"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_109",
-                "TIER1_55"
+                "Partner_00004_ZF_109",
+                "Partner_00005_TIER1_55"
             ]
         },
         "qualityAlert": {
@@ -1746,7 +1746,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -1754,20 +1754,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_55",
-            "manufacturerUniqueId": "BMW_55",
-            "uniqueId": "BMW_55"
+            "customerUniqueId": "Partner_00007_BMW_55",
+            "manufacturerUniqueId": "Partner_00007_BMW_55",
+            "uniqueId": "Partner_00007_BMW_55"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_111",
-                "TIER1_56"
+                "Partner_00004_ZF_111",
+                "Partner_00005_TIER1_56"
             ]
         },
         "qualityAlert": {
@@ -1778,7 +1778,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -1786,20 +1786,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_56",
-            "manufacturerUniqueId": "BMW_56",
-            "uniqueId": "BMW_56"
+            "customerUniqueId": "Partner_00007_BMW_56",
+            "manufacturerUniqueId": "Partner_00007_BMW_56",
+            "uniqueId": "Partner_00007_BMW_56"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_113",
-                "TIER1_57"
+                "Partner_00004_ZF_113",
+                "Partner_00005_TIER1_57"
             ]
         },
         "qualityAlert": {
@@ -1810,7 +1810,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -1818,20 +1818,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_57",
-            "manufacturerUniqueId": "BMW_57",
-            "uniqueId": "BMW_57"
+            "customerUniqueId": "Partner_00007_BMW_57",
+            "manufacturerUniqueId": "Partner_00007_BMW_57",
+            "uniqueId": "Partner_00007_BMW_57"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_115",
-                "TIER1_58"
+                "Partner_00004_ZF_115",
+                "Partner_00005_TIER1_58"
             ]
         },
         "qualityAlert": {
@@ -1842,7 +1842,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -1850,20 +1850,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_58",
-            "manufacturerUniqueId": "BMW_58",
-            "uniqueId": "BMW_58"
+            "customerUniqueId": "Partner_00007_BMW_58",
+            "manufacturerUniqueId": "Partner_00007_BMW_58",
+            "uniqueId": "Partner_00007_BMW_58"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_117",
-                "TIER1_59"
+                "Partner_00004_ZF_117",
+                "Partner_00005_TIER1_59"
             ]
         },
         "qualityAlert": {
@@ -1874,7 +1874,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -1882,20 +1882,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_59",
-            "manufacturerUniqueId": "BMW_59",
-            "uniqueId": "BMW_59"
+            "customerUniqueId": "Partner_00007_BMW_59",
+            "manufacturerUniqueId": "Partner_00007_BMW_59",
+            "uniqueId": "Partner_00007_BMW_59"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_119",
-                "TIER1_60"
+                "Partner_00004_ZF_119",
+                "Partner_00005_TIER1_60"
             ]
         },
         "qualityAlert": {
@@ -1906,7 +1906,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -1914,20 +1914,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_60",
-            "manufacturerUniqueId": "BMW_60",
-            "uniqueId": "BMW_60"
+            "customerUniqueId": "Partner_00007_BMW_60",
+            "manufacturerUniqueId": "Partner_00007_BMW_60",
+            "uniqueId": "Partner_00007_BMW_60"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_121",
-                "TIER1_61"
+                "Partner_00004_ZF_121",
+                "Partner_00005_TIER1_61"
             ]
         },
         "qualityAlert": {
@@ -1938,7 +1938,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -1946,20 +1946,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_61",
-            "manufacturerUniqueId": "BMW_61",
-            "uniqueId": "BMW_61"
+            "customerUniqueId": "Partner_00007_BMW_61",
+            "manufacturerUniqueId": "Partner_00007_BMW_61",
+            "uniqueId": "Partner_00007_BMW_61"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_123",
-                "TIER1_62"
+                "Partner_00004_ZF_123",
+                "Partner_00005_TIER1_62"
             ]
         },
         "qualityAlert": {
@@ -1970,7 +1970,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -1978,20 +1978,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_62",
-            "manufacturerUniqueId": "BMW_62",
-            "uniqueId": "BMW_62"
+            "customerUniqueId": "Partner_00007_BMW_62",
+            "manufacturerUniqueId": "Partner_00007_BMW_62",
+            "uniqueId": "Partner_00007_BMW_62"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_125",
-                "TIER1_63"
+                "Partner_00004_ZF_125",
+                "Partner_00005_TIER1_63"
             ]
         },
         "qualityAlert": {
@@ -2002,7 +2002,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -2010,20 +2010,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_63",
-            "manufacturerUniqueId": "BMW_63",
-            "uniqueId": "BMW_63"
+            "customerUniqueId": "Partner_00007_BMW_63",
+            "manufacturerUniqueId": "Partner_00007_BMW_63",
+            "uniqueId": "Partner_00007_BMW_63"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_127",
-                "TIER1_64"
+                "Partner_00004_ZF_127",
+                "Partner_00005_TIER1_64"
             ]
         },
         "qualityAlert": {
@@ -2034,7 +2034,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -2042,20 +2042,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_64",
-            "manufacturerUniqueId": "BMW_64",
-            "uniqueId": "BMW_64"
+            "customerUniqueId": "Partner_00007_BMW_64",
+            "manufacturerUniqueId": "Partner_00007_BMW_64",
+            "uniqueId": "Partner_00007_BMW_64"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_129",
-                "TIER1_65"
+                "Partner_00004_ZF_129",
+                "Partner_00005_TIER1_65"
             ]
         },
         "qualityAlert": {
@@ -2066,7 +2066,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -2074,20 +2074,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_65",
-            "manufacturerUniqueId": "BMW_65",
-            "uniqueId": "BMW_65"
+            "customerUniqueId": "Partner_00007_BMW_65",
+            "manufacturerUniqueId": "Partner_00007_BMW_65",
+            "uniqueId": "Partner_00007_BMW_65"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_131",
-                "TIER1_66"
+                "Partner_00004_ZF_131",
+                "Partner_00005_TIER1_66"
             ]
         },
         "qualityAlert": {
@@ -2098,7 +2098,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -2106,20 +2106,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_66",
-            "manufacturerUniqueId": "BMW_66",
-            "uniqueId": "BMW_66"
+            "customerUniqueId": "Partner_00007_BMW_66",
+            "manufacturerUniqueId": "Partner_00007_BMW_66",
+            "uniqueId": "Partner_00007_BMW_66"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_133",
-                "TIER1_67"
+                "Partner_00004_ZF_133",
+                "Partner_00005_TIER1_67"
             ]
         },
         "qualityAlert": {
@@ -2130,7 +2130,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -2138,20 +2138,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_67",
-            "manufacturerUniqueId": "BMW_67",
-            "uniqueId": "BMW_67"
+            "customerUniqueId": "Partner_00007_BMW_67",
+            "manufacturerUniqueId": "Partner_00007_BMW_67",
+            "uniqueId": "Partner_00007_BMW_67"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_135",
-                "TIER1_68"
+                "Partner_00004_ZF_135",
+                "Partner_00005_TIER1_68"
             ]
         },
         "qualityAlert": {
@@ -2162,7 +2162,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -2170,20 +2170,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_68",
-            "manufacturerUniqueId": "BMW_68",
-            "uniqueId": "BMW_68"
+            "customerUniqueId": "Partner_00007_BMW_68",
+            "manufacturerUniqueId": "Partner_00007_BMW_68",
+            "uniqueId": "Partner_00007_BMW_68"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_137",
-                "TIER1_69"
+                "Partner_00004_ZF_137",
+                "Partner_00005_TIER1_69"
             ]
         },
         "qualityAlert": {
@@ -2194,7 +2194,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -2202,20 +2202,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_69",
-            "manufacturerUniqueId": "BMW_69",
-            "uniqueId": "BMW_69"
+            "customerUniqueId": "Partner_00007_BMW_69",
+            "manufacturerUniqueId": "Partner_00007_BMW_69",
+            "uniqueId": "Partner_00007_BMW_69"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_139",
-                "TIER1_70"
+                "Partner_00004_ZF_139",
+                "Partner_00005_TIER1_70"
             ]
         },
         "qualityAlert": {
@@ -2226,7 +2226,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -2234,20 +2234,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_70",
-            "manufacturerUniqueId": "BMW_70",
-            "uniqueId": "BMW_70"
+            "customerUniqueId": "Partner_00007_BMW_70",
+            "manufacturerUniqueId": "Partner_00007_BMW_70",
+            "uniqueId": "Partner_00007_BMW_70"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_141",
-                "TIER1_71"
+                "Partner_00004_ZF_141",
+                "Partner_00005_TIER1_71"
             ]
         },
         "qualityAlert": {
@@ -2258,7 +2258,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -2266,20 +2266,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_71",
-            "manufacturerUniqueId": "BMW_71",
-            "uniqueId": "BMW_71"
+            "customerUniqueId": "Partner_00007_BMW_71",
+            "manufacturerUniqueId": "Partner_00007_BMW_71",
+            "uniqueId": "Partner_00007_BMW_71"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_143",
-                "TIER1_72"
+                "Partner_00004_ZF_143",
+                "Partner_00005_TIER1_72"
             ]
         },
         "qualityAlert": {
@@ -2290,7 +2290,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -2298,20 +2298,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_72",
-            "manufacturerUniqueId": "BMW_72",
-            "uniqueId": "BMW_72"
+            "customerUniqueId": "Partner_00007_BMW_72",
+            "manufacturerUniqueId": "Partner_00007_BMW_72",
+            "uniqueId": "Partner_00007_BMW_72"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_145",
-                "TIER1_73"
+                "Partner_00004_ZF_145",
+                "Partner_00005_TIER1_73"
             ]
         },
         "qualityAlert": {
@@ -2322,7 +2322,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -2330,20 +2330,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_73",
-            "manufacturerUniqueId": "BMW_73",
-            "uniqueId": "BMW_73"
+            "customerUniqueId": "Partner_00007_BMW_73",
+            "manufacturerUniqueId": "Partner_00007_BMW_73",
+            "uniqueId": "Partner_00007_BMW_73"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_147",
-                "TIER1_74"
+                "Partner_00004_ZF_147",
+                "Partner_00005_TIER1_74"
             ]
         },
         "qualityAlert": {
@@ -2354,7 +2354,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -2362,20 +2362,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_74",
-            "manufacturerUniqueId": "BMW_74",
-            "uniqueId": "BMW_74"
+            "customerUniqueId": "Partner_00007_BMW_74",
+            "manufacturerUniqueId": "Partner_00007_BMW_74",
+            "uniqueId": "Partner_00007_BMW_74"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_149",
-                "TIER1_75"
+                "Partner_00004_ZF_149",
+                "Partner_00005_TIER1_75"
             ]
         },
         "qualityAlert": {
@@ -2386,7 +2386,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -2394,20 +2394,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_75",
-            "manufacturerUniqueId": "BMW_75",
-            "uniqueId": "BMW_75"
+            "customerUniqueId": "Partner_00007_BMW_75",
+            "manufacturerUniqueId": "Partner_00007_BMW_75",
+            "uniqueId": "Partner_00007_BMW_75"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_151",
-                "TIER1_76"
+                "Partner_00004_ZF_151",
+                "Partner_00005_TIER1_76"
             ]
         },
         "qualityAlert": {
@@ -2418,7 +2418,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -2426,20 +2426,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_76",
-            "manufacturerUniqueId": "BMW_76",
-            "uniqueId": "BMW_76"
+            "customerUniqueId": "Partner_00007_BMW_76",
+            "manufacturerUniqueId": "Partner_00007_BMW_76",
+            "uniqueId": "Partner_00007_BMW_76"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_153",
-                "TIER1_77"
+                "Partner_00004_ZF_153",
+                "Partner_00005_TIER1_77"
             ]
         },
         "qualityAlert": {
@@ -2450,7 +2450,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -2458,20 +2458,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_77",
-            "manufacturerUniqueId": "BMW_77",
-            "uniqueId": "BMW_77"
+            "customerUniqueId": "Partner_00007_BMW_77",
+            "manufacturerUniqueId": "Partner_00007_BMW_77",
+            "uniqueId": "Partner_00007_BMW_77"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_155",
-                "TIER1_78"
+                "Partner_00004_ZF_155",
+                "Partner_00005_TIER1_78"
             ]
         },
         "qualityAlert": {
@@ -2482,7 +2482,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -2490,20 +2490,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_78",
-            "manufacturerUniqueId": "BMW_78",
-            "uniqueId": "BMW_78"
+            "customerUniqueId": "Partner_00007_BMW_78",
+            "manufacturerUniqueId": "Partner_00007_BMW_78",
+            "uniqueId": "Partner_00007_BMW_78"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_157",
-                "TIER1_79"
+                "Partner_00004_ZF_157",
+                "Partner_00005_TIER1_79"
             ]
         },
         "qualityAlert": {
@@ -2514,7 +2514,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -2522,20 +2522,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_79",
-            "manufacturerUniqueId": "BMW_79",
-            "uniqueId": "BMW_79"
+            "customerUniqueId": "Partner_00007_BMW_79",
+            "manufacturerUniqueId": "Partner_00007_BMW_79",
+            "uniqueId": "Partner_00007_BMW_79"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_159",
-                "TIER1_80"
+                "Partner_00004_ZF_159",
+                "Partner_00005_TIER1_80"
             ]
         },
         "qualityAlert": {
@@ -2546,7 +2546,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -2554,20 +2554,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_80",
-            "manufacturerUniqueId": "BMW_80",
-            "uniqueId": "BMW_80"
+            "customerUniqueId": "Partner_00007_BMW_80",
+            "manufacturerUniqueId": "Partner_00007_BMW_80",
+            "uniqueId": "Partner_00007_BMW_80"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_161",
-                "TIER1_81"
+                "Partner_00004_ZF_161",
+                "Partner_00005_TIER1_81"
             ]
         },
         "qualityAlert": {
@@ -2578,7 +2578,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -2586,20 +2586,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_81",
-            "manufacturerUniqueId": "BMW_81",
-            "uniqueId": "BMW_81"
+            "customerUniqueId": "Partner_00007_BMW_81",
+            "manufacturerUniqueId": "Partner_00007_BMW_81",
+            "uniqueId": "Partner_00007_BMW_81"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_163",
-                "TIER1_82"
+                "Partner_00004_ZF_163",
+                "Partner_00005_TIER1_82"
             ]
         },
         "qualityAlert": {
@@ -2610,7 +2610,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -2618,20 +2618,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_82",
-            "manufacturerUniqueId": "BMW_82",
-            "uniqueId": "BMW_82"
+            "customerUniqueId": "Partner_00007_BMW_82",
+            "manufacturerUniqueId": "Partner_00007_BMW_82",
+            "uniqueId": "Partner_00007_BMW_82"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_165",
-                "TIER1_83"
+                "Partner_00004_ZF_165",
+                "Partner_00005_TIER1_83"
             ]
         },
         "qualityAlert": {
@@ -2642,7 +2642,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -2650,20 +2650,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_83",
-            "manufacturerUniqueId": "BMW_83",
-            "uniqueId": "BMW_83"
+            "customerUniqueId": "Partner_00007_BMW_83",
+            "manufacturerUniqueId": "Partner_00007_BMW_83",
+            "uniqueId": "Partner_00007_BMW_83"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_167",
-                "TIER1_84"
+                "Partner_00004_ZF_167",
+                "Partner_00005_TIER1_84"
             ]
         },
         "qualityAlert": {
@@ -2674,7 +2674,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -2682,20 +2682,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_84",
-            "manufacturerUniqueId": "BMW_84",
-            "uniqueId": "BMW_84"
+            "customerUniqueId": "Partner_00007_BMW_84",
+            "manufacturerUniqueId": "Partner_00007_BMW_84",
+            "uniqueId": "Partner_00007_BMW_84"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_169",
-                "TIER1_85"
+                "Partner_00004_ZF_169",
+                "Partner_00005_TIER1_85"
             ]
         },
         "qualityAlert": {
@@ -2706,7 +2706,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -2714,20 +2714,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_85",
-            "manufacturerUniqueId": "BMW_85",
-            "uniqueId": "BMW_85"
+            "customerUniqueId": "Partner_00007_BMW_85",
+            "manufacturerUniqueId": "Partner_00007_BMW_85",
+            "uniqueId": "Partner_00007_BMW_85"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_171",
-                "TIER1_86"
+                "Partner_00004_ZF_171",
+                "Partner_00005_TIER1_86"
             ]
         },
         "qualityAlert": {
@@ -2738,7 +2738,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -2746,20 +2746,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_86",
-            "manufacturerUniqueId": "BMW_86",
-            "uniqueId": "BMW_86"
+            "customerUniqueId": "Partner_00007_BMW_86",
+            "manufacturerUniqueId": "Partner_00007_BMW_86",
+            "uniqueId": "Partner_00007_BMW_86"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_173",
-                "TIER1_87"
+                "Partner_00004_ZF_173",
+                "Partner_00005_TIER1_87"
             ]
         },
         "qualityAlert": {
@@ -2770,7 +2770,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -2778,20 +2778,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_87",
-            "manufacturerUniqueId": "BMW_87",
-            "uniqueId": "BMW_87"
+            "customerUniqueId": "Partner_00007_BMW_87",
+            "manufacturerUniqueId": "Partner_00007_BMW_87",
+            "uniqueId": "Partner_00007_BMW_87"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_175",
-                "TIER1_88"
+                "Partner_00004_ZF_175",
+                "Partner_00005_TIER1_88"
             ]
         },
         "qualityAlert": {
@@ -2802,7 +2802,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -2810,20 +2810,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_88",
-            "manufacturerUniqueId": "BMW_88",
-            "uniqueId": "BMW_88"
+            "customerUniqueId": "Partner_00007_BMW_88",
+            "manufacturerUniqueId": "Partner_00007_BMW_88",
+            "uniqueId": "Partner_00007_BMW_88"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_177",
-                "TIER1_89"
+                "Partner_00004_ZF_177",
+                "Partner_00005_TIER1_89"
             ]
         },
         "qualityAlert": {
@@ -2834,7 +2834,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -2842,20 +2842,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_89",
-            "manufacturerUniqueId": "BMW_89",
-            "uniqueId": "BMW_89"
+            "customerUniqueId": "Partner_00007_BMW_89",
+            "manufacturerUniqueId": "Partner_00007_BMW_89",
+            "uniqueId": "Partner_00007_BMW_89"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_179",
-                "TIER1_90"
+                "Partner_00004_ZF_179",
+                "Partner_00005_TIER1_90"
             ]
         },
         "qualityAlert": {
@@ -2866,7 +2866,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -2874,20 +2874,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_90",
-            "manufacturerUniqueId": "BMW_90",
-            "uniqueId": "BMW_90"
+            "customerUniqueId": "Partner_00007_BMW_90",
+            "manufacturerUniqueId": "Partner_00007_BMW_90",
+            "uniqueId": "Partner_00007_BMW_90"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_181",
-                "TIER1_91"
+                "Partner_00004_ZF_181",
+                "Partner_00005_TIER1_91"
             ]
         },
         "qualityAlert": {
@@ -2898,7 +2898,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -2906,20 +2906,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_91",
-            "manufacturerUniqueId": "BMW_91",
-            "uniqueId": "BMW_91"
+            "customerUniqueId": "Partner_00007_BMW_91",
+            "manufacturerUniqueId": "Partner_00007_BMW_91",
+            "uniqueId": "Partner_00007_BMW_91"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_183",
-                "TIER1_92"
+                "Partner_00004_ZF_183",
+                "Partner_00005_TIER1_92"
             ]
         },
         "qualityAlert": {
@@ -2930,7 +2930,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -2938,20 +2938,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_92",
-            "manufacturerUniqueId": "BMW_92",
-            "uniqueId": "BMW_92"
+            "customerUniqueId": "Partner_00007_BMW_92",
+            "manufacturerUniqueId": "Partner_00007_BMW_92",
+            "uniqueId": "Partner_00007_BMW_92"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_185",
-                "TIER1_93"
+                "Partner_00004_ZF_185",
+                "Partner_00005_TIER1_93"
             ]
         },
         "qualityAlert": {
@@ -2962,7 +2962,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -2970,20 +2970,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_93",
-            "manufacturerUniqueId": "BMW_93",
-            "uniqueId": "BMW_93"
+            "customerUniqueId": "Partner_00007_BMW_93",
+            "manufacturerUniqueId": "Partner_00007_BMW_93",
+            "uniqueId": "Partner_00007_BMW_93"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_187",
-                "TIER1_94"
+                "Partner_00004_ZF_187",
+                "Partner_00005_TIER1_94"
             ]
         },
         "qualityAlert": {
@@ -2994,7 +2994,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -3002,20 +3002,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_94",
-            "manufacturerUniqueId": "BMW_94",
-            "uniqueId": "BMW_94"
+            "customerUniqueId": "Partner_00007_BMW_94",
+            "manufacturerUniqueId": "Partner_00007_BMW_94",
+            "uniqueId": "Partner_00007_BMW_94"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_189",
-                "TIER1_95"
+                "Partner_00004_ZF_189",
+                "Partner_00005_TIER1_95"
             ]
         },
         "qualityAlert": {
@@ -3026,7 +3026,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -3034,20 +3034,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_95",
-            "manufacturerUniqueId": "BMW_95",
-            "uniqueId": "BMW_95"
+            "customerUniqueId": "Partner_00007_BMW_95",
+            "manufacturerUniqueId": "Partner_00007_BMW_95",
+            "uniqueId": "Partner_00007_BMW_95"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_191",
-                "TIER1_96"
+                "Partner_00004_ZF_191",
+                "Partner_00005_TIER1_96"
             ]
         },
         "qualityAlert": {
@@ -3058,7 +3058,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -3066,20 +3066,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_96",
-            "manufacturerUniqueId": "BMW_96",
-            "uniqueId": "BMW_96"
+            "customerUniqueId": "Partner_00007_BMW_96",
+            "manufacturerUniqueId": "Partner_00007_BMW_96",
+            "uniqueId": "Partner_00007_BMW_96"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_193",
-                "TIER1_97"
+                "Partner_00004_ZF_193",
+                "Partner_00005_TIER1_97"
             ]
         },
         "qualityAlert": {
@@ -3090,7 +3090,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -3098,20 +3098,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_97",
-            "manufacturerUniqueId": "BMW_97",
-            "uniqueId": "BMW_97"
+            "customerUniqueId": "Partner_00007_BMW_97",
+            "manufacturerUniqueId": "Partner_00007_BMW_97",
+            "uniqueId": "Partner_00007_BMW_97"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_195",
-                "TIER1_98"
+                "Partner_00004_ZF_195",
+                "Partner_00005_TIER1_98"
             ]
         },
         "qualityAlert": {
@@ -3122,7 +3122,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -3130,20 +3130,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_98",
-            "manufacturerUniqueId": "BMW_98",
-            "uniqueId": "BMW_98"
+            "customerUniqueId": "Partner_00007_BMW_98",
+            "manufacturerUniqueId": "Partner_00007_BMW_98",
+            "uniqueId": "Partner_00007_BMW_98"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_197",
-                "TIER1_99"
+                "Partner_00004_ZF_197",
+                "Partner_00005_TIER1_99"
             ]
         },
         "qualityAlert": {
@@ -3154,7 +3154,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -3162,20 +3162,20 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_99",
-            "manufacturerUniqueId": "BMW_99",
-            "uniqueId": "BMW_99"
+            "customerUniqueId": "Partner_00007_BMW_99",
+            "manufacturerUniqueId": "Partner_00007_BMW_99",
+            "uniqueId": "Partner_00007_BMW_99"
         }
     },
     {
         "individualData": {
             "productionCountryCode": "DE",
-            "productionDateGmt": "2021-05-26"
+            "productionDateGmt": "2021-06-01"
         },
         "partTree": {
             "isParentOf": [
-                "ZF_199",
-                "TIER1_100"
+                "Partner_00004_ZF_199",
+                "Partner_00005_TIER1_100"
             ]
         },
         "qualityAlert": {
@@ -3186,7 +3186,7 @@
             "customerContractOneId": "",
             "customerOneId": "",
             "manufacturerContractOneId": "",
-            "manufacturerOneId": "BMW",
+            "manufacturerOneId": "Partner_00007_BMW",
             "partNameCustomer": "3 Series",
             "partNameManufacturer": "3 Series",
             "partNumberCustomer": "",
@@ -3194,9 +3194,9 @@
         },
         "supplyTree": {},
         "uniqueData": {
-            "customerUniqueId": "BMW_100",
-            "manufacturerUniqueId": "BMW_100",
-            "uniqueId": "BMW_100"
+            "customerUniqueId": "Partner_00007_BMW_100",
+            "manufacturerUniqueId": "Partner_00007_BMW_100",
+            "uniqueId": "Partner_00007_BMW_100"
         }
     }
 ]
