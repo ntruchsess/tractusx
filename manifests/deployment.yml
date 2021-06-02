@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: cdns 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cdns
+  template:
+    metadata:
+      labels:
+        app: cdns 
+    spec:
+      containers:
+        - name: cdns 
+          image: catenaxdevacr.azurecr.io/cdns
+          ports:
+          - containerPort: 8080
