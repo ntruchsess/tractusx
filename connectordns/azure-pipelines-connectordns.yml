@@ -34,23 +34,20 @@ stages:
       inputs:
         mavenPomFile: './connectordns/pom.xml'
         publishJUnitResults: false
-        javaHomeOption: 'JDKVersion'
+        javaHomeOption: JDKVersion
         jdkVersionOption: '1.11'
-        mavenVersionOption: 'Default'
+        mavenVersionOption: Default
         mavenAuthenticateFeed: false
         effectivePomSkip: false
         sonarQubeRunAnalysis: false
     - task: Docker@2
       inputs:
-        containerRegistry: 'catenaxdevacr'
-        repository: 'cdns'
-        command: 'buildAndPush'
+        containerRegistry: catenaxdevacr
+        repository: cdns
+        command: buildAndPush
         Dockerfile: './connectordns/Dockerfile'
-    - task: PublishPipelineArtifact@1
-      inputs:
-        targetPath: '$(Pipeline.Workspace)' 
-        artifactName: 'manifests'
-        artifactType: 'pipeline'
+    - upload: manifests
+      artifact: manifests
 
 - stage: Deploy
   displayName: Deploy stage
@@ -68,17 +65,21 @@ stages:
           steps:
           - task: KubernetesManifest@0
             inputs:
-              action: 'createSecret'
-              kubernetesServiceConnection: 'catenax-dev-aks-services-cdns'
-              namespace: 'cdns'
-              secretType: 'dockerRegistry'
+              action: createSecret
+              kubernetesServiceConnection: catenax-dev-aks-services-cdns
+              namespace: cdns
+              secretType: dockerRegistry
               secretName:  $(imagePullSecret)
               dockerRegistryEndpoint: 'catenaxdevacr'
+
           - task: KubernetesManifest@0
             inputs:
-              action: 'deploy'
-              kubernetesServiceConnection: 'catenax-dev-aks-services-cdns'
-              namespace: 'cdns'
-              manifests: '**/cdns.yaml'
+              action: deploy
+              kubernetesServiceConnection: catenax-dev-aks-services-cdns
+              namespace: cdns
+              manifests: |
+                $(Pipeline.Workspace)/manifests/cdns.yaml
+                $(Pipeline.Workspace)/manifests/cdns-ingress.yaml
               containers: '$(containerRegistry)/$(imageRepository):$(tag)'
-              imagePullSecrets: '$(imagePullSecret)'
+              imagePullSecrets: |
+                $(imagePullSecret)
