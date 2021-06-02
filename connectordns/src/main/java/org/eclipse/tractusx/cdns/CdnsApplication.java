@@ -11,7 +11,7 @@ public class CdnsApplication {
 
 	@RequestMapping("/")
 	public String home() {
-		return "Connector DNS Service";
+		return "Hello Connector DNS Service!";
 	}
 
 	public static void main(String[] args) {
