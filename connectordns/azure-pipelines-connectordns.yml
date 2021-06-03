@@ -46,6 +46,8 @@ stages:
         repository: cdns
         command: buildAndPush
         Dockerfile: './connectordns/Dockerfile'
+        tags: |
+          $(tag)
     - upload: manifests
       artifact: manifests
 
