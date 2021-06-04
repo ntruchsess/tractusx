@@ -17,6 +17,9 @@ resources:
 
 variables:
   tag: '$(Build.BuildId)'
+  imageRepository: 'portal'
+  containerRegistry: 'catenaxdevacr.azurecr.io'
+  imagePullSecret: 'catenaxdevacr-auth'
 
 stages:
 - stage: Build
@@ -30,7 +33,9 @@ stages:
     - task: Docker@2
       displayName: Build an image
       inputs:
-        command: build
+        containerRegistry: catenaxdevacr
+        repository: portal
+        command: buildAndPush
         dockerfile: '$(Build.SourcesDirectory)/portal/code/tractus-x-portal/Dockerfile'
         tags: |
           $(tag)
