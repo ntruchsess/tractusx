@@ -20,6 +20,8 @@ variables:
   imageRepository: 'portal'
   containerRegistry: 'catenaxdevacr.azurecr.io'
   imagePullSecret: 'catenaxdevacr-auth'
+    # Agent VM image name
+  vmImageName: 'ubuntu-latest'
 
 stages:
 - stage: Build
@@ -28,7 +30,7 @@ stages:
   - job: Build
     displayName: Build
     pool:
-      vmImage: ubuntu-latest
+      vmImage: $(vmImageName)
     steps:
     - task: Docker@2
       displayName: Build an image
@@ -39,3 +41,38 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/portal/code/tractus-x-portal/Dockerfile'
         tags: |
           $(tag)
+
+- stage: Deploy
+  displayName: Deploy stage
+  dependsOn: Build
+
+  jobs:
+  - deployment: Deploy
+    displayName: Deploy
+    pool:
+      vmImage: $(vmImageName)
+    environment: 'CXPoCtractusx.portal'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: KubernetesManifest@0
+            inputs:
+              action: createSecret
+              kubernetesServiceConnection: catenax-dev-aks-services-cdns
+              namespace: portal
+              secretType: dockerRegistry
+              secretName:  $(imagePullSecret)
+              dockerRegistryEndpoint: 'catenaxdevacr'
+
+          - task: KubernetesManifest@0
+            inputs:
+              action: deploy
+              kubernetesServiceConnection: catenax-dev-aks-services-cdns
+              namespace: portal
+              manifests: |
+                $(Pipeline.Workspace)/manifests/portal.yaml
+                $(Pipeline.Workspace)/manifests/portal-ingress.yaml
+              containers: '$(containerRegistry)/$(imageRepository):$(tag)'
+              imagePullSecrets: |
+                $(imagePullSecret)
