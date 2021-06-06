@@ -169,9 +169,9 @@ variable "rbac_aad_admin_group_object_id" {
   default     = null
 }
 
-variable "rbac_aad_admin_user_name" {
-  description = "Azure login name of user with admin access to the AKS cluster, e.g. someone@example.com"
-  type        = string
+variable "rbac_aad_admin_user_names" {
+  description = "Azure login names of user with admin access to the AKS cluster"
+  type        = list(string)
   default     = null
 }
 

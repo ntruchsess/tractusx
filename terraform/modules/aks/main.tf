@@ -155,10 +155,10 @@ resource "kubernetes_cluster_role_binding" "main" {
   }
 
   dynamic "subject" {
-    for_each = var.rbac_aad_admin_user_name != null ? ["subject"] : []
+    for_each = var.rbac_aad_admin_user_names
     content {
       kind      = "User"
-      name      = var.rbac_aad_admin_user_name
+      name      = subject.value
       api_group = "rbac.authorization.k8s.io"
     }
   }
