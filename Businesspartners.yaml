@@ -43,7 +43,7 @@ stages:
     - task: Docker@2
       inputs:
         containerRegistry: catenaxdevacr
-        repository: cdns
+        repository: businesspartners
         command: buildAndPush
         Dockerfile: './businesspartners/Dockerfile'
         tags: |
