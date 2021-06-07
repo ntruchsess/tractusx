@@ -1,0 +1,74 @@
+{
+  "oneID": "Partner_ERROR_CP",
+  "businessPartnerType": "string",
+  "businessPartnerName": [
+    {
+      "name": "ERROR CP",
+      "language": "DE",
+      "type": "REGISTERED_NAME",
+      "legalForm": ""
+    }
+  ],
+  "businessPartnerIdentifiers": [
+    {
+      "issuer": "string"
+    }
+  ],
+  "businessStatus": [
+    {
+      "statusOfOperation": "ACTIVE",
+      "validFrom": "2020-06-01T06:23:25.734Z",
+      "validTo": "2023-06-01T06:23:25.734Z"
+    }
+  ],
+  "contactData": [
+    {
+      "communicationLanguage": "EN",
+      "emailAddress": "max.mustermann@.com",
+      "website": "string",
+      "phoneNumbers": [
+        {
+          "countryPrefix": "+49",
+          "number": "123456789",
+          "type": "FIXED_LINE"
+        }
+      ]
+    }
+  ],
+  "bankData": [
+    {
+      "IBAN": "DE08144711000123456780",
+      "currency": "EUR",
+      "bankIdentifier": "Bank of Catena-X",
+      "countryOfBank": "GER"
+    }
+  ],
+  "addressData": [
+    {
+      "addressID": "string",
+      "language": "string",
+      "addressType": [
+        "PHYSICAL_ADDRESS"
+      ],
+      "coName": "string",
+      "street": "string",
+      "itinaryInformation": "string",
+      "houseNumber": "string",
+      "houseNumberSupplement": "string",
+      "postalCode": "string",
+      "postalCodeType": "CITY_POSTAL_CODE",
+      "poBox": "string",
+      "city": "string",
+      "district": "string",
+      "region": "string",
+      "country": {
+        "ISOCode": "string",
+        "countryNameEN": "string",
+        "countryNameLocal": "string"
+      },
+      "latitude": "string",
+      "longitude": "string",
+      "altitude": "string"
+    }
+  ]
+}

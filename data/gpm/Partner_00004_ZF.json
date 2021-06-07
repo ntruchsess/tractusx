@@ -1,0 +1,76 @@
+{
+  "oneID": "Partner_00004_ZF",
+  "businessPartnerType": "Supplier",
+  "businessPartnerName": [
+    {
+      "name": "ZF Friedrichshafen AG",
+      "language": "DE",
+      "type": "REGISTERED_NAME",
+      "legalForm": "AG"
+    }
+  ],
+  "businessPartnerIdentifiers": [
+    {
+      "issuer": "D-U-N-S",
+      "typeOfIdentificationNumber": "D-U-N-S",
+      "identificationNumber": "31-501-5446"
+    }
+  ],
+  "businessStatus": [
+    {
+      "statusOfOperation": "ACTIVE",
+      "validFrom": "2020-06-01T06:23:25.734Z",
+      "validTo": "2023-06-01T06:23:25.734Z"
+    }
+  ],
+  "contactData": [
+    {
+      "communicationLanguage": "DE",
+      "emailAddress": "postoffice@zf.com",
+      "website": "https://www.zf.com/",
+      "phoneNumbers": [
+        {
+          "countryPrefix": "+49",
+          "number": "07541770",
+          "type": "FIXED_LINE"
+        }
+      ]
+    }
+  ],
+  "bankData": [
+    {
+      "IBAN": "DE08144711000123456784",
+      "currency": "EUR",
+      "bankIdentifier": "Bank of Catena-X",
+      "countryOfBank": "DEU"
+    }
+  ],
+  "addressData": [
+    {
+      "addressID": "ZF_ADDR_1",
+      "language": "DE",
+      "addressType": [
+        "PHYSICAL_ADDRESS"
+      ],
+      "coName": "",
+      "street": "Löwentaler Straße",
+      "itinaryInformation": "string",
+      "houseNumber": "20",
+      "houseNumberSupplement": "",
+      "postalCode": "88046",
+      "postalCodeType": "CITY_POSTAL_CODE",
+      "poBox": "",
+      "city": "Friedrichshafen",
+      "district": "",
+      "region": "Bayern",
+      "country": {
+        "ISOCode": "DEU",
+        "countryNameEN": "Germany",
+        "countryNameLocal": "Deutschland"
+      },
+      "latitude": "",
+      "longitude": "",
+      "altitude": ""
+    }
+  ]
+}

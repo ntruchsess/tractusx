@@ -1,0 +1,76 @@
+{
+  "oneID": "Partner_00001_BOSCH",
+  "businessPartnerType": "Supplier",
+  "businessPartnerName": [
+    {
+      "name": "Bosch",
+      "language": "DE",
+      "type": "REGISTERED_NAME",
+      "legalForm": "GmbH"
+    }
+  ],
+  "businessPartnerIdentifiers": [
+    {
+      "issuer": "Finanzamt",
+      "typeOfIdentificationNumber": "UST-ID",
+      "identificationNumber": "DE811128135"
+    }
+  ],
+  "businessStatus": [
+    {
+      "statusOfOperation": "ACTIVE",
+      "validFrom": "2020-06-01T06:23:25.734Z",
+      "validTo": "2023-06-01T06:23:25.734Z"
+    }
+  ],
+  "contactData": [
+    {
+      "communicationLanguage": "DE",
+      "emailAddress": "max.mustermann@bosch.de",
+      "website": "https://www.bosch.de/",
+      "phoneNumbers": [
+        {
+          "countryPrefix": "+49",
+          "number": "123456789",
+          "type": "FIXED_LINE"
+        }
+      ]
+    }
+  ],
+  "bankData": [
+    {
+      "IBAN": "DE08144711000123456781",
+      "currency": "EUR",
+      "bankIdentifier": "Bank of Catena-X",
+      "countryOfBank": "DEU"
+    }
+  ],
+  "addressData": [
+    {
+      "addressID": "BOSCH_ADDR_1",
+      "language": "DE",
+      "addressType": [
+        "PHYSICAL_ADDRESS"
+      ],
+      "coName": "",
+      "street": "Robert-Bosch-Platz",
+      "itinaryInformation": "string",
+      "houseNumber": "1",
+      "houseNumberSupplement": "",
+      "postalCode": "70839",
+      "postalCodeType": "CITY_POSTAL_CODE",
+      "poBox": "",
+      "city": "Gerlingen-Schillerhöhe",
+      "district": "",
+      "region": "Baden-Württemberg",
+      "country": {
+        "ISOCode": "DEU",
+        "countryNameEN": "Germany",
+        "countryNameLocal": "Deutschland"
+      },
+      "latitude": "",
+      "longitude": "",
+      "altitude": ""
+    }
+  ]
+}
