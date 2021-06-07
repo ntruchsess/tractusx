@@ -13,7 +13,7 @@ resources:
 - repo: self
 
 variables:
-  imageRepository: 'cdns'
+  imageRepository: 'businesspartners'
   containerRegistry: 'catenaxdevacr.azurecr.io'
   tag: $(Build.BuildID)
   imagePullSecret: 'catenaxdevacr-auth'
