@@ -1,0 +1,76 @@
+{
+  "oneID": "Partner_00002_BILSTEIN",
+  "businessPartnerType": "Supplier",
+  "businessPartnerName": [
+    {
+      "name": "THYSSENKRUPP Bilstein",
+      "language": "DE",
+      "type": "REGISTERED_NAME",
+      "legalForm": "GmbH"
+    }
+  ],
+  "businessPartnerIdentifiers": [
+    {
+      "issuer": "Finanzamt",
+      "typeOfIdentificationNumber": "Steuernummer",
+      "identificationNumber": "112/5795/0833"
+    }
+  ],
+  "businessStatus": [
+    {
+      "statusOfOperation": "ACTIVE",
+      "validFrom": "2020-06-01T06:23:25.734Z",
+      "validTo": "2023-06-01T06:23:25.734Z"
+    }
+  ],
+  "contactData": [
+    {
+      "communicationLanguage": "DE",
+      "emailAddress": "max.mustermann@bilstein.com",
+      "website": "https://www.bilstein.com/",
+      "phoneNumbers": [
+        {
+          "countryPrefix": "+49",
+          "number": "123456789",
+          "type": "FIXED_LINE"
+        }
+      ]
+    }
+  ],
+  "bankData": [
+    {
+      "IBAN": "DE65330400010582866000",
+      "currency": "EUR",
+      "bankIdentifier": "Commerzbank AG",
+      "countryOfBank": "DEU"
+    }
+  ],
+  "addressData": [
+    {
+      "addressID": "BILSTEIN_ADDR_1",
+      "language": "DE",
+      "addressType": [
+        "PHYSICAL_ADDRESS"
+      ],
+      "coName": "",
+      "street": "August-Bilstein-Straße",
+      "itinaryInformation": "string",
+      "houseNumber": "4",
+      "houseNumberSupplement": "",
+      "postalCode": "58256",
+      "postalCodeType": "CITY_POSTAL_CODE",
+      "poBox": "",
+      "city": "Ennepetal",
+      "district": "",
+      "region": "Nordrhein-Westfalen",
+      "country": {
+        "ISOCode": "DEU",
+        "countryNameEN": "Germany",
+        "countryNameLocal": "Deutschland"
+      },
+      "latitude": "51.2979822869329",
+      "longitude": "7.363947064176881",
+      "altitude": ""
+    }
+  ]
+}
