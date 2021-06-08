@@ -1,0 +1,3 @@
+nvm package
+
+docker run -i -e mvn=BusinessPartners -p 8080:8080 businesspartners 
