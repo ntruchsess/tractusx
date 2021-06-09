@@ -31,10 +31,9 @@ public class TableStroageAccess {
             "isParentOfString"
     };
 
-    public TableStroageAccess(String strorageConnectionstring )
+    public TableStroageAccess(String strorageConnectionstring)
     {
         this.storageConnectionstring = strorageConnectionstring;
-
     }
 
     private String storageConnectionstring;
