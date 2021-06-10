@@ -18,7 +18,7 @@ public class partmasterdatacontroller {
 
     @GetMapping("/api")
     public String getTest(){
-        return config.blobContainerName;
+        return "Container name:" + config.blobContainerName +"\r\nStorageAccountConnectionString:" + config.storageConnectionstring;
     }
 
 
