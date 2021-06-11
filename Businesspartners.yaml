@@ -60,7 +60,7 @@ stages:
     displayName: Deploy
     pool:
       vmImage: $(vmImageName)
-    environment: 'TractusXPortal.businesspartners'
+    environment: 'TractusXPortal.portal'
     strategy:
       runOnce:
         deploy:
@@ -69,7 +69,7 @@ stages:
             inputs:
               action: createSecret
               kubernetesServiceConnection: catenax-dev-aks-services-portal
-              namespace: businesspartners
+              namespace: portal
               secretType: dockerRegistry
               secretName:  $(imagePullSecret)
               dockerRegistryEndpoint: 'catenaxdevacr'
@@ -78,7 +78,7 @@ stages:
             inputs:
               action: deploy
               kubernetesServiceConnection: catenax-dev-aks-services-portal
-              namespace: businesspartners
+              namespace: portal
               manifests: |
                 $(Pipeline.Workspace)/manifests/businesspartners.yaml
               containers: '$(containerRegistry)/$(imageRepository):$(tag)'
