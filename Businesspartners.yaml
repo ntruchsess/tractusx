@@ -60,7 +60,7 @@ stages:
     displayName: Deploy
     pool:
       vmImage: $(vmImageName)
-    environment: 'CXPoCtractusx.businesspartners'
+    environment: 'CX_Backendservices.businesspartners'
     strategy:
       runOnce:
         deploy:
