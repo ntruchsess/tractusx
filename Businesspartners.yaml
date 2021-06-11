@@ -50,3 +50,28 @@ stages:
           $(tag)
     - upload: manifests
       artifact: manifests
+
+- stage: Deploy
+  displayName: Deploy stage
+  dependsOn: Build
+
+  jobs:
+  - deployment: Deploy
+    displayName: Deploy
+    pool:
+      vmImage: $(vmImageName)
+    environment: 'CX_Backendservices.businesspartners'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: KubernetesManifest@0
+            inputs:
+              action: deploy
+              kubernetesServiceConnection: catenax-dev-aks-services-portal
+              namespace: businesspartners
+              manifests: |
+                $(Pipeline.Workspace)/manifests/businesspartners.yaml
+              containers: '$(containerRegistry)/$(imageRepository):$(tag)'
+              imagePullSecrets: |
+                $(imagePullSecret)

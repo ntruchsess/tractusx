@@ -60,15 +60,6 @@ stages:
           steps:
           - task: KubernetesManifest@0
             inputs:
-              action: createSecret
-              kubernetesServiceConnection: catenax-dev-aks-services-portal
-              namespace: portal
-              secretType: dockerRegistry
-              secretName:  $(imagePullSecret)
-              dockerRegistryEndpoint: 'catenaxdevacr'
-
-          - task: KubernetesManifest@0
-            inputs:
               action: deploy
               kubernetesServiceConnection: catenax-dev-aks-services-portal
               namespace: portal
