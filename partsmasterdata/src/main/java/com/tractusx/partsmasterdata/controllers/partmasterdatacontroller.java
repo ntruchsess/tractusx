@@ -23,8 +23,8 @@ public class partmasterdatacontroller {
 
 
     @PostMapping("/api/upload")
-    public String handleFileUpload(@RequestParam("file")MultipartFile file){
+    public String handleFileUpload(@RequestParam("file")MultipartFile file, @RequestParam String company){
         var blobStorageAccess = new BlobStorageAccess(config.storageConnectionstring);
-        return blobStorageAccess.UploadFile(file, config.blobContainerName);
+        return blobStorageAccess.UploadFile(file, company);
     }
 }

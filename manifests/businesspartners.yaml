@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: businesspartners
+  namespace: businesspartners
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: businesspartners
+  template:
+    metadata:
+      labels:
+        app: businesspartners
+    spec:
+      containers:
+      - name: businesspartners
+        image: catenaxdevacr.azurecr.io/businesspartners
+          - naem: TABLENAME
+            value: "test table name"
+          - name: STORAGE_CONNECTIONSTRING
+            value: "connectionstring"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: businesspartners
+  namespace: businesspartners
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8080
+  selector:
+    app: businesspartners
