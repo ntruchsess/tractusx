@@ -68,7 +68,7 @@ stages:
           - task: KubernetesManifest@0
             inputs:
               action: createSecret
-              kubernetesServiceConnection: catenax-dev-aks-services-businesspartners
+              kubernetesServiceConnection: catenax-dev-aks-services-portal
               namespace: businesspartners
               secretType: dockerRegistry
               secretName:  $(imagePullSecret)
@@ -77,7 +77,7 @@ stages:
           - task: KubernetesManifest@0
             inputs:
               action: deploy
-              kubernetesServiceConnection: catenax-dev-aks-services-businesspartners
+              kubernetesServiceConnection: catenax-dev-aks-services-portal
               namespace: businesspartners
               manifests: |
                 $(Pipeline.Workspace)/manifests/businesspartners.yaml
