@@ -53,11 +53,20 @@ stages:
     displayName: Deploy
     pool:
       vmImage: $(vmImageName)
-    environment: 'TractusXPortal.portal'
+    environment: 'CXPoCtractusx.portal'
     strategy:
       runOnce:
         deploy:
           steps:
+          - task: KubernetesManifest@0
+            inputs:
+              action: createSecret
+              kubernetesServiceConnection: catenax-dev-aks-services-portal
+              namespace: portal
+              secretType: dockerRegistry
+              secretName:  $(imagePullSecret)
+              dockerRegistryEndpoint: 'catenaxdevacr'
+
           - task: KubernetesManifest@0
             inputs:
               action: deploy
