@@ -16,7 +16,7 @@ spec:
       containers:
       - name: businesspartners
         image: catenaxdevacr.azurecr.io/businesspartners
-          - naem: TABLENAME
+          - name: TABLENAME
             value: "test table name"
           - name: STORAGE_CONNECTIONSTRING
             value: "connectionstring"

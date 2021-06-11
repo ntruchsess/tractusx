@@ -17,7 +17,7 @@ spec:
       - name: partsmasterdata
         image: catenaxdevacr.azurecr.io/partsmasterdata
         env:
-          - naem: CONTAINERNAME
+          - name: CONTAINERNAME
             value: "test container name"
           - name: STORAGE_CONNECTIONSTRING
             value: "connectionstring"
