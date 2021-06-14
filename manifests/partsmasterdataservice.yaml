@@ -15,12 +15,12 @@ spec:
     spec:
       containers:
       - name: partsmasterdata
-        image: catenaxdevacr.azurecr.io/partsmasterdata:71
+        image: catenaxdevacr.azurecr.io/partsmasterdata:100
         env:
           - name: CONTAINERNAME
-            value: "test container name"
+            value: ""
           - name: STORAGE_CONNECTIONSTRING
-            value: "connectionstring"
+            value: ""
         ports:
         - containerPort: 8080
 ---

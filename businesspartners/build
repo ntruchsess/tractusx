@@ -10,3 +10,5 @@ docker run -i -e CONTAINERNAME=Test -e STORAGE_CONNECTIONSTRING=$Env:STORAGE_CON
 
 
   curl --location --request GET 'partsmasterdata:8080/api'
+
+  curl --location --request GET 'partsmasterdata:8080/v3/api-docs/'
