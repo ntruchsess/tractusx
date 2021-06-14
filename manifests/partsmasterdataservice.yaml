@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: partsmasterdata
-        image: catenaxdevacr.azurecr.io/partsmasterdata
+        image: catenaxdevacr.azurecr.io/partsmasterdata:71
         env:
           - name: CONTAINERNAME
             value: "test container name"

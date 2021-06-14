@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="621a0887-5535-4162-a906-13cf3edf34aa" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../businesspartners/build" beforeDir="false" afterPath="$PROJECT_DIR$/../businesspartners/build" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../manifests/partsmasterdataservice.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../manifests/partsmasterdataservice.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../manifests/portal-ingress.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../manifests/portal-ingress.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tractusx/partsmasterdata/controllers/partmasterdatacontroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tractusx/partsmasterdata/controllers/partmasterdatacontroller.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,6 +68,9 @@
       <workItem from="1623253471810" duration="1500000" />
       <workItem from="1623315265973" duration="2258000" />
       <workItem from="1623406159473" duration="684000" />
+      <workItem from="1623651564520" duration="593000" />
+      <workItem from="1623658907560" duration="1444000" />
+      <workItem from="1623683025873" duration="27000" />
     </task>
     <servers />
   </component>
@@ -71,15 +78,6 @@
     <option name="version" value="3" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tractusx/partsmasterdata/controllers/partmasterdatacontroller.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
         <watch expression="file" />

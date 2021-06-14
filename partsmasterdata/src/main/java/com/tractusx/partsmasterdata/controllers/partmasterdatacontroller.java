@@ -16,6 +16,11 @@ public class partmasterdatacontroller {
     @Autowired
     BlobStorageConfiguration config;
 
+    @GetMapping("/")
+    public String GetSampleData(){
+        return "Sample  JDK11!";
+    }
+
     @GetMapping("/api")
     public String getTest(){
         return "Container name:" + config.blobContainerName +"\r\nStorageAccountConnectionString:" + config.storageConnectionstring;
