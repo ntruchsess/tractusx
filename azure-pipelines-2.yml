@@ -53,7 +53,7 @@ stages:
     displayName: Deploy
     pool:
       vmImage: $(vmImageName)
-    environment: 'CXPoCtractusx.portal'
+    environment: 'TractusXPortal.portal'
     strategy:
       runOnce:
         deploy:
