@@ -16,7 +16,7 @@ spec:
   - host: catenaxdevakssrv.germanywestcentral.cloudapp.azure.com
     http:
       paths:
-      - path: /portal
+      - path: /portal(/|$)(.*)
         pathType: Prefix
         backend:
           service:
