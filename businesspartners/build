@@ -1,0 +1,3 @@
+mvn package
+
+docker run -i -e TABLENAME=BusinessPartners -e STORAGE_CONNECTIONSTRING=$Env:STORAGE_CONNECTIONSTRING -p 8080:8080

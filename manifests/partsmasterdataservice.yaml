@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: partsmasterdata
+  namespace: partsmasterdata
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: partsmasterdata
+  template:
+    metadata:
+      labels:
+        app: partsmasterdata
+    spec:
+      containers:
+      - name: partsmasterdata
+        image: catenaxdevacr.azurecr.io/partsmasterdata
+        env:
+          - name: CONTAINERNAME
+            value: "test container name"
+          - name: STORAGE_CONNECTIONSTRING
+            value: "connectionstring"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: partsmasterdata
+  namespace: partsmasterdata
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8080
+  selector:
+    app: partsmasterdata

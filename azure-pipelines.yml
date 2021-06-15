@@ -1,0 +1,22 @@
+# Build numbering format
+name: $(BuildID)
+
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    exclude:
+      - 'connectordns/*'
+      - 'gpm/*'
+      - 'kmuuploadapp/*'
+      - 'partsmasterdata/*'
+      - 'portal/*'
+      - 'terraform/*'
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - script: |
+      echo "Hello from root folder pipeline."
