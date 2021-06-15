@@ -55,32 +55,4 @@ stages:
   displayName: Deploy stage
   dependsOn: Build
 
-  jobs:
-  - deployment: Deploy
-    displayName: Deploy
-    pool:
-      vmImage: $(vmImageName)
-    environment: 'TractusXPortal.portal'
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - task: KubernetesManifest@0
-            inputs:
-              action: createSecret
-              kubernetesServiceConnection: catenax-dev-aks-services-portal
-              namespace: portal
-              secretType: dockerRegistry
-              secretName:  $(imagePullSecret)
-              dockerRegistryEndpoint: 'catenaxdevacr'
-
-          - task: KubernetesManifest@0
-            inputs:
-              action: deploy
-              kubernetesServiceConnection: catenax-dev-aks-services-portal
-              namespace: portal
-              manifests: |
-                $(Pipeline.Workspace)/manifests/businesspartners.yaml
-              containers: '$(containerRegistry)/$(imageRepository):$(tag)'
-              imagePullSecrets: |
-                $(imagePullSecret)
+ 
