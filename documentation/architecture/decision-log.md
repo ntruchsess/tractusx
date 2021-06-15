@@ -33,7 +33,7 @@ Upload-App:
 IDS Components:
 - Use DAPS instance from Fraunhofer
 - Fraunhofer will provide certificates for connectors
-- Broker will be setup as backend component to evaluate the technical integration of different Dataspace Connectors. No connection to fronend.
+- Meta Broker will be setup by T-Systems as backend component to evaluate the technical integration of different Dataspace Connectors. No connection to fronend.
 
 Infrastructure:
 - Portal, Connectors and services will all be containerized
