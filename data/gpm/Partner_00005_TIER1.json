@@ -1,0 +1,76 @@
+{
+  "oneID": "Partner_00005_TIER1",
+  "businessPartnerType": "Supplier",
+  "businessPartnerName": [
+    {
+      "name": "TIER1",
+      "language": "DE",
+      "type": "REGISTERED_NAME",
+      "legalForm": ""
+    }
+  ],
+  "businessPartnerIdentifiers": [
+    {
+      "issuer": "D-U-N-S",
+      "typeOfIdentificationNumber": "D-U-N-S",
+      "identificationNumber": "77-888-9999"
+    }
+  ],
+  "businessStatus": [
+    {
+      "statusOfOperation": "ACTIVE",
+      "validFrom": "2020-06-01T06:23:25.734Z",
+      "validTo": "2023-06-01T06:23:25.734Z"
+    }
+  ],
+  "contactData": [
+    {
+      "communicationLanguage": "DE",
+      "emailAddress": "max.mustermann@tier1.com",
+      "website": "https://www.tier1.com/",
+      "phoneNumbers": [
+        {
+          "countryPrefix": "+49",
+          "number": "1234567895",
+          "type": "FIXED_LINE"
+        }
+      ]
+    }
+  ],
+  "bankData": [
+    {
+      "IBAN": "DE08144711000123456785",
+      "currency": "EUR",
+      "bankIdentifier": "Bank of Catena-X",
+      "countryOfBank": "DEU"
+    }
+  ],
+  "addressData": [
+    {
+      "addressID": "TIER1_ADDR_1",
+      "language": "DE",
+      "addressType": [
+        "PHYSICAL_ADDRESS"
+      ],
+      "coName": "",
+      "street": "Tierstraße",
+      "itinaryInformation": "string",
+      "houseNumber": "1",
+      "houseNumberSupplement": "",
+      "postalCode": "80333",
+      "postalCodeType": "CITY_POSTAL_CODE",
+      "poBox": "",
+      "city": "München",
+      "district": "",
+      "region": "Bayern",
+      "country": {
+        "ISOCode": "DEU",
+        "countryNameEN": "Germany",
+        "countryNameLocal": "Deutschland"
+      },
+      "latitude": "",
+      "longitude": "",
+      "altitude": ""
+    }
+  ]
+}

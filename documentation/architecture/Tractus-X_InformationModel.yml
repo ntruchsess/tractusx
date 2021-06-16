@@ -1,0 +1,633 @@
+openapi: 3.0.0
+info:
+  title: "Tractus-X PoC Information Model"
+  description: Tractus-X PoC Information Model
+  version: 0.0.1 PoC
+  termsOfService: https://projects.eclipse.org/proposals/eclipse-tractus-x
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  contact:
+    name: Christian Kabelin
+    email: christian.kabelin@partner.bmw.de
+
+paths:
+  /catena-x/part/masterdata:
+    get:
+      summary: Part Master Data
+      description: Retrieve Part Master Data
+      operationId: getPartMasterData
+      tags:
+        - "Parts Master Data"
+      parameters:
+        - name: manufacturerOneId
+          in: query
+          description: OneID of manufacturer
+          required: false
+          schema:
+            $ref: "#/components/schemas/OneID_BusinessPartner"
+        - name: customerOneId
+          in: query
+          description: OneID of customer
+          required: false
+          schema:
+            $ref: "#/components/schemas/OneID_BusinessPartner"
+        - name: partNumberManufacturer
+          in: query
+          description: part number within manufacturer
+          required: false
+          schema:
+            type: string
+        - name: partNumberCustomer
+          in: query
+          description: part number within customer
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: PartsMasterData
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PartMasterData'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Create or update Part Master Data
+      description: Create or update Part Master Data
+      operationId: createOrUpdatePartMasterData
+      tags:
+        - "Parts Master Data"
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PartMasterData'
+      responses:
+        '200':
+          description: PartMasterData
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PartMasterData'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+                
+  /catena-x/businesspartner/goldenrecord:
+    get:
+      summary: Business Partner (Golden Record)
+      description: Business Partner (Golden Record)
+      operationId: getBusinessPartnerMasterData
+      tags:
+        - "Business Partner Management"
+      parameters:
+        - name: Business Partner OneID
+          in: query
+          description: OneID of Business Partner
+          required: false
+          schema:
+            $ref: "#/components/schemas/OneID_BusinessPartner"
+        - name: query
+          in: query
+          description: custom query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Business Partner Master Data
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BusinessPartnerData'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Create or update Business Partner (Golden Record)
+      description: Create or update Business Partner (Golden Record)
+      operationId: createOrUpdateBusinessPartner
+      tags:
+        - "Business Partner Management"
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/BusinessPartnerData'
+      responses:
+        '200':
+          description: BusinessPartnerMasterData
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BusinessPartnerData'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+                
+  /catena-x/connector/dns:
+    get:
+      summary: IDS Connector DNS Service
+      description: Retrieve IDS Connector DNS Entries
+      operationId: getConnectorDNSEntry
+      tags:
+        - "Connector"
+      parameters:
+        - name: Business Partner OneID
+          in: query
+          description: OneID of Business Partner
+          required: false
+          schema:
+            $ref: "#/components/schemas/OneID_BusinessPartner"
+        - name: Connector ID
+          in: query
+          description: Connector ID
+          required: false
+          schema:
+            $ref: "#/components/schemas/ConnectorID"
+      responses:
+        '200':
+          description: Connector DNS Records
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ConnectorDNSRecord'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'           
+                
+                
+
+components:
+  schemas:
+    Event:
+      description: Tractus-X generic event. Type specific processing and delivery
+      required:
+        - eventUID
+        - eventType
+        - eventTimestamp
+        - eventOriginCompany
+        - eventTargetCompany
+      properties:
+        eventUID:
+          type: string
+          description: Should be unique (at least in combination with timestamp)
+          example: "QualityAlert_98273498237948_2021-01-30_T08:30:00Z"
+        eventType:
+          type: string
+          description: Type of event
+          enum:
+            - QualityAlert
+            - UNSPECIFIED
+        eventTimestamp:
+          type: string
+          description: Creation date and time
+          format: date-time
+          example: "2021-01-30T08:30:00Z"
+        eventOriginCompany:
+          $ref: "#/components/schemas/OneID_BusinessPartner"
+        eventOriginApp:
+          type: string
+        eventTargetCompany:
+          $ref: "#/components/schemas/OneID_BusinessPartner"
+        eventBody:
+          $ref: "#/components/schemas/EventBody"
+          
+    EventBody:
+      description: Content for event
+      type: array
+      items:
+        anyOf:
+          - $ref: "#/components/schemas/QualityAlertEvent"
+
+    OneID_BusinessPartner:
+      description: Business Partner OneID
+      example: 0000001_BMW
+      type: string
+      minLength: 8
+      maxLength: 20
+    
+    TraceabilityData:
+      required:
+        - staticData
+      properties:
+        staticData:
+          $ref: "#/components/schemas/PartStaticData"
+        uniqueData:
+          $ref: "#/components/schemas/PartUniqueData"
+        individualData:
+          $ref: "#/components/schemas/PartIndividualData"
+          
+        supplyTree:
+          $ref: "#/components/schemas/SupplyTreeParent"
+        partTree:
+          $ref: "#/components/schemas/PartTreeParent"
+        qualityAlert:
+          $ref: "#/components/schemas/QualityAlert" 
+          
+    PartMasterData:
+      required:
+        - manufacturerOneId
+        - manufactureContractOneId
+      properties:
+        manufacturerOneId:
+          description: OneID of manufacture partner
+          allOf:
+            - $ref: "#/components/schemas/OneID_BusinessPartner"
+        manufactureContractOneId:
+          description: OneID of manufacture contract partner
+          allOf:
+            - $ref: "#/components/schemas/OneID_BusinessPartner"
+        uniqueData:
+          $ref: "#/components/schemas/PartUniqueData"
+        partTree:
+          $ref: "#/components/schemas/PartTreeParent"
+        qualityAlert:
+          $ref: "#/components/schemas/QualityAlert" 
+
+    PartStaticData:
+      required:
+        - manufacturerOneId
+        - manufactureContractOneId
+        - partNameManufacturer
+        - partNumberManufacturer
+        - customerOneID
+        - customerContractOneID
+        - partNameCustomer
+        - partNumberCustomer
+      properties:
+        manufacturerOneId:
+          description: OneID of manufacture partner
+          allOf:
+            - $ref: "#/components/schemas/OneID_BusinessPartner"
+        manufactureContractOneId:
+          description: OneID of manufacture contract partner
+          allOf:
+            - $ref: "#/components/schemas/OneID_BusinessPartner"
+        partNameManufacturer:
+          type: string
+          description: Name of the part family of manufacture
+          example: KLEBER1
+        partNumberManufacturer:
+          type: string
+          description: Number of part family of manufacture
+          example: 101.15V
+        customerOneID:
+          description: OneID of customer plant
+          allOf:
+            - $ref: "#/components/schemas/OneID_BusinessPartner"
+        customerContractOneID:
+          description: OneID of customer contract partner
+          allOf:
+            - $ref: "#/components/schemas/OneID_BusinessPartner"
+        partNameCustomer:
+          type: string
+          description: Name of the customer product
+          example: MIRROR_1
+        partNumberCustomer:
+          type: string
+          description: Type/Part No. of customer product
+          example: 1122334455
+          
+    PartUniqueData:
+      required:
+        - uniqueID
+        - manufacturerUniqueID
+        - customerUniqueID
+      properties:
+        uniqueID:
+          type: string
+          description: this is a local unique ID to identiy the part
+          example:  1AB
+        manufacturerUniqueID:
+          type: string
+          description: SerialNo. Of manufacture
+          example: Xxx
+        customerUniqueID:
+          type: string
+          description: SerialNo. Of customer
+          example: 333
+          
+    PartIndividualData:
+      required:
+        - productionCountryCode
+        - productionDateGMT
+      properties:
+        productionCountryCode:
+          type: string
+          description: Country of production
+          minLength: 3
+          maxLength: 3
+          example: HUR
+        productionDateGMT:
+          type: string
+          description: Production Date without timestamp
+          format: date
+          
+    QualityAlert:
+      description: Quality Alert
+      properties:
+        QualityAlert:
+          type: boolean
+        QualityType:
+          type: string
+          enum:
+            - CRITICAL
+            - MAJOR
+            - MINOR
+            
+    QualityAlertEvent:
+      description: Quality Alert Event
+      properties:
+        customerUniqueID:
+          $ref: "#/components/schemas/OneID_BusinessPartner"
+        qualityAlert:
+          $ref: "#/components/schemas/QualityAlert"
+          
+    SupplyTreeParent:
+      properties:
+        isParentOf:
+          type: array
+          items:
+            type: string
+            example: 0000003_ZF
+          description: pNM*, pNM
+            
+    PartTreeParent:
+      properties:
+        isParentOf:
+          type: array
+          items:
+            type: string
+            example: G05
+          description: UID, UID
+            
+    BusinessPartnerData:
+      description: "TBD: information schema for business partner"
+      required:
+        - oneID
+        - businessPartnerType
+        - businessPartnerName
+        - businessStatus
+        - bankData
+      properties:
+        oneID:
+          type: string
+        businessPartnerType:
+          type: string
+        businessPartnerName:
+          type: array
+          items:
+            $ref: "#/components/schemas/BusinessPartnerName"
+        businessPartnerIdentifiers:
+          type: array
+          items:
+            $ref: "#/components/schemas/BusinessPartnerIdentifier"
+        businessStatus:
+          type: array
+          items:
+            $ref: "#/components/schemas/BusinessStatus"
+        contactData:
+          type: array
+          items:
+            $ref: "#/components/schemas/Contact"
+        bankData:
+          type: array
+          items:
+            $ref: "#/components/schemas/AccountData"
+        addressData:
+          type: array
+          items:
+            $ref: "#/components/schemas/Address"
+          
+    BusinessPartnerName:
+      required:
+        - name
+        - type
+      properties:
+        name:
+          type: string
+        language:
+          type: string
+          minLength: 2
+          maxLength: 7
+        type:
+          type: string
+          enum:
+            - REGISTERED_NAME
+            - LOCAL_NAME
+            - INTERNATIONAL_NAME
+            - TRANSLITERATED_NAME
+            - DBA_NAME
+            - VAT_REGISTERED_NAME
+        legalForm:
+          type: string
+          # enum?
+          
+    BusinessPartnerIdentifier:
+      description: Business Partner Identifier
+      properties:
+        issuer:
+          type: string
+          
+    BusinessStatus:
+      description: Business Status
+      properties:
+        statusOfOperation:
+          type: string
+          enum:
+            - ACTIVE
+            - INACTIVE
+            - IN_LIQUIDATION
+            - INSOLVENCY
+        validFrom:
+          type: string
+          format: date-time
+        validTo:
+          type: string
+          format: date-time
+          
+    Address:
+      description: TBD
+      required:
+        - addressID
+        - language
+        - addressType
+        - postalCode
+        - postalCodeType
+        - city
+        - country
+        - latitude
+        - longitude
+        - altitude
+      properties:
+        addressID:
+          type: string
+        language:
+          type: string
+        addressType:
+          type: array
+          items:
+            $ref: "#/components/schemas/AddressType"
+        coName:
+          type: string
+        street:
+          type: string
+        itinaryInformation:
+          type: string
+          description: "e. g. Street 2"
+        houseNumber:
+          type: string
+        houseNumberSupplement:
+          type: string
+        postalCode:
+          type: string
+        postalCodeType:
+          type: string
+          enum:
+            - CITY_POSTAL_CODE
+            - CEDEX
+            - POST_BOX_POSTAL_CODE
+        poBox:
+          type: string
+        city:
+          type: string
+        district:
+          type: string
+        region:
+          type: string
+        country:
+          $ref: "#/components/schemas/Country"
+        latitude:
+          type: string
+        longitude:
+          type: string
+        altitude:
+          type: string
+          
+    Country:
+      description: TBD
+      required:
+        - ISOCode
+        - countryNameEN
+        - countryNameLocal
+      properties:
+        ISOCode:
+          type: string
+        countryNameEN:
+          type: string
+        countryNameLocal:
+          type: string
+            
+    AddressType:
+      description: TBD
+      type: string
+      enum:
+            - PHYSICAL_ADDRESS
+            - PO_BOX_ADDRESS
+            - MAILING_ADDRESS
+            - CO_ADDRESS
+          
+    Contact:
+      description: TBD
+      properties:
+        communicationLanguage:
+          type: string
+        emailAddress:
+          type: string
+        website:
+          type: string
+        phoneNumbers:
+          type: array
+          items:
+            $ref: "#/components/schemas/PhoneNumber"
+          
+    PhoneNumber:
+      description: TBD
+      required:
+        - countryPrefix
+        - number
+        - type
+      properties: 
+        countryPrefix:
+          type: string
+        number:
+          type: string
+        type:
+          type: string
+          enum:
+            - FIXED_LINE
+            - MOBILE_PHONE
+            - FAX
+          
+    AccountData:
+      description: TBD
+      required:
+        - IBAN
+        - currency
+        - bankIdentifier
+        - countryOfBank
+      properties:
+        IBAN:
+          type: string
+        currency:
+          type: string
+        bankIdentifier:
+          type: string
+        countryOfBank:
+          type: string
+          
+    ConnectorID:
+      description: Connector ID
+      #TBD
+      example: 000000000000000001
+      type: string
+      minLength: 1
+      maxLength: 100
+      
+    ConnectorDNSRecord:
+      properties:
+        oneID:
+          allOf:
+            - $ref: "#/components/schemas/OneID_BusinessPartner"
+        idsConnectorID:
+          allOf:
+            - $ref: "#/components/schemas/ConnectorID"
+          
+    Error:
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        fields:
+          type: string

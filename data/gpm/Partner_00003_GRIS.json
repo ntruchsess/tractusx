@@ -1,0 +1,76 @@
+{
+  "oneID": "Partner_00003_GRIS",
+  "businessPartnerType": "Supplier",
+  "businessPartnerName": [
+    {
+      "name": "GRIS GROUP",
+      "language": "FR",
+      "type": "REGISTERED_NAME",
+      "legalForm": ""
+    }
+  ],
+  "businessPartnerIdentifiers": [
+    {
+      "issuer": "",
+      "typeOfIdentificationNumber": "",
+      "identificationNumber": ""
+    }
+  ],
+  "businessStatus": [
+    {
+      "statusOfOperation": "ACTIVE",
+      "validFrom": "2020-06-01T06:23:25.734Z",
+      "validTo": "2023-06-01T06:23:25.734Z"
+    }
+  ],
+  "contactData": [
+    {
+      "communicationLanguage": "FR",
+      "emailAddress": "max.mustermann@gris-group.com",
+      "website": "https://www.gris-group.com/",
+      "phoneNumbers": [
+        {
+          "countryPrefix": "+33",
+          "number": "0383808000",
+          "type": "FIXED_LINE"
+        }
+      ]
+    }
+  ],
+  "bankData": [
+    {
+      "IBAN": "FR08144711000123456783",
+      "currency": "EUR",
+      "bankIdentifier": "Banque de Catena-X",
+      "countryOfBank": "FRA"
+    }
+  ],
+  "addressData": [
+    {
+      "addressID": "GRIS_ADDR_1",
+      "language": "FR",
+      "addressType": [
+        "PHYSICAL_ADDRESS"
+      ],
+      "coName": "",
+      "street": "",
+      "itinaryInformation": "string",
+      "houseNumber": "",
+      "houseNumberSupplement": "",
+      "postalCode": "54706",
+      "postalCodeType": "CEDEX",
+      "poBox": "BP 90185",
+      "city": "PONT-A-MOUSSON",
+      "district": "",
+      "region": "",
+      "country": {
+        "ISOCode": "DEU",
+        "countryNameEN": "France",
+        "countryNameLocal": "Francé"
+      },
+      "latitude": "",
+      "longitude": "",
+      "altitude": ""
+    }
+  ]
+}

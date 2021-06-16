@@ -656,9 +656,8 @@ iframe {border-style: none;}
   color: #000!important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.buttonFabric:disabled {
+  background-color: #dddddd;
 }
 
 .dg {display: grid; grid-gap: 0px;}
@@ -854,16 +853,219 @@ mat-form-field .mat-input-placeholder {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+mat-form-field .mat-input-placeholder {
+    padding: 0px 0px;
+    box-sizing: border-box;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{
+    border-top: 2px solid #004894;
+    height: 0px;
   }
-  to {
-    transform: rotate(360deg);
+
+ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.container {
+  background: #f8f8f8;
+}
+
+.container:hover {
+  background: #EEEEEE;
+}
+
+.container:hover > .highlight {
+  background: #004894;
+}
+
+.link:active{
+  color: #321850;
+}
+
+.mobiledf{display: none;}
+
+@media (max-width: 768px){
+  .mobiledb{display: block;} 
+  .mobiledf{display: flex;} 
+  .nomobile{display: none !important;}
+  .nomobilesoft{opacity: 0 !important; pointer-events: none!important; z-index: 0!important;} 
+  .mobilew100{width: 100%;}
+  .mobo3 {order: 3;}
+  .mobomr {margin-right: 10px !important;}
+  .mobomt {margin-top: 0px !important;}
+  .moboml {margin-left: -10px !important;}
+  .mobilet40{top:40px !important}
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+
+@media (max-width: 768px){
+  .mobiledb{display: block;} 
+  .mobilew100{width: 100%;}
+  .nomobile{display: none !important;} 
+  .nomobilesoft{opacity: 0 !important; pointer-events: none!important; z-index: 0!important;} 
+  .weather-content {margin-left: -20px; margin-right: -10px; margin-bottom: -10px;}
+  .page-header-mobile{margin-top: 10px !important; margin-left: 50px !important;}
+  .page-content-mobile{margin-top: 7px;}
+  .farm-site-content-mobile{margin-top: 3px;}
+  .wrap-on-mobile{grid-template-columns: auto;}
+  .mobile-margins{ margin-left: 0px; margin-top: 10px!important;}
+}
+
+.threshold-dialog-width { min-width: 550px;}
+
+.nolabel label {max-width: 20px;}
+
+.cluster {font-style: italic;}
+
+/* Google Maps Info Window styling overrides */
+.gm-style-iw {border-radius: 0px !important;}
+.gm-style-iw > button {display:none !important}
+
+.map-overlay {
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  background-color: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  position: absolute;
+  width: 25%;
+  top: 10px;
+  left: 10px;
+  padding: 10px;
+  display: none;
+}
+
+.card {
+  box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.133) 0px 1.6px 3.6px 0px, rgba(0, 0, 0, 0.11) 0px 0.3px 0.9px 0px;
+  border-radius: 2px;
+  outline: none;
+  transition: box-shadow 0.5s ease 0s;
+}
+
+.bb {border-width: 0px 0px 1px 0px;}
+
+
+
+/* MapBox search box override*/
+/* .mapboxgl-ctrl-top-right {
+  right: unset;
+  top: 20px;
+  left: 20px;
+}
+
+.mapboxgl-ctrl-geocoder {
+  width:360px;
+  border-radius: 0px;
+} */
+
+.azure-maps-drawtoolbar {
+  position: absolute;
+  top:-105px;   /* Hide it off the top */
+  right:270px;
+  z-index: 99;
+}
+
+.marker-font {font-size:16px;font-family:arial;}
+.mapboxgl-canvas {outline: none !important;cursor: default !important;}
+.map-copyright { display: none !important;}
+/*
+.azure-maps-drawtoolbar-button:focus{
+  outline: none!important;
+}
+
+.azure-maps-drawtoolbar-button{
+  border-width: 2px!important;
+  border-color: black!important;
+  border-radius: 0px;
+  width: 38px !important;
+  height: 38px !important;
+    private buildingColors = { residential: '#FA47BD', commercial: '#268F7A', industrial: '#0052C9', public: '#E1C100', other: 'red' };
+
+}
+*/
+.bdstart {border-left: 5px;}
+
+.checkbox-Public .ms-Checkbox-checkbox { border-color: #E1C100;}
+.checkbox-Public-checked .ms-Checkbox-checkbox { border-color: #E1C100; background-color: #E1C100;}
+.checkbox-Public-checked:hover .ms-Checkbox-checkbox { border-color: #E1C100; background-color: #E1C100;}
+.checkbox-Residential .ms-Checkbox-checkbox { border-color: #FA47BD;}
+.checkbox-Residential-checked .ms-Checkbox-checkbox { border-color: #FA47BD; background-color: #FA47BD;}
+.checkbox-Residential-checked:hover .ms-Checkbox-checkbox { border-color: #FA47BD; background-color: #FA47BD;}
+.checkbox-Commercial .ms-Checkbox-checkbox { border-color: #741FAB;}
+.checkbox-Commercial-checked .ms-Checkbox-checkbox { border-color: #741FAB; background-color: #741FAB;}
+.checkbox-Commercial-checked:hover .ms-Checkbox-checkbox { border-color: #741FAB; background-color: #741FAB;}
+.checkbox-Industrial .ms-Checkbox-checkbox { border-color: #0052C9;}
+.checkbox-Industrial-checked .ms-Checkbox-checkbox { border-color: #0052C9; background-color: #0052C9;}
+.checkbox-Industrial-checked:hover .ms-Checkbox-checkbox { border-color: #0052C9; background-color: #0052C9;}
+.checkbox-Other .ms-Checkbox-checkbox { border-color: #323130;}
+.checkbox-Other-checked .ms-Checkbox-checkbox { border-color: #323130; background-color: #323130;}
+.checkbox-Other-checked:hover .ms-Checkbox-checkbox { border-color: #323130; background-color: #323130;}
+
+
+.checkbox-affected-buildings .ms-Checkbox-checkbox, .checkbox-affected-buildings:hover .ms-Checkbox-checkbox { border-color: #DA3B01;}
+.checkbox-unaffected-buildings .ms-Checkbox-checkbox, .checkbox-unaffected-buildings:hover .ms-Checkbox-checkbox { border-color: #8CBD18; }
+.checkbox-affected-buildings.is-checked .ms-Checkbox-checkbox{ border-color: #DA3B01; background-color:#DA3B01;}
+.checkbox-unaffected-buildings.is-checked .ms-Checkbox-checkbox, .checkbox-unaffected-buildings:hover .ms-Checkbox-checkbox{ border-color: #8CBD18; background-color: #8CBD18;}
+.sr-only{display: none;}
+
+.focussable{
+  position: relative;
+}
+
+.focussable, .focussable:focus , .focussable:focus:after{
+  outline: none;
+  content: none;
+}
+
+.focussable:focus-visible::after{
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border: 1px solid transparent;
+  outline: rgb(96, 94, 92) solid 1px;
+  z-index: 1;
+}
+
+#map canvas:focus{
+  inset: 2px;
+}
+
+#skip a {
+  display: block;
+  position: absolute;
+  left: -999px;
+  top: -999px;
+  z-index: 99;
+  }
+
+#skip a:focus {
+  left: 0;
+  top: 0;
+  margin-left: 3px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background: white;
+  color: #0078D4;
+  border:0px solid black;
+  height: 30px;
+  line-height: 30px;
+  outline-width: 1px;
   }
 }
 

@@ -1,0 +1,76 @@
+{
+  "oneID": "Partner_00006_Mercedes",
+  "businessPartnerType": "OEM",
+  "businessPartnerName": [
+    {
+      "name": "Mercedes-Benz AG",
+      "language": "DE",
+      "type": "REGISTERED_NAME",
+      "legalForm": "AG"
+    }
+  ],
+  "businessPartnerIdentifiers": [
+    {
+      "issuer": "Finanzamt",
+      "typeOfIdentificationNumber": "UST-ID",
+      "identificationNumber": "DE321281763"
+    }
+  ],
+  "businessStatus": [
+    {
+      "statusOfOperation": "ACTIVE",
+      "validFrom": "2020-06-01T06:23:25.734Z",
+      "validTo": "2023-06-01T06:23:25.734Z"
+    }
+  ],
+  "contactData": [
+    {
+      "communicationLanguage": "DE",
+      "emailAddress": "dialog.mb@daimler.com",
+      "website": "https://www.mercedes-benz.de/",
+      "phoneNumbers": [
+        {
+          "countryPrefix": "+49",
+          "number": "0711170",
+          "type": "FIXED_LINE"
+        }
+      ]
+    }
+  ],
+  "bankData": [
+    {
+      "IBAN": "DE08144711000123456786",
+      "currency": "EUR",
+      "bankIdentifier": "Bank of Catena-X",
+      "countryOfBank": "DEU"
+    }
+  ],
+  "addressData": [
+    {
+      "addressID": "MERCEDES_ADDR_1",
+      "language": "DE",
+      "addressType": [
+        "PHYSICAL_ADDRESS"
+      ],
+      "coName": "",
+      "street": "Mercedesstraße",
+      "itinaryInformation": "string",
+      "houseNumber": "120",
+      "houseNumberSupplement": "",
+      "postalCode": "70372",
+      "postalCodeType": "CITY_POSTAL_CODE",
+      "poBox": "",
+      "city": "Stuttgart",
+      "district": "",
+      "region": "Baden-Württemberg",
+      "country": {
+        "ISOCode": "DEU",
+        "countryNameEN": "Germany",
+        "countryNameLocal": "Deutschland"
+      },
+      "latitude": "",
+      "longitude": "",
+      "altitude": ""
+    }
+  ]
+}
