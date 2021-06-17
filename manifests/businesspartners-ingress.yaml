@@ -1,8 +1,8 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: portal-ingress
-  namespace: portal
+  name: businesspartners-ingress
+  namespace: partsmasterdata
   annotations:
     kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: letsencrypt-staging
@@ -16,11 +16,11 @@ spec:
   - host: catenaxdevakssrv.germanywestcentral.cloudapp.azure.com
     http:
       paths:
-      - path: /portal(/|$)(.*)
+      - path: /businesspartners(/|$)(.*)
         pathType: Prefix
         backend:
           service:
-            name: portal
+            name: businesspartners
             port:
               number: 8080
 

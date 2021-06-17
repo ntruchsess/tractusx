@@ -17,6 +17,9 @@ interface IProp extends RouteComponentProps{
   href: string;
 }
 
+const pivots = ['Dashboard', 'AppStore', 'Data Catalog', 'Vocabulary', 'Developer Hub'];
+const keys = pivots.map((p) => p.toLowerCase().replace(' ', ''));
+
 @observer
 class Header extends React.Component<IProp> {
   @observable username = '';
@@ -26,25 +29,24 @@ class Header extends React.Component<IProp> {
     this.username = adalContext.getUsername();
   }
 
-  pivotClick(item: any): void {
-    this.selectedKey = item.key.replace('.$', '');
+  pivotClick(item: PivotItem): void {
+    this.selectedKey = item.props.headerText.replace(' ', '').toLowerCase();
     this.props.history.push(`/home/${this.selectedKey}`);
   }
 
   public render() {
     const href = window.location.href;
-    const key = href.substr(href.lastIndexOf('/') + 1);
+    const path = href.substr(href.lastIndexOf('/') + 1);
+    const key = String(keys.indexOf(path));
     return (
-      <div className='w100pc h80 df aic bgwhite'>
+      <div className='w100pc minh80 df aic bgwhite'>
         <img src='/logo.png' alt='logo' />
         <span className='fs22 bold'>Catena-X</span>
         <div className='flex1' />
-        <Pivot defaultSelectedKey={key} className='px30' aria-label='Header' onLinkClick={(item) => this.pivotClick(item)}>
-          <PivotItem key='dashboard' className='ml20 mr20' headerText='Dashboard' />
-          <PivotItem key='appstore' className='ml20 mr20' headerText='App Store' />
-          <PivotItem key='datacatalog' className='ml20 mr20' headerText='Data Catalog' />
-          <PivotItem key='vocabulary' className='ml20 mr20' headerText='Vocabulary' />
-          <PivotItem key='developerhub' className='ml20 mr20' headerText='Developer Hub' />
+        <Pivot selectedKey={key} className='px30' aria-label='Header' onLinkClick={(item) => this.pivotClick(item)}>
+          {pivots.map((p) => {
+            return <PivotItem key={p.toLowerCase().replace(' ', '')} className='ml20 mr20' headerText={p} />
+          })}
           <PivotItem key='search' className='ml20 mr20' headerText='' itemIcon='search' />
         </Pivot>
         <div className='flex1' />

@@ -23,7 +23,7 @@ export default class App extends React.Component {
     super(props);
     if (App.first) {
       initializeIcons();
-      loadTheme({ palette: { themePrimary: '#BAC938' } })
+      loadTheme({ palette: { themePrimary: '#BAC938', themeSecondary: '#E6AA1E' } })
     }
 
     App.first = false;

@@ -9,16 +9,25 @@
 import * as React from 'react';
 import { observer } from 'mobx-react';
 import Header from './header';
-import { Nav, INavStyles, INavLinkGroup } from '@fluentui/react/lib/Nav';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Nav, INavStyles, INavLinkGroup, INavLink } from '@fluentui/react/lib/Nav';
+import { Redirect, Route, RouteComponentProps, Switch, withRouter } from 'react-router-dom';
 import Dashboard from './dashboard';
 import AppStore from './appstore';
 import DataCatalog from './datacatalog';
 import Vocabulary from './vocabulary';
 import DeveloperHub from './developerhub';
+import { ThemeProvider } from '@fluentui/react';
+import NotImp from './notimplemented';
+import AppDetail from './appdetail';
 
 @observer
-export default class Home extends React.Component {
+class Home extends React.Component<RouteComponentProps> {
+
+  linkClick(ev: React.MouseEvent<HTMLElement, MouseEvent>, item: INavLink): void {
+    ev.stopPropagation();
+    ev.preventDefault();
+    this.props.history.push(`/home${item.url}`);
+  }
 
   public render() {
     const navStyles: Partial<INavStyles> = {
@@ -42,7 +51,7 @@ export default class Home extends React.Component {
         links: [
           {
             name: 'my Apps',
-            url: '/home',
+            url: '/dashboard',
             key: 'key1',
             expandAriaLabel: 'Expand section',
             collapseAriaLabel: 'Collapse section',
@@ -50,7 +59,7 @@ export default class Home extends React.Component {
           },
           {
             name: 'my Data',
-            url: '/home',
+            url: '/appdetail',
             key: 'key2',
             expandAriaLabel: 'Expand section',
             collapseAriaLabel: 'Collapse section',
@@ -58,7 +67,7 @@ export default class Home extends React.Component {
           },
           {
             name: 'my Connectors',
-            url: '/home',
+            url: '/notimp',
             key: 'key3',
             expandAriaLabel: 'Expand section',
             collapseAriaLabel: 'Collapse section',
@@ -73,7 +82,7 @@ export default class Home extends React.Component {
         links: [
           {
             name: 'Notification Center',
-            url: '/home',
+            url: '/notimp',
             key: 'key4',
             expandAriaLabel: 'Expand section',
             collapseAriaLabel: 'Collapse section',
@@ -81,7 +90,7 @@ export default class Home extends React.Component {
           },
           {
             name: 'Transactions & History',
-            url: '/home',
+            url: '/notimp',
             key: 'key5',
             expandAriaLabel: 'Expand section',
             collapseAriaLabel: 'Collapse section',
@@ -89,7 +98,7 @@ export default class Home extends React.Component {
           },
           {
             name: 'Organization',
-            url: '/home',
+            url: '/notimp',
             key: 'key6',
             expandAriaLabel: 'Expand section',
             collapseAriaLabel: 'Collapse section',
@@ -97,7 +106,7 @@ export default class Home extends React.Component {
           },
           {
             name: 'User Management',
-            url: '/home',
+            url: '/notimp',
             key: 'key7',
             expandAriaLabel: 'Expand section',
             collapseAriaLabel: 'Collapse section',
@@ -109,13 +118,17 @@ export default class Home extends React.Component {
     return (
       <div className='w100pc h100pc df fdc bgf5'>
         <Header href={window.location.href} />
-        <div className='df w100pc h100pc'>
-          <div className='df fdc w250 h100pc'>
-            <Nav className='bgwhite' selectedKey='key1' ariaLabel='Navigation panel' styles={navStyles} groups={navLinkGroups} />
-            <div className='flex1 bgwhite' />
-            <Nav className='bgwhite' selectedKey='' ariaLabel='Navigation panel' styles={navStyles} groups={navLinkGroups2} />
-          </div>
-          <div className='w100pc h100pc df fdc'>
+        <div className='df w100pc flex1'>
+          <ThemeProvider theme={{ palette: { themePrimary: '#E6AA1E' } }}>
+            <div className='df fdc w250 h100pc'>
+              <Nav className='bgwhite' selectedKey='key1' ariaLabel='Navigation panel' styles={navStyles} groups={navLinkGroups}
+                onLinkClick={(ev, item) => this.linkClick(ev, item)} />
+              <div className='flex1 bgwhite' />
+              <Nav className='bgwhite' selectedKey='' ariaLabel='Navigation panel' styles={navStyles} groups={navLinkGroups2}
+                onLinkClick={(ev, item) => this.linkClick(ev, item)} />
+            </div>
+          </ThemeProvider>
+          <div className='flex1 h100pc ova'>
             <Switch>
               <Redirect path='/home' exact to='/home/dashboard' />
               <Route path='/home/dashboard' component={(props) => <Dashboard {...props} />} />
@@ -123,6 +136,8 @@ export default class Home extends React.Component {
               <Route path='/home/datacatalog' component={(props) => <DataCatalog {...props} />} />
               <Route path='/home/vocabulary' component={(props) => <Vocabulary {...props} />} />
               <Route path='/home/developerhub' component={(props) => <DeveloperHub {...props} />} />
+              <Route path='/home/appdetail' component={(props) => <AppDetail {...props}/>} />
+              <Route path='/home/notimp' component={(props) => <NotImp {...props}/>} />
             </Switch>
           </div>
         </div>
@@ -130,3 +145,5 @@ export default class Home extends React.Component {
     );
   }
 }
+
+export default withRouter(Home);
