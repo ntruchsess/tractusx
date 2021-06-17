@@ -19,7 +19,7 @@ spec:
         env:
           - name: CONTAINERNAME
             value: "poc"
-            - name: STORAGE_CONNECTIONSTRING
+          - name: STORAGE_CONNECTIONSTRING
             valueFrom:
               secretKeyRef:
                 key: sotrage_connectionstring
