@@ -85,8 +85,8 @@ stages:
             inputs:
               action: deploy
               manifests: |
-                $(Pipeline.Workspace)/manifests/businesspartners.yml
-                $(Pipeline.Workspace)/manifests/businesspartners-ingress.yml
+                $(Pipeline.Workspace)/manifests/businesspartners.yaml
+                $(Pipeline.Workspace)/manifests/businesspartners-ingress.yaml
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |
