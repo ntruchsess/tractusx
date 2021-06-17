@@ -21,12 +21,6 @@ public class partmasterdatacontroller {
         return "Sample  JDK11!";
     }
 
-    @GetMapping("/api")
-    public String getTest(){
-        return "Container name:" + config.blobContainerName +"\r\nStorageAccountConnectionString:" + config.storageConnectionstring;
-    }
-
-
     @PostMapping("/api/upload")
     public String handleFileUpload(@RequestParam("file")MultipartFile file, @RequestParam String company){
         var blobStorageAccess = new BlobStorageAccess(config.storageConnectionstring);

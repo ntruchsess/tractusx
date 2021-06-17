@@ -34,11 +34,4 @@ public class SampleDataController {
 
         return partner;
     }
-
-    @GetMapping("/api/settings")
-    @ResponseBody
-    public String GetSettings(){
-
-      return secConfig.username + "  " + secConfig.password;
-    }
 }
