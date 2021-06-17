@@ -19,7 +19,7 @@ variables:
   dockerRegistryServiceConnection: '553abab0-5db0-4932-aaaf-25147ed09cf7'
   imageRepository: 'partsmasterdata'
   containerRegistry: 'catenaxdevacr.azurecr.io'
-  dockerfilePath: '**/Dockerfile'
+  dockerfilePath: 'partsmasterdata/Dockerfile'
   tag: '$(Build.BuildId)'
   imagePullSecret: 'catenaxdevacr12483f45-auth'
 
@@ -40,8 +40,9 @@ stages:
       inputs:
         mavenPomFile: './partsmasterdata/pom.xml'
         publishJUnitResults: false
-        javaHomeOption: 'JDKVersion'
-        mavenVersionOption: 'Default'
+        javaHomeOption: JDKVersion
+        jdkVersionOption: '1.11'
+        mavenVersionOption: Default
         mavenAuthenticateFeed: false
         effectivePomSkip: false
         sonarQubeRunAnalysis: false
