@@ -26,7 +26,7 @@ spec:
                 name: partsmasterdata-secret
           - name: HTTPUSERNAME
             value: "TractusX"
-           - name: HTTPPASSWORD
+          - name: HTTPPASSWORD
             valueFrom:
               secretKeyRef:
                 key: http_basic_auth_password
