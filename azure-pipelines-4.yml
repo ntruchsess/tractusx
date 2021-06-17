@@ -68,7 +68,7 @@ stages:
     displayName: Deploy
     pool:
       vmImage: $(vmImageName)
-    environment: 'CXPoCtractusx-1589.businesspartners'
+    environment: 'Businesspartners.businesspartners'
     strategy:
       runOnce:
         deploy:
