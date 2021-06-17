@@ -67,7 +67,7 @@ stages:
     displayName: Deploy
     pool:
       vmImage: $(vmImageName)
-    environment: 'PartsMasterData.partsmasterdata'
+    environment: 'CXPoCtractusx.partsmasterdata'
     strategy:
       runOnce:
         deploy:
