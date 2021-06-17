@@ -18,13 +18,19 @@ spec:
         image: catenaxdevacr.azurecr.io/partsmasterdata:100
         env:
           - name: CONTAINERNAME
-            value: ""
-          - name: STORAGE_CONNECTIONSTRING
-            value: ""
+            value: "poc"
+            - name: STORAGE_CONNECTIONSTRING
+            valueFrom:
+              secretKeyRef:
+                key: sotrage_connectionstring
+                name: partsmasterdata-secret
           - name: HTTPUSERNAME
-            value: ""
-          - name: HTTPPASSWORD
-            value: ""
+            value: "TractusX"
+           - name: HTTPPASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: http_basic_auth_password
+                name: partsmasterdata-secret
         ports:
         - containerPort: 8080
 ---
