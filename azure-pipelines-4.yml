@@ -59,6 +59,8 @@ stages:
 
     - upload: manifests
       artifact: manifests
+    - upload: './businesspartners/tar'
+      artifact: './businesspartners/tar'
 
 - stage: Deploy
   displayName: Deploy stage
