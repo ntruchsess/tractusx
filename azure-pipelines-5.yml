@@ -38,7 +38,7 @@ stages:
     steps:
     - task: Maven@3
       inputs:
-        mavenPomFile: '''./partsmasterdata/pom.xml'''
+        mavenPomFile: './partsmasterdata/pom.xml'
         publishJUnitResults: false
         javaHomeOption: 'JDKVersion'
         mavenVersionOption: 'Default'
