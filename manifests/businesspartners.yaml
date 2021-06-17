@@ -1,14 +1,4 @@
 apiVersion: apps/v1
-kind: Secret
-metadata:
-  name: http-basic-password
-  namespace: businesspartners
-type: Opaque
-stringData:
-  http_basic_auth_password: "Test"
-
-
-apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: businesspartners
@@ -30,14 +20,17 @@ spec:
           - name: TABLENAME
             value: "BusinessPartners"
           - name: STORAGE_CONNECTIONSTRING
-            value: ""
+            valueFrom:
+              secretKeyRef:
+                key: sotrage_connectionstring
+                name: businesspartners-secret
           - name: HTTPUSERNAME
             value: "TractusX"
           - name: HTTPPASSWORD
             valueFrom:
               secretKeyRef:
                 key: http_basic_auth_password
-                name: http-basic-password
+                name: businesspartners-secret
         ports:
         - containerPort: 8080
 ---

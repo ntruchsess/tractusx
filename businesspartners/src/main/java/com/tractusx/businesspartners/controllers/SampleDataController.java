@@ -1,5 +1,7 @@
 package com.tractusx.businesspartners.controllers;
 
+
+import com.tractusx.businesspartners.config.SecurityConfiguration;
 import com.tractusx.businesspartners.controllers.tablestorage.BusinessPartner;
 import com.tractusx.businesspartners.controllers.tablestorage.TableStorageConfig;
 import com.tractusx.businesspartners.controllers.tablestorage.TableStroageAccess;
@@ -15,6 +17,9 @@ public class SampleDataController {
 
     @Autowired
     TableStorageConfig config;
+
+    @Autowired
+    SecurityConfiguration secConfig;
 
     @GetMapping("/")
     public String GetSampleData(){
@@ -34,6 +39,6 @@ public class SampleDataController {
     @ResponseBody
     public String GetSettings(){
 
-      return config.tableName;
+      return secConfig.username + "  " + secConfig.password;
     }
 }
