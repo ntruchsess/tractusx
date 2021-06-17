@@ -68,7 +68,7 @@ stages:
     displayName: Deploy
     pool:
       vmImage: $(vmImageName)
-    environment: 'PartsMasterData-2117.partsmasterdata'
+    environment: 'PartsMasterData.partsmasterdata'
     strategy:
       runOnce:
         deploy:
