@@ -21,6 +21,10 @@ spec:
             value: ""
           - name: STORAGE_CONNECTIONSTRING
             value: ""
+          - name: HTTPUSERNAME
+            value: ""
+          - name: HTTPPASSWORD
+            value: ""
         ports:
         - containerPort: 8080
 ---

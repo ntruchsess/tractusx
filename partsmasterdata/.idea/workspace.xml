@@ -43,17 +43,6 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="PartsmasterdataApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="partsmasterdata" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.tractusx.partsmasterdata.PartsmasterdataApplication" />
