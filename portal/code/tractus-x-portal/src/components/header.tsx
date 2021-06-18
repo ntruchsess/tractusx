@@ -17,7 +17,7 @@ interface IProp extends RouteComponentProps{
   href: string;
 }
 
-const pivots = ['Dashboard', 'AppStore', 'Data Catalog', 'Vocabulary', 'Developer Hub'];
+const pivots = ['Dashboard', 'App Store', 'Data Catalog', 'Vocabulary', 'Developer Hub'];
 const keys = pivots.map((p) => p.toLowerCase().replace(' ', ''));
 
 @observer

@@ -17,7 +17,7 @@ interface IProp extends RouteComponentProps {
 }
 
 @observer
-class AppCard extends React.Component<IProp> {
+class AppCard2 extends React.Component<IProp> {
 
   cardClick(): void {
     if (this.props.onClick) {
@@ -30,17 +30,20 @@ class AppCard extends React.Component<IProp> {
   public render() {
     const a = this.props.app;
     return (
-      <div className='h250 m5 br4 bsAppStore bgwhite minw200 maxw200 cpointer' onClick={() => this.cardClick()}>
-        <Ratings className='mt80 ml15 mb5' app={a} />
-        <div className='ml15 fs14 fggrey mb5'>{a.companyName}</div>
-        <div className='ml15 bold fs14 minh40'>{a.title}</div>
-        <div className='h50 mt20 tal ml15'>
-          <div className='fglgreen bold fs14'>{a.purchase}</div>
-          <div className='fsxs fgb5'>{a.usage}</div>
+      <div className='w340 minh160 maxh160 m5 br4 bsAppStore bgwhite cpointer' onClick={() => this.cardClick()}>
+        <Ratings className='mt20 ml15 mb5' app={a} />
+        <div className='ml15 fs14 fggrey mb5 mt20'>{a.companyName}</div>
+        <div className='df'>
+          <div className='ml15 bold fs14 minh40'>{a.title}</div>
+          <div className='flex1'/>
+          <div className='h50 mt20 mr20'>
+            <div className='fglgreen bold fs14'>{a.purchase}</div>
+            <div className='fsxs fgb5'>{a.usage}</div>
+          </div>
         </div>
       </div>
     );
   }
 }
 
-export default withRouter(AppCard);
+export default withRouter(AppCard2);
