@@ -13,6 +13,7 @@ import { observer } from 'mobx-react';
 import { Redirect, Route, Router, Switch } from 'react-router-dom';
 import './App.css';
 import Home from './components/home';
+import DataUpload from './components/apps/dataupload';
 
 const history = createBrowserHistory();
 
@@ -35,6 +36,7 @@ export default class App extends React.Component {
         <Switch>
           <Redirect path='/' exact to='/home/dashboard' />
           <Route path='/home' component={(props) => <Home {...props}/>} />
+          <Route path='/dataupload' component={(props) => <DataUpload {...props}/>} />
         </Switch>
       </Router>
     );

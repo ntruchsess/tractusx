@@ -27,7 +27,7 @@ class Home extends React.Component<RouteComponentProps> {
   linkClick(ev: React.MouseEvent<HTMLElement, MouseEvent>, item: INavLink): void {
     ev.stopPropagation();
     ev.preventDefault();
-    this.props.history.push(`/home${item.url}`);
+    this.props.history.push(`${item.url}`);
   }
 
   public render() {
@@ -52,7 +52,7 @@ class Home extends React.Component<RouteComponentProps> {
         links: [
           {
             name: 'my Apps',
-            url: '/dashboard',
+            url: '/home/dashboard',
             key: 'key1',
             expandAriaLabel: 'Expand section',
             collapseAriaLabel: 'Collapse section',
@@ -60,7 +60,7 @@ class Home extends React.Component<RouteComponentProps> {
           },
           {
             name: 'my Data',
-            url: '/appdetail',
+            url: '/home/notimp',
             key: 'key2',
             expandAriaLabel: 'Expand section',
             collapseAriaLabel: 'Collapse section',
@@ -68,7 +68,7 @@ class Home extends React.Component<RouteComponentProps> {
           },
           {
             name: 'my Connectors',
-            url: '/notimp',
+            url: '/home/notimp',
             key: 'key3',
             expandAriaLabel: 'Expand section',
             collapseAriaLabel: 'Collapse section',
@@ -83,7 +83,7 @@ class Home extends React.Component<RouteComponentProps> {
         links: [
           {
             name: 'Notification Center',
-            url: '/notimp',
+            url: '/home/notimp',
             key: 'key4',
             expandAriaLabel: 'Expand section',
             collapseAriaLabel: 'Collapse section',
@@ -91,7 +91,7 @@ class Home extends React.Component<RouteComponentProps> {
           },
           {
             name: 'Transactions & History',
-            url: '/notimp',
+            url: '/home/notimp',
             key: 'key5',
             expandAriaLabel: 'Expand section',
             collapseAriaLabel: 'Collapse section',
@@ -99,7 +99,7 @@ class Home extends React.Component<RouteComponentProps> {
           },
           {
             name: 'Organization',
-            url: '/organization',
+            url: '/home/organization',
             key: 'key6',
             expandAriaLabel: 'Expand section',
             collapseAriaLabel: 'Collapse section',
@@ -107,7 +107,7 @@ class Home extends React.Component<RouteComponentProps> {
           },
           {
             name: 'User Management',
-            url: '/notimp',
+            url: '/home/notimp',
             key: 'key7',
             expandAriaLabel: 'Expand section',
             collapseAriaLabel: 'Collapse section',
