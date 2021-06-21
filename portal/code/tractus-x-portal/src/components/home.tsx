@@ -19,6 +19,7 @@ import DeveloperHub from './developerhub';
 import { ThemeProvider } from '@fluentui/react';
 import NotImp from './notimplemented';
 import AppDetail from './appdetail';
+import OrgDetails from './orgdetails';
 
 @observer
 class Home extends React.Component<RouteComponentProps> {
@@ -98,7 +99,7 @@ class Home extends React.Component<RouteComponentProps> {
           },
           {
             name: 'Organization',
-            url: '/notimp',
+            url: '/organization',
             key: 'key6',
             expandAriaLabel: 'Expand section',
             collapseAriaLabel: 'Collapse section',
@@ -136,7 +137,8 @@ class Home extends React.Component<RouteComponentProps> {
               <Route path='/home/datacatalog' component={(props) => <DataCatalog {...props} />} />
               <Route path='/home/vocabulary' component={(props) => <Vocabulary {...props} />} />
               <Route path='/home/developerhub' component={(props) => <DeveloperHub {...props} />} />
-              <Route path='/home/appdetail' component={(props) => <AppDetail {...props}/>} />
+              <Route path='/home/appdetail/:id' component={(props) => <AppDetail {...props}/>} />
+              <Route path='/home/organization' component={(props) => <OrgDetails {...props}/>} />
               <Route path='/home/notimp' component={(props) => <NotImp {...props}/>} />
             </Switch>
           </div>
