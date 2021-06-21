@@ -6,7 +6,6 @@
 // Copyright (c) Microsoft. All rights reserved
 //
 
-import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -15,7 +14,7 @@ import { runWithAdal } from 'react-adal';
 import adalContext from './helpers/adalConfig';
 import { BrowserRouter } from 'react-router-dom';
 
-const DO_NOT_LOGIN = false;
+const DO_NOT_LOGIN = true; // window.location.href.indexOf('/localhost') >= 0;
 
 runWithAdal(
   adalContext.AuthContext,

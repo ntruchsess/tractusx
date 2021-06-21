@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "/subscriptions/7943109a-17ec-4296-8094-6ffda06c3fba/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/catenax",
+  "appService.deploySubpath": "build"
+}

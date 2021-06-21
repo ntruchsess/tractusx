@@ -1,6 +1,7 @@
 /* The structure of this CSS file was inspired by Atomic CSS https://acss.io/ as used by Yahoo but this is a simplified version */
 
 html, body {height:100%;font-family:'Segoe UI', Arial, sans-serif;overflow:hidden;color: black;margin:0px}
+li {margin-left: 20px;}
 iframe {border-style: none;}
 
 .fgprimary {color:#0078D4}
@@ -32,6 +33,7 @@ iframe {border-style: none;}
 .bgf7 {background: #F7F8F9;}
 .bgf5 {background: #F5F5F5;}
 .bgg1 {background: #D8D8D8;}
+.bgde {background: #dedede;}
 .bgred {background: #DA3B01;}
 .bgorange {background: #da3b01;}
 .bgcda {background-color: #DADADA!important;}
@@ -239,6 +241,7 @@ iframe {border-style: none;}
 .w100-40 {width: calc(100% - 40px)}
 .w100-50 {width: calc(100% - 50px)}
 .w100-100 {width: calc(100% - 100px)}
+.w100-200 {width: calc(100% - 200px)}
 .w100p20 {width:calc(100% + 20px)}
 .w100vw {width:100vw}
 .w50vw {width:50vw}
@@ -432,6 +435,7 @@ iframe {border-style: none;}
 .ml190 {margin-left: 190px}
 .ml213 {margin-left: 213px; transition: 0.2s}
 .ml290 {margin-left: 290px}
+.ml250 {margin-left: 250px}
 .ml300 {margin-left: 300px}
 .ml-2 {margin-left: -2px}
 .ml-3 {margin-left: -3px}
