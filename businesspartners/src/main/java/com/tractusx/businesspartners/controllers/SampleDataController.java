@@ -26,12 +26,12 @@ public class SampleDataController {
         return "Sample  JDK11!";
     }
 
-    @GetMapping("/api/businesspartner")
+    @GetMapping("/businesspartner")
     @ResponseBody
-    public BusinessPartner GetBusinessPartner(@RequestParam String customerOneId, @RequestParam String uniqueId) throws Exception {
+    public String GetBusinessPartner(@RequestParam String businessPartnerOneId) throws Exception {
         var tableStorageAccess = new TableStroageAccess(config.storageConnectionstring);
-        var partner = tableStorageAccess.GetBusinessPartner(config.tableName, customerOneId, uniqueId);
+        var partner = tableStorageAccess.GetBusinessPartner(config.tableName, businessPartnerOneId);
 
-        return partner;
+        return partner.JsonObject;
     }
 }
