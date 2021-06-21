@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("/api")
+@RestController()
 public class MappingController {
 
     @Autowired
@@ -16,11 +16,10 @@ public class MappingController {
 
 
     @GetMapping("/dns")
-    public Object GetMapping(@RequestParam String oneId) throws Exception {
+    public String[] getConnectorDNSEntry(@RequestParam String businessPartnerOneID, @RequestParam String connectorId)
+            throws Exception {
         var tableStorageAccess = new TableStroageAccess(config.storageConnectionstring);
-        var dns = tableStorageAccess.GetConnectorDNSMapping(config.mappingTableName, oneId, config.partitionKey);
-
-        return dns;
+       return tableStorageAccess.GetConnectorDNSEntry(config.mappingTableName,  businessPartnerOneID, connectorId);
     }
 }
 

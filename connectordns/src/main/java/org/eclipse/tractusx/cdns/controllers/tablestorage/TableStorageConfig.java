@@ -9,11 +9,6 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "xy")
 public class TableStorageConfig {
 
-    public void setPartitionKey(String partitionKey) {
-        this.partitionKey = partitionKey;
-    }
-    public String partitionKey;
-
     public void setMappingTableName(String mappingTableName) {
         this.mappingTableName = mappingTableName;
     }

@@ -13,7 +13,7 @@ import java.util.HashMap;
 public class TableStroageAccess {
 
     String[] properties = new String[]{
-        "Dns"
+        "dns"
     };
 
     public TableStroageAccess(String strorageConnectionstring)
@@ -23,7 +23,7 @@ public class TableStroageAccess {
 
     private String storageConnectionstring;
 
-    public Object GetConnectorDNSMapping(String tableName, String oneId, String storagePartitionKey ){
+    public String[] GetConnectorDNSEntry(String tableName,String partitionKey, String rowKey  ){
         try
         {
             // Retrieve storage account from connection-string.
@@ -35,21 +35,17 @@ public class TableStroageAccess {
             // Create a cloud table object for the table.
             var cloudTable = tableClient.getTableReference(tableName);
 
-            var query = TableQuery.from(OneIdDNSMapping.class).where("PartitionKey eq '"+storagePartitionKey+ "' and RowKey eq '" +oneId+ "'").select(properties);
+            var query = TableQuery.from(OneIdDNSMapping.class).where("PartitionKey eq '"+partitionKey+ "' and RowKey eq '" +rowKey+ "'").select(properties);
 
-            var partnerResolver = new EntityResolver<OneIdDNSMapping>(){
+            var dnsArray = new EntityResolver<String[]>(){
                 @Override
-                public OneIdDNSMapping resolve(String PartitionKey, String RowKey, Date timeStamp, HashMap<String, EntityProperty> properties, String etag) {
-
-                    var oneIdDnsMapping = new OneIdDNSMapping();
-                    oneIdDnsMapping.setRowKey(RowKey);
-                    oneIdDnsMapping.Dns = properties.get("Dns").getValueAsString();
-                    return oneIdDnsMapping;
+                public String[] resolve(String PartitionKey, String RowKey, Date timeStamp, HashMap<String, EntityProperty> properties, String etag) {
+                    return properties.get("dns").getValueAsString().split(",");
                 }
             };
 
-            var oneIdDnsMappings = new ArrayList<OneIdDNSMapping>();
-            for(OneIdDNSMapping mapping : cloudTable.execute(query, partnerResolver)){
+            var oneIdDnsMappings = new ArrayList<String[]>();
+            for(String[] mapping : cloudTable.execute(query, dnsArray)){
                 oneIdDnsMappings.add(mapping);
             }
             if(oneIdDnsMappings.size()> 0) {
