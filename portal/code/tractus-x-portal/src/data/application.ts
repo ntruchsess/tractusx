@@ -16,4 +16,5 @@ export class Application {
   public companyName = '';
   public usage = '';
   public purchase = '';
+  public url = '';
 }
