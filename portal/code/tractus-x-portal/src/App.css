@@ -78,6 +78,7 @@ iframe {border-style: none;}
 .side-panel-components-process-steps {background:#84CA4B;height:100%}
 .transparent {color:rgba(0,0,0,0)}
 .bgtransparent {background:rgba(0,0,0,0)}
+.bgtransparent * {background:rgba(0,0,0,0)}
 .bgtab {background: rgba(0, 0, 0, 0.05)}
 .bgblack5 {background: rgba(0, 0, 0, 0.05)}
 .bgtab:hover {background: rgba(0, 0, 0, 0.1);}
@@ -85,6 +86,9 @@ iframe {border-style: none;}
 .fgtabselected {color: #000000}
 .fgtab {color: #666666}
 .bcwhite {border-color: white;}
+.bcwhite * {border-color: white;}
+.bctransparent {border-color: transparent;}
+.bctransparent * {border-color: transparent;}
 .bcred {border-color:  #DA3B01;}
 .bcgreen {border-color: #8CBD18;}
 .bcgray {border-color:  #e5e5e5}
@@ -204,9 +208,9 @@ iframe {border-style: none;}
 .h56 {height: 56px;}
 .h60 {height: 60px;}
 .h66 {height: 66px;}
-.h70 {height: 70px;}
 .h72 {height: 72px;}
 .h80 {height: 80px;}
+.h90 {height: 90px;}
 .h100 {height: 100px;}
 .h120 {height: 120px;}
 .h140 {height: 140px}
@@ -241,6 +245,7 @@ iframe {border-style: none;}
 .w100-40 {width: calc(100% - 40px)}
 .w100-50 {width: calc(100% - 50px)}
 .w100-100 {width: calc(100% - 100px)}
+.w100-150 {width: calc(100% - 150px)}
 .w100-200 {width: calc(100% - 200px)}
 .w100p20 {width:calc(100% + 20px)}
 .w100vw {width:100vw}
@@ -315,6 +320,7 @@ iframe {border-style: none;}
 .mw40 {min-width:40px;}
 .minw30 {min-width:30px;}
 .minw200 {min-width:200px;}
+.minw100 {min-width:100px;}
 .maxw200 {max-width:200px;}
 .mw50pc {max-width: 50%}
 .mw1200 {min-width: 1200px}
@@ -431,6 +437,7 @@ iframe {border-style: none;}
 .ml70 {margin-left: 70px;}
 .ml100 {margin-left: 100px;}
 .ml120 {margin-left: 120px}
+.ml150 {margin-left: 150px}
 .ml180 {margin-left: 180px}
 .ml190 {margin-left: 190px}
 .ml213 {margin-left: 213px; transition: 0.2s}
@@ -613,7 +620,7 @@ iframe {border-style: none;}
 .bbw1 {border-bottom-width: 1px !important;}
 .blw5 {border-left-width:5px !important;}
 .bblue {border: 1px solid blue}
-.borange {border: 2px solid #D85D30}
+.byellow {border: 1px solid #E6AA1E}
 .btransparent {border: 2px solid rgba(0, 0, 0, 0)}
 .b1 {border: solid 1px #aaaaaa!important}
 .b2 {border: solid 1px #666}
@@ -691,6 +698,8 @@ iframe {border-style: none;}
 .flex25 {flex: 0.25;min-height:0px;min-width:0px;flex-shrink: 0}
 .flex75 {flex: 0.75;min-height:0px;min-width:0px;flex-shrink: 0}
 .flex1 {flex:1;min-height:0px;min-width:0px;flex-shrink: 0;}
+.flex2 {flex:2;min-height:0px;min-width:0px;flex-shrink: 0;}
+.flex3 {flex:3;min-height:0px;min-width:0px;flex-shrink: 0;}
 .flexhalf {flex:0.5;min-height:0px;min-width:0px;flex-shrink: 0;}
 .flexpt8 {flex:0.8;min-height:0px;min-width:0px;flex-shrink: 0;}
 .fbauto {flex-basis: auto;}
