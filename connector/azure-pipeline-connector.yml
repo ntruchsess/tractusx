@@ -57,7 +57,6 @@ stages:
           $(tag)
 
 
-stages:
 - stage: Deploy
   displayName: Deploy stage
   jobs:
@@ -91,7 +90,7 @@ stages:
         sed -i -e "s%__SED_SECRET_NAME__%${DB_SECRET_NAME}%g" ./connector/infrastructure/postgres/values.yaml
         helm upgrade --install -n "${NAMESPACE}" -f ./connector/infrastructure/postgres/values.yaml postgres ./connector/infrastructure/postgres
       failOnStderr: true
-      
+
   - job: Deploy dataspaceconnector
     displayName: Deploy dataspaceconnector
     dependsOn: 'Check secret or create'
