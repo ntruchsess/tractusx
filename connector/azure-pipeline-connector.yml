@@ -18,8 +18,15 @@ variables:
   tag: '$(Build.BuildId)'
   imagePullSecret: 'catenaxdevacr10283c4a-auth'
 
+  NAMESPACE: centralconnector
+
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
+
+  # connector vars
+  KEYSTOREFILENAME: 'ms-dc-idsos-keystore'
+  KEYSTOREPASSWORD: 'mspass'
+  DB_SECRET_NAME: 'postgres-password'
 
 
 stages:
@@ -31,6 +38,14 @@ stages:
     pool:
       vmImage: $(vmImageName)
     steps:
+    - task: Provisioning
+      displayName: 'provision variables'
+    - bash: |
+        sed -i -e "s%__KEYSTOREPASSWORD__%${KEYSTOREPASSWORD}%g" ./connector/src/main/resources/application.properties
+        sed -i -e "s%__KEYSTOREFILENAME__%${KEYSTOREFILENAME}%g" ./connector/src/main/resources/application.properties
+        sed -i -e "s%__KEYSTOREFILENAME__%${KEYSTOREFILENAME}%g" ./connector/src/main/resources/conf/config.json
+      failOnStderr: true
+
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:
@@ -41,5 +56,51 @@ stages:
         tags: |
           $(tag)
 
-    - upload: manifests
-      artifact: manifests
+
+stages:
+- stage: Deploy
+  displayName: Deploy stage
+  jobs:
+  - job: Create postgres secret
+    displayName: Create postgres secret
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: Check secret or create
+      displayName: 'Check secret'
+    - bash: |
+        echo "Check if kube secret with db password exists and create if not"
+      
+        if kubectl -n $NAMESPACE get secret "$DB_SECRET_NAME"; then
+          echo "Secret exists. Exiting..."
+          exit 0
+        fi
+        DB_PASS=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 13 ; echo '')
+        kubectl -n $NAMESPACE create secret generic "$DB_SECRET_NAME" \
+          --from-literal=db_user=connector --from-literal=db_pass=$DB_PASS
+      failOnStderr: true
+
+  - job: Deploy postgres
+    displayName: Deploy postgres
+    dependsOn: 'Create postgres secret'
+    condition: eq(variables['DEPLOY_POSTGRES'], 'true')
+    steps:
+    - task: Deploy postgres
+      displayName: 'Deploy postgres'
+    - bash: |  
+        sed -i -e "s%__SED_SECRET_NAME__%${DB_SECRET_NAME}%g" ./connector/infrastructure/postgres/values.yaml
+        helm upgrade --install -n "${NAMESPACE}" -f ./connector/infrastructure/postgres/values.yaml postgres ./connector/infrastructure/postgres
+      failOnStderr: true
+      
+  - job: Deploy dataspaceconnector
+    displayName: Deploy dataspaceconnector
+    dependsOn: 'Check secret or create'
+    condition: succeeded('Deploy postgres') or eq(variables['DEPLOY_POSTGRES'], '')
+    steps:
+    - task: Deploy postgres
+      displayName: 'Deploy postgres'
+    - bash: |  
+        sed -i -e "s%__IMAGE_TAG__%${tag}%g" ./connector/infrastructure/dataspaceconnector/values.yaml
+        sed -i -e "s%__DOCKER_REGISTRY__%${containerRegistry}%g" ./connector/infrastructure/dataspaceconnector/values.yaml
+        helm upgrade --install -n "${NAMESPACE}" -f ./connector/infrastructure/dataspaceconnector/values.yaml dataspaceconnector ./connector/infrastructure/dataspaceconnector
+      failOnStderr: true
