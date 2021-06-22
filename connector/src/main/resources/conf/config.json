@@ -1,0 +1,62 @@
+{
+  "@context" : {
+    "ids" : "https://w3id.org/idsa/core/",
+    "idsc" : "https://w3id.org/idsa/code/"
+  },
+  "@type" : "ids:ConfigurationModel",
+  "@id" : "https://w3id.org/idsa/autogen/configurationModel/7672b568-7878-4f62-8032-5c73de969414",
+  "ids:configurationModelLogLevel" : {
+    "@id" : "idsc:MINIMAL_LOGGING"
+  },
+  "ids:connectorDeployMode" : {
+    "@id" : "idsc:TEST_DEPLOYMENT"
+  },
+  "ids:connectorDescription" : {
+    "@type" : "ids:BaseConnector",
+    "@id" : "https://w3id.org/idsa/autogen/baseConnector/956e8672-f217-4c27-84c2-478336dafcba",
+    "ids:publicKey" : {
+      "@type" : "ids:PublicKey",
+      "@id" : "https://w3id.org/idsa/autogen/publicKey/2c0d5603-3294-482b-9cd9-c939f865bffa",
+      "ids:keyType" : {
+        "@id" : "idsc:RSA"
+      },
+      "ids:keyValue" : "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApcL1qdB5dzn9gKVmOTrb0V4cUhZSAZpY7H54JmS8eVLhh6gbIZpBqTkRYWWBUAd1CI1L3HhoymXbU/FgerLLtSAm4m/8ZBam0E3CgexEHTILygAdJRqjVjwmk4r7fxVo4lvNUTdRBpvIQt2S7ew9xubp7C3B58UvXgAls4vjJXQuc4EPJFF79CAqS1SXrg0QqzcI6QLGg2TQGkbctQmvPpY8EcuFjM0BuhWM5Z12ixqvVxuAray5MeSSNf0ofXoa+ely76RQLOg2xIQAS0QaZNsxr8dwX1uTpcUHoW8RebovLujKz/ylPr2T4kJxeZmIIAYmQUlsWs4LJHvfF2o+1QIDAQAB"
+    },
+    "ids:description" : [ {
+      "@value" : "IDS Connector with static example resources hosted by the Fraunhofer ISST",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    } ],
+    "ids:version" : "@project.version@",
+    "ids:hasDefaultEndpoint" : {
+      "@type" : "ids:ConnectorEndpoint",
+      "@id" : "https://w3id.org/idsa/autogen/connectorEndpoint/a73d2202-cb77-41db-a3a6-05ed251c0b8a",
+      "ids:accessURL" : {
+        "@id" : "https://localhost:8080/api/ids/data"
+      }
+    },
+    "ids:outboundModelVersion" : "4.0.0",
+    "ids:inboundModelVersion" : [ "4.0.0" ],
+    "ids:title" : [ {
+      "@value" : "Dataspace Connector",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    } ],
+    "ids:securityProfile" : {
+      "@id" : "idsc:BASE_SECURITY_PROFILE"
+    },
+    "ids:curator" : {
+      "@id" : "https://www.isst.fraunhofer.de/"
+    },
+    "ids:maintainer" : {
+      "@id" : "https://www.isst.fraunhofer.de/"
+    }
+  },
+  "ids:trustStore" : {
+    "@id" : "file:///conf/truststore.p12"
+  },
+  "ids:connectorStatus" : {
+    "@id" : "idsc:CONNECTOR_OFFLINE"
+  },
+  "ids:keyStore" : {
+    "@id" : "file:///conf/__KEYSTOREFILENAME__.p12"
+  }
+}
