@@ -4,6 +4,7 @@ import com.microsoft.azure.storage.CloudStorageAccount;
 import com.microsoft.azure.storage.blob.CloudBlobClient;
 import com.microsoft.azure.storage.blob.CloudBlobContainer;
 import com.microsoft.azure.storage.blob.CloudBlockBlob;
+import com.tractusx.uploadappadapter.models.Part;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.BufferedReader;
@@ -62,8 +63,6 @@ public class BlobStorageAccess {
                 fileUri = blob.getUri().getPath();
             }
 
-            //ComputeFile(file);
-
         }
         catch(Exception e){
             e.printStackTrace();
@@ -71,24 +70,9 @@ public class BlobStorageAccess {
         return fileUri;
     }
 
-    private void ComputeFile(MultipartFile file) {
-        String[] LinesInFile = ReadLines(file);
-    }
 
-    private String[] ReadLines(MultipartFile file) {
-        try
-        {
-            InputStream inputStream = file.getInputStream();
-            BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
-            List<String> csvLines = br.lines().skip(1).map(mapToItem).collect(Collectors.toList());
-        }
-        catch(Exception ex)
-        {
-            ex.printStackTrace();
-        }
 
-        return null;
-    }
+
 
 
     private Function<String, String> mapToItem = (line) -> {
