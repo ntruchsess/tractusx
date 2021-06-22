@@ -41,7 +41,7 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/portal/code/tractus-x-portal/Dockerfile'
         tags: |
           $(tag)
-    - upload: manifests
+    - upload: $(System.DefaultWorkingDirectory)/infrastructure/manifests
       artifact: manifests
 
 - stage: Deploy

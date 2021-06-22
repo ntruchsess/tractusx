@@ -48,7 +48,7 @@ stages:
         Dockerfile: './businesspartners/Dockerfile'
         tags: |
           $(tag)
-    - upload: manifests
+    - upload: $(System.DefaultWorkingDirectory)/infrastructure/manifests
       artifact: manifests
 
 - stage: Deploy

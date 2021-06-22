@@ -48,5 +48,5 @@ stages:
         Dockerfile: './partsmasterdata/Dockerfile'
         tags: |
           $(tag)
-    - upload: manifests
+    - upload: $(System.DefaultWorkingDirectory)/infrastructure/manifests
       artifact: manifests
