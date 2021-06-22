@@ -80,8 +80,8 @@ stages:
               kubernetesServiceConnection: catenax-dev-aks-services-cdns
               namespace: cdns
               manifests: |
-                $(Pipeline.Workspace)/infrastructure/manifests/cdns.yaml
-                $(Pipeline.Workspace)/infrastructure/manifests/cdns-ingress.yaml
+                $(Pipeline.Workspace)/manifests/cdns.yaml
+                $(Pipeline.Workspace)/manifests/cdns-ingress.yaml
               containers: '$(containerRegistry)/$(imageRepository):$(tag)'
               imagePullSecrets: |
                 $(imagePullSecret)
