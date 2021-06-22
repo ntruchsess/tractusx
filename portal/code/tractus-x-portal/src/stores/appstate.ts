@@ -60,7 +60,8 @@ const C = {
 
 const D = {
   id : '0253dd4d-35af-43f5-a84c-7cc28084032d',
-  title: 'Material Tracebility', rating: 4.5, downloads: 577, tags: ['SUPPLY CHAIN ANALYTICS', 'SUPPLY CHAIN VISUALIZATION', 'PART TRACEABILITY', 'ALARMS', 'RECALLS', 'ROLE VIEWS', 'NETWORK VIEW', 'UPSTREAM VIEW' , 'DOWNSTREAM VIEW'],
+  title: 'Material Traceability', rating: 4.5, downloads: 577,
+  tags: ['SUPPLY CHAIN ANALYTICS', 'SUPPLY CHAIN VISUALIZATION', 'PART TRACEABILITY', 'ALARMS', 'RECALLS', 'ROLE VIEWS', 'NETWORK VIEW', 'UPSTREAM VIEW', 'DOWNSTREAM VIEW'],
   screenshots: ['/material1.png'],
   description: `<b>Capabilities</b><br /><br />
   <li>Visualization of complex supply chains - connecting multiple business partners for inter-company collaboration and transparency</li>

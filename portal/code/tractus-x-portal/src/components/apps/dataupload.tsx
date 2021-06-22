@@ -13,6 +13,7 @@ import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { ActionButton, Icon, SearchBox } from '@fluentui/react';
 import { AppState } from '../../stores/appstate';
 import AppCard from '../appcard';
+import { Application } from '../../data/application';
 
 @observer
 class DataUpload extends React.Component<RouteComponentProps> {
@@ -20,6 +21,14 @@ class DataUpload extends React.Component<RouteComponentProps> {
   private backClick(): void {
     if (this.props.history.length > 1) {
       this.props.history.goBack();
+    } else {
+      this.props.history.push('/home/dashboard');
+    }
+  }
+
+  appClick(a: Application) {
+    if (a.title === 'Material Traceability') {
+      this.props.history.replace('/dataupload2');
     }
   }
 
@@ -42,7 +51,7 @@ class DataUpload extends React.Component<RouteComponentProps> {
             </div>
             <div className='w100-100'>
               <div className='ovx h250 df'>
-                {AppState.state.connectedApps.map((a, index) => <AppCard key={index} app={a} upload />)}
+                {AppState.state.connectedApps.map((a, index) => <AppCard key={index} app={a} upload onClick={() => this.appClick(a)}/>)}
               </div>
             </div>
           </div>
