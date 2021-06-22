@@ -17,7 +17,7 @@ spec:
       - name: portal
         image: catenaxdevacr.azurecr.io/portal
         ports:
-        - containerPort: 8080
+        - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
@@ -27,6 +27,6 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-  - port: 8080
+  - port: 80
   selector:
     app: portal

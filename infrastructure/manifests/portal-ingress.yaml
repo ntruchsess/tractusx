@@ -22,5 +22,5 @@ spec:
           service:
             name: portal
             port:
-              number: 8080
+              number: 80
 
