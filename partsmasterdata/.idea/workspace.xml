@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="621a0887-5535-4162-a906-13cf3edf34aa" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../businesspartners/src/main/java/com/tractusx/businesspartners/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../businesspartners/src/main/java/com/tractusx/businesspartners/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tractusx/partsmasterdata/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tractusx/partsmasterdata/config/SecurityConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,19 +45,6 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="PartsmasterdataApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="partsmasterdata" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.tractusx.partsmasterdata.PartsmasterdataApplication" />
@@ -82,13 +71,34 @@
       <workItem from="1623739201150" duration="588000" />
       <workItem from="1623741633181" duration="1418000" />
       <workItem from="1623914739200" duration="3709000" />
+      <workItem from="1624362710844" duration="1134000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tractusx/partsmasterdata/controllers/partmasterdatacontroller.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
         <watch expression="file" />
