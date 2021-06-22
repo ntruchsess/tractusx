@@ -38,7 +38,7 @@ stages:
     pool:
       vmImage: $(vmImageName)
     steps:
-    - task: Provisioning
+    - task: Provisioning@0
       displayName: 'provision variables'
     - bash: |
         sed -i -e "s%__KEYSTOREPASSWORD__%${KEYSTOREPASSWORD}%g" ./connector/src/main/resources/application.properties
@@ -65,7 +65,7 @@ stages:
     pool:
       vmImage: $(vmImageName)
     steps:
-    - task: Check secret or create
+    - task: Check-secret-or-create@0
       displayName: 'Check secret'
     - bash: |
         echo "Check if kube secret with db password exists and create if not"
@@ -83,8 +83,10 @@ stages:
     displayName: Deploy postgres
     dependsOn: 'Create postgres secret'
     condition: eq(variables['DEPLOY_POSTGRES'], 'true')
+    pool:
+      vmImage: $(vmImageName)
     steps:
-    - task: Deploy postgres
+    - task: Deploy-postgres@0
       displayName: 'Deploy postgres'
     - bash: |  
         sed -i -e "s%__SED_SECRET_NAME__%${DB_SECRET_NAME}%g" ./connector/infrastructure/postgres/values.yaml
@@ -95,9 +97,11 @@ stages:
     displayName: Deploy dataspaceconnector
     dependsOn: 'Check secret or create'
     condition: succeeded('Deploy postgres') or eq(variables['DEPLOY_POSTGRES'], '')
+    pool:
+      vmImage: $(vmImageName)
     steps:
-    - task: Deploy postgres
-      displayName: 'Deploy postgres'
+    - task: Deploy-DSC@0
+      displayName: 'Deploy dataspaceconnector'
     - bash: |  
         sed -i -e "s%__IMAGE_TAG__%${tag}%g" ./connector/infrastructure/dataspaceconnector/values.yaml
         sed -i -e "s%__DOCKER_REGISTRY__%${containerRegistry}%g" ./connector/infrastructure/dataspaceconnector/values.yaml
