@@ -38,9 +38,7 @@ stages:
     pool:
       vmImage: $(vmImageName)
     steps:
-    - task: Provisioning@0
-      displayName: 'provision variables'
-    - bash: |
+    - script: |
         sed -i -e "s%__KEYSTOREPASSWORD__%${KEYSTOREPASSWORD}%g" ./connector/src/main/resources/application.properties
         sed -i -e "s%__KEYSTOREFILENAME__%${KEYSTOREFILENAME}%g" ./connector/src/main/resources/application.properties
         sed -i -e "s%__KEYSTOREFILENAME__%${KEYSTOREFILENAME}%g" ./connector/src/main/resources/conf/config.json
@@ -57,17 +55,15 @@ stages:
           $(tag)
 
 
-- stage: Deploy postgres
+- stage: Deploy-postgres
   displayName: Deploy postgres
   jobs:
-  - job: Create postgres secret
+  - job: Create-postgres-secret
     displayName: Create postgres secret
     pool:
       vmImage: $(vmImageName)
     steps:
-    - task: Check-secret-or-create@0
-      displayName: 'Check secret'
-    - bash: |
+    - script: |
         echo "Check if kube secret with db password exists and create if not"
       
         if kubectl -n $NAMESPACE get secret "$DB_SECRET_NAME"; then
@@ -79,31 +75,27 @@ stages:
           --from-literal=db_user=connector --from-literal=db_pass=$DB_PASS
       failOnStderr: true
 
-  - job: Deploy postgres
+  - job: Deploy-postgres
     displayName: Deploy postgres
     dependsOn: 'Create postgres secret'
     condition: eq(variables['DEPLOY_POSTGRES'], 'true')
     pool:
       vmImage: $(vmImageName)
     steps:
-    - task: Deploy-postgres@0
-      displayName: 'Deploy postgres'
-    - bash: |  
+    - script: | 
         sed -i -e "s%__SED_SECRET_NAME__%${DB_SECRET_NAME}%g" ./connector/infrastructure/postgres/values.yaml
         helm upgrade --install -n "${NAMESPACE}" -f ./connector/infrastructure/postgres/values.yaml postgres ./connector/infrastructure/postgres
       failOnStderr: true
 
-- stage: Deploy DSC
+- stage: Deploy-DSC
   displayName: Deploy DSC
   jobs:
-  - job: Deploy dataspaceconnector
+  - job: Deploy-dataspaceconnector
     displayName: Deploy dataspaceconnector
     pool:
       vmImage: $(vmImageName)
     steps:
-    - task: Deploy-DSC@0
-      displayName: 'Deploy dataspaceconnector'
-    - bash: |  
+    - script: |
         sed -i -e "s%__IMAGE_TAG__%${tag}%g" ./connector/infrastructure/dataspaceconnector/values.yaml
         sed -i -e "s%__DOCKER_REGISTRY__%${containerRegistry}%g" ./connector/infrastructure/dataspaceconnector/values.yaml
         helm upgrade --install -n "${NAMESPACE}" -f ./connector/infrastructure/dataspaceconnector/values.yaml dataspaceconnector ./connector/infrastructure/dataspaceconnector
