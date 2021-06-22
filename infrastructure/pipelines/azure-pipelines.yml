@@ -7,13 +7,16 @@ trigger:
       - main
   paths:
     exclude:
-      - 'connectordns/*'
-      - 'gpm/*'
-      - 'kmuuploadapp/*'
-      - 'partsmasterdata/*'
+      - 'coreservices/connectordns/*'
+      - 'coreservices/gpm/*'
+      - 'coreservices/kmuuploadapp/*'
+      - 'coreservices/partsmasterdata/*'
+      - 'coreservices/businesspartners/*'
       - 'portal/*'
-      - 'terraform/*'
-      - 'businesspartners/*'
+      - 'infrastructure/terraform/*'
+      - 'infrastructure/pipelines/*'
+      - 'infrastructure/manifests/*'
+     
 
 pool:
   vmImage: 'ubuntu-latest'

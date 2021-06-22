@@ -7,7 +7,7 @@ trigger:
       - main
   paths:
     include:
-      - 'partsmasterdata/*'
+      - 'coreservices/partsmasterdata/*'
 
 resources:
 - repo: self
@@ -32,7 +32,7 @@ stages:
     steps:
     - task: Maven@3
       inputs:
-        mavenPomFile: './partsmasterdata/pom.xml'
+        mavenPomFile: './coreservices/partsmasterdata/pom.xml'
         publishJUnitResults: false
         javaHomeOption: JDKVersion
         jdkVersionOption: '1.11'
@@ -45,7 +45,7 @@ stages:
         containerRegistry: catenaxdevacr
         repository: partsmasterdata
         command: buildAndPush
-        Dockerfile: './partsmasterdata/Dockerfile'
+        Dockerfile: './coreservices/partsmasterdata/Dockerfile'
         tags: |
           $(tag)
     - upload: $(System.DefaultWorkingDirectory)/infrastructure/manifests

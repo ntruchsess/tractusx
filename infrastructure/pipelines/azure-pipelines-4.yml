@@ -8,7 +8,7 @@ trigger:
       - main
   paths:
     include:
-      - 'businesspartners/*'
+      - 'coreservices/businesspartners/*'
 
 resources:
 - repo: self
@@ -20,7 +20,7 @@ variables:
   imageRepository: 'businesspartners'
 
   containerRegistry: 'catenaxdevacr.azurecr.io'
-  dockerfilePath: '**/Dockerfile'
+  dockerfilePath: './coreservices/businesspartners/Dockerfile'
   tag: '$(Build.BuildId)'
   imagePullSecret: 'catenaxdevacr161620d2-auth'
 
@@ -39,7 +39,7 @@ stages:
     steps:
     - task: Maven@3
       inputs:
-        mavenPomFile: './businesspartners/pom.xml'
+        mavenPomFile: './coreservices/businesspartners/pom.xml'
         publishJUnitResults: false
         javaHomeOption: JDKVersion
         jdkVersionOption: '1.11'

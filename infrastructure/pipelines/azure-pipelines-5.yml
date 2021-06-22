@@ -8,7 +8,7 @@ trigger:
       - main
   paths:
     include:
-      - 'partsmasterdata/*'
+      - 'coreservices/partsmasterdata/*'
 
 resources:
 - repo: self
@@ -19,7 +19,7 @@ variables:
   dockerRegistryServiceConnection: '553abab0-5db0-4932-aaaf-25147ed09cf7'
   imageRepository: 'partsmasterdata'
   containerRegistry: 'catenaxdevacr.azurecr.io'
-  dockerfilePath: './partsmasterdata/Dockerfile'
+  dockerfilePath: './coreservices/partsmasterdata/Dockerfile'
   tag: '$(Build.BuildId)'
   imagePullSecret: 'catenaxdevacr12483f45-auth'
 
@@ -37,7 +37,7 @@ stages:
     steps:
     - task: Maven@3
       inputs:
-        mavenPomFile: './partsmasterdata/pom.xml'
+        mavenPomFile: './coreservices/partsmasterdata/pom.xml'
         publishJUnitResults: false
         javaHomeOption: JDKVersion
         jdkVersionOption: '1.11'
