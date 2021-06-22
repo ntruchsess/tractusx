@@ -7,7 +7,7 @@
 //
 
 import * as React from 'react';
-import { initializeIcons, loadTheme, createTheme } from '@fluentui/react';
+import { initializeIcons, loadTheme } from '@fluentui/react';
 import { createBrowserHistory } from 'history';
 import { observer } from 'mobx-react';
 import { Redirect, Route, Router, Switch } from 'react-router-dom';
