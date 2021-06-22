@@ -7,7 +7,7 @@ trigger:
       - main
   paths:
     include:
-      - 'connectordns/*'
+      - 'coreservices/connectordns/*'
 
 resources:
 - repo: self
@@ -32,7 +32,7 @@ stages:
     steps:
     - task: Maven@3
       inputs:
-        mavenPomFile: './connectordns/pom.xml'
+        mavenPomFile: './coreservices/connectordns/pom.xml'
         publishJUnitResults: false
         javaHomeOption: JDKVersion
         jdkVersionOption: '1.11'
@@ -45,10 +45,10 @@ stages:
         containerRegistry: catenaxdevacr
         repository: cdns
         command: buildAndPush
-        Dockerfile: './connectordns/Dockerfile'
+        Dockerfile: './coreservices/connectordns/Dockerfile'
         tags: |
           $(tag)
-    - upload: manifests
+    - upload: $(System.DefaultWorkingDirectory)/infrastructure/manifests
       artifact: manifests
 
 - stage: Deploy

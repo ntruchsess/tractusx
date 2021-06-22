@@ -8,7 +8,7 @@ trigger:
       - main
   paths:
     include:
-      - 'partsmasterdata/*'
+      - 'coreservices/businesspartners/*'
 
 resources:
 - repo: self
@@ -16,15 +16,17 @@ resources:
 variables:
 
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '553abab0-5db0-4932-aaaf-25147ed09cf7'
-  imageRepository: 'partsmasterdata'
+  dockerRegistryServiceConnection: 'cf7e7e44-535e-43f7-8edc-5bb5bcc68455'
+  imageRepository: 'businesspartners'
+
   containerRegistry: 'catenaxdevacr.azurecr.io'
-  dockerfilePath: './partsmasterdata/Dockerfile'
+  dockerfilePath: './coreservices/businesspartners/Dockerfile'
   tag: '$(Build.BuildId)'
-  imagePullSecret: 'catenaxdevacr12483f45-auth'
+  imagePullSecret: 'catenaxdevacr161620d2-auth'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
+
 
 stages:
 - stage: Build
@@ -37,7 +39,7 @@ stages:
     steps:
     - task: Maven@3
       inputs:
-        mavenPomFile: './partsmasterdata/pom.xml'
+        mavenPomFile: './coreservices/businesspartners/pom.xml'
         publishJUnitResults: false
         javaHomeOption: JDKVersion
         jdkVersionOption: '1.11'
@@ -54,8 +56,7 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
-
-    - upload: manifests
+    - upload: $(System.DefaultWorkingDirectory)/infrastructure/manifests
       artifact: manifests
 
 - stage: Deploy
@@ -67,7 +68,7 @@ stages:
     displayName: Deploy
     pool:
       vmImage: $(vmImageName)
-    environment: 'CXPoCtractusx.partsmasterdata'
+    environment: 'CXPoCtractusx.businesspartners'
     strategy:
       runOnce:
         deploy:
@@ -79,11 +80,11 @@ stages:
               secretName: $(imagePullSecret)
               dockerRegistryEndpoint: $(dockerRegistryServiceConnection)
           - task: KubernetesManifest@0
-            displayName: Create parts maser data secret
+            displayName: Create businesspartners secret
             inputs:
               action: createSecret
               secretType: generic
-              secretName: partsmasterdata-secret
+              secretName: businesspartners-secret
               secretArguments: --from-literal=http_basic_auth_password=$(HTTPPASSWORD) --from-literal=sotrage_connectionstring=$(STORAGEACCOUNT_CONNECTIOSTRING)
 
           - task: KubernetesManifest@0
@@ -91,8 +92,8 @@ stages:
             inputs:
               action: deploy
               manifests: |
-                $(Pipeline.Workspace)/manifests/partsmasterdata.yaml
-                $(Pipeline.Workspace)/manifests/partsmasterdata-ingress.yaml
+                $(Pipeline.Workspace)/manifests/businesspartners.yaml
+                $(Pipeline.Workspace)/manifests/businesspartners-ingress.yaml
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |

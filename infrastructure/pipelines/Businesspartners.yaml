@@ -7,13 +7,13 @@ trigger:
       - main
   paths:
     include:
-      - 'partsmasterdata/*'
+      - 'businesspartners/*'
 
 resources:
 - repo: self
 
 variables:
-  imageRepository: 'partsmasterdata'
+  imageRepository: 'businesspartners'
   containerRegistry: 'catenaxdevacr.azurecr.io'
   tag: $(Build.BuildID)
   imagePullSecret: 'catenaxdevacr-auth'
@@ -32,7 +32,7 @@ stages:
     steps:
     - task: Maven@3
       inputs:
-        mavenPomFile: './partsmasterdata/pom.xml'
+        mavenPomFile: './businesspartners/pom.xml'
         publishJUnitResults: false
         javaHomeOption: JDKVersion
         jdkVersionOption: '1.11'
@@ -43,10 +43,16 @@ stages:
     - task: Docker@2
       inputs:
         containerRegistry: catenaxdevacr
-        repository: partsmasterdata
+        repository: businesspartners
         command: buildAndPush
-        Dockerfile: './partsmasterdata/Dockerfile'
+        Dockerfile: './businesspartners/Dockerfile'
         tags: |
           $(tag)
-    - upload: manifests
+    - upload: $(System.DefaultWorkingDirectory)/infrastructure/manifests
       artifact: manifests
+
+- stage: Deploy
+  displayName: Deploy stage
+  dependsOn: Build
+
+ 
