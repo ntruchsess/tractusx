@@ -101,7 +101,7 @@ export function UUID(): string {
     });
   }
   
-  export function compare(a: any, b: any): number {
+export function compare(a: any, b: any): number {
   if (a > b) {
     return 1;
   } else if (a === b) {
@@ -110,4 +110,8 @@ export function UUID(): string {
     return -1;
 
   }
+}
+
+export function calculateLength(str: String): number {
+  return str.length;
 }
