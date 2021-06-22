@@ -55,10 +55,10 @@ stages:
           $(tag)
 
 
-- stage: Deploy-postgres
+- stage: Deploy_postgres
   displayName: Deploy postgres
   jobs:
-  - job: Create-postgres-secret
+  - job: Create_postgres_secret
     displayName: Create postgres secret
     pool:
       vmImage: $(vmImageName)
@@ -75,9 +75,9 @@ stages:
           --from-literal=db_user=connector --from-literal=db_pass=$DB_PASS
       failOnStderr: true
 
-  - job: Deploy-postgres
+  - job: Deploy_postgres
     displayName: Deploy postgres
-    dependsOn: 'Create postgres secret'
+    dependsOn: Create_postgres_secret
     condition: eq(variables['DEPLOY_POSTGRES'], 'true')
     pool:
       vmImage: $(vmImageName)
@@ -87,10 +87,10 @@ stages:
         helm upgrade --install -n "${NAMESPACE}" -f ./connector/infrastructure/postgres/values.yaml postgres ./connector/infrastructure/postgres
       failOnStderr: true
 
-- stage: Deploy-DSC
+- stage: Deploy_DSC
   displayName: Deploy DSC
   jobs:
-  - job: Deploy-dataspaceconnector
+  - job: Deploy_dataspaceconnector
     displayName: Deploy dataspaceconnector
     pool:
       vmImage: $(vmImageName)
