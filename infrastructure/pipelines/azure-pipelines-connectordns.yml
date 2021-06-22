@@ -48,7 +48,7 @@ stages:
         Dockerfile: './connectordns/Dockerfile'
         tags: |
           $(tag)
-    - upload: manifests
+    - upload: $(System.DefaultWorkingDirectory)/infrastructure/manifests
       artifact: manifests
 
 - stage: Deploy
@@ -80,8 +80,8 @@ stages:
               kubernetesServiceConnection: catenax-dev-aks-services-cdns
               namespace: cdns
               manifests: |
-                $(Pipeline.Workspace)/manifests/cdns.yaml
-                $(Pipeline.Workspace)/manifests/cdns-ingress.yaml
+                $(Pipeline.Workspace)/infrastructure/manifests/cdns.yaml
+                $(Pipeline.Workspace)/infrastructure/manifests/cdns-ingress.yaml
               containers: '$(containerRegistry)/$(imageRepository):$(tag)'
               imagePullSecrets: |
                 $(imagePullSecret)
