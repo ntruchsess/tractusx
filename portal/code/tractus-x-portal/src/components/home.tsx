@@ -20,6 +20,7 @@ import { ThemeProvider } from '@fluentui/react';
 import NotImp from './notimplemented';
 import AppDetail from './appdetail';
 import OrgDetails from './orgdetails';
+import UserMgmt from './usermanagement';
 import ConnectorHeader from './connectorheader';
 import { observable } from 'mobx';
 
@@ -99,7 +100,7 @@ const navLinkGroups2: INavLinkGroup[] = [
       },
       {
         name: 'User Management',
-        url: '/home/notimp',
+        url: '/home/usermanagement',
         key: 'key7',
         expandAriaLabel: 'Expand section',
         collapseAriaLabel: 'Collapse section',
@@ -147,6 +148,7 @@ class Home extends React.Component<RouteComponentProps> {
               <Route path='/home/appdetail/:id' component={(props) => <AppDetail {...props} />} />
               <Route path='/home/organization' component={(props) => <OrgDetails {...props} />} />
               <Route path='/home/connectorheader' component={(props) => <ConnectorHeader {...props} />} />
+              <Route path='/home/usermanagement' component={(props) => <UserMgmt {...props} />} />
               <Route path='/home/notimp' component={(props) => <NotImp {...props} />} />
             </Switch>
           </div>
