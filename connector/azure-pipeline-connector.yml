@@ -61,6 +61,19 @@ stages:
         tags: |
           $(tag)
 
+- stage: InstallHelm
+  displayName: Install Helm
+  jobs:
+  - job: InstallHelm
+    displayName: InstallHelm
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: HelmInstaller@1
+      displayName: Helm installer
+      inputs: 
+        helmVersionToInstall: latest
+
 - stage: Deploy_postgres
   displayName: Deploy postgres
   jobs:
@@ -84,7 +97,7 @@ stages:
     dependsOn: Create_postgres_secret
     condition: eq(variables['DEPLOY_POSTGRES'], 'true')
     steps:
-    - task: HelmDeploy@1
+    - task: HelmDeploy@0
       displayName: Helm upgrade
       inputs:
         azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
@@ -104,7 +117,7 @@ stages:
   jobs:
   - job: Deploy_dataspaceconnector
     displayName: Deploy dataspaceconnector
-    - task: HelmDeploy@1
+    - task: HelmDeploy@0
       displayName: Helm upgrade
       inputs:
         azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
