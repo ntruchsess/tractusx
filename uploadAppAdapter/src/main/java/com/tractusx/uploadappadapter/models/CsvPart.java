@@ -2,7 +2,7 @@ package com.tractusx.uploadappadapter.models;
 
 import java.security.PublicKey;
 
-public class Part {
+public class CsvPart {
 
     private String customerUniqueId;
     public String getCustomerUniqueId() {return this.customerUniqueId;}
@@ -52,7 +52,7 @@ public class Part {
     private String uniqueId;
     public String getUniqueId(){return this.uniqueId;}
 
-    public Part(String csvString)
+    public CsvPart(String csvString)
     {
         String[] initArray = csvString.split(",");
         if(initArray.length == 16) {
