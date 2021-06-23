@@ -61,18 +61,18 @@ stages:
         tags: |
           $(tag)
 
-- stage: InstallHelm
-  displayName: Install Helm
-  jobs:
-  - job: InstallHelm
-    displayName: InstallHelm
-    pool:
-      vmImage: $(vmImageName)
-    steps:
-    - task: HelmInstaller@1
-      displayName: Helm installer
-      inputs: 
-        helmVersionToInstall: latest
+#- stage: InstallHelm
+#  displayName: Install Helm
+#  jobs:
+#  - job: InstallHelm
+#    displayName: InstallHelm
+#    pool:
+#      vmImage: $(vmImageName)
+#    steps:
+#    - task: HelmInstaller@1
+#      displayName: Helm installer
+#      inputs: 
+#        helmVersionToInstall: latest
 
 - stage: Deploy_postgres
   displayName: Deploy postgres
@@ -117,6 +117,7 @@ stages:
   jobs:
   - job: Deploy_dataspaceconnector
     displayName: Deploy dataspaceconnector
+    steps:
     - task: HelmDeploy@0
       displayName: Helm upgrade
       inputs:
