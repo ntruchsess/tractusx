@@ -1,0 +1,87 @@
+# Build numbering format
+name: $(BuildID)
+
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - 'coreservices/connectordns/*'
+
+resources:
+- repo: self
+
+variables:
+  imageRepository: 'cdns'
+  containerRegistry: 'catenaxdevacr.azurecr.io'
+  tag: $(Build.BuildID)
+  imagePullSecret: 'catenaxdevacr-auth'
+
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+
+stages:
+- stage: Build
+  displayName: Build stage
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: Maven@3
+      inputs:
+        mavenPomFile: './coreservices/connectordns/pom.xml'
+        publishJUnitResults: false
+        javaHomeOption: JDKVersion
+        jdkVersionOption: '1.11'
+        mavenVersionOption: Default
+        mavenAuthenticateFeed: false
+        effectivePomSkip: false
+        sonarQubeRunAnalysis: false
+    - task: Docker@2
+      inputs:
+        containerRegistry: catenaxdevacr
+        repository: cdns
+        command: buildAndPush
+        Dockerfile: './coreservices/connectordns/Dockerfile'
+        tags: |
+          $(tag)
+    - upload: $(System.DefaultWorkingDirectory)/infrastructure/manifests
+      artifact: manifests
+
+- stage: Deploy
+  displayName: Deploy stage
+  dependsOn: Build
+
+  jobs:
+  - deployment: Deploy
+    displayName: Deploy
+    pool:
+      vmImage: $(vmImageName)
+    environment: 'CXPoCtractusx.cdns'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: KubernetesManifest@0
+            inputs:
+              action: createSecret
+              kubernetesServiceConnection: catenax-dev-aks-services-cdns
+              namespace: cdns
+              secretType: dockerRegistry
+              secretName:  $(imagePullSecret)
+              dockerRegistryEndpoint: 'catenaxdevacr'
+
+          - task: KubernetesManifest@0
+            inputs:
+              action: deploy
+              kubernetesServiceConnection: catenax-dev-aks-services-cdns
+              namespace: cdns
+              manifests: |
+                $(Pipeline.Workspace)/manifests/cdns.yaml
+                $(Pipeline.Workspace)/manifests/cdns-ingress.yaml
+              containers: '$(containerRegistry)/$(imageRepository):$(tag)'
+              imagePullSecrets: |
+                $(imagePullSecret)

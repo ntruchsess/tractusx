@@ -20,112 +20,120 @@ import { ThemeProvider } from '@fluentui/react';
 import NotImp from './notimplemented';
 import AppDetail from './appdetail';
 import OrgDetails from './orgdetails';
+import UserMgmt from './usermanagement';
+import ConnectorHeader from './connectorheader';
+import { observable } from 'mobx';
+
+const navStyles: Partial<INavStyles> = {
+  root: {
+    width: 250,
+    boxSizing: 'border-box',
+    border: '1px solid #eee',
+    overflowY: 'auto'
+  },
+  // these link styles override the default truncation behavior
+  link: {
+    whiteSpace: 'normal',
+    lineHeight: 'inherit'
+  }
+};
+
+// adding an empty title string to each link removes the tooltip;
+// it's unnecessary now that the text wraps, and will not truncate
+const navLinkGroups: INavLinkGroup[] = [
+  {
+    links: [
+      {
+        name: 'my Apps',
+        url: '/home/dashboard',
+        key: 'key1',
+        expandAriaLabel: 'Expand section',
+        collapseAriaLabel: 'Collapse section',
+        title: ''
+      },
+      {
+        name: 'my Data',
+        url: '/home/notimp',
+        key: 'key2',
+        expandAriaLabel: 'Expand section',
+        collapseAriaLabel: 'Collapse section',
+        title: ''
+      },
+      {
+        name: 'my Connectors',
+        url: '/home/connectorheader',
+        key: 'key3',
+        expandAriaLabel: 'Expand section',
+        collapseAriaLabel: 'Collapse section',
+        title: ''
+      }
+    ]
+  }
+];
+
+const navLinkGroups2: INavLinkGroup[] = [
+  {
+    links: [
+      {
+        name: 'Notification Center',
+        url: '/home/notimp',
+        key: 'key4',
+        expandAriaLabel: 'Expand section',
+        collapseAriaLabel: 'Collapse section',
+        title: ''
+      },
+      {
+        name: 'Transactions & History',
+        url: '/home/notimp',
+        key: 'key5',
+        expandAriaLabel: 'Expand section',
+        collapseAriaLabel: 'Collapse section',
+        title: ''
+      },
+      {
+        name: 'Organization',
+        url: '/home/organization',
+        key: 'key6',
+        expandAriaLabel: 'Expand section',
+        collapseAriaLabel: 'Collapse section',
+        title: ''
+      },
+      {
+        name: 'User Management',
+        url: '/home/usermanagement',
+        key: 'key7',
+        expandAriaLabel: 'Expand section',
+        collapseAriaLabel: 'Collapse section',
+        title: ''
+      }
+    ]
+  }
+];
 
 @observer
 class Home extends React.Component<RouteComponentProps> {
+  @observable public static selectedKey1 = 'key1';
+  @observable public static selectedKey2 = 'key0';
 
   linkClick(ev: React.MouseEvent<HTMLElement, MouseEvent>, item: INavLink): void {
     ev.stopPropagation();
     ev.preventDefault();
-    this.props.history.push(`${item.url}`);
+    Home.selectedKey1 = 'key' + (navLinkGroups[0].links.indexOf(item) + 1).toString();
+    Home.selectedKey2 = 'key' + (navLinkGroups2[0].links.indexOf(item) + 4).toString();
+    this.props.history.push(item.url);
   }
 
   public render() {
-    const navStyles: Partial<INavStyles> = {
-      root: {
-        width: 250,
-        boxSizing: 'border-box',
-        border: '1px solid #eee',
-        overflowY: 'auto'
-      },
-      // these link styles override the default truncation behavior
-      link: {
-        whiteSpace: 'normal',
-        lineHeight: 'inherit'
-      }
-    };
-    
-    // adding an empty title string to each link removes the tooltip;
-    // it's unnecessary now that the text wraps, and will not truncate
-    const navLinkGroups: INavLinkGroup[] = [
-      {
-        links: [
-          {
-            name: 'my Apps',
-            url: '/home/dashboard',
-            key: 'key1',
-            expandAriaLabel: 'Expand section',
-            collapseAriaLabel: 'Collapse section',
-            title: ''
-          },
-          {
-            name: 'my Data',
-            url: '/home/notimp',
-            key: 'key2',
-            expandAriaLabel: 'Expand section',
-            collapseAriaLabel: 'Collapse section',
-            title: ''
-          },
-          {
-            name: 'my Connectors',
-            url: '/home/notimp',
-            key: 'key3',
-            expandAriaLabel: 'Expand section',
-            collapseAriaLabel: 'Collapse section',
-            title: ''
-          }
-        ]
-      }
-    ];
- 
-    const navLinkGroups2: INavLinkGroup[] = [
-      {
-        links: [
-          {
-            name: 'Notification Center',
-            url: '/home/notimp',
-            key: 'key4',
-            expandAriaLabel: 'Expand section',
-            collapseAriaLabel: 'Collapse section',
-            title: ''
-          },
-          {
-            name: 'Transactions & History',
-            url: '/home/notimp',
-            key: 'key5',
-            expandAriaLabel: 'Expand section',
-            collapseAriaLabel: 'Collapse section',
-            title: ''
-          },
-          {
-            name: 'Organization',
-            url: '/home/organization',
-            key: 'key6',
-            expandAriaLabel: 'Expand section',
-            collapseAriaLabel: 'Collapse section',
-            title: ''
-          },
-          {
-            name: 'User Management',
-            url: '/home/notimp',
-            key: 'key7',
-            expandAriaLabel: 'Expand section',
-            collapseAriaLabel: 'Collapse section',
-            title: ''
-          }
-        ]
-      }
-    ];
     return (
       <div className='w100pc h100pc df fdc bgf5'>
         <Header href={window.location.href} />
         <div className='df w100pc flex1'>
           <ThemeProvider theme={{ palette: { themePrimary: '#E6AA1E' } }}>
             <div className='df fdc w250 h100pc'>
-              <Nav className='bgwhite' selectedKey='key1' ariaLabel='Navigation panel' styles={navStyles} groups={navLinkGroups}
+              <Nav className='bgwhite' selectedKey={Home.selectedKey1} ariaLabel='Navigation panel' styles={navStyles} groups={navLinkGroups}
                 onLinkClick={(ev, item) => this.linkClick(ev, item)} />
               <div className='flex1 bgwhite' />
-              <Nav className='bgwhite' selectedKey='' ariaLabel='Navigation panel' styles={navStyles} groups={navLinkGroups2}
+              <Nav className='bgwhite' selectedKey={Home.selectedKey2} ariaLabel='Navigation panel' styles={navStyles} groups={navLinkGroups2}
                 onLinkClick={(ev, item) => this.linkClick(ev, item)} />
             </div>
           </ThemeProvider>
@@ -137,9 +145,11 @@ class Home extends React.Component<RouteComponentProps> {
               <Route path='/home/datacatalog' component={(props) => <DataCatalog {...props} />} />
               <Route path='/home/vocabulary' component={(props) => <Vocabulary {...props} />} />
               <Route path='/home/developerhub' component={(props) => <DeveloperHub {...props} />} />
-              <Route path='/home/appdetail/:id' component={(props) => <AppDetail {...props}/>} />
-              <Route path='/home/organization' component={(props) => <OrgDetails {...props}/>} />
-              <Route path='/home/notimp' component={(props) => <NotImp {...props}/>} />
+              <Route path='/home/appdetail/:id' component={(props) => <AppDetail {...props} />} />
+              <Route path='/home/organization' component={(props) => <OrgDetails {...props} />} />
+              <Route path='/home/connectorheader' component={(props) => <ConnectorHeader {...props} />} />
+              <Route path='/home/usermanagement' component={(props) => <UserMgmt {...props} />} />
+              <Route path='/home/notimp' component={(props) => <NotImp {...props} />} />
             </Switch>
           </div>
         </div>

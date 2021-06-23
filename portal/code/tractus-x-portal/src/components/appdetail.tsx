@@ -40,6 +40,8 @@ export default class AppDetail extends React.Component<RouteComponentProps> {
   private backClick(): void {
     if (this.props.history.length > 1) {
       this.props.history.goBack();
+    } else {
+      this.props.history.push('/home/dashboard');
     }
   }
 

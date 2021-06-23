@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: businesspartners 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: businesspartners
+  template:
+    metadata:
+      labels:
+        app: businesspartners 
+    spec:
+      containers:
+        - name: businesspartners 
+          image: catenaxdevacr.azurecr.io/businesspartners
+          ports:
+          - containerPort: 80

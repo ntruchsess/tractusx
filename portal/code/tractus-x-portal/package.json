@@ -1,4 +1,5 @@
 {
+  "homepage": ".",
   "name": "tractus-x-portal",
   "version": "0.1.0",
   "private": true,
@@ -14,6 +15,7 @@
     "history": "^4.10.1",
     "mobx": "^5.15.7",
     "mobx-react": "^6.2.2",
+    "moment": "^2.29.1",
     "react": "^16.13.1",
     "react-adal": "^0.5.2",
     "react-dom": "^16.14.0",
