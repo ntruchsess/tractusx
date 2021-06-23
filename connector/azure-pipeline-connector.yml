@@ -84,6 +84,7 @@ stages:
     displayName: Deploy postgres
     dependsOn: Create_postgres_secret
     condition: eq(variables['DEPLOY_POSTGRES'], 'true')
+    steps:
     - task: HelmDeploy@0
       displayName: Helm upgrade
       inputs:
