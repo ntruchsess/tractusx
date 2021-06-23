@@ -1,0 +1,52 @@
+# Build numbering format
+name: $(BuildID)
+
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - 'coreservices/partsmasterdata/*'
+
+resources:
+- repo: self
+
+variables:
+  imageRepository: 'partsmasterdata'
+  containerRegistry: 'catenaxdevacr.azurecr.io'
+  tag: $(Build.BuildID)
+  imagePullSecret: 'catenaxdevacr-auth'
+
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+
+stages:
+- stage: Build
+  displayName: Build stage
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: Maven@3
+      inputs:
+        mavenPomFile: './coreservices/partsmasterdata/pom.xml'
+        publishJUnitResults: false
+        javaHomeOption: JDKVersion
+        jdkVersionOption: '1.11'
+        mavenVersionOption: Default
+        mavenAuthenticateFeed: false
+        effectivePomSkip: false
+        sonarQubeRunAnalysis: false
+    - task: Docker@2
+      inputs:
+        containerRegistry: catenaxdevacr
+        repository: partsmasterdata
+        command: buildAndPush
+        Dockerfile: './coreservices/partsmasterdata/Dockerfile'
+        tags: |
+          $(tag)
+    - upload: $(System.DefaultWorkingDirectory)/infrastructure/manifests
+      artifact: manifests
