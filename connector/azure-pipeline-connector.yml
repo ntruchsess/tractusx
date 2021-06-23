@@ -61,12 +61,13 @@ stages:
         tags: |
           $(tag)
 
-
 - stage: Deploy_postgres
   displayName: Deploy postgres
   jobs:
   - job: Create_postgres_secret
     displayName: Create postgres secret
+    pool:
+      vmImage: $(vmImageName)
     steps:
     - task: Kubernetes@1
       displayName: Create postgres secret
@@ -82,6 +83,8 @@ stages:
 
   - job: Deploy_postgres
     displayName: Deploy postgres
+    pool:
+      vmImage: $(vmImageName)
     dependsOn: Create_postgres_secret
     condition: eq(variables['DEPLOY_POSTGRES'], 'true')
     steps:
@@ -105,6 +108,8 @@ stages:
   jobs:
   - job: Deploy_dataspaceconnector
     displayName: Deploy dataspaceconnector
+    pool:
+      vmImage: $(vmImageName)
     - task: HelmDeploy@0
       displayName: Helm upgrade
       inputs:
