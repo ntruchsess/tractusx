@@ -30,29 +30,25 @@ variables:
   # connector vars
   KEYSTOREFILENAME: 'ms-dc-idsos-keystore'
   KEYSTOREPASSWORD: 'mspass'
-  DB_SECRET_NAME: 'postgres-password'
+  #DB_SECRET_NAME: 'postgres-password'
 
 
 stages:
-- stage: Provisioning
-  displayName: Provisioning
-  jobs:
-  - job: Provisioning
-    displayName: Provisioning
-    pool:
-      vmImage: $(vmImageName)
-    steps:
-    - script: |
-        sed -i -e "s%__KEYSTOREPASSWORD__%${KEYSTOREPASSWORD}%g" ./connector/src/main/resources/application.properties
-        sed -i -e "s%__KEYSTOREFILENAME__%${KEYSTOREFILENAME}%g" ./connector/src/main/resources/application.properties
-        sed -i -e "s%__KEYSTOREFILENAME__%${KEYSTOREFILENAME}%g" ./connector/src/main/resources/conf/config.json
-        sed -i -e "s%__SED_SECRET_NAME__%${DB_SECRET_NAME}%g" ./connector/infrastructure/postgres/values.yaml
-        sed -i -e "s%__SED_SECRET_NAME__%${DB_SECRET_NAME}%g" ./connector/infrastructure/dataspaceconnector/values.yaml
-        sed -i -e "s%__IMAGE_TAG__%${tag}%g" ./connector/infrastructure/dataspaceconnector/values.yaml
-        sed -i -e "s%__DOCKER_REGISTRY__%${containerRegistry}%g" ./connector/infrastructure/dataspaceconnector/values.yaml
-      failOnStderr: true
-    - publish: './connector/'
-      artifact: configs
+#- stage: Provisioning
+#  displayName: Provisioning
+#  jobs:
+#  - job: Provisioning
+#    displayName: Provisioning
+#    pool:
+#      vmImage: $(vmImageName)
+#    steps:
+#    - script: |
+#        sed -i -e "s%__KEYSTOREPASSWORD__%${KEYSTOREPASSWORD}%g" ./connector/src/main/resources/application.properties
+#        sed -i -e "s%__KEYSTOREFILENAME__%${KEYSTOREFILENAME}%g" ./connector/src/main/resources/application.properties
+#        sed -i -e "s%__KEYSTOREFILENAME__%${KEYSTOREFILENAME}%g" ./connector/src/main/resources/conf/config.json
+#      failOnStderr: true
+#    - publish: './connector/'
+#      artifact: configs
 
 - stage: Build
   displayName: Build stage
@@ -62,7 +58,12 @@ stages:
     pool:
       vmImage: $(vmImageName)
     steps:
-    - download: current
+    - script: |
+        sed -i -e "s%__KEYSTOREPASSWORD__%${KEYSTOREPASSWORD}%g" ./connector/src/main/resources/application.properties
+        sed -i -e "s%__KEYSTOREFILENAME__%${KEYSTOREFILENAME}%g" ./connector/src/main/resources/application.properties
+        sed -i -e "s%__KEYSTOREFILENAME__%${KEYSTOREFILENAME}%g" ./connector/src/main/resources/conf/config.json
+      failOnStderr: true
+    - publish: './connector/'
       artifact: configs
     - task: Docker@2
       displayName: Build and push an image to container registry
@@ -71,8 +72,7 @@ stages:
         repository: $(imageRepository)
         dockerfile: $(dockerfilePath)
         containerRegistry: $(dockerRegistryServiceConnection)
-        tags: |
-          $(tag)
+        tags: $(tag)
 
 #- stage: InstallHelm
 #  displayName: Install Helm
@@ -148,3 +148,6 @@ stages:
         releaseName: dataspaceconnector
         install: true
         waitForExecution: false
+        arguments: >
+          --set image.repository=${containerRegistry}
+          --set image.tag=${tag}

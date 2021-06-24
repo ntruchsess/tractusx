@@ -16,7 +16,7 @@ fullnameOverride: ""
 
 postgresql:
   passwordSecret:
-    name: __SED_SECRET_NAME__
+    name: postgres-password
     password_key: db_pass
     username_key: db_user
     dbname_key: db_user
