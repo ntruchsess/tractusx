@@ -24,3 +24,4 @@ spec:
             backend:
               serviceName: dataspaceconnector
               servicePort: 8080
+{{- end }}
