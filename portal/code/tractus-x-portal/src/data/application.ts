@@ -6,6 +6,7 @@
 // Copyright (c) Microsoft. All rights reserved
 //
 export class Application {
+  public id = '';
   public title = '';
   public rating = 0;
   public downloads = 0;
@@ -15,4 +16,5 @@ export class Application {
   public companyName = '';
   public usage = '';
   public purchase = '';
+  public url = '';
 }

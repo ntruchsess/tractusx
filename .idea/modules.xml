@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/businesspartners/businesspartners.iml" filepath="$PROJECT_DIR$/businesspartners/businesspartners.iml" />
+      <module fileurl="file://$PROJECT_DIR$/connectordns/cdns.iml" filepath="$PROJECT_DIR$/connectordns/cdns.iml" />
+      <module fileurl="file://$PROJECT_DIR$/partsmasterdata/partsmasterdata.iml" filepath="$PROJECT_DIR$/partsmasterdata/partsmasterdata.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/tractusx.iml" filepath="$PROJECT_DIR$/.idea/tractusx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/uploadAppAdapter/uploadAppAdapter.iml" filepath="$PROJECT_DIR$/uploadAppAdapter/uploadAppAdapter.iml" />
+    </modules>
+  </component>
+</project>
