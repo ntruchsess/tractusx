@@ -21,7 +21,7 @@ variables:
   dockerRegistryServiceConnection: '553abab0-5db0-4932-aaaf-25147ed09cf7'
   imageRepository: 'uploadAppAdapter'
   containerRegistry: 'catenaxdevacr.azurecr.io'
-  dockerfilePath: './coreservices/partsmasterdata/Dockerfile'
+  dockerfilePath: './uploadAppAdapter/Dockerfile'
   tag: '$(Build.BuildId)'
   imagePullSecret: 'catenaxdevacr12483f45-auth'
 
