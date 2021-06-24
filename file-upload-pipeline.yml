@@ -19,7 +19,7 @@ variables:
 
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '553abab0-5db0-4932-aaaf-25147ed09cf7'
-  imageRepository: 'uploadAppAdapter'
+  imageRepository: 'uploadappadapter'
   containerRegistry: 'catenaxdevacr.azurecr.io'
   dockerfilePath: './uploadAppAdapter/Dockerfile'
   tag: '$(Build.BuildId)'
