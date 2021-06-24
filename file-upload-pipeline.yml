@@ -92,8 +92,8 @@ stages:
             inputs:
               action: deploy
               manifests: |
-                $(Pipeline.Workspace)/manifests/uploadAppAdapter.yaml
-                $(Pipeline.Workspace)/manifests/uploadAppAdapter-ingress.yaml
+                $(Pipeline.Workspace)/manifests/uploadapp.yaml
+                $(Pipeline.Workspace)/manifests/uploadapp-ingress.yaml
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |
