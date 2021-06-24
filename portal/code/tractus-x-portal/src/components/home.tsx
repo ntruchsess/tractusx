@@ -22,6 +22,7 @@ import AppDetail from './appdetail';
 import OrgDetails from './orgdetails';
 import UserMgmt from './usermanagement';
 import ConnectorHeader from './connectorheader';
+import MyData from './mydata';
 import { observable } from 'mobx';
 
 const navStyles: Partial<INavStyles> = {
@@ -53,7 +54,7 @@ const navLinkGroups: INavLinkGroup[] = [
       },
       {
         name: 'my Data',
-        url: '/home/notimp',
+        url: '/home/mydata',
         key: 'key2',
         expandAriaLabel: 'Expand section',
         collapseAriaLabel: 'Collapse section',
@@ -149,6 +150,7 @@ class Home extends React.Component<RouteComponentProps> {
               <Route path='/home/organization' component={(props) => <OrgDetails {...props} />} />
               <Route path='/home/connectorheader' component={(props) => <ConnectorHeader {...props} />} />
               <Route path='/home/usermanagement' component={(props) => <UserMgmt {...props} />} />
+              <Route path='/home/mydata' component={(props) => <MyData {...props} />} />
               <Route path='/home/notimp' component={(props) => <NotImp {...props} />} />
             </Switch>
           </div>

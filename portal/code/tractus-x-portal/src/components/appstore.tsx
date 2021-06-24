@@ -19,7 +19,7 @@ class AppStore extends React.Component<RouteComponentProps> {
   public render() {
 
     return (
-      <div className='w100pc bgef'>
+      <div className='w100pc bgf5'>
         <div className='ml50 mr50 mt50 bgimage w100-100 df fdc br10 flex1 mb30'>
           <span className='fs20 bold ml50 pb5 mt20pc tac'>Alliance for secure and standardized data exchange</span>
           <span className='tac fs14 ml50'>We share the vision of continous data exchange for all participants <br />
@@ -33,7 +33,7 @@ class AppStore extends React.Component<RouteComponentProps> {
         </div>
 
         {AppState.state.categories.map((c, index) => (
-          <div key={index} className='ml50 mr50 mb30 w100pc df fdc bgef'>
+          <div key={index} className='ml50 mr50 mb30 w100pc df fdc bgf5'>
             <span className='bold fs14 ml10'>{c.text}</span>
             <div className='w100-100'>
               <div className='ovx h250 df'>

@@ -1,0 +1,61 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - 'uploadAppAdapter/*'
+
+
+resources:
+- repo: self
+
+variables:
+
+  # Container registry service connection established during pipeline creation
+  dockerRegistryServiceConnection: '553abab0-5db0-4932-aaaf-25147ed09cf7'
+  imageRepository: 'uploadAppAdapter'
+  containerRegistry: 'catenaxdevacr.azurecr.io'
+  dockerfilePath: './uploadAppAdapter/Dockerfile'
+  tag: '$(Build.BuildId)'
+  imagePullSecret: 'catenaxdevacr12483f45-auth'
+
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+
+stages:
+- stage: Build
+  displayName: Build stage
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: Maven@3
+      inputs:
+        mavenPomFile: './uploadAppAdapter/pom.xml'
+        publishJUnitResults: false
+        javaHomeOption: JDKVersion
+        jdkVersionOption: '1.11'
+        mavenVersionOption: Default
+        mavenAuthenticateFeed: false
+        effectivePomSkip: false
+        sonarQubeRunAnalysis: false
+    - task: Docker@2
+      displayName: Build and push an image to container registry
+      inputs:
+        command: buildAndPush
+        repository: $(imageRepository)
+        dockerfile: $(dockerfilePath)
+        containerRegistry: $(dockerRegistryServiceConnection)
+        tags: |
+          $(tag)
+    - upload: $(System.DefaultWorkingDirectory)/infrastructure/manifests
+      artifact: manifests
+    

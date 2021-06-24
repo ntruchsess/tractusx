@@ -64,16 +64,16 @@ export default class AddUser extends React.Component {
               <Dropdown className='pr10 flex1' disabled placeholder='Role' options={statusOptions} />
               <Dropdown className='flex1' disabled placeholder='Team' options={statusOptions} />
             </div>
-            <div className='df w100-310'>
+            <div className='df w100-30'>
               <ActionButton className='fgblack bold fs17 ml30 minw300' text='ADD ANOTHER USER' iconProps={{ iconName: 'Add', className: 'fgblack' }} />
               <div className='flex1'/>
-              <PrimaryButton className='fs14 bold ml75pc mb20 minw200' text='SEND INVITE' />
+              <PrimaryButton className='fs14 bold mb20 minw200' text='SEND INVITE' />
             </div>
           </div>
         </div>
         <div className='pb5pc' />
-        <div className='w100pc bgef h100pc df fdc ml30'>
-          <div className='df bgef mb15 mt20 w100-60'>
+        <div className='w100pc bgf5 h100pc df fdc ml30'>
+          <div className='df bgf5 mb15 mt20 w100-60'>
             <span className='fs16 bold ml10 mr5 flex3'>User management</span>
             <span className='fs14 fggrey mr5 flex1'>Sort by:  <text className='bold'>email address</text></span>
             <span className='fs14 fggrey mr5 flex1'>Filter:  <text className='bold'>none</text></span>
