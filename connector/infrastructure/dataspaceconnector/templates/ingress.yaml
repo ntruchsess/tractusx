@@ -21,6 +21,7 @@ spec:
       http:
         paths:
           - path: /connector(/|$)(.*)
+            pathType: Prefix
             backend:
               service:
                 name: dataspaceconnector
