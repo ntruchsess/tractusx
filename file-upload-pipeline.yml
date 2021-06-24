@@ -19,7 +19,7 @@ variables:
 
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '553abab0-5db0-4932-aaaf-25147ed09cf7'
-  imageRepository: 'uploadAppAdapter'
+  imageRepository: 'uploadappadapter'
   containerRegistry: 'catenaxdevacr.azurecr.io'
   dockerfilePath: './uploadAppAdapter/Dockerfile'
   tag: '$(Build.BuildId)'
@@ -58,4 +58,44 @@ stages:
           $(tag)
     - upload: $(System.DefaultWorkingDirectory)/infrastructure/manifests
       artifact: manifests
+
+- stage: Deploy
+  displayName: Deploy stage
+  dependsOn: Build
+
+  jobs:
+  - deployment: Deploy
+    displayName: Deploy
+    pool:
+      vmImage: $(vmImageName)
+    environment: 'CXPoCtractusx.partsmasterdata'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: KubernetesManifest@0
+            displayName: Create imagePullSecret
+            inputs:
+              action: createSecret
+              secretName: $(imagePullSecret)
+              dockerRegistryEndpoint: $(dockerRegistryServiceConnection)
+          - task: KubernetesManifest@0
+            displayName: Create parts maser data secret
+            inputs:
+              action: createSecret
+              secretType: generic
+              secretName: uploadappadapter-secret
+              secretArguments: --from-literal=http_basic_auth_password=$(HTTPPASSWORD) --from-literal=sotrage_connectionstring=$(STORAGEACCOUNT_CONNECTIONSTRING)
+
+          - task: KubernetesManifest@0
+            displayName: Deploy to Kubernetes cluster
+            inputs:
+              action: deploy
+              manifests: |
+                $(Pipeline.Workspace)/manifests/uploadapp.yaml
+                $(Pipeline.Workspace)/manifests/uploadapp-ingress.yaml
+              imagePullSecrets: |
+                $(imagePullSecret)
+              containers: |
+                $(containerRegistry)/$(imageRepository):$(tag)
     
