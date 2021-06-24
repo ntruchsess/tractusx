@@ -84,9 +84,8 @@ stages:
       displayName: Create postgres secret
       condition: eq(variables['DEPLOY_POSTGRES'], 'true')
       inputs:
-        azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
-        azureResourceGroup: $(azureResourceGroup)
-        kubernetesCluster: $(kubernetesCluster)
+        connectionType: Kubernetes Service Connection
+        kubernetesServiceEndpoint: catenax-dev-aks-services-connector
         command: apply
         secretType: generic
         secretArguments: --from-literal=db_user=connector --from-literal=db_pass=$DB_PASS
@@ -100,9 +99,8 @@ stages:
     - task: HelmDeploy@0
       displayName: Helm upgrade
       inputs:
-        azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
-        azureResourceGroup: $(azureResourceGroup)
-        kubernetesCluster: $(kubernetesCluster)
+        connectionType: Kubernetes Service Connection
+        kubernetesServiceEndpoint: catenax-dev-aks-services-connector
         namespace: $(kubeNamespace)
         command: upgrade
         valueFile: ./connector/infrastructure/postgres/values.yaml
@@ -121,9 +119,8 @@ stages:
     - task: HelmDeploy@0
       displayName: Helm upgrade
       inputs:
-        azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
-        azureResourceGroup: $(azureResourceGroup)
-        kubernetesCluster: $(kubernetesCluster)
+        connectionType: Kubernetes Service Connection
+        kubernetesServiceEndpoint: catenax-dev-aks-services-connector
         namespace: $(kubeNamespace)
         command: upgrade
         valueFile: ./connector/infrastructure/dataspaceconnector/values.yaml
