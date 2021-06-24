@@ -59,6 +59,3 @@ stages:
     - upload: $(System.DefaultWorkingDirectory)/infrastructure/manifests
       artifact: manifests
     
-- stage: Deploy
-  displayName: Deploy stage
-  dependsOn: Build
