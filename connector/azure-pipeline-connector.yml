@@ -34,11 +34,11 @@ variables:
 
 
 stages:
-- stage: Build
-  displayName: Build stage
+- stage: Provisioning
+  displayName: Provisioning
   jobs:
-  - job: Build
-    displayName: Build
+  - job: Provisioning
+    displayName: Provisioning
     pool:
       vmImage: $(vmImageName)
     steps:
@@ -50,7 +50,19 @@ stages:
         sed -i -e "s%__IMAGE_TAG__%${tag}%g" ./connector/infrastructure/dataspaceconnector/values.yaml
         sed -i -e "s%__DOCKER_REGISTRY__%${containerRegistry}%g" ./connector/infrastructure/dataspaceconnector/values.yaml
       failOnStderr: true
+    - publish: './connector/'
+      artifact: configs
 
+- stage: Build
+  displayName: Build stage
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - download: current
+      artifact: configs
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:
@@ -80,6 +92,8 @@ stages:
   - job: Create_postgres_secret
     displayName: Create postgres secret
     steps:
+    - download: current
+      artifact: configs
     - task: Kubernetes@1
       displayName: Create postgres secret
       condition: eq(variables['DEPLOY_POSTGRES'], 'true')
@@ -95,6 +109,8 @@ stages:
     dependsOn: Create_postgres_secret
     condition: eq(variables['DEPLOY_POSTGRES'], 'true')
     steps:
+    - download: current
+      artifact: configs
     - task: HelmDeploy@0
       displayName: Helm upgrade
       inputs:
@@ -115,6 +131,8 @@ stages:
   - job: Deploy_dataspaceconnector
     displayName: Deploy dataspaceconnector
     steps:
+    - download: current
+      artifact: configs
     - task: HelmDeploy@0
       displayName: Helm upgrade
       inputs:
