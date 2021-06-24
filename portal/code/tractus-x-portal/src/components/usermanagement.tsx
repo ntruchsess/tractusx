@@ -16,12 +16,12 @@ export default class UserManagement extends React.Component {
 
   public render() {
     return (
-      <div className='w100pc bgef h100pc df fdc'>
+      <div className='w100pc bgf5 h100pc df fdc'>
         <Pivot className='bgwhite' aria-label='Header'>
-          <PivotItem className='bgef' headerText='Overview' >
+          <PivotItem className='bgf5' headerText='Overview' >
             <AddUser />
           </PivotItem>
-          <PivotItem className='bgef' headerText='Teams' />
+          <PivotItem className='bgf5' headerText='Teams' />
         </Pivot>
       </div>
     );
