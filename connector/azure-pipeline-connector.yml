@@ -86,7 +86,6 @@ stages:
       inputs:
         connectionType: Kubernetes Service Connection
         kubernetesServiceEndpoint: catenax-dev-aks-services-connector
-        command: apply
         secretType: generic
         secretArguments: --from-literal=db_user=connector --from-literal=db_pass=$DB_PASS
         secretName: postgres-password
