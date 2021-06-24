@@ -84,7 +84,7 @@ stages:
             inputs:
               action: createSecret
               secretType: generic
-              secretName: uploadAppAdapter-secret
+              secretName: uploadappadapter-secret
               secretArguments: --from-literal=http_basic_auth_password=$(HTTPPASSWORD) --from-literal=sotrage_connectionstring=$(STORAGEACCOUNT_CONNECTIONSTRING)
 
           - task: KubernetesManifest@0
