@@ -18,15 +18,15 @@ env:
 - name: SPRING_DATASOURCE_PASSWORD
   valueFrom:
     secretKeyRef:
-      name: postgres-db-secret
-      key: spring.datasource.password
+      name: postgres-password
+      key: db_pass
 - name: SPRING_DATASOURCE_USERNAME
   valueFrom:
     secretKeyRef:
-      name: postgres-db-secret
-      key: spring.datasource.username
+      name: postgres-password
+      key: db_user
 - name: SPRING_DATASOURCE_URL
-  value: "jdbc:postgresql://__DBHOST__:5432/connector"
+  value: "jdbc:postgresql://postgres:5432/connector"
 - name: SPRING_DATASOURCE_PLATFORM
   value: "postgres"
 - name: SPRING_DATASOURCE_DRIVER-CLASS-NAME

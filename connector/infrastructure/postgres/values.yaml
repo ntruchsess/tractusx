@@ -16,7 +16,7 @@ fullnameOverride: ""
 
 postgresql:
   passwordSecret:
-    name: SED_SECRET_NAME
+    name: __SED_SECRET_NAME__
     password_key: db_pass
     username_key: db_user
     dbname_key: db_user
@@ -101,9 +101,3 @@ envSecrets:
     secretKeyRef:
       name: postgres-password
       key: db_user
-
-            #     - name: POSTGRES_PASSWORD
-            # valueFrom:
-            #   secretKeyRef:
-            #     name: {{ .Values.postgresql.passwordSecret.name | quote }}
-            #     key: {{ .Values.postgresql.passwordSecret.password_key | quote }}

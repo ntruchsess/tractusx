@@ -47,6 +47,7 @@ stages:
         sed -i -e "s%__KEYSTOREFILENAME__%${KEYSTOREFILENAME}%g" ./connector/src/main/resources/application.properties
         sed -i -e "s%__KEYSTOREFILENAME__%${KEYSTOREFILENAME}%g" ./connector/src/main/resources/conf/config.json
         sed -i -e "s%__SED_SECRET_NAME__%${DB_SECRET_NAME}%g" ./connector/infrastructure/postgres/values.yaml
+        sed -i -e "s%__SED_SECRET_NAME__%${DB_SECRET_NAME}%g" ./connector/infrastructure/dataspaceconnector/values.yaml
         sed -i -e "s%__IMAGE_TAG__%${tag}%g" ./connector/infrastructure/dataspaceconnector/values.yaml
         sed -i -e "s%__DOCKER_REGISTRY__%${containerRegistry}%g" ./connector/infrastructure/dataspaceconnector/values.yaml
       failOnStderr: true
@@ -143,6 +144,7 @@ stages:
         valueFile: ./connector/infrastructure/dataspaceconnector/values.yaml
         chartType: filepath
         chartPath: ./connector/infrastructure/dataspaceconnector
-        releaseName: postgres
+        chartVersion: $(Build.BuildNumber)
+        releaseName: dataspaceconnector
         install: true
         waitForExecution: false
