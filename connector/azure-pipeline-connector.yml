@@ -19,9 +19,6 @@ variables:
   imagePullSecret: 'catenaxdevacr10283c4a-auth'
 
   # Kube vars
-  azureSubscriptionEndpoint: '7db7b120-43c4-4cd8-b448-9b0957e1e289'
-  azureResourceGroup: 'catenax-dev-rg'
-  kubernetesCluster: 'catenax-dev-rg'
   kubeNamespace: 'centralconnector'
 
   # Agent VM image name
@@ -101,6 +98,7 @@ stages:
       inputs:
         connectionType: Kubernetes Service Connection
         kubernetesServiceEndpoint: catenax-dev-aks-services-connector
+        namespace: $(kubeNamespace)
         secretType: generic
         secretArguments: --from-literal=db_user=connector --from-literal=db_pass=$DB_PASS
         secretName: postgres-password
@@ -149,5 +147,5 @@ stages:
         install: true
         waitForExecution: false
         arguments: >
-          --set image.repository=$(containerRegistry)
+          --set image.repository=$(containerRegistry)/$(imageRepository)
           --set image.tag=$(tag)
