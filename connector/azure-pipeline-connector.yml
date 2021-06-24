@@ -97,7 +97,7 @@ stages:
       artifact: configs
     - task: Kubernetes@1
       displayName: Create postgres secret
-      condition: eq(variables['DEPLOY_POSTGRES'], 'true')
+      #condition: eq(variables['DEPLOY_POSTGRES'], 'true')
       inputs:
         connectionType: Kubernetes Service Connection
         kubernetesServiceEndpoint: catenax-dev-aks-services-connector
@@ -108,7 +108,7 @@ stages:
   - job: Deploy_postgres
     displayName: Deploy postgres
     dependsOn: Create_postgres_secret
-    condition: eq(variables['DEPLOY_POSTGRES'], 'true')
+    #condition: eq(variables['DEPLOY_POSTGRES'], 'true')
     steps:
     - download: current
       artifact: configs
@@ -149,5 +149,5 @@ stages:
         install: true
         waitForExecution: false
         arguments: >
-          --set image.repository=${containerRegistry}
-          --set image.tag=${tag}
+          --set image.repository=$(containerRegistry)
+          --set image.tag=$(tag)
