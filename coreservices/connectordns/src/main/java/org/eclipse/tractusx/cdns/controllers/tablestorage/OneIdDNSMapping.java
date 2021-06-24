@@ -4,5 +4,4 @@ import com.microsoft.azure.storage.table.TableEntity;
 import com.microsoft.azure.storage.table.TableServiceEntity;
 
 public class OneIdDNSMapping extends TableServiceEntity {
-    public String dns;
 }
