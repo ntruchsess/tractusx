@@ -6,6 +6,11 @@ public class PartStaticData {
     //- $ref: "#/components/schemas/OneIDBusinessPartner"
     public String manufacturerOneId;
 
+    //description: OneID of manufacture contract partner
+    //allOf:
+    //- $ref: "#/components/schemas/OneIDBusinessPartner"
+    public String manufactureContractOneId;
+
     //type: string
     //description: Name of the part family of manufacture
     //example: KLEBER1

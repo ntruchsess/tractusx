@@ -1,6 +1,6 @@
 package com.tractusx.uploadappadapter.models;
 
-enum AlertLevel
+public enum AlertLevel
 {
     CRITICAL,
     MAJOR,

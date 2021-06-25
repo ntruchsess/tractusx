@@ -14,6 +14,7 @@ public class PartMasterData {
         this.staticData.customerOneID = init.customerOneId;
         this.staticData.customerContractOneID = init.customerContractOneId;
         this.staticData.manufacturerOneId = init.manufacturerOneId;
+        this.staticData.manufactureContractOneId = init.manufactureContractOneId;
         this.staticData.partNameCustomer = init.partNameCustomer;
         this.staticData.partNameManufacturer = init.partNameManufacturer;
         this.staticData.partNumberCustomer = init.partNameCustomer;

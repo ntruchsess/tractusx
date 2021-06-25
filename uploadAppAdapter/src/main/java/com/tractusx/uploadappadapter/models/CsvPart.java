@@ -15,7 +15,7 @@ public class CsvPart {
     public String productionDateGmt;
     public String qualityAlert;
     public String qualityType;
-    public String manufacturerContractOneId;
+    public String manufactureContractOneId;
     public String uniqueId;
 
     public CsvPart(String csvString)
@@ -42,7 +42,7 @@ public class CsvPart {
             this.productionDateGmt = initArray[11];
             this.qualityAlert = initArray[12];
             this.qualityType = initArray[13];
-            this.manufacturerContractOneId = initArray[14];
+            this.manufactureContractOneId = initArray[14];
             this.uniqueId = initArray[15];
         }
     }
