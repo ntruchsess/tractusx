@@ -12,6 +12,7 @@ iframe {border-style: none;}
 .fgblue {color: #0078D4;}
 .fgbluechildren > * {color: #0078D4;}
 .fglgreen {color: #B3CB2D;}
+.fg5a{color:#5A5A5A;}
 .bgprimary {background:#0078D4;}
 .bgpanel1 {background:#462F61;}
 .bgpublic { background: #E1C100;}
@@ -378,6 +379,7 @@ iframe {border-style: none;}
 .pt15 {padding-top: 15px;}
 .pt18 {padding-top: 18px;}
 .pt24 {padding-top: 15px;}
+.pt28 { padding-top: 28px; }
 .pt40 { padding-top: 40px; }
 .pb4 {padding-bottom: 4px;}
 .pb5 {padding-bottom: 5px;}
@@ -921,8 +923,3 @@ mat-form-field .mat-input-placeholder {
 }
 
 .bgimage { background-image: url(/src/catenabackground.png); background-size: 100%;background-repeat: no-repeat}
-
-/* DataCatalog css */
-.w1100{width: 1100px;}
-.fg5a{color:#5A5A5A;}
-.pt28 { padding-top: 28px; }
