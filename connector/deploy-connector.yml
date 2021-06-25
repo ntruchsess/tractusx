@@ -19,3 +19,4 @@ steps:
     arguments: >
       --set image.repository=$(containerRegistry)/$(imageRepository)
       --set image.tag=$(tag)
+      --set ingress.path=$(ingressPath)

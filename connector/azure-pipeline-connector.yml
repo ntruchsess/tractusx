@@ -137,6 +137,7 @@ stages:
       imageRepository: 'dsconnector-1'
       releaseName: 'dataspaceconnector-1'
       configs: config-1
+      ingressPath: '/connector-1(/|$)(.*)'
     steps:
     - template: deploy-connector.yml
   - job: Deploy_dataspaceconnector_2
@@ -145,6 +146,7 @@ stages:
       imageRepository: 'dsconnector-2'
       releaseName: 'dataspaceconnector-2'
       configs: config-2
+      ingressPath: '/connector-2(/|$)(.*)'
     steps:
     - template: deploy-connector.yml
   - job: Deploy_dataspaceconnector_3
@@ -153,5 +155,6 @@ stages:
       imageRepository: 'dsconnector-3'
       releaseName: 'dataspaceconnector-3'
       configs: config-3
+      ingressPath: '/connector-3(/|$)(.*)'
     steps:
     - template: deploy-connector.yml

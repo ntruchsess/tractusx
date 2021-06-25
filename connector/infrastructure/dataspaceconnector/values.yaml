@@ -8,6 +8,7 @@ image:
 
 ingress:
   enabled: true
+  path: '/connector(/|$)(.*)'
   
 service:
   type: LoadBalancer
