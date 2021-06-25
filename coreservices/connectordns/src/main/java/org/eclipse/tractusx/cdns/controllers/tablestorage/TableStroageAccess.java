@@ -23,7 +23,7 @@ public class TableStroageAccess {
 
     private String storageConnectionstring;
 
-    public ArrayList<String> GetConnectorDNSEntry(String tableName,String businessPartnerOneId, String connectorId  ){
+    public ArrayList<ConnectorDNSRecord> GetConnectorDNSEntry(String tableName,String businessPartnerOneId, String connectorId  ){
         try
         {
             var isBusinesspartnerId =false;
@@ -57,16 +57,24 @@ public class TableStroageAccess {
                     return mapping;
                 }
             };
-            var oneIdDnsMappings = new ArrayList<String>();
+            var oneIdDnsMappings = new ArrayList<ConnectorDNSRecord>();
             if(isBusinesspartnerId) {
 
                 for(OneIdDNSMapping mapping : cloudTable.execute(query, dnsArray)){
-                    oneIdDnsMappings.add(mapping.getRowKey());
+                    var connector = new ConnectorDNSRecord();
+                            connector.idsConnectorID = mapping.getRowKey();
+                            connector.oneID = mapping.getPartitionKey();
+
+                    oneIdDnsMappings.add(connector);
                 }
             }
             else{
                 for(OneIdDNSMapping mapping : cloudTable.execute(query, dnsArray)){
-                    oneIdDnsMappings.add(mapping.getPartitionKey());
+                    var connector = new ConnectorDNSRecord();
+                    connector.idsConnectorID = mapping.getRowKey();
+                    connector.oneID = mapping.getPartitionKey();
+
+                    oneIdDnsMappings.add(connector);
                     break;
                 }
             }

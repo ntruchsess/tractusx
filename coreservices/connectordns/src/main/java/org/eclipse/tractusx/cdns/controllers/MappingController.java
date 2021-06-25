@@ -1,5 +1,6 @@
 package org.eclipse.tractusx.cdns.controllers;
 
+import org.eclipse.tractusx.cdns.controllers.tablestorage.ConnectorDNSRecord;
 import org.eclipse.tractusx.cdns.controllers.tablestorage.TableStorageConfig;
 import org.eclipse.tractusx.cdns.controllers.tablestorage.TableStroageAccess;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class MappingController {
 
 
     @GetMapping("/dns")
-    public ArrayList<String> getConnectorDNSEntry(@RequestParam(required = false) String businessPartnerOneID, @RequestParam(required = false) String connectorId)
+    public ArrayList<ConnectorDNSRecord> getConnectorDNSEntry(@RequestParam(required = false) String businessPartnerOneID, @RequestParam(required = false) String connectorId)
             throws Exception {
         var tableStorageAccess = new TableStroageAccess(config.storageConnectionstring);
        return tableStorageAccess.GetConnectorDNSEntry(config.mappingTableName,  businessPartnerOneID, connectorId);
