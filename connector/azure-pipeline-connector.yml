@@ -103,6 +103,8 @@ stages:
     #condition: eq(variables['DEPLOY_POSTGRES'], 'true')
     variables:
       releaseName: 'postgres-1'
+      postgres-pv: 'postgres-pv-1'
+      postgres-pvc: 'postgres-pvc-1'
     steps:
     - template: deploy-postgres.yml
   - job: Deploy_postgres_2
@@ -111,6 +113,8 @@ stages:
     #condition: eq(variables['DEPLOY_POSTGRES'], 'true')
     variables:
       releaseName: 'postgres-2'
+      postgres-pv: 'postgres-pv-2'
+      postgres-pvc: 'postgres-pvc-2'
     steps:
     - template: deploy-postgres.yml
   - job: Deploy_postgres_3
@@ -119,6 +123,8 @@ stages:
     #condition: eq(variables['DEPLOY_POSTGRES'], 'true')
     variables:
       releaseName: 'postgres-3'
+      postgres-pv: 'postgres-pv-3'
+      postgres-pvc: 'postgres-pvc-3'
     steps:
     - template: deploy-postgres.yml
 
