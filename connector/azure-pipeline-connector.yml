@@ -86,8 +86,6 @@ stages:
   - job: Create_postgres_secret
     displayName: Create postgres secret
     steps:
-    - download: current
-      artifact: configs
     - task: Kubernetes@1
       displayName: Create postgres secret
       #condition: eq(variables['DEPLOY_POSTGRES'], 'true')
