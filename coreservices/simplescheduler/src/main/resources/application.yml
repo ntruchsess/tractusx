@@ -1,0 +1,11 @@
+server:
+  port: 8082
+scheduler:
+#  cron: "@daily"
+  cron: "*/10 * * * * *"
+  connector:
+    base-url: https://localhost:8081
+    login: admin
+    password: password
+  resources:
+    fa9e3c51-d14e-40b9-bfe4-81fcce363033: https://localhost:8080
