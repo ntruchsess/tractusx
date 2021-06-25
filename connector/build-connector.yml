@@ -1,0 +1,17 @@
+# Template for build connector
+steps:
+- script: |
+    sed -i -e "s%__KEYSTOREPASSWORD__%${KEYSTOREPASSWORD}%g" ./connector/src/main/resources/application.properties
+    sed -i -e "s%__KEYSTOREFILENAME__%${KEYSTOREFILENAME}%g" ./connector/src/main/resources/application.properties
+    sed -i -e "s%__KEYSTOREFILENAME__%${KEYSTOREFILENAME}%g" ./connector/src/main/resources/conf/config.json
+  failOnStderr: true
+- publish: './connector/'
+  artifact: $(configs)
+- task: Docker@2
+  displayName: Build and push an image to container registry
+  inputs:
+    command: buildAndPush
+    repository: $(imageRepository)
+    dockerfile: $(dockerfilePath)
+    containerRegistry: $(dockerRegistryServiceConnection)
+    tags: $(tag)

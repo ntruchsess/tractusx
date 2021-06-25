@@ -27,49 +27,45 @@ variables:
   # connector vars
   KEYSTOREFILENAME: 'ms-dc-idsos-keystore'
   KEYSTOREPASSWORD: 'mspass'
-  #DB_SECRET_NAME: 'postgres-password'
 
 
 stages:
-#- stage: Provisioning
-#  displayName: Provisioning
-#  jobs:
-#  - job: Provisioning
-#    displayName: Provisioning
-#    pool:
-#      vmImage: $(vmImageName)
-#    steps:
-#    - script: |
-#        sed -i -e "s%__KEYSTOREPASSWORD__%${KEYSTOREPASSWORD}%g" ./connector/src/main/resources/application.properties
-#        sed -i -e "s%__KEYSTOREFILENAME__%${KEYSTOREFILENAME}%g" ./connector/src/main/resources/application.properties
-#        sed -i -e "s%__KEYSTOREFILENAME__%${KEYSTOREFILENAME}%g" ./connector/src/main/resources/conf/config.json
-#      failOnStderr: true
-#    - publish: './connector/'
-#      artifact: configs
-
 - stage: Build
   displayName: Build stage
   jobs:
-  - job: Build
-    displayName: Build
+  - job: Build_1
+    displayName: Build 1
     pool:
       vmImage: $(vmImageName)
+    variables:
+      imageRepository: 'dsconnector-1'
+      KEYSTOREFILENAME: 'dcs-keystore-1'
+      KEYSTOREPASSWORD: 'mspass'
+      configs: 'config-1'
     steps:
-    - script: |
-        sed -i -e "s%__KEYSTOREPASSWORD__%${KEYSTOREPASSWORD}%g" ./connector/src/main/resources/application.properties
-        sed -i -e "s%__KEYSTOREFILENAME__%${KEYSTOREFILENAME}%g" ./connector/src/main/resources/application.properties
-        sed -i -e "s%__KEYSTOREFILENAME__%${KEYSTOREFILENAME}%g" ./connector/src/main/resources/conf/config.json
-      failOnStderr: true
-    - publish: './connector/'
-      artifact: configs
-    - task: Docker@2
-      displayName: Build and push an image to container registry
-      inputs:
-        command: buildAndPush
-        repository: $(imageRepository)
-        dockerfile: $(dockerfilePath)
-        containerRegistry: $(dockerRegistryServiceConnection)
-        tags: $(tag)
+    - template: build-connector.yml
+  - job: Build_2
+    displayName: Build 2
+    pool:
+      vmImage: $(vmImageName)
+    variables:
+      imageRepository: 'dsconnector-2'
+      KEYSTOREFILENAME: 'dcs-keystore-2'
+      KEYSTOREPASSWORD: 'mspass'
+      configs: 'config-2'
+    steps:
+    - template: build-connector.yml
+  - job: Build_3
+    displayName: Build 3
+    pool:
+      vmImage: $(vmImageName)
+    variables:
+      imageRepository: 'dsconnector-3'
+      KEYSTOREFILENAME: 'dcs-keystore-3'
+      KEYSTOREPASSWORD: 'mspass'
+      configs: 'config-3'
+    steps:
+    - template: build-connector.yml
 
 #- stage: InstallHelm
 #  displayName: Install Helm
@@ -103,49 +99,55 @@ stages:
         secretArguments: --from-literal=db_user=connector --from-literal=db_pass=$DB_PASS
         secretName: postgres-password
 
-  - job: Deploy_postgres
-    displayName: Deploy postgres
+  - job: Deploy_postgres_1
+    displayName: Deploy postgres 1
     dependsOn: Create_postgres_secret
     #condition: eq(variables['DEPLOY_POSTGRES'], 'true')
+    variables:
+      releaseName: 'postgres-1'
     steps:
-    - download: current
-      artifact: configs
-    - task: HelmDeploy@0
-      displayName: Helm upgrade
-      inputs:
-        connectionType: Kubernetes Service Connection
-        kubernetesServiceEndpoint: catenax-dev-aks-services-connector
-        namespace: $(kubeNamespace)
-        command: upgrade
-        valueFile: ./connector/infrastructure/postgres/values.yaml
-        chartType: filepath
-        chartPath: ./connector/infrastructure/postgres
-        releaseName: postgres
-        install: true
-        waitForExecution: false
+    - template: deploy-postgres.yml
+  - job: Deploy_postgres_2
+    displayName: Deploy postgres 2
+    dependsOn: Create_postgres_secret
+    #condition: eq(variables['DEPLOY_POSTGRES'], 'true')
+    variables:
+      releaseName: 'postgres-2'
+    steps:
+    - template: deploy-postgres.yml
+  - job: Deploy_postgres_3
+    displayName: Deploy postgres 3
+    dependsOn: Create_postgres_secret
+    #condition: eq(variables['DEPLOY_POSTGRES'], 'true')
+    variables:
+      releaseName: 'postgres-3'
+    steps:
+    - template: deploy-postgres.yml
 
 - stage: Deploy_DSC
   displayName: Deploy DSC
   jobs:
-  - job: Deploy_dataspaceconnector
-    displayName: Deploy dataspaceconnector
+  - job: Deploy_dataspaceconnector_1
+    displayName: Deploy dataspaceconnector 1
+    variables:
+      imageRepository: 'dsconnector-1'
+      releaseName: 'dataspaceconnector-1'
+      configs: config-1
     steps:
-    - download: current
-      artifact: configs
-    - task: HelmDeploy@0
-      displayName: Helm upgrade
-      inputs:
-        connectionType: Kubernetes Service Connection
-        kubernetesServiceEndpoint: catenax-dev-aks-services-connector
-        namespace: $(kubeNamespace)
-        command: upgrade
-        valueFile: ./connector/infrastructure/dataspaceconnector/values.yaml
-        chartType: filepath
-        chartPath: ./connector/infrastructure/dataspaceconnector
-        chartVersion: $(Build.BuildNumber)
-        releaseName: dataspaceconnector
-        install: true
-        waitForExecution: false
-        arguments: >
-          --set image.repository=$(containerRegistry)/$(imageRepository)
-          --set image.tag=$(tag)
+    - template: deploy-connector.yml
+  - job: Deploy_dataspaceconnector_2
+    displayName: Deploy dataspaceconnector 2
+    variables:
+      imageRepository: 'dsconnector-2'
+      releaseName: 'dataspaceconnector-2'
+      configs: config-2
+    steps:
+    - template: deploy-connector.yml
+  - job: Deploy_dataspaceconnector_3
+    displayName: Deploy dataspaceconnector 3
+    variables:
+      imageRepository: 'dsconnector-3'
+      releaseName: 'dataspaceconnector-3'
+      configs: config-3
+    steps:
+    - template: deploy-connector.yml
