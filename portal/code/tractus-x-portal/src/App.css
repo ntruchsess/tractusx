@@ -12,6 +12,7 @@ iframe {border-style: none;}
 .fgblue {color: #0078D4;}
 .fgbluechildren > * {color: #0078D4;}
 .fglgreen {color: #B3CB2D;}
+.fg5a{color:#5A5A5A;}
 .bgprimary {background:#0078D4;}
 .bgpanel1 {background:#462F61;}
 .bgpublic { background: #E1C100;}
@@ -378,6 +379,7 @@ iframe {border-style: none;}
 .pt15 {padding-top: 15px;}
 .pt18 {padding-top: 18px;}
 .pt24 {padding-top: 15px;}
+.pt28 { padding-top: 28px; }
 .pt40 { padding-top: 40px; }
 .pb4 {padding-bottom: 4px;}
 .pb5 {padding-bottom: 5px;}
@@ -413,6 +415,8 @@ iframe {border-style: none;}
 .pl5 {padding-left: 5px;}
 .pl20 {padding-left: 20px;}
 .pl22 {padding-left: 22px;}
+.pl28 {padding-left: 28px;}
+.pl29 {padding-left: 29px;}
 .pl30 {padding-left: 30px;}
 .pl40 {padding-left: 40px;}
 .pl50 {padding-left: 50px;}
@@ -664,6 +668,7 @@ iframe {border-style: none;}
 .bsPanel{ box-shadow: 0px 0.6px 1.8px rgba(0, 0, 0, 0.1), 0px 3.2px 7.2px rgba(0, 0, 0, 0.13);}
 .bsMapButton{box-shadow: 0px 1.2px 3.6px rgba(0, 0, 0, 0.1), 0px 6.4px 14.4px rgba(0, 0, 0, 0.13);}
 .bsAppStore{ box-shadow: 0 1px 4px 0 rgba(0,0,0,0.2);}
+.bsdatacatalog{box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);}
 
 .ow0 {outline-width: 0px;}
 .o0{opacity: 0;}
@@ -837,6 +842,7 @@ iframe {border-style: none;}
 .right30 {right:30px!important}
 .right70 {right:70px!important}
 .right100 {right:100px!important}
+.right250 {right:250px!important}
 
 .topmost {z-index:99}
 .bottom {bottom: 0px}
