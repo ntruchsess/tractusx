@@ -1,65 +1,37 @@
 package com.tractusx.uploadappadapter.models;
 
-import java.security.PublicKey;
-
 public class CsvPart {
-
-    private String customerUniqueId;
-    public String getCustomerUniqueId() {return this.customerUniqueId;}
-
-    private String customerContractOneId;
-    public String getCustomerContractOneId() {return this.customerUniqueId;}
-
-    private String customerOneId;
-    public String getCustomerOneId() {return this.customerOneId;}
-
-    private String isParentOf;
-    public String getIsParentOf() {return this.isParentOf;}
-
-    private String manufacturerOneId;
-    public  String getManufacturerOneId(){return this.manufacturerOneId;}
-
-    private String manufacturerUniqueId;
-    public String getManufacturerUniqueId(){return this.manufacturerUniqueId;}
-
-    private String partNameCustomer;
-    public String getPartNameCustomer(){return this.partNameCustomer;}
-
-    private String partNameManufacturer;
-    public String getPartNameManufacturer() {return this.partNameManufacturer;}
-
-    private String partNumberCustomer;
-    public String getPartNumberCustomer() {return this.partNumberCustomer;}
-
-    private String partNumberManufacturer;
-    public String getPartNumberManufacturer() {return this.partNumberManufacturer;}
-
-    private String productionCountryCode;
-    public String getProductionCountryCode() {return this.productionCountryCode;}
-
-    private String productionDateGmt;
-    public String getProductionDateGmt(){return this.productionDateGmt;}
-
-    private String qualityAlert;
-    public String getQualityAlert(){return this.qualityAlert;}
-
-    private String qualityType;
-    public String getQualityType(){return this.qualityType;}
-
-    private String manufacturerContractOneId;
-    public String getManufacturerContractOneId(){return this.manufacturerContractOneId;}
-
-    private String uniqueId;
-    public String getUniqueId(){return this.uniqueId;}
+    public String customerUniqueId;
+    public String customerContractOneId;
+    public String customerOneId;
+    public String[] isParentOf;
+    public String manufacturerOneId;
+    public String manufacturerUniqueId;
+    public String partNameCustomer;
+    public String partNameManufacturer;
+    public String partNumberCustomer;
+    public String partNumberManufacturer;
+    public String productionCountryCode;
+    public String productionDateGmt;
+    public String qualityAlert;
+    public String qualityType;
+    public String manufacturerContractOneId;
+    public String uniqueId;
 
     public CsvPart(String csvString)
     {
+        String parentsSubstring = csvString.substring(csvString.indexOf("[")+1,csvString.indexOf("]"));
+        String[]parents = parentsSubstring.replace("'","").split(",");
+
+        csvString.replaceFirst("[" + parentsSubstring + "]","");
+
+
         String[] initArray = csvString.split(",");
         if(initArray.length == 16) {
             this.customerUniqueId = initArray[0];
             this.customerContractOneId = initArray[1];
             this.customerOneId = initArray[2];
-            this.isParentOf = initArray[3];
+            this.isParentOf = parents;
             this.manufacturerOneId = initArray[4];
             this.manufacturerUniqueId = initArray[5];
             this.partNameCustomer = initArray[6];

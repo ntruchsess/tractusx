@@ -9,8 +9,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="cdns" />
         <module name="uploadAppAdapter" />
-        <module name="businesspartners" />
-        <module name="partsmasterdata" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

@@ -11,9 +11,9 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class ComputeFile {
-    public void Extract(MultipartFile file) {
+    public CsvPart[] Extract(MultipartFile file) {
         String[] LinesInFile = ReadLines(file);
-        CsvPart[] retVal = GetParts(LinesInFile);
+        return GetParts(LinesInFile);
     }
 
     private CsvPart[] GetParts(String[] linesInFile) {
@@ -38,7 +38,11 @@ public class ComputeFile {
             ex.printStackTrace();
         }
 
-        return retVal.toArray(new String[retVal.size()]);
+        if(retVal != null) {
+            return retVal.toArray(new String[retVal.size()]);
+        }
+        else
+            return null;
     }
 
 }
