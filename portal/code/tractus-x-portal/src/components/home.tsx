@@ -111,6 +111,37 @@ const navLinkGroups2: INavLinkGroup[] = [
   }
 ];
 
+const navLinkGroupsData: INavLinkGroup[] = [
+  {
+    links: [
+      {
+        name: 'Browse & Search',
+        url: '/home/datacatalog',
+        key: 'key1',
+        expandAriaLabel: 'Expand section',
+        collapseAriaLabel: 'Collapse section',
+        title: ''
+      },
+      {
+        name: 'Resources',
+        url: '/home/datacatalog',
+        key: 'key2',
+        expandAriaLabel: 'Expand section',
+        collapseAriaLabel: 'Collapse section',
+        title: ''
+      },
+      {
+        name: 'Connectors',
+        url: '/home/datacatalog',
+        key: 'key3',
+        expandAriaLabel: 'Expand section',
+        collapseAriaLabel: 'Collapse section',
+        title: ''
+      }
+    ]
+  }
+];
+
 @observer
 class Home extends React.Component<RouteComponentProps> {
   @observable public static selectedKey1 = 'key1';
@@ -121,17 +152,22 @@ class Home extends React.Component<RouteComponentProps> {
     ev.preventDefault();
     Home.selectedKey1 = 'key' + (navLinkGroups[0].links.indexOf(item) + 1).toString();
     Home.selectedKey2 = 'key' + (navLinkGroups2[0].links.indexOf(item) + 4).toString();
+    if (Home.selectedKey1 === 'key0' && Home.selectedKey2 === 'key3') {
+      Home.selectedKey1 = 'key1';
+    }
+
     this.props.history.push(item.url);
   }
 
   public render() {
+    const groups = (window.location.href.indexOf('/datacatalog') >= 0) ? navLinkGroupsData : navLinkGroups;
     return (
       <div className='w100pc h100pc df fdc bgf5'>
         <Header href={window.location.href} />
         <div className='df w100pc flex1'>
           <ThemeProvider theme={{ palette: { themePrimary: '#E6AA1E' } }}>
             <div className='df fdc w250 h100pc'>
-              <Nav className='bgwhite' selectedKey={Home.selectedKey1} ariaLabel='Navigation panel' styles={navStyles} groups={navLinkGroups}
+              <Nav className='bgwhite' selectedKey={Home.selectedKey1} ariaLabel='Navigation panel' styles={navStyles} groups={groups}
                 onLinkClick={(ev, item) => this.linkClick(ev, item)} />
               <div className='flex1 bgwhite' />
               <Nav className='bgwhite' selectedKey={Home.selectedKey2} ariaLabel='Navigation panel' styles={navStyles} groups={navLinkGroups2}

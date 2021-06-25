@@ -54,9 +54,9 @@ export default class AddUser extends React.Component {
           <span className='fs20 bold ml30 mt20'>Add new user</span>
           <span className='fs14 pb20 ml30 mt10'>
             To add a new user, please enter the following data,
-            <text className='bold fglgreen ml5'>UPLOAD CSV FILE </text>
+            <span className='bold fglgreen ml5'>UPLOAD CSV FILE </span>
             or integrate your organization's
-            <text className='bold fglgreen ml5'>IDENTITY PROVIDER</text>
+            <span className='bold fglgreen ml5'>IDENTITY PROVIDER</span>
           </span>
           <div className='pb8 df fdc'>
             <div className='pb6 ml30 df w100-60'>
@@ -75,8 +75,8 @@ export default class AddUser extends React.Component {
         <div className='w100pc bgf5 h100pc df fdc ml30'>
           <div className='df bgf5 mb15 mt20 w100-60'>
             <span className='fs16 bold ml10 mr5 flex3'>User management</span>
-            <span className='fs14 fggrey mr5 flex1'>Sort by:  <text className='bold'>email address</text></span>
-            <span className='fs14 fggrey mr5 flex1'>Filter:  <text className='bold'>none</text></span>
+            <span className='fs14 fggrey mr5 flex1'>Sort by:  <span className='bold'>email address</span></span>
+            <span className='fs14 fggrey mr5 flex1'>Filter:  <span className='bold'>none</span></span>
             <span className='fs14 fggrey flex1'><SearchBox className='bcwhite' placeholder='Search' /></span>
           </div>
           <div className='df mb5 w100-60'>

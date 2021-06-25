@@ -8,79 +8,21 @@
 
 import * as React from 'react';
 import { observer } from 'mobx-react';
-import { Nav, INavStyles, INavLinkGroup } from '@fluentui/react/lib/Nav';
-import { ThemeProvider } from '@fluentui/react';
 
-const navStyles: Partial<INavStyles> = {
-  root: {
-    width: 250,
-    boxSizing: 'border-box',
-    border: '1px solid #eee',
-    overflowY: 'auto'
-  },
-  // these link styles override the default truncation behavior
-  link: {
-    whiteSpace: 'normal',
-    lineHeight: 'inherit'
-  }
-};
-
-// adding an empty title string to each link removes the tooltip;
-// it's unnecessary now that the text wraps, and will not truncate
-const navLinkGroups: INavLinkGroup[] = [
-  {
-    links: [
-      {
-        name: 'Browse & Serach',
-        url: '',
-        key: 'key1',
-        expandAriaLabel: 'Expand section',
-        collapseAriaLabel: 'Collapse section',
-        title: ''
-      },
-      {
-        name: 'Resources',
-        url: '',
-        key: 'key2',
-        expandAriaLabel: 'Expand section',
-        collapseAriaLabel: 'Collapse section',
-        title: ''
-      },
-      {
-        name: 'Connectors',
-        url: '',
-        key: 'key3',
-        expandAriaLabel: 'Expand section',
-        collapseAriaLabel: 'Collapse section',
-        title: ''
-      }
-    ]
-  }
-];
 @observer
 export default class DataCatalog extends React.Component {
 
-  private isId3(data: any): boolean {
-      if(data.id !=='3')
-      {
-        return false;
-      }
-      return true;
-  }
-  private printIcon(index: number) {
-    if(index < 2)
-    {
-      return <span className='right250 pt20 pa'><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 20.41L18.41 19 15 15.59 13.59 17 17 20.41zM7.5 8H11v5.59L5.59 19 7 20.41l6-6V8h3.5L12 3.5 7.5 8z"/></svg></span>
-    }
-    else if (index > 2)
-    {
-      return <span className='right250 pt20 pa'><svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-      width="20" height="20" viewBox="0 0 512.000000 512.000000"
-      preserveAspectRatio="xMidYMid meet">
+  private getIcon(index: number) {
+    if (index < 2) {
+      return <span className='mt10 mr20'><svg xmlns='http://www.w3.org/2000/svg' height='20' viewBox='0 0 24 24' width='20'><path d='M0 0h24v24H0z' fill='none' /><path d='M17 20.41L18.41 19 15 15.59 13.59 17 17 20.41zM7.5 8H11v5.59L5.59 19 7 20.41l6-6V8h3.5L12 3.5 7.5 8z' /></svg></span>
+    } else if (index > 2) {
+      return <span className='mt10 mr20'><svg version='1.0' xmlns='http://www.w3.org/2000/svg'
+        width='20' height='20' viewBox='0 0 512.000000 512.000000'
+        preserveAspectRatio='xMidYMid meet'>
      
-     <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-     fill="#000000" stroke="none">
-     <path d="M2505 5096 c-22 -12 -150 -95 -284 -184 l-243 -160 -52 4 c-204 17
+        <g transform='translate(0.000000,512.000000) scale(0.100000,-0.100000)'
+          fill='#000000' stroke='none'>
+          <path d='M2505 5096 c-22 -12 -150 -95 -284 -184 l-243 -160 -52 4 c-204 17
      -596 33 -617 25 -13 -5 -34 -19 -45 -32 -12 -13 -85 -150 -162 -304 l-140
      -280 -285 -143 c-310 -155 -338 -175 -336 -240 0 -20 8 -171 17 -336 l17 -298
      -178 -271 c-101 -153 -181 -285 -184 -303 -7 -41 -3 -48 193 -346 l167 -253
@@ -105,108 +47,108 @@ export default class DataCatalog extends React.Component {
      -164 253 -164 259 0 5 73 121 163 257 90 136 166 257 171 268 4 11 0 158 -10
      328 -9 169 -15 309 -13 311 2 2 127 65 277 140 225 113 277 143 293 169 10 18
      76 145 145 282 70 138 128 251 129 253 2 2 124 -4 273 -12 148 -9 291 -16 319
-     -16 47 0 60 7 304 169 140 94 261 168 269 167 8 -2 129 -78 269 -170z"/>
-     <path d="M2296 4130 c-612 -110 -1116 -573 -1267 -1164 -50 -194 -65 -445 -39
+     -16 47 0 60 7 304 169 140 94 261 168 269 167 8 -2 129 -78 269 -170z'/>
+          <path d='M2296 4130 c-612 -110 -1116 -573 -1267 -1164 -50 -194 -65 -445 -39
      -622 99 -674 592 -1201 1255 -1344 143 -31 412 -38 555 -16 248 40 448 117
      652 253 760 505 937 1545 388 2278 -233 311 -564 521 -955 605 -147 32 -438
      37 -589 10z m459 -205 c587 -83 1042 -511 1166 -1096 31 -148 31 -390 0 -538
      -90 -423 -349 -765 -728 -959 -768 -393 -1707 14 -1948 843 -44 154 -58 263
-     -52 430 8 210 47 372 132 550 260 541 842 854 1430 770z"/>
-     <path d="M3122 3018 c-25 -24 -205 -193 -399 -376 l-352 -332 -198 201 c-184
+     -52 430 8 210 47 372 132 550 260 541 842 854 1430 770z'/>
+          <path d='M3122 3018 c-25 -24 -205 -193 -399 -376 l-352 -332 -198 201 c-184
      186 -201 201 -240 206 -39 5 -46 2 -78 -30 -40 -40 -46 -85 -17 -128 9 -15
      121 -132 247 -261 149 -153 239 -237 255 -240 60 -11 83 7 471 373 458 431
-     496 468 504 502 17 67 -31 127 -102 127 -37 0 -50 -6 -91 -42z"/>
-     </g>
-     </svg>
+     496 468 504 502 17 67 -31 127 -102 127 -37 0 -50 -6 -91 -42z'/>
+        </g>
+      </svg>
       </span>
     }
+  }
 
-}
   public render() {
 
     const dataCatalogData: any[] = [
       {
-        id:'1',
-        catalogHeader: 'Enginnering BOM (OEMs)',
+        id: '1',
+        catalogHeader: 'Engineering BOM (OEMs)',
         description: 'The asset provides the data related to the “150% Bill of Material” in the stage “as designed.',
         publisher: 'http://www.engineering-bom.com',
         sovereign: 'http://www.engineering-bom.com',
         url: '',
         curator: '',
-        maintainer:''
+        maintainer: ''
       },
       {
         
-          id:'2',
-          catalogHeader: 'Vehicle BOM (OEMs)',
-          description: 'Standard UserThis asset provides the the bill of material data related to a vehicle over the life cycle in the stage “as planned”, “as built” and “as maintained.',
-          publisher: 'http://www.engineering-bom.com',
-          sovereign: 'http://www.engineering-bom.com',
-          url: '',
-          curator: '',
-          maintainer:''
+        id: '2',
+        catalogHeader: 'Vehicle BOM (OEMs)',
+        description: 'Standard UserThis asset provides the the bill of material data related to a vehicle over the life cycle in the stage “as planned”, “as built” and “as maintained.',
+        publisher: 'http://www.engineering-bom.com',
+        sovereign: 'http://www.engineering-bom.com',
+        url: '',
+        curator: '',
+        maintainer: ''
         
       },
       {
         
-        id:'3',
+        id: '3',
         catalogHeader: 'HERE Dataspace Connector',
         description: 'HERE Technologies IDS Connector',
         publisher: '',
         sovereign: '',
         url: 'https://w3id.org/idsa/autogen/baseConnector/f95f8f49-45c5-4072-a04d-766241294cf4',
         curator: 'https://www.here.com',
-        maintainer:'https://www.here.com'
+        maintainer: 'https://www.here.com'
       
-    },
-    {
+      },
+      {
         
-      id:'4',
-      catalogHeader: 'Component BOM (Supplier)',
-      description: 'This asset provides the the bill of material data related to components over the life cycle in the stage “as planned”, “as built” and “as maintained',
-      publisher: 'http://www.engineering-bom.com',
-      sovereign: 'http://www.engineering-bom.com',
-      url: '',
-      curator: '',
-      maintainer:''
+        id: '4',
+        catalogHeader: 'Component BOM (Supplier)',
+        description: 'This asset provides the the bill of material data related to components over the life cycle in the stage “as planned”, “as built” and “as maintained',
+        publisher: 'http://www.engineering-bom.com',
+        sovereign: 'http://www.engineering-bom.com',
+        url: '',
+        curator: '',
+        maintainer: ''
     
-  }
+      }
     ];
   
     return (
       <div>
-      <div className='left top80 pa df w100pc flex1'>
-      <ThemeProvider theme={{ palette: { themePrimary: '#E6AA1E' } }}>
-        <div className='fdc w250 h100pc'>
-          <Nav className='bgwhite' selectedKey='key1' ariaLabel='Navigation panel' styles={navStyles} groups={navLinkGroups} />
+        <div className='mt50 df fdc'>
+          {dataCatalogData.map((c, index) => (
+            <div key={index} className='ml50 mt10 bgpanel w100-100 df fdc br4 bsdatacatalog'>
+              <div className='df aic mt20'>
+                <span className='fs24 bold fg191 pl20'>{c.catalogHeader}</span>
+                <div className='flex1'/>
+                {this.getIcon(index)}
+              </div>
+              <span className='fs14 fg191 pl20 pt8 lh20 mr70'>{c.description}</span>
+              {c.curator ?
+                <div className='mt20 mb30'>
+                  <span className='fs14 fg5a pl20 pt28 fggrey lh16'>URL</span>
+                  <span className='fs14 fg5a pl50 pt28 fg5a'>{c.url}</span>
+                  <br />
+                  <span className='fs14 fg5a pl20 pt28 fggrey lh16'>Curator</span>
+                  <span className='fs14 fg5a pl29 pt28 fg5a mr30'>{c.curator}</span>
+                  <br />
+                  <span className='fs14 fg5a pl20 pt28 fggrey lh16 mr30'>Maintainer</span>
+                  <span className='fs14 fg5a pl10 pt28 fg5a mr30'>{c.maintainer}</span>
+                </div>
+                :
+                <div className='mt20 mb30'>
+                  <span className='fs14 fg5a pl20 pt28 fggrey lh16 lh16'>Publisher</span>
+                  <span className='fs14 fg5a pl30 pt28 fg5a mr30'>{c.publisher}</span>
+                  <br />
+                  <span className='fs14 fg5a pl20 pt28 fggrey lh16'>Sovereign</span>
+                  <span className='fs14 fg5a pl28 pt28 fg5a mr30'>{c.sovereign}</span>
+                </div>
+              }
+            </div>
+          ))}
         </div>
-      </ThemeProvider></div>
-      <div className='mt50'>
-      {dataCatalogData.map((c, index) => (
-        <div key={index} className='ml50 mr50 mt10 bgpanel h180 w1100 df fdc br4 bsdatacatalog'>
-          <span className='fs24 bold fg191 pl20 pt20'>{c.catalogHeader}</span>
-          <span className='fs14 fg191 pl20 pt8 lh20'>{c.description}</span> 
-          {this.printIcon(index)}
-          { this.isId3(c) ?
-          <div className='mt20'>
-            <span className='fs14 fg5a pl20 pt28 fggrey lh16'>URL</span>
-          <span className='fs14 fg5a pl50 pt28 fg5a'>{c.url}</span>
-          <br/>
-          <span className='fs14 fg5a pl20 pt28 fggrey lh16'>Curator</span>
-          <span className='fs14 fg5a pl29 pt28 fg5a'>{c.curator}</span>
-          <br/>
-          <span className='fs14 fg5a pl20 pt28 fggrey lh16'>Maintainer</span>
-          <span className='fs14 fg5a pl10 pt28 fg5a'>{c.maintainer}</span></div> :
-          <div className='mt20'>
-          <span className='fs14 fg5a pl20 pt28 fggrey lh16 lh16'>Publisher</span>
-        <span className='fs14 fg5a pl30 pt28 fg5a'>{c.publisher}</span>
-        <br/>
-        <span className='fs14 fg5a pl20 pt28 fggrey lh16'>Sovereign</span>
-        <span className='fs14 fg5a pl28 pt28 fg5a'>{c.sovereign}</span></div>
-          }
-        </div>
-      ))}
-      </div>
       </div>
     );
   }
