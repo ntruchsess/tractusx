@@ -1,0 +1,84 @@
+# Deploy to Azure Kubernetes Service
+# Build and push image to Azure Container Registry; Deploy to Azure Kubernetes Service
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger:
+- add-broker-deployment
+
+resources:
+- repo: self
+
+variables:
+
+  # Container registry service connection established during pipeline creation
+  dockerRegistryServiceConnection: '3ea078d5-cddc-4e65-b0e7-f1b82c7339d0'
+  imageBrokerRepository: 'meta-broker'
+  imageFusekiRepository: 'fuseki'
+  containerRegistry: 'catenaxdevacr.azurecr.io'
+  brokerTag: '$(Build.BuildId)'
+  fusekiTag: 'latest'
+  imagePullSecret: 'catenaxdevacr10283c4a-auth'
+
+  # Kube vars
+  kubeNamespace: 'broker'
+
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+
+
+stages:
+- stage: Build
+  displayName: Build stage
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: maven:3.6.3-openjdk-11-slim
+    steps:
+    - script: |
+        mvn package -Dmaven.resources.skip=true -DskipTests=true
+        cp broker-core/target/*jar docker/broker-core/
+      failOnStderr: true
+    - publish: 'docker/broker-core'
+      artifact: broker-artifact
+    - task: Docker@2
+      displayName: Build and push meta-broker image
+      inputs:
+        command: buildAndPush
+        repository: $(imageBrokerRepository)
+        dockerfile: './meta-broker/docker/broker-core/Dockerfile'
+        containerRegistry: $(dockerRegistryServiceConnection)
+        tags: $(brokerTag)
+    - task: Docker@2
+      displayName: Build and push fuseki image
+      inputs:
+        command: buildAndPush
+        repository: $(imageFusekiRepository)
+        dockerfile: './meta-brokerdocker/fuseki/Dockerfile'
+        containerRegistry: $(dockerRegistryServiceConnection)
+        tags: $(fusekiTag)
+
+- stage: Deploy
+  displayName: Deploy
+  jobs:
+  - job: Deploy
+    displayName: Deploy broker and fuseki
+    steps:
+    - task: HelmDeploy@0
+      displayName: Helm upgrade
+      inputs:
+        connectionType: Kubernetes Service Connection
+        kubernetesServiceEndpoint: catenax-dev-aks-services-broker
+        namespace: $(kubeNamespace)
+        command: upgrade
+        valueFile: ./meta-broker/infrastructure/helm-chart/values.yaml
+        chartType: filepath
+        chartPath: ./connector/infrastructure/metadata-broker-open-core
+        chartVersion: $(Build.BuildNumber)
+        releaseName: metadata-broker-open-core
+        install: true
+        waitForExecution: false
+        arguments: >
+          --set image.brokercoreImage=$(containerRegistry)/$(imageBrokerRepository):$(brokerTag)
+          --set image.brokerfusekiImage=$(containerRegistry)/$(imageFusekiRepository):$(fusekiTag)
+

@@ -1,0 +1,123 @@
+stages:
+  - get envs
+  - broker prepare
+  - broker test
+  - broker build
+  - broker image push
+  - fuseki image push
+  - broker deploy
+
+variables:
+  APP_NAME: broker-core
+  REGISTRY_HOST: idsacontainerregistry01.azurecr.io
+  NAMESPACE: idsa
+  M2_HOME: ${CI_PROJECT_DIR}/.m2
+  MAVEN_OPTS: "-Dmaven.repo.local=${CI_PROJECT_DIR}/.m2"
+  DOCKER_HOST: tcp://docker:2376
+  DOCKER_TLS_CERTDIR: "/certs"
+  DOCKER_TLS_VERIFY: 1
+  DOCKER_CERT_PATH: "$DOCKER_TLS_CERTDIR/client"
+
+.jobs_template:
+  image: maven:3.6.3-openjdk-11-slim
+  tags:
+    - idsa-kube
+  environment:
+    name: idsa
+  cache:
+    key:
+      files:
+        - pom.xml
+    paths:
+      - $M2_HOME/
+
+get envs:
+  extends: .jobs_template
+  stage: get envs
+  image: busybox
+  artifacts:
+    reports:
+      dotenv: .env
+  script:
+    - APP_TAG=$(grep "<revision>" pom.xml | awk -F">|</" '{print $2}')
+    - echo "APP_TAG=$APP_TAG" >> .env
+    - FULL_IMAGE_NAME=${REGISTRY_HOST}/${APP_NAME}:${APP_TAG}
+    - echo "FULL_IMAGE_NAME=${FULL_IMAGE_NAME}" >> .env
+  cache: {}
+
+broker prepare:
+  stage: broker prepare
+  extends: .jobs_template
+  script:
+    - mkdir -p $M2_HOME
+    - mvn dependency:go-offline
+    - mvn resources:resources
+  only: &only-src
+    changes:
+      - broker-core/**
+      - open-broker-common/**
+      - open-index-common/**
+      - pom.xml
+      - infrastructure/docker/broker-core/**
+
+broker test:
+  stage: broker test
+  extends: .jobs_template
+  script:
+    - mvn test -Dmaven.test.skip=false
+#  only: *only-src
+
+broker build:
+  stage: broker build
+  extends: .jobs_template
+  script:
+    - mvn package -Dmaven.resources.skip=true -DskipTests=true
+#  only: *only-src
+  artifacts:
+    paths:
+      - broker-core/target/*.jar
+
+broker image push:
+  stage: broker image push
+  extends: .jobs_template
+  services:
+    - docker:18-dind
+  image: docker
+  before_script:
+  # Prepare docker config
+    - export DOCKER_CONFIG=$CI_PROJECT_DIR/.docker
+    - mkdir -p .docker
+    - echo $DOCKER_CONFIG_JSON > $DOCKER_CONFIG/config.json
+  script:
+    - cp broker-core/target/*jar docker/broker-core/
+    - cd docker/broker-core/
+    - docker build -f Dockerfile -t ${FULL_IMAGE_NAME} .
+    - docker push ${FULL_IMAGE_NAME}
+  cache: {}
+#  only: *only-src
+
+fuseki image push:
+  stage: fuseki image push
+  extends: broker image push
+  script:
+    - cd docker/fuseki
+    - APP_TAG=latest
+    - APP_NAME=broker-fuseki
+    - FULL_IMAGE_NAME=${REGISTRY_HOST}/${APP_NAME}:${APP_TAG}
+    - docker build -f Dockerfile -t ${FULL_IMAGE_NAME} .
+    - docker push ${FULL_IMAGE_NAME}
+#  only:
+#    changes:
+#      - docker/fuseki/**
+
+broker deploy:
+  extends: .jobs_template
+  cache: {}
+  stage: broker deploy
+  image: dtzar/helm-kubectl
+  when: manual
+  script:
+    - cd infrastructure/helm-chart
+    - sed -i -e "s%BROKER_IMAGE%${FULL_IMAGE_NAME}%g" values.yaml
+    - sed -i -e "s%FUSEKI_IMAGE%${REGISTRY_HOST}/broker-fuseki:latest%g" values.yaml
+    - helm upgrade --install --namespace idsa metadata-broker-open-core -f ./values.yaml ./metadata-broker-open-core
