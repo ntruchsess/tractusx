@@ -85,8 +85,8 @@ stages:
               action: createSecret
               secretType: generic
               secretName: uploadappadapter-secret
-              secretArguments: --from-literal=http_basic_auth_password=$(HTTPPASSWORD) --from-literal=sotrage_connectionstring=$(STORAGEACCOUNT_CONNECTIONSTRING)
-
+              secretArguments: --from-literal=http_basic_auth_password=$(HTTPPASSWORD) --from-literal=sotrage_connectionstring=$(STORAGEACCOUNT_CONNECTIONSTRING) --from-literal=postgres_upload_url=$(POSTGREUPLOADURL) --from-literal=postgre_upload_user=$(POSTGREUPLOADUSER) --from-literal=postgre_upload_password=$(POSTGREUPLOADPASSWORD) --from-literal=postgre_upload_db=$(POSTGREUPLOADDB)
+          
           - task: KubernetesManifest@0
             displayName: Deploy to Kubernetes cluster
             inputs:
