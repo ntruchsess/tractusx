@@ -19,12 +19,8 @@ public class UploadAppAdapterController {
     @Autowired
     DbConfiguration dbConfig;
 
-    @GetMapping("/api")
-    public String GetSampleData(){
-        return "Container name:" + blobConfig.blobContainerName +"\r\nStorageAccountConnectionString:" + blobConfig.storageConnectionstring;
-    }
 
-    @GetMapping("/api/getPartMasterData")
+    /*@GetMapping("/api/getPartMasterData")
     public String GetParts(
             @RequestParam("manufacturerOneId")String manufacturerOneId,
             @RequestParam("customerOneId") String customerOneId,
@@ -32,7 +28,7 @@ public class UploadAppAdapterController {
             @RequestParam("partNumberCustomer") String partNumberCustomer)
     {
         return "";
-    }
+    }*/
 
     @PostMapping("/api/upload")
     public String handleFileUpload(@RequestParam("file")MultipartFile file, @RequestParam String company){
@@ -47,13 +43,17 @@ public class UploadAppAdapterController {
         for(int x = 0; x<parts.length; x++)
         {
             pmasters[x] = new PartMasterData(parts[x]);
-
         }
 
         var dbAccess = new DbAccess(dbConfig);
         dbAccess.SavePartsToDataBase(pmasters);
+///////////Upload and insert to DB done!
+
+
+
 
         var returnparts = dbAccess.GetPartsFromDatabase();
+/////Parts returned
 
         if(!retVal.equals("")) {
             new ComputeFile().Extract(file);

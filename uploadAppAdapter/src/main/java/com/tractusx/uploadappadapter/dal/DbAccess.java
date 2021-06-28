@@ -34,7 +34,6 @@ public class DbAccess {
     }
 
     public PartMasterData[] GetPartsFromDatabase() {
-
         GetConnection();
         if (connection == null) {
             //throw new Exception("No connection to db established!");
@@ -81,7 +80,10 @@ public class DbAccess {
                 insertStatement.setString(11, part.individualData.productionCountryCode); //productionCountryCode
                 insertStatement.setString(12, part.individualData.productionDateGMT); //productionDateGmt
                 insertStatement.setBoolean(13, part.qualityAlert.QualityAlert); //qualityAlert
-                insertStatement.setString(14, String.valueOf(part.qualityAlert.QualityType));//part.qualityAlert.QualityType); //qualityType
+                var qualType = String.valueOf(part.qualityAlert.QualityType);
+                if(qualType == "null")
+                    qualType = "";
+                insertStatement.setString(14, qualType);//part.qualityAlert.QualityType); //qualityType
                 insertStatement.setString(15, part.staticData.manufactureContractOneId); //manufactureContractOneId
                 insertStatement.setString(16, part.uniqueData.uniqueID); //uniqueId
                 insertStatement.setTimestamp(17, Timestamp.from(dateTimeNowUtc));
@@ -108,7 +110,6 @@ public class DbAccess {
             PreparedStatement readStatement = connection.prepareStatement("SELECT * FROM parts;");
             ResultSet resultSet = readStatement.executeQuery();
 
-            resultSet.first();
             while (resultSet.next())
             {
                 PartMasterData p = new PartMasterData();
@@ -125,7 +126,11 @@ public class DbAccess {
                 p.individualData.productionCountryCode = resultSet.getString("productionCountryCode"); //productionCountryCode
                 p.individualData.productionDateGMT = resultSet.getString("productionDateGmt"); //productionDateGmt
                 p.qualityAlert.QualityAlert = resultSet.getBoolean("qualityAlert"); //qualityAlert
-                p.qualityAlert.QualityType = AlertLevel.valueOf(resultSet.getString("qualityType"));
+                var qualType = resultSet.getString("qualityType");
+                if(!qualType.equals("")) {
+                    p.qualityAlert.QualityType = AlertLevel.valueOf(resultSet.getString("qualityType"));
+                }
+
                 p.staticData.manufactureContractOneId= resultSet.getString("manufactureContractOneId"); //manufactureContractOneId
                 p.uniqueData.uniqueID = resultSet.getString("uniqueId"); //uniqueId
                 parts.add(p);
