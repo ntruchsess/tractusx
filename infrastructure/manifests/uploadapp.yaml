@@ -31,6 +31,26 @@ spec:
               secretKeyRef:
                 key: http_basic_auth_password
                 name: uploadappadapter-secret
+          - name: POSTGREUPLOADURL
+            valueFrom:
+              secretKeyRef:
+                key: postgres_upload_url
+                name: uploadappadapter-secret
+          - name: POSTGREUPLOADUSER
+            valueFrom:
+              secretKeyRef:
+                key: postgre_upload_user
+                name: uploadappadapter-secret
+          - name: POSTGREUPLOADPASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: postgre_upload_password
+                name: uploadappadapter-secret
+          - name: POSTGREUPLOADDB
+            valueFrom:
+              secretKeyRef:
+                key: postgre_upload_db
+                name: uploadappadapter-secret
         ports:
         - containerPort: 8080
 ---
