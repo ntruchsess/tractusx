@@ -1,7 +1,6 @@
 package com.tractusx.uploadappadapter.dal;
 
-import com.tractusx.uploadappadapter.models.Part;
-import org.springframework.security.core.parameters.P;
+import com.tractusx.uploadappadapter.models.CsvPart;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.BufferedReader;
@@ -12,17 +11,17 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class ComputeFile {
-    public void Extract(MultipartFile file) {
+    public CsvPart[] Extract(MultipartFile file) {
         String[] LinesInFile = ReadLines(file);
-        Part[] retVal = GetParts(LinesInFile);
+        return GetParts(LinesInFile);
     }
 
-    private Part[] GetParts(String[] linesInFile) {
-        List<Part> parts = new ArrayList<>();
+    private CsvPart[] GetParts(String[] linesInFile) {
+        List<CsvPart> parts = new ArrayList<>();
         for (String s : linesInFile) {
-            parts.add(new Part(s));
+            parts.add(new CsvPart(s));
         }
-        return parts.toArray(new Part[parts.size()]);
+        return parts.toArray(new CsvPart[parts.size()]);
     }
 
 
@@ -39,7 +38,11 @@ public class ComputeFile {
             ex.printStackTrace();
         }
 
-        return retVal.toArray(new String[retVal.size()]);
+        if(retVal != null) {
+            return retVal.toArray(new String[retVal.size()]);
+        }
+        else
+            return null;
     }
 
 }

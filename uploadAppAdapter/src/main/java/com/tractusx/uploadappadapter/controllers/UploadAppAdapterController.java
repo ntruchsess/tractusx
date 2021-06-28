@@ -1,8 +1,7 @@
 package com.tractusx.uploadappadapter.controllers;
 
-import com.tractusx.uploadappadapter.dal.BlobStorageAccess;
-import com.tractusx.uploadappadapter.dal.BlobStorageConfiguration;
-import com.tractusx.uploadappadapter.dal.ComputeFile;
+import com.tractusx.uploadappadapter.dal.*;
+import com.tractusx.uploadappadapter.models.PartMasterData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,20 +14,48 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController
 public class UploadAppAdapterController {
     @Autowired
-    BlobStorageConfiguration config;
+    BlobStorageConfiguration blobConfig;
 
-    @GetMapping("/api")
-    public String GetSampleData(){
-        return "Container name:" + config.blobContainerName +"\r\nStorageAccountConnectionString:" + config.storageConnectionstring;
-    }
+    @Autowired
+    DbConfiguration dbConfig;
+
+
+    /*@GetMapping("/api/getPartMasterData")
+    public String GetParts(
+            @RequestParam("manufacturerOneId")String manufacturerOneId,
+            @RequestParam("customerOneId") String customerOneId,
+            @RequestParam("partNumberManufacturer") String partNumberManufacturer,
+            @RequestParam("partNumberCustomer") String partNumberCustomer)
+    {
+        return "";
+    }*/
 
     @PostMapping("/api/upload")
     public String handleFileUpload(@RequestParam("file")MultipartFile file, @RequestParam String company){
         String retVal;
-        var blobStorageAccess = new BlobStorageAccess(config.storageConnectionstring);
+        var blobStorageAccess = new BlobStorageAccess(blobConfig.storageConnectionstring);
         retVal = blobStorageAccess.UploadFile(file, company);
 
-        if(retVal != "") {
+        ComputeFile computeFile = new ComputeFile();
+        var parts = computeFile.Extract(file);
+
+        PartMasterData[] pmasters = new PartMasterData[parts.length];
+        for(int x = 0; x<parts.length; x++)
+        {
+            pmasters[x] = new PartMasterData(parts[x]);
+        }
+
+        var dbAccess = new DbAccess(dbConfig);
+        dbAccess.SavePartsToDataBase(pmasters);
+///////////Upload and insert to DB done!
+
+
+
+
+        var returnparts = dbAccess.GetPartsFromDatabase();
+/////Parts returned
+
+        if(!retVal.equals("")) {
             new ComputeFile().Extract(file);
         }
         return retVal;

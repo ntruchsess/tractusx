@@ -52,6 +52,14 @@
             <version>8.6.6</version>
             <scope>compile</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.22</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
