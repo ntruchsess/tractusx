@@ -20,7 +20,7 @@
       "ids:keyType" : {
         "@id" : "idsc:RSA"
       },
-      "ids:keyValue" : "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApcL1qdB5dzn9gKVmOTrb0V4cUhZSAZpY7H54JmS8eVLhh6gbIZpBqTkRYWWBUAd1CI1L3HhoymXbU/FgerLLtSAm4m/8ZBam0E3CgexEHTILygAdJRqjVjwmk4r7fxVo4lvNUTdRBpvIQt2S7ew9xubp7C3B58UvXgAls4vjJXQuc4EPJFF79CAqS1SXrg0QqzcI6QLGg2TQGkbctQmvPpY8EcuFjM0BuhWM5Z12ixqvVxuAray5MeSSNf0ofXoa+ely76RQLOg2xIQAS0QaZNsxr8dwX1uTpcUHoW8RebovLujKz/ylPr2T4kJxeZmIIAYmQUlsWs4LJHvfF2o+1QIDAQAB"
+      "ids:keyValue" : "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAupkW9d8Ui6CDzkkb94tzm5Ih83tMf2mw4Soiimq8JCwjYqRiOD9C76AXmK1BLD6nRfLPZujKChNDfR4zv+CSN2osIthcXQng+09hy/V2XDv9PqczRP4ydhf71REQjRo47Y1axsLKHDAKWM/Gyvvsn8iNqAUOSSFh7MAeOkZ6RSQu13WOGmZeuiE1MIee7fayVNPcpXH+vYXwHt+/3q/POWERrrAVNwN2gYubywO7aXP8p7jvlflZy1X8FDZlX4ZdmpZy+rfDpmJ2udl2zeRq2rS8qYVkD87B2u2JeDReZ/RMa5FU+st4Rr6fz8gXerbvzKn1HSF2X8cx6bdiFr9fSQIDAQAB"
     },
     "ids:description" : [ {
       "@value" : "IDS Connector with static example resources hosted by the Fraunhofer ISST",

@@ -25,8 +25,9 @@ variables:
   vmImageName: 'ubuntu-latest'
 
   # connector vars
-  KEYSTOREFILENAME: 'ms-dc-idsos-keystore'
-  KEYSTOREPASSWORD: 'mspass'
+  KEYSTOREFILENAME: 'catenaxdevakssrv.germanywestcentral.cloudapp.azure.com'
+  KEYSTOREPASSWORD: 'password'
+  configs: config
 
 
 stages:
@@ -37,35 +38,35 @@ stages:
     displayName: Build 1
     pool:
       vmImage: $(vmImageName)
-    variables:
-      imageRepository: 'dsconnector-1'
-      KEYSTOREFILENAME: 'dcs-keystore-1'
-      KEYSTOREPASSWORD: 'mspass'
-      configs: 'config-1'
+#    variables:
+#      imageRepository: 'dsconnector-1'
+#      KEYSTOREFILENAME: 'dcs-keystore-1'
+#      KEYSTOREPASSWORD: 'mspass'
+#      configs: 'config-1'
     steps:
     - template: build-connector.yml
-  - job: Build_2
-    displayName: Build 2
-    pool:
-      vmImage: $(vmImageName)
-    variables:
-      imageRepository: 'dsconnector-2'
-      KEYSTOREFILENAME: 'dcs-keystore-2'
-      KEYSTOREPASSWORD: 'mspass'
-      configs: 'config-2'
-    steps:
-    - template: build-connector.yml
-  - job: Build_3
-    displayName: Build 3
-    pool:
-      vmImage: $(vmImageName)
-    variables:
-      imageRepository: 'dsconnector-3'
-      KEYSTOREFILENAME: 'dcs-keystore-3'
-      KEYSTOREPASSWORD: 'mspass'
-      configs: 'config-3'
-    steps:
-    - template: build-connector.yml
+#  - job: Build_2
+#    displayName: Build 2
+#    pool:
+#      vmImage: $(vmImageName)
+#    variables:
+#      imageRepository: 'dsconnector-2'
+#      KEYSTOREFILENAME: 'dcs-keystore-2'
+#      KEYSTOREPASSWORD: 'mspass'
+#      configs: 'config-2'
+#    steps:
+#    - template: build-connector.yml
+#  - job: Build_3
+#    displayName: Build 3
+#    pool:
+#      vmImage: $(vmImageName)
+#    variables:
+#      imageRepository: 'dsconnector-3'
+#      KEYSTOREFILENAME: 'dcs-keystore-3'
+#      KEYSTOREPASSWORD: 'mspass'
+#      configs: 'config-3'
+#    steps:
+#    - template: build-connector.yml
 
 #- stage: InstallHelm
 #  displayName: Install Helm
@@ -134,27 +135,30 @@ stages:
   - job: Deploy_dataspaceconnector_1
     displayName: Deploy dataspaceconnector 1
     variables:
-      imageRepository: 'dsconnector-1'
+#      imageRepository: 'dsconnector-1'
       releaseName: 'dataspaceconnector-1'
-      configs: config-1
+#      configs: config-1
       ingressPath: '/connector-1(/|$)(.*)'
+      dbHost: 'postgres-1'
     steps:
     - template: deploy-connector.yml
   - job: Deploy_dataspaceconnector_2
     displayName: Deploy dataspaceconnector 2
     variables:
-      imageRepository: 'dsconnector-2'
+#      imageRepository: 'dsconnector-2'
       releaseName: 'dataspaceconnector-2'
-      configs: config-2
+#      configs: config-2
       ingressPath: '/connector-2(/|$)(.*)'
+      dbHost: 'postgres-2'
     steps:
     - template: deploy-connector.yml
   - job: Deploy_dataspaceconnector_3
     displayName: Deploy dataspaceconnector 3
     variables:
-      imageRepository: 'dsconnector-3'
+#      imageRepository: 'dsconnector-3'
       releaseName: 'dataspaceconnector-3'
-      configs: config-3
+#      configs: config-3
       ingressPath: '/connector-3(/|$)(.*)'
+      dbHost: 'postgres-3'
     steps:
     - template: deploy-connector.yml
