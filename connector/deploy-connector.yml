@@ -20,4 +20,4 @@ steps:
       --set image.repository=$(containerRegistry)/$(imageRepository)
       --set image.tag=$(tag)
       --set ingress.path=$(ingressPath)
-      --set env.SPRING_DATASOURCE_URL="jdbc:postgresql://$(dbHost):5432/connector"
+      --set env.SPRING_DATASOURCE_URL="jdbc\:postgresql\:\/\/$(dbHost)\:5432\/connector"
