@@ -1,6 +1,9 @@
-package com.tractusx.uploadappadapter.models;
+package com.tractusx.partsmasterdata.models;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class PartMasterData {
+
     public PartStaticData StaticData = new PartStaticData();
     public PartUniqueData UniqueData = new PartUniqueData();
     public PartIndividualData IndividualData = new PartIndividualData();
@@ -56,43 +59,5 @@ public class PartMasterData {
 
     public void setUniqueData(PartUniqueData uniqueDataObject) {
         this.UniqueData = uniqueDataObject;
-    }
-
-    public PartMasterData() {}
-    public PartMasterData(CsvPart init) {
-        //Static data
-        this.StaticData.customerOneId = init.customerOneId;
-        this.StaticData.customerContractOneId = init.customerContractOneId;
-        this.StaticData.manufacturerOneId = init.manufacturerOneId;
-        this.StaticData.manufacturerContractOneId = init.manufactureContractOneId;
-        this.StaticData.partNameCustomer = init.partNameCustomer;
-        this.StaticData.partNameManufacturer = init.partNameManufacturer;
-        this.StaticData.partNumberCustomer = init.partNameCustomer;
-        this.StaticData.partNumberManufacturer = init.partNumberManufacturer;
-
-        //PartUnique
-        this.UniqueData.customerUniqueId = init.customerUniqueId;
-        this.UniqueData.uniqueId = init.uniqueId;
-        this.UniqueData.manufacturerUniqueId = init.manufacturerUniqueId;
-
-        //PartsInidivual
-        this.IndividualData.productionCountryCode = init.productionCountryCode;
-        this.IndividualData.productionDateGmt = init.productionDateGmt;
-
-        //PartsSupplyTree
-        //this.supplyTree.isParentOf =;
-
-        //PartTreeParent
-        this.PartTree.isParentOf =init.isParentOf;
-
-        //Quality Alert
-        this.QualityAlert.qualityAlert = Boolean.parseBoolean(init.qualityAlert);
-        try {
-            this.QualityAlert.qualityType = AlertLevel.valueOf(init.qualityType);
-        }
-        catch(IllegalArgumentException ex)
-        {
-            //Exception
-        }
     }
 }

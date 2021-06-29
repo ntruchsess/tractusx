@@ -11,6 +11,6 @@ public class PartIndividualData {
     //type: string
     //description: Production Date without timestamp
     //format: date
-    public String productionDateGMT;
+    public String productionDateGmt;
 
 }
