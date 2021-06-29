@@ -8,19 +8,21 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="cdns" />
-        <module name="partsmasterdata" />
         <module name="uploadAppAdapter" />
+        <module name="PartsMasterDataService" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="businesspartners" target="11" />
       <module name="cdns" target="11" />
       <module name="partsmasterdata" target="11" />
+      <module name="PartsMasterDataService" target="11" />
       <module name="uploadAppAdapter" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="PartsMasterDataService" options="-parameters" />
       <module name="businesspartners" options="-parameters" />
       <module name="cdns" options="-parameters" />
       <module name="partsmasterdata" options="-parameters" />
