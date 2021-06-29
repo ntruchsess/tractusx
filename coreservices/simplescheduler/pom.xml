@@ -18,6 +18,7 @@
     <properties>
         <java.version>11</java.version>
         <spring.cloud.version>2020.0.3</spring.cloud.version>
+        <ids-framework.version>4.0.3</ids-framework.version>
     </properties>
 
     <dependencyManagement>
@@ -52,6 +53,12 @@
         </dependency>
 
         <dependency>
+            <groupId>de.fraunhofer.isst.ids.framework</groupId>
+            <artifactId>messaging</artifactId>
+            <version>${ids-framework.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
@@ -63,6 +70,14 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>isst-nexus-public</id>
+            <name>isst-public</name>
+            <url>https://mvn.ids.isst.fraunhofer.de/nexus/repository/ids-public/</url>
+        </repository>
+    </repositories>
 
     <build>
         <plugins>

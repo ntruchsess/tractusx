@@ -8,4 +8,4 @@ scheduler:
     login: admin
     password: password
   resources:
-    fa9e3c51-d14e-40b9-bfe4-81fcce363033: https://localhost:8080
+    f86c6bb5-a3e7-458e-821d-789b88f441ef: https://localhost:8080
