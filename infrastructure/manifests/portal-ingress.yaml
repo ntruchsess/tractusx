@@ -6,17 +6,17 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: letsencrypt-staging
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
     nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
   tls:
   - hosts:
-    - portal.catenax.nampacx.com
+    - catenaxdevakssrv.germanywestcentral.cloudapp.azure.com
   rules:
-  - host: portal.catenax.nampacx.com
+  - host: catenaxdevakssrv.germanywestcentral.cloudapp.azure.com
     http:
       paths:
-      - path: /(/|$)(.*)
+      - path: /portal(/|$)(.*)
         pathType: Prefix
         backend:
           service:

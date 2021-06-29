@@ -161,6 +161,21 @@ resource "azurerm_public_ip" "ingress_ip" {
   }
 }
 
+# Create static public IP Address to be used by the portal
+resource "azurerm_public_ip" "portal_ip" {
+  name                = "${var.prefix}-${var.environment}-portal-pip"
+  location            = azurerm_resource_group.default_rg.location
+  resource_group_name = "${module.aks_services.node_resource_group}"
+  sku                 = "Standard"
+  allocation_method   = "Static"
+  domain_name_label   = "${var.prefix}${var.environment}aksportalsrv"
+  
+  tags = {
+    environment = "${var.environment}"
+  }
+}
+
+
 provider "helm" {
     debug = true
     kubernetes {
