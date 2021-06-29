@@ -33,14 +33,22 @@ stages:
   - job: Build
     displayName: Build
     pool:
-      vmImage: maven:3.6.3-openjdk-11-slim
+      vmImage: $(vmImageName)
     steps:
+    - task: Maven@3
+      inputs:
+        mavenPomFile: './meta-brokerdocker/pom.xml' 
+        goals: 'package'
+        options: '-Dmaven.resources.skip=true -DskipTests=true'
+        jdkVersionOption: '1.11'
+        mavenVersionOption: '3.6.3'
+    - publish: 'broker-core/target'
+      artifact: broker-maven-artifact
     - script: |
-        mvn package -Dmaven.resources.skip=true -DskipTests=true
         cp broker-core/target/*jar docker/broker-core/
       failOnStderr: true
     - publish: 'docker/broker-core'
-      artifact: broker-artifact
+      artifact: broker-docker-artifact
     - task: Docker@2
       displayName: Build and push meta-broker image
       inputs:
