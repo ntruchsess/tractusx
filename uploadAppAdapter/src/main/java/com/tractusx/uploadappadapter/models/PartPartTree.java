@@ -1,11 +1,11 @@
 package com.tractusx.uploadappadapter.models;
 
-public class PartSupplyTree {
+public class PartPartTree {
     //type: array
     //items:
     //type: string
-    //example: 0000003_ZF
-    //description: pNM*, pNM
+    //example: G05
+    //description: UID, UID
     public String[] isParentOf;
 
 
