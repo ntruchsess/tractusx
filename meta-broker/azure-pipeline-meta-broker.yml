@@ -67,7 +67,7 @@ stages:
         command: upgrade
         valueFile: ./meta-broker/infrastructure/helm-chart/values.yaml
         chartType: filepath
-        chartPath: ./connector/infrastructure/metadata-broker-open-core
+        chartPath: ./meta-broker/infrastructure/helm-chart/metadata-broker-open-core
         chartVersion: $(Build.BuildNumber)
         releaseName: metadata-broker-open-core
         install: true
