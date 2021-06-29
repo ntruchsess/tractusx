@@ -48,7 +48,7 @@ stages:
       inputs:
         command: buildAndPush
         repository: $(imageFusekiRepository)
-        dockerfile: './meta-brokerdocker/fuseki/Dockerfile'
+        dockerfile: './meta-brokerdocker/docker/fuseki/Dockerfile'
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: $(fusekiTag)
 
