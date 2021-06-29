@@ -35,26 +35,12 @@ stages:
     pool:
       vmImage: $(vmImageName)
     steps:
-    - task: Maven@3
-      inputs:
-        mavenPomFile: './meta-broker/pom.xml' 
-        goals: 'package'
-        options: '-Dmaven.resources.skip=true -DskipTests=true'
-        jdkVersionOption: '1.11'
-        mavenVersionOption: '3.6.3'
-    - publish: 'broker-core/target'
-      artifact: broker-maven-artifact
-    - script: |
-        cp broker-core/target/*jar docker/broker-core/
-      failOnStderr: true
-    - publish: 'docker/broker-core'
-      artifact: broker-docker-artifact
     - task: Docker@2
       displayName: Build and push meta-broker image
       inputs:
         command: buildAndPush
         repository: $(imageBrokerRepository)
-        dockerfile: './meta-broker/docker/broker-core/Dockerfile'
+        dockerfile: './meta-broker/Dockerfile-azure-pipeline'
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: $(brokerTag)
     - task: Docker@2
