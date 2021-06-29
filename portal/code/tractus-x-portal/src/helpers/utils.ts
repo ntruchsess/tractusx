@@ -10,6 +10,14 @@ export function Random(limit: number): number {
   return Math.floor(Math.random() * limit);
 }
 
+export function randomNumber(max: number,min:number): number {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+export function percentageOf(n: number): number {
+  return Math.floor(n*100);
+}
+
 export const formatMB = (value: number) => {
   value = value || 0;
   let text;
