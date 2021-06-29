@@ -11,9 +11,9 @@ metadata:
 spec:
   tls:
   - hosts:
-    - catenaxdevakssrv.germanywestcentral.cloudapp.azure.com
+    - portal.catenax.nampacx.com
   rules:
-  - host: catenaxdevakssrv.germanywestcentral.cloudapp.azure.com
+  - host: portal.catenax.nampacx.com
     http:
       paths:
       - path: /(/|$)(.*)
