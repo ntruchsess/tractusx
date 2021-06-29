@@ -37,7 +37,7 @@ stages:
     steps:
     - task: Maven@3
       inputs:
-        mavenPomFile: './meta-brokerdocker/pom.xml' 
+        mavenPomFile: './meta-broker/pom.xml' 
         goals: 'package'
         options: '-Dmaven.resources.skip=true -DskipTests=true'
         jdkVersionOption: '1.11'
