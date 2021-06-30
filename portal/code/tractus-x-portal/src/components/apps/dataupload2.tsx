@@ -20,6 +20,10 @@ import adalContext from '../../helpers/adalConfig';
 import { ProgressIndicator } from '@fluentui/react/lib/ProgressIndicator';
 import { PrimaryButton, DefaultButton, Checkbox} from '@fluentui/react';
 
+const uploadUrl = 'https://catenaxdevakssrv.germanywestcentral.cloudapp.azure.com/uploadappadapter/api/upload';
+const username = 'TractusX';
+const password = '4ZqA:=7M7gyrHTzN';
+
 @observer
 class DataUpload2 extends React.Component<RouteComponentProps> {
   @observable isOver = false;
@@ -67,8 +71,14 @@ class DataUpload2 extends React.Component<RouteComponentProps> {
   }
 
   private async filesUploaded(files: FileList) {
-   
     this.isFileReadyForUpload = true;
+    try {
+      await this.upload('test');
+    } catch {
+      console.log('failed');
+      return;
+    }
+
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
       const f = new UploadFile();
@@ -98,16 +108,28 @@ class DataUpload2 extends React.Component<RouteComponentProps> {
     this.save();
   }
 
+  public upload(body: string): Promise<any> {
+    const promise = new Promise<any>((resolve, reject) => {
+      const auth = btoa(`${username}:${password}`);
+      fetch(uploadUrl, { method: 'POST', headers: { 'Authorization': `Basic ${auth}` }, body: body })
+        .then((val) => {
+          resolve(val);
+        }).catch((error) => {
+          console.log(error, error.message, error.status);
+          reject(error.message);
+        })
+    });
+  
+    return promise;
+  }
+
   private printlastUploadedFileDetails() {
-
     const file = this.files[0];
-
     return <div className='df'>
       <div className='br8 w16 h16 bggreen df aic df jcc ml20'><Icon className='fs10 fgwhite bold' iconName='Accept' /></div>
       <span className=' ml2 fw600 fs14 lh20'>&nbsp;{file.name} </span>
       <span className='fs11 lh14 fggray mt5'> &nbsp;  &nbsp;item found: {file.items} ; size: {formatMB(file.size)}</span>
     </div>;
-    
   }
 
   private onButtonClick() {
@@ -203,9 +225,9 @@ class DataUpload2 extends React.Component<RouteComponentProps> {
                 <div className='bgwhite h210 bgf5 df fdc jcc aic w100-100'>
                   {!this.hideProgressBar ? <Progress /> :
                     <div className='bgwhite h210 bgf5 df fdc w100-100'>
-                      <p className='fs24 bold fg191 lh29 ml20'>Your file has been Successfully uploaded</p>
+                      <p className='fs24 bold fg191 lh29 ml20'>Your file has been successfully uploaded</p>
                       {this.printlastUploadedFileDetails()}
-                      <div className=' fg191 fs14 lh20 mt20 ml20'><Checkbox className='fg191 fs14 lh20' label="This data is private.If not checked this data will be available in the data catalog." /></div>
+                      <div className=' fg191 fs14 lh20 mt20 ml20'><Checkbox className='fg191 fs14 lh20' label='This data is private.If not checked this data will be available in the data catalog.' /></div>
                       <div className='df mt30 aife jcfe'>
                         <span>
                           <DefaultButton text='DELETE' id='delete' className='b0 bgwhite fggrey' disabled={true} />
