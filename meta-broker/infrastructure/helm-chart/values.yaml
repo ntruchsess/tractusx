@@ -1,0 +1,20 @@
+imagePullSecrets: 
+  - name: regcred
+
+image:
+  brokercoreImage: BROKER_IMAGE
+  brokerfusekiImage: FUSEKI_IMAGE
+  pullPolicy: Always
+
+resources:
+  requests:
+    memory: 512Mi
+    cpu: 0.1
+  limits:
+    memory: 2Gi
+    cpu: 1
+
+
+ingress:
+  enabled: true
+

@@ -33,12 +33,12 @@ public class DbAccess {
         InsertPartsInDatabase(parts);
     }
 
-    public PartMasterData[] GetPartsFromDatabase() {
+    public PartMasterData[] GetPartsFromDatabase(String companyOneId) {
         GetConnection();
         if (connection == null) {
             //throw new Exception("No connection to db established!");
         }
-        return ReturnPartsFromDatabase();
+        return ReturnPartsFromDatabase(companyOneId);
     }
 
     private void InsertPartsInDatabase(PartMasterData[] parts) {
@@ -103,11 +103,11 @@ public class DbAccess {
 
 
 
-    private PartMasterData[] ReturnPartsFromDatabase()
+    private PartMasterData[] ReturnPartsFromDatabase(String companyOneId)
     {
         List<PartMasterData> parts = new ArrayList<PartMasterData>();
         try {
-            PreparedStatement readStatement = connection.prepareStatement("SELECT * FROM parts;");
+            PreparedStatement readStatement = connection.prepareStatement("SELECT * FROM parts WHERE customeroneid='"+ companyOneId +"';");
             ResultSet resultSet = readStatement.executeQuery();
 
             while (resultSet.next())

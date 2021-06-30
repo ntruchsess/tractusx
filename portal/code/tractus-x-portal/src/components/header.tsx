@@ -25,10 +25,12 @@ const keys = pivots.map((p) => p.toLowerCase().replace(' ', ''));
 @observer
 class Header extends React.Component<IProp> {
   @observable username = '';
+  @observable initials = '';
   @observable selectedKey = '';
 
   componentDidMount() {
-    this.username = adalContext.getUsername();
+    this.username = adalContext.getFullName();
+    this.initials = adalContext.getInitials(this.username);
   }
 
   pivotClick(item: PivotItem): void {
@@ -62,7 +64,11 @@ class Header extends React.Component<IProp> {
           <PivotItem key='search' className='ml20 mr20' headerText='' itemIcon='search' />
         </Pivot>}
         <div className='flex1' />
-        <span className='mr50 fs14'>{this.username}</span>
+        <div className='bgblue fgwhite aic jcc df fs16 br50pc h40 w40 mr10'>{this.initials}</div>
+        <div className='df fdc'>
+          <span className='mr50 fs14'>{this.username}</span>
+          <span className='mr50 fs14'>{adalContext.getDomain(adalContext.getUsername())}</span>
+        </div>
       </div>
     );
   }
