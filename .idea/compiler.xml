@@ -9,7 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="cdns" />
         <module name="uploadAppAdapter" />
-        <module name="PartsMasterDataService" />
+        <module name="partsmasterdata" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
