@@ -150,6 +150,7 @@ public class DbAccess {
     {
         Connection c = null;
         try {
+            DriverManager.registerDriver(new org.postgresql.Driver());
             Class.forName("org.postgresql.Driver");
 
             c = DriverManager

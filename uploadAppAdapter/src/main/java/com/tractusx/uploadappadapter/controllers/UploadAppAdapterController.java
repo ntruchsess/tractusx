@@ -26,11 +26,6 @@ public class UploadAppAdapterController {
         return dbAccess.GetPartsFromDatabase(companyOneId);
     }
 
-    @GetMapping("api/testParams")
-    public String testParams()
-    {
-        return blobConfig.storageConnectionstring;
-    }
 
     @PostMapping("/api/upload")
     public String handleFileUpload(@RequestParam("file")MultipartFile file, @RequestParam String company){
