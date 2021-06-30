@@ -613,6 +613,20 @@ components:
       minLength: 1
       maxLength: 100
       
+    ConnectorURL:
+      description: The URL of a connector, excluding protocol
+      example: connector1.connectors.company.com/Data
+      type: string
+      minLength: 8
+      maxLength: 500
+      
+    ConnectorType:
+      description: The type of connector
+      example: need an example
+      type: string
+      minLength: 0
+      maxLength: 25
+      
     ConnectorDNSRecord:
       properties:
         oneID:
@@ -621,6 +635,12 @@ components:
         idsConnectorID:
           allOf:
             - $ref: "#/components/schemas/ConnectorID"
+        cxConnectorURL:
+          allOf:
+            - $ref: "#/components/schemas/ConnectorURL"
+        idsConnectorType:
+          allOf: 
+            - $ref: "#/components/schemas/ConnectorType"
           
     Error:
       properties:
