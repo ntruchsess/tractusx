@@ -1,11 +1,12 @@
 server:
   port: 8082
 scheduler:
-#  cron: "@daily"
-  cron: "*/10 * * * * *"
+  cron: "@daily"
   connector:
     base-url: https://localhost:8081
     login: admin
     password: password
-  resources:
-    f86c6bb5-a3e7-458e-821d-789b88f441ef: https://localhost:8080
+  resources: # resources map contains pairs of: (consumer resourceId) -> (producer URL)
+    09da3ef1-cd9e-409e-a8ac-8e8085e8a2dc: https://localhost:8080
+logging.level:
+  com.tsystems.simplescheduler: DEBUG

@@ -50,7 +50,8 @@ public class DataspaceConnectorConfiguration {
 
             @Override
             public Object read(Class aClass, HttpInputMessage httpInputMessage) throws IOException, HttpMessageNotReadableException {
-                return serializer.deserialize(new String(httpInputMessage.getBody().readAllBytes()), aClass);
+                var responseBody = new String(httpInputMessage.getBody().readAllBytes());
+                return serializer.deserialize(responseBody, aClass);
             }
 
             @Override

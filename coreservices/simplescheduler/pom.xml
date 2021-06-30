@@ -19,6 +19,7 @@
         <java.version>11</java.version>
         <spring.cloud.version>2020.0.3</spring.cloud.version>
         <ids-framework.version>4.0.3</ids-framework.version>
+        <collection-utlis.version>4.4</collection-utlis.version>
     </properties>
 
     <dependencyManagement>
@@ -56,6 +57,12 @@
             <groupId>de.fraunhofer.isst.ids.framework</groupId>
             <artifactId>messaging</artifactId>
             <version>${ids-framework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>${collection-utlis.version}</version>
         </dependency>
 
         <dependency>
