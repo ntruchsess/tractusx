@@ -1,0 +1,23 @@
+# Template for deploy connector
+steps:
+- download: current
+  artifact: $(configs)
+- task: HelmDeploy@0
+  displayName: Helm upgrade
+  inputs:
+    connectionType: Kubernetes Service Connection
+    kubernetesServiceEndpoint: catenax-dev-aks-services-connector
+    namespace: $(kubeNamespace)
+    command: upgrade
+    valueFile: ./connector/infrastructure/dataspaceconnector/values.yaml
+    chartType: filepath
+    chartPath: ./connector/infrastructure/dataspaceconnector
+    chartVersion: $(Build.BuildNumber)
+    releaseName: $(releaseName)
+    install: true
+    waitForExecution: false
+    arguments: >
+      --set image.repository=$(containerRegistry)/$(imageRepository)
+      --set image.tag=$(tag)
+      --set ingress.path=$(ingressPath)
+      --set env[2].value="jdbc:postgresql://$(dbHost):5432/connector"
