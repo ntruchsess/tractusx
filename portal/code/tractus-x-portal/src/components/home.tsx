@@ -21,7 +21,7 @@ import NotImp from './notimplemented';
 import AppDetail from './appdetail';
 import OrgDetails from './orgdetails';
 import UserMgmt from './usermanagement';
-import ConnectorHeader from './connectorheader';
+import MyConnectors from './myconnectors';
 import MyData from './mydata';
 import { observable } from 'mobx';
 
@@ -62,7 +62,7 @@ const navLinkGroups: INavLinkGroup[] = [
       },
       {
         name: 'my Connectors',
-        url: '/home/connectorheader',
+        url: '/home/myconnectors',
         key: 'key3',
         expandAriaLabel: 'Expand section',
         collapseAriaLabel: 'Collapse section',
@@ -183,10 +183,10 @@ class Home extends React.Component<RouteComponentProps> {
               <Route path='/home/vocabulary' component={(props) => <Vocabulary {...props} />} />
               <Route path='/home/developerhub' component={(props) => <DeveloperHub {...props} />} />
               <Route path='/home/appdetail/:id' component={(props) => <AppDetail {...props} />} />
-              <Route path='/home/organization' component={(props) => <OrgDetails {...props} />} />
-              <Route path='/home/connectorheader' component={(props) => <ConnectorHeader {...props} />} />
-              <Route path='/home/usermanagement' component={(props) => <UserMgmt {...props} />} />
               <Route path='/home/mydata' component={(props) => <MyData {...props} />} />
+              <Route path='/home/myconnectors' component={(props) => <MyConnectors {...props} />} />
+              <Route path='/home/organization' component={(props) => <OrgDetails {...props} />} />
+              <Route path='/home/usermanagement' component={(props) => <UserMgmt {...props} />} />
               <Route path='/home/notimp' component={(props) => <NotImp {...props} />} />
             </Switch>
           </div>
