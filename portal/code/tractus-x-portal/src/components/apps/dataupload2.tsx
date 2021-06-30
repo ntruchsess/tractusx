@@ -14,21 +14,25 @@ import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { observable } from 'mobx';
 import { UploadButton } from '../uploadbutton';
 import { UploadFile } from '../../data/uploadfile';
-import { format, formatMB, Random, UUID } from '../../helpers/utils';
+import { format, formatMB, randomNumber, UUID, percentageOf } from '../../helpers/utils';
 import moment from 'moment';
 import adalContext from '../../helpers/adalConfig';
+import { ProgressIndicator } from '@fluentui/react/lib/ProgressIndicator';
+import { PrimaryButton, DefaultButton, Checkbox} from '@fluentui/react';
 
 @observer
 class DataUpload2 extends React.Component<RouteComponentProps> {
   @observable isOver = false;
+  @observable isFileReadyForUpload = false;
+  @observable hideProgressBar = true;
   @observable private files: UploadFile[] = [
-    {id:'1', name:'Data upload file', items:213432, size:1239800123, state:'0', uploadDate: new Date('3/5/2021'), user:'ptallett@microsoft.com'},
-    {id:'1', name:'Data file name 14575', items:6987, size:1239800, state:'1', uploadDate: new Date('6/22/2021'), user:'ptallett@microsoft.com'},
-    {id:'1', name:'Data file name 14575', items:0, size:0, state:'2', uploadDate: new Date('3/5/2021'), user:'ptallett@microsoft.com'},
-    {id:'1', name:'File name', items:213432, size:12, state:'1', uploadDate: new Date('3/5/2021'), user:'ptallett@microsoft.com'},
-    {id:'1', name:'New parts to upload for MT - SAP Catalog', items:213432, size:1239800123, state:'1', uploadDate: new Date('3/5/2012'), user:'ptallett@microsoft.com'}
+    { id: '1', name: 'Data upload file', items: 213432, size: 1239800123, state: '0', uploadDate: new Date('3/5/2021'), user: 'ptallett@microsoft.com' },
+    { id: '1', name: 'Data file name 14575', items: 6987, size: 1239800, state: '1', uploadDate: new Date('6/22/2021'), user: 'ptallett@microsoft.com' },
+    { id: '1', name: 'Data file name 14575', items: 0, size: 0, state: '2', uploadDate: new Date('3/5/2021'), user: 'ptallett@microsoft.com' },
+    { id: '1', name: 'File name', items: 213432, size: 12, state: '1', uploadDate: new Date('3/5/2021'), user: 'ptallett@microsoft.com' },
+    { id: '1', name: 'New parts to upload for MT - SAP Catalog', items: 213432, size: 1239800123, state: '1', uploadDate: new Date('3/5/2012'), user: 'ptallett@microsoft.com' }
   ];
-  
+
   componentDidMount() {
     const files = window.localStorage.getItem('uploads');
     if (files) {
@@ -63,6 +67,8 @@ class DataUpload2 extends React.Component<RouteComponentProps> {
   }
 
   private async filesUploaded(files: FileList) {
+   
+    this.isFileReadyForUpload = true;
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
       const f = new UploadFile();
@@ -72,15 +78,14 @@ class DataUpload2 extends React.Component<RouteComponentProps> {
       f.items = Math.floor(f.size / 43);
       f.uploadDate = new Date();
       f.user = adalContext.getUsername() || 'ptallett@microsoft.com';
-      f.state = String(Math.floor(Random(3)));
+      f.state = String(Math.floor(randomNumber(3, 2)));
       if (f.state === '2') {
         f.size = 0;
         f.items = 0;
       }
-
       this.files.unshift(f);
     }
-
+    this.hideProgressBar = false;
     this.save();
   }
 
@@ -93,6 +98,24 @@ class DataUpload2 extends React.Component<RouteComponentProps> {
     this.save();
   }
 
+  private printlastUploadedFileDetails() {
+
+    const file = this.files[0];
+
+    return <div className='df'>
+      <div className='br8 w16 h16 bggreen df aic df jcc ml20'><Icon className='fs10 fgwhite bold' iconName='Accept' /></div>
+      <span className=' ml2 fw600 fs14 lh20'>&nbsp;{file.name} </span>
+      <span className='fs11 lh14 fggray mt5'> &nbsp;  &nbsp;item found: {file.items} ; size: {formatMB(file.size)}</span>
+    </div>;
+    
+  }
+
+  private onButtonClick() {
+    this.isFileReadyForUpload = false;
+    this.files[0].state = '1';
+  }
+
+ 
   getSync(state: string) {
     if (state === '1') {
       return <div className='br8 w16 h16 bggreen df aic jcc'>
@@ -109,7 +132,43 @@ class DataUpload2 extends React.Component<RouteComponentProps> {
 
   public render() {
     const sortOptions = [{ key: '1', text: 'newest upload' }];
+    const intervalDelay = 100;
+    const intervalIncrement = 0.01;
 
+    const Progress = () => {
+      const [message, setMessage] = React.useState('uploading your data set');
+      const [percentComplete, setPercentComplete] = React.useState(0);
+      const [uploadStatus, setuploadStatus] = React.useState('Uploading...');
+
+      React.useEffect(() => {
+        const id = setInterval(() => {
+          setPercentComplete((intervalIncrement + percentComplete) % 1);
+          if (percentComplete > 0.99) {
+            this.hideProgressBar = true;
+          }
+          if (percentComplete > 0.3) {
+            setuploadStatus('Checking...');
+            setMessage('checking for data structure');
+          }
+        }, intervalDelay);
+        return () => {
+          clearInterval(id);
+        };
+      });
+      return (
+        <div className='flex1 aic'>
+          <p className='tac fs24 bold fg191 lh29'><h4>{uploadStatus}</h4></p>
+              
+          <div className='h40 w600 br24 flex1'>
+            <ProgressIndicator className='w600 bgwhite br24 flex1' barHeight={40} percentComplete={percentComplete} description={percentageOf(percentComplete)} />
+          </div>
+          <div className=' df fggrey fs12 lh18 jcc mt20 flex1'>{message}</div>
+             
+          <div className='h90' />
+        </div>
+      )
+    }
+    
     return (
       <div className='w100pc h100pc df fdc bgf5'>
         <Header href={window.location.href} hidePivot appTitle='Data Upload Appplication' />
@@ -125,20 +184,37 @@ class DataUpload2 extends React.Component<RouteComponentProps> {
           <div className='ml250 mt20 mr50 mb30 w100-200 df fdc'
             onDragOver={(e) => this.dragOver(e)} onDragLeave={() => this.dragLeave()} onDrop={(e) => this.drop(e)}>
             <div className='df aic w100-100'>
-              {!this.isOver ?
-                <div className='h210 bgwhite mt5 df fdc jcc aic bdash w100-100' role='region' aria-label='file uploader'>
-                  <Icon className='fs60 fgblack' iconName='CloudUpload' role='img' />
-                  <div className='fgblack fs20 bold mt10 lh18'>Drag and drop your CSV files here</div>
-                  <div className='fggrey fs12 lh18 mt10'>or</div>
-                  <UploadButton className='fs14 mt10 fgwhite' text='BROWSE FOR FILES' iconName='' buttonType='Primary'
-                    acceptFileTypes='*' multiple onChangeFileList={(files) => this.filesUploaded(files)} />
-                  <div className='fggrey fs12 lh18 mt10'>Max 12MB per file</div>
-                </div>
-                :
-                <div className='h210 bgf7 mt5 df fdc jcc aic byellow w100-100'>
-                  <Icon className='fs60 fgblack noevents' iconName='CloudUpload' role='img' />
-                  <div className='fgblack fs20 lh18 mt10 noevents bold'>Drop files here</div>
-                  <div className='h90' />
+              {!this.isFileReadyForUpload ?
+                !this.isOver ?
+                  <div className='h210 bgwhite mt5 df fdc jcc aic bdash w100-100' role='region' aria-label='file uploader'>
+                    <Icon className='fs60 fgblack' iconName='CloudUpload' role='img' />
+                    <div className='fgblack fs20 bold mt10 lh18'>Drag and drop your CSV files here</div>
+                    <div className='fggrey fs12 lh18 mt10'>or</div>
+                    <UploadButton className='fs14 mt10 fgwhite' text='BROWSE FOR FILES' iconName='' buttonType='Primary'
+                      acceptFileTypes='*' multiple onChangeFileList={(files) => this.filesUploaded(files)} />
+                    <div className='fggrey fs12 lh18 mt10'>Max 12MB per file</div>
+                  </div>
+                  :
+                  <div className='h210 bgf7 mt5 df fdc jcc aic byellow w100-100'>
+                    <Icon className='fs60 fgblack noevents' iconName='CloudUpload' role='img' />
+                    <div className='fgblack fs20 lh18 mt10 noevents bold'>Drop files here</div>
+                    <div className='h90' />
+                  </div> :
+                <div className='bgwhite h210 bgf5 df fdc jcc aic w100-100'>
+                  {!this.hideProgressBar ? <Progress /> :
+                    <div className='bgwhite h210 bgf5 df fdc w100-100'>
+                      <p className='fs24 bold fg191 lh29 ml20'>Your file has been Successfully uploaded</p>
+                      {this.printlastUploadedFileDetails()}
+                      <div className=' fg191 fs14 lh20 mt20 ml20'><Checkbox className='fg191 fs14 lh20' label="This data is private.If not checked this data will be available in the data catalog." /></div>
+                      <div className='df mt30 aife jcfe'>
+                        <span>
+                          <DefaultButton text='DELETE' id='delete' className='b0 bgwhite fggrey' disabled={true} />
+                        </span>
+                        <span>
+                          <PrimaryButton text='SYNC NOW' id='syncnow' className='pt80' onClick={() => this.onButtonClick()} />
+                        </span>
+                      </div>
+                    </div>}
                 </div>}
             </div>
           </div>
@@ -167,7 +243,7 @@ class DataUpload2 extends React.Component<RouteComponentProps> {
                 <span className='fs14 mr5 flex1'>{f.size ? formatMB(f.size) : '-'}</span>
                 <span className='fs14 mr5 flex2'>{moment(f.uploadDate).fromNow()}</span>
                 <span className='fs14 mr5 flex2'>{f.user}</span>
-                <IconButton className='fgblack' iconProps={{ iconName: 'Cancel' }} onClick={() => this.removeClick(index)}/>
+                <IconButton className='fgblack' iconProps={{ iconName: 'Cancel' }} onClick={() => this.removeClick(index)} />
               </div>
               )}
             </div>
