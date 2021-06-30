@@ -34,52 +34,13 @@ stages:
 - stage: Build
   displayName: Build stage
   jobs:
-  - job: Build_1
-    displayName: Build 1
+  - job: Build
+    displayName: Build
     pool:
       vmImage: $(vmImageName)
-#    variables:
-#      imageRepository: 'dsconnector-1'
-#      KEYSTOREFILENAME: 'dcs-keystore-1'
-#      KEYSTOREPASSWORD: 'mspass'
-#      configs: 'config-1'
     steps:
     - template: build-connector.yml
-#  - job: Build_2
-#    displayName: Build 2
-#    pool:
-#      vmImage: $(vmImageName)
-#    variables:
-#      imageRepository: 'dsconnector-2'
-#      KEYSTOREFILENAME: 'dcs-keystore-2'
-#      KEYSTOREPASSWORD: 'mspass'
-#      configs: 'config-2'
-#    steps:
-#    - template: build-connector.yml
-#  - job: Build_3
-#    displayName: Build 3
-#    pool:
-#      vmImage: $(vmImageName)
-#    variables:
-#      imageRepository: 'dsconnector-3'
-#      KEYSTOREFILENAME: 'dcs-keystore-3'
-#      KEYSTOREPASSWORD: 'mspass'
-#      configs: 'config-3'
-#    steps:
-#    - template: build-connector.yml
 
-#- stage: InstallHelm
-#  displayName: Install Helm
-#  jobs:
-#  - job: InstallHelm
-#    displayName: InstallHelm
-#    pool:
-#      vmImage: $(vmImageName)
-#    steps:
-#    - task: HelmInstaller@1
-#      displayName: Helm installer
-#      inputs: 
-#        helmVersionToInstall: latest
 
 - stage: Deploy_postgres
   displayName: Deploy postgres
@@ -89,7 +50,7 @@ stages:
     steps:
     - task: Kubernetes@1
       displayName: Create postgres secret
-      #condition: eq(variables['DEPLOY_POSTGRES'], 'true')
+      condition: eq(variables['DEPLOY_POSTGRES'], 'true')
       inputs:
         connectionType: Kubernetes Service Connection
         kubernetesServiceEndpoint: catenax-dev-aks-services-connector
@@ -101,7 +62,7 @@ stages:
   - job: Deploy_postgres_1
     displayName: Deploy postgres 1
     dependsOn: Create_postgres_secret
-    #condition: eq(variables['DEPLOY_POSTGRES'], 'true')
+    condition: eq(variables['DEPLOY_POSTGRES'], 'true')
     variables:
       releaseName: 'postgres-1'
       postgres-pv: 'postgres-pv-1'
@@ -111,7 +72,7 @@ stages:
   - job: Deploy_postgres_2
     displayName: Deploy postgres 2
     dependsOn: Create_postgres_secret
-    #condition: eq(variables['DEPLOY_POSTGRES'], 'true')
+    condition: eq(variables['DEPLOY_POSTGRES'], 'true')
     variables:
       releaseName: 'postgres-2'
       postgres-pv: 'postgres-pv-2'
@@ -121,7 +82,7 @@ stages:
   - job: Deploy_postgres_3
     displayName: Deploy postgres 3
     dependsOn: Create_postgres_secret
-    #condition: eq(variables['DEPLOY_POSTGRES'], 'true')
+    condition: eq(variables['DEPLOY_POSTGRES'], 'true')
     variables:
       releaseName: 'postgres-3'
       postgres-pv: 'postgres-pv-3'
@@ -135,9 +96,7 @@ stages:
   - job: Deploy_dataspaceconnector_1
     displayName: Deploy dataspaceconnector 1
     variables:
-#      imageRepository: 'dsconnector-1'
       releaseName: 'dataspaceconnector-1'
-#      configs: config-1
       ingressPath: '/kmuconnector(/|$)(.*)'
       dbHost: 'postgres-1'
     steps:
@@ -145,9 +104,7 @@ stages:
   - job: Deploy_dataspaceconnector_2
     displayName: Deploy dataspaceconnector 2
     variables:
-#      imageRepository: 'dsconnector-2'
       releaseName: 'dataspaceconnector-2'
-#      configs: config-2
       ingressPath: '/traceabilityconnector(/|$)(.*)'
       dbHost: 'postgres-2'
     steps:
@@ -155,9 +112,7 @@ stages:
   - job: Deploy_dataspaceconnector_3
     displayName: Deploy dataspaceconnector 3
     variables:
-#      imageRepository: 'dsconnector-3'
       releaseName: 'dataspaceconnector-3'
-#      configs: config-3
       ingressPath: '/partsmasterconnector(/|$)(.*)'
       dbHost: 'postgres-3'
     steps:
