@@ -1,0 +1,119 @@
+# Deploy to Azure Kubernetes Service
+# Build and push image to Azure Container Registry; Deploy to Azure Kubernetes Service
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger:
+- add-dsconnector-deployment
+
+resources:
+- repo: self
+
+variables:
+
+  # Container registry service connection established during pipeline creation
+  dockerRegistryServiceConnection: '3ea078d5-cddc-4e65-b0e7-f1b82c7339d0'
+  imageRepository: 'dsconnector'
+  containerRegistry: 'catenaxdevacr.azurecr.io'
+  dockerfilePath: './connector/Dockerfile'
+  tag: '$(Build.BuildId)'
+  imagePullSecret: 'catenaxdevacr10283c4a-auth'
+
+  # Kube vars
+  kubeNamespace: 'centralconnector'
+
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+
+  # connector vars
+  KEYSTOREFILENAME: 'catenaxdevakssrv.germanywestcentral.cloudapp.azure.com'
+  KEYSTOREPASSWORD: 'password'
+  configs: config
+
+
+stages:
+- stage: Build
+  displayName: Build stage
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - template: build-connector.yml
+
+
+- stage: Deploy_postgres
+  displayName: Deploy postgres
+  jobs:
+  - job: Create_postgres_secret
+    displayName: Create postgres secret
+    steps:
+    - task: Kubernetes@1
+      displayName: Create postgres secret
+      condition: eq(variables['DEPLOY_POSTGRES'], 'true')
+      inputs:
+        connectionType: Kubernetes Service Connection
+        kubernetesServiceEndpoint: catenax-dev-aks-services-connector
+        namespace: $(kubeNamespace)
+        secretType: generic
+        secretArguments: --from-literal=db_user=connector --from-literal=db_pass=$DB_PASS
+        secretName: postgres-password
+
+  - job: Deploy_postgres_1
+    displayName: Deploy postgres 1
+    dependsOn: Create_postgres_secret
+    condition: eq(variables['DEPLOY_POSTGRES'], 'true')
+    variables:
+      releaseName: 'postgres-1'
+      postgres-pv: 'postgres-pv-1'
+      postgres-pvc: 'postgres-pvc-1'
+    steps:
+    - template: deploy-postgres.yml
+  - job: Deploy_postgres_2
+    displayName: Deploy postgres 2
+    dependsOn: Create_postgres_secret
+    condition: eq(variables['DEPLOY_POSTGRES'], 'true')
+    variables:
+      releaseName: 'postgres-2'
+      postgres-pv: 'postgres-pv-2'
+      postgres-pvc: 'postgres-pvc-2'
+    steps:
+    - template: deploy-postgres.yml
+  - job: Deploy_postgres_3
+    displayName: Deploy postgres 3
+    dependsOn: Create_postgres_secret
+    condition: eq(variables['DEPLOY_POSTGRES'], 'true')
+    variables:
+      releaseName: 'postgres-3'
+      postgres-pv: 'postgres-pv-3'
+      postgres-pvc: 'postgres-pvc-3'
+    steps:
+    - template: deploy-postgres.yml
+
+- stage: Deploy_DSC
+  displayName: Deploy DSC
+  jobs:
+  - job: Deploy_dataspaceconnector_1
+    displayName: Deploy dataspaceconnector 1
+    variables:
+      releaseName: 'dataspaceconnector-1'
+      ingressPath: '/kmuconnector(/|$)(.*)'
+      dbHost: 'postgres-1'
+    steps:
+    - template: deploy-connector.yml
+  - job: Deploy_dataspaceconnector_2
+    displayName: Deploy dataspaceconnector 2
+    variables:
+      releaseName: 'dataspaceconnector-2'
+      ingressPath: '/traceabilityconnector(/|$)(.*)'
+      dbHost: 'postgres-2'
+    steps:
+    - template: deploy-connector.yml
+  - job: Deploy_dataspaceconnector_3
+    displayName: Deploy dataspaceconnector 3
+    variables:
+      releaseName: 'dataspaceconnector-3'
+      ingressPath: '/partsmasterconnector(/|$)(.*)'
+      dbHost: 'postgres-3'
+    steps:
+    - template: deploy-connector.yml

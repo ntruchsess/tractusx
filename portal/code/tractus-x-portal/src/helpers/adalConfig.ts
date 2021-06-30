@@ -6,7 +6,7 @@
 // Copyright (c) Microsoft. All rights reserved
 //
 
-import { AdalConfig, adalGetToken, AuthenticationContext } from 'react-adal';
+import { AdalConfig, adalGetToken, AuthenticationContext, withAdalLogin } from 'react-adal';
 
 // Endpoint URL
 export const endpoint = 'https://catenax.azurewbsites.net/';
@@ -35,11 +35,15 @@ export const adalConfig: AdalConfig = {
   tenant: 'catenaxpoc.onmicrosoft.com'
 };
 
+const ctx: any = new AuthenticationContext(adalConfig);
+
+export const withAdalLoginApi = withAdalLogin(ctx, adalConfig.clientId);
+
 class AdalContext {
   private readonly authContext: AuthenticationContext;
   private readonly isAdmin: boolean = false;
   constructor() {
-    this.authContext = new AuthenticationContext(adalConfig);
+    this.authContext = ctx;
   }
 
   get AuthContext() {
@@ -81,6 +85,79 @@ class AdalContext {
 
   public getCachedToken(): string {
     return this.authContext.getCachedToken(this.authContext.config.clientId);
+  }
+
+  public getFullName(): string {
+    let name = '';
+    const user = this.authContext.getCachedUser();
+    if (user) {
+      name = user.profile?.name || user.userName;
+    }
+
+    const n = name.indexOf('(');
+    if (n >= 0) {
+      name = name.substring(0, n).trim();
+    }
+
+    return name;
+  }
+
+  public getInitials(username: string): string {
+    let initials = 'XX';
+    if (username.indexOf('@') < 0) {
+      const parts = username.split(' ');
+      initials = parts[0].substr(0, 1);
+      if (parts.length > 1) {
+        initials += parts[1].substr(0, 1);
+      }
+    } else {
+      const parts = username.split('@');
+      if (parts.length > 0) {
+        initials = parts[0].substr(0, 1);
+        const words = parts[0].split(/[^a-zA-Z]/);
+        if (words.length > 1) {
+          initials += words[1].substr(0, 1);
+        } else {
+          for (let i = 1; i < parts[0].length; i++) {
+            const ch = parts[0].substr(i, 1);
+            if ('ABCDEFGHIJKLMNOPQRSTUVWXYZ'.indexOf(ch) > 0) {
+              initials += ch;
+              break;
+            }
+          }
+        }
+
+        if (initials.length < 2 && parts[0].length > 1) {
+          initials = parts[0].substr(0, 2);
+        }
+      }
+    }
+
+    return initials.toUpperCase();
+  }
+
+  public getDomain(username: string) {
+    let domain = '';
+    if (username) {
+      const parts = username.split('@');
+      if (parts.length > 1) {
+        domain = parts[1];
+        const n = domain.indexOf('.');
+        if (n > 0) {
+          domain = domain.substring(0, n);
+        }
+      }
+
+      if (domain.length > 0) {
+        domain = domain.substring(0, 1).toUpperCase() + domain.substr(1);
+      }
+
+      if (domain.length < 4) {
+        domain = domain.toUpperCase();
+      }
+    }
+
+    return domain;
   }
 
   public getUsername(): string {
