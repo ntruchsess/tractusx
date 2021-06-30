@@ -72,12 +72,12 @@ class DataUpload2 extends React.Component<RouteComponentProps> {
 
   private async filesUploaded(files: FileList) {
     this.isFileReadyForUpload = true;
-    try {
-      await this.upload('test');
-    } catch {
-      console.log('failed');
-      return;
-    }
+    // try {
+    //   await this.upload('test');
+    // } catch {
+    //   console.log('failed');
+    //   return;
+    // }
 
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
@@ -154,7 +154,7 @@ class DataUpload2 extends React.Component<RouteComponentProps> {
 
   public render() {
     const sortOptions = [{ key: '1', text: 'newest upload' }];
-    const intervalDelay = 100;
+    const intervalDelay = 50;
     const intervalIncrement = 0.01;
 
     const Progress = () => {

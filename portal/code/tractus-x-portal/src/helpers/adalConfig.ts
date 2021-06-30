@@ -6,7 +6,7 @@
 // Copyright (c) Microsoft. All rights reserved
 //
 
-import { AdalConfig, adalGetToken, AuthenticationContext } from 'react-adal';
+import { AdalConfig, adalGetToken, AuthenticationContext, withAdalLogin } from 'react-adal';
 
 // Endpoint URL
 export const endpoint = 'https://catenax.azurewbsites.net/';
@@ -35,11 +35,15 @@ export const adalConfig: AdalConfig = {
   tenant: 'catenaxpoc.onmicrosoft.com'
 };
 
+const ctx: any = new AuthenticationContext(adalConfig);
+
+export const withAdalLoginApi = withAdalLogin(ctx, adalConfig.clientId);
+
 class AdalContext {
   private readonly authContext: AuthenticationContext;
   private readonly isAdmin: boolean = false;
   constructor() {
-    this.authContext = new AuthenticationContext(adalConfig);
+    this.authContext = ctx;
   }
 
   get AuthContext() {

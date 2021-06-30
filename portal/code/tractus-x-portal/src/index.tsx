@@ -14,7 +14,7 @@ import { runWithAdal } from 'react-adal';
 import adalContext from './helpers/adalConfig';
 import { BrowserRouter } from 'react-router-dom';
 
-const DO_NOT_LOGIN = false; // window.location.href.indexOf('/localhost') >= 0;
+const DO_NOT_LOGIN = true;
 
 runWithAdal(
   adalContext.AuthContext,
