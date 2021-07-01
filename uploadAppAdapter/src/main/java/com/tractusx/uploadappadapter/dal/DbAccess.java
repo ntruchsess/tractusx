@@ -4,7 +4,6 @@ package com.tractusx.uploadappadapter.dal;
 import com.tractusx.uploadappadapter.UploadAppAdapterApplication;
 import com.tractusx.uploadappadapter.models.AlertLevel;
 import com.tractusx.uploadappadapter.models.PartMasterData;
-import com.tractusx.uploadappadapter.models.PartQualityAlert;
 
 import java.sql.*;
 import java.time.Instant;
@@ -151,10 +150,9 @@ public class DbAccess {
         Connection c = null;
         try {
             DriverManager.registerDriver(new org.postgresql.Driver());
-            //Class.forName("org.postgresql.Driver");
 
             c = DriverManager
-                    .getConnection(config.postGreUploadUrl + "/" + config.postGreUploadDb + "?&ssl=true&sslmode=require",
+                    .getConnection(config.postGreUploadUrl + "/" + config.postGreUploadDb + "?ssl=true&sslmode=require",
                             config.postGreUploadUser,
                             config.postGreUploadPassword);
         } catch (Exception e) {
