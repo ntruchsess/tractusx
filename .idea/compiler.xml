@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="cdns" />
+        <module name="partsmasterdata" />
         <module name="uploadAppAdapter" />
         <module name="partsmasterdata" />
       </profile>
