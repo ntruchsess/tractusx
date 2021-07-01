@@ -14,6 +14,7 @@ public class TableStroageAccess {
 
 
     String[] properties = new String[]{
+    "connectorType","dnsEntry"
     };
 
     public TableStroageAccess(String strorageConnectionstring)
@@ -54,6 +55,9 @@ public class TableStroageAccess {
                     var mapping = new OneIdDNSMapping();
                     mapping.setPartitionKey(PartitionKey);
                     mapping.setRowKey(RowKey);
+                    mapping.connectorType = properties.get("connectorType").getValueAsString();
+                    mapping.dnsEntry = properties.get("dnsEntry").getValueAsString();
+
                     return mapping;
                 }
             };
@@ -64,7 +68,8 @@ public class TableStroageAccess {
                     var connector = new ConnectorDNSRecord();
                             connector.idsConnectorID = mapping.getRowKey();
                             connector.oneID = mapping.getPartitionKey();
-
+                    connector.connectorType = mapping.connectorType;
+                    connector.dnsEntry = mapping.dnsEntry;
                     oneIdDnsMappings.add(connector);
                 }
             }
@@ -73,7 +78,8 @@ public class TableStroageAccess {
                     var connector = new ConnectorDNSRecord();
                     connector.idsConnectorID = mapping.getRowKey();
                     connector.oneID = mapping.getPartitionKey();
-
+                    connector.connectorType = mapping.connectorType;
+                    connector.dnsEntry = mapping.dnsEntry;
                     oneIdDnsMappings.add(connector);
                     break;
                 }
