@@ -3,7 +3,7 @@
 // THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
 // PARTICULAR PURPOSE.
 //
-// Copyright (c) Microsoft. All rights reserved
+// Copyright (c) Microsoft. Licensed under MIT licence.
 //
 
 import { AdalConfig, adalGetToken, AuthenticationContext, withAdalLogin } from 'react-adal';
