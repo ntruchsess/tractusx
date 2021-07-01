@@ -30,7 +30,7 @@ public class PartsMasterAppController {
     }*/
 
     @PostMapping("/api/Insert")
-    public void doPartsInsert(){
-
+    public string doPartsInsert(){
+        return "test";
     }
 }
