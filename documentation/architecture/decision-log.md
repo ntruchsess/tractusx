@@ -11,6 +11,9 @@ Connector:
 - No IdP integration
 - Connector as a Service (Caas) is indicated only as a mocked concept
 - All connector backend data mocked
+- Two Connectors (Central Parts Master Data and KMU Upload Service) are hostes on Azure and implementation is owned by MS
+- The PartChain Connector and Connector for Parts Mock-Data ist hosted by BMW
+- The SAP Tracability App Connector ist hosted by SAP
 
 Onboarding:
 - Governing Body is only indicated on the mock level (blackboxed)
@@ -26,6 +29,7 @@ App-Integration:
 - Pseudo-Push Eventing for QualityAlerts
 - Adapters need to implement the sending and receiving elements
 - A Connector DNS service will be used to translate between company oneid and connectorid
+- The Connector DNS requires a mapping between BusinessPartnerOneID and a ConnectorURL (IDS Connector ID is not sufficient)
 
 Upload-App:
 - Static mapping of custom fields towards tractus-x information model
