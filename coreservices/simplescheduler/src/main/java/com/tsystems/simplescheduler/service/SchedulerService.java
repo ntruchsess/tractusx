@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.ListUtils;
+import org.apache.commons.collections4.MapUtils;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -37,7 +38,7 @@ public class SchedulerService {
             log.error("Consumer connector has no registered resources");
             return;
         }
-        resourcesProperties.getResources().forEach((resourceId, recipientConnectorBaseUrl) -> {
+        MapUtils.emptyIfNull(resourcesProperties.getResources()).forEach((resourceId, recipientConnectorBaseUrl) -> {
             var resourceURI = String.format(RESOURCE_URI_TEMPLATE, resourceId);
 
             var artifactId = resources.stream()

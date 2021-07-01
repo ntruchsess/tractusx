@@ -10,7 +10,7 @@ import java.util.Map;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ConfigurationProperties(prefix = "scheduler")
+@ConfigurationProperties(prefix = "scheduler", ignoreInvalidFields = true)
 public class ResourcesProperties {
     private Map<String, String> resources;
 }
