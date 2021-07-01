@@ -1,0 +1,23 @@
+# Build the jar
+FROM maven:3.8-jdk-11 AS maven
+
+COPY pom.xml /tmp/
+
+WORKDIR tmp
+RUN mvn verify clean --fail-never
+
+COPY src /tmp/src/
+
+RUN mvn clean package -DskipTests -Dmaven.javadoc.skip=true
+
+# Copy the jar and build image
+FROM openjdk:11
+COPY --from=maven --chown=65532:65532 /tmp/target/*.jar /app/app.jar
+
+WORKDIR /app
+
+EXPOSE 8080
+
+#USER nonroot
+
+ENTRYPOINT ["java","-jar","app.jar"]

@@ -3,7 +3,7 @@
 // THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
 // PARTICULAR PURPOSE.
 //
-// Copyright (c) Microsoft. All rights reserved
+// Copyright (c) Microsoft. Licensed under MIT licence.
 //
 
 import * as React from 'react';
@@ -13,13 +13,13 @@ import { Pivot, PivotItem } from '@fluentui/react';
 import SetUpConnectors from './setupconnector';
 
 @observer
-class ConnectorHeader extends React.Component<RouteComponentProps> {
+class MyConnectors extends React.Component<RouteComponentProps> {
 
   public render() {
     return (
-      <div className=' top82 pa w100pc h50 df aic bgwhite'>
-        <Pivot className='px30 h100pc' aria-label='Header'>
-          <PivotItem className='mr20' headerText='Set up Connector'>
+      <div className='w100pc h50 df aic bgwhite'>
+        <Pivot className='px30 h100pc w100pc' aria-label='Header'>
+          <PivotItem className='mr20' headerText='Set Up Connector'>
             <SetUpConnectors />
           </PivotItem>
         </Pivot>
@@ -28,4 +28,4 @@ class ConnectorHeader extends React.Component<RouteComponentProps> {
   }
 }
 
-export default withRouter(ConnectorHeader);
+export default withRouter(MyConnectors);

@@ -3,7 +3,7 @@
 // THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
 // PARTICULAR PURPOSE.
 //
-// Copyright (c) Microsoft. All rights reserved
+// Copyright (c) Microsoft. Licensed under MIT licence.
 //
 
 import * as React from 'react';
@@ -15,6 +15,8 @@ import './App.css';
 import Home from './components/home';
 import DataUpload from './components/apps/dataupload';
 import DataUpload2 from './components/apps/dataupload2';
+import Registration from './components/reg';
+import { withAdalLoginApi } from './helpers/adalConfig';
 
 const history = createBrowserHistory();
 
@@ -32,13 +34,17 @@ export default class App extends React.Component {
   }
 
   public render() {
+    const ProtectedHome = withAdalLoginApi(Home, () => <div>Loading</div>, () => <div>Error</div>);
+    const ProtectedUpload1 = withAdalLoginApi(DataUpload, () => <div>Loading</div>, () => <div>Error</div>);
+    const ProtectedUpload2 = withAdalLoginApi(DataUpload2, () => <div>Loading</div>, () => <div>Error</div>);
     return (
       <Router history={history}>
         <Switch>
           <Redirect path='/' exact to='/home/dashboard' />
-          <Route path='/home' component={(props) => <Home {...props}/>} />
-          <Route path='/dataupload' component={(props) => <DataUpload {...props}/>} />
-          <Route path='/dataupload2' component={(props) => <DataUpload2 {...props}/>} />
+          <Route path='/home' render={(props) => <ProtectedHome/>} />
+          <Route path='/registration' component={(props) => <Registration {...props}/>} />
+          <Route path='/dataupload' render={()=><ProtectedUpload1/>} />
+          <Route path='/dataupload2' render={()=><ProtectedUpload2/>} />
         </Switch>
       </Router>
     );

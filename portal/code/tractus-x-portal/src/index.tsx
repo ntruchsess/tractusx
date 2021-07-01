@@ -3,7 +3,7 @@
 // THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
 // PARTICULAR PURPOSE.
 //
-// Copyright (c) Microsoft. All rights reserved
+// Copyright (c) Microsoft. Licensed under MIT licence.
 //
 
 import ReactDOM from 'react-dom';
@@ -14,7 +14,7 @@ import { runWithAdal } from 'react-adal';
 import adalContext from './helpers/adalConfig';
 import { BrowserRouter } from 'react-router-dom';
 
-const DO_NOT_LOGIN = false; // window.location.href.indexOf('/localhost') >= 0;
+const DO_NOT_LOGIN = true;
 
 runWithAdal(
   adalContext.AuthContext,
