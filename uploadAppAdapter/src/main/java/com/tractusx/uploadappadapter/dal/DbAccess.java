@@ -151,7 +151,7 @@ public class DbAccess {
         Connection c = null;
         try {
             DriverManager.registerDriver(new org.postgresql.Driver());
-            Class.forName("org.postgresql.Driver");
+            //Class.forName("org.postgresql.Driver");
 
             c = DriverManager
                     .getConnection(config.postGreUploadUrl + "/" + config.postGreUploadDb + "?&ssl=true&sslmode=require",
