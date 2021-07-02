@@ -1,44 +1,94 @@
 package com.tractusx.uploadappadapter.models;
 
 public class PartMasterData {
-    public PartStaticData staticData = new PartStaticData();
-    public PartUniqueData uniqueData = new PartUniqueData();
-    public PartIndividualData individualData = new PartIndividualData();
-    public PartSupplyTree supplyTree = new PartSupplyTree();
-    public PartPartTreeParent partTreeParent = new PartPartTreeParent();
-    public PartQualityAlert qualityAlert = new PartQualityAlert();
+    public PartStaticData StaticData = new PartStaticData();
+    public PartUniqueData UniqueData = new PartUniqueData();
+    public PartIndividualData IndividualData = new PartIndividualData();
+    public PartSupplyTree SupplyTree = new PartSupplyTree();
+    public PartPartTree PartTree = new PartPartTree();
+    public PartQualityAlert QualityAlert = new PartQualityAlert();
+
+    public PartIndividualData getIndividualData() {
+        return IndividualData;
+    }
+
+    public PartPartTree getPartTree() {
+        return PartTree;
+    }
+
+    public PartQualityAlert getQualityAlert() {
+        return QualityAlert;
+    }
+
+    public PartStaticData getStaticData() {
+        return StaticData;
+    }
+
+    public PartSupplyTree getSupplyTree() {
+        return SupplyTree;
+    }
+
+    public PartUniqueData getUniqueData() {
+        return UniqueData;
+    }
+
+    // Setter Methods
+
+    public void setIndividualData(PartIndividualData individualDataObject) {
+        this.IndividualData = individualDataObject;
+    }
+
+    public void setPartTree(PartPartTree partTreeObject) {
+        this.PartTree = partTreeObject;
+    }
+
+    public void setQualityAlert(PartQualityAlert qualityAlertObject) {
+        this.QualityAlert = qualityAlertObject;
+    }
+
+    public void setStaticData(PartStaticData staticDataObject) {
+        this.StaticData = staticDataObject;
+    }
+
+    public void setSupplyTree(PartSupplyTree supplyTreeObject) {
+        this.SupplyTree = supplyTreeObject;
+    }
+
+    public void setUniqueData(PartUniqueData uniqueDataObject) {
+        this.UniqueData = uniqueDataObject;
+    }
 
     public PartMasterData() {}
     public PartMasterData(CsvPart init) {
         //Static data
-        this.staticData.customerOneID = init.customerOneId;
-        this.staticData.customerContractOneID = init.customerContractOneId;
-        this.staticData.manufacturerOneId = init.manufacturerOneId;
-        this.staticData.manufactureContractOneId = init.manufactureContractOneId;
-        this.staticData.partNameCustomer = init.partNameCustomer;
-        this.staticData.partNameManufacturer = init.partNameManufacturer;
-        this.staticData.partNumberCustomer = init.partNameCustomer;
-        this.staticData.partNumberManufacturer = init.partNumberManufacturer;
+        this.StaticData.customerOneId = init.customerOneId;
+        this.StaticData.customerContractOneId = init.customerContractOneId;
+        this.StaticData.manufacturerOneId = init.manufacturerOneId;
+        this.StaticData.manufacturerContractOneId = init.manufactureContractOneId;
+        this.StaticData.partNameCustomer = init.partNameCustomer;
+        this.StaticData.partNameManufacturer = init.partNameManufacturer;
+        this.StaticData.partNumberCustomer = init.partNameCustomer;
+        this.StaticData.partNumberManufacturer = init.partNumberManufacturer;
 
         //PartUnique
-        this.uniqueData.customerUniqueID = init.customerUniqueId;
-        this.uniqueData.uniqueID = init.uniqueId;
-        this.uniqueData.manufacturerUniqueID = init.manufacturerUniqueId;
+        this.UniqueData.customerUniqueId = init.customerUniqueId;
+        this.UniqueData.uniqueId = init.uniqueId;
+        this.UniqueData.manufacturerUniqueId = init.manufacturerUniqueId;
 
         //PartsInidivual
-        this.individualData.productionCountryCode = init.productionCountryCode;
-        this.individualData.productionDateGMT = init.productionDateGmt;
+        this.IndividualData.productionCountryCode = init.productionCountryCode;
+        this.IndividualData.productionDateGmt = init.productionDateGmt;
 
         //PartsSupplyTree
         //this.supplyTree.isParentOf =;
 
         //PartTreeParent
-        this.partTreeParent.isParentOf =init.isParentOf;
+        this.PartTree.isParentOf =init.isParentOf;
 
         //Quality Alert
-        this.qualityAlert.QualityAlert = Boolean.parseBoolean(init.qualityAlert);
+        this.QualityAlert.qualityAlert = Boolean.parseBoolean(init.qualityAlert);
         try {
-            this.qualityAlert.QualityType = AlertLevel.valueOf(init.qualityType);
+            this.QualityAlert.qualityType = AlertLevel.valueOf(init.qualityType);
         }
         catch(IllegalArgumentException ex)
         {

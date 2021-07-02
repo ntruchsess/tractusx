@@ -1,13 +1,12 @@
-package com.tractusx.uploadappadapter.models;
+package com.tractusx.partsmasterdata.models;
 
-public class PartSupplyTree {
+public class PartPartTree {
     //type: array
     //items:
     //type: string
-    //example: 0000003_ZF
-    //description: pNM*, pNM
+    //example: G05
+    //description: UID, UID
     public String[] isParentOf;
-
 
     public void setIsParentOf(String[] isParentOf) {
         this.isParentOf = isParentOf;

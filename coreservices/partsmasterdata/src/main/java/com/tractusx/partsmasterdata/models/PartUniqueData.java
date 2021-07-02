@@ -1,4 +1,4 @@
-package com.tractusx.uploadappadapter.models;
+package com.tractusx.partsmasterdata.models;
 
 public class PartUniqueData {
     //type: string

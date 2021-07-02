@@ -66,25 +66,25 @@ public class DbAccess {
                             "importTimestampUtc) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
 
             for (var part : parts) {
-                insertStatement.setString(1, part.uniqueData.customerUniqueID); //customerUniqueId
-                insertStatement.setString(2, part.staticData.customerContractOneID); //customerContractOneId
-                insertStatement.setString(3, part.staticData.customerOneID); //customerOneId
-                insertStatement.setString(4, Arrays.toString(part.partTreeParent.isParentOf));//isParentOf
-                insertStatement.setString(5, part.staticData.manufacturerOneId); //manufacturerOneId
-                insertStatement.setString(6, part.uniqueData.manufacturerUniqueID); //manufacturerUniqueId
-                insertStatement.setString(7, part.staticData.partNumberCustomer); //partNameCustomer
-                insertStatement.setString(8, part.staticData.partNameManufacturer); //partNameManufacturer
-                insertStatement.setString(9, part.staticData.partNumberCustomer); //partNumberCustomer
-                insertStatement.setString(10, part.staticData.partNumberManufacturer); //partNumberManufacturer
-                insertStatement.setString(11, part.individualData.productionCountryCode); //productionCountryCode
-                insertStatement.setString(12, part.individualData.productionDateGMT); //productionDateGmt
-                insertStatement.setBoolean(13, part.qualityAlert.QualityAlert); //qualityAlert
-                var qualType = String.valueOf(part.qualityAlert.QualityType);
+                insertStatement.setString(1, part.UniqueData.customerUniqueId); //customerUniqueId
+                insertStatement.setString(2, part.StaticData.customerContractOneId); //customerContractOneId
+                insertStatement.setString(3, part.StaticData.customerOneId); //customerOneId
+                insertStatement.setString(4, Arrays.toString(part.PartTree.isParentOf));//isParentOf
+                insertStatement.setString(5, part.StaticData.manufacturerOneId); //manufacturerOneId
+                insertStatement.setString(6, part.UniqueData.manufacturerUniqueId); //manufacturerUniqueId
+                insertStatement.setString(7, part.StaticData.partNumberCustomer); //partNameCustomer
+                insertStatement.setString(8, part.StaticData.partNameManufacturer); //partNameManufacturer
+                insertStatement.setString(9, part.StaticData.partNumberCustomer); //partNumberCustomer
+                insertStatement.setString(10, part.StaticData.partNumberManufacturer); //partNumberManufacturer
+                insertStatement.setString(11, part.IndividualData.productionCountryCode); //productionCountryCode
+                insertStatement.setString(12, part.IndividualData.productionDateGmt); //productionDateGmt
+                insertStatement.setBoolean(13, part.QualityAlert.qualityAlert); //qualityAlert
+                var qualType = String.valueOf(part.QualityAlert.qualityType);
                 if(qualType == "null")
                     qualType = "";
                 insertStatement.setString(14, qualType);//part.qualityAlert.QualityType); //qualityType
-                insertStatement.setString(15, part.staticData.manufactureContractOneId); //manufactureContractOneId
-                insertStatement.setString(16, part.uniqueData.uniqueID); //uniqueId
+                insertStatement.setString(15, part.StaticData.manufacturerContractOneId); //manufactureContractOneId
+                insertStatement.setString(16, part.UniqueData.uniqueId); //uniqueId
                 insertStatement.setTimestamp(17, Timestamp.from(dateTimeNowUtc));
 
 
@@ -112,26 +112,26 @@ public class DbAccess {
             while (resultSet.next())
             {
                 PartMasterData p = new PartMasterData();
-                p.uniqueData.customerUniqueID = resultSet.getString("customerUniqueId"); //customerUniqueId
-                p.staticData.customerContractOneID = resultSet.getString("customerContractOneId"); //customerContractOneId
-                p.staticData.customerOneID = resultSet.getString("customerOneId"); //customerOneId
-                p.partTreeParent.isParentOf = resultSet.getString("isParentOf").split(",");//
-                p.staticData.manufacturerOneId = resultSet.getString("manufacturerOneId"); //manufacturerOneId
-                p.uniqueData.manufacturerUniqueID = resultSet.getString("manufacturerUniqueId"); //manufacturerUniqueId
-                p.staticData.partNumberCustomer = resultSet.getString("partNameCustomer"); //partNameCustomer
-                p.staticData.partNameManufacturer = resultSet.getString("partNameManufacturer"); //partNameManufacturer
-                p.staticData.partNumberCustomer = resultSet.getString("partNumberCustomer"); //partNumberCustomer
-                p.staticData.partNumberManufacturer = resultSet.getString("partNumberManufacturer"); //partNumberManufacturer
-                p.individualData.productionCountryCode = resultSet.getString("productionCountryCode"); //productionCountryCode
-                p.individualData.productionDateGMT = resultSet.getString("productionDateGmt"); //productionDateGmt
-                p.qualityAlert.QualityAlert = resultSet.getBoolean("qualityAlert"); //qualityAlert
+                p.UniqueData.customerUniqueId = resultSet.getString("customerUniqueId"); //customerUniqueId
+                p.StaticData.customerContractOneId = resultSet.getString("customerContractOneId"); //customerContractOneId
+                p.StaticData.customerOneId = resultSet.getString("customerOneId"); //customerOneId
+                p.PartTree.isParentOf = resultSet.getString("isParentOf").split(",");//
+                p.StaticData.manufacturerOneId = resultSet.getString("manufacturerOneId"); //manufacturerOneId
+                p.UniqueData.manufacturerUniqueId = resultSet.getString("manufacturerUniqueId"); //manufacturerUniqueId
+                p.StaticData.partNumberCustomer = resultSet.getString("partNameCustomer"); //partNameCustomer
+                p.StaticData.partNameManufacturer = resultSet.getString("partNameManufacturer"); //partNameManufacturer
+                p.StaticData.partNumberCustomer = resultSet.getString("partNumberCustomer"); //partNumberCustomer
+                p.StaticData.partNumberManufacturer = resultSet.getString("partNumberManufacturer"); //partNumberManufacturer
+                p.IndividualData.productionCountryCode = resultSet.getString("productionCountryCode"); //productionCountryCode
+                p.IndividualData.productionDateGmt = resultSet.getString("productionDateGmt"); //productionDateGmt
+                p.QualityAlert.qualityAlert = resultSet.getBoolean("qualityAlert"); //qualityAlert
                 var qualType = resultSet.getString("qualityType");
                 if(!qualType.equals("")) {
-                    p.qualityAlert.QualityType = AlertLevel.valueOf(resultSet.getString("qualityType"));
+                    p.QualityAlert.qualityType = AlertLevel.valueOf(resultSet.getString("qualityType"));
                 }
 
-                p.staticData.manufactureContractOneId= resultSet.getString("manufactureContractOneId"); //manufactureContractOneId
-                p.uniqueData.uniqueID = resultSet.getString("uniqueId"); //uniqueId
+                p.StaticData.manufacturerContractOneId= resultSet.getString("manufactureContractOneId"); //manufactureContractOneId
+                p.UniqueData.uniqueId = resultSet.getString("uniqueId"); //uniqueId
                 parts.add(p);
             }
 
