@@ -78,7 +78,7 @@ stages:
             inputs:
               action: createSecret
               secretType: generic
-              secretName: partsmasterdata-secret
+              secretName: cdns-secret
               secretArguments: --from-literal=sotrage_connectionstring=$(STORAGEACCOUNT_CONNECTIONSTRING)
 
           - task: KubernetesManifest@0
