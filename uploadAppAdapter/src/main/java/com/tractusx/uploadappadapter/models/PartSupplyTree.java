@@ -7,4 +7,13 @@ public class PartSupplyTree {
     //example: 0000003_ZF
     //description: pNM*, pNM
     public String[] isParentOf;
+
+
+    public void setIsParentOf(String[] isParentOf) {
+        this.isParentOf = isParentOf;
+    }
+
+    public String[] getQualityAlert() {
+        return isParentOf;
+    }
 }
