@@ -119,6 +119,7 @@ iframe {border-style: none;}
 .bgred3 {background-color: #ec9d80;}
 .bgred4 {background-color: #e5754d;}
 .bgred5 {background-color: #DA3B01;}
+.bgac{background-color: #ACACAC;}
 .fgnavblue {color: #106ebe;}
 .fgac{color: #ACACAC;}
 .fgnavbluechildren > * {color:#106ebe;}
@@ -154,6 +155,8 @@ iframe {border-style: none;}
 .fsmds {font-size: 14px;}
 .fsdlg {font-size: 14px;font-weight: 600}
 .fslg {font-size: 25px;}
+.fs55 {font-size: 55px;}
+.fs74 {font-size: 74px;}
 .fshuge {font-size: 100px;}
 .italic {font-style: italic;}
 .bold {font-weight: bold;}
@@ -192,6 +195,7 @@ iframe {border-style: none;}
 .h15pc {height: 15%}
 .h30pc {height: 30%}
 .h50pc {height: 50%}
+.h60pc {height: 60%}
 .h70pc {height: 70%}
 .h90pc {height:90%}
 .h95pc {height:95%}
@@ -262,6 +266,7 @@ iframe {border-style: none;}
 .w100-200 {width: calc(100% - 200px)}
 .w100-300 {width: calc(100% - 300px)}
 .w100-310 {width: calc(100% - 310px)}
+.w100-410 {width: calc(100% - 410px)}
 .w100p20 {width:calc(100% + 20px)}
 .w100vw {width:100vw}
 .w50vw {width:50vw}
@@ -269,8 +274,10 @@ iframe {border-style: none;}
 .w50pc {width:50%}
 .w70pc {width:70%}
 .w25pc {width:25%}
+.w20pc {width:20%}
 .w30pc {width:30%}
-.w95pc {width:99%}
+.w95pc {width:95%}
+.w90pc {width:90%}
 .w0 {width:0px;transition: 0.2s;}
 .w1 {width:1px;}
 .w2 {width:2px;}
@@ -470,6 +477,7 @@ iframe {border-style: none;}
 .ml290 {margin-left: 290px}
 .ml250 {margin-left: 250px}
 .ml300 {margin-left: 300px}
+.ml360 {margin-left: 360px}
 .ml470 {margin-left: 470px}
 .ml610 {margin-left: 610px}
 .ml-2 {margin-left: -2px}
@@ -605,6 +613,7 @@ iframe {border-style: none;}
 .mb40 {margin-bottom: 40px;}
 .mb50 {margin-bottom: 50px;}
 .mb60 {margin-bottom: 60px;}
+.mb100 {margin-bottom: 100px;}
 .mx2 {margin-left: 2px; margin-right: 2px;}
 .mx15 {margin-left: 15px; margin-right: 15px;}
 .mx12 {margin-left: 12px; margin-right: 12px;}
@@ -640,6 +649,9 @@ iframe {border-style: none;}
 .bbss {border-bottom-style: solid;}
 .bdash {border: dashed 2px #ccc}
 .bbucket {border-left: 1px solid #444;border-bottom: 1px solid #444;border-right: 1px solid #444;}
+
+.bleft{ border-left: 10px solid#b3cb2d;}
+.bnone{border: none;}
 
 .bw0 {border-width:0px;}
 .bw1 {border-width:1px;}
@@ -762,6 +774,7 @@ iframe {border-style: none;}
 .lh25{line-height: 25px;}
 .lh40{line-height: 40px;}
 .lh48{line-height: 48px;}
+.lh72{line-height: 72px;}
 .lh100{line-height: 100px;}
 .bw {word-wrap: break-word;word-break: break-all}
 .transition {transition: 0.2s}
@@ -931,3 +944,4 @@ mat-form-field .mat-input-placeholder {
 }
 
 .bgimage { background-image: url(/src/catenabackground.png); background-size: 100%;background-repeat: no-repeat}
+.bgregisterimage { background-image: url(/src/registerbackground.png); background-size: 75%;background-repeat: no-repeat; background-position-x: right; background-position-y:center;}
