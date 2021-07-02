@@ -24,7 +24,7 @@ spec:
             valueFrom:
               secretKeyRef:
                 key: sotrage_connectionstring
-                name: uploadappadapter-secret
+                name: partsmasterdata-secret
 ---
 apiVersion: v1
 kind: Service
