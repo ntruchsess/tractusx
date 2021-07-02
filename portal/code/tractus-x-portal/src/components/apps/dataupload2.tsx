@@ -1,10 +1,17 @@
-// THIS CODE AND INFORMATION IS PROVIDED AS IS WITHOUT WARRANTY OF
-// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
-// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
-// PARTICULAR PURPOSE.
+// Copyright (c) 2021 Microsoft
 //
-// Copyright (c) Microsoft. Licensed under MIT licence.
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
 //
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 
 import * as React from 'react';
 import { observer } from 'mobx-react';
@@ -73,7 +80,7 @@ class DataUpload2 extends React.Component<RouteComponentProps> {
   private async filesUploaded(files: FileList) {
     this.isFileReadyForUpload = true;
     // try {
-    //   await this.upload('test');
+    //   await this.upload(files[0]);
     // } catch {
     //   console.log('failed');
     //   return;
@@ -108,10 +115,17 @@ class DataUpload2 extends React.Component<RouteComponentProps> {
     this.save();
   }
 
-  public upload(body: string): Promise<any> {
+  private async uploadFile(file: string, name: string) {
+    await this.upload(file);
+  }
+
+  public upload(file: string): Promise<any> {
     const promise = new Promise<any>((resolve, reject) => {
       const auth = btoa(`${username}:${password}`);
-      fetch(uploadUrl, { method: 'POST', headers: { 'Authorization': `Basic ${auth}` }, body: body })
+      const data = new FormData();
+      data.append('file', file);
+      data.append('company', 'mttestcompany1');
+      fetch(uploadUrl, { method: 'POST', headers: { 'Authorization': `Basic ${auth}` }, body: data })
         .then((val) => {
           resolve(val);
         }).catch((error) => {
@@ -212,8 +226,8 @@ class DataUpload2 extends React.Component<RouteComponentProps> {
                     <Icon className='fs60 fgblack' iconName='CloudUpload' role='img' />
                     <div className='fgblack fs20 bold mt10 lh18'>Drag and drop your CSV files here</div>
                     <div className='fggrey fs12 lh18 mt10'>or</div>
-                    <UploadButton className='fs14 mt10 fgwhite' text='BROWSE FOR FILES' iconName='' buttonType='Primary'
-                      acceptFileTypes='*' multiple onChangeFileList={(files) => this.filesUploaded(files)} />
+                    <UploadButton className='fs14 mt10 fgwhite' text='BROWSE FOR FILE' iconName='' buttonType='Primary'
+                      acceptFileTypes='*' onChange={(file, name)=>this.uploadFile(file, name)} />
                     <div className='fggrey fs12 lh18 mt10'>Max 12MB per file</div>
                   </div>
                   :

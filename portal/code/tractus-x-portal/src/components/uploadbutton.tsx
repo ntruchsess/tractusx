@@ -1,16 +1,21 @@
-// THIS CODE AND INFORMATION IS PROVIDED AS IS WITHOUT WARRANTY OF
-// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
-// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
-// PARTICULAR PURPOSE.
+// Copyright (c) 2021 Microsoft
 //
-// Copyright (c) Microsoft. Licensed under MIT licence.
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
 //
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
 // eslint-disable-next-line
 import React, { Component } from 'react';
 import { ActionButton, DefaultButton, PrimaryButton } from '@fluentui/react';
 import { observer } from 'mobx-react';
-import AlertDialog from './alertdialog';
 import { resizedataURL } from '../helpers/utils';
 
 interface IProp {
@@ -69,18 +74,8 @@ export class UploadButton extends Component<IProp> {
       this.props.onChangeFileList(this.input.files);
     } else {
       if (this.input.files && this.input.files.length === 1) {
-        const name = this.input.files[0].name;
-        const n = name.lastIndexOf('.');
-        const ext = ((n >= 0) ? name.substr(n) : '').toLowerCase();
-        const accept = this.props.acceptFileTypes || '.png,.jpg,.jpeg';
-        if (ext.length === 0 || accept.indexOf(ext) < 0) {
-          AlertDialog.global.show(true, '', "That doesn't appear to be a valid image file (.png,.jpg,.jpeg), please retry.");
-          return;
-        }
-
         const reader = new FileReader();
         reader.onload = (file) => this.onLoad(file);
-
         reader.readAsArrayBuffer(this.input.files[0]);
       }
     }
