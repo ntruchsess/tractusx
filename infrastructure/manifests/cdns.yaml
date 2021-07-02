@@ -24,7 +24,7 @@ spec:
             valueFrom:
               secretKeyRef:
                 key: sotrage_connectionstring
-                name: partsmasterdata-secret
+                name: cdns-secret
 ---
 apiVersion: v1
 kind: Service
