@@ -21,7 +21,8 @@ import './App.css';
 import Home from './components/home';
 import DataUpload from './components/apps/dataupload';
 import DataUpload2 from './components/apps/dataupload2';
-import Registration from './components/reg';
+import Registration from './components/registration/register';
+import VerifyCompany from './components/registration/verifycompany';
 import { withAdalLoginApi } from './helpers/adalConfig';
 
 const history = createBrowserHistory();
@@ -49,6 +50,7 @@ export default class App extends React.Component {
           <Redirect path='/' exact to='/home/dashboard' />
           <Route path='/home' render={(props) => <ProtectedHome/>} />
           <Route path='/registration' component={(props) => <Registration {...props}/>} />
+          <Route path='/verifyoneid' component={(props) => <VerifyCompany {...props}/>} />
           <Route path='/dataupload' render={()=><ProtectedUpload1/>} />
           <Route path='/dataupload2' render={()=><ProtectedUpload2/>} />
         </Switch>

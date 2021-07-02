@@ -12,20 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import * as React from 'react';
-import { observer } from 'mobx-react';
-
-@observer
-export default class Registration extends React.Component {
-
-  public render() {
-    return (
-      <div className='w100pc h100pc df fdc'>
-        <div className='ml50 mr50 mt50 bgwhite w100-100 df fdc'>
-          <span className='fs20 bold ml50 mt20'>The registration flow goes here</span>
-          <span className='fs14 ml50 mt10 mb50'>&nbsp;</span>
-        </div>
-      </div>
-    );
-  }
+export class AccountDetail {
+  public firstName = '';
+  public lastName = '';
+  public emailAddress = '';
+  public password = '';
 }
