@@ -83,7 +83,7 @@ stages:
               action: createSecret
               secretType: generic
               secretName: partsmasterdata-secret
-              secretArguments: --from-literal=http_basic_auth_password=$(HTTPPASSWORD) --from-literal=sotrage_connectionstring=$(STORAGEACCOUNT_CONNECTIOSTRING)
+              secretArguments: --from-literal=http_basic_auth_password=$(HTTPPASSWORD) --from-literal=sotrage_connectionstring=$(STORAGEACCOUNT_CONNECTIOSTRING) --from-literal=postgres_upload_url=$(POSTGREUPLOADURL) --from-literal=postgre_upload_user=$(POSTGREUPLOADUSER) --from-literal=postgre_upload_password=$(POSTGREUPLOADPASSWORD) --from-literal=postgre_upload_db=$(POSTGREUPLOADDB)
 
           - task: KubernetesManifest@0
             displayName: Deploy to Kubernetes cluster
