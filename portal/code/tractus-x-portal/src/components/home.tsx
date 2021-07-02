@@ -30,6 +30,7 @@ import UserMgmt from './usermanagement';
 import MyConnectors from './myconnectors';
 import MyData from './mydata';
 import { observable } from 'mobx';
+import adalContext from '../helpers/adalConfig';
 
 const navStyles: Partial<INavStyles> = {
   root: {
@@ -152,6 +153,16 @@ const navLinkGroupsData: INavLinkGroup[] = [
 class Home extends React.Component<RouteComponentProps> {
   @observable public static selectedKey1 = 'key1';
   @observable public static selectedKey2 = 'key0';
+  static first = true;
+
+  constructor(props: any) {
+    super(props);
+    if (Home.first) {
+      const token = adalContext.getCachedToken();
+      console.log(token);
+      Home.first = false;
+    }
+  }
 
   linkClick(ev: React.MouseEvent<HTMLElement, MouseEvent>, item: INavLink): void {
     ev.stopPropagation();
