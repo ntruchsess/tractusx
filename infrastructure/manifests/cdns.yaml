@@ -18,14 +18,20 @@ spec:
         image: catenaxdevacr.azurecr.io/cdns
         ports:
         env:
-          - containerPort: 8080
-            - name: MAPPINGTABLENAME
-              value: "OneIdDnsMapping"
-            - name: STORAGE_CONNECTIONSTRING
-              valueFrom:
-                secretKeyRef:
-                  key: sotrage_connectionstring
-                  name: cdns-secret
+          - name: MAPPINGTABLENAME
+            value: "OneIdDnsMapping"
+          - name: STORAGE_CONNECTIONSTRING
+            valueFrom:
+              secretKeyRef:
+                key: sotrage_connectionstring
+                name: cdns-secret
+          - name: HTTPUSERNAME
+            value: "TractusX"
+          - name: HTTPPASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: http_basic_auth_password
+                name: cdns-secret
 ---
 apiVersion: v1
 kind: Service
