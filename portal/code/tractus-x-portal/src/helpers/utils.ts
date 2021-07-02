@@ -12,6 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+export function readTextFile(file: File): Promise<string> {
+  const promise = new Promise<string>((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = (f: any) => {
+      if (f.currentTarget && f.currentTarget.readyState === 2) {
+        const buf = Buffer.from(f.currentTarget.result, 'binary');
+        const contents = buf.toString();
+        resolve(contents);
+      }
+    }
+    reader.readAsArrayBuffer(file);
+  });
+
+  return promise;
+}
+
 export function Random(limit: number): number {
   return Math.floor(Math.random() * limit);
 }
