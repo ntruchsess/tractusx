@@ -18,10 +18,13 @@ spec:
         image: catenaxdevacr.azurecr.io/cdns
         ports:
         - containerPort: 8080
-        resources:
-            limits:
-              cpu: "1"
-              memory: "512Mi"
+          - name: MAPPINGTABLENAME
+            value: "OneIdDnsMapping"
+          - name: STORAGE_CONNECTIONSTRING
+            valueFrom:
+              secretKeyRef:
+                key: sotrage_connectionstring
+                name: uploadappadapter-secret
 ---
 apiVersion: v1
 kind: Service
