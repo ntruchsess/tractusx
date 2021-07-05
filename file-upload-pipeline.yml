@@ -21,7 +21,7 @@ variables:
   dockerRegistryServiceConnection: '553abab0-5db0-4932-aaaf-25147ed09cf7'
   imageRepository: 'uploadappadapter'
   containerRegistry: 'catenaxdevacr.azurecr.io'
-  dockerfilePath: './kmuuploadapp/Dockerfile'
+  dockerfilePath: './coreservices/kmuuploadapp/Dockerfile'
   tag: '$(Build.BuildId)'
   imagePullSecret: 'catenaxdevacr12483f45-auth'
 
@@ -39,7 +39,7 @@ stages:
     steps:
     - task: Maven@3
       inputs:
-        mavenPomFile: './kmuuploadapp/pom.xml'
+        mavenPomFile: './coreservices/kmuuploadapp/pom.xml'
         publishJUnitResults: false
         javaHomeOption: JDKVersion
         jdkVersionOption: '1.11'
