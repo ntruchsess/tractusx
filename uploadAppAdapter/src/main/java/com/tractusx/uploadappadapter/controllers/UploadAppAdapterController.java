@@ -1,5 +1,6 @@
 package com.tractusx.uploadappadapter.controllers;
 
+import com.tractusx.uploadappadapter.config.SecurityConfiguration;
 import com.tractusx.uploadappadapter.dal.*;
 import com.tractusx.uploadappadapter.models.PartMasterData;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,6 @@ public class UploadAppAdapterController {
         var dbAccess = new DbAccess(dbConfig);
         return dbAccess.GetPartsFromDatabase(companyOneId);
     }
-
 
     @PostMapping("/api/upload")
     public String handleFileUpload(@RequestParam("file")MultipartFile file, @RequestParam String company){
