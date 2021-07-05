@@ -51,6 +51,16 @@ spec:
               secretKeyRef:
                 key: postgre_upload_db
                 name: uploadappadapter-secret
+          - name: AADAPIIDURI
+            valueFrom:
+              secretKeyRef:
+                key: aad_api_id_uri
+                name: uploadappadapter-secret
+          - name: AADCLIENTID
+            valueFrom:
+              secretKeyRef:
+                key: aad_client_id
+                name: uploadappadapter-secret
         ports:
         - containerPort: 8080
 ---
