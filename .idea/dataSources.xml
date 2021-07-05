@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:postgresql://catxpostgre.postgres.database.azure.com:5432/uploaddb?ssl=true&amp;sslmode=require</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="partsmasterdb@catxpostgre.postgres.database.azure.com" uuid="c29bd393-4658-46bd-976f-4850002486ef">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://catxpostgre.postgres.database.azure.com:5432/partsmasterdb</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
