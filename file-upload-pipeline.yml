@@ -9,7 +9,7 @@ trigger:
       - main
   paths:
     include:
-      - 'uploadAppAdapter/*'
+           - 'coreservices/kmuuploadapp/*'
 
 
 resources:
@@ -85,7 +85,7 @@ stages:
               action: createSecret
               secretType: generic
               secretName: uploadappadapter-secret
-              secretArguments: --from-literal=http_basic_auth_password=$(HTTPPASSWORD) --from-literal=sotrage_connectionstring=$(STORAGEACCOUNT_CONNECTIONSTRING) --from-literal=postgres_upload_url=$(POSTGREUPLOADURL) --from-literal=postgre_upload_user=$(POSTGREUPLOADUSER) --from-literal=postgre_upload_password=$(POSTGREUPLOADPASSWORD) --from-literal=postgre_upload_db=$(POSTGREUPLOADDB)
+              secretArguments: --from-literal=http_basic_auth_password=$(HTTPPASSWORD) --from-literal=sotrage_connectionstring=$(STORAGEACCOUNT_CONNECTIONSTRING) --from-literal=postgres_upload_url=$(POSTGREUPLOADURL) --from-literal=postgre_upload_user=$(POSTGREUPLOADUSER) --from-literal=postgre_upload_password=$(POSTGREUPLOADPASSWORD) --from-literal=postgre_upload_db=$(POSTGREUPLOADDB) --from-literal=aad_client_id=$(AADCLIENTID) --from-literal=aad_api_id_uri=$(AADAPIIDURI)
           
           - task: KubernetesManifest@0
             displayName: Deploy to Kubernetes cluster
