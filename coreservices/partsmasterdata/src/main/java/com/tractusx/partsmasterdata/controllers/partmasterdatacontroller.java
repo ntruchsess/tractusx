@@ -1,6 +1,8 @@
 package com.tractusx.partsmasterdata.controllers;
 
+import com.tractusx.partsmasterdata.dal.DbAccess;
 import com.tractusx.partsmasterdata.dal.DbConfiguration;
+import com.tractusx.partsmasterdata.models.PartMasterData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,7 +23,11 @@ public class partmasterdatacontroller {
     }*/
 
     @PostMapping("/api/Insert")
-    public String doPartsInsert(){
+    public String doPartsInsert(PartMasterData[] parts){
+        DbAccess da = new DbAccess(dbConfig);
+        da.SavePartsToDataBase(parts);
+
+
         return "test";
     }
 }
