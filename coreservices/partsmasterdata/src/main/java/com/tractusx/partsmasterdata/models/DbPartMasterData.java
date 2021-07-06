@@ -7,6 +7,8 @@ public class DbPartMasterData extends PartMasterData{
     public Timestamp validUntilUtc;
     public Boolean isTempPart;
 
+    public DbPartMasterData(){};
+
     public int getId() {
         return id;
     }

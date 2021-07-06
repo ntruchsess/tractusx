@@ -18,6 +18,7 @@ import { observable } from 'mobx';
 import adalContext from '../helpers/adalConfig';
 import { Icon, Pivot, PivotItem } from '@fluentui/react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
+import { AppState } from '../stores/appstate';
 
 interface IProp extends RouteComponentProps{
   href: string;
@@ -33,10 +34,21 @@ class Header extends React.Component<IProp> {
   @observable username = '';
   @observable initials = '';
   @observable selectedKey = '';
+  @observable isAdmin = false;
 
-  componentDidMount() {
+  async componentDidMount() {
     this.username = adalContext.getFullName();
     this.initials = adalContext.getInitials(this.username);
+    const groups = await adalContext.getGroups();
+    AppState.state.isAdmin = false;
+    for (const g of groups.value) {
+      const group = g as string;
+      if (group === 'ec5a8b75-4839-4ff1-b50d-f8159653d9f0' || group === '463512e5-968f-4b2d-8283-737be4a67182') {
+        AppState.state.isAdmin = true;
+      }
+    }
+
+    this.isAdmin = AppState.state.isAdmin;
   }
 
   pivotClick(item: PivotItem): void {
@@ -71,9 +83,12 @@ class Header extends React.Component<IProp> {
         </Pivot>}
         <div className='flex1' />
         <div className='bgblue fgwhite aic jcc df fs16 br50pc h40 w40 mr10'>{this.initials}</div>
-        <div className='df fdc'>
-          <span className='mr50 fs14'>{this.username}</span>
-          <span className='mr50 fs14'>{adalContext.getDomain(adalContext.getUsername())}</span>
+        <div className='df fdc mr50'>
+          <span className='fs14'>{this.username}</span>
+          <div className='df'>
+            <span className='fs14'>{adalContext.getDomain(adalContext.getUsername())}</span>
+            {this.isAdmin && <span className='ml5 fs14'>(Admin)</span>}
+          </div>
         </div>
       </div>
     );

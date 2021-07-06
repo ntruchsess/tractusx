@@ -9,7 +9,7 @@ trigger:
       - main
   paths:
     include:
-      - 'uploadAppAdapter/*'
+           - 'coreservices/kmuuploadapp/*'
 
 
 resources:
@@ -21,7 +21,7 @@ variables:
   dockerRegistryServiceConnection: '553abab0-5db0-4932-aaaf-25147ed09cf7'
   imageRepository: 'uploadappadapter'
   containerRegistry: 'catenaxdevacr.azurecr.io'
-  dockerfilePath: './uploadAppAdapter/Dockerfile'
+  dockerfilePath: './coreservices/kmuuploadapp/Dockerfile'
   tag: '$(Build.BuildId)'
   imagePullSecret: 'catenaxdevacr12483f45-auth'
 
@@ -39,7 +39,7 @@ stages:
     steps:
     - task: Maven@3
       inputs:
-        mavenPomFile: './uploadAppAdapter/pom.xml'
+        mavenPomFile: './coreservices/kmuuploadapp/pom.xml'
         publishJUnitResults: false
         javaHomeOption: JDKVersion
         jdkVersionOption: '1.11'
@@ -85,7 +85,7 @@ stages:
               action: createSecret
               secretType: generic
               secretName: uploadappadapter-secret
-              secretArguments: --from-literal=http_basic_auth_password=$(HTTPPASSWORD) --from-literal=sotrage_connectionstring=$(STORAGEACCOUNT_CONNECTIONSTRING) --from-literal=postgres_upload_url=$(POSTGREUPLOADURL) --from-literal=postgre_upload_user=$(POSTGREUPLOADUSER) --from-literal=postgre_upload_password=$(POSTGREUPLOADPASSWORD) --from-literal=postgre_upload_db=$(POSTGREUPLOADDB)
+              secretArguments: --from-literal=http_basic_auth_password=$(HTTPPASSWORD) --from-literal=sotrage_connectionstring=$(STORAGEACCOUNT_CONNECTIONSTRING) --from-literal=postgres_upload_url=$(POSTGREUPLOADURL) --from-literal=postgre_upload_user=$(POSTGREUPLOADUSER) --from-literal=postgre_upload_password=$(POSTGREUPLOADPASSWORD) --from-literal=postgre_upload_db=$(POSTGREUPLOADDB) --from-literal=aad_client_id=$(AADCLIENTID) --from-literal=aad_api_id_uri=$(AADAPIIDURI)
           
           - task: KubernetesManifest@0
             displayName: Deploy to Kubernetes cluster

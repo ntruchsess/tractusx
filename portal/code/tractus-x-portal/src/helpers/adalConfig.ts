@@ -93,6 +93,23 @@ class AdalContext {
     return this.authContext.getCachedToken(this.authContext.config.clientId);
   }
 
+  public getGroups() {
+    const promise = new Promise<any>((resolve, reject) => {
+      adalContext.acquireToken('https://graph.microsoft.com').then((token) => {
+        const u = 'https://graph.microsoft.com/v1.0/me/getMemberGroups';
+        fetch(u, {
+          method: 'POST', body: JSON.stringify({ 'securityEnabledOnly': false }),
+          headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' }
+        }).then((val) => val.json().then((json) => resolve(json)));
+      }).catch((error) => {
+        console.log(error.message);
+        reject(error.message);
+      })
+    });
+  
+    return promise;
+  }
+  
   public getFullName(): string {
     let name = '';
     const user = this.authContext.getCachedUser();
