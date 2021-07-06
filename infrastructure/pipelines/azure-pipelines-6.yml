@@ -66,7 +66,6 @@ stages:
     displayName: Deploy
     pool:
       vmImage: $(vmImageName)
-    kubernetesServiceConnection: catenax-dev-aks-services-simplescheduler
     strategy:
       runOnce:
         deploy:
@@ -74,12 +73,14 @@ stages:
           - task: KubernetesManifest@0
             displayName: Create imagePullSecret
             inputs:
+              kubernetesServiceConnection: catenax-dev-aks-services-simplescheduler
               action: createSecret
               secretName: $(imagePullSecret)
               dockerRegistryEndpoint: $(dockerRegistryServiceConnection)
           - task: KubernetesManifest@0
             displayName: Create simplescheduler data secret
             inputs:
+              kubernetesServiceConnection: catenax-dev-aks-services-simplescheduler
               action: createSecret
               secretType: generic
               secretName: simplescheduler-secret
@@ -88,6 +89,7 @@ stages:
           - task: KubernetesManifest@0
             displayName: Deploy to Kubernetes cluster
             inputs:
+              kubernetesServiceConnection: catenax-dev-aks-services-simplescheduler
               action: deploy
               manifests: |
                 $(Pipeline.Workspace)/manifests/simplescheduler.yaml
