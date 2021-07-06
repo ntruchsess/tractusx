@@ -11,6 +11,8 @@ public class PartMasterData {
     public PartPartTree PartTree = new PartPartTree();
     public PartQualityAlert QualityAlert = new PartQualityAlert();
 
+    public PartMasterData(){}
+
     public PartIndividualData getIndividualData() {
         return IndividualData;
     }
