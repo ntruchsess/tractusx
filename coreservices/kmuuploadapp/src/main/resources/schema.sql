@@ -1,5 +1,4 @@
 CREATE TABLE IF NOT EXISTS parts (
-    id SERIAL PRIMARY KEY,
     customerUniqueId VARCHAR(255),
     customerContractOneId VARCHAR(255),
     customerOneId  VARCHAR(255),
@@ -15,5 +14,5 @@ CREATE TABLE IF NOT EXISTS parts (
     qualityAlert BOOLEAN,
     qualityType VARCHAR(255),
     manufactureContractOneId VARCHAR(255),
-    uniqueId VARCHAR(255),
+    uniqueId VARCHAR(255) PRIMARY KEY,
     importTimestampUtc timestamp);

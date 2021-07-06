@@ -21,7 +21,7 @@ public class DbAccess {
         this.config = config;
     }
 
-    public void SavePartsToDataBase(PartMasterData[] parts) {
+    public void SavePartsToDataBase(PartMasterData[] parts) throws SQLException{
         GetConnection();
 
         if (connection == null) {
@@ -40,11 +40,11 @@ public class DbAccess {
         return ReturnPartsFromDatabase(companyOneId);
     }
 
-    private void InsertPartsInDatabase(PartMasterData[] parts) {
+    private void InsertPartsInDatabase(PartMasterData[] parts) throws SQLException {
         Instant dateTimeNowUtc = Instant.now();
         int i = 0;
 
-        try {
+
             PreparedStatement insertStatement = connection
                     .prepareStatement("INSERT INTO parts (" +
                             "customerUniqueId," +
@@ -66,6 +66,16 @@ public class DbAccess {
                             "importTimestampUtc) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
 
             for (var part : parts) {
+
+                PreparedStatement readStatement = connection.prepareStatement("SELECT COUNT(*) FROM parts WHERE uniqueid='"+ part.UniqueData.uniqueId +"';");
+                ResultSet countSet = readStatement.executeQuery();
+                countSet.next();
+                var count = countSet.getInt(1);
+                if(count >0) {
+                    PreparedStatement deleteStatement = connection.prepareStatement("DELETE FROM parts WHERE uniqueid='" + part.UniqueData.uniqueId + "';");
+                    deleteStatement.executeUpdate();
+                }
+
                 insertStatement.setString(1, part.UniqueData.customerUniqueId); //customerUniqueId
                 insertStatement.setString(2, part.StaticData.customerContractOneId); //customerContractOneId
                 insertStatement.setString(3, part.StaticData.customerOneId); //customerOneId
@@ -94,9 +104,6 @@ public class DbAccess {
                     insertStatement.executeBatch();
                 }
             }
-        } catch (Exception ex) {
-
-        }
 
     }
 
@@ -138,7 +145,9 @@ public class DbAccess {
 
         }
         catch(Exception ex)
-        {}
+        {
+
+        }
 
         if(parts == null || parts.isEmpty())
             return null;

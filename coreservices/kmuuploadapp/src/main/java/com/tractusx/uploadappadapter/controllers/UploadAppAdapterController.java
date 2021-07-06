@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.sql.SQLException;
 
 
 @RestController
@@ -26,6 +27,7 @@ public class UploadAppAdapterController {
         var dbAccess = new DbAccess(dbConfig);
         return dbAccess.GetPartsFromDatabase(companyOneId);
     }
+
 
     @PostMapping("/api/upload")
     public String handleFileUpload(@RequestParam("file")MultipartFile file, @RequestParam String company){
@@ -44,9 +46,15 @@ public class UploadAppAdapterController {
         }
 
         var dbAccess = new DbAccess(dbConfig);
-        dbAccess.SavePartsToDataBase(pmasters);
+        try {
+            dbAccess.SavePartsToDataBase(pmasters);
 ///////////Upload and insert to DB done!
 
-        return retVal;
+            return retVal;
+        }
+        catch(SQLException e)
+        {
+            return e.getMessage();
+        }
     }
 }
