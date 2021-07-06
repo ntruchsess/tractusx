@@ -1,7 +1,7 @@
 package com.tractusx.partsmasterdata.models;
 
 public class PartQualityAlert {
-    public Boolean qualityAlert;
+    public Boolean qualityAlert = false;
     public AlertLevel qualityType;
 
     public boolean getQualityAlert() {
