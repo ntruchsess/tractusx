@@ -8,7 +8,6 @@ import com.tractusx.partsmasterdata.models.PartMasterData;
 import java.sql.*;
 import java.time.Instant;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -38,7 +37,7 @@ public class DbAccess {
 
             //Find current part in db
             var dbParts = getPartsById(part.UniqueData.uniqueId);
-            if(dbPart != null)
+            if(dbParts != null)
             {
                 for(var p:dbParts){
                     if(p.validUntilUtc == null)
@@ -69,31 +68,29 @@ public class DbAccess {
     }
 
     private void AddPartRelations(int id, PartMasterData part) {
-
-        for(String partUId:part.PartTree.isParentOf) {
-            DbPartMasterData[] dbParts = getPartsById(partUId);
-            Boolean insertDone = false;
-            for(DbPartMasterData dbPart:dbParts)
-            {
-                if(!dbPart.isTempPart && dbPart.validUntilUtc == null)
-                {
-                    insertRelation(id, dbPart.id);
-                    insertDone = true;
-                    break;
+        if (part.PartTree.isParentOf != null) {
+            for (String partUId : part.PartTree.isParentOf) {
+                DbPartMasterData[] dbParts = getPartsById(partUId);
+                Boolean insertDone = false;
+                for (DbPartMasterData dbPart : dbParts) {
+                    if (dbPart.validUntilUtc == null) {
+                        insertRelation(id, dbPart.id);
+                        insertDone = true;
+                        break;
+                    }
                 }
-            }
 
-            //No part found, create temp part and add relation
-            if(!insertDone)
-            {
-                PartMasterData tempPart = new PartMasterData();
-                tempPart.UniqueData.uniqueId = partUId;
-                int tempPartId = InsertPart(tempPart,true);
-                insertRelation(id, tempPartId);
+                //No part found, create temp part and add relation
+                if (!insertDone) {
+                    PartMasterData tempPart = new PartMasterData();
+                    tempPart.UniqueData.uniqueId = partUId;
+                    int tempPartId = InsertPart(tempPart, true);
+                    insertRelation(id, tempPartId);
+                }
+
             }
 
         }
-
     }
 
     private void insertRelation(int parentDbId, int childDbId) {
@@ -105,8 +102,12 @@ public class DbAccess {
 
             insertStatement.setInt(1, parentDbId);
             insertStatement.setInt(2, childDbId);
+            insertStatement.execute();
         }
-        catch (Exception ex){}
+        catch (Exception ex){
+            ex.printStackTrace();
+            System.err.println(ex.getClass().getName()+": "+ex.getMessage());
+        }
     }
 
     private void SetValidUntilTimestamp(int id) {
@@ -120,8 +121,10 @@ public class DbAccess {
 
                 updateStatement.execute();
         }
-        catch(Exception ex)
-        {}
+        catch(Exception ex) {
+            ex.printStackTrace();
+            System.err.println(ex.getClass().getName()+": "+ex.getMessage());
+        }
     }
 
 
@@ -156,13 +159,15 @@ public class DbAccess {
                     qualType = "";
             updateStatement.setString(8, qualType);//qualityType
             updateStatement.setTimestamp(9, Timestamp.from(dateTimeNowUtc));
-
-            updateStatement.setInt(10,id);
+            updateStatement.setTime(10,null);
+            updateStatement.setInt(11,id);
 
             updateStatement.execute();
         }
-        catch(Exception ex)
-        {}
+        catch(Exception ex) {
+            ex.printStackTrace();
+            System.err.println(ex.getClass().getName()+": "+ex.getMessage());
+        }
     }
 
 
@@ -187,7 +192,7 @@ public class DbAccess {
             insertStatement.setBoolean(1, isTemp);
             insertStatement.setString(4, part.UniqueData.uniqueId);
 
-            if (!isTemp) {
+
                 insertStatement.setString(2, part.StaticData.manufacturerOneId);
                 insertStatement.setString(3, part.StaticData.manufacturerContractOneId);
                 //4 is already set
@@ -200,16 +205,21 @@ public class DbAccess {
                     qualType = "";
                 insertStatement.setString(8, qualType);
                 insertStatement.setTimestamp(9, Timestamp.from(dateTimeNowUtc));
+                insertStatement.setTimestamp(10,null);
 
-                insertStatement.execute();
 
-                ResultSet lastInsert = insertStatement.getResultSet();
-                lastInsert.next();
-                retVal = lastInsert.getInt(1);
-            }
+
+
+            insertStatement.execute();
+
+            ResultSet lastInsert = insertStatement.getResultSet();
+            lastInsert.next();
+            retVal = lastInsert.getInt(1);
         }
-        catch(Exception ex)
-        { }
+        catch(Exception ex) {
+            ex.printStackTrace();
+            System.err.println(ex.getClass().getName()+": "+ex.getMessage());
+        }
 
         return retVal;
     }
@@ -229,35 +239,29 @@ public class DbAccess {
                 DbPartMasterData p = new DbPartMasterData();
                 p.id = resultSet.getInt("id");
                 p.isTempPart = resultSet.getBoolean("isTempPart");
-                p.UniqueData.customerUniqueId = resultSet.getString("customerUniqueId"); //customerUniqueId
-                p.StaticData.customerContractOneId = resultSet.getString("customerContractOneId"); //customerContractOneId
-                p.StaticData.customerOneId = resultSet.getString("customerOneId"); //customerOneId
-                p.PartTree.isParentOf = resultSet.getString("isParentOf").split(",");//
+
                 p.StaticData.manufacturerOneId = resultSet.getString("manufacturerOneId"); //manufacturerOneId
-                p.UniqueData.manufacturerUniqueId = resultSet.getString("manufacturerUniqueId"); //manufacturerUniqueId
-                p.StaticData.partNumberCustomer = resultSet.getString("partNameCustomer"); //partNameCustomer
-                p.StaticData.partNameManufacturer = resultSet.getString("partNameManufacturer"); //partNameManufacturer
-                p.StaticData.partNumberCustomer = resultSet.getString("partNumberCustomer"); //partNumberCustomer
-                p.StaticData.partNumberManufacturer = resultSet.getString("partNumberManufacturer"); //partNumberManufacturer
-                p.IndividualData.productionCountryCode = resultSet.getString("productionCountryCode"); //productionCountryCode
-                p.IndividualData.productionDateGmt = resultSet.getString("productionDateGmt"); //productionDateGmt
+                p.StaticData.manufacturerContractOneId = resultSet.getString("manufactureContractOneId"); //manufactureContractOneId
+                p.UniqueData.uniqueId = resultSet.getString("uniqueId"); //uniqueId
+                p.UniqueData.customerUniqueId = resultSet.getString("customerUniqueId"); //customerUniqueId
+
                 p.QualityAlert.qualityAlert = resultSet.getBoolean("qualityAlert"); //qualityAlert
                 var qualType = resultSet.getString("qualityType");
                 if (!qualType.equals("")) {
                     p.QualityAlert.qualityType = AlertLevel.valueOf(resultSet.getString("qualityType"));
                 }
 
-                p.StaticData.manufacturerContractOneId = resultSet.getString("manufactureContractOneId"); //manufactureContractOneId
-                p.UniqueData.uniqueId = resultSet.getString("uniqueId"); //uniqueId
-
                 p.validUntilUtc = resultSet.getTimestamp("validUntilUtc");
+
                 retVal.add(p);
             }
 
             return retVal.toArray(new DbPartMasterData[retVal.size()]);
         }
-        catch (Exception ex)
-        {}
+        catch (Exception ex) {
+            ex.printStackTrace();
+            System.err.println(ex.getClass().getName()+": "+ex.getMessage());
+        }
         return null;
     }
 
@@ -271,9 +275,9 @@ public class DbAccess {
                     .getConnection(config.postGreUploadUrl + "/" + config.postGreUploadDb + "?&ssl=true&sslmode=require",
                             config.postGreUploadUser,
                             config.postGreUploadPassword);
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.err.println(e.getClass().getName()+": "+e.getMessage());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            System.err.println(ex.getClass().getName()+": "+ex.getMessage());
         }
         this.connection = c;
     }
@@ -290,9 +294,9 @@ public class DbAccess {
                 statement.execute(scanner.next());
             }
         }
-        catch(Exception ex)
-        {}
+        catch(Exception ex) {
+            ex.printStackTrace();
+            System.err.println(ex.getClass().getName()+": "+ex.getMessage());
+        }
     }
-
-
 }
