@@ -112,6 +112,7 @@ export class AppState {
   public lastUsedApps: Application[] = [A, D, E, F];
   public sapapps: Application[] = [D];
   public connectedApps: Application[] = [D, F, B];
+  public isAdmin = false;
   public readonly categories: any[] = [{ text: 'Most Popular', apps: this.popularApps },
   { text: 'Top 10 Downloads', apps: this.topApps },
   { text: 'Best Rated', apps: this.apps }];

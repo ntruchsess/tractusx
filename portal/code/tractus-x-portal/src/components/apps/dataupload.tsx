@@ -99,8 +99,8 @@ class DataUpload extends React.Component<RouteComponentProps> {
             <div className='df aic w100-100'>
               <span className='bold fs14 ml10'>My connected apps</span>
               <div className='flex1' />
-              <ActionButton className='fglgreen fs14 bold mr5' iconProps={{ iconName: 'Add', className: 'fglgreen' }} text='CREATE NEW CONNECTION'
-                onClick={() => this.newconnClick()} />
+              {AppState.state.isAdmin && <ActionButton className='fglgreen fs14 bold mr5' iconProps={{ iconName: 'Add', className: 'fglgreen' }} text='CREATE NEW CONNECTION'
+                onClick={() => this.newconnClick()} />}
             </div>
             <Dialog hidden={this.hideDialog} dialogContentProps={dialogContentProps} modalProps={modelProps}>
               <Dropdown className='w100pc mb10' placeholder='Choose connector' options={connectorOptions} required />
