@@ -66,15 +66,8 @@ public class DbAccess {
                             "importTimestampUtc) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
 
             for (var part : parts) {
-
-                PreparedStatement readStatement = connection.prepareStatement("SELECT COUNT(*) FROM parts WHERE uniqueid='"+ part.UniqueData.uniqueId +"';");
-                ResultSet countSet = readStatement.executeQuery();
-                countSet.next();
-                var count = countSet.getInt(1);
-                if(count >0) {
-                    PreparedStatement deleteStatement = connection.prepareStatement("DELETE FROM parts WHERE uniqueid='" + part.UniqueData.uniqueId + "';");
-                    deleteStatement.executeUpdate();
-                }
+                PreparedStatement deleteStatement = connection.prepareStatement("DELETE FROM parts WHERE uniqueid='" + part.UniqueData.uniqueId + "';");
+                deleteStatement.executeUpdate();
 
                 insertStatement.setString(1, part.UniqueData.customerUniqueId); //customerUniqueId
                 insertStatement.setString(2, part.StaticData.customerContractOneId); //customerContractOneId
