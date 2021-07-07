@@ -50,6 +50,7 @@ export default class App extends React.Component {
           <Redirect path='/' exact to='/home/dashboard' />
           <Route path='/home' render={(props) => <ProtectedHome/>} />
           <Route path='/registration' component={(props) => <Registration {...props}/>} />
+          <Route path='/register' component={(props) => <Registration {...props}/>} />
           <Route path='/verifyoneid' component={(props) => <VerifyCompany {...props}/>} />
           <Route path='/dataupload' render={()=><ProtectedUpload1/>} />
           <Route path='/dataupload2' render={()=><ProtectedUpload2/>} />
