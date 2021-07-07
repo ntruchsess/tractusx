@@ -20,6 +20,7 @@ import { observable } from 'mobx';
 import { RouteComponentProps,withRouter} from 'react-router-dom';
 import {AccountDetail}from '../../data/accountdetail';
 import { Icon } from '@fluentui/react/lib/Icon';
+import Logo from '../logo';
 
 const passwordCriteriaMsg = ['At least 8 characters - the more characters the better.', 'A mixture of both uppercase and lowercase letters.', 
   'A mixture of letters and numbers.', 'Incusion of at least one special character (e.g. !@#?])'];
@@ -108,10 +109,7 @@ class Registration extends React.Component<RouteComponentProps>{
   public render() {
     return (
       <div className='w100pc h100pc df fdc bge1 bgregisterimage ds'>
-        <div className='w150 h66 df aic'>
-          <img src='/logo.png' alt='logo' />
-          <span className='fs22 bold'>Catena-X</span>
-        </div>
+        <Logo />
         <div className='df mt100'>
           <div className='flex1 df jcc'>
             <RegisterTemplate />

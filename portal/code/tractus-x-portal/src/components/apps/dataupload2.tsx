@@ -28,8 +28,7 @@ import { ProgressIndicator } from '@fluentui/react/lib/ProgressIndicator';
 import { PrimaryButton, Checkbox} from '@fluentui/react';
 
 const uploadUrl = 'https://catenaxdevakssrv.germanywestcentral.cloudapp.azure.com/uploadappadapter/api/upload';
-const username = 'TractusX';
-const password = '4ZqA:=7M7gyrHTzN';
+const auth = 'VHJhY3R1c1g6NFpxQTo9N003Z3lySFR6Tg==';
 
 @observer
 class DataUpload2 extends React.Component<RouteComponentProps> {
@@ -129,7 +128,6 @@ class DataUpload2 extends React.Component<RouteComponentProps> {
 
   public upload(contents: string, name: string): Promise<any> {
     const promise = new Promise<any>((resolve, reject) => {
-      const auth = btoa(`${username}:${password}`);
       const data = new FormData();
       data.append('file', new Blob([contents], { type: 'text/csv' }), name);
       data.append('company', 'mttestcompany1');
