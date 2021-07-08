@@ -108,14 +108,15 @@ export class AppState {
   public static state = new AppState();
   public apps: Application[] = [B, F, E, C, A, D];
   public topApps: Application[] = [D, C, A, B, F, E];
-  public popularApps: Application[] = [A, B, C, D, E, F];
+  public bizApps: Application[] = [A, B, C, D, E, F];
   public lastUsedApps: Application[] = [A, D, E, F];
   public sapapps: Application[] = [D];
   public connectedApps: Application[] = [D, F, B];
   public isAdmin = false;
-  public readonly categories: any[] = [{ text: 'Most Popular', apps: this.popularApps },
-  { text: 'Top 10 Downloads', apps: this.topApps },
-  { text: 'Best Rated', apps: this.apps }];
+  public readonly categories: any[] = [
+    { text: 'Top 10 Downloads', apps: this.topApps },
+    { text: 'Business Apps', apps: this.bizApps },
+  { text: 'Add-Ons for Connectors', apps: this.apps }];
   public readonly dashboardCategories: any[] = [  { text: 'Last used', apps: this.lastUsedApps },
   { text: 'All apps', apps: this.apps }];
 }

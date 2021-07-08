@@ -16,7 +16,7 @@ import * as React from 'react';
 import { observer } from 'mobx-react';
 
 @observer
-export default class Vocabulary extends React.Component {
+export default class NotificationCenter extends React.Component {
 
   public render() {
     return (
@@ -24,9 +24,8 @@ export default class Vocabulary extends React.Component {
         <div className='ml50 mr50 mt50 bgfe w100-100 df fdc'>
           <div className='df fdc aic'>
             <img className='mt100' src='/comingsoon.png' width='570' height='270' alt='Coming Soon' />
-            <span className='fs18 mt40 mb50 w570'>The Vocabulary hub will be a central service that stores the CX ontology and meta data models and
-              enable collaboration. Collaboration includes search, selection, matching, updating, requests for changes, version management,
-              deletion, duplicate identification, and unused vocabularies.</span>
+            <span className='fs18 w570 mt40 mb50'>The Notification Center will provide an overview of notification and alerts
+              from the platform and business applications.</span>
           </div>
         </div>
       </div>

@@ -31,6 +31,7 @@ import MyConnectors from './myconnectors';
 import MyData from './mydata';
 import { observable } from 'mobx';
 import adalContext from '../helpers/adalConfig';
+import NotificationCenter from './notificationcenter';
 
 const navStyles: Partial<INavStyles> = {
   root: {
@@ -84,16 +85,8 @@ const navLinkGroups2: INavLinkGroup[] = [
     links: [
       {
         name: 'Notification Center',
-        url: '/home/notimp',
+        url: '/home/notification',
         key: 'key4',
-        expandAriaLabel: 'Expand section',
-        collapseAriaLabel: 'Collapse section',
-        title: ''
-      },
-      {
-        name: 'Transactions & History',
-        url: '/home/notimp',
-        key: 'key5',
         expandAriaLabel: 'Expand section',
         collapseAriaLabel: 'Collapse section',
         title: ''
@@ -204,6 +197,7 @@ class Home extends React.Component<RouteComponentProps> {
               <Route path='/home/myconnectors' component={(props) => <MyConnectors {...props} />} />
               <Route path='/home/organization' component={(props) => <OrgDetails {...props} />} />
               <Route path='/home/usermanagement' component={(props) => <UserMgmt {...props} />} />
+              <Route path='/home/notification' component={(props) => <NotificationCenter {...props} />} />
               <Route path='/home/notimp' component={(props) => <NotImp {...props} />} />
             </Switch>
           </div>
