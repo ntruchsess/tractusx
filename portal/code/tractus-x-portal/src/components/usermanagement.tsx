@@ -16,6 +16,8 @@ import * as React from 'react';
 import { observer } from 'mobx-react';
 import { Pivot, PivotItem } from '@fluentui/react';
 import AddUser from './adduser';
+import AddTeam from './addteam';
+
 
 @observer
 export default class UserManagement extends React.Component {
@@ -27,7 +29,9 @@ export default class UserManagement extends React.Component {
           <PivotItem className='bgf5' headerText='Overview' >
             <AddUser />
           </PivotItem>
-          <PivotItem className='bgf5' headerText='Teams' />
+          <PivotItem className='bgf5' headerText='Teams'>
+            <AddTeam />
+          </PivotItem>
         </Pivot>
       </div>
     );

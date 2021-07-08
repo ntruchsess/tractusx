@@ -24,7 +24,7 @@ export default class Vocabulary extends React.Component {
         <div className='ml50 mr50 mt50 bgfe w100-100 df fdc'>
           <div className='df fdc aic'>
             <img className='mt100' src='/comingsoon.png' width='570' height='270' alt='Coming Soon' />
-            <span className='fs18 ml50 mt40 mb50'>The Vocabulary hub will be a central service that stores the CX ontology and meta data models and
+            <span className='fs18 mt40 mb50 w570'>The Vocabulary hub will be a central service that stores the CX ontology and meta data models and
               enable collaboration. Collaboration includes search, selection, matching, updating, requests for changes, version management,
               deletion, duplicate identification, and unused vocabularies.</span>
           </div>

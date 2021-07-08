@@ -24,7 +24,7 @@ export default class DeveloperHub extends React.Component {
         <div className='ml50 mr50 mt50 bgfe w100-100 df fdc'>
           <div className='df fdc aic'>
             <img className='mt100' src='/comingsoon.png' width='570' height='270' alt='Coming Soon' />
-            <span className='fs18 ml50 mt40 mb50'>The Developer hub will include the Catena-X SDK and
+            <span className='fs18 w570 mt40 mb50'>The Developer hub will include the Catena-X SDK and
               API specifications to provide a great developer experience and to speed up the development and integration of business applications.</span>
           </div>
         </div>
