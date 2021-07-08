@@ -106,7 +106,7 @@ public class DbAccess {
     {
         List<PartMasterData> parts = new ArrayList<PartMasterData>();
         try {
-            PreparedStatement readStatement = connection.prepareStatement("SELECT * FROM parts WHERE customeroneid='"+ companyOneId +"';");
+            PreparedStatement readStatement = connection.prepareStatement("SELECT * FROM parts WHERE customeroneid='"+ companyOneId +"where importtimestamputc BETWEEN NOW() - INTERVAL '1 DAY' AND NOW()';");
             ResultSet resultSet = readStatement.executeQuery();
 
             while (resultSet.next())
