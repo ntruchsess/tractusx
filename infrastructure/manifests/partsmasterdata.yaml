@@ -17,13 +17,6 @@ spec:
       - name: partsmasterdata
         image: catenaxdevacr.azurecr.io/partsmasterdata:100
         env:
-          - name: CONTAINERNAME
-            value: "poc"
-          - name: STORAGE_CONNECTIONSTRING
-            valueFrom:
-              secretKeyRef:
-                key: sotrage_connectionstring
-                name: partsmasterdata-secret
           - name: HTTPUSERNAME
             value: "TractusX"
           - name: HTTPPASSWORD
@@ -31,6 +24,27 @@ spec:
               secretKeyRef:
                 key: http_basic_auth_password
                 name: partsmasterdata-secret
+          - name: POSTGREUPLOADURL
+            valueFrom:
+              secretKeyRef:
+                key: postgres_upload_url
+                name: partsmasterdata-secret
+          - name: POSTGREUPLOADUSER
+            valueFrom:
+              secretKeyRef:
+                key: postgre_upload_user
+                name: partsmasterdata-secret
+          - name: POSTGREUPLOADPASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: postgre_upload_password
+                name: partsmasterdata-secret
+          - name: POSTGREUPLOADDB
+            valueFrom:
+              secretKeyRef:
+                key: postgre_upload_db
+                name: partsmasterdata-secret
+        
         ports:
         - containerPort: 8080
 ---

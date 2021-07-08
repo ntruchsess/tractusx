@@ -1,10 +1,16 @@
-// THIS CODE AND INFORMATION IS PROVIDED AS IS WITHOUT WARRANTY OF
-// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
-// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
-// PARTICULAR PURPOSE.
+// Copyright (c) 2021 Microsoft
 //
-// Copyright (c) Microsoft. Licensed under MIT licence.
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
 //
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
 import * as React from 'react';
 import { observer } from 'mobx-react';
@@ -24,6 +30,8 @@ import UserMgmt from './usermanagement';
 import MyConnectors from './myconnectors';
 import MyData from './mydata';
 import { observable } from 'mobx';
+import adalContext from '../helpers/adalConfig';
+import NotificationCenter from './notificationcenter';
 
 const navStyles: Partial<INavStyles> = {
   root: {
@@ -77,16 +85,8 @@ const navLinkGroups2: INavLinkGroup[] = [
     links: [
       {
         name: 'Notification Center',
-        url: '/home/notimp',
+        url: '/home/notification',
         key: 'key4',
-        expandAriaLabel: 'Expand section',
-        collapseAriaLabel: 'Collapse section',
-        title: ''
-      },
-      {
-        name: 'Transactions & History',
-        url: '/home/notimp',
-        key: 'key5',
         expandAriaLabel: 'Expand section',
         collapseAriaLabel: 'Collapse section',
         title: ''
@@ -146,6 +146,16 @@ const navLinkGroupsData: INavLinkGroup[] = [
 class Home extends React.Component<RouteComponentProps> {
   @observable public static selectedKey1 = 'key1';
   @observable public static selectedKey2 = 'key0';
+  static first = true;
+
+  constructor(props: any) {
+    super(props);
+    if (Home.first) {
+      const token = adalContext.getCachedToken();
+      console.log(token);
+      Home.first = false;
+    }
+  }
 
   linkClick(ev: React.MouseEvent<HTMLElement, MouseEvent>, item: INavLink): void {
     ev.stopPropagation();
@@ -187,6 +197,7 @@ class Home extends React.Component<RouteComponentProps> {
               <Route path='/home/myconnectors' component={(props) => <MyConnectors {...props} />} />
               <Route path='/home/organization' component={(props) => <OrgDetails {...props} />} />
               <Route path='/home/usermanagement' component={(props) => <UserMgmt {...props} />} />
+              <Route path='/home/notification' component={(props) => <NotificationCenter {...props} />} />
               <Route path='/home/notimp' component={(props) => <NotImp {...props} />} />
             </Switch>
           </div>

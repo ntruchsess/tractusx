@@ -1,10 +1,16 @@
-// THIS CODE AND INFORMATION IS PROVIDED AS IS WITHOUT WARRANTY OF
-// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
-// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
-// PARTICULAR PURPOSE.
+// Copyright (c) 2021 Microsoft
 //
-// Copyright (c) Microsoft. Licensed under MIT licence.
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
 //
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
 import * as React from 'react';
 import { observer } from 'mobx-react';
@@ -111,7 +117,7 @@ export default class AppDetail extends React.Component<RouteComponentProps> {
           </div>
           <div className='mt20 mr50 h100-100 df fdc'>
             <span className='bold fs14 ml10'>Similar applications</span>
-            {AppState.state.apps.map((a, index) => <AppCard key={index} app={a} wide/>)}
+            {AppState.state.apps.slice(0, 3).map((a, index) => <AppCard key={index} app={a} wide/>)}
             <span className='bold fs14 ml10 mt20'>More apps by {app.companyName}</span>
             {AppState.state.apps.filter((ap) => ap.companyName === app.companyName).map((a, index) => <AppCard key={index} app={a} wide />)}
           </div>

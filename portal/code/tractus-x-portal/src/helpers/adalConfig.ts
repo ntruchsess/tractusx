@@ -1,10 +1,16 @@
-// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF
-// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
-// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
-// PARTICULAR PURPOSE.
+// Copyright (c) 2021 Microsoft
 //
-// Copyright (c) Microsoft. Licensed under MIT licence.
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
 //
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
 import { AdalConfig, adalGetToken, AuthenticationContext, withAdalLogin } from 'react-adal';
 
@@ -87,6 +93,23 @@ class AdalContext {
     return this.authContext.getCachedToken(this.authContext.config.clientId);
   }
 
+  public getGroups() {
+    const promise = new Promise<any>((resolve, reject) => {
+      adalContext.acquireToken('https://graph.microsoft.com').then((token) => {
+        const u = 'https://graph.microsoft.com/v1.0/me/getMemberGroups';
+        fetch(u, {
+          method: 'POST', body: JSON.stringify({ 'securityEnabledOnly': false }),
+          headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' }
+        }).then((val) => val.json().then((json) => resolve(json)));
+      }).catch((error) => {
+        console.log(error.message);
+        reject(error.message);
+      })
+    });
+  
+    return promise;
+  }
+  
   public getFullName(): string {
     let name = '';
     const user = this.authContext.getCachedUser();

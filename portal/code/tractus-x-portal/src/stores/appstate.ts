@@ -1,9 +1,16 @@
-// THIS CODE AND INFORMATION IS PROVIDED AS IS WITHOUT WARRANTY OF
-// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
-// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
-// PARTICULAR PURPOSE.
+// Copyright (c) 2021 Microsoft
 //
-// Copyright (c) Microsoft. Licensed under MIT licence.
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
 import { Application } from '../data/application';
 
@@ -101,13 +108,15 @@ export class AppState {
   public static state = new AppState();
   public apps: Application[] = [B, F, E, C, A, D];
   public topApps: Application[] = [D, C, A, B, F, E];
-  public popularApps: Application[] = [A, B, C, D, E, F];
+  public bizApps: Application[] = [A, B, C, D, E, F];
   public lastUsedApps: Application[] = [A, D, E, F];
   public sapapps: Application[] = [D];
   public connectedApps: Application[] = [D, F, B];
-  public readonly categories: any[] = [{ text: 'Most Popular', apps: this.popularApps },
-  { text: 'Top 10 Downloads', apps: this.topApps },
-  { text: 'Best Rated', apps: this.apps }];
+  public isAdmin = false;
+  public readonly categories: any[] = [
+    { text: 'Top 10 Downloads', apps: this.topApps },
+    { text: 'Business Apps', apps: this.bizApps },
+  { text: 'Add-Ons for Connectors', apps: this.apps }];
   public readonly dashboardCategories: any[] = [  { text: 'Last used', apps: this.lastUsedApps },
   { text: 'All apps', apps: this.apps }];
 }

@@ -1,10 +1,16 @@
-// THIS CODE AND INFORMATION IS PROVIDED AS IS WITHOUT WARRANTY OF
-// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
-// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
-// PARTICULAR PURPOSE.
+// Copyright (c) 2021 Microsoft
 //
-// Copyright (c) Microsoft. Licensed under MIT licence.
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
 //
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
 import * as React from 'react';
 import { observer } from 'mobx-react';
@@ -12,6 +18,7 @@ import { observable } from 'mobx';
 import adalContext from '../helpers/adalConfig';
 import { Icon, Pivot, PivotItem } from '@fluentui/react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
+import { AppState } from '../stores/appstate';
 
 interface IProp extends RouteComponentProps{
   href: string;
@@ -27,10 +34,21 @@ class Header extends React.Component<IProp> {
   @observable username = '';
   @observable initials = '';
   @observable selectedKey = '';
+  @observable isAdmin = false;
 
-  componentDidMount() {
+  async componentDidMount() {
     this.username = adalContext.getFullName();
     this.initials = adalContext.getInitials(this.username);
+    const groups = await adalContext.getGroups();
+    AppState.state.isAdmin = false;
+    for (const g of groups.value) {
+      const group = g as string;
+      if (group === 'ec5a8b75-4839-4ff1-b50d-f8159653d9f0' || group === '463512e5-968f-4b2d-8283-737be4a67182') {
+        AppState.state.isAdmin = true;
+      }
+    }
+
+    this.isAdmin = AppState.state.isAdmin;
   }
 
   pivotClick(item: PivotItem): void {
@@ -65,9 +83,12 @@ class Header extends React.Component<IProp> {
         </Pivot>}
         <div className='flex1' />
         <div className='bgblue fgwhite aic jcc df fs16 br50pc h40 w40 mr10'>{this.initials}</div>
-        <div className='df fdc'>
-          <span className='mr50 fs14'>{this.username}</span>
-          <span className='mr50 fs14'>{adalContext.getDomain(adalContext.getUsername())}</span>
+        <div className='df fdc mr50'>
+          <span className='fs14'>{this.username}</span>
+          <div className='df'>
+            <span className='fs14'>{adalContext.getDomain(adalContext.getUsername())}</span>
+            {this.isAdmin && <span className='ml5 fs14'>(Admin)</span>}
+          </div>
         </div>
       </div>
     );
