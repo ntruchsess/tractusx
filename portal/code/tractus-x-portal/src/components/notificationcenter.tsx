@@ -24,7 +24,7 @@ export default class NotificationCenter extends React.Component {
         <div className='ml50 mr50 mt50 bgfe w100-100 df fdc'>
           <div className='df fdc aic'>
             <img className='mt100' src='/comingsoon.png' width='570' height='270' alt='Coming Soon' />
-            <span className='fs18 ml50 mt40 mb50'>The Notification Center will provide an overview of notification and alerts
+            <span className='fs18 w570 mt40 mb50'>The Notification Center will provide an overview of notification and alerts
               from the platform and business applications.</span>
           </div>
         </div>
