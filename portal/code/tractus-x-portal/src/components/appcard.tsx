@@ -21,7 +21,8 @@ import { RouteComponentProps, withRouter } from 'react-router';
 interface IProp extends RouteComponentProps {
   app: Application, onClick?: Function,
   wide?: boolean
-  upload?: boolean
+  uploads?: boolean
+  hideRating?: boolean
 }
 
 @observer
@@ -42,12 +43,13 @@ class AppCard extends React.Component<IProp> {
     if (!this.props.wide) {
       return (
         <div className='h250 m5 br4 bsAppStore bgwhite minw200 maxw200 cpointer' onClick={() => this.cardClick()}>
-          <Ratings className='mt80 ml15 mb5' app={a} />
+          {!this.props.hideRating && <Ratings className='mt80 ml15 mb5' app={a} />}
+          {this.props.hideRating && <div className='mt80 ml15 mb20'>&nbsp;</div>}
           <div className='ml15 fs14 fggrey mb5'>{a.companyName}</div>
           <div className='ml15 bold fs14 minh40'>{a.title}</div>
           <div className='h50 mt20 tal ml15'>
-            <div className='fglgreen bold fs14'>{this.props.upload ? 'UPLOAD' : a.purchase}</div>
-            {!this.props.upload && <div className='fsxs fgb5'>{a.usage}</div>}
+            <div className='fglgreen bold fs14'>{this.props.uploads ? 'UPLOAD' : a.purchase}</div>
+            {!this.props.uploads && <div className='fsxs fgb5'>{a.usage}</div>}
           </div>
         </div>
       );
@@ -60,8 +62,8 @@ class AppCard extends React.Component<IProp> {
             <div className='ml15 bold fs14 minh40'>{a.title}</div>
             <div className='flex1' />
             <div className='h50 mt20 mr20'>
-              <div className='fglgreen bold fs14'>{this.props.upload ? 'UPLOAD' : a.purchase}</div>
-              {!this.props.upload && <div className='fsxs fgb5'>{a.usage}</div>}
+              <div className='fglgreen bold fs14'>{this.props.uploads ? 'UPLOAD' : a.purchase}</div>
+              {!this.props.uploads && <div className='fsxs fgb5'>{a.usage}</div>}
             </div>
           </div>
         </div>

@@ -115,7 +115,7 @@ class DataUpload extends React.Component<RouteComponentProps> {
 
             <div className='w100-100'>
               <div className='ovx h250 df'>
-                {AppState.state.connectedApps.map((a, index) => <AppCard key={index} app={a} upload onClick={() => this.appClick(a)} />)}
+                {AppState.state.connectedApps.map((a, index) => <AppCard key={index} app={a} uploads hideRating onClick={() => this.appClick(a)} />)}
               </div>
             </div>
           </div>

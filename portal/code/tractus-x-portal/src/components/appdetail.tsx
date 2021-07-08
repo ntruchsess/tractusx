@@ -117,7 +117,7 @@ export default class AppDetail extends React.Component<RouteComponentProps> {
           </div>
           <div className='mt20 mr50 h100-100 df fdc'>
             <span className='bold fs14 ml10'>Similar applications</span>
-            {AppState.state.apps.map((a, index) => <AppCard key={index} app={a} wide/>)}
+            {AppState.state.apps.slice(0, 3).map((a, index) => <AppCard key={index} app={a} wide/>)}
             <span className='bold fs14 ml10 mt20'>More apps by {app.companyName}</span>
             {AppState.state.apps.filter((ap) => ap.companyName === app.companyName).map((a, index) => <AppCard key={index} app={a} wide />)}
           </div>
