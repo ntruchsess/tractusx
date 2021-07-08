@@ -77,8 +77,8 @@ export default class DataCatalog extends React.Component {
         id: '1',
         catalogHeader: 'Engineering BOM (OEMs)',
         description: 'The asset provides the data related to the “150% Bill of Material” in the stage “as designed.',
-        publisher: 'http://www.engineering-bom.com',
-        sovereign: 'http://www.engineering-bom.com',
+        publisher: 'http://www.bmwgroup.com',
+        sovereign: 'http://www.bmwgroup.com',
         url: '',
         curator: '',
         maintainer: ''
@@ -88,12 +88,24 @@ export default class DataCatalog extends React.Component {
         id: '2',
         catalogHeader: 'Vehicle BOM (OEMs)',
         description: 'Standard UserThis asset provides the the bill of material data related to a vehicle over the life cycle in the stage “as planned”, “as built” and “as maintained.',
-        publisher: 'http://www.engineering-bom.com',
-        sovereign: 'http://www.engineering-bom.com',
+        publisher: 'https://www.mercedes-benz.de/',
+        sovereign: 'https://www.mercedes-benz.de/',
         url: '',
         curator: '',
         maintainer: ''
         
+      },
+      {
+        
+        id: '4',
+        catalogHeader: 'Component BOM (Supplier)',
+        description: 'This asset provides the the bill of material data related to components over the life cycle in the stage “as planned”, “as built” and “as maintained',
+        publisher: ' https://www.zf.com/',
+        sovereign: ' https://www.zf.com/',
+        url: '',
+        curator: '',
+        maintainer: ''
+    
       },
       {
         
@@ -106,18 +118,6 @@ export default class DataCatalog extends React.Component {
         curator: 'https://www.here.com',
         maintainer: 'https://www.here.com'
       
-      },
-      {
-        
-        id: '4',
-        catalogHeader: 'Component BOM (Supplier)',
-        description: 'This asset provides the the bill of material data related to components over the life cycle in the stage “as planned”, “as built” and “as maintained',
-        publisher: 'http://www.engineering-bom.com',
-        sovereign: 'http://www.engineering-bom.com',
-        url: '',
-        curator: '',
-        maintainer: ''
-    
       }
     ];
   
