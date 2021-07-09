@@ -1,7 +1,5 @@
 package com.tractusx.partsmasterdata.models;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 public class PartMasterData {
 
     public PartStaticData StaticData = new PartStaticData();
