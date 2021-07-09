@@ -185,9 +185,13 @@ class DataUpload2 extends React.Component<RouteComponentProps> {
           <div className='fgblack fs15 fw600 tdn df mt30 mb10 aic cpointer ml150 w100' onClick={() => this.backClick()}>
             <Icon className='fgblack fs20 mt2 mr7' iconName='SkypeArrow' />BACK
           </div>
-          <span className='mt20 fs22 bold fgblack'>Material Traceability</span>
+          <div className='df w100pc mt20'>
+            <span className='fs22 bold fgblack ml12'>Part Chain</span>
+            <div className='flex1' />
+            <PrimaryButton className='fs14 bold minw200 mr160' text='DOWNLOAD SAMPLE CSV' onClick={()=> window.open('parts.csv', '_blank')} />
+          </div>
         </div>
-        <span className='fs12 fggrey ml250'>SAP</span>
+        <span className='fs12 fggrey ml250'>Catena X</span>
         <div className='df fdc'>
           <div className='ml250 mt20 mr50 mb30 w100-200 df fdc'
             onDragOver={(e) => this.dragOver(e)} onDragLeave={() => this.dragLeave()} onDrop={(e) => this.drop(e)}>

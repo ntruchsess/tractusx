@@ -63,6 +63,12 @@ class AdalContext {
   public acquireToken(resource?: string): Promise<string> {
     resource = resource || appId;
     const promise = new Promise<string>((resolve, reject) => {
+      const tok = this.AuthContext.getCachedToken(resource);
+      if (tok) {
+        resolve(tok);
+        return;
+      }
+
       const user = this.AuthContext.getCachedUser();
       if (user) {
         this.authContext.config.extraQueryParameter = 'login_hint=' + (user.profile.upn || user.userName);
@@ -89,8 +95,8 @@ class AdalContext {
     return adalGetToken(this.authContext, endpoint);
   }
 
-  public getCachedToken(): string {
-    return this.authContext.getCachedToken(this.authContext.config.clientId);
+  public getCachedToken(resource?: string): string {
+    return this.authContext.getCachedToken(resource || this.authContext.config.clientId);
   }
 
   public getGroups() {
@@ -165,9 +171,12 @@ class AdalContext {
       const parts = username.split('@');
       if (parts.length > 1) {
         domain = parts[1];
-        const n = domain.indexOf('.');
-        if (n > 0) {
-          domain = domain.substring(0, n);
+        const p = domain.split('.');
+        if (p.length >= 1) {
+          domain = p[0];
+          if (domain === 'partner' && p.length > 1) {
+            domain = p[1];
+          }
         }
       }
 

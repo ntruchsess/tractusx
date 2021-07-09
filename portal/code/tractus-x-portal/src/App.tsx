@@ -24,6 +24,8 @@ import DataUpload2 from './components/apps/dataupload2';
 import Registration from './components/registration/register';
 import VerifyCompany from './components/registration/verifycompany';
 import { withAdalLoginApi } from './helpers/adalConfig';
+import Loading from './components/loading';
+import { AppState } from './stores/appstate';
 
 const history = createBrowserHistory();
 
@@ -37,13 +39,15 @@ export default class App extends React.Component {
       loadTheme({ palette: { themePrimary: '#BAC938', themeDarkAlt: '#E6AA1E' } })
     }
 
+    AppState.state = new AppState();
+
     App.first = false;
   }
 
   public render() {
-    const ProtectedHome = withAdalLoginApi(Home, () => <div>Loading</div>, () => <div>Error</div>);
-    const ProtectedUpload1 = withAdalLoginApi(DataUpload, () => <div>Loading</div>, () => <div>Error</div>);
-    const ProtectedUpload2 = withAdalLoginApi(DataUpload2, () => <div>Loading</div>, () => <div>Error</div>);
+    const ProtectedHome = withAdalLoginApi(Home, () => <Loading/>, () => <div>Error</div>);
+    const ProtectedUpload1 = withAdalLoginApi(DataUpload, () => <Loading/>, () => <div>Error</div>);
+    const ProtectedUpload2 = withAdalLoginApi(DataUpload2, () => <Loading/>, () => <div>Error</div>);
     return (
       <Router history={history}>
         <Switch>

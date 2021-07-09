@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import { observable } from 'mobx';
 import { Application } from '../data/application';
 
 const A = {
@@ -20,7 +21,7 @@ const A = {
   screenshots: ['/dataupload1.png', '/dataupload2.png', '/dataupload1.png', '/dataupload2.png'],
   description: '<b>Upload your data via standard connector</b><br/>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. <br/><br/><b>Easy to use and state of the art</b><br/>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild  Question Marks and devious Semikoli, but the Little Blind Text didn’t listen.',
   usage: 'free for use',
-  purchase: 'PURCHASE',
+  purchase: 'OPEN',
   companyName: 'Catena-X', url:'/dataupload'
 };
 
@@ -50,7 +51,7 @@ const B = {
   <li>Demand and Capacity Management</li>
   <li>and many more</li>
 `,
-  purchase: 'PURCHASE',
+  purchase: 'OPEN',
   companyName: 'Catena-X',
   usage: 'free for use', url: 'https://ui.zf.dev.catenax.partchain.dev/'
 }
@@ -80,7 +81,7 @@ const D = {
 Create an Intelligent Enterprise with Advanced Logistics Collaboration and Insights. SAP Logistics Business Network, material traceability option connects business partners for inter-company collaboration and transparency. It supports a comprehensive set of capabilities, allowing to manage freight more efficiently, benefit from situational awareness through track and trace, and create a trust chain for up- and downstream product genealogy.
 `,
   usage: 'per year',
-  purchase: 'PURCHASE',
+  purchase: 'OPEN',
   companyName: 'SAP', url:''
 };
 
@@ -105,18 +106,18 @@ const F = {
 };
 
 export class AppState {
-  public static state = new AppState();
-  public apps: Application[] = [B, F, E, C, A, D];
-  public topApps: Application[] = [D, C, A, B, F, E];
-  public bizApps: Application[] = [A, B, C, D, E, F];
-  public lastUsedApps: Application[] = [A, D, E, F];
+  public static state: AppState;
+  public apps: Application[] = [F, E, C, A, D, B];
+  public topApps: Application[] = [C, F, E];
+  public bizApps: Application[] = [C, E, F];
+  public installedApps: Application[] = [A, B, D];
   public sapapps: Application[] = [D];
-  public connectedApps: Application[] = [D, F, B];
-  public isAdmin = false;
+  public connectedApps: Application[] = [B, F, D];
+  @observable public isAdmin: boolean;
   public readonly categories: any[] = [
     { text: 'Top 10 Downloads', apps: this.topApps },
     { text: 'Business Apps', apps: this.bizApps },
-  { text: 'Add-Ons for Connectors', apps: this.apps }];
-  public readonly dashboardCategories: any[] = [  { text: 'Last used', apps: this.lastUsedApps },
+    { text: 'Add-Ons for Connectors', apps: this.apps }];
+  public readonly dashboardCategories: any[] = [{ text: 'Installed apps', apps: this.installedApps },
   { text: 'All apps', apps: this.apps }];
 }

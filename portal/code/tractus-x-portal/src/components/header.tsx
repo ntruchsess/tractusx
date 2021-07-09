@@ -19,7 +19,6 @@ import adalContext from '../helpers/adalConfig';
 import { Icon, Pivot, PivotItem } from '@fluentui/react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { AppState } from '../stores/appstate';
-
 interface IProp extends RouteComponentProps{
   href: string;
   hidePivot?: boolean;
@@ -36,27 +35,31 @@ class Header extends React.Component<IProp> {
   @observable selectedKey = '';
   @observable isAdmin = false;
 
-  async componentDidMount() {
+  public async componentDidMount() {
     this.username = adalContext.getFullName();
     this.initials = adalContext.getInitials(this.username);
-    const groups = await adalContext.getGroups();
-    AppState.state.isAdmin = false;
-    for (const g of groups.value) {
-      const group = g as string;
-      if (group === 'ec5a8b75-4839-4ff1-b50d-f8159653d9f0' || group === '463512e5-968f-4b2d-8283-737be4a67182') {
-        AppState.state.isAdmin = true;
+    if (adalContext.getDomain(adalContext.getUsername()) === 'Daimler') { // Hack for MS Graph
+      AppState.state.isAdmin = true;
+    } else if (AppState.state.isAdmin === undefined) {
+      AppState.state.isAdmin = false;
+      const groups = await adalContext.getGroups();
+      for (const g of groups.value) {
+        const group = g as string;
+        if (group === 'ec5a8b75-4839-4ff1-b50d-f8159653d9f0' || group === '463512e5-968f-4b2d-8283-737be4a67182') {
+          AppState.state.isAdmin = true;
+        }
       }
     }
-
+  
     this.isAdmin = AppState.state.isAdmin;
   }
 
-  pivotClick(item: PivotItem): void {
+  private pivotClick(item: PivotItem): void {
     this.selectedKey = item.props.headerText.replace(' ', '').toLowerCase();
     this.props.history.push(`/home/${this.selectedKey}`);
   }
 
-  homeClick(): void {
+  private homeClick(): void {
     this.props.history.push('/home/dashboard');
   }
 
