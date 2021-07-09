@@ -58,12 +58,12 @@ class AppCard extends React.Component<IProp> {
     const text = this.props.buttonText || a.purchase;
     if (!this.props.wide) {
       return (
-        <div className='h250 m5 br4 bsAppStore bgwhite minw200 maxw200 cpointer' onClick={() => this.cardClick()}>
+        <div className='h250 m5 br4 bsAppStore bgwhite minw200 maxw200 cpointer hov' onClick={() => this.cardClick()}>
           <div className='df fdc h120'>
             {text === 'OPEN' && <IconButton className='ml150 mt10 ml15' iconProps={{ iconName: 'infoSolid', className: 'fs20' }} title='Show app description'
               onClick={(ev: any) => this.cardClick(ev, true)} />}
+            <div className='flex1'/>
             {!this.props.hideRating && <Ratings className='ml15 mt50' app={a} />}
-            {this.props.hideRating && <div className='mt80 ml15 mb20'>&nbsp;</div>}
           </div>
           <div className='ml15 fs14 fggrey mb5'>{a.companyName}</div>
           <div className='ml15 bold fs14 minh40'>{a.title}</div>
@@ -75,7 +75,7 @@ class AppCard extends React.Component<IProp> {
       );
     } else {
       return (
-        <div className='w340 minh160 maxh160 m5 br4 bsAppStore bgwhite cpointer' onClick={(ev) => this.cardClick(ev, true)}>
+        <div className='w340 minh160 maxh160 m5 br4 bsAppStore bgwhite cpointer hov' onClick={(ev) => this.cardClick(ev, true)}>
           <Ratings className='mt20 ml15 mb5' app={a} />
           <div className='ml15 fs14 fggrey mb5 mt20'>{a.companyName}</div>
           <div className='df'>

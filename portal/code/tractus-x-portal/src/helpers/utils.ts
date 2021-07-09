@@ -138,7 +138,6 @@ export function compare(a: any, b: any): number {
     return 0;
   } else {
     return -1;
-
   }
 }
 
