@@ -94,14 +94,14 @@ export default class AddUser extends React.Component {
           <div className='df mb5 w100-60'>
             <span className='fs14 fggrey ml10 mr5 flex3'>Email address</span>
             <span className='fs14 fggrey mr5 flex2'>Full Name</span>
-            <span className='fs14 fggrey mr5 flex1'>Role</span>
+            <span className='fs14 fggrey mr5 flex1'>Company</span>
             <span className='fs14 fggrey flex1'>Status</span>
           </div>
           {this.users.map((c, index) => (
             <div key={index} className='df bgwhite h36 mb5 w100-60'>
               <span className='fs14 bold mr5 ml10 mt7 flex3 minw100'>{c.mail || c.userPrincipalName}</span>
               <span className='fs14 mr5 mt7 flex2'>{c.displayName}</span>
-              <span className='fs14 mr5 mt7 flex1'>User</span>
+              <span className='fs14 mr5 mt7 flex1'>{adalContext.getDomain(c.mail || c.userPrincipalName)}</span>
               <div className='flex1 df'>
                 <span className='dot mt12 bggraphgreen' />
                 <span className='fs14 mt7 pl5 flex1'>Active</span>

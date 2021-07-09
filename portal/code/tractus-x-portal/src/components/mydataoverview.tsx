@@ -153,7 +153,7 @@ export default class MyDataOverview extends React.Component {
           <div className='df bgf5 h36 mb5 aic mt20'>
             <Icon className='bold mr10 mt5' iconName='Forward' />
             <span className='bold'>Find more Data sets in the
-              <Link className='fglgreen fs16 bold mr5 tdn ml5' to='/home/datacatalog'>DATA CATALOG</Link>
+              <Link className='fglgreen fs14 bold mr5 tdn ml5' to='/home/datacatalog'>DATA CATALOG</Link>
             </span>
           </div>
         </div>

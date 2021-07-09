@@ -91,7 +91,7 @@ export default class AppDetail extends React.Component<RouteComponentProps> {
               <div className='flex1'>
                 {app.tags.map((t, index) => <div key={index} className='dib bggrey br15 h30 px10 lh30 fgwhite mr5 mb5 fs14'>{t}</div>)}
               </div>
-              <PrimaryButton className='w170 h50 br5 fs14 ml100' text='OPEN' onClick={() => this.openClick()} />
+              <PrimaryButton className='w170 h50 br5 fs14 ml100' text={app.purchase} onClick={() => this.openClick()} />
             </div>
             <div className='ml50 w100-100 mt20 df bglightgrey'>
               <div className='df oa'>

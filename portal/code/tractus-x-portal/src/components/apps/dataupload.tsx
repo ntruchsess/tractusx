@@ -20,7 +20,6 @@ import { ActionButton, Icon, ComboBox, IComboBoxOption, SearchBox, DefaultButton
 import { Dialog, DialogType, DialogFooter } from '@fluentui/react';
 import { AppState } from '../../stores/appstate';
 import AppCard from '../appcard';
-import { Application } from '../../data/application';
 import { observable } from 'mobx';
 
 @observer
@@ -32,12 +31,6 @@ class DataUpload extends React.Component<RouteComponentProps> {
       this.props.history.goBack();
     } else {
       this.props.history.push('/home/dashboard');
-    }
-  }
-
-  private appClick(a: Application) {
-    if (a.title === 'Material Traceability') {
-      this.props.history.replace('/dataupload2');
     }
   }
 
@@ -115,7 +108,7 @@ class DataUpload extends React.Component<RouteComponentProps> {
 
             <div className='w100-100'>
               <div className='ovx h250 df'>
-                {AppState.state.connectedApps.map((a, index) => <AppCard key={index} app={a} uploads hideRating onClick={() => this.appClick(a)} />)}
+                {AppState.state.connectedApps.map((a, index) => <AppCard key={index} app={a} buttonText='UPLOAD' hideUsage hideRating />)}
               </div>
             </div>
           </div>
