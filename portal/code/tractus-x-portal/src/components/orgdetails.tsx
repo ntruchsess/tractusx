@@ -18,22 +18,47 @@ import { Pivot, PivotItem } from '@fluentui/react';
 import OrgContactData from './orgcontactdata';
 import OrgGeneralInfo from './orggeneralinfo';
 import OrgBankData from './orgbankdata';
+import { OrganizationalDetails } from '../data/organizationdetails';
+import { getOneIDDetails, mapOneId } from '../helpers/utils';
+import { observable } from 'mobx';
+import adalContext from '../helpers/adalConfig';
 
 @observer
 export default class OrgDetails extends React.Component {
+
+  @observable organizationalDetails: OrganizationalDetails;
+
+  componentDidMount() {
+    this.callGPMService();
+  }
+
+  private async callGPMService() {
+    const oneid = mapOneId(adalContext.getUsername());
+    try {
+      let ret = await getOneIDDetails(oneid);
+      if (!ret) {
+        ret = await getOneIDDetails('Partner_ERROR_CP');
+      }
+      this.organizationalDetails = ret;
+    }
+    catch {
+      console.log('fail');
+      return;
+    }
+  }
 
   public render() {
     return (
       <div className='w100pc bgpanel3 h100pc df fdc'>
         <Pivot className='px30 bgfa h100pc' aria-label='Header'>
           <PivotItem className='mr20' headerText='General Information' >
-            <OrgGeneralInfo/>
+            <OrgGeneralInfo orgDetails={this.organizationalDetails}> </OrgGeneralInfo>
           </PivotItem>
           <PivotItem className='mr20' headerText='Contact Data' >
-            <OrgContactData/>
+            <OrgContactData orgDetails={this.organizationalDetails} />
           </PivotItem>
           <PivotItem className='mr20' headerText='Bank Data' >
-            <OrgBankData/>
+            <OrgBankData orgDetails={this.organizationalDetails} />
           </PivotItem>
         </Pivot>
       </div>

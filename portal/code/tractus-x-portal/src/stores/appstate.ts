@@ -114,6 +114,7 @@ export class AppState {
   public sapapps: Application[] = [D];
   public connectedApps: Application[] = [B, F, D];
   @observable public isAdmin: boolean;
+  public email = '';
   public readonly categories: any[] = [
     { text: 'Top 10 Downloads', apps: this.topApps },
     { text: 'Business Apps', apps: this.bizApps },

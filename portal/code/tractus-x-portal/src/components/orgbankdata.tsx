@@ -16,37 +16,40 @@ import * as React from 'react';
 import { observer } from 'mobx-react';
 import { Dropdown, IDropdownOption, TextField } from '@fluentui/react';
 
+import {OrganizationalDetails} from '../data/organizationdetails';
+
+interface OrgBankDataProps {
+  orgDetails: OrganizationalDetails;
+}
 
 @observer
-export default class OrgBankData extends React.Component {
+export default class OrgBankData extends React.Component<OrgBankDataProps>{
 
   public render() {
+    const iban: string = this.props.orgDetails?.bankData?.[0]?.IBAN || '';
+    const bic: string = this.props.orgDetails?.bankData?.[0]?.bankIdentifier || '';
+    const currency: string = this.props.orgDetails?.bankData?.[0]?.currency || '';
+    const countryBank: string = this.props.orgDetails?.bankData?.[0]?.countryOfBank || '';
 
-    const currencyOptions: IDropdownOption[] = [
-      { key: 'yen', text: '¥' },
-      { key: 'dollar', text: '$' },
-      { key: 'euro', text: '€' },
-      { key: 'pound', text: '£' }
+    const countryBankOptions: IDropdownOption[] = [
+      { key: countryBank, text: countryBank }
     ];
 
-    const countryOptions: IDropdownOption[] = [
-      { key: 'germany', text: 'Germany' },
-      { key: 'russia', text: 'Russia' },
-      { key: 'china', text: 'China' },
-      { key: 'india', text: 'India' }
+    const currencyOptions: IDropdownOption[] = [
+      { key: currency, text: currency }
     ];
 
     return (
       <div className='w100pc pt18 h100pc df fdc'>
         <div className='pb20'>
           <div className=' bold fs14 pb8'>Account</div>
-          <div className='pb6 df'>
-            <TextField placeholder='IBAN' disabled className='w50pc pr10 brnone br4 h36' required></TextField>
-            <Dropdown className='w50pc ' disabled placeholder='Currency' options={currencyOptions} required></Dropdown>
+          <div className='pb6 df mt6'>
+            <TextField label='IBAN' disabled className='w50pc pr10 brnone br4 h36' defaultValue={iban}></TextField>
+            <Dropdown className='w50pc ' disabled label='Currency' options={currencyOptions} defaultSelectedKey={currency}></Dropdown>
           </div>
-          <div className='pb6 df'>
-            <TextField placeholder='BIC' disabled className='w50pc pr10 brnone br4 h36' required></TextField>
-            <Dropdown className='w50pc ' disabled placeholder='Country of bank' options={countryOptions} required></Dropdown>
+          <div className='pb6 df mt6'>
+            <TextField label='BIC' disabled className='w50pc pr10 brnone br4 h36' defaultValue={bic}></TextField>
+            <Dropdown className='w50pc ' disabled label='Country of bank' options={countryBankOptions} defaultSelectedKey={countryBank}></Dropdown>
           </div>
         </div>
       </div>
