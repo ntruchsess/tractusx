@@ -20,8 +20,7 @@ import { RouteComponentProps, withRouter } from 'react-router-dom';
 @observer
 class RegisterTemplate extends React.Component<RouteComponentProps>{
   public linkClick(): void {
-    // need to put login url here
-    this.props.history.push('/home/dashboard');
+    this.props.history.push('/');
   }
 
   public render() {
