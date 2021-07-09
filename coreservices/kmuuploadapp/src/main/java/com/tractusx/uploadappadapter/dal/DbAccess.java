@@ -21,18 +21,16 @@ public class DbAccess {
         this.config = config;
     }
 
-    public void SavePartsToDataBase(PartMasterData[] parts) throws SQLException{
+    public void SavePartsToDataBase(PartMasterData[] parts) throws Exception{
         GetConnection();
-
         if (connection == null) {
             //throw new Exception("No connection to db established!");
         }
-
         EnsureTablesInDatabase();
         InsertPartsInDatabase(parts);
     }
 
-    public PartMasterData[] GetPartsFromDatabase(String companyOneId) {
+    public PartMasterData[] GetPartsFromDatabase(String companyOneId) throws Exception {
         GetConnection();
         if (connection == null) {
             //throw new Exception("No connection to db established!");
@@ -45,67 +43,66 @@ public class DbAccess {
         int i = 0;
 
 
-            PreparedStatement insertStatement = connection
-                    .prepareStatement("INSERT INTO parts (" +
-                            "customerUniqueId," +
-                            "customerContractOneId," +
-                            "customerOneId," +
-                            "isParentOf," +
-                            "manufacturerOneId," +
-                            "manufacturerUniqueId," +
-                            "partNameCustomer," +
-                            "partNameManufacturer," +
-                            "partNumberCustomer," +
-                            "partNumberManufacturer," +
-                            "productionCountryCode," +
-                            "productionDateGmt," +
-                            "qualityAlert," +
-                            "qualityType," +
-                            "manufactureContractOneId," +
-                            "uniqueId," +
-                            "importTimestampUtc) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
+        PreparedStatement insertStatement = connection
+                .prepareStatement("INSERT INTO parts (" +
+                        "customerUniqueId," +
+                        "customerContractOneId," +
+                        "customerOneId," +
+                        "isParentOf," +
+                        "manufacturerOneId," +
+                        "manufacturerUniqueId," +
+                        "partNameCustomer," +
+                        "partNameManufacturer," +
+                        "partNumberCustomer," +
+                        "partNumberManufacturer," +
+                        "productionCountryCode," +
+                        "productionDateGmt," +
+                        "qualityAlert," +
+                        "qualityType," +
+                        "manufactureContractOneId," +
+                        "uniqueId," +
+                        "importTimestampUtc) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
 
-            for (var part : parts) {
-                PreparedStatement deleteStatement = connection.prepareStatement("DELETE FROM parts WHERE uniqueid='" + part.UniqueData.uniqueId + "';");
-                deleteStatement.executeUpdate();
+        for (var part : parts) {
+            PreparedStatement deleteStatement = connection.prepareStatement("DELETE FROM parts WHERE uniqueid='" + part.UniqueData.uniqueId + "';");
+            deleteStatement.executeUpdate();
 
-                insertStatement.setString(1, part.UniqueData.customerUniqueId); //customerUniqueId
-                insertStatement.setString(2, part.StaticData.customerContractOneId); //customerContractOneId
-                insertStatement.setString(3, part.StaticData.customerOneId); //customerOneId
-                insertStatement.setString(4, Arrays.toString(part.PartTree.isParentOf));//isParentOf
-                insertStatement.setString(5, part.StaticData.manufacturerOneId); //manufacturerOneId
-                insertStatement.setString(6, part.UniqueData.manufacturerUniqueId); //manufacturerUniqueId
-                insertStatement.setString(7, part.StaticData.partNumberCustomer); //partNameCustomer
-                insertStatement.setString(8, part.StaticData.partNameManufacturer); //partNameManufacturer
-                insertStatement.setString(9, part.StaticData.partNumberCustomer); //partNumberCustomer
-                insertStatement.setString(10, part.StaticData.partNumberManufacturer); //partNumberManufacturer
-                insertStatement.setString(11, part.IndividualData.productionCountryCode); //productionCountryCode
-                insertStatement.setString(12, part.IndividualData.productionDateGmt); //productionDateGmt
-                insertStatement.setBoolean(13, part.QualityAlert.qualityAlert); //qualityAlert
-                var qualType = String.valueOf(part.QualityAlert.qualityType);
-                if(qualType == "null")
-                    qualType = "";
-                insertStatement.setString(14, qualType);//part.qualityAlert.QualityType); //qualityType
-                insertStatement.setString(15, part.StaticData.manufacturerContractOneId); //manufactureContractOneId
-                insertStatement.setString(16, part.UniqueData.uniqueId); //uniqueId
-                insertStatement.setTimestamp(17, Timestamp.from(dateTimeNowUtc));
+            insertStatement.setString(1, part.UniqueData.customerUniqueId); //customerUniqueId
+            insertStatement.setString(2, part.StaticData.customerContractOneId); //customerContractOneId
+            insertStatement.setString(3, part.StaticData.customerOneId); //customerOneId
+            insertStatement.setString(4, Arrays.toString(part.PartTree.isParentOf));//isParentOf
+            insertStatement.setString(5, part.StaticData.manufacturerOneId); //manufacturerOneId
+            insertStatement.setString(6, part.UniqueData.manufacturerUniqueId); //manufacturerUniqueId
+            insertStatement.setString(7, part.StaticData.partNumberCustomer); //partNameCustomer
+            insertStatement.setString(8, part.StaticData.partNameManufacturer); //partNameManufacturer
+            insertStatement.setString(9, part.StaticData.partNumberCustomer); //partNumberCustomer
+            insertStatement.setString(10, part.StaticData.partNumberManufacturer); //partNumberManufacturer
+            insertStatement.setString(11, part.IndividualData.productionCountryCode); //productionCountryCode
+            insertStatement.setString(12, part.IndividualData.productionDateGmt); //productionDateGmt
+            insertStatement.setBoolean(13, part.QualityAlert.qualityAlert); //qualityAlert
+            var qualType = String.valueOf(part.QualityAlert.qualityType);
+            if (qualType == "null")
+                qualType = "";
+            insertStatement.setString(14, qualType);//part.qualityAlert.QualityType); //qualityType
+            insertStatement.setString(15, part.StaticData.manufacturerContractOneId); //manufactureContractOneId
+            insertStatement.setString(16, part.UniqueData.uniqueId); //uniqueId
+            insertStatement.setTimestamp(17, Timestamp.from(dateTimeNowUtc));
 
-
-                insertStatement.addBatch();
-                i++;
-                if (i % 1000 == 0 || i == parts.length) {
-                    insertStatement.executeBatch();
-                }
+            insertStatement.addBatch();
+            i++;
+            if (i % 1000 == 0 || i == parts.length) {
+                insertStatement.executeBatch();
             }
-
+        }
     }
 
 
 
-    private PartMasterData[] ReturnPartsFromDatabase(String companyOneId)
+
+    private PartMasterData[] ReturnPartsFromDatabase(String companyOneId) throws Exception
     {
         List<PartMasterData> parts = new ArrayList<PartMasterData>();
-        try {
+
             PreparedStatement readStatement = connection.prepareStatement("SELECT * FROM parts WHERE customeroneid='"+ companyOneId +"where importtimestamputc BETWEEN NOW() - INTERVAL '1 DAY' AND NOW()';");
             ResultSet resultSet = readStatement.executeQuery();
 
@@ -135,32 +132,22 @@ public class DbAccess {
                 parts.add(p);
             }
 
-
-        }
-        catch(Exception ex)
-        {
-
-        }
-
         if(parts == null || parts.isEmpty())
             return null;
         return parts.toArray(new PartMasterData[parts.size()]);
     }
 
-    private void GetConnection()
+    private void GetConnection() throws Exception
     {
         Connection c = null;
-        try {
-            DriverManager.registerDriver(new org.postgresql.Driver());
 
-            c = DriverManager
-                    .getConnection(config.postGreUploadUrl + "/" + config.postGreUploadDb + "?ssl=true&sslmode=require",
-                            config.postGreUploadUser,
-                            config.postGreUploadPassword);
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.err.println(e.getClass().getName()+": "+e.getMessage());
-        }
+        DriverManager.registerDriver(new org.postgresql.Driver());
+
+        c = DriverManager
+             .getConnection(config.postGreUploadUrl + "/" + config.postGreUploadDb + "?ssl=true&sslmode=require",
+                     config.postGreUploadUser,
+                     config.postGreUploadPassword);
+
         this.connection = c;
     }
 

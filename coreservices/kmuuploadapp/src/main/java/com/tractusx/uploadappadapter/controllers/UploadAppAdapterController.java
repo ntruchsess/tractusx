@@ -24,8 +24,14 @@ public class UploadAppAdapterController {
     @GetMapping("/api/getPartMasterData")
     public PartMasterData[] getParts(@RequestParam("companyOneId") String companyOneId)
     {
-        var dbAccess = new DbAccess(dbConfig);
-        return dbAccess.GetPartsFromDatabase(companyOneId);
+        try {
+            var dbAccess = new DbAccess(dbConfig);
+            return dbAccess.GetPartsFromDatabase(companyOneId);
+        }
+        catch(Exception e)
+        {
+            return null;
+        }
     }
 
 
@@ -52,7 +58,7 @@ public class UploadAppAdapterController {
 
             return retVal;
         }
-        catch(SQLException e)
+        catch(Exception e)
         {
             return e.getMessage();
         }
