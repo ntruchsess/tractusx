@@ -3,9 +3,14 @@ package com.tractusx.partsmasterdata.dal;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Base64;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -18,19 +23,25 @@ import kotlin.jvm.internal.TypeReference;
 
 public class DataRequest {
     public static String USER_AGENT = "Mozilla/5.0";
-    public static String GET_URL = "https://e5bjkagoqi.execute-api.eu-west-1.amazonaws.com/development/relationships-knowledge?companyOneId=Partner_00007_BMW&productionDateFrom=2021-06-30T00%3A00%3A00.000Z&productionDateTo=2021-07-05T00%3A00%3A00.000Z";
     public static String URL_PARAMETERS = "";
 
     private DateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd");
 
 
-    public PartMasterData[] GetParts(String companyOneId, Date productionDateFrom, Date productionDateTo, String getUrl, String xApiKey)
+    public PartMasterData[] GetParts(ReqConfig config)
     {
         PartMasterData[] retVal = null;
-        String parts = executeGet(companyOneId, productionDateFrom, productionDateTo, getUrl, xApiKey);
+        String parts = executePost(config);
         if(parts != "")
         {
-            //retVal =
+            String searchFor = "response: ";
+            String lowerParts = parts.toLowerCase();
+            int contentStartIndex = lowerParts.indexOf(searchFor);
+            if(contentStartIndex != -1)
+            {
+                parts = parts.substring(contentStartIndex + searchFor.length());
+            }
+
             InterimPart[] interimParts = createInterimParts(parts);
             retVal = createParts(interimParts);
         }
@@ -62,19 +73,45 @@ public class DataRequest {
             retVal = objectMapper.readValue(parts, InterimPart[].class);
         }
         catch(JsonProcessingException ex)
-        {}
+        {
+            ex.printStackTrace();
+            System.err.println(ex.getClass().getName()+": "+ex.getMessage());}
         return retVal;
     }
 
-    private String executeGet(String companyOneId, Date productionDateFrom, Date productionDateTo, String getUrl, String xApiKey)
+    private String executePost(ReqConfig config)
     {
         String retVal = "";
         try {
-            URL endpointUrl = new URL(String.format(String.format(getUrl + "?companyOneId=" + companyOneId + "&productionDateFrom=" + dateFormat.format(productionDateFrom) + "T00:00:00.000Z&productionDateTo=" + dateFormat.format(productionDateTo) + "T00:00:00.000Z")));
-            HttpsURLConnection con = (HttpsURLConnection) endpointUrl.openConnection();
-            con.setRequestMethod("GET");
-            con.setRequestProperty("User-Agent", USER_AGENT);
-            con.setRequestProperty("x-api-key", xApiKey);
+            //Timeframe for parts
+            Calendar fromCal = Calendar.getInstance();
+            fromCal.add(Calendar.HOUR,config.loadLastNHours * -1);
+            Calendar toCal = Calendar.getInstance();
+
+            String urlWithParams = config.postUrl + "?recipient=" + encodeValue(config.recipient) + "&requestedArtifact=" + encodeValue(config.requestedArtifact) + "&transferContract=" + encodeValue(config.transferContract) + "&key=" + config.key;
+
+            HttpURLConnection con = (HttpURLConnection) new URL(urlWithParams).openConnection();
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+
+            //Auth
+            String userCredentials = config.authUsername + ":" + config.authPassword;
+            String basicAuth = "Basic " + new String(Base64.getEncoder().encode(userCredentials.getBytes()));
+            con.setRequestProperty ("Authorization", basicAuth);
+
+            //Params
+            con.setRequestProperty("content-type", "application/json");
+
+            //Body
+            String postBody = "{\"headers\": { \"x-api-key\": \"" + config.xApiKey + "\"},\"params\": {\"companyOneId\": \"" + config.companyOneId + "\",\"productionDateFrom\": \"" + dateFormat.format(fromCal.getTime()) + "T00:00:00.000z\",\"productionDateTo\": \"" + dateFormat.format(toCal.getTime()) + "T00:00:00.000z\"}}";
+            java.io.OutputStream os = con.getOutputStream();
+            java.io.OutputStreamWriter osw = new java.io.OutputStreamWriter(os, "UTF-8");
+            osw.write(postBody);
+            osw.flush();
+            osw.close();
+            os.close();
+
             int responseCode = con.getResponseCode();
             System.out.println("GET Response Code :: " + responseCode);
             if (responseCode == HttpsURLConnection.HTTP_OK) { // success
@@ -90,14 +127,27 @@ public class DataRequest {
 
                 // print result
                 retVal = response.toString();
-                //System.out.println(response.toString());
-            } else {
+            }
+            else {
                 System.out.println("GET request not worked");
             }
         }
         catch(Exception ex)
         {
+            ex.printStackTrace();
+            System.err.println(ex.getClass().getName()+": "+ex.getMessage());
+        }
+        return retVal;
+    }
 
+
+    private String encodeValue(String value) {
+        String retVal = "";
+        try {
+            retVal = java.net.URLEncoder.encode(value, StandardCharsets.UTF_8.toString());
+        } catch (UnsupportedEncodingException ex) {
+            ex.printStackTrace();
+            System.err.println(ex.getClass().getName()+": "+ex.getMessage());
         }
         return retVal;
     }

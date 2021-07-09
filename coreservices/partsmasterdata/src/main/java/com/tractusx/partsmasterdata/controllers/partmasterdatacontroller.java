@@ -53,22 +53,14 @@ public class partmasterdatacontroller {
     {
         ReqConfig[] configs = reqConfig.getReqConfigs();
 
-
-        Calendar fromCal = Calendar.getInstance();
-        fromCal.add(Calendar.DAY_OF_MONTH,-7);
-        Calendar toCal = Calendar.getInstance();
-
         for(ReqConfig rConfig:configs) {
             DataRequest dr = new DataRequest();
-            PartMasterData[] partsFromExternalSource = dr.GetParts(
-                    rConfig.companyOneId,
-                    fromCal.getTime(),
-                    toCal.getTime(),
-                    rConfig.getUrl,
-                    rConfig.xApiKey);
+            PartMasterData[] partsFromExternalSource = dr.GetParts(rConfig);
 
-            DbAccess da = new DbAccess(dbConfig);
-            da.SavePartsToDataBase(partsFromExternalSource);
+            if(partsFromExternalSource != null) {
+                DbAccess da = new DbAccess(dbConfig);
+                da.SavePartsToDataBase(partsFromExternalSource);
+            }
         }
     }
 }

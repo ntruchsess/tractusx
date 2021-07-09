@@ -29,7 +29,10 @@ public class DataRequestConfiguration {
             retVal = objectMapper.readValue(requestConfig, ReqConfig[].class);
         }
         catch(JsonProcessingException ex)
-        {}
+        {
+            ex.printStackTrace();
+            System.err.println(ex.getClass().getName()+": "+ex.getMessage());
+        }
         return retVal;
     }
 }
