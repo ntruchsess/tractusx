@@ -100,16 +100,16 @@ const navLinkGroups2: INavLinkGroup[] = [
         title: ''
       },
       {
-        name: 'User Management',
-        url: '/home/usermanagement',
+        name: 'Partner Network',
+        url: '/home/partners',
         key: 'key6',
         expandAriaLabel: 'Expand section',
         collapseAriaLabel: 'Collapse section',
         title: ''
       },
       {
-        name: 'Yellow Pages',
-        url: '/home/yellowpages',
+        name: 'User Management',
+        url: '/home/usermanagement',
         key: 'key7',
         expandAriaLabel: 'Expand section',
         collapseAriaLabel: 'Collapse section',
@@ -195,7 +195,7 @@ class Home extends React.Component<RouteComponentProps> {
               <Route path='/home/myconnectors' component={(props) => <MyConnectors {...props} />} />
               <Route path='/home/organization' component={(props) => <OrgDetails {...props} />} />
               <Route path='/home/usermanagement' component={(props) => <UserMgmt {...props} />} />
-              <Route path='/home/yellowpages' component={(props) => <YellowPages {...props} />} />
+              <Route path='/home/partners' component={(props) => <YellowPages {...props} />} />
               <Route path='/home/notification' component={(props) => <NotificationCenter {...props} />} />
               <Route path='/home/notimp' component={(props) => <NotImp {...props} />} />
             </Switch>
