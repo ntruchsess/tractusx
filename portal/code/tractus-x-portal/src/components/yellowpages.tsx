@@ -14,17 +14,21 @@
 
 import * as React from 'react';
 import { observer } from 'mobx-react';
-import { SearchBox } from '@fluentui/react';
+import { Dialog, DialogFooter, Pivot, PivotItem, PrimaryButton, SearchBox } from '@fluentui/react';
 import jsonData from '../data/gpm_testdata.json';
 import YellowPage from '../data/yellowpage';
 import { compare } from '../helpers/utils';
 import { observable } from 'mobx';
+import OrgBankData from './orgbankdata';
+import OrgContactData from './orgcontactdata';
+import OrgGeneralInfo from './orggeneralinfo';
 
 @observer
 export default class YellowPages extends React.Component {
   @observable private yellowPagesData: YellowPage[] = [];
   private readonly data: YellowPage[];
   private lastLetter = '';
+  @observable private selectedItem: YellowPage;
 
   constructor(props: any) {
     super(props);
@@ -51,9 +55,10 @@ export default class YellowPages extends React.Component {
     return (
       <div className='w100pc h100pc df fdc'>
         <div className='w100pc bgf5 h100pc df fdc ml50'>
-          <div className='df bgf5 mb15 mt50 w100-60'>
-            <span className='fs14 fggrey flex1 mr50'><SearchBox className='bcwhite' placeholder='Search' onChange={(ev, newvalue) => this.searchVal(newvalue)} /></span>
-            <span className='fs14 fggrey mr5 flex1'>country:  <span className='bold'>email address</span></span>
+          <div className='df bgf5 mb15 mt50 w100-60 aic'>
+            <span className='fs14 fggrey flex2'><SearchBox className='bcwhite' placeholder='Search' onChange={(ev, newvalue) => this.searchVal(newvalue)} /></span>
+            <div className='flex3' />
+            <span className='fs14 fggrey flex1 mr35'>country:  <span className='bold'>all</span></span>
             {/* <span className='fs14 fggrey mr5 flex1'>commodity:  <span className='bold'>none</span></span> */}
           </div>
           <div className='df mb5 w100-100'>
@@ -65,7 +70,7 @@ export default class YellowPages extends React.Component {
           {this.yellowPagesData.map((c, index) => (
             <div key={index} className='df fdc'>
               {this.rolodex(c.businessPartnerName[0].name)}
-              <div className='df bgwhite h36 mb5 w100-100 p5 aic'>
+              <div className='df bgwhite h36 mb5 w100-100 p5 aic hov cpointer' onClick={() => this.selectedItem = c}>
                 <span className='fs14 ml5 mr5 flex3'>{c.businessPartnerName[0].name}</span>
                 <span className='fs14 mr5 ml10 mt7 flex2 minw100'>{c.oneID}</span>
                 <span className='fs14 mr5 mt7 flex1'>{c.addressData[0].country.countryNameEN}</span>
@@ -74,6 +79,23 @@ export default class YellowPages extends React.Component {
             </div>
           ))}
         </div>
+        {this.selectedItem && <Dialog hidden={false} modalProps={{ containerClassName: 'minw100-100 br7', topOffsetFixed: true }}>
+          <span className='bold fs24 ml30 mb30'>{this.selectedItem.businessPartnerName[0].name}</span>
+          <Pivot className='px30 bgfa h100pc' aria-label='Header'>
+            <PivotItem className='mr20' headerText='General Information' >
+              <OrgGeneralInfo orgDetails={this.selectedItem as any}> </OrgGeneralInfo>
+            </PivotItem>
+            <PivotItem className='mr20' headerText='Contact Data' >
+              <OrgContactData orgDetails={this.selectedItem as any} />
+            </PivotItem>
+            <PivotItem className='mr20' headerText='Bank Data' >
+              <OrgBankData orgDetails={this.selectedItem as any} />
+            </PivotItem>
+          </Pivot>
+          <DialogFooter>
+            <PrimaryButton className='br4' text='CLOSE' onClick={() => this.selectedItem = null} />
+          </DialogFooter>
+        </Dialog>}
       </div>
     );
   }

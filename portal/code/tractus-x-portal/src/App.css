@@ -349,6 +349,7 @@ iframe {border-style: none;}
 .mw32 {min-width:32px;}
 .mw40 {min-width:40px;}
 .minw30 {min-width:30px;}
+.minw100-100 {min-width:calc(100% - 100px);}
 .minw100 {min-width:100px;}
 .minw200 {min-width:200px;}
 .minw300 {min-width:300px;}
@@ -519,6 +520,7 @@ iframe {border-style: none;}
 .mr25 {margin-right: 25px;}
 .mr27 {margin-right: 27px;}
 .mr30 {margin-right: 30px;}
+.mr35 {margin-right: 35px;}
 .mr40 {margin-right: 40px;}
 .mr50 {margin-right: 50px;}
 .mr60 {margin-right: 60px;}
