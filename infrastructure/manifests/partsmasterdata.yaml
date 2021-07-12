@@ -44,11 +44,6 @@ spec:
               secretKeyRef:
                 key: postgre_upload_db
                 name: partsmasterdata-secret
-          - name: CRONSTRING
-            valueFrom:
-              secretKeyRef:
-                kay: cron_string
-                name: partsmasterdata-secret
         ports:
         - containerPort: 8080
 ---
