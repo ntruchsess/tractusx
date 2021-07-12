@@ -49,12 +49,6 @@ spec:
               secretKeyRef:
                 kay: cron_string
                 name: partsmasterdata-secret
-          - name: REQUESTCONFIG
-            valueFrom:
-              secretKeyRef:
-                key: request_config
-                name: partsmasterdata-secret
-        
         ports:
         - containerPort: 8080
 ---
