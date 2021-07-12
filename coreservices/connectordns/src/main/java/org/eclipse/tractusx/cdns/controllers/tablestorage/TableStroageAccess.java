@@ -62,7 +62,7 @@ public class TableStroageAccess {
                 }
             };
             var oneIdDnsMappings = new ArrayList<ConnectorDNSRecord>();
-            if(isBusinesspartnerId) {
+
 
                 for(OneIdDNSMapping mapping : cloudTable.execute(query, dnsArray)){
                     var connector = new ConnectorDNSRecord();
@@ -72,18 +72,7 @@ public class TableStroageAccess {
                     connector.dnsEntry = mapping.dnsEntry;
                     oneIdDnsMappings.add(connector);
                 }
-            }
-            else{
-                for(OneIdDNSMapping mapping : cloudTable.execute(query, dnsArray)){
-                    var connector = new ConnectorDNSRecord();
-                    connector.idsConnectorID = mapping.getRowKey();
-                    connector.oneID = mapping.getPartitionKey();
-                    connector.connectorType = mapping.connectorType;
-                    connector.dnsEntry = mapping.dnsEntry;
-                    oneIdDnsMappings.add(connector);
-                    break;
-                }
-            }
+
     return  oneIdDnsMappings;
         }
         catch (Exception e)
