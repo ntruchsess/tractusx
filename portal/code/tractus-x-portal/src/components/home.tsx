@@ -30,8 +30,8 @@ import UserMgmt from './usermanagement';
 import MyConnectors from './myconnectors';
 import MyData from './mydata';
 import { observable } from 'mobx';
-import adalContext from '../helpers/adalConfig';
 import NotificationCenter from './notificationcenter';
+import YellowPages from './yellowpages';
 
 const navStyles: Partial<INavStyles> = {
   root: {
@@ -94,6 +94,14 @@ const navLinkGroups2: INavLinkGroup[] = [
       {
         name: 'Organization',
         url: '/home/organization',
+        key: 'key5',
+        expandAriaLabel: 'Expand section',
+        collapseAriaLabel: 'Collapse section',
+        title: ''
+      },
+      {
+        name: 'Partner Network',
+        url: '/home/partners',
         key: 'key6',
         expandAriaLabel: 'Expand section',
         collapseAriaLabel: 'Collapse section',
@@ -146,16 +154,6 @@ const navLinkGroupsData: INavLinkGroup[] = [
 class Home extends React.Component<RouteComponentProps> {
   @observable public static selectedKey1 = 'key1';
   @observable public static selectedKey2 = 'key0';
-  static first = true;
-
-  constructor(props: any) {
-    super(props);
-    if (Home.first) {
-      const token = adalContext.getCachedToken();
-      console.log(token);
-      Home.first = false;
-    }
-  }
 
   linkClick(ev: React.MouseEvent<HTMLElement, MouseEvent>, item: INavLink): void {
     ev.stopPropagation();
@@ -197,6 +195,7 @@ class Home extends React.Component<RouteComponentProps> {
               <Route path='/home/myconnectors' component={(props) => <MyConnectors {...props} />} />
               <Route path='/home/organization' component={(props) => <OrgDetails {...props} />} />
               <Route path='/home/usermanagement' component={(props) => <UserMgmt {...props} />} />
+              <Route path='/home/partners' component={(props) => <YellowPages {...props} />} />
               <Route path='/home/notification' component={(props) => <NotificationCenter {...props} />} />
               <Route path='/home/notimp' component={(props) => <NotImp {...props} />} />
             </Switch>

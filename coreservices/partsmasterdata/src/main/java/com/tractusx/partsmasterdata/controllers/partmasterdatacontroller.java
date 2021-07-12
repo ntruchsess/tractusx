@@ -1,17 +1,27 @@
 package com.tractusx.partsmasterdata.controllers;
 
+import com.tractusx.partsmasterdata.dal.DataRequest;
+import com.tractusx.partsmasterdata.dal.DataRequestConfiguration;
 import com.tractusx.partsmasterdata.dal.DbAccess;
 import com.tractusx.partsmasterdata.dal.DbConfiguration;
+import com.tractusx.partsmasterdata.dal.ReqConfig;
 import com.tractusx.partsmasterdata.models.PartMasterData;
 import nonapi.io.github.classgraph.json.JSONDeserializer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Calendar;
+import java.util.Date;
 
 @RestController
 public class partmasterdatacontroller {
     @Autowired
     DbConfiguration dbConfig;
+
+    @Autowired
+    DataRequestConfiguration reqConfig;
 
      /*@GetMapping("/api/getPartMasterData")
     public String GetParts(
@@ -25,34 +35,32 @@ public class partmasterdatacontroller {
 
     @PostMapping("/api/Insert")
     public String doPartsInsert(){
-        DbAccess da = new DbAccess(dbConfig);
-        da.SavePartsToDataBase(getTestParts());
+        processParts();
         return "done";
     }
 
-
-
-
-
-    private PartMasterData[] getTestParts()
+    //@Scheduled(fixedRate = 1000)
+    @Scheduled(cron = "${requestconfig.cronstring}")
+    private void getParts()
     {
-        PartMasterData[] retVal = new PartMasterData[4];
+        System.out.println("getParts started");
+        processParts();
+        System.out.println("getParts finished");
+    }
 
-        retVal[0] = new PartMasterData();
-        retVal[0].UniqueData.uniqueId = "1";
-        retVal[0].PartTree.isParentOf = new String[] {"2","3","4","5"};
 
-        retVal[1] = new PartMasterData();
-        retVal[1].UniqueData.uniqueId = "2";
+    private void processParts()
+    {
+        ReqConfig[] configs = reqConfig.getReqConfigs();
 
-        retVal[2] = new PartMasterData();
-        retVal[2].UniqueData.uniqueId = "3";
-        retVal[2].PartTree.isParentOf = new String[] {"1"};
+        for(ReqConfig rConfig:configs) {
+            DataRequest dr = new DataRequest();
+            PartMasterData[] partsFromExternalSource = dr.GetParts(rConfig);
 
-        retVal[3] = new PartMasterData();
-        retVal[3].UniqueData.uniqueId = "4";
-        retVal[3].PartTree.isParentOf = new String[] {"3","4"};
-
-        return retVal;
+            if(partsFromExternalSource != null) {
+                DbAccess da = new DbAccess(dbConfig);
+                da.SavePartsToDataBase(partsFromExternalSource);
+            }
+        }
     }
 }

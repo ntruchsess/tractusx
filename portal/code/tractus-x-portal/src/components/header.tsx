@@ -63,6 +63,11 @@ class Header extends React.Component<IProp> {
     this.props.history.push('/home/dashboard');
   }
 
+  private userClick() {
+    const token = adalContext.getCachedToken();
+    console.log(token);
+  }
+
   public render() {
     const href = window.location.href;
     const path = href.substr(href.lastIndexOf('/') + 1);
@@ -85,7 +90,7 @@ class Header extends React.Component<IProp> {
           <PivotItem key='search' className='ml20 mr20' headerText='' itemIcon='search' />
         </Pivot>}
         <div className='flex1' />
-        <div className='bgblue fgwhite aic jcc df fs16 br50pc h40 w40 mr10'>{this.initials}</div>
+        <div className='bgblue fgwhite aic jcc df fs16 br50pc h40 w40 mr10' onClick={() => this.userClick()}>{this.initials}</div>
         <div className='df fdc mr50'>
           <span className='fs14'>{this.username}</span>
           <div className='df'>

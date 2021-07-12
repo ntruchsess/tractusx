@@ -21,6 +21,7 @@ import { RouteComponentProps,withRouter} from 'react-router-dom';
 import {AccountDetail}from '../../data/accountdetail';
 import { Icon } from '@fluentui/react/lib/Icon';
 import Logo from '../logo';
+import { AppState } from '../../stores/appstate';
 
 const passwordCriteriaMsg = ['At least 8 characters - the more characters the better.', 'A mixture of both uppercase and lowercase letters.', 
   'A mixture of letters and numbers.', 'Incusion of at least one special character (e.g. !@#?])'];
@@ -49,6 +50,7 @@ class Registration extends React.Component<RouteComponentProps>{
 
   private onEmailAddressChange(event) {
     this.accountDetails.emailAddress = event.target.value;
+    AppState.state.email = this.accountDetails.emailAddress;
     this.doButtons();
   }
 
@@ -155,7 +157,7 @@ class Registration extends React.Component<RouteComponentProps>{
               </div>
               <div className='mt80 ml20 mb20'>
                 <div className='pb6 df'>
-                  <DefaultButton text='CANCEL' id='cancel' className='b0 bgwhite fggrey' disabled={true} />
+                  <DefaultButton text='CANCEL' id='cancel' className='b0 bgwhite fggrey' onClick={() => this.props.history.push('/')} />
                   <PrimaryButton text='REGISTER' id='button' className='w30pc bold fs14 ml360' disabled={this.isRegistrationDisabled} onClick={() => this.onRegisterClick()} />
                 </div>
               </div>

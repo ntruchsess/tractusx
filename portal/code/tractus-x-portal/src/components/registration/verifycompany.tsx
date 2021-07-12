@@ -20,27 +20,36 @@ import { TextField, PrimaryButton, Dialog, Dropdown, DialogFooter, IDropdownOpti
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import { observable } from 'mobx';
 import Logo from '../logo';
+import { getOneIDDetails, convertDate, mapOneId } from '../../helpers/utils';
+import { AppState } from '../../stores/appstate';
 
-const auth = 'VHJhY3R1c1g6NFpxQTo9N003Z3lySFR6Tg==';
-const url = 'https://catenaxdevakssrv.germanywestcentral.cloudapp.azure.com/businesspartners/businesspartner'
 @observer
 class VerifyCompany extends React.Component<RouteComponentProps> {
 
-  @observable oneId: String = '';
+  @observable oneId: string = '';
   @observable isFetchButtonDisabled = true;
   @observable organizationalDetails: OrganizationalDetails;
   @observable myResponseData: OrganizationalDetails;
   @observable hideDialog = true;
   @observable oneIdlabel = '';
 
+  componentDidMount() {
+    this.oneId = mapOneId(AppState.state.email);
+  }
+
   private async getOneID() {
     this.isFetchButtonDisabled = true;
     this.oneIdlabel = 'Waiting for partner network database';
     try {
-      const ret = await this.getOneIDDetails();
+      const ret = await getOneIDDetails(this.oneId);
       this.organizationalDetails = ret;
       if (ret) {
+        this.oneIdlabel = 'oneId found in Database';
+        this.isFetchButtonDisabled = false;
         this.hideDialog = false;
+      }
+      else {
+        this.oneIdlabel = 'oneId not present in Database';
       }
     } catch {
       console.log('fail');
@@ -48,45 +57,9 @@ class VerifyCompany extends React.Component<RouteComponentProps> {
     }
   }
 
-  public getOneIDDetails(): Promise<OrganizationalDetails> {
-    const u = `${url}?businessPartnerOneId=${this.oneId}`;
-    const promise = new Promise<OrganizationalDetails>((resolve, reject) => {
-      fetch(u, { method: 'GET', headers: { 'Authorization': `Basic ${auth}` } })
-        .then((response) => response.json().then((json) => {
-          this.myResponseData = new OrganizationalDetails();
-          Object.assign(this.myResponseData, json);
-          if (response.ok) {
-            this.isFetchButtonDisabled = false;
-            this.oneIdlabel = 'oneId found in Database';
-            resolve(this.myResponseData);
-          } else {
-            this.oneIdlabel = 'oneId does not present in Database';
-            resolve(null);
-          }
-        }).catch((error) => {
-            console.log(error, error.message, error.status);
-            reject(error.message);
-          })
-        );
-    });
-    return promise;
-  }
-
   private connectClick() {
     this.hideDialog = true;
     this.props.history.push('/home/dashboard');
-  }
-
-  private convertDate(str: String): string {
-    let dt = new Date();
-    try {
-      str = str || '9999-09-01T00:00:00.004Z';
-      dt = new Date(str.toString());
-    } catch (error) {
-      console.log(error);
-    }
-
-    return dt.toDateString();
   }
 
   public render() {
@@ -160,7 +133,7 @@ class VerifyCompany extends React.Component<RouteComponentProps> {
             <div className='mt30 ml20 mb20'>
               <div className='fs11 lh14 fggrey ml20 minh16'>{this.oneIdlabel}</div>
               <div className='mt4 pb6 df'>
-                <TextField placeholder='One ID' className='ml20 w50pc pr10 b0 br4 h36' required onChange={(event: any) => this.oneId = event.target.value} />
+                <TextField placeholder='One ID' className='ml20 w50pc pr10 b0 br4 h36' value={this.oneId} required onChange={(event: any) => this.oneId = event.target.value} />
                 <PrimaryButton text='FETCH DATA' id='button' className='w30pc bold fs14 ml30' disabled={!this.oneId} onClick={() => this.getOneID()} />
               </div>
               <Link to='/home/dashboard' className='tdn mt10 fs14 bold fggrey lh40 ml20'>CREATE NEW ORGANIZATION PROFILE</Link>
@@ -211,8 +184,8 @@ class VerifyCompany extends React.Component<RouteComponentProps> {
               <div className='pb24 df'>
                 <TextField className='mr10 flex1' disabled label='State of activity/operation' defaultValue={activityStatus} />
                 <div className='df flex1 mr70'>
-                  <TextField className='flex1' disabled ariaLabel='valid from' label='Valid from' defaultValue={this.convertDate(validFrom)} />
-                  <TextField className='ml10 flex1' disabled ariaLabel='valid until' label='Valid until' defaultValue={this.convertDate(validTo)} />
+                  <TextField className='flex1' disabled ariaLabel='valid from' label='Valid from' defaultValue={convertDate(validFrom)} />
+                  <TextField className='ml10 flex1' disabled ariaLabel='valid until' label='Valid until' defaultValue={convertDate(validTo)} />
                 </div>
               </div>
             </div>
