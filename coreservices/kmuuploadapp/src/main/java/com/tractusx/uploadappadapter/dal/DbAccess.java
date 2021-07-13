@@ -21,6 +21,7 @@ public class DbAccess {
     private DbConfiguration config;
 
     public DbAccess(DbConfiguration config) {
+        LOGGER.info("Initialize DB: " + config.postGreUploadDb + ", " + config.postGreUploadUrl + ", " + config.postGreUploadUser);
         this.config = config;
     }
 
@@ -42,10 +43,10 @@ public class DbAccess {
     }
 
     private void InsertPartsInDatabase(PartMasterData[] parts) throws SQLException {
+        
+        LOGGER.info("Insert " + parts.length  + " parts in database");
         Instant dateTimeNowUtc = Instant.now();
         int i = 0;
-
-
         PreparedStatement insertStatement = connection
                 .prepareStatement("INSERT INTO parts (" +
                         "customerUniqueId," +
@@ -99,9 +100,6 @@ public class DbAccess {
         }
     }
 
-
-
-
     private PartMasterData[] ReturnPartsFromDatabase(String companyOneId) throws Exception
     {
         List<PartMasterData> parts = new ArrayList<PartMasterData>();
@@ -139,7 +137,7 @@ public class DbAccess {
             parts.add(p);
         }
 
-        if(parts == null || parts.isEmpty()) {
+        if (parts == null || parts.isEmpty()) {
             LOGGER.info("No parts found");
             return null;
         }
@@ -183,8 +181,10 @@ public class DbAccess {
                 statement.execute(scanner.next());
             }
         }
-        catch(Exception ex)
-        {}
+        catch(SQLException sqlEx)
+        {
+            LOGGER.severe("Create tables in DB failed: " + sqlEx.getMessage());
+        }
     }
 
 }
