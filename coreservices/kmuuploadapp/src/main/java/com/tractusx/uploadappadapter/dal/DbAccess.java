@@ -147,7 +147,7 @@ public class DbAccess {
         return parts.toArray(new PartMasterData[parts.size()]);
     }
 
-    private void GetConnection() throws Exception
+    private void GetConnection()
     {
         try {
             Connection c = null;
@@ -155,6 +155,8 @@ public class DbAccess {
             LOGGER.info("Connecting to the database");
 
             DriverManager.registerDriver(new org.postgresql.Driver());
+
+            LOGGER.info("DB Driver registered successfully: " + DriverManager.getDrivers().nextElement().getClass().getName());
 
             c = DriverManager
                 .getConnection(config.postGreUploadUrl + "/" + config.postGreUploadDb + "?ssl=true&sslmode=require",
@@ -164,8 +166,8 @@ public class DbAccess {
             LOGGER.info("Database connection test: " + connection.getCatalog());
 
             this.connection = c;
-        } catch(Exception e) {
-            LOGGER.severe("Connection to DB failed: " + e.getMessage());
+        } catch(SQLException sqlException) {
+            LOGGER.severe("Connection to DB failed: " + sqlException.getMessage());
         }
     }
 
