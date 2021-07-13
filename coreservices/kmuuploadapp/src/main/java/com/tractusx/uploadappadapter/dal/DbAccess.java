@@ -147,23 +147,15 @@ public class DbAccess {
 
     private void GetConnection()
     {
-        try {
-            Connection c = null;
-
+        try {           
             LOGGER.info("Connecting to the database");
-
             DriverManager.registerDriver(new org.postgresql.Driver());
-
             LOGGER.info("DB Driver registered successfully: " + DriverManager.getDrivers().nextElement().getClass().getName());
-
-            String url = config.postGreUploadUrl + "/" + config.postGreUploadDb + "?ssl=true&sslmode=require";
+            // jdbc:postgresql://catenax-poc-postgresql.postgres.database.azure.com:5432/{your_database}?user=postgresql@catenax-poc-postgresql&password={your_password}&sslmode=require
+            String url = config.postGreUploadUrl + "/" + config.postGreUploadDb + "?user=" + config.postGreUploadUser + "&password=" + config.postGreUploadPassword + "&sslmode=require";
             LOGGER.info("Using connection url: " + url);
-            
-            c = DriverManager.getConnection(url, config.postGreUploadUser, config.postGreUploadPassword);
-
-            LOGGER.info("Database connection test: " + connection.getCatalog());
-
-            this.connection = c;
+            this.connection = DriverManager.getConnection(url);
+            LOGGER.info("Database connection test: " + connection.getCatalog());            
         } catch(SQLException sqlException) {
             LOGGER.severe("Connection to DB failed: " + sqlException.getMessage());
         }
