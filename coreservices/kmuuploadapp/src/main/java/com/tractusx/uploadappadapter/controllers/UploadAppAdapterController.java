@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.sql.SQLException;
+import java.util.logging.Logger;
 
 
 @RestController
@@ -21,10 +22,13 @@ public class UploadAppAdapterController {
     @Autowired
     DbConfiguration dbConfig;
 
+    private final static Logger LOGGER = Logger.getLogger(UploadAppAdapterController.class.getName());
+
     @GetMapping("/api/getPartMasterData")
     public PartMasterData[] getParts(@RequestParam("companyOneId") String companyOneId)
     {
         try {
+            LOGGER.info("getPartsMasterData method triggered");
             var dbAccess = new DbAccess(dbConfig);
             return dbAccess.GetPartsFromDatabase(companyOneId);
         }
@@ -34,9 +38,11 @@ public class UploadAppAdapterController {
         }
     }
 
-
     @PostMapping("/api/upload")
     public String handleFileUpload(@RequestParam("file")MultipartFile file, @RequestParam String company){
+        
+        LOGGER.info("upload method triggered");
+        
         String retVal;
         var blobStorageAccess = new BlobStorageAccess(blobConfig.storageConnectionstring);
         retVal = blobStorageAccess.UploadFile(file, company);

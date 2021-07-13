@@ -11,8 +11,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class DbAccess {
+
+    private final static Logger LOGGER = Logger.getLogger(DbAccess.class.getName());
 
     private Connection connection;
     private DbConfiguration config;
@@ -103,37 +106,44 @@ public class DbAccess {
     {
         List<PartMasterData> parts = new ArrayList<PartMasterData>();
 
-            PreparedStatement readStatement = connection.prepareStatement("SELECT * FROM parts WHERE manufactureroneid='"+ companyOneId +" AND importtimestamputc BETWEEN NOW() - INTERVAL '1 DAY' AND NOW()';");
-            ResultSet resultSet = readStatement.executeQuery();
+        LOGGER.info("Running query for manufacturer one id " + companyOneId);
 
-            while (resultSet.next())
-            {
-                PartMasterData p = new PartMasterData();
-                p.UniqueData.customerUniqueId = resultSet.getString("customerUniqueId"); //customerUniqueId
-                p.StaticData.customerContractOneId = resultSet.getString("customerContractOneId"); //customerContractOneId
-                p.StaticData.customerOneId = resultSet.getString("customerOneId"); //customerOneId
-                p.PartTree.isParentOf = resultSet.getString("isParentOf").split(",");//
-                p.StaticData.manufacturerOneId = resultSet.getString("manufacturerOneId"); //manufacturerOneId
-                p.UniqueData.manufacturerUniqueId = resultSet.getString("manufacturerUniqueId"); //manufacturerUniqueId
-                p.StaticData.partNumberCustomer = resultSet.getString("partNameCustomer"); //partNameCustomer
-                p.StaticData.partNameManufacturer = resultSet.getString("partNameManufacturer"); //partNameManufacturer
-                p.StaticData.partNumberCustomer = resultSet.getString("partNumberCustomer"); //partNumberCustomer
-                p.StaticData.partNumberManufacturer = resultSet.getString("partNumberManufacturer"); //partNumberManufacturer
-                p.IndividualData.productionCountryCode = resultSet.getString("productionCountryCode"); //productionCountryCode
-                p.IndividualData.productionDateGmt = resultSet.getString("productionDateGmt"); //productionDateGmt
-                p.QualityAlert.qualityAlert = resultSet.getBoolean("qualityAlert"); //qualityAlert
-                var qualType = resultSet.getString("qualityType");
-                if(!qualType.equals("")) {
-                    p.QualityAlert.qualityType = AlertLevel.valueOf(resultSet.getString("qualityType"));
-                }
+        PreparedStatement readStatement = connection.prepareStatement("SELECT * FROM parts WHERE manufactureroneid='"+ companyOneId +"' AND importtimestamputc BETWEEN NOW() - INTERVAL '1 DAY' AND NOW();");
+        ResultSet resultSet = readStatement.executeQuery();
 
-                p.StaticData.manufacturerContractOneId= resultSet.getString("manufactureContractOneId"); //manufactureContractOneId
-                p.UniqueData.uniqueId = resultSet.getString("uniqueId"); //uniqueId
-                parts.add(p);
+        LOGGER.info("DB query completed successfully");
+
+        while (resultSet.next())
+        {
+            PartMasterData p = new PartMasterData();
+            p.UniqueData.customerUniqueId = resultSet.getString("customerUniqueId"); //customerUniqueId
+            p.StaticData.customerContractOneId = resultSet.getString("customerContractOneId"); //customerContractOneId
+            p.StaticData.customerOneId = resultSet.getString("customerOneId"); //customerOneId
+            p.PartTree.isParentOf = resultSet.getString("isParentOf").split(",");//
+            p.StaticData.manufacturerOneId = resultSet.getString("manufacturerOneId"); //manufacturerOneId
+            p.UniqueData.manufacturerUniqueId = resultSet.getString("manufacturerUniqueId"); //manufacturerUniqueId
+            p.StaticData.partNumberCustomer = resultSet.getString("partNameCustomer"); //partNameCustomer
+            p.StaticData.partNameManufacturer = resultSet.getString("partNameManufacturer"); //partNameManufacturer
+            p.StaticData.partNumberCustomer = resultSet.getString("partNumberCustomer"); //partNumberCustomer
+            p.StaticData.partNumberManufacturer = resultSet.getString("partNumberManufacturer"); //partNumberManufacturer
+            p.IndividualData.productionCountryCode = resultSet.getString("productionCountryCode"); //productionCountryCode
+            p.IndividualData.productionDateGmt = resultSet.getString("productionDateGmt"); //productionDateGmt
+            p.QualityAlert.qualityAlert = resultSet.getBoolean("qualityAlert"); //qualityAlert
+            var qualType = resultSet.getString("qualityType");
+            if(!qualType.equals("")) {
+                p.QualityAlert.qualityType = AlertLevel.valueOf(resultSet.getString("qualityType"));
             }
 
-        if(parts == null || parts.isEmpty())
+            p.StaticData.manufacturerContractOneId= resultSet.getString("manufactureContractOneId"); //manufactureContractOneId
+            p.UniqueData.uniqueId = resultSet.getString("uniqueId"); //uniqueId
+            parts.add(p);
+        }
+
+        if(parts == null || parts.isEmpty()) {
+            LOGGER.info("No parts found");
             return null;
+        }
+            
         return parts.toArray(new PartMasterData[parts.size()]);
     }
 
@@ -141,12 +151,16 @@ public class DbAccess {
     {
         Connection c = null;
 
+        LOGGER.info("Connecting to the database");
+
         DriverManager.registerDriver(new org.postgresql.Driver());
 
         c = DriverManager
              .getConnection(config.postGreUploadUrl + "/" + config.postGreUploadDb + "?ssl=true&sslmode=require",
                      config.postGreUploadUser,
                      config.postGreUploadPassword);
+
+        LOGGER.info("Database connection test: " + connection.getCatalog());
 
         this.connection = c;
     }
