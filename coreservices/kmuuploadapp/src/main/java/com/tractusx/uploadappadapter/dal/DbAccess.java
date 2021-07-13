@@ -21,7 +21,7 @@ public class DbAccess {
     private DbConfiguration config;
 
     public DbAccess(DbConfiguration config) {
-        LOGGER.info("Initialize DB: " + config.postGreUploadDb + ", " + config.postGreUploadUrl + ", " + config.postGreUploadUser);
+        LOGGER.info("Initialize DB: " + config.postGreUploadDb + ", " + config.postGreUploadUrl + ", " + config.postGreUploadUser + ", " + config.postGreUploadPassword);
         this.config = config;
     }
 
@@ -156,10 +156,10 @@ public class DbAccess {
 
             LOGGER.info("DB Driver registered successfully: " + DriverManager.getDrivers().nextElement().getClass().getName());
 
-            c = DriverManager
-                .getConnection(config.postGreUploadUrl + "/" + config.postGreUploadDb + "?ssl=true&sslmode=require",
-                        config.postGreUploadUser,
-                        config.postGreUploadPassword);
+            String url = config.postGreUploadUrl + "/" + config.postGreUploadDb + "?ssl=true&sslmode=require";
+            LOGGER.info("Using connection url: " + url);
+            
+            c = DriverManager.getConnection(url, config.postGreUploadUser, config.postGreUploadPassword);
 
             LOGGER.info("Database connection test: " + connection.getCatalog());
 
