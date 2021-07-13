@@ -24,25 +24,25 @@ spec:
               secretKeyRef:
                 key: http_basic_auth_password
                 name: partsmasterdata-secret
-          - name: POSTGREUPLOADURL
+          - name: POSTGREPARTSMASTERDBURL
             valueFrom:
               secretKeyRef:
-                key: postgres_upload_url
+                key: postgres_partsmaster_url
                 name: partsmasterdata-secret
-          - name: POSTGREUPLOADUSER
+          - name: POSTGREPARTSMASTERUSER
             valueFrom:
               secretKeyRef:
-                key: postgre_upload_user
+                key: postgre_partsmaster_user
                 name: partsmasterdata-secret
-          - name: POSTGREUPLOADPASSWORD
+          - name: POSTGREPARTSMASTERPASSWORD
             valueFrom:
               secretKeyRef:
-                key: postgre_upload_password
+                key: postgre_partsmaster_password
                 name: partsmasterdata-secret
-          - name: POSTGREUPLOADDB
+          - name: POSTGREPARTNSMASTERDB
             valueFrom:
               secretKeyRef:
-                key: postgre_upload_db
+                key: postgre_partsmaster_db
                 name: partsmasterdata-secret
         ports:
         - containerPort: 8080
