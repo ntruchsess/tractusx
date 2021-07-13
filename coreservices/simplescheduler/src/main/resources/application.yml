@@ -1,0 +1,12 @@
+server:
+  port: ${SERVER_PORT}
+scheduler:
+  cron: ${SCHEDULER_CRON}
+  connector:
+    base-url: ${CONNECTOR_URL}
+    login: ${CONNECTOR_LOGIN}
+    password: ${CONNECTOR_PASSWORD}
+  # resources map contains pairs of: (consumer resourceId) -> (producer URL)
+  resources: ${SCHEDULER_RESOURCES}
+logging.level:
+  com.tsystems.simplescheduler: ${LOGGING_LEVEL}

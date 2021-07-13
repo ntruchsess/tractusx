@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simplescheduler
+  namespace: centralconnector
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simplescheduler
+  template:
+    metadata:
+      labels:
+        app: simplescheduler
+    spec:
+      containers:
+        - name: simplescheduler
+          image: catenaxdevacr.azurecr.io/simplescheduler
+          env:
+            - name: SERVER_PORT
+              value: "8081"
+            - name: SCHEDULER_CRON
+              value: "@daily"
+            - name: CONNECTOR_URL
+              value: "https://catenaxdevakssrv.germanywestcentral.cloudapp.azure.com/kmuconnector"
+            - name: CONNECTOR_LOGIN
+              valueFrom:
+                secretKeyRef:
+                  key: connector_login
+                  name: simplescheduler-secret
+            - name: CONNECTOR_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: connector_password
+                  name: simplescheduler-secret
+            - name: SCHEDULER_RESOURCES
+              value: ""
+            - name: LOGGING_LEVEL
+              value: "DEBUG"
+          ports:
+            - containerPort: 8081
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: simplescheduler
+  namespace: centralconnector
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8081
+  selector:
+    app: simplescheduler
