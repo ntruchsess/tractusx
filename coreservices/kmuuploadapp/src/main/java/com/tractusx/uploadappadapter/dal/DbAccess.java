@@ -149,20 +149,24 @@ public class DbAccess {
 
     private void GetConnection() throws Exception
     {
-        Connection c = null;
+        try {
+            Connection c = null;
 
-        LOGGER.info("Connecting to the database");
+            LOGGER.info("Connecting to the database");
 
-        DriverManager.registerDriver(new org.postgresql.Driver());
+            DriverManager.registerDriver(new org.postgresql.Driver());
 
-        c = DriverManager
-             .getConnection(config.postGreUploadUrl + "/" + config.postGreUploadDb + "?ssl=true&sslmode=require",
-                     config.postGreUploadUser,
-                     config.postGreUploadPassword);
+            c = DriverManager
+                .getConnection(config.postGreUploadUrl + "/" + config.postGreUploadDb + "?ssl=true&sslmode=require",
+                        config.postGreUploadUser,
+                        config.postGreUploadPassword);
 
-        LOGGER.info("Database connection test: " + connection.getCatalog());
+            LOGGER.info("Database connection test: " + connection.getCatalog());
 
-        this.connection = c;
+            this.connection = c;
+        } catch(Exception e) {
+            LOGGER.severe("Connection to DB failed: " + e.getMessage());
+        }
     }
 
     private void EnsureTablesInDatabase()
