@@ -42,13 +42,17 @@ class Header extends React.Component<IProp> {
       AppState.state.isAdmin = true;
     } else if (AppState.state.isAdmin === undefined) {
       AppState.state.isAdmin = false;
-      const groups = await adalContext.getGroups();
-      for (const g of groups.value) {
-        const group = g as string;
-        if (group === 'ec5a8b75-4839-4ff1-b50d-f8159653d9f0' || group === '463512e5-968f-4b2d-8283-737be4a67182') {
-          AppState.state.isAdmin = true;
+      try {
+        const groups = await adalContext.getGroups();
+        if (groups) {
+          for (const g of groups.value) {
+            const group = g as string;
+            if (group === 'ec5a8b75-4839-4ff1-b50d-f8159653d9f0' || group === '463512e5-968f-4b2d-8283-737be4a67182') {
+              AppState.state.isAdmin = true;
+            }
+          }
         }
-      }
+      } catch { }
     }
   
     this.isAdmin = AppState.state.isAdmin;

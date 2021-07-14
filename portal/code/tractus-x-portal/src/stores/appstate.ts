@@ -14,6 +14,7 @@
 
 import { observable } from 'mobx';
 import { Application } from '../data/application';
+import adalContext from '../helpers/adalConfig';
 
 const A = {
   id : '0253dd4d-35af-43f5-a84c-7cc28084032a',
@@ -110,7 +111,7 @@ export class AppState {
   public apps: Application[] = [F, E, C, A, D, B];
   public topApps: Application[] = [C, F, E];
   public bizApps: Application[] = [C, E, F];
-  public installedApps: Application[] = [A, B, D];
+  public installedApps: Application[] = [A, B];
   public sapapps: Application[] = [D];
   public connectedApps: Application[] = [B, F, D];
   @observable public isAdmin: boolean;
@@ -119,6 +120,40 @@ export class AppState {
     { text: 'Top 10 Downloads', apps: this.topApps },
     { text: 'Business Apps', apps: this.bizApps },
     { text: 'Add-Ons for Connectors', apps: this.apps }];
-  public readonly dashboardCategories: any[] = [{ text: 'Installed apps', apps: this.installedApps },
-  { text: 'All apps', apps: this.apps }];
+  public readonly dashboardCategories: any[] = [{ text: 'Installed apps', apps: this.installedApps }];
+  // { text: 'All apps', apps: this.apps }];
+
+  constructor() {
+    const domain = adalContext.getDomain(adalContext.getUsername());
+    switch (domain) {
+      case 'BMW':
+      case 'Microsoft':
+        B.url = 'https://ui.bmw.dev.catenax.partchain.dev/';
+        break;
+      case 'Tier1':
+        B.url = 'https://ui.tier1.dev.catenax.partchain.dev/';
+        break;
+      case 'ZF':
+        B.url = 'https://ui.zf.dev.catenax.partchain.dev';
+        break;
+      case 'Gris':
+        B.url = 'https://ui.gris.dev.catenax.partchain.dev/';
+        break;
+      case 'Bilstein':
+        B.url = 'https://ui.bilstein.dev.catenax.partchain.dev';
+        break;
+      case 'Daimler':
+        B.url = '';
+        D.url = 'https://mtoemmercedes-mt-business-approuter-lbn-mt.cfapps.eu10.hana.ondemand.com/cp.portal/site#Shell-home';
+        break;
+      default:
+        B.url = '';
+        break;
+    }
+
+    if (!B.url) {
+      this.dashboardCategories[0].apps = [A, D];
+      this.installedApps = [A, D];
+    }
+  }
 }

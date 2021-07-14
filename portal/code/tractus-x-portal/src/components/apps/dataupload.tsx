@@ -15,7 +15,7 @@
 import * as React from 'react';
 import { observer } from 'mobx-react';
 import Header from '../header';
-import { RouteComponentProps, withRouter } from 'react-router-dom';
+import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import { ActionButton, Icon, ComboBox, IComboBoxOption, SearchBox, DefaultButton, PrimaryButton, IDropdownOption, Dropdown} from '@fluentui/react';
 import { Dialog, DialogType, DialogFooter } from '@fluentui/react';
 import { AppState } from '../../stores/appstate';
@@ -61,8 +61,8 @@ class DataUpload extends React.Component<RouteComponentProps> {
     ];
 
     const connectorOptions: IDropdownOption[] = [
-      { key: 'connectorVal1', text: 'xAMPLcorp connector' },
-      { key: 'connectorVal2', text: 'xAMPLcorp TEST connector' }
+      { key: 'connectorVal1', text: 'Daimler connector' },
+      { key: 'connectorVal2', text: 'BMW connector' }
     ];
 
     const datausageOptions: IDropdownOption[] = [
@@ -115,7 +115,7 @@ class DataUpload extends React.Component<RouteComponentProps> {
           <div className='df ml250 mt10 mb50 aic'>
             <Icon className='fgblack fs14 bold mr5' iconName='Forward' />
             <span className='fs14'>Find more apps in the</span>
-            <div className='dib fglgreen bold fs14 ml5'>APP STORE</div>
+            <Link className='fglgreen fs14 bold mr5 tdn ml5' to='/home/appstore'>APP STORE</Link>
           </div>
         </div>
       </div>

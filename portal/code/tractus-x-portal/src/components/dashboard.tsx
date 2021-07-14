@@ -32,7 +32,7 @@ export default class Dashboard extends React.Component {
           <div className='df ml50 mt50 aic'>
             <Icon className='fgblack fs14 bold mr5' iconName='Forward' />
             <span className='fs14'>Set up your </span>
-            <Link className='fglgreen fs14 bold mr5 tdn ml5' to='/home/myconnectors'>CONNECTOR</Link>
+            <Link className='fglgreen fs14 bold mr5 tdn ml5' to='/home/myconnectors?tab=3'>CONNECTOR</Link>
           </div>
           <div className='df ml50 mt10 mb50 aic'>
             <Icon className='fgblack fs14 bold mr5' iconName='Forward' />

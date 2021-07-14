@@ -25,7 +25,7 @@ export default class UserManagement extends React.Component {
   public render() {
     return (
       <div className='w100pc bgf5 h100pc df fdc'>
-        <Pivot className='bgwhite' aria-label='Header'>
+        <Pivot className='bgwhite h100pc' aria-label='Header'>
           <PivotItem className='bgf5' headerText='Overview' >
             <AddUser />
           </PivotItem>

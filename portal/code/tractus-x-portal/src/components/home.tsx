@@ -150,6 +150,8 @@ const navLinkGroupsData: INavLinkGroup[] = [
   }
 ];
 
+const noNav = ['vocabulary', 'developerhub', 'appstore', 'notification', 'organization', 'partners', 'usermanagement'];
+
 @observer
 class Home extends React.Component<RouteComponentProps> {
   @observable public static selectedKey1 = 'key1';
@@ -168,15 +170,21 @@ class Home extends React.Component<RouteComponentProps> {
   }
 
   public render() {
-    const groups = (window.location.href.indexOf('/datacatalog') >= 0) ? navLinkGroupsData : navLinkGroups;
+    let groups = (window.location.href.indexOf('/datacatalog') >= 0) ? navLinkGroupsData : navLinkGroups;
+    for (const nav of noNav) {
+      if (window.location.href.indexOf(nav) >= 0) {
+        groups = null;
+      }
+    }
+
     return (
       <div className='w100pc h100pc df fdc bgf5'>
         <Header href={window.location.href} />
         <div className='df w100pc flex1'>
           <ThemeProvider theme={{ palette: { themePrimary: '#E6AA1E' } }}>
             <div className='df fdc w250 h100pc'>
-              <Nav className='bgwhite' selectedKey={Home.selectedKey1} ariaLabel='Navigation panel' styles={navStyles} groups={groups}
-                onLinkClick={(ev, item) => this.linkClick(ev, item)} />
+              {groups && <Nav className='bgwhite' selectedKey={Home.selectedKey1} ariaLabel='Navigation panel' styles={navStyles} groups={groups}
+                onLinkClick={(ev, item) => this.linkClick(ev, item)} />}
               <div className='flex1 bgwhite' />
               <Nav className='bgwhite' selectedKey={Home.selectedKey2} ariaLabel='Navigation panel' styles={navStyles} groups={navLinkGroups2}
                 onLinkClick={(ev, item) => this.linkClick(ev, item)} />

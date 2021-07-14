@@ -26,7 +26,7 @@ export default class ConnectorOverview extends React.Component {
     const nodes = [
       { id: 1, label: 'Catena-X PartChain\nconnector', x: -300, y: -300, color: '#969696', margin: 20},
       { id: 2, label: 'SAP Material Traceability\nconnector', x: 0, y: 300, color: '#969696', margin: 20 },
-      { id: 3, label: 'CO2 Footprint\nconnector', x: -0, y: -0, color: '#464646', margin: 20 },
+      { id: 3, label: 'CO2 Footprint\nconnector', x: -0, y: -0, color: '#969696', margin: 20 },
       { id: 5, label: `${company}\nconnector`, x: 300, y: 300, color: '#BAC938', margin: 20 },
       { id: 6, label: 'ZF\nconnector', x: 450, y: 300, color: '#464646', margin: 20 },
       { id: 7, label: 'Bosch\nconnector', x: 450, y: 450, color: '#464646', margin: 20 }
