@@ -169,12 +169,21 @@ class AdalContext {
     let domain = '';
     if (username) {
       const parts = username.split('@');
-      if (parts.length > 1) {
+      const u = parts[0].toLowerCase();
+      if (u === 'gris' || u === 'bosch' || u === 'zf' || u === 'basf') {
+        domain = parts[0];
+      } else if (u.includes('_microsoft')) {
+        domain = 'Microsoft';
+      } else if (u.includes('bilstein')) {
+        domain = 'Bilstein';
+      } else if (u.includes('tier1')) {
+        domain = 'Tier1';
+      } else if (parts.length > 1) {
         domain = parts[1];
         const p = domain.split('.');
         if (p.length >= 1) {
           domain = p[0];
-          if (domain === 'partner' && p.length > 1) {
+          if ((domain === 'partner' || domain === 'de') && p.length > 1) {
             domain = p[1];
           }
         }
@@ -186,6 +195,10 @@ class AdalContext {
 
       if (domain.length < 4) {
         domain = domain.toUpperCase();
+      }
+
+      if (domain === 'Bmwgroup') {
+        domain = 'BMW';
       }
     }
 

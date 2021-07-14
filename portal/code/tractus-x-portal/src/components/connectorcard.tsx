@@ -78,6 +78,8 @@ class ConnectorCard extends React.Component<IProp> {
   private cardClick() {
     if (this.props.conn.id === 'conn1') {
       this.isOpenedDialogInput = true;
+    } else if (this.props.conn.id === 'conn3') {
+      window.open('https://github.com/International-Data-Spaces-Association/DataspaceConnector', '_blank');
     }
   }
 

@@ -36,8 +36,10 @@ class AppCard extends React.Component<IProp> {
       ev.preventDefault();
     }
 
-    if (this.props.buttonText === 'UPLOAD' && this.props.app.title === 'PartChain') {
-      this.props.history.replace('/dataupload2');
+    if (this.props.buttonText === 'UPLOAD') {
+      if (this.props.app.title === 'PartChain') {
+        this.props.history.replace('/dataupload2');
+      }
     } else if (!detail && (this.props.buttonText === 'OPEN' || this.props.app.purchase === 'OPEN')) {
       if (this.props.app.url) {
         if (this.props.app.url.substr(0, 1) !== '/') {

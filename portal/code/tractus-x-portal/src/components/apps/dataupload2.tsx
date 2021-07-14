@@ -38,11 +38,11 @@ class DataUpload2 extends React.Component<RouteComponentProps> {
   private uploaded: UploadFile[] = [];
   private errors = false;
   @observable private files: UploadFile[] = [
-    { id: '1', name: 'Data upload file', items: 213432, size: 1239800123, state: '0', uploadDate: new Date('3/5/2021'), user: 'ptallett@microsoft.com' },
-    { id: '1', name: 'Data file name 14575', items: 6987, size: 1239800, state: '1', uploadDate: new Date('6/22/2021'), user: 'ptallett@microsoft.com' },
-    { id: '1', name: 'Data file name 14575', items: 0, size: 0, state: '2', uploadDate: new Date('3/5/2021'), user: 'ptallett@microsoft.com' },
-    { id: '1', name: 'File name', items: 213432, size: 12, state: '1', uploadDate: new Date('3/5/2021'), user: 'ptallett@microsoft.com' },
-    { id: '1', name: 'New parts to upload for MT - SAP Catalog', items: 213432, size: 1239800123, state: '1', uploadDate: new Date('3/5/2012'), user: 'ptallett@microsoft.com' }
+    { id: '1', name: 'Data upload file', items: 213432, size: 1239800123, state: '0', uploadDate: new Date('3/5/2021'), user: 'jane.doe@bmw.de' },
+    { id: '1', name: 'Data file name 14575', items: 6987, size: 1239800, state: '1', uploadDate: new Date('6/22/2021'), user: 'jane.doe@bmw.de' },
+    { id: '1', name: 'Data file name 14575', items: 0, size: 0, state: '2', uploadDate: new Date('3/5/2021'), user: 'jane.doe@bmw.de' },
+    { id: '1', name: 'File name', items: 213432, size: 12, state: '1', uploadDate: new Date('3/5/2021'), user: 'jane.doe@bmw.de' },
+    { id: '1', name: 'New parts to upload for MT - SAP Catalog', items: 213432, size: 1239800123, state: '1', uploadDate: new Date('3/5/2012'), user: 'jane.doe@bmw.de' }
   ];
 
   componentDidMount() {
@@ -92,7 +92,7 @@ class DataUpload2 extends React.Component<RouteComponentProps> {
       f.size = file.size;
       f.items = Math.floor(f.size / 43);
       f.uploadDate = new Date();
-      f.user = adalContext.getUsername() || 'ptallett@microsoft.com';
+      f.user = adalContext.getUsername() || 'jane.doe@bmw.de';
       f.state = String(Math.floor(randomNumber(3, 2)));
 
       try {

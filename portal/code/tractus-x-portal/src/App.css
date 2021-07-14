@@ -255,6 +255,7 @@ iframe {border-style: none;}
 .h800 {height: 800px;}
 
 .w100pc {width:100%}
+.w50-40 {width:calc(50% - 40px)}
 .w100-10 {width:calc(100% - 10px)}
 .w100-20 {width:calc(100% - 20px)}
 .w100-30 {width:calc(100% - 30px)}

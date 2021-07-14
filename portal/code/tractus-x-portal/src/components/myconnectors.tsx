@@ -23,18 +23,19 @@ import ConnectorOverview from './connectoroverview';
 class MyConnectors extends React.Component<RouteComponentProps> {
 
   public render() {
+    const key = window.location.href.indexOf('?tab=3') >= 0 ? 'three' : 'one';
     return (
       <div className='w100pc h50 df aic bgwhite'>
-        <Pivot className='px30 h100pc w100pc' aria-label='Header'>
-          <PivotItem className='mr20' headerText='Overview'>
+        <Pivot className='px30 h100pc w100pc' aria-label='Header' defaultSelectedKey={key}>
+          <PivotItem itemKey='one' className='mr20' headerText='Overview'>
             <ConnectorOverview />
           </PivotItem>
-          <PivotItem className='mr20' headerText='Manage Connections'>
+          <PivotItem itemKey='two' className='mr20' headerText='Manage Connections'>
             <div className='df fdc aic'>
               <img className='mt100' src='/comingsoon.png' width='570' height='270' alt='Coming Soon' />
             </div>
           </PivotItem>
-          <PivotItem className='mr20' headerText='Set Up Connector'>
+          <PivotItem itemKey='three' className='mr20' headerText='Set Up Connector'>
             <SetUpConnectors />
           </PivotItem>
         </Pivot>

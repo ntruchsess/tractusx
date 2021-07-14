@@ -16,13 +16,13 @@ import { Connector} from '../data/connector';
 
 const Conn1 = {
     id : 'conn1',
-    title: 'Catena-X CaaS',
+    title: 'Catena-X Connector as a Service',
     actions: ['START WIZARD']
 }
 const Conn2 = {
     id : 'conn2',
-    title: 'Third Party CaaS',
-    actions: ['GO TO']
+    title: 'Third Party Connector as a Service',
+    actions: ['COMING SOON']
 }
 const Conn3 = {
     id : 'conn3',

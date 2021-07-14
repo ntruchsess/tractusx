@@ -45,9 +45,9 @@ export default class App extends React.Component {
   }
 
   public render() {
-    const ProtectedHome = withAdalLoginApi(Home, () => <Loading/>, () => <div>Error</div>);
-    const ProtectedUpload1 = withAdalLoginApi(DataUpload, () => <Loading/>, () => <div>Error</div>);
-    const ProtectedUpload2 = withAdalLoginApi(DataUpload2, () => <Loading/>, () => <div>Error</div>);
+    const ProtectedHome = withAdalLoginApi(Home, () => <Loading/>, () => <div>Application timeout. Please refresh your browser (F5)</div>);
+    const ProtectedUpload1 = withAdalLoginApi(DataUpload, () => <Loading/>, () => <div>Application timeout. Please refresh your browser (F5)</div>);
+    const ProtectedUpload2 = withAdalLoginApi(DataUpload2, () => <Loading/>, () => <div>Application timeout. Please refresh your browser (F5)</div>);
     return (
       <Router history={history}>
         <Switch>

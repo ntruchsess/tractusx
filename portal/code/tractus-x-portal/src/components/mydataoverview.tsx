@@ -24,62 +24,74 @@ export default class MyDataOverview extends React.Component {
 
     const gridData: any[] = [
       {
-        fileName: 'Data upload file',
+        fileName: 'Vehicle BOM 01.07.2021',
         category: 'Traceability',
         type: 'upload',
         synced: 'NA',
         items: '21.578',
         size: '8.9MB',
         uploadData: 'today',
-        user: 'Test User 1',
+        user: 'Jane Doe',
         typeIcon: '',
         syncIcon: ''
       },
       {
-        fileName: 'Purchased data file set',
+        fileName: 'Update CO2 Footprint Q2/2021',
         category: 'Sustainability',
         type: 'sustain',
         synced: 'Yes',
         items: '21.578',
         size: '10.9MB',
         uploadData: '12.05.2021',
-        user: 'Test User 1',
+        user: 'Jane Doe',
         typeIcon: '',
         syncIcon: ''
       },
       {
-        fileName: 'Data file name 14575',
+        fileName: 'Vehicle BOM 02.07.2021',
         category: 'Traceability',
         type: 'upload',
         synced: 'Yes',
         items: '7.013',
         size: '5.1MB',
         uploadData: '05.02.2021',
-        user: 'Test User 2',
+        user: 'Jane Doe',
         typeIcon: '',
         syncIcon: ''
       },
       {
-        fileName: 'Data file name 14575',
+        fileName: 'Vehicle BOM 03.07.2021',
         category: 'Traceability',
         type: 'upload',
         synced: 'No',
         items: '',
         size: '',
         uploadData: '05.02.2021',
-        user: 'Test User 2',
+        user: 'Jane Doe',
         typeIcon: '',
         syncIcon: ''
       },
       {
-        fileName: 'File name',
+        fileName: 'Initial Engineering BOM Q2/2021',
         category: 'Traceability',
         type: 'upload',
         synced: 'Yes',
         items: '6.987',
         size: '4.9MB',
         uploadData: '31.10.2020',
-        user: 'Test User 1',
+        user: 'Jane Doe',
+        typeIcon: '',
+        syncIcon: ''
+      },
+      {
+        fileName: 'Component BOM ZF',
+        category: 'Traceability',
+        type: 'upload',
+        synced: 'Yes',
+        items: '6.987',
+        size: '4.9MB',
+        uploadData: '31.10.2020',
+        user: 'ZF',
         typeIcon: '',
         syncIcon: ''
       },
@@ -91,7 +103,7 @@ export default class MyDataOverview extends React.Component {
         items: '21.578',
         size: '8.9MB',
         uploadData: '22.10.2020',
-        user: 'Test User 1',
+        user: 'Jane Doe',
         typeIcon: '',
         syncIcon: ''
       }
