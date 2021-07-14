@@ -13,7 +13,7 @@ public class PartPartTree {
         this.isParentOf = isParentOf;
     }
 
-    public String[] getQualityAlert() {
+    public String[] getIsParentOf() {
         return isParentOf;
     }
 }

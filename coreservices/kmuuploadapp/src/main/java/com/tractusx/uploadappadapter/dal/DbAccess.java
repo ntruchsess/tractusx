@@ -117,7 +117,9 @@ public class DbAccess {
             p.UniqueData.customerUniqueId = resultSet.getString("customerUniqueId"); //customerUniqueId
             p.StaticData.customerContractOneId = resultSet.getString("customerContractOneId"); //customerContractOneId
             p.StaticData.customerOneId = resultSet.getString("customerOneId"); //customerOneId
-            p.PartTree.isParentOf = resultSet.getString("isParentOf").split(",");//
+
+            String isParent = resultSet.getString("isParentOf");
+            p.PartTree.isParentOf = isParent.replace("[","").replace("]","").split(",");
             p.StaticData.manufacturerOneId = resultSet.getString("manufacturerOneId"); //manufacturerOneId
             p.UniqueData.manufacturerUniqueId = resultSet.getString("manufacturerUniqueId"); //manufacturerUniqueId
             p.StaticData.partNumberCustomer = resultSet.getString("partNameCustomer"); //partNameCustomer
