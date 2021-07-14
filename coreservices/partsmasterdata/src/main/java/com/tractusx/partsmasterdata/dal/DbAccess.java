@@ -272,7 +272,7 @@ public class DbAccess {
             Class.forName("org.postgresql.Driver");
 
             c = DriverManager
-                    .getConnection(config.postGreUploadUrl + "/" + config.postGreUploadDb + "?&ssl=true&sslmode=require",
+                    .getConnection(config.postGreUploadUrl + "/" + config.postGreUploadDb + "?sslmode=require",
                             config.postGreUploadUser,
                             config.postGreUploadPassword);
         } catch (Exception ex) {
