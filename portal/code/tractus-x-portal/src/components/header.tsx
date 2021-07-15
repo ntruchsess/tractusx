@@ -19,6 +19,7 @@ import adalContext from '../helpers/adalConfig';
 import { Icon, Pivot, PivotItem } from '@fluentui/react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { AppState } from '../stores/appstate';
+import Logo from './logo';
 interface IProp extends RouteComponentProps{
   href: string;
   hidePivot?: boolean;
@@ -78,9 +79,8 @@ class Header extends React.Component<IProp> {
     const key = String(keys.indexOf(path));
     return (
       <div className='w100pc minh80 df aic bgwhite'>
-        <div className='df w250 cpointer' onClick={() => this.homeClick()}>
-          <img src='/logo.png' alt='logo' />
-          <span className='fs22 bold'>Catena-X</span>
+        <div className='df cpointer' onClick={() => this.homeClick()}>
+          <Logo/>
         </div>
         {this.props.appTitle && <div className='df aic'>
           <Icon className='fs14 bold fgblack' iconName='ChromeMinimize' />

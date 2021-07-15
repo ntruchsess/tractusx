@@ -111,16 +111,17 @@ export default class MyDataOverview extends React.Component {
 
     gridData.forEach(element => {
       if (element.type === 'upload') {
-        element.typeIcon = <Icon className='mr5 flex1' iconName='Upload' />
+        element.typeIcon = <Icon className='mr5 flex1' iconName='Upload' title='Downloaded' />
+        element.tooltip = 'Downloaded';
       }
       else {
-        element.typeIcon = <Icon className='fs14 mr5 flex1' iconName='AllCurrency' />
+        element.typeIcon = <Icon className='fs14 mr5 flex1' iconName='AllCurrency' title='Downloaded' />
       }
       if (element.synced === 'Yes') {
-        element.syncIcon = <Icon className='pl5 flex1 fglgreen' iconName='CompletedSolid' />
+        element.syncIcon = <Icon className='pl5 flex1 fglgreen' iconName='CompletedSolid' title='Synchronized' />
       }
       else if (element.synced === 'No') {
-        element.syncIcon = <Icon className='pl5 flex1 fgyellow' iconName='Warning' />
+        element.syncIcon = <Icon className='pl5 flex1 fgyellow' iconName='Warning' title='Sync failed' />
       }
       else if (element.synced === 'NA') {
         element.syncIcon = <Icon className='pl5 flex1' iconName='More' />
