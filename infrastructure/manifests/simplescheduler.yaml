@@ -34,7 +34,8 @@ spec:
                   key: connector_password
                   name: simplescheduler-secret
             - name: SCHEDULER_RESOURCES
-              value: ""
+              value: |
+                195bf4c7-53e8-4438-8239-29df95365c2b: https://catenaxdevakssrv.germanywestcentral.cloudapp.azure.com/partsmasterconnector
             - name: LOGGING_LEVEL
               value: "DEBUG"
           ports:
