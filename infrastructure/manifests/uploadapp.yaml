@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uploadappadapter
+  namespace: partsmasterdata
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: uploadappadapter
+  template:
+    metadata:
+      labels:
+        app: uploadappadapter
+    spec:
+      containers:
+      - name: uploadappadapter
+        image: catenaxdevacr.azurecr.io/uploadappadapter
+        env:
+          - name: CONTAINERNAME
+            value: "poc"
+          - name: STORAGE_CONNECTIONSTRING
+            valueFrom:
+              secretKeyRef:
+                key: sotrage_connectionstring
+                name: uploadappadapter-secret
+          - name: HTTPUSERNAME
+            value: "TractusX"
+          - name: HTTPPASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: http_basic_auth_password
+                name: uploadappadapter-secret
+          - name: POSTGREUPLOADURL
+            valueFrom:
+              secretKeyRef:
+                key: postgres_upload_url
+                name: uploadappadapter-secret
+          - name: POSTGREUPLOADUSER
+            valueFrom:
+              secretKeyRef:
+                key: postgre_upload_user
+                name: uploadappadapter-secret
+          - name: POSTGREUPLOADPASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: postgre_upload_password
+                name: uploadappadapter-secret
+          - name: POSTGREUPLOADDB
+            valueFrom:
+              secretKeyRef:
+                key: postgre_upload_db
+                name: uploadappadapter-secret
+          - name: AADAPIIDURI
+            valueFrom:
+              secretKeyRef:
+                key: aad_api_id_uri
+                name: uploadappadapter-secret
+          - name: AADCLIENTID
+            valueFrom:
+              secretKeyRef:
+                key: aad_client_id
+                name: uploadappadapter-secret
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: uploadappadapter
+  namespace: partsmasterdata
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8080
+  selector:
+    app: uploadappadapter

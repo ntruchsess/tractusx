@@ -12,8 +12,9 @@ import java.util.HashMap;
 
 public class TableStroageAccess {
 
+
     String[] properties = new String[]{
-        "dns"
+    "connectorType","dnsEntry"
     };
 
     public TableStroageAccess(String strorageConnectionstring)
@@ -23,9 +24,10 @@ public class TableStroageAccess {
 
     private String storageConnectionstring;
 
-    public String[] GetConnectorDNSEntry(String tableName,String partitionKey, String rowKey  ){
+    public ArrayList<ConnectorDNSRecord> GetConnectorDNSEntry(String tableName,String businessPartnerOneId, String connectorId  ){
         try
         {
+            var isBusinesspartnerId =false;
             // Retrieve storage account from connection-string.
             var storageAccount = CloudStorageAccount.parse(storageConnectionstring);
 
@@ -35,22 +37,43 @@ public class TableStroageAccess {
             // Create a cloud table object for the table.
             var cloudTable = tableClient.getTableReference(tableName);
 
-            var query = TableQuery.from(OneIdDNSMapping.class).where("PartitionKey eq '"+partitionKey+ "' and RowKey eq '" +rowKey+ "'").select(properties);
+            var queryString = "";
+            if(businessPartnerOneId!=null && !businessPartnerOneId.isEmpty()){
+                queryString = "PartitionKey eq '"+businessPartnerOneId+"'";
+                isBusinesspartnerId = true;
+            }
+            else{
+                queryString = "RowKey eq '"+connectorId+"'";
+            }
 
-            var dnsArray = new EntityResolver<String[]>(){
+
+            var query = TableQuery.from(OneIdDNSMapping.class).where(queryString).select(properties);
+
+            var dnsArray = new EntityResolver<OneIdDNSMapping>(){
                 @Override
-                public String[] resolve(String PartitionKey, String RowKey, Date timeStamp, HashMap<String, EntityProperty> properties, String etag) {
-                    return properties.get("dns").getValueAsString().split(",");
+                public OneIdDNSMapping resolve(String PartitionKey, String RowKey, Date timeStamp, HashMap<String, EntityProperty> properties, String etag) {
+                    var mapping = new OneIdDNSMapping();
+                    mapping.setPartitionKey(PartitionKey);
+                    mapping.setRowKey(RowKey);
+                    mapping.connectorType = properties.get("connectorType").getValueAsString();
+                    mapping.dnsEntry = properties.get("dnsEntry").getValueAsString();
+
+                    return mapping;
                 }
             };
+            var oneIdDnsMappings = new ArrayList<ConnectorDNSRecord>();
 
-            var oneIdDnsMappings = new ArrayList<String[]>();
-            for(String[] mapping : cloudTable.execute(query, dnsArray)){
-                oneIdDnsMappings.add(mapping);
-            }
-            if(oneIdDnsMappings.size()> 0) {
-                return oneIdDnsMappings.get(0);
-            }
+
+                for(OneIdDNSMapping mapping : cloudTable.execute(query, dnsArray)){
+                    var connector = new ConnectorDNSRecord();
+                            connector.idsConnectorID = mapping.getRowKey();
+                            connector.oneID = mapping.getPartitionKey();
+                    connector.connectorType = mapping.connectorType;
+                    connector.dnsEntry = mapping.dnsEntry;
+                    oneIdDnsMappings.add(connector);
+                }
+
+    return  oneIdDnsMappings;
         }
         catch (Exception e)
         {

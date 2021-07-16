@@ -1,29 +1,66 @@
 package com.tractusx.partsmasterdata.controllers;
 
-import com.tractusx.partsmasterdata.controllers.blobstorage.BlobStorageAccess;
-import com.tractusx.partsmasterdata.controllers.blobstorage.BlobStorageConfiguration;
+import com.tractusx.partsmasterdata.dal.DataRequest;
+import com.tractusx.partsmasterdata.dal.DataRequestConfiguration;
+import com.tractusx.partsmasterdata.dal.DbAccess;
+import com.tractusx.partsmasterdata.dal.DbConfiguration;
+import com.tractusx.partsmasterdata.dal.ReqConfig;
+import com.tractusx.partsmasterdata.models.PartMasterData;
+import nonapi.io.github.classgraph.json.JSONDeserializer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.time.LocalDateTime;
+import java.util.Calendar;
+import java.util.Date;
 
 @RestController
 public class partmasterdatacontroller {
     @Autowired
-    BlobStorageConfiguration config;
+    DbConfiguration dbConfig;
 
-    @GetMapping("/")
-    public String GetSampleData(){
-        return "Sample  JDK11!";
+    @Autowired
+    DataRequestConfiguration reqConfig;
+
+     /*@GetMapping("/api/getPartMasterData")
+    public String GetParts(
+            @RequestParam("manufacturerOneId")String manufacturerOneId,
+            @RequestParam("customerOneId") String customerOneId,
+            @RequestParam("partNumberManufacturer") String partNumberManufacturer,
+            @RequestParam("partNumberCustomer") String partNumberCustomer)
+    {
+        return "";
+    }*/
+
+    @PostMapping("/api/Insert")
+    public String doPartsInsert(){
+        processParts();
+        return "done";
     }
 
-    @PostMapping("/api/upload")
-    public String handleFileUpload(@RequestParam("file")MultipartFile file, @RequestParam String company){
-        var blobStorageAccess = new BlobStorageAccess(config.storageConnectionstring);
-        return blobStorageAccess.UploadFile(file, company);
+    //@Scheduled(fixedRate = 1000)
+    @Scheduled(cron = "${requestconfig.cronstring}")
+    private void getParts()
+    {
+        System.out.println("getParts started");
+        processParts();
+        System.out.println("getParts finished");
+    }
+
+
+    private void processParts()
+    {
+        ReqConfig[] configs = reqConfig.getReqConfigs();
+
+        for(ReqConfig rConfig:configs) {
+            DataRequest dr = new DataRequest();
+            PartMasterData[] partsFromExternalSource = dr.GetParts(rConfig);
+
+            if(partsFromExternalSource != null) {
+                DbAccess da = new DbAccess(dbConfig);
+                da.SavePartsToDataBase(partsFromExternalSource);
+            }
+        }
     }
 }

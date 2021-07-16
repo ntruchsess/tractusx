@@ -1,10 +1,16 @@
-// THIS CODE AND INFORMATION IS PROVIDED AS IS WITHOUT WARRANTY OF
-// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
-// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
-// PARTICULAR PURPOSE.
+// Copyright (c) 2021 Microsoft
 //
-// Copyright (c) Microsoft. All rights reserved
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
 //
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
 import * as React from 'react';
 import { observer } from 'mobx-react';
@@ -72,6 +78,8 @@ class ConnectorCard extends React.Component<IProp> {
   private cardClick() {
     if (this.props.conn.id === 'conn1') {
       this.isOpenedDialogInput = true;
+    } else if (this.props.conn.id === 'conn3') {
+      window.open('https://github.com/International-Data-Spaces-Association/DataspaceConnector', '_blank');
     }
   }
 
@@ -95,7 +103,7 @@ class ConnectorCard extends React.Component<IProp> {
           <div>
             {this.isOpenedDialogInput && <Dialog isOpen={true} modalProps={{ containerClassName: 'minw540' }}>
               <span className='fggrey fs11 ls0 lh14'>Wizard: setup connector</span>
-              <span className='df fg191'><h1 > Add new Connector</h1></span>
+              <h1 className='df fg191'>Add new Connector</h1>
               {this.isOpenedDiv1 ? <div className='' >
                 <div className='aic w500 h57'>
                   <TextField id={this.connectorDetails.connectorName} className='bgf5 br4' placeholder='Connector name' maxLength={24} onChange={(ev) => this.onChange(ev)} />
@@ -106,7 +114,7 @@ class ConnectorCard extends React.Component<IProp> {
                 </div>
                 <div className='aic pt30'>
                   <span>
-                    <DefaultButton text='CANCEL' id='cancel' className='b0 bgwhite fggrey' disabled={true} />
+                    <DefaultButton text='CANCEL' id='cancel' className='b0 bgwhite fggrey' onClick={() => this.isOpenedDialogInput = false} />
                   </span>
                   <span className='ml300'>
                     <PrimaryButton text='NEXT' id='button' className='pt80' disabled={this.isButtonDisabled} onClick={() => this.onButtonClick()} />

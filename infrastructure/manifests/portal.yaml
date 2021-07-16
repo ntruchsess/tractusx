@@ -22,10 +22,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: portal
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-resource-group: catenax-dev-node-rg
+  name: portal-load-balancer
   namespace: portal
 spec:
-  type: ClusterIP
+  loadBalancerIP: 20.79.77.83
+  type: LoadBalancer
   ports:
   - port: 80
   selector:

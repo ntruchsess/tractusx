@@ -36,9 +36,10 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.microsoft.azure</groupId>
-            <artifactId>azure-storage</artifactId>
-            <version>8.6.6</version>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.22</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
     <build>

@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    active: default, resources
+server:
+  port: ${SERVER_PORT}
+scheduler:
+  cron: ${SCHEDULER_CRON}
+  connector:
+    base-url: ${CONNECTOR_URL}
+    login: ${CONNECTOR_LOGIN}
+    password: ${CONNECTOR_PASSWORD}
+logging.level:
+  com.tsystems.simplescheduler: ${LOGGING_LEVEL}

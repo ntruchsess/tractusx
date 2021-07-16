@@ -1,11 +1,20 @@
-// THIS CODE AND INFORMATION IS PROVIDED AS IS WITHOUT WARRANTY OF
-// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
-// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
-// PARTICULAR PURPOSE.
+// Copyright (c) 2021 Microsoft
 //
-// Copyright (c) Microsoft. All rights reserved
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
+import { observable } from 'mobx';
 import { Application } from '../data/application';
+import adalContext from '../helpers/adalConfig';
 
 const A = {
   id : '0253dd4d-35af-43f5-a84c-7cc28084032a',
@@ -13,7 +22,7 @@ const A = {
   screenshots: ['/dataupload1.png', '/dataupload2.png', '/dataupload1.png', '/dataupload2.png'],
   description: '<b>Upload your data via standard connector</b><br/>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. <br/><br/><b>Easy to use and state of the art</b><br/>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild  Question Marks and devious Semikoli, but the Little Blind Text didn’t listen.',
   usage: 'free for use',
-  purchase: 'PURCHASE',
+  purchase: 'OPEN',
   companyName: 'Catena-X', url:'/dataupload'
 };
 
@@ -43,7 +52,7 @@ const B = {
   <li>Demand and Capacity Management</li>
   <li>and many more</li>
 `,
-  purchase: 'PURCHASE',
+  purchase: 'OPEN',
   companyName: 'Catena-X',
   usage: 'free for use', url: 'https://ui.zf.dev.catenax.partchain.dev/'
 }
@@ -97,17 +106,115 @@ const F = {
   companyName: 'Catena-X', url:''
 };
 
+const G = {
+  id : '0253dd4d-35af-43f5-a84c-7cc28084033a',
+  title: 'SAP Adaptor', rating: 4.8, downloads: 577, tags: ['FREE FOR USE', 'UPLOADER', 'DATA UPLOAD', 'CONNECTOR', 'PRODUCTIVITY', 'IDS', 'MASTER DATA'],
+  screenshots: ['/dataupload1.png', '/dataupload2.png', '/dataupload1.png', '/dataupload2.png'],
+  description: '<b>Upload your data via standard connector</b><br/>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. <br/><br/><b>Easy to use and state of the art</b><br/>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild  Question Marks and devious Semikoli, but the Little Blind Text didn’t listen.',
+  usage: 'free for use',
+  purchase: 'PURCHASE',
+  companyName: 'SAP', url:''
+};
+
+const H = {
+  id : '0253dd4d-35af-43f5-a84c-7cc280840330',
+  title: 'Siemens Adaptor', rating: 4.7, downloads: 877, tags: ['FREE FOR USE', 'UPLOADER', 'DATA UPLOAD', 'CONNECTOR', 'PRODUCTIVITY', 'IDS', 'MASTER DATA'],
+  screenshots: ['/dataupload1.png', '/dataupload2.png', '/dataupload1.png', '/dataupload2.png'],
+  description: '<b>Upload your data via standard connector</b><br/>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. <br/><br/><b>Easy to use and state of the art</b><br/>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild  Question Marks and devious Semikoli, but the Little Blind Text didn’t listen.',
+  usage: 'free for use',
+  purchase: 'PURCHASE',
+  companyName: 'Siemens', url:''
+};
+
+const I = {
+  id : '0253dd4d-35af-43f5-a84c-7cc280840331',
+  title: 'Data Quality Service', rating: 4.5, downloads: 877, tags: ['FREE FOR USE', 'UPLOADER', 'DATA UPLOAD', 'CONNECTOR', 'PRODUCTIVITY', 'IDS', 'MASTER DATA'],
+  screenshots: ['/dataupload1.png', '/dataupload2.png', '/dataupload1.png', '/dataupload2.png'],
+  description: '<b>Upload your data via standard connector</b><br/>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. <br/><br/><b>Easy to use and state of the art</b><br/>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild  Question Marks and devious Semikoli, but the Little Blind Text didn’t listen.',
+  usage: 'free for use',
+  purchase: 'PURCHASE',
+  companyName: 'T-Systems', url:''
+};
+
+const J = {
+  id : '0253dd4d-35af-43f5-a84c-7cc280840332',
+  title: 'GEC Adaptor', rating: 4.1, downloads: 377, tags: ['FREE FOR USE', 'UPLOADER', 'DATA UPLOAD', 'CONNECTOR', 'PRODUCTIVITY', 'IDS', 'MASTER DATA'],
+  screenshots: ['/dataupload1.png', '/dataupload2.png', '/dataupload1.png', '/dataupload2.png'],
+  description: '<b>Upload your data via standard connector</b><br/>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. <br/><br/><b>Easy to use and state of the art</b><br/>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild  Question Marks and devious Semikoli, but the Little Blind Text didn’t listen.',
+  usage: 'free for use',
+  purchase: 'PURCHASE',
+  companyName: 'German Edge Cloud', url:''
+};
+
+const K = {
+  id : '0253dd4d-35af-43f5-a84c-7cc280840333',
+  title: 'T-Systems Adpator', rating: 4.3, downloads: 543, tags: ['FREE FOR USE', 'UPLOADER', 'DATA UPLOAD', 'CONNECTOR', 'PRODUCTIVITY', 'IDS', 'MASTER DATA'],
+  screenshots: ['/dataupload1.png', '/dataupload2.png', '/dataupload1.png', '/dataupload2.png'],
+  description: '<b>Upload your data via standard connector</b><br/>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. <br/><br/><b>Easy to use and state of the art</b><br/>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild  Question Marks and devious Semikoli, but the Little Blind Text didn’t listen.',
+  usage: 'free for use',
+  purchase: 'PURCHASE',
+  companyName: 'T-Systems', url:''
+};
+
+const L = {
+  id : '0253dd4d-35af-43f5-a84c-7cc280840334',
+  title: 'Data Mapping Service', rating: 3.8, downloads: 543, tags: ['FREE FOR USE', 'UPLOADER', 'DATA UPLOAD', 'CONNECTOR', 'PRODUCTIVITY', 'IDS', 'MASTER DATA'],
+  screenshots: ['/dataupload1.png', '/dataupload2.png', '/dataupload1.png', '/dataupload2.png'],
+  description: '<b>Upload your data via standard connector</b><br/>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. <br/><br/><b>Easy to use and state of the art</b><br/>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild  Question Marks and devious Semikoli, but the Little Blind Text didn’t listen.',
+  usage: 'free for use',
+  purchase: 'PURCHASE',
+  companyName: 'DMG MORI', url:''
+};
+
 export class AppState {
-  public static state = new AppState();
-  public apps: Application[] = [B, F, E, C, A, D];
-  public topApps: Application[] = [D, C, A, B, F, E];
-  public popularApps: Application[] = [A, B, C, D, E, F];
-  public lastUsedApps: Application[] = [A, D, E, F];
+  public static state: AppState;
+  public apps: Application[] = [F, E, C, A, D, B];
+  public topApps: Application[] = [B, D, C, F, E];
+  public bizApps: Application[] = [C, E, F];
+  public installedApps: Application[] = [A, B];
   public sapapps: Application[] = [D];
-  public connectedApps: Application[] = [D, F, B];
-  public readonly categories: any[] = [{ text: 'Most Popular', apps: this.popularApps },
-  { text: 'Top 10 Downloads', apps: this.topApps },
-  { text: 'Best Rated', apps: this.apps }];
-  public readonly dashboardCategories: any[] = [  { text: 'Last used', apps: this.lastUsedApps },
-  { text: 'All apps', apps: this.apps }];
+  public connectedApps: Application[] = [B, D];
+  public addOns: Application[] = [G, H, I, J, K, L];
+  @observable public isAdmin: boolean;
+  public email = '';
+  public readonly categories: any[] = [
+    { text: 'Top 10 Downloads', apps: this.topApps },
+    { text: 'Business Apps', apps: this.bizApps },
+    { text: 'Add-Ons for Connectors', apps: this.addOns }];
+  public readonly dashboardCategories: any[] = [{ text: 'Installed apps', apps: this.installedApps }];
+  // { text: 'All apps', apps: this.apps }];
+
+  constructor() {
+    const domain = adalContext.getDomain(adalContext.getUsername());
+    switch (domain) {
+      case 'BMW':
+      case 'Microsoft':
+        B.url = 'https://ui.bmw.dev.catenax.partchain.dev/';
+        break;
+      case 'Tier1':
+        B.url = 'https://ui.tier1.dev.catenax.partchain.dev/';
+        break;
+      case 'ZF':
+        B.url = 'https://ui.zf.dev.catenax.partchain.dev';
+        break;
+      case 'Gris':
+        B.url = 'https://ui.gris.dev.catenax.partchain.dev/';
+        break;
+      case 'Bilstein':
+        B.url = 'https://ui.bilstein.dev.catenax.partchain.dev';
+        break;
+      case 'Daimler':
+        B.url = '';
+        D.url = 'https://mtoemmercedes-mt-business-approuter-lbn-mt.cfapps.eu10.hana.ondemand.com/cp.portal/site#Shell-home';
+        break;
+      default:
+        B.url = '';
+        break;
+    }
+
+    if (!B.url) {
+      this.dashboardCategories[0].apps = [A, D];
+      this.installedApps = [A, D];
+    }
+  }
 }

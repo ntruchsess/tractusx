@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/businesspartners/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/businesspartners/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/connectordns/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/partsmasterdata/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/partsmasterdata/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/uploadAppAdapter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/coreservices/partsmasterdata/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/coreservices/partsmasterdata/src/main/resources" charset="UTF-8" />
   </component>
 </project>

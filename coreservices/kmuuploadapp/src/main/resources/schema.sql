@@ -1,0 +1,18 @@
+CREATE TABLE IF NOT EXISTS parts (
+    customerUniqueId VARCHAR(255),
+    customerContractOneId VARCHAR(255),
+    customerOneId  VARCHAR(255),
+    isParentOf VARCHAR(1024),
+    manufacturerOneId VARCHAR(255),
+    manufacturerUniqueId VARCHAR(255),
+    partNameCustomer VARCHAR(255),
+    partNameManufacturer VARCHAR(255),
+    partNumberCustomer VARCHAR(255),
+    partNumberManufacturer VARCHAR(255),
+    productionCountryCode VARCHAR(255),
+    productionDateGmt VARCHAR(255),
+    qualityAlert BOOLEAN,
+    qualityType VARCHAR(255),
+    manufactureContractOneId VARCHAR(255),
+    uniqueId VARCHAR(255) PRIMARY KEY,
+    importTimestampUtc timestamp);

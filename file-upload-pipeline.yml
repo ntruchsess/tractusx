@@ -1,0 +1,101 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+           - 'coreservices/kmuuploadapp/*'
+
+
+resources:
+- repo: self
+
+variables:
+
+  # Container registry service connection established during pipeline creation
+  dockerRegistryServiceConnection: '553abab0-5db0-4932-aaaf-25147ed09cf7'
+  imageRepository: 'uploadappadapter'
+  containerRegistry: 'catenaxdevacr.azurecr.io'
+  dockerfilePath: './coreservices/kmuuploadapp/Dockerfile'
+  tag: '$(Build.BuildId)'
+  imagePullSecret: 'catenaxdevacr12483f45-auth'
+
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+
+stages:
+- stage: Build
+  displayName: Build stage
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: Maven@3
+      inputs:
+        mavenPomFile: './coreservices/kmuuploadapp/pom.xml'
+        publishJUnitResults: false
+        javaHomeOption: JDKVersion
+        jdkVersionOption: '1.11'
+        mavenVersionOption: Default
+        mavenAuthenticateFeed: false
+        effectivePomSkip: false
+        sonarQubeRunAnalysis: false
+    - task: Docker@2
+      displayName: Build and push an image to container registry
+      inputs:
+        command: buildAndPush
+        repository: $(imageRepository)
+        dockerfile: $(dockerfilePath)
+        containerRegistry: $(dockerRegistryServiceConnection)
+        tags: |
+          $(tag)
+    - upload: $(System.DefaultWorkingDirectory)/infrastructure/manifests
+      artifact: manifests
+
+- stage: Deploy
+  displayName: Deploy stage
+  dependsOn: Build
+
+  jobs:
+  - deployment: Deploy
+    displayName: Deploy
+    pool:
+      vmImage: $(vmImageName)
+    environment: 'CXPoCtractusx.partsmasterdata'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: KubernetesManifest@0
+            displayName: Create imagePullSecret
+            inputs:
+              action: createSecret
+              secretName: $(imagePullSecret)
+              dockerRegistryEndpoint: $(dockerRegistryServiceConnection)
+          - task: KubernetesManifest@0
+            displayName: Create parts maser data secret
+            inputs:
+              action: createSecret
+              secretType: generic
+              secretName: uploadappadapter-secret
+              secretArguments: --from-literal=http_basic_auth_password=$(HTTPPASSWORD) --from-literal=sotrage_connectionstring=$(STORAGEACCOUNT_CONNECTIONSTRING) --from-literal=postgres_upload_url=$(POSTGREUPLOADURL) --from-literal=postgre_upload_user=$(POSTGREUPLOADUSER) --from-literal=postgre_upload_password=$(POSTGREUPLOADPASSWORD) --from-literal=postgre_upload_db=$(POSTGREUPLOADDB) --from-literal=aad_client_id=$(AADCLIENTID) --from-literal=aad_api_id_uri=$(AADAPIIDURI)
+          
+          - task: KubernetesManifest@0
+            displayName: Deploy to Kubernetes cluster
+            inputs:
+              action: deploy
+              manifests: |
+                $(Pipeline.Workspace)/manifests/uploadapp.yaml
+                $(Pipeline.Workspace)/manifests/uploadapp-ingress.yaml
+              imagePullSecrets: |
+                $(imagePullSecret)
+              containers: |
+                $(containerRegistry)/$(imageRepository):$(tag)
+    

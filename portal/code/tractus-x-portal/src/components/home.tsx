@@ -1,10 +1,16 @@
-// THIS CODE AND INFORMATION IS PROVIDED AS IS WITHOUT WARRANTY OF
-// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
-// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
-// PARTICULAR PURPOSE.
+// Copyright (c) 2021 Microsoft
 //
-// Copyright (c) Microsoft. All rights reserved
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
 //
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
 import * as React from 'react';
 import { observer } from 'mobx-react';
@@ -21,8 +27,11 @@ import NotImp from './notimplemented';
 import AppDetail from './appdetail';
 import OrgDetails from './orgdetails';
 import UserMgmt from './usermanagement';
-import ConnectorHeader from './connectorheader';
+import MyConnectors from './myconnectors';
+import MyData from './mydata';
 import { observable } from 'mobx';
+import NotificationCenter from './notificationcenter';
+import YellowPages from './yellowpages';
 
 const navStyles: Partial<INavStyles> = {
   root: {
@@ -53,7 +62,7 @@ const navLinkGroups: INavLinkGroup[] = [
       },
       {
         name: 'my Data',
-        url: '/home/notimp',
+        url: '/home/mydata',
         key: 'key2',
         expandAriaLabel: 'Expand section',
         collapseAriaLabel: 'Collapse section',
@@ -61,7 +70,7 @@ const navLinkGroups: INavLinkGroup[] = [
       },
       {
         name: 'my Connectors',
-        url: '/home/connectorheader',
+        url: '/home/myconnectors',
         key: 'key3',
         expandAriaLabel: 'Expand section',
         collapseAriaLabel: 'Collapse section',
@@ -76,16 +85,8 @@ const navLinkGroups2: INavLinkGroup[] = [
     links: [
       {
         name: 'Notification Center',
-        url: '/home/notimp',
+        url: '/home/notification',
         key: 'key4',
-        expandAriaLabel: 'Expand section',
-        collapseAriaLabel: 'Collapse section',
-        title: ''
-      },
-      {
-        name: 'Transactions & History',
-        url: '/home/notimp',
-        key: 'key5',
         expandAriaLabel: 'Expand section',
         collapseAriaLabel: 'Collapse section',
         title: ''
@@ -93,6 +94,14 @@ const navLinkGroups2: INavLinkGroup[] = [
       {
         name: 'Organization',
         url: '/home/organization',
+        key: 'key5',
+        expandAriaLabel: 'Expand section',
+        collapseAriaLabel: 'Collapse section',
+        title: ''
+      },
+      {
+        name: 'Partner Network',
+        url: '/home/partners',
         key: 'key6',
         expandAriaLabel: 'Expand section',
         collapseAriaLabel: 'Collapse section',
@@ -110,6 +119,39 @@ const navLinkGroups2: INavLinkGroup[] = [
   }
 ];
 
+const navLinkGroupsData: INavLinkGroup[] = [
+  {
+    links: [
+      {
+        name: 'Browse & Search',
+        url: '/home/datacatalog',
+        key: 'key1',
+        expandAriaLabel: 'Expand section',
+        collapseAriaLabel: 'Collapse section',
+        title: ''
+      },
+      {
+        name: 'Resources',
+        url: '/home/datacatalog',
+        key: 'key2',
+        expandAriaLabel: 'Expand section',
+        collapseAriaLabel: 'Collapse section',
+        title: ''
+      },
+      {
+        name: 'Connectors',
+        url: '/home/datacatalog',
+        key: 'key3',
+        expandAriaLabel: 'Expand section',
+        collapseAriaLabel: 'Collapse section',
+        title: ''
+      }
+    ]
+  }
+];
+
+const noNav = ['vocabulary', 'developerhub', 'appstore', 'notification', 'organization', 'partners', 'usermanagement'];
+
 @observer
 class Home extends React.Component<RouteComponentProps> {
   @observable public static selectedKey1 = 'key1';
@@ -120,18 +162,29 @@ class Home extends React.Component<RouteComponentProps> {
     ev.preventDefault();
     Home.selectedKey1 = 'key' + (navLinkGroups[0].links.indexOf(item) + 1).toString();
     Home.selectedKey2 = 'key' + (navLinkGroups2[0].links.indexOf(item) + 4).toString();
+    if (Home.selectedKey1 === 'key0' && Home.selectedKey2 === 'key3') {
+      Home.selectedKey1 = 'key1';
+    }
+
     this.props.history.push(item.url);
   }
 
   public render() {
+    let groups = (window.location.href.indexOf('/datacatalog') >= 0) ? navLinkGroupsData : navLinkGroups;
+    for (const nav of noNav) {
+      if (window.location.href.indexOf(nav) >= 0) {
+        groups = null;
+      }
+    }
+
     return (
       <div className='w100pc h100pc df fdc bgf5'>
         <Header href={window.location.href} />
         <div className='df w100pc flex1'>
           <ThemeProvider theme={{ palette: { themePrimary: '#E6AA1E' } }}>
             <div className='df fdc w250 h100pc'>
-              <Nav className='bgwhite' selectedKey={Home.selectedKey1} ariaLabel='Navigation panel' styles={navStyles} groups={navLinkGroups}
-                onLinkClick={(ev, item) => this.linkClick(ev, item)} />
+              {groups && <Nav className='bgwhite' selectedKey={Home.selectedKey1} ariaLabel='Navigation panel' styles={navStyles} groups={groups}
+                onLinkClick={(ev, item) => this.linkClick(ev, item)} />}
               <div className='flex1 bgwhite' />
               <Nav className='bgwhite' selectedKey={Home.selectedKey2} ariaLabel='Navigation panel' styles={navStyles} groups={navLinkGroups2}
                 onLinkClick={(ev, item) => this.linkClick(ev, item)} />
@@ -146,9 +199,12 @@ class Home extends React.Component<RouteComponentProps> {
               <Route path='/home/vocabulary' component={(props) => <Vocabulary {...props} />} />
               <Route path='/home/developerhub' component={(props) => <DeveloperHub {...props} />} />
               <Route path='/home/appdetail/:id' component={(props) => <AppDetail {...props} />} />
+              <Route path='/home/mydata' component={(props) => <MyData {...props} />} />
+              <Route path='/home/myconnectors' component={(props) => <MyConnectors {...props} />} />
               <Route path='/home/organization' component={(props) => <OrgDetails {...props} />} />
-              <Route path='/home/connectorheader' component={(props) => <ConnectorHeader {...props} />} />
               <Route path='/home/usermanagement' component={(props) => <UserMgmt {...props} />} />
+              <Route path='/home/partners' component={(props) => <YellowPages {...props} />} />
+              <Route path='/home/notification' component={(props) => <NotificationCenter {...props} />} />
               <Route path='/home/notimp' component={(props) => <NotImp {...props} />} />
             </Switch>
           </div>

@@ -73,6 +73,13 @@ stages:
               secretType: dockerRegistry
               secretName:  $(imagePullSecret)
               dockerRegistryEndpoint: 'catenaxdevacr'
+          - task: KubernetesManifest@0
+            displayName: Create parts maser data secret
+            inputs:
+              action: createSecret
+              secretType: generic
+              secretName: cdns-secret
+              secretArguments:  --from-literal=http_basic_auth_password=$(HTTPPASSWORD) --from-literal=sotrage_connectionstring=$(STORAGEACCOUNT_CONNECTIONSTRING)
 
           - task: KubernetesManifest@0
             inputs:

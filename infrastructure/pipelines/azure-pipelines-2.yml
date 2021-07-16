@@ -74,7 +74,6 @@ stages:
               namespace: portal
               manifests: |
                 $(Pipeline.Workspace)/manifests/portal.yaml
-                $(Pipeline.Workspace)/manifests/portal-ingress.yaml
               containers: '$(containerRegistry)/$(imageRepository):$(tag)'
               imagePullSecrets: |
                 $(imagePullSecret)
