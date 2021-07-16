@@ -1,3 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: simplescheduler
+  namespace: centralconnector
+data:
+  application-resources.yml: |-
+    scheduler:
+      # resources map contains pairs of: (consumer resourceId) -> (producer URL)
+      resources:
+        195bf4c7-53e8-4438-8239-29df95365c2b: https://catenaxdevakssrv.germanywestcentral.cloudapp.azure.com/partsmasterconnector
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -17,10 +29,12 @@ spec:
         - name: simplescheduler
           image: catenaxdevacr.azurecr.io/simplescheduler
           env:
+            - name: _JAVA_OPTIONS
+              value: -Dspring.config.location=classpath:/,config/
             - name: SERVER_PORT
               value: "8081"
             - name: SCHEDULER_CRON
-              value: "@daily"
+              value: "@hourly"
             - name: CONNECTOR_URL
               value: "https://catenaxdevakssrv.germanywestcentral.cloudapp.azure.com/kmuconnector"
             - name: CONNECTOR_LOGIN
@@ -33,13 +47,21 @@ spec:
                 secretKeyRef:
                   key: connector_password
                   name: simplescheduler-secret
-            - name: SCHEDULER_RESOURCES
-              value: |
-                195bf4c7-53e8-4438-8239-29df95365c2b: https://catenaxdevakssrv.germanywestcentral.cloudapp.azure.com/partsmasterconnector
             - name: LOGGING_LEVEL
               value: "DEBUG"
+          volumeMounts:
+            - name: configuration
+              mountPath: /config
+              readOnly: true
           ports:
             - containerPort: 8081
+      volumes:
+        - name: @project.parent.artifactId
+          configMap:
+            name: simplescheduler
+            items:
+              - key: application-resources.yml
+                path: application-resources.yml
 ---
 apiVersion: v1
 kind: Service
