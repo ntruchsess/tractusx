@@ -82,7 +82,7 @@ const D = {
 Create an Intelligent Enterprise with Advanced Logistics Collaboration and Insights. SAP Logistics Business Network, material traceability option connects business partners for inter-company collaboration and transparency. It supports a comprehensive set of capabilities, allowing to manage freight more efficiently, benefit from situational awareness through track and trace, and create a trust chain for up- and downstream product genealogy.
 `,
   usage: 'per year',
-  purchase: 'OPEN',
+  purchase: 'PURCHASE',
   companyName: 'SAP', url:''
 };
 
@@ -169,7 +169,7 @@ const L = {
 export class AppState {
   public static state: AppState;
   public apps: Application[] = [F, E, C, A, D, B];
-  public topApps: Application[] = [C, F, E];
+  public topApps: Application[] = [B, D, C, F, E];
   public bizApps: Application[] = [C, E, F];
   public installedApps: Application[] = [A, B];
   public sapapps: Application[] = [D];

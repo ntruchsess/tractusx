@@ -32,7 +32,13 @@ export default class AppDetail extends React.Component<RouteComponentProps> {
     const apps = AppState.state.apps.filter((a) => a.id === path);
     if (apps.length === 1) {
       app = apps[0];
+    } else {
+      const addOns = AppState.state.addOns.filter((a) => a.id === path);
+      if (addOns.length === 1) {
+        app = addOns[0];
+      }
     }
+
     return app;
   }
 
