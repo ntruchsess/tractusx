@@ -56,7 +56,7 @@ spec:
           ports:
             - containerPort: 8081
       volumes:
-        - name: @project.parent.artifactId
+        - name: configuration
           configMap:
             name: simplescheduler
             items:
