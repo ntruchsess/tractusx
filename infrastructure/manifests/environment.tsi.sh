@@ -17,4 +17,5 @@ export CONTAINER_REGISTRY=tsicatenaxdevacr.azurecr.io
 export VERSION=latest
 export IMAGE_PULL_POLICY=Always
 export CATENA_ADMIN_MAIL=c-jung@t-systems.com
+export NODE_RESOURCE_GROUP=tsicatenax-dev-node-rg
 
