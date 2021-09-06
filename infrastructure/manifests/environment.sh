@@ -16,3 +16,4 @@ export PORTAL_IP=20.79.116.193
 export CONTAINER_REGISTRY=catenaxdevacr.azurecr.io
 export VERSION=latest
 export IMAGE_PULL_POLICY=Always
+export CATENA_ADMIN_MAIL=admin@example.com
