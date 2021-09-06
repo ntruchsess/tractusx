@@ -28,7 +28,7 @@
 #   keystores and keys (marked as insecure in the documentation).
 #
 
-if [ ${1} = 'consumer' ]; then
+if [ "$1" == "consumer" ]; then
     CONFIG_PATH=$(readlink -f src/main/resources/conf/local_consumer_config.json | sed 's/^\///' | sed 's/\//\\/g' | sed 's/^./\0:/')
     H2_URL=jdbc:h2:file:./target/db_consumer
     SERVER_PORT=8081
