@@ -15,7 +15,7 @@
 #   Windows, (git)-bash shell, java 11 (java) and maven (mvn) in the $PATH.
 #
 # Synposis: 
-#   ./run_local.sh (consumer|provider)?
+#   ./run_local.sh (-build)? (consumer|provider)? (-debug)?
 #
 # Comments: 
 #   The IDS connector needs the configuration being given in an absolute path
@@ -28,23 +28,42 @@
 #   keystores and keys (marked as insecure in the documentation).
 #
 
-if [ "$1" == "consumer" ]; then
-    CONFIG_PATH=$(readlink -f src/main/resources/conf/local_consumer_config.json | sed 's/^\///' | sed 's/\//\\/g' | sed 's/^./\0:/')
-    H2_URL=jdbc:h2:file:./target/db_consumer
-    SERVER_PORT=8081
-else
-    CONFIG_PATH=$(readlink -f src/main/resources/conf/local_provider_config.json | sed 's/^\///' | sed 's/\//\\/g' | sed 's/^./\0:/')
-    H2_URL=jdbc:h2:file:./target/db_provider
-    SERVER_PORT=8080
-    mvn install -DskipTests
-fi
+DEBUG_PORT=8888
+
+CONFIG_PATH=$(readlink -f src/main/resources/conf/local_provider_config.json | sed 's/^\///' | sed 's/\//\\/g' | sed 's/^./\0:/')
+H2_URL=jdbc:h2:file:./target/db_provider
+SERVER_PORT=8080
+DEBUG_OPTIONS=
+
+for var in "$@"
+do
+  if [ "$var" == "-debug" ]; then
+    DEBUG_OPTIONS="-agentlib:jdwp=transport=dt_socket,address=${DEBUG_PORT},server=y,suspend=n"
+  else 
+    if [ "$var" == "consumer" ]; then
+      CONFIG_PATH=$(readlink -f src/main/resources/conf/local_consumer_config.json | sed 's/^\///' | sed 's/\//\\/g' | sed 's/^./\0:/')
+      H2_URL=jdbc:h2:file:./target/db_consumer
+      SERVER_PORT=8081
+      DEBUG_PORT=8889
+    else 
+      if [ "$var" == "-build" ]; then
+        mvn install -DskipTests
+      fi
+    fi
+  fi
+done
 
 java \
     -classpath .\;target/dataspace-connector-4.3.0.jar \
+    -Dhttp.proxyHost=$HTTP_PROXY_HOST \
+    -Dhttp.proxyPort=$HTTP_PROXY_PORT \
+    -Dhttps.proxyHost=$HTTP_PROXY_HOST \
+    -Dhttps.proxyPort=$HTTP_PROXY_PORT \
     -Dconfiguration.path=$CONFIG_PATH \
     -Dconfiguration.keyStorePassword=password \
     -Dconfiguration.trustStorePassword=password \
     -Dserver.port=$SERVER_PORT \
     -Dspring.datasource.url=$H2_URL \
+    $DEBUG_OPTIONS \
     org.springframework.boot.loader.JarLauncher
 
