@@ -53,12 +53,12 @@ do
   fi
 done
 
+if [ "$HTTP_PROXY" != "http://sia-lb.telekom.de:8080" ]; then
+    echo "You are not running behind the telekom proxy. Please make sure you adapted/removed the ids:connectorProxy setting in $CONFIG_PATH"
+fi
+
 java \
     -classpath .\;target/dataspace-connector-4.3.0.jar \
-    -Dhttp.proxyHost=$HTTP_PROXY_HOST \
-    -Dhttp.proxyPort=$HTTP_PROXY_PORT \
-    -Dhttps.proxyHost=$HTTP_PROXY_HOST \
-    -Dhttps.proxyPort=$HTTP_PROXY_PORT \
     -Dconfiguration.path=$CONFIG_PATH \
     -Dconfiguration.keyStorePassword=password \
     -Dconfiguration.trustStorePassword=password \
