@@ -40,3 +40,4 @@ Waiting for AAD role to propagate[################################    ]  90.0000
 1. Run `az acr login --resource-group ${K8_RESOURCE_GROUP}`
 
 1. Deploy the CA cluster issuer for TLS with `cat client-issuer.yaml | envsubst | kubectl apply`
+y
