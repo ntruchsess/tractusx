@@ -10,19 +10,18 @@
 
 package net.catenax.semantics;
 
-import java.io.*;
-import java.util.*;
-import java.util.stream.*;
-import org.apache.log4j.*;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.MethodSource;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Stream;
 
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.RDFLanguages;
+import org.apache.log4j.Logger;
 
 import io.openmanufacturing.sds.aspectmetamodel.KnownVersion;
 
