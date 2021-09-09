@@ -15,8 +15,8 @@ spec:
     spec:
       containers:
       - name: semantics
-        image: tsicatenaxdevacr.azurecr.io/semantics:latest
-        imagePullPolicy: Always
+        image: $CONTAINER_REGISTRY/semantics:$VERSION
+        imagePullPolicy: $IMAGE_PULL_POLICY
         ports:
         env:
           - name: HTTPUSERNAME
