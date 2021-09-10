@@ -36,6 +36,7 @@ paths:
         - in: query
           name: pageSize
           schema:
+            default: 10
             type: integer
             enum:
               - 10
@@ -44,6 +45,7 @@ paths:
         - in: query
           name: page
           schema:
+            default: 1
             type: integer
       responses:
         '200':
@@ -231,7 +233,7 @@ components:
           description: >-
             The version of the model. The version can be extracted from the raw
             model.
-          type: integer
+          type: string
         name:
           type: string
         private:
@@ -248,8 +250,6 @@ components:
     NewModel:
       type: object
       properties:
-        publisher:
-          type: string
         private:
           type: boolean
         type:

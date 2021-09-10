@@ -176,10 +176,10 @@
 
 <build>
 		<plugins>
-         <!--<plugin>
+         <plugin>
           <groupId>org.openapitools</groupId>
           <artifactId>openapi-generator-maven-plugin</artifactId>
-          <version>4.3.1</version>
+          <version>5.2.1</version>
           <executions>
            <execution>
             <goals>
@@ -188,18 +188,23 @@
             <configuration>
                 <inputSpec>${project.basedir}/openapi.yaml</inputSpec>
                 <generatorName>spring</generatorName>
+				<generateSupportingFiles>true</generateSupportingFiles>
 				<packageName>net.catenax.semantics.hub</packageName>
 				<modelPackage>net.catenax.semantics.hub.model</modelPackage>
 				<apiPackage>net.catenax.semantics.hub.api</apiPackage>
-				<invokerPackage>net.catenax.semantics.hub</invokerPackage>
-				<generateSupportingFiles>false</generateSupportingFiles>
-                <configOptions>
+
+				<supportingFilesToGenerate>
+					ApiUtil.java,HomeController.java,OpenAPIDocumentationConfig.java
+				</supportingFilesToGenerate>
+				<configOptions>
+					<delegatePattern>true</delegatePattern>
 					<packageName>net.catenax</packageName>
-                </configOptions>
+				</configOptions>
+				<invokerPackage>net.catenax.semantics.hub</invokerPackage>
             </configuration>
           </execution>
          </executions>
-        </plugin>-->
+        </plugin>
 			<plugin>
 				<artifactId>maven-dependency-plugin</artifactId>
 				<version>${maven-dependency-plugin.version}</version>
