@@ -27,11 +27,6 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - name: Clone public Fraunhofer PUBLIC repository
-      uses: GuillaumeFalourd/clone-github-repo-action@v1
-      with:
-       owner: 'International-Data-Spaces-Association'
-       repository: 'metadata-broker-open-core'
     - name: Clone public tractusx PUBLIC repository
       uses: GuillaumeFalourd/clone-github-repo-action@v1
       with:
@@ -45,21 +40,15 @@ jobs:
         password: ${{ secrets.AZURE_REGISTRY_PASSWORD }}
     - name: Building and pusing docker image to acr
       run: |
-        sudo cp -r tractusx/meta-broker/Dockerfile-azure-pipeline metadata-broker-open-core
-        sudo rm -rf tractusx
-        cd metadata-broker-open-core && docker build -f Dockerfile-azure-pipeline -t ${{ env.ACR_NAME }}/meta-broker:latest .
+
+        sudo mv tractusx/meta-broker/Dockerfile-azure-pipeline tractusx/meta-broker/src
+        cd tractusx/meta-broker/src && docker build -f Dockerfile-azure-pipeline -t ${{ env.ACR_NAME }}/meta-broker:latest .
         docker push ${{ env.ACR_NAME }}/meta-broker:latest 
-        
-        
+              
     - name: install helm
       uses: Azure/setup-helm@v1
       with:
         version: 3.5.0
-    - name: Clone public tractusx PUBLIC repository
-      uses: GuillaumeFalourd/clone-github-repo-action@v1
-      with:
-        owner: 'catenax'
-        repository: 'tractusx'
 
     - name: login to acr using helm
       run: |
