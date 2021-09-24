@@ -1,5 +1,17 @@
 # Speedboat Onboarding
 
+Backend code for the Catena-X Speedboat Onboarding use case.
+
+Prerequisites to follow this guide (tested with given versions on OS X terminal)
+
+* existing Azure subscription
+* zsh 5.7
+* azure-cli 2.28
+* Terraform 1.0.7
+* .NET SDK 3.1
+* PostgreSQL client 13.4
+* Docker 20.10
+
 ## Infrastructure
 
     cd infrastructure/terraform
@@ -8,11 +20,18 @@
 ## Test database
 
     export PG_HOST=cax-sb-dev-psql.postgres.database.azure.com
-    psql "host=$PG_HOST port=5432 user=psqladmin@$PG_HOST password=Secret+Passw0rd sslmode=require dbname=onboarding"
-    CREATE TABLE caxtest (id int, name varchar);
-    \d+ caxtest
-    DROP TABLE caxtest;
-    \q
+    export PG_PASS=Secret+Passw0rd
+    caxdb() {
+        DBNAME=$1
+        shift
+        psql "host=$PG_HOST port=5432 user=psqladmin@$PG_HOST password=$PG_PASS sslmode=require dbname=$DBNAME" $@
+    }
+    caxdb membercompany -c "select version()"
+
+## Create schema and insert data
+
+    cd networkservices/membershipcompany/Resources/ddl
+    ./init-db.sh
 
 ## Run Service
 
