@@ -1,11 +1,10 @@
 package net.catenax.prs.repositories;
 
 import com.github.javafaker.Faker;
+import net.catenax.prs.entities.EntitiesMother;
 import net.catenax.prs.entities.PartIdEntityPart;
 import net.catenax.prs.entities.PartRelationshipEntity;
-import net.catenax.prs.entities.PartsMother;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -19,7 +18,6 @@ import java.util.List;
 
 import static net.catenax.prs.testing.TestUtil.DATABASE_TESTCONTAINER;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace.NONE;
 
 @DataJpaTest
@@ -35,7 +33,7 @@ public class PartRelationshipRepositoryTests {
     @Autowired
     TestEntityManager entityManager;
 
-    PartsMother generate = new PartsMother();
+    EntitiesMother generate = new EntitiesMother();
 
     Faker faker = new Faker();
 
