@@ -32,6 +32,7 @@ Prerequisites to follow this guide (tested with given versions on OS X terminal)
 
     cd networkservices/membershipcompany/Resources/ddl
     ./init-db.sh
+    caxdb membercompany -c "select bpn, name from member_companies" 
 
 ## Run Service
 

@@ -38,9 +38,3 @@ CREATE TABLE IF NOT EXISTS member_companies (
 CREATE TABLE IF NOT EXISTS member_company_roles (
     rolename VARCHAR(200) NOT NULL
 );
-
-CREATE TABLE IF NOT EXISTS member_company_role_assignments (
-    bpn VARCHAR(200) NOT NULL,
-    rolename VARCHAR(200) NOT NULL
-);
-
