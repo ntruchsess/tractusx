@@ -45,21 +45,16 @@ jobs:
         password: ${{ secrets.AZURE_REGISTRY_PASSWORD }}
     - name: Building and pusing docker image to acr
       run: |
-        sudo mv tractusx/meta-broker/Dockerfile-azure-pipeline metadata-broker-open-core
-        sudo rm -rf tractusx
-        cd metadata-broker-open-core && docker build -f Dockerfile-azure-pipeline -t ${{ env.ACR_NAME }}/meta-broker:latest .
+        sudo mv metadata-broker-open-core/* tractusx/meta-broker
+        sudo rm -rf metadata-broker-open-core
+        cd tractusx/meta-broker && docker build -f Dockerfile-azure-pipeline -t ${{ env.ACR_NAME }}/meta-broker:latest .
         docker push ${{ env.ACR_NAME }}/meta-broker:latest 
               
     - name: install helm
       uses: Azure/setup-helm@v1
       with:
         version: 3.5.0
-    - name: Clone public tractusx PUBLIC repository
-      uses: GuillaumeFalourd/clone-github-repo-action@v1
-      with:
-       owner: 'catenax'
-       repository: 'tractusx'
-
+        
     - name: login to acr using helm
       run: |
         echo ${{ secrets.AZURE_REGISTRY_PASSWORD }} | helm registry login  ${{ env.ACR_NAME }} --username ${{ secrets.AZURE_REGISTRY_USERNAME }} --password-stdin 
