@@ -2,3 +2,4 @@ terraform.tfvars
 terraform.tfstate*
 .terraform/*
 .terraform.*
+env.dev-*.tfvars
