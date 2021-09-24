@@ -47,7 +47,8 @@ jobs:
       run: |
         sudo mv metadata-broker-open-core/* tractusx/meta-broker
         sudo rm -rf metadata-broker-open-core
-        cd tractusx/meta-broker && docker build -f Dockerfile-azure-pipeline -t ${{ env.ACR_NAME }}/meta-broker:latest .
+        cd tractusx/meta-broker
+        docker build -f Dockerfile-azure-pipeline -t ${{ env.ACR_NAME }}/meta-broker:latest .
         docker push ${{ env.ACR_NAME }}/meta-broker:latest 
               
     - name: install helm
