@@ -2,9 +2,14 @@
 # Global variables
 ####################################################################################################
 
+variable "location" {
+  type    = string
+  default = "germanywestcentral"
+}
+
 variable "prefix" {
   type    = string
-  default = "catenacax-onboarding"
+  default = "catenax-speedboat-onboarding"
 }
 
 variable "environment" {
@@ -12,18 +17,19 @@ variable "environment" {
   default = "dev"
 }
 
-variable "location" {
+variable "psql_size_mb" {
+  type    = number
+  default = 5120
+}
+
+variable "psql_username" {
   type    = string
-  default = "germanywestcentral"
+  default = "psqladmin"
 }
 
-variable "postegreusername"{
-	type = string
-	default = "psqladminun"
-}
-
-variable "postegrepassword"{
-	type = string
-	default = ""
+variable "psql_password" {
+  type      = string
+  default   = "psql-passw0rd-changeme"
+  sensitive = true
 }
 
