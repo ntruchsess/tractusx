@@ -3,17 +3,27 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Consent.Service", "consent\CatenaX.NetworkServices.Consent.Service\CatenaX.NetworkServices.Consent.Service.csproj", "{1BA14B91-798F-46A5-AFC5-EF5DA3DDEE1D}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.MembershipCompany.Service", "membershipcompany\CatenaX.NetworkServices.MembershipCompany.Service\CatenaX.NetworkServices.MembershipCompany.Service.csproj", "{7C87FE66-7F7A-4DB6-9FD7-C766911B8A80}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Onboarding.Service", "onboarding\CatenaX.NetworkServices.Onboarding.Service\CatenaX.NetworkServices.Onboarding.Service.csproj", "{1F84F807-52DC-44D2-8D46-01C450BC980A}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "consent", "consent", "{5BA50973-B032-4C3B-B82F-4136AC6B7DEC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "membershipcompany", "membershipcompany", "{06B37DE0-6F10-4D40-97E8-184BA9F6AEA9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "onboarding", "onboarding", "{7A5F84BE-3B45-483A-8EF1-4E1E94F144DC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Consent.Service", "consent\src\CatenaX.NetworkServices.Consent.Service\CatenaX.NetworkServices.Consent.Service.csproj", "{6FBD2024-20C5-41EA-87A8-58F69FEFF8CB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.MembershipCompany.Service", "membershipcompany\src\CatenaX.NetworkServices.MembershipCompany.Service\CatenaX.NetworkServices.MembershipCompany.Service.csproj", "{14346800-3A31-4463-91A2-42DCA1E4BFC4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Onboarding.Service", "onboarding\src\CatenaX.NetworkServices.Onboarding.Service\CatenaX.NetworkServices.Onboarding.Service.csproj", "{D98D59B4-2EC3-4C0C-9B41-3DA91DDAFE09}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Onboarding.Identity", "onboarding\src\CatenaX.NetworkServices.Onboarding.Identity\CatenaX.NetworkServices.Onboarding.Identity.csproj", "{DB23FED3-09E6-49B4-8492-989AEF039F75}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C34FEF41-7935-481B-BD92-BB2A99199BE3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{39439739-E456-45CC-B18C-439276232B20}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "onboarding", "onboarding", "{D87E8526-3926-4762-9987-AE7F44EB4906}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Onboarding.Service.Tests", "onboarding\test\CatenaX.NetworkServices.Onboarding.Service.Tests\CatenaX.NetworkServices.Onboarding.Service.Tests.csproj", "{60076833-F183-4436-A506-82FC601465AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,26 +31,40 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1BA14B91-798F-46A5-AFC5-EF5DA3DDEE1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1BA14B91-798F-46A5-AFC5-EF5DA3DDEE1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1BA14B91-798F-46A5-AFC5-EF5DA3DDEE1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1BA14B91-798F-46A5-AFC5-EF5DA3DDEE1D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7C87FE66-7F7A-4DB6-9FD7-C766911B8A80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7C87FE66-7F7A-4DB6-9FD7-C766911B8A80}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7C87FE66-7F7A-4DB6-9FD7-C766911B8A80}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7C87FE66-7F7A-4DB6-9FD7-C766911B8A80}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1F84F807-52DC-44D2-8D46-01C450BC980A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1F84F807-52DC-44D2-8D46-01C450BC980A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1F84F807-52DC-44D2-8D46-01C450BC980A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1F84F807-52DC-44D2-8D46-01C450BC980A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FBD2024-20C5-41EA-87A8-58F69FEFF8CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FBD2024-20C5-41EA-87A8-58F69FEFF8CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FBD2024-20C5-41EA-87A8-58F69FEFF8CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FBD2024-20C5-41EA-87A8-58F69FEFF8CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14346800-3A31-4463-91A2-42DCA1E4BFC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14346800-3A31-4463-91A2-42DCA1E4BFC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14346800-3A31-4463-91A2-42DCA1E4BFC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14346800-3A31-4463-91A2-42DCA1E4BFC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D98D59B4-2EC3-4C0C-9B41-3DA91DDAFE09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D98D59B4-2EC3-4C0C-9B41-3DA91DDAFE09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D98D59B4-2EC3-4C0C-9B41-3DA91DDAFE09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D98D59B4-2EC3-4C0C-9B41-3DA91DDAFE09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB23FED3-09E6-49B4-8492-989AEF039F75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB23FED3-09E6-49B4-8492-989AEF039F75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB23FED3-09E6-49B4-8492-989AEF039F75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB23FED3-09E6-49B4-8492-989AEF039F75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60076833-F183-4436-A506-82FC601465AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60076833-F183-4436-A506-82FC601465AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60076833-F183-4436-A506-82FC601465AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60076833-F183-4436-A506-82FC601465AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{1BA14B91-798F-46A5-AFC5-EF5DA3DDEE1D} = {5BA50973-B032-4C3B-B82F-4136AC6B7DEC}
-		{7C87FE66-7F7A-4DB6-9FD7-C766911B8A80} = {06B37DE0-6F10-4D40-97E8-184BA9F6AEA9}
-		{1F84F807-52DC-44D2-8D46-01C450BC980A} = {7A5F84BE-3B45-483A-8EF1-4E1E94F144DC}
+		{5BA50973-B032-4C3B-B82F-4136AC6B7DEC} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
+		{06B37DE0-6F10-4D40-97E8-184BA9F6AEA9} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
+		{7A5F84BE-3B45-483A-8EF1-4E1E94F144DC} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
+		{6FBD2024-20C5-41EA-87A8-58F69FEFF8CB} = {5BA50973-B032-4C3B-B82F-4136AC6B7DEC}
+		{14346800-3A31-4463-91A2-42DCA1E4BFC4} = {06B37DE0-6F10-4D40-97E8-184BA9F6AEA9}
+		{D98D59B4-2EC3-4C0C-9B41-3DA91DDAFE09} = {7A5F84BE-3B45-483A-8EF1-4E1E94F144DC}
+		{DB23FED3-09E6-49B4-8492-989AEF039F75} = {7A5F84BE-3B45-483A-8EF1-4E1E94F144DC}
+		{D87E8526-3926-4762-9987-AE7F44EB4906} = {39439739-E456-45CC-B18C-439276232B20}
+		{60076833-F183-4436-A506-82FC601465AA} = {D87E8526-3926-4762-9987-AE7F44EB4906}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {23E9EF5A-FB26-4AAC-952E-0695A1245B8E}

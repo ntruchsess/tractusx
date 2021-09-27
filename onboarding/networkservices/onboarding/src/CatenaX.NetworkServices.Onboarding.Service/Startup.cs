@@ -31,7 +31,7 @@ namespace CatenaX.NetworkServices.Onboarding.Service
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddTransient<IIdentityManager>(x => new KeycloakIdentityManager(new Keycloak.Net.KeycloakClient("http://localhost:8080", "admin", "admin", authRealm: "master")));
+            services.AddTransient<IIdentityManager>(x => new KeycloakIdentityManager(new Keycloak.Net.KeycloakClient("http://localhost:8080", "admin", "admin")));
             services.AddTransient<IOnboardingBusinessLogic,OnboardingBusinessLogic>();
         }
 

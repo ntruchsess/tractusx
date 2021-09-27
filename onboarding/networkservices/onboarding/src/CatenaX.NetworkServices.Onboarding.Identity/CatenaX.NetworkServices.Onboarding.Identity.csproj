@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Keycloak.Net\src\Keycloak.Net\Keycloak.Net.csproj" />
+    <PackageReference Include="Keycloak.Net" Version="1.0.18" />
   </ItemGroup>
 
 </Project>
