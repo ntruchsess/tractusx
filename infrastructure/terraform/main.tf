@@ -385,3 +385,31 @@ resource "azurerm_storage_account" "appstorage" {
   #  virtual_network_subnet_ids = [module.aks_vnet.subnet_ids["${var.prefix}-${var.environment}-aks-node-subnet"]]
   #}
 }
+
+####################################################################################################
+# Create a databases
+####################################################################################################
+
+resource "azurerm_postgresql_database" "onboarding" {
+  name                = "onboarding"
+  resource_group_name = azurerm_resource_group.default_rg.name 
+  server_name         = azurerm_postgresql_server.database.name
+  charset             = "UTF8"
+  collation           = "English_United States.1252"
+}
+
+resource "azurerm_postgresql_database" "membercompany" {
+  name                = "membercompany"
+  resource_group_name = azurerm_resource_group.default_rg.name 
+  server_name         = azurerm_postgresql_server.database.name
+  charset             = "UTF8"
+  collation           = "English_United States.1252"
+}
+
+resource "azurerm_postgresql_database" "consents" {
+  name                = "consents"
+  resource_group_name = azurerm_resource_group.default_rg.name 
+  server_name         = azurerm_postgresql_server.database.name
+  charset             = "UTF8"
+  collation           = "English_United States.1252"
+}
