@@ -8,7 +8,11 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.11.1" />
-    <PackageReference Include="Npgsql" Version="5.0.10" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CatenaX.NetworkServices.Onboarding.Identity\CatenaX.NetworkServices.Onboarding.Identity.csproj" />
+  </ItemGroup>
+
 
 </Project>

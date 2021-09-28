@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+using CatenaX.NetworkServices.Onboarding.Identity;
+using CatenaX.NetworkServices.Onboarding.Identity.Identity;
+using CatenaX.NetworkServices.Onboarding.Service.BusinessLogic;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,6 +31,8 @@ namespace CatenaX.NetworkServices.Onboarding.Service
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddTransient<IIdentityManager>(x => new KeycloakIdentityManager(new Keycloak.Net.KeycloakClient("http://localhost:8080", "admin", "admin")));
+            services.AddTransient<IOnboardingBusinessLogic,OnboardingBusinessLogic>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,7 +43,7 @@ namespace CatenaX.NetworkServices.Onboarding.Service
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
