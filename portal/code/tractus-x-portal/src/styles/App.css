@@ -968,3 +968,54 @@ mat-form-field .mat-input-placeholder {
 
 .bgimage { background-image: url(/src/catenabackground.png); background-size: 100%;background-repeat: no-repeat}
 .bgregisterimage { background-image: url(/src/registerbackground.png); background-size: 75%;background-repeat: no-repeat; background-position-x: right; background-position-y:center;}
+
+.brbt { border-top: 1px solid #ccc}
+.collapse-open {
+  display: none;
+}
+
+.collapse-painel {
+  visibility: hidden;
+  max-height: 0;
+  opacity: 0;
+  border-top: 1px solid #DDD;
+}
+
+.collapse-open:checked ~ .collapse-painel {
+  max-height: 100%;
+  opacity: 100;
+  visibility: visible
+}
+
+.left-container { 
+  float: left;
+  font-size: 22px;
+  font-weight: bold;
+  padding-right: 20px;
+  display: block;
+}
+
+.flex-container {
+  display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.collapse-btn {
+  cursor: pointer;
+  display: block;
+  padding: 15px 20px;
+  clear: both;
+}
+
+.collapse-bg-white {  background-color: #fff; }
+.fc-green {  color: #b3cb2d; }
+
+.collapse-open ~ .collapse-btn:before {
+  content: "+";
+  float: right;
+}
+
+.collapse-open:checked ~ .collapse-btn:before {
+  content: "-";
+}
