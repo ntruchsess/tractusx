@@ -9,9 +9,7 @@
 //
 package net.catenax.prs.integrationtest;
 
-import com.catenax.partsrelationshipservice.dtos.PartRelationshipsWithInfos;
 import com.catenax.partsrelationshipservice.dtos.PartsTreeView;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
@@ -20,7 +18,6 @@ import org.springframework.http.HttpStatus;
 import static com.catenax.partsrelationshipservice.dtos.PartsTreeView.AS_MAINTAINED;
 import static io.restassured.RestAssured.given;
 import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
-import static net.javacrumbs.jsonunit.assertj.JsonAssertions.json;
 import static net.javacrumbs.jsonunit.core.Option.IGNORING_ARRAY_ORDER;
 import static org.hamcrest.Matchers.hasSize;
 
@@ -39,9 +36,7 @@ public class GetPartsTreeByObjectIdIntegrationTests extends PrsIntegrationTestsB
 
     @ParameterizedTest
     @EnumSource(PartsTreeView.class)
-    public void getPartsTreeByObjectId_success(PartsTreeView view) throws Exception {
-        var objectMapper = new ObjectMapper();
-        var expected = objectMapper.readValue(getClass().getClassLoader().getResourceAsStream("sample_part_response.json"), PartRelationshipsWithInfos.class);
+    public void getPartsTreeByObjectId_success(PartsTreeView view) {
 
         var response =
             given()
@@ -57,7 +52,7 @@ public class GetPartsTreeByObjectIdIntegrationTests extends PrsIntegrationTestsB
 
         assertThatJson(response)
                 .when(IGNORING_ARRAY_ORDER)
-                .isEqualTo(json(expected));
+                .isEqualTo(expected.sampleGearboxPartTree());
     }
 
     @Test
@@ -133,8 +128,6 @@ public class GetPartsTreeByObjectIdIntegrationTests extends PrsIntegrationTestsB
     @ParameterizedTest
     @EnumSource(PartsTreeView.class)
     public void getPartsTreeByObjectId_directChildren_success(PartsTreeView view) throws Exception {
-        var objectMapper = new ObjectMapper();
-        var expected = objectMapper.readValue(getClass().getClassLoader().getResourceAsStream("sample_part_directChildren_response.json"), PartRelationshipsWithInfos.class);
 
         var response =
                 given()
@@ -151,14 +144,12 @@ public class GetPartsTreeByObjectIdIntegrationTests extends PrsIntegrationTestsB
 
         assertThatJson(response)
                 .when(IGNORING_ARRAY_ORDER)
-                .isEqualTo(json(expected));
+                .isEqualTo(expected.sampleGearboxDirectChildren());
     }
 
     @ParameterizedTest
     @EnumSource(PartsTreeView.class)
     public void getPartsTreeByObjectId_CEAspect_success(PartsTreeView view) throws Exception {
-        var objectMapper = new ObjectMapper();
-        var expected = objectMapper.readValue(getClass().getClassLoader().getResourceAsStream("sample_part_with_aspect_response.json"), PartRelationshipsWithInfos.class);
 
         var response =
                 given()
@@ -175,7 +166,7 @@ public class GetPartsTreeByObjectIdIntegrationTests extends PrsIntegrationTestsB
 
         assertThatJson(response)
                 .when(IGNORING_ARRAY_ORDER)
-                .isEqualTo(json(expected));
+                .isEqualTo(expected.sampleGearboxPartTreeWithAspects());
     }
 
     @ParameterizedTest

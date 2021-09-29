@@ -9,15 +9,12 @@
 //
 package net.catenax.prs.integrationtest;
 
-import com.catenax.partsrelationshipservice.dtos.PartRelationshipsWithInfos;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 
 import static com.catenax.partsrelationshipservice.dtos.PartsTreeView.AS_MAINTAINED;
 import static io.restassured.RestAssured.given;
 import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
-import static net.javacrumbs.jsonunit.assertj.JsonAssertions.json;
 import static net.javacrumbs.jsonunit.core.Option.IGNORING_ARRAY_ORDER;
 
 
@@ -31,10 +28,7 @@ public class GetPartsTreeByVinIntegrationTests extends PrsIntegrationTestsBase {
     private static final String ASPECT = "aspect";
 
     @Test
-    public void getPartsTreeByVin_maintainedView_success() throws Exception {
-        var objectMapper = new ObjectMapper();
-        var expected = objectMapper.readValue(getClass().getClassLoader().getResourceAsStream("sample_vin_response.json"), PartRelationshipsWithInfos.class);
-
+    public void getPartsTreeByVin_maintainedView_success() {
         var response =
             given()
                 .pathParam(VIN, SAMPLE_VIN)
@@ -48,7 +42,7 @@ public class GetPartsTreeByVinIntegrationTests extends PrsIntegrationTestsBase {
 
         assertThatJson(response)
                 .when(IGNORING_ARRAY_ORDER)
-                .isEqualTo(json(expected));
+                .isEqualTo(expected.sampleVinPartTree());
     }
 
     @Test
@@ -101,10 +95,7 @@ public class GetPartsTreeByVinIntegrationTests extends PrsIntegrationTestsBase {
     }
 
     @Test
-    public void getPartsTreeByVin_directChildren_success() throws Exception {
-        var objectMapper = new ObjectMapper();
-        var expected = objectMapper.readValue(getClass().getClassLoader().getResourceAsStream("sample_vin_directChildren_response.json"), PartRelationshipsWithInfos.class);
-
+    public void getPartsTreeByVin_directChildren_success() {
         var response =
                 given()
                         .pathParam(VIN, SAMPLE_VIN)
@@ -119,14 +110,11 @@ public class GetPartsTreeByVinIntegrationTests extends PrsIntegrationTestsBase {
 
         assertThatJson(response)
                 .when(IGNORING_ARRAY_ORDER)
-                .isEqualTo(json(expected));
+                .isEqualTo(expected.sampleVinDirectChildren());
     }
 
     @Test
-    public void getPartsTreeByVin_grandChildren_success() throws Exception {
-        var objectMapper = new ObjectMapper();
-        var expected = objectMapper.readValue(getClass().getClassLoader().getResourceAsStream("sample_vin_grandChildren_response.json"), PartRelationshipsWithInfos.class);
-
+    public void getPartsTreeByVin_grandChildren_success() {
         var response =
                 given()
                         .pathParam(VIN, SAMPLE_VIN)
@@ -141,14 +129,11 @@ public class GetPartsTreeByVinIntegrationTests extends PrsIntegrationTestsBase {
 
         assertThatJson(response)
                 .when(IGNORING_ARRAY_ORDER)
-                .isEqualTo(json(expected));
+                .isEqualTo(expected.sampleVinGrandChildren());
     }
 
     @Test
-    public void getPartsTreeByVin_withCEAspect_success() throws Exception {
-        var objectMapper = new ObjectMapper();
-        var expected = objectMapper.readValue(getClass().getClassLoader().getResourceAsStream("sample_vin_with_aspect_response.json"), PartRelationshipsWithInfos.class);
-
+    public void getPartsTreeByVin_withCEAspect_success() {
         var response =
                 given()
                         .pathParam(VIN, SAMPLE_VIN)
@@ -163,6 +148,6 @@ public class GetPartsTreeByVinIntegrationTests extends PrsIntegrationTestsBase {
 
         assertThatJson(response)
                 .when(IGNORING_ARRAY_ORDER)
-                .isEqualTo(json(expected));
+                .isEqualTo(expected.sampleVinPartTreeWithAspects());
     }
 }
