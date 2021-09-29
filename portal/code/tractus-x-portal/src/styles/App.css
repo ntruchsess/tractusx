@@ -974,8 +974,10 @@ mat-form-field .mat-input-placeholder {
 .collapse-open ~ .collapse-btn:before {
   content: "+";
   float: right;
+  font-size: 30px;
 }
 
 .collapse-open:checked ~ .collapse-btn:before {
   content: "-";
+  font-size: 40px;
 }
