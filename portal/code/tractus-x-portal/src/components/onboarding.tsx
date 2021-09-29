@@ -14,7 +14,7 @@
 
 import * as React from 'react';
 import { observer } from 'mobx-react';
-import { TextField, Icon } from '@fluentui/react';
+import { TextField } from '@fluentui/react';
 import { PrimaryButton, DefaultButton } from '@fluentui/react';
 
 @observer
