@@ -14,7 +14,7 @@
 
 import * as React from 'react';
 import { observer } from 'mobx-react';
-import { TextField } from '@fluentui/react';
+import { TextField, Icon } from '@fluentui/react';
 import { PrimaryButton, DefaultButton } from '@fluentui/react';
 
 @observer
@@ -32,59 +32,61 @@ export default class Onboarding extends React.Component {
                         <div className='mb10'>
                             <input className="collapse-open" type="checkbox" id="collapse-1" />
                             <label className="collapse-btn collapse-bg-white" htmlFor="collapse-1">
-                            <div className='fl fs22 dblock pr20 bold fc-green'>1</div>
+                                <div className='fl fs22 dblock pr20 bold fc-green'>1</div>
                                 <div className='flex-container'>
-                                    <span className='fs22 bold fc-green'>Verify Your Company Data</span>
+                                    <span className='fs22 bold fc-green'>Verify Your Company Data <Icon className='fs20' iconName='Completed' /></span>
                                     <div className='fs14 mt10'>Check your company data and verify.</div>
                                 </div>
                             </label>
                             <div className="collapse-painel collapse-bg-white">
                                 <div className='pb20 p24'>
                                     <div className='fb pb6 df'>
-                                        <TextField label='Street' disabled className='w50pc brnone br4 pr10 h36' defaultValue='' />
-                                        <TextField label='Street 2' disabled className='w50pc brnone br4 pr10 h36' />
-                                        <TextField label='Street 3' disabled className='w50pc brnone br4 h36' />
-                                    </div>
-                                    <div className='fb pb6 df mt20'>
-                                        <TextField label='House number' disabled className='w50pc brnone br4 pr10 h36' defaultValue='' />
-                                        <TextField label='Street 2' disabled className='w50pc brnone br4 pr10 h36' />
-                                        <TextField label='Add. Information' disabled className='w50pc brnone br4 h36' defaultValue='' />
+                                        <TextField label='OneID' disabled className='w50pc brnone br4 pr10 h36' defaultValue='' />
+                                        <TextField label='Organization name' disabled className='w50pc brnone br4 pr10 h36' />
+                                        <TextField label='contact language' disabled className='w50pc brnone br4 h36' />
                                     </div>
                                 </div>
                                 <div className='pb8 mt10 p24'>
-                                <div className='bold fs14 pb8'>Address Information</div>
+                                    <div className='bold fs14 pb8'>Organization names</div>
                                     <div className='fb pb6 df'>
-                                        <TextField className='w50pc pr10' disabled label='Country' defaultValue='' />
-                                        <TextField className='w50pc pr10' disabled label='Country' defaultValue='' />
-                                        <TextField label='Street 2' disabled className='w50pc brnone br4 pr10 h36' />
+                                        <TextField className='w50pc pr10' disabled label='Registered name' defaultValue='' />
+                                        <TextField className='w50pc pr10' disabled label='local name' defaultValue='' />
+                                        <TextField label='international name' disabled className='w50pc brnone br4 pr10 h36' />
                                     </div>
                                     <div className='fb pb6 df mt10'>
-                                        <TextField label='Postal code' disabled className='w50pc pr10 brnone br4 h36' defaultValue='' />
-                                        <TextField label='City' disabled className='w50pc brnone br4 pr10 h36' defaultValue='' />
-                                        <TextField label='Street 2' disabled className='w50pc brnone br4  h36' />
+                                        <TextField label='transliterated Name' disabled className='w50pc pr10 brnone br4 h36' defaultValue='' />
+                                        <TextField label='DBA name' disabled className='w50pc brnone br4 pr10 h36' defaultValue='' />
+                                        <TextField label='VAT registered name' disabled className='w50pc brnone br4  h36' />
                                     </div>
                                 </div>
 
                                 <div className='pb8 mt10 p24'>
-                                <div className='bold fs14 pb8'>Address Information</div>
+                                    <div className='bold fs14 pb8'>Organization identifiers</div>
                                     <div className='fb pb6 df'>
-                                        <TextField className='w50pc pr10' disabled label='Country' defaultValue='' />
-                                        <TextField className='w50pc pr10' disabled label='Country' defaultValue='' />
-                                        <TextField label='Street 2' disabled className='w50pc brnone br4 pr10 h36' />
+                                        <TextField className='w50pc pr10' disabled label='External Bussiness Partner Identifier' defaultValue='' />
+                                        <TextField className='w50pc pr10' disabled label='issuer' defaultValue='' />
                                     </div>
                                     <div className='fb pb6 df mt10'>
-                                        <TextField label='Postal code' disabled className='w50pc pr10 brnone br4 h36' defaultValue='' />
-                                        <TextField label='City' disabled className='w50pc brnone br4 pr10 h36' defaultValue='' />
-                                        <TextField label='Street 2' disabled className='w50pc brnone br4  h36' />
+                                        <TextField label='Type of Bussiness Partner Identifier' disabled className='w50pc pr10 brnone br4 h36' defaultValue='' />
+                                        <TextField label='Identification number' disabled className='w50pc brnone br4 pr10 h36' defaultValue='' />
+                                    </div>
+                                </div>
+
+                                <div className='pb8 mt10 p24'>
+                                    <div className='bold fs14 pb8'>Bussiness Status</div>
+                                    <div className='fb pb6 df'>
+                                        <TextField className='w50pc pr10' disabled label='State of active/operation' defaultValue='' />
+                                        <TextField className='w50pc pr10' disabled label='Valid from' defaultValue='' />
+                                        <TextField className='w50pc pr10' disabled label='Valid until' defaultValue='' />
                                     </div>
                                 </div>
 
                                 <div className='pb8 mt50 p24 pb20 brbt'>
-                                      <DefaultButton text='REPORT INCORRECT DATA ' />
-                                      <PrimaryButton text='DATA IS CORRECT' />
+                                    <DefaultButton text='REPORT INCORRECT DATA ' />
+                                    <PrimaryButton text='DATA IS CORRECT' />
                                 </div>
 
-                                
+
                             </div>
                         </div>
                         <div className='mb10'>
@@ -96,44 +98,49 @@ export default class Onboarding extends React.Component {
                                     <div className='fs14 mt10'>Distribute responsibilities and add admin account for the persons that know the best what need to be done .
                                     </div>
                                 </div>
+
+
                             </label>
                             <div className="collapse-painel collapse-bg-white">
-                                <div className='p20'>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing
-                                        elit, sed do eiusmod tempor incididunt ut labore et
-                                        dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris nisi ut aliquip
-                                        ex ea commodo consequat.
-                                    </p>
+                                <div className='pb20 p24'>
+                                    <div className='fb pb6 df'>
+                                        <TextField label='Email Address' disabled className='w50pc brnone br4 pr10 h36' defaultValue='' />
+                                        <TextField label='User Role' disabled className='w50pc brnone br4 pr10 h36' />
+                                        <PrimaryButton className='w10pc mt24 br4 h36' text='ADD' />
+                                    </div>
+                                </div>
+                                <div className='pb8 mt50 p24 pb20 brbt'>
+                                    <PrimaryButton text='DATA IS CORRECT' />
                                 </div>
                             </div>
                         </div>
                         <div className='mb10'>
                             <input className="collapse-open" type="checkbox" id="collapse-3" />
                             <label className="collapse-btn collapse-bg-white" htmlFor="collapse-3">
-                            <div className='fl fs22 dblock pr20 bold'>3</div>
+                                <div className='fl fs22 dblock pr20 bold'>3</div>
                                 <div className='flex-container'>
                                     <span className='fs22 bold'>Catena-X Company Role</span>
                                     <div className='fs14 mt10'>You can choose different roles to participate in Catena-X. Don't worry, you can change it later again.</div>
                                 </div>
                             </label>
                             <div className="collapse-painel collapse-bg-white">
-                                <div className='p20'>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing
-                                        elit, sed do eiusmod tempor incididunt ut labore et
-                                        dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris nisi ut aliquip
-                                        ex ea commodo consequat.
-                                    </p>
+                                <div className='pb20 p24'>
+                                    <div className='ml50 fb pb6 df'>
+                                        <TextField label='Email Address' disabled className='w50pc brnone br4 pr10 h36' defaultValue='' />
+                                    </div>
+                                    <div className='ml50 mr50 mt50 bgfe w100-100 df fdc'>
+                                        <span className='fs18 bold mt20'>Role description and details</span>
+                                        <span className='fs16 bold mt20'>Active Participant</span>
+                                        <span className='fs14 mt20'>A network partner that provides and/or consumes bussiness data (e.g. parts master data) and actively participates in at least one  use case.</span>
+                                        <span className='fs14'>Examples : OEM, Supplier, KMU(SME) etc. We differentiate in two types: Self-Managed (e.g. own IdP) and Catena-X-Managed (e.g. IdP-Integrationq)  </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div className='mb10'>
                             <input className="collapse-open" type="checkbox" id="collapse-4" />
                             <label className="collapse-btn collapse-bg-white" htmlFor="collapse-4">
-                            <div className='fl fs22 dblock pr20 bold'>4</div>
+                                <div className='fl fs22 dblock pr20 bold'>4</div>
                                 <div className='flex-container'>
                                     <span className='fs22 bold'>Terms & Conditions</span>
                                     <div className='fs14 mt10'>Please check and agree to our terms and condition. Depending on your selection role, there are different versions.
@@ -155,7 +162,7 @@ export default class Onboarding extends React.Component {
                         <div className='mb10'>
                             <input className="collapse-open" type="checkbox" id="collapse-5" />
                             <label className="collapse-btn collapse-bg-white" htmlFor="collapse-5">
-                            <div className='fl fs22 dblock pr20 bold'>5</div>
+                                <div className='fl fs22 dblock pr20 bold'>5</div>
                                 <div className='flex-container'>
                                     <span className='fs22 bold'>Identity Provider</span>
                                     <div className='fs14 mt10'>Use Catena-X own IDP or set up and integrate your own IDP
@@ -177,7 +184,7 @@ export default class Onboarding extends React.Component {
                         <div className='mb10'>
                             <input className="collapse-open" type="checkbox" id="collapse-6" />
                             <label className="collapse-btn collapse-bg-white" htmlFor="collapse-6">
-                            <div className='fl fs22 dblock pr20 bold'>6</div>
+                                <div className='fl fs22 dblock pr20 bold'>6</div>
                                 <div className='flex-container'>
                                     <span className='fs22 bold'>Certificates</span>
                                     <div className='fs14 mt10'>Upload and verify your certificate</div>
