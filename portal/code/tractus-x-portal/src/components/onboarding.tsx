@@ -39,14 +39,14 @@ export default class Onboarding extends React.Component {
                                 </div>
                             </label>
                             <div className='collapse-panel bgwhite'>
-                                <div className='pb20 p24'>
+                                <div className='ml30 pb20 p24'>
                                     <div className='fb pb6 df'>
                                         <TextField label='OneID' disabled className='w50pc brnone br4 pr10 h36' defaultValue='' />
                                         <TextField label='Organization name' disabled className='w50pc brnone br4 pr10 h36' />
                                         <TextField label='contact language' disabled className='w50pc brnone br4 h36' />
                                     </div>
                                 </div>
-                                <div className='pb8 mt10 p24'>
+                                <div className='ml30 pb8 mt10 p24'>
                                     <div className='bold fs14 pb8'>Organization names</div>
                                     <div className='fb pb6 df'>
                                         <TextField className='w50pc pr10' disabled label='Registered name' defaultValue='' />
@@ -60,7 +60,7 @@ export default class Onboarding extends React.Component {
                                     </div>
                                 </div>
 
-                                <div className='pb8 mt10 p24'>
+                                <div className='ml30 pb8 mt10 p24'>
                                     <div className='bold fs14 pb8'>Organization identifiers</div>
                                     <div className='fb pb6 df'>
                                         <TextField className='w50pc pr10' disabled label='External Bussiness Partner Identifier' defaultValue='' />
@@ -72,7 +72,7 @@ export default class Onboarding extends React.Component {
                                     </div>
                                 </div>
 
-                                <div className='pb8 mt10 p24'>
+                                <div className='ml30 pb8 mt10 p24'>
                                     <div className='bold fs14 pb8'>Bussiness Status</div>
                                     <div className='fb pb6 df'>
                                         <TextField className='w50pc pr10' disabled label='State of active/operation' defaultValue='' />
@@ -81,7 +81,7 @@ export default class Onboarding extends React.Component {
                                     </div>
                                 </div>
 
-                                <div className='pb8 mt50 p24 pb20 brbt'>
+                                <div className='ml30 pb8 mt50 p24 pb20 brbt'>
                                     <DefaultButton text='REPORT INCORRECT DATA ' />
                                     <PrimaryButton text='DATA IS CORRECT' />
                                 </div>
@@ -101,13 +101,13 @@ export default class Onboarding extends React.Component {
                             </label>
                             <div className='collapse-panel bgwhite'>
                                 <div className='pb20 p24'>
-                                    <div className='fb pb6 df'>
+                                    <div className='ml30 fb pb6 df'>
                                         <TextField label='Email Address' disabled className='w50pc brnone br4 pr10 h36' defaultValue='' />
                                         <TextField label='User Role' disabled className='w50pc brnone br4 pr10 h36' />
                                         <PrimaryButton className='w10pc mt24 br4 h36' text='ADD' />
                                     </div>
                                 </div>
-                                <div className='pb8 mt50 p24 pb20 brbt'>
+                                <div className='ml30 pb8 mt50 p24 pb20 brbt'>
                                     <PrimaryButton text='DATA IS CORRECT' />
                                 </div>
                             </div>
@@ -124,10 +124,10 @@ export default class Onboarding extends React.Component {
                             <div className='collapse-panel bgwhite'>
                                 <div className='p20'>
                                     <div className='pb20 p24'>
-                                        <div className='ml50 fb pb6 df'>
+                                        <div className='fb pb6 df'>
                                             <TextField label='Email Address' disabled className='w50pc brnone br4 pr10 h36' defaultValue='' />
                                         </div>
-                                        <div className='ml50 mr50 mt50 bgfe w100-100 df fdc'>
+                                        <div className='mr50 mt50 bgfe w100-100 df fdc'>
                                             <span className='fs18 bold mt20'>Role description and details</span>
                                             <span className='fs16 bold mt20'>Active Participant</span>
                                             <span className='fs14 mt20'>A network partner that provides and/or consumes bussiness data (e.g. parts master data) and actively participates in at least one  use case.</span>
