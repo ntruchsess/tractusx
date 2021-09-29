@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-using CatenaX.NetworkServices.Onboarding.Identity.Identity.Model;
+using CatenaX.NetworkServices.Onboarding.Identity.Model;
 
 namespace CatenaX.NetworkServices.Onboarding.Identity
 {
@@ -12,5 +12,7 @@ namespace CatenaX.NetworkServices.Onboarding.Identity
         Task CreateRealm(CreateRealm realm);
 
         Task CreateUser(string realm, CreateUser user);
+
+        Task CreateGroup(string realm, CreateGroup group);
     }
 }
