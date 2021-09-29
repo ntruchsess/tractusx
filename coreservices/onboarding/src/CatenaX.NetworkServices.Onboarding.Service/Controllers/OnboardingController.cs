@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
+using CatenaX.NetworkServices.Onboarding.Library;
 using CatenaX.NetworkServices.Onboarding.Service.BusinessLogic;
 
 using Microsoft.AspNetCore.Mvc;
@@ -34,6 +35,21 @@ namespace CatenaX.NetworkServices.Onboarding.Service.Controllers
                 await _logic.ExecuteOnboarding(identifier);
                 return new OkResult();
             } catch(Exception e)
+            {
+                _logger.LogError(e.ToString());
+                return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ExecuteOnboarding([FromBody] OnboardingData onboardingData)
+        {
+            try
+            {
+                await _logic.StartOnboarding(onboardingData);
+                return new OkResult();
+            }
+            catch (Exception e)
             {
                 _logger.LogError(e.ToString());
                 return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
