@@ -63,11 +63,11 @@ export default class Onboarding extends React.Component {
                 <div className='ml30 pb8 mt10 p24'>
                   <div className='bold fs14 pb8'>Organization identifiers</div>
                   <div className='fb pb6 df'>
-                    <TextField className='w50pc pr10' disabled label='External Bussiness Partner Identifier' defaultValue='' />
+                    <TextField className='w50pc pr10' disabled label='External Business Partner Identifier' defaultValue='' />
                     <TextField className='w50pc pr10' disabled label='issuer' defaultValue='' />
                   </div>
                   <div className='fb pb6 df mt10'>
-                    <TextField label='Type of Bussiness Partner Identifier' disabled className='w50pc pr10 brnone br4 h36' defaultValue='' />
+                    <TextField label='Type of Business Partner Identifier' disabled className='w50pc pr10 brnone br4 h36' defaultValue='' />
                     <TextField label='Identification number' disabled className='w50pc brnone br4 pr10 h36' defaultValue='' />
                   </div>
                 </div>
@@ -81,9 +81,9 @@ export default class Onboarding extends React.Component {
                   </div>
                 </div>
 
-                <div className='ml30 pb8 mt50 p24 pb20 brbt'>
-                  <DefaultButton text='REPORT INCORRECT DATA ' />
-                  <PrimaryButton text='DATA IS CORRECT' />
+                <div className='ml30 pb8 mt50 p24 pb20 brbt df fdc fdrr'>
+                <PrimaryButton text='DATA IS CORRECT'  className='ml30'/>
+                  <DefaultButton text='REPORT INCORRECT DATA' />
                 </div>
 
               </div>
@@ -129,8 +129,8 @@ export default class Onboarding extends React.Component {
                     <div className='mr50 mt50 bgfe w100-100 df fdc'>
                       <span className='fs18 bold mt20'>Role description and details</span>
                       <span className='fs16 bold mt20'>Active Participant</span>
-                      <span className='fs14 mt20'>A network partner that provides and/or consumes bussiness data (e.g. parts master data) and actively participates in at least one  use case.</span>
-                      <span className='fs14'>Examples : OEM, Supplier, KMU(SME) etc. We differentiate in two types: Self-Managed (e.g. own IdP) and Catena-X-Managed (e.g. IdP-Integrationq)  </span>
+                      <span className='fs14 mt20'>A network partner that provides and/or consumes business data (e.g. parts master data) and actively participates in at least one  use case.</span>
+                      <span className='fs14'>Examples : OEM, Supplier, KMU(SME) etc. We differentiate in two types: Self-Managed (e.g. own IdP) and Catena-X-Managed (e.g. IdP-Integration)  </span>
                     </div>
                   </div>
 
