@@ -1,18 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using Microsoft.Extensions.Options;
 using CatenaX.NetworkServices.Mailing.Template.Model;
 
 namespace CatenaX.NetworkServices.Mailing.Template
 {
     public class TemplateManager : ITemplateManager
     {
-        private readonly IDictionary<string,MailTemplate> _Templates = new Dictionary<string,MailTemplate>();
+        private readonly TemplateSettings _Templates;
 
-        public TemplateManager()
+        public TemplateManager(IOptions<TemplateSettings> templateSettings)
         {
-            _Templates.Add("invite", new MailTemplate("invite", "invitation to Catena-X", "your company {companyname} is hereby invited to participate in Catena-X"));
-            _Templates.Add("password", new MailTemplate("password", "password for onboarding to Catena-X", "please use this password to onboard to Catena-X: {password}"));
+            _Templates = templateSettings.Value;
         }
 
         Mail ITemplateManager.ApplyTemplate(string id, IDictionary<string, string> parameters)

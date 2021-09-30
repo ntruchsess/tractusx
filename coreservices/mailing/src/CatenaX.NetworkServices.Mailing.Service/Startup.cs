@@ -22,15 +22,17 @@ namespace CatenaX.NetworkServices.Mailing.Service
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
-            services.AddSwaggerGen(c =>
+            services
+            .AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CatenaX.NetworkServices.Mailing.Service", Version = "v1" });
-            });
-            services.AddTransient<ISendMail,SendMail.SendMail>();
-            services.AddTransient<ITemplateManager,TemplateManager>();
-            services.AddTransient<IMailingServiceBusinessLogic,MailingServiceBusinessLogic>();
+            })
+            .AddTransient<ISendMail,SendMail.SendMail>()
+            .AddTransient<ITemplateManager,TemplateManager>()
+            .AddTransient<IMailingServiceBusinessLogic,MailingServiceBusinessLogic>()
+            .ConfigureTemplateSettings(Configuration.GetSection(TemplateSettings.Position))
+            .ConfigureMailSettings(Configuration.GetSection(MailSettings.Position));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
