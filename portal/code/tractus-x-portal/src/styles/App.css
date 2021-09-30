@@ -276,6 +276,7 @@ iframe {border-style: none;}
 .w40pc {width:40%}
 .w45pc {width:45%}
 .w50pc {width:50%}
+.w60pc {width:60%}
 .w70pc {width:70%}
 .w25pc {width:25%}
 .w23pc {width:23%}
@@ -454,6 +455,7 @@ iframe {border-style: none;}
 .m12 {margin: 12px;}
 .m16 {margin: 16px;}
 .m24 {margin: 24px}
+.m50 {margin: 50px}
 .mla {margin-left: auto;}
 .ml0 {margin-left: 0px;}
 .ml1{margin-left: 1px;}
@@ -980,4 +982,8 @@ mat-form-field .mat-input-placeholder {
 .collapse-open:checked ~ .collapse-btn:before {
   content: "-";
   font-size: 40px;
+}
+
+.bgtextbox {
+  background: #f7f8fa;
 }

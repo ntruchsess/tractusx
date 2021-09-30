@@ -77,6 +77,10 @@ class Header extends React.Component<IProp> {
     this.props.history.push('/home/onboarding');
   }
 
+  private loginClick() {
+    this.props.history.push('/home/Login');
+  }
+  
   public render() {
     const href = window.location.href;
     const path = href.substr(href.lastIndexOf('/') + 1);
@@ -97,7 +101,8 @@ class Header extends React.Component<IProp> {
           })}
           <PivotItem key='search' className='ml20 mr20' headerText='' itemIcon='search' />
         </Pivot>}
-        <div onClick={() => this.onBoardingClick()}>Login</div>
+        <div className='mr30' onClick={() => this.loginClick()}>login</div>
+        <div onClick={() => this.onBoardingClick()}>Onboarding</div>
         <div className='flex1' />
         <div className='bgblue fgwhite aic jcc df fs16 br50pc h40 w40 mr10' onClick={() => this.userClick()}>{this.initials}</div>
         <div className='df fdc mr50'>
