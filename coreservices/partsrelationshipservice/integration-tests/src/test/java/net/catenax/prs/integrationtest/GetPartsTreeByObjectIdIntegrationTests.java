@@ -10,10 +10,15 @@
 package net.catenax.prs.integrationtest;
 
 import com.catenax.partsrelationshipservice.dtos.PartsTreeView;
+import net.catenax.prs.controllers.ApiErrorsConstants;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.http.HttpStatus;
+
+import java.text.MessageFormat;
+import java.util.List;
 
 import static com.catenax.partsrelationshipservice.dtos.PartsTreeView.AS_MAINTAINED;
 import static io.restassured.RestAssured.given;
@@ -87,47 +92,82 @@ public class GetPartsTreeByObjectIdIntegrationTests extends PrsIntegrationTestsB
 
     @Test
     public void getPartsTreeByObjectId_noView_returns400() {
-        given()
-            .pathParam(ONE_ID_MANUFACTURER, PART_ONE_ID)
-            .pathParam(OBJECT_ID_MANUFACTURER, PART_OBJECT_ID)
-        .when()
-            .get(PATH)
-        .then()
-            .assertThat()
-            .statusCode(HttpStatus.BAD_REQUEST.value());
+        var response =
+               given()
+                   .pathParam(ONE_ID_MANUFACTURER, PART_ONE_ID)
+                   .pathParam(OBJECT_ID_MANUFACTURER, PART_OBJECT_ID)
+               .when()
+                   .get(PATH)
+               .then()
+                   .assertThat()
+                   .statusCode(HttpStatus.BAD_REQUEST.value())
+                   .extract().asString();
+
+        assertThatJson(response)
+                .isEqualTo(expected.invalidArgument(List.of(VIEW +":"+ ApiErrorsConstants.PARTS_TREE_VIEW_NOT_NULL)));
     }
 
     @Test
     public void getPartsTreeByObjectId_invalidView_returns400() {
-        given()
-                .pathParam(ONE_ID_MANUFACTURER, PART_ONE_ID)
-                .pathParam(OBJECT_ID_MANUFACTURER, PART_OBJECT_ID)
-                .queryParam(VIEW, "not-valid")
-        .when()
-                .get(PATH)
-        .then()
-                .assertThat()
-                .statusCode(HttpStatus.BAD_REQUEST.value());
+        var response =
+               given()
+                       .pathParam(ONE_ID_MANUFACTURER, PART_ONE_ID)
+                       .pathParam(OBJECT_ID_MANUFACTURER, PART_OBJECT_ID)
+                       .queryParam(VIEW, "not-valid")
+               .when()
+                       .get(PATH)
+               .then()
+                       .assertThat()
+                       .statusCode(HttpStatus.BAD_REQUEST.value())
+                       .extract().asString();
+
+        assertThatJson(response)
+                .isEqualTo(expected.invalidArgument(List.of(VIEW +":"+ ApiErrorsConstants.PARTS_TREE_VIEW_MUST_MATCH_ENUM)));
     }
 
     @Test
     public void getPartsTreeByObjectId_exceedMaxDepth_returns400() {
         var maxDepth = configuration.getPartsTreeMaxDepth();
-        given()
-                .pathParam(ONE_ID_MANUFACTURER, PART_ONE_ID)
-                .pathParam(OBJECT_ID_MANUFACTURER, PART_OBJECT_ID)
-                .queryParam(VIEW, AS_MAINTAINED)
-                .queryParam(DEPTH, maxDepth + 1)
-        .when()
-                .get(PATH)
-        .then()
-                .assertThat()
-                .statusCode(HttpStatus.BAD_REQUEST.value());
+        var response =
+                given()
+                        .pathParam(ONE_ID_MANUFACTURER, PART_ONE_ID)
+                        .pathParam(OBJECT_ID_MANUFACTURER, PART_OBJECT_ID)
+                        .queryParam(VIEW, AS_MAINTAINED)
+                        .queryParam(DEPTH, maxDepth + 1)
+                .when()
+                        .get(PATH)
+                .then()
+                        .assertThat()
+                        .statusCode(HttpStatus.BAD_REQUEST.value())
+                        .extract().asString();
+
+        assertThatJson(response)
+                .isEqualTo(expected.invalidMaxDepth(List.of(MessageFormat.format(ApiErrorsConstants.PARTS_TREE_MAX_DEPTH, maxDepth))));
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {0, -1, Integer.MIN_VALUE})
+    public void getPartsTreeByObjectId_zeroOrNegativeDepth_returns400(int depth) {
+        var response =
+                given()
+                        .pathParam(ONE_ID_MANUFACTURER, PART_ONE_ID)
+                        .pathParam(OBJECT_ID_MANUFACTURER, PART_OBJECT_ID)
+                        .queryParam(VIEW, AS_MAINTAINED)
+                        .queryParam(DEPTH, depth)
+                .when()
+                        .get(PATH)
+                .then()
+                        .assertThat()
+                        .statusCode(HttpStatus.BAD_REQUEST.value())
+                        .extract().asString();
+
+        assertThatJson(response)
+                .isEqualTo(expected.invalidArgument(List.of(DEPTH +":"+ ApiErrorsConstants.PARTS_TREE_MIN_DEPTH)));
     }
 
     @ParameterizedTest
     @EnumSource(PartsTreeView.class)
-    public void getPartsTreeByObjectId_directChildren_success(PartsTreeView view) throws Exception {
+    public void getPartsTreeByObjectId_directChildren_success(PartsTreeView view) {
 
         var response =
                 given()
@@ -149,7 +189,7 @@ public class GetPartsTreeByObjectIdIntegrationTests extends PrsIntegrationTestsB
 
     @ParameterizedTest
     @EnumSource(PartsTreeView.class)
-    public void getPartsTreeByObjectId_CEAspect_success(PartsTreeView view) throws Exception {
+    public void getPartsTreeByObjectId_CEAspect_success(PartsTreeView view) {
 
         var response =
                 given()
