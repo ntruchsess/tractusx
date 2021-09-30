@@ -13,19 +13,19 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
     public class OnboardingBusinessLogic : IOnboardingBusinessLogic
     {
         private readonly IIdentityManager _identityManager;
-        private readonly IDataAccess _dataAccess;
+        //private readonly IDataAccess _dataAccess;
 
         private List<string> Groups = new List<string> {"Onboarding", "IT Admin", "Legal Admin", "Signing Manager" };
 
-        public OnboardingBusinessLogic(IIdentityManager identityManager, IDataAccess dataAccess)
+        public OnboardingBusinessLogic(IIdentityManager identityManager)
         {
             _identityManager = identityManager;
-            _dataAccess = dataAccess;
+            //_dataAccess = dataAccess;
         }
 
         public async Task ExecuteOnboarding(string identifier)
         {
-            var result = await _dataAccess.GetData(int.Parse(identifier));
+        //    var result = await _dataAccess.GetData(int.Parse(identifier));
 
             //Create Realm and Admin User
 
@@ -35,7 +35,11 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
         public async Task StartOnboarding(OnboardingData onboardingData)
         {
             //Get Data From Member
-            var realmName = Guid.NewGuid().ToString();
+            var query = new QueryCompany();
+
+            var company = query.Query(onboardingData.OneId);
+
+            var realmName = company.name1;
 
             var newRealm = new CreateRealm
             {

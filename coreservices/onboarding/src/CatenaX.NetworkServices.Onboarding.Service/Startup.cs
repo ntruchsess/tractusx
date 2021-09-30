@@ -35,10 +35,10 @@ namespace CatenaX.NetworkServices.Onboarding.Service
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddTransient<IIdentityManager>(x => new KeycloakIdentityManager(new Keycloak.Net.KeycloakClient("http://localhost:8080", "admin", "admin",authRealm:"master")));
+            services.AddTransient<IIdentityManager>(x => new KeycloakIdentityManager(new Keycloak.Net.KeycloakClient(Configuration.GetValue<string>("KeyCloakConnectionString"), "admin", "admin",authRealm:"master")));
             services.AddTransient<IOnboardingBusinessLogic,OnboardingBusinessLogic>();
-            services.AddTransient<IDbConnection>(x => new NpgsqlConnection(Configuration.GetValue<string>("PostgresConnectionString")));
-            services.AddTransient<IDataAccess, DataAccessTest>();
+            //services.AddTransient<IDbConnection>(x => new NpgsqlConnection(Configuration.GetValue<string>("PostgresConnectionString")));
+            //services.AddTransient<IDataAccess, DataAccessTest>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
