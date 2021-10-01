@@ -30,6 +30,13 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Keycloak.Net", "onboarding\src\keycloak.net-branch\src\Keycloak.Net\Keycloak.Net.csproj", "{D48D15D5-675E-4AC1-8D2D-6B5FF600370E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatenaX.NetworkServices.Onboarding.Library", "onboarding\src\CatenaX.NetworkServices.Onboarding.Library\CatenaX.NetworkServices.Onboarding.Library.csproj", "{3E61EE63-ACFA-45C2-9C65-BF00980E008B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatenaX.NetworkServices.Mailing.Service", "mailing\src\CatenaX.NetworkServices.Mailing.Service\CatenaX.NetworkServices.Mailing.Service.csproj", "{8F4F2838-7540-4550-A0C4-FE871E72397A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatenaX.NetworkServices.Mailing.Template", "mailing\src\CatenaX.NetworkServices.Mailing.Template\CatenaX.NetworkServices.Mailing.Template.csproj", "{97FE948B-D083-4BE2-9E5A-2AA0A0D7B44D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mailing", "mailing", "{F5E59460-211B-11EC-B6E9-75CD881C6D34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatenaX.NetworkServices.Mailing.SendMail", "mailing\src\CatenaX.NetworkServices.Mailing.SendMail\CatenaX.NetworkServices.Mailing.SendMail.csproj", "{59FC0798-2A3B-4EAA-B4F2-43B1DAB259DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,11 +72,24 @@ Global
 		{3E61EE63-ACFA-45C2-9C65-BF00980E008B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E61EE63-ACFA-45C2-9C65-BF00980E008B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E61EE63-ACFA-45C2-9C65-BF00980E008B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F4F2838-7540-4550-A0C4-FE871E72397A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F4F2838-7540-4550-A0C4-FE871E72397A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F4F2838-7540-4550-A0C4-FE871E72397A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F4F2838-7540-4550-A0C4-FE871E72397A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97FE948B-D083-4BE2-9E5A-2AA0A0D7B44D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97FE948B-D083-4BE2-9E5A-2AA0A0D7B44D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97FE948B-D083-4BE2-9E5A-2AA0A0D7B44D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97FE948B-D083-4BE2-9E5A-2AA0A0D7B44D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59FC0798-2A3B-4EAA-B4F2-43B1DAB259DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59FC0798-2A3B-4EAA-B4F2-43B1DAB259DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59FC0798-2A3B-4EAA-B4F2-43B1DAB259DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59FC0798-2A3B-4EAA-B4F2-43B1DAB259DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{F5E59460-211B-11EC-B6E9-75CD881C6D34} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
 		{5BA50973-B032-4C3B-B82F-4136AC6B7DEC} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
 		{06B37DE0-6F10-4D40-97E8-184BA9F6AEA9} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
 		{7A5F84BE-3B45-483A-8EF1-4E1E94F144DC} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
@@ -82,6 +102,9 @@ Global
 		{0B7D767F-262E-4D77-8195-99B655F509C6} = {7A5F84BE-3B45-483A-8EF1-4E1E94F144DC}
 		{D48D15D5-675E-4AC1-8D2D-6B5FF600370E} = {0B7D767F-262E-4D77-8195-99B655F509C6}
 		{3E61EE63-ACFA-45C2-9C65-BF00980E008B} = {7A5F84BE-3B45-483A-8EF1-4E1E94F144DC}
+		{8F4F2838-7540-4550-A0C4-FE871E72397A} = {F5E59460-211B-11EC-B6E9-75CD881C6D34}
+		{97FE948B-D083-4BE2-9E5A-2AA0A0D7B44D} = {F5E59460-211B-11EC-B6E9-75CD881C6D34}
+		{59FC0798-2A3B-4EAA-B4F2-43B1DAB259DB} = {F5E59460-211B-11EC-B6E9-75CD881C6D34}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {23E9EF5A-FB26-4AAC-952E-0695A1245B8E}
