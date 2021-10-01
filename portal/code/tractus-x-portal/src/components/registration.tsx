@@ -16,8 +16,34 @@ import * as React from 'react';
 import { observer } from 'mobx-react';
 import { PrimaryButton, TextField } from '@fluentui/react';
 
+
 @observer
 export default class Login extends React.Component {
+
+
+  public email : string = "test@test";
+  public oneId: string = "CAXLZJVJEBYWYYZZ";
+  
+  private registrationButtonClick() {
+   console.log("register");
+
+   var u = 'http://cxmisvc.azurewebsites.net/api/onboarding'
+
+    var data = 
+      {
+        "oneId" : this.oneId,
+        "eMail" : this.email
+        }
+    
+        console.log(data);
+   fetch(u, { method: 'POST', headers: {  'Content-Type': 'application/json' }, body: JSON.stringify(data) } )
+   .then((response) =>
+   console.log(response)
+   );
+
+  }
+
+
 
   public render() {
     return (
@@ -30,9 +56,9 @@ export default class Login extends React.Component {
           <div className="w40pc bgwhite mt100 br7 df fdc bsPanel">
           <span className='fs20 bold mt20 ml50'>Register to Catena-X</span>
           <span className='fs14 m50'>
-                    <TextField placeholder='Enter your Email - Address' className='w100pc br4 pr10 h40' defaultValue='' />
-                    <TextField placeholder='One ID' className='w100pc br4 pr10 h40' defaultValue='' />
-                    <PrimaryButton className='w60pc br4 pr10 h40 mt20' text='REGISTRATION' />
+                    <TextField placeholder='Enter  Email - Address' className='w100pc br4 pr10 h40' value={this.email}  />
+                    <TextField placeholder='One ID' className='w100pc br4 pr10 h40' value={this.oneId} />
+                    <PrimaryButton className='w60pc br4 pr10 h40 mt20' text='REGISTRATION' onClick={() => this.registrationButtonClick()} />
           </span>
           </div>
       </div>

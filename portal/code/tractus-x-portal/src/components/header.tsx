@@ -15,7 +15,7 @@
 import * as React from 'react';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
-import adalContext from '../helpers/adalConfig';
+// import adalContext from '../helpers/adalConfig';
 import { Icon, Pivot, PivotItem } from '@fluentui/react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { AppState } from '../stores/appstate';
@@ -37,26 +37,26 @@ class Header extends React.Component<IProp> {
   @observable isAdmin = false;
 
   public async componentDidMount() {
-    this.username = adalContext.getFullName();
-    this.initials = adalContext.getInitials(this.username);
-    if (adalContext.getDomain(adalContext.getUsername()) === 'Daimler') { // Hack for MS Graph
-      AppState.state.isAdmin = true;
-    } else if (AppState.state.isAdmin === undefined) {
-      AppState.state.isAdmin = false;
-      try {
-        const groups = await adalContext.getGroups();
-        if (groups) {
-          for (const g of groups.value) {
-            const group = g as string;
-            if (group === 'ec5a8b75-4839-4ff1-b50d-f8159653d9f0' || group === '463512e5-968f-4b2d-8283-737be4a67182') {
-              AppState.state.isAdmin = true;
-            }
-          }
-        }
-      } catch { }
-    }
+    this.username = "CatenaX Admin"; //adalContext.getFullName();
+    this.initials = "CXA"; //adalContext.getInitials(this.username);
+    // if (adalContext.getDomain(adalContext.getUsername()) === 'Daimler') { // Hack for MS Graph
+    //   AppState.state.isAdmin = true;
+    // } else if (AppState.state.isAdmin === undefined) {
+    //   AppState.state.isAdmin = false;
+    //   try {
+    //     const groups = await adalContext.getGroups();
+    //     if (groups) {
+    //       for (const g of groups.value) {
+    //         const group = g as string;
+    //         if (group === 'ec5a8b75-4839-4ff1-b50d-f8159653d9f0' || group === '463512e5-968f-4b2d-8283-737be4a67182') {
+    //           AppState.state.isAdmin = true;
+    //         }
+    //       }
+    //     }
+    //   } catch { }
+    // }
   
-    this.isAdmin = AppState.state.isAdmin;
+    this.isAdmin = true; // AppState.state.isAdmin;
   }
 
   private pivotClick(item: PivotItem): void {
@@ -69,7 +69,7 @@ class Header extends React.Component<IProp> {
   }
 
   private userClick() {
-    const token = adalContext.getCachedToken();
+    const token = "";//adalContext.getCachedToken();
     console.log(token);
   }
 
@@ -108,7 +108,7 @@ class Header extends React.Component<IProp> {
         <div className='df fdc mr50'>
           <span className='fs14'>{this.username}</span>
           <div className='df'>
-            <span className='fs14'>{adalContext.getDomain(adalContext.getUsername())}</span>
+            {/* <span className='fs14'>{adalContext.getDomain(adalContext.getUsername())}</span> */}
             {this.isAdmin && <span className='ml5 fs14'>(Admin)</span>}
           </div>
         </div>
