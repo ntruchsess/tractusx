@@ -24,10 +24,9 @@ namespace CatenaX.NetworkServices.Mailing.Template
             return services.Configure<TemplateSettings>(x => section
                 .GetChildren()
                 .Aggregate(x,(y,z) => {
-                    x.Add(z.Key,z.Get<TemplateSetting>());
-                    return x;
+                    y.Add(z.Key,z.Get<TemplateSetting>());
+                    return y;
                 }));
         }
     }
-
 }

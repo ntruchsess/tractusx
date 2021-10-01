@@ -20,5 +20,4 @@ namespace CatenaX.NetworkServices.Mailing.SendMail
             return services.Configure<MailSettings>(x => section.Bind(x));
         }
     }
-
 }
