@@ -1,14 +1,12 @@
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
 using CatenaX.NetworkServices.Onboarding.Identity;
 using CatenaX.NetworkServices.Onboarding.Identity.Identity;
 using CatenaX.NetworkServices.Onboarding.Service.BusinessLogic;
-using CatenaX.NetworkServices.Onboarding.Service.DataAccess;
-
+using CatenaX.NetworkServices.Onboarding.Service.Mail;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -17,8 +15,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-
-using Npgsql;
 
 namespace CatenaX.NetworkServices.Onboarding.Service
 {
@@ -35,10 +31,13 @@ namespace CatenaX.NetworkServices.Onboarding.Service
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddTransient<IIdentityManager>(x => new KeycloakIdentityManager(new Keycloak.Net.KeycloakClient(Configuration.GetValue<string>("KeyCloakConnectionString"), "admin", "admin",authRealm:"master")));
+            services.AddTransient<IIdentityManager>(x => new KeycloakIdentityManager(new Keycloak.Net.KeycloakClient(Configuration.GetValue<string>("KeyCloakConnectionString"), Configuration.GetValue<string>("KeyCloakUser"), Configuration.GetValue<string>("KeyCloakUserPassword"), authRealm: "master")));
             services.AddTransient<IOnboardingBusinessLogic,OnboardingBusinessLogic>();
-            //services.AddTransient<IDbConnection>(x => new NpgsqlConnection(Configuration.GetValue<string>("PostgresConnectionString")));
-            //services.AddTransient<IDataAccess, DataAccessTest>();
+            services.AddTransient<IMailingService, MailingService>();
+            services.AddHttpClient("mailingClient", client =>
+            {
+                client.BaseAddress = new Uri(Configuration.GetValue<string>("MailingServiceAddress"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
