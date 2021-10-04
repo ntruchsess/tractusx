@@ -11,7 +11,7 @@ namespace CatenaX.NetworkServices.Onboarding.Identity
     {
         Task CreateRealm(CreateRealm realm);
 
-        Task CreateUser(string realm, CreateUser user);
+        Task<string> CreateUser(string realm, CreateUser user);
 
         Task CreateGroup(string realm, CreateGroup group);
     }

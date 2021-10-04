@@ -7,19 +7,22 @@ using CatenaX.NetworkServices.Onboarding.Identity;
 using CatenaX.NetworkServices.Onboarding.Identity.Model;
 using CatenaX.NetworkServices.Onboarding.Library;
 using CatenaX.NetworkServices.Onboarding.Service.DataAccess;
+using CatenaX.NetworkServices.Onboarding.Service.Mail;
 
 namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
 {
     public class OnboardingBusinessLogic : IOnboardingBusinessLogic
     {
         private readonly IIdentityManager _identityManager;
+        private readonly IMailingService _mailingService;
         //private readonly IDataAccess _dataAccess;
 
         private List<string> Groups = new List<string> {"Onboarding", "IT Admin", "Legal Admin", "Signing Manager" };
 
-        public OnboardingBusinessLogic(IIdentityManager identityManager)
+        public OnboardingBusinessLogic(IIdentityManager identityManager, IMailingService mailingService)
         {
             _identityManager = identityManager;
+            _mailingService = mailingService;
             //_dataAccess = dataAccess;
         }
 
@@ -65,7 +68,9 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
                 Groups = new List<string> { "Onboarding" }
             };
 
-            await _identityManager.CreateUser(realmName, newUser);
+            var password = await _identityManager.CreateUser(realmName, newUser);
+
+            await _mailingService.SendMails(onboardingData.EMail,password, realmName);
         }
     }
 

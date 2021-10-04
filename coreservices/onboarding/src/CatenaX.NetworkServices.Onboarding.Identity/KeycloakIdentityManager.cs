@@ -9,6 +9,7 @@ using Keycloak.Net.Models.Users;
 
 using Keycloak.Net.Models.Groups;
 using CatenaX.NetworkServices.Onboarding.Identity.Model;
+using PasswordGenerator;
 
 namespace CatenaX.NetworkServices.Onboarding.Identity.Identity
 {
@@ -31,18 +32,22 @@ namespace CatenaX.NetworkServices.Onboarding.Identity.Identity
             await _client.ImportRealmAsync(realm.Name, realmToCreate);
         }
 
-        public async Task CreateUser(string realm, CreateUser user)
+        public async Task<string> CreateUser(string realm, CreateUser user)
         {
+            var pwd = new Password();
+            var result = pwd.Next();
             var userToCreate = new User
             {
                 UserName = user.UserName,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Groups = user.Groups,
-                Credentials = new List<Credentials>() { new Credentials { Type = "Password", Value = "initPassword" } }
+                Credentials = new List<Credentials>() { new Credentials { Type = "Password", Value = result } }
                 
             };
             await _client.CreateUserAsync(realm, userToCreate);
+
+            return result;
         }
 
         public async Task CreateGroup(string realm, CreateGroup group)

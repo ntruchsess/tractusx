@@ -7,10 +7,12 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
-COPY ["CatenaX.NetworkServices.Mailing.Service/CatenaX.NetworkServices.Mailing.Service.csproj", "CatenaX.NetworkServices.Mailing.Service/"]
-RUN dotnet restore "CatenaX.NetworkServices.Mailing.Service/CatenaX.NetworkServices.Mailing.Service.csproj"
+COPY ["mailing/src/CatenaX.NetworkServices.Mailing.Service/CatenaX.NetworkServices.Mailing.Service.csproj", "mailing/src/CatenaX.NetworkServices.Mailing.Service/"]
+COPY ["mailing/src/CatenaX.NetworkServices.Mailing.SendMail/CatenaX.NetworkServices.Mailing.SendMail.csproj", "mailing/src/CatenaX.NetworkServices.Mailing.SendMail/"]
+COPY ["mailing/src/CatenaX.NetworkServices.Mailing.Template/CatenaX.NetworkServices.Mailing.Template.csproj", "mailing/src/CatenaX.NetworkServices.Mailing.Template/"]
+RUN dotnet restore "mailing/src/CatenaX.NetworkServices.Mailing.Service/CatenaX.NetworkServices.Mailing.Service.csproj"
 COPY . .
-WORKDIR "/src/CatenaX.NetworkServices.Mailing.Service"
+WORKDIR "/src/mailing/src/CatenaX.NetworkServices.Mailing.Service"
 RUN dotnet build "CatenaX.NetworkServices.Mailing.Service.csproj" -c Release -o /app/build
 
 FROM build AS publish
