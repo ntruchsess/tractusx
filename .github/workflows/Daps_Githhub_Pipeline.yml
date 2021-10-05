@@ -45,14 +45,10 @@ jobs:
         password: ${{ secrets.AZURE_REGISTRY_PASSWORD }}
     - name: Building and pusing docker image to acr
       run: |
-
-        Daps-GitHub-actions-pipeline
         cd omejdn-daps && docker build -f Dockerfile -t ${{ env.ACR_NAME }}/daps:latest .
         docker push ${{ env.ACR_NAME }}/daps:latest 
 
-      
-
-        
+             
         
     - name: install helm
       uses: Azure/setup-helm@v1
@@ -69,7 +65,6 @@ jobs:
         echo ${{ secrets.AZURE_REGISTRY_PASSWORD }} | helm registry login  ${{ env.ACR_NAME }} --username ${{ secrets.AZURE_REGISTRY_USERNAME }} --password-stdin 
     - name: save helm chart to local registry
       run: |
-        Daps-GitHub-actions-pipeline
         helm chart save tractusx/DAPS/helm-chart ${{ env.ACR_NAME }}/helm/daps:latest
       
 
