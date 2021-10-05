@@ -7,25 +7,28 @@ using CatenaX.NetworkServices.Onboarding.Identity;
 using CatenaX.NetworkServices.Onboarding.Identity.Model;
 using CatenaX.NetworkServices.Onboarding.Library;
 using CatenaX.NetworkServices.Onboarding.Service.DataAccess;
+using CatenaX.NetworkServices.Onboarding.Service.Mail;
 
 namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
 {
     public class OnboardingBusinessLogic : IOnboardingBusinessLogic
     {
         private readonly IIdentityManager _identityManager;
-        private readonly IDataAccess _dataAccess;
+        private readonly IMailingService _mailingService;
+        //private readonly IDataAccess _dataAccess;
 
         private List<string> Groups = new List<string> {"Onboarding", "IT Admin", "Legal Admin", "Signing Manager" };
 
-        public OnboardingBusinessLogic(IIdentityManager identityManager, IDataAccess dataAccess)
+        public OnboardingBusinessLogic(IIdentityManager identityManager, IMailingService mailingService)
         {
             _identityManager = identityManager;
-            _dataAccess = dataAccess;
+            _mailingService = mailingService;
+            //_dataAccess = dataAccess;
         }
 
         public async Task ExecuteOnboarding(string identifier)
         {
-            var result = await _dataAccess.GetData(int.Parse(identifier));
+        //    var result = await _dataAccess.GetData(int.Parse(identifier));
 
             //Create Realm and Admin User
 
@@ -35,7 +38,11 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
         public async Task StartOnboarding(OnboardingData onboardingData)
         {
             //Get Data From Member
-            var realmName = Guid.NewGuid().ToString();
+            var query = new QueryCompany();
+
+            var company = query.Query(onboardingData.OneId);
+
+            var realmName = company.name1;
 
             var newRealm = new CreateRealm
             {
@@ -61,7 +68,9 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
                 Groups = new List<string> { "Onboarding" }
             };
 
-            await _identityManager.CreateUser(realmName, newUser);
+            var password = await _identityManager.CreateUser(realmName, newUser);
+
+            await _mailingService.SendMails(onboardingData.EMail,password, realmName);
         }
     }
 

@@ -24,7 +24,7 @@ namespace CatenaX.NetworkServices.Mailing.Service.Controllers
 
         [HttpPost]
         [Route("send/{template}")]
-        public async Task<IActionResult> SendMail(string template, MailServiceParameters parameters)
+        public async Task<IActionResult> SendMail([FromRoute]string template, [FromBody] MailServiceParameters parameters)
         {
             try
             {
