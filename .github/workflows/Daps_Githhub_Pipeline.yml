@@ -66,5 +66,8 @@ jobs:
     - name: save helm chart to local registry
       run: |
         helm chart save tractusx/DAPS/helm-chart ${{ env.ACR_NAME }}/helm/daps:latest
+    - name: publish chart to acr
+      run: |
+       helm chart push ${{ env.ACR_NAME }}/helm/daps:latest
       
 
