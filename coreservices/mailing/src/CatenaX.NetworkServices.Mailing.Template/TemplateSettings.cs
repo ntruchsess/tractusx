@@ -7,7 +7,7 @@ namespace CatenaX.NetworkServices.Mailing.Template
 {
     public class TemplateSettings: Dictionary<string,TemplateSetting>
     {
-        public const string Position = "Services:Templates";
+        public const string Position = "MailingService:Templates";
     }
     public class TemplateSetting
     {
