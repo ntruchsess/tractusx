@@ -14,7 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\mailing\src\CatenaX.NetworkServices.Mailing.Service\CatenaX.NetworkServices.Mailing.Service.csproj" />
+    <ProjectReference Include="..\..\..\mailing\src\CatenaX.NetworkServices.Mailing.SendMail\CatenaX.NetworkServices.Mailing.SendMail.csproj" />
+    <ProjectReference Include="..\..\..\mailing\src\CatenaX.NetworkServices.Mailing.Template\CatenaX.NetworkServices.Mailing.Template.csproj" />
     <ProjectReference Include="..\CatenaX.NetworkServices.Onboarding.Identity\CatenaX.NetworkServices.Onboarding.Identity.csproj" />
     <ProjectReference Include="..\CatenaX.NetworkServices.Onboarding.Library\CatenaX.NetworkServices.Onboarding.Library.csproj" />
   </ItemGroup>

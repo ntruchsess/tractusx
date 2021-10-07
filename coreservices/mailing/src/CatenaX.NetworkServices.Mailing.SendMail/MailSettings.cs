@@ -5,7 +5,7 @@ namespace CatenaX.NetworkServices.Mailing.SendMail
 {
     public class MailSettings
     {
-        public const string Position = "Services:Mail";
+        public const string Position = "MailingService:Mail";
         public string SmtpHost { get; set; }
         public string SmtpUser { get; set; }
         public string SmtpPassword { get; set; }
