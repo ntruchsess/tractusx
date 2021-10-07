@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\CatenaX.NetworkServices.Onboarding.Service\CatenaX.NetworkServices.Onboarding.Service.csproj" />
+    <ProjectReference Include="..\..\src\CatenaX.NetworkServices.Invitation.Service\CatenaX.NetworkServices.Invitation.Service.csproj" />
   </ItemGroup>
 
 </Project>
