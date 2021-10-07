@@ -15,11 +15,74 @@
 import * as React from 'react';
 import { observer } from 'mobx-react';
 import { TextField } from '@fluentui/react';
-import { PrimaryButton, DefaultButton } from '@fluentui/react';
+import { PrimaryButton, DefaultButton, Dropdown, Checkbox, IDropdownStyles, Link } from '@fluentui/react';
+const dropdownStyles: Partial<IDropdownStyles> = { dropdown: { width: 300 } };
 
+const DropdownControlledMultiExampleOptions = [
+  { key: 'active_participant', text: 'Active Participant' },
+  { key: 'app_provider', text: 'App Provider' },
+  { key: 'operation_infra_provider', text: 'Operations & Infrastructure Provider' },
+  { key: 'grape', text: 'Counsulting Partner' },
+  { key: 'broccoli', text: 'Clearling House (Clearinghaus)' }
+];
 
 @observer
 export default class Onboarding extends React.Component {
+
+  _renderLabelWithLinktnc() {
+    return (
+      <span>
+        Yes, I agree to this{' '}
+        <Link href="https://www.microsoft.com" target="_blank" underline>
+        terms and conditions
+        </Link>
+      </span>
+    );
+  }
+
+  _renderLabelWithLinkdsr() {
+    return (
+      <span>
+        Yes, I agree to this{' '}
+        <Link href="https://www.microsoft.com" target="_blank" underline>
+        data security regulations
+        </Link>
+      </span>
+    );
+  }
+
+  _renderLabelWithLinkaptnc() {
+    return (
+      <span>
+        Yes, I agree to this{' '}
+        <Link href="https://www.microsoft.com" target="_blank" underline>
+        terms and conditions
+        </Link>
+      </span>
+    );
+  }
+
+  _renderLabelWithLinkapdsr() {
+    return (
+      <span>
+        Yes, I agree to this{' '}
+        <Link href="https://www.microsoft.com" target="_blank" underline>
+        data security regulations
+        </Link>
+      </span>
+    );
+  }
+
+  _renderLabelWithLinkpnsc() {
+    return (
+      <span>
+        Yes, I agree to {' '}
+        <Link href="https://www.microsoft.com" target="_blank" underline>
+        provider and seller conditions
+        </Link>
+      </span>
+    );
+  }
 
   public render() {
     return (
@@ -83,7 +146,7 @@ export default class Onboarding extends React.Component {
                 </div>
 
                 <div className='ml30 pb8 mt50 p24 pb20 brbt df fdc fdrr'>
-                <PrimaryButton text='DATA IS CORRECT'  className='ml30'/>
+                  <PrimaryButton text='DATA IS CORRECT' className='ml30' />
                   <DefaultButton text='REPORT INCORRECT DATA' />
                 </div>
 
@@ -107,8 +170,8 @@ export default class Onboarding extends React.Component {
                     <PrimaryButton className='w10pc mt24 br4 h36' text='ADD' />
                   </div>
                 </div>
-                <div className='ml30 pb8 mt50 p24 pb20 brbt'>
-                  <PrimaryButton text='DATA IS CORRECT' />
+                <div className='ml30 pb8 mt50 p24 pb20 brbt df fdc fdrr'>
+                  <PrimaryButton text='SEND INVITE(S)' />
                 </div>
               </div>
             </div>
@@ -125,13 +188,23 @@ export default class Onboarding extends React.Component {
                 <div className='p20'>
                   <div className='pb20 p24'>
                     <div className='fb pb6 df'>
-                      <TextField label='Email Address' disabled className='w50pc brnone br4 pr10 h36' defaultValue='' />
+                      <Dropdown
+                        placeholder="Select Participant Role"
+                        label="Participant Role"
+                        multiSelect
+                        options={DropdownControlledMultiExampleOptions}
+                        styles={dropdownStyles}
+                      />
                     </div>
-                    <div className='mr50 mt50 bgfe w100-100 df fdc'>
+                    <div className='mr50 mt20 bgfe w100-100 df fdc'>
                       <span className='fs18 bold mt20'>Role description and details</span>
                       <span className='fs16 bold mt20'>Active Participant</span>
                       <span className='fs14 mt20'>A network partner that provides and/or consumes business data (e.g. parts master data) and actively participates in at least one  use case.</span>
                       <span className='fs14'>Examples : OEM, Supplier, KMU(SME) etc. We differentiate in two types: Self-Managed (e.g. own IdP) and Catena-X-Managed (e.g. IdP-Integration)  </span>
+                      <span className='fs16 bold mt20'>App Provider</span>
+                      <span className='fs14 mt20'>A network partner that provides Apps (or possible other software services) within the Ecosystem including pricing, billing, provisioning or similar.</span>
+                      <span className='fs16 bold mt20'>Operation and Infrastructure Provider</span>
+                      <span className='fs14 mt20'>A network partner that provides operations and/or Infrastructure services within the Catena-X network.</span>
                     </div>
                   </div>
 
@@ -150,63 +223,66 @@ export default class Onboarding extends React.Component {
               </label>
               <div className='collapse-panel bgwhite'>
                 <div className='p20'>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis
-                    nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className='mb10'>
-              <input className='collapse-open' type='checkbox' id='collapse-5' />
-              <label className='collapse-btn bgwhite' htmlFor='collapse-5'>
-                <div className='fl fs22 dblock pr20 bold'>5</div>
-                <div className='df fdc'>
-                  <span className='fs22 bold'>Identity Provider</span>
-                  <div className='fs14 mt10'>Use Catena-X own IDP or set up and integrate your own IDP
+                  <div className='pb20 p24'>
+                    <span className='fs18 bold mt20'>Active Participant Tearms & Condition</span>
+                    <Checkbox className='mt20' label="Yes, I agree to this"  onRenderLabel={this._renderLabelWithLinktnc}/>
+                    <Checkbox className='mt20' label="Yes, I agree to this" onRenderLabel={this._renderLabelWithLinkdsr} />
                   </div>
-                </div>
-              </label>
-              <div className='collapse-panel bgwhite'>
-                <div className='p20'>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis
-                    nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className='mb10'>
-              <input className='collapse-open' type='checkbox' id='collapse-6' />
-              <label className='collapse-btn bgwhite' htmlFor='collapse-6'>
-                <div className='fl fs22 dblock pr20 bold'>6</div>
-                <div className='df fdc'>
-                  <span className='fs22 bold'>Certificates</span>
-                  <div className='fs14 mt10'>Upload and verify your certificate</div>
-                </div>
-              </label>
-              <div className='collapse-panel bgwhite'>
-                <div className='p20'>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis
-                    nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat.
-                  </p>
-                </div>
+                  <div className='pb20 p24'>
+                  <span className='fs18 bold mt30'>App Provider Terms & Conditions</span>
+                  <Checkbox className='mt20' label="Yes, I agree to this"  onRenderLabel={this._renderLabelWithLinkaptnc}/>
+                    <Checkbox className='mt20' label="Yes, I agree to this" onRenderLabel={this._renderLabelWithLinkapdsr} />
+                  <Checkbox className='mt20' label="Yes, I agree to" onRenderLabel={this._renderLabelWithLinkpnsc} />
               </div>
             </div>
           </div>
         </div>
-
+        <div className='mb10'>
+          <input className='collapse-open' type='checkbox' id='collapse-5' />
+          <label className='collapse-btn bgwhite' htmlFor='collapse-5'>
+            <div className='fl fs22 dblock pr20 bold'>5</div>
+            <div className='df fdc'>
+              <span className='fs22 bold'>Identity Provider</span>
+              <div className='fs14 mt10'>Use Catena-X own IDP or set up and integrate your own IDP
+              </div>
+            </div>
+          </label>
+          <div className='collapse-panel bgwhite'>
+            <div className='p20'>
+            <div className='pb20 p24'>
+                  <span className='fs18 bold mt30'>App Provider Terms & Conditions</span>
+                  <Checkbox className='mt20' label="Catena-X IDP" />
+                    <Checkbox className='mt20' label="Own IDP" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className='mb10'>
+          <input className='collapse-open' type='checkbox' id='collapse-6' />
+          <label className='collapse-btn bgwhite' htmlFor='collapse-6'>
+            <div className='fl fs22 dblock pr20 bold'>6</div>
+            <div className='df fdc'>
+              <span className='fs22 bold'>Certificates</span>
+              <div className='fs14 mt10'>Upload and verify your certificate</div>
+            </div>
+          </label>
+          <div className='collapse-panel bgwhite'>
+            <div className='p20'>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis
+                nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
+      </div >
+
+      </div >
+      
     );
   }
 }
