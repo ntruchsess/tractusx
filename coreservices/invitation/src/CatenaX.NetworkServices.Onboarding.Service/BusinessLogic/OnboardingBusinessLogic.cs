@@ -51,9 +51,9 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
 
             await _identityManager.CreateRealm(newRealm);
 
-            
 
-            foreach(string group in Groups)
+
+            foreach (string group in Groups)
             {
                 var newGroup = new CreateGroup {
                     Name = group
@@ -70,7 +70,7 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
 
             var password = await _identityManager.CreateUser(realmName, newUser);
 
-            await _mailingService.SendMails(onboardingData.EMail,password, realmName);
+            await _mailingService.SendMails(onboardingData.EMail, password, realmName);
         }
     }
 

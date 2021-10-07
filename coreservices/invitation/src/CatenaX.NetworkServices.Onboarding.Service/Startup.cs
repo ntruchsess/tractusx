@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+using CatenaX.NetworkServices.Mailing.SendMail;
+using CatenaX.NetworkServices.Mailing.Template;
 using CatenaX.NetworkServices.Onboarding.Identity;
 using CatenaX.NetworkServices.Onboarding.Identity.Identity;
 using CatenaX.NetworkServices.Onboarding.Service.BusinessLogic;
@@ -34,10 +36,10 @@ namespace CatenaX.NetworkServices.Onboarding.Service
             services.AddTransient<IIdentityManager>(x => new KeycloakIdentityManager(new Keycloak.Net.KeycloakClient(Configuration.GetValue<string>("KeyCloakConnectionString"), Configuration.GetValue<string>("KeyCloakUser"), Configuration.GetValue<string>("KeyCloakUserPassword"), authRealm: "master")));
             services.AddTransient<IOnboardingBusinessLogic,OnboardingBusinessLogic>();
             services.AddTransient<IMailingService, MailingService>();
-            services.AddHttpClient("mailingClient", client =>
-            {
-                client.BaseAddress = new Uri(Configuration.GetValue<string>("MailingServiceAddress"));
-            });
+            services.AddTransient<ISendMail, SendMail>()
+            .AddTransient<ITemplateManager, TemplateManager>()
+            .ConfigureTemplateSettings(Configuration.GetSection(TemplateSettings.Position))
+            .ConfigureMailSettings(Configuration.GetSection(MailSettings.Position));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
