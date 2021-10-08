@@ -22,10 +22,42 @@ import 'react-toastify/dist/ReactToastify.css';
 // import 'react-toastify/dist/ReactToastify.minimal.css';
 
 @observer
-export default class Login extends React.Component {
+export default class Registrationoneid extends React.Component {
+
+  @observable private email: string = "";
+  @observable private oneId: string = "CAXLZJVJEBYWYYZZ";
 
   private registrationButtonClick() {
     console.log("register");
+
+    var u = 'http://cxonbiardoing.azurewebsites.net/api/onboarding'
+
+    var data =
+    {
+      "oneId": this.oneId,
+      "eMail": this.email
+    }
+
+    if (this.email === "" || this.oneId === "") {
+      toast.error('Email or OneId empty.');
+      return;
+    }
+
+
+    console.log(data);
+
+    fetch(u, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+      .then((response) => {
+        if (response.ok) {
+          toast.success('Onboarding for company id: ' + this.oneId + ' started.');
+        }
+        else throw Error();
+      }
+
+      ).catch((error) => {
+        toast.error('Onboarding for company id: ' + this.oneId + ' failed. Company is already registered.')
+      });
+
   }
 
 
@@ -41,24 +73,18 @@ export default class Login extends React.Component {
               <span className='fs55 bold fg191 lh67'>to Catena-X</span>
               <span className='fs24 bold fg191 lh29'>Automotive Network</span>
               <span><p className='fs14 fw600 fg191 lh20 mt30'>If you have problems, please <br></br>contact our support.</p></span>
-              <span className='h20 aic df pt24'><p className='fs18 bold fg191 lh40'>HELP? CONTACT US.</p></span>
-              <span className='h20 aic df pt24'><p className='fs18 bold fg191 lh40'>PASSWORD RESET.</p></span>
+              <span className='h40 aic df pt24'><p className='fs18 bold fg191 lh40'>HELP? CONTACT US.</p></span>
               <span className='h20 aic df pt24'><p className='fs18 bold fg191 lh40'>MEMBER? LOGIN.</p></span>
             </div>
           </div>
           <div className='df fdc flex1 aic'>
             <div className="bgwhite w70pc br7 bsdatacatalog">
-            <div className='ml40 mb20 mt40 aic'>
-              <span className='fs20 bold mt20'>Login to Catena-X</span>
-            </div>
-            <div className='mb20 ml40 aic'>
-              <p className='fs14 mt20'>To keep connected, please enter</p>
-              <p className='fs14'>your credentials first or use your</p>
-              <p className='fs14'>authentication service.</p>
+            <div className='m40 aic'>
+              <span className='fs20 bold mt20'>Register to Catena-X</span>
             </div>
             <div className='mr40 ml40 aic'>
-              <TextField placeholder='Enter  Email - Address' className='w100pc br4 h40' />
-              <TextField placeholder='Passowrd' className='w100pc br4 h40 mt10' />
+              <TextField placeholder='Enter  Email - Address' className='w100pc br4 h40' value={this.email} onChange={(ev, val) => this.email = val} />
+              <TextField placeholder='One ID' className='w100pc br4 h40 mt10' value={this.oneId} onChange={(ev, val) => this.oneId = val} />
               <PrimaryButton className='w100pc br4 pr10 h40 mt20' text='REGISTER' onClick={() => this.registrationButtonClick()} />
             </div>
             <div className='m40 df fdc'>

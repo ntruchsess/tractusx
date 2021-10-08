@@ -18,7 +18,6 @@ import { observable } from 'mobx';
 // import adalContext from '../helpers/adalConfig';
 import { Icon, Pivot, PivotItem } from '@fluentui/react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
-import { AppState } from '../stores/appstate';
 import Logo from './logo';
 interface IProp extends RouteComponentProps{
   href: string;
@@ -77,9 +76,6 @@ class Header extends React.Component<IProp> {
     this.props.history.push('/home/onboarding');
   }
 
-  private loginClick() {
-    this.props.history.push('/home/Login');
-  }
   
   public render() {
     const href = window.location.href;
@@ -101,7 +97,6 @@ class Header extends React.Component<IProp> {
           })}
           <PivotItem key='search' className='ml20 mr20' headerText='' itemIcon='search' />
         </Pivot>}
-        <div className='mr30' onClick={() => this.loginClick()}>login</div>
         <div onClick={() => this.onBoardingClick()}>Onboarding</div>
         <div className='flex1' />
         <div className='bgblue fgwhite aic jcc df fs16 br50pc h40 w40 mr10' onClick={() => this.userClick()}>{this.initials}</div>
