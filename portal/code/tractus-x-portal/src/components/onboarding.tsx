@@ -14,76 +14,16 @@
 
 import * as React from 'react';
 import { observer } from 'mobx-react';
-import { TextField } from '@fluentui/react';
-import { PrimaryButton, DefaultButton, Dropdown, Checkbox, IDropdownStyles, Link } from '@fluentui/react';
-const dropdownStyles: Partial<IDropdownStyles> = { dropdown: { width: 300 } };
+import Companydata from './companydata';
+import Responsibilities from './responsibilities';
+import Companyrole from './companyrole';
+import Termsncondition from './termsncondition';
+import Identity from './identity';
+import Certificate from './certificate';
 
-const DropdownControlledMultiExampleOptions = [
-  { key: 'active_participant', text: 'Active Participant' },
-  { key: 'app_provider', text: 'App Provider' },
-  { key: 'operation_infra_provider', text: 'Operations & Infrastructure Provider' },
-  { key: 'grape', text: 'Counsulting Partner' },
-  { key: 'broccoli', text: 'Clearling House (Clearinghaus)' }
-];
 
 @observer
 export default class Onboarding extends React.Component {
-
-  _renderLabelWithLinktnc() {
-    return (
-      <span>
-        Yes, I agree to this{' '}
-        <Link href="https://www.microsoft.com" target="_blank" underline>
-        terms and conditions
-        </Link>
-      </span>
-    );
-  }
-
-  _renderLabelWithLinkdsr() {
-    return (
-      <span>
-        Yes, I agree to this{' '}
-        <Link href="https://www.microsoft.com" target="_blank" underline>
-        data security regulations
-        </Link>
-      </span>
-    );
-  }
-
-  _renderLabelWithLinkaptnc() {
-    return (
-      <span>
-        Yes, I agree to this{' '}
-        <Link href="https://www.microsoft.com" target="_blank" underline>
-        terms and conditions
-        </Link>
-      </span>
-    );
-  }
-
-  _renderLabelWithLinkapdsr() {
-    return (
-      <span>
-        Yes, I agree to this{' '}
-        <Link href="https://www.microsoft.com" target="_blank" underline>
-        data security regulations
-        </Link>
-      </span>
-    );
-  }
-
-  _renderLabelWithLinkpnsc() {
-    return (
-      <span>
-        Yes, I agree to {' '}
-        <Link href="https://www.microsoft.com" target="_blank" underline>
-        provider and seller conditions
-        </Link>
-      </span>
-    );
-  }
-
   public render() {
     return (
       <div className='w100pc h100pc df fdc'>
@@ -93,196 +33,15 @@ export default class Onboarding extends React.Component {
         </div>
         <div className='ml50 mr50 mt30 bgfe w100-100 df fdc'>
           <div className='collapse-list'>
-            <div className='mb10'>
-              <input className='collapse-open' type='checkbox' id='collapse-1' />
-              <label className='collapse-btn bgwhite' htmlFor='collapse-1'>
-                <div className='fl fs22 dblock pr20 bold fggreen'>1</div>
-                <div className='df fdc'>
-                  <span className='fs22 bold fggreen'>Verify Your Company Data</span>
-                  <div className='fs14 mt10'>Check your company data and verify.</div>
-                </div>
-              </label>
-              <div className='collapse-panel bgwhite'>
-                <div className='ml30 pb20 p24'>
-                  <div className='fb pb6 df'>
-                    <TextField label='OneID' disabled className='w50pc brnone br4 pr10 h36' defaultValue='' />
-q                    <TextField label='Organization name' disabled className='w50pc brnone br4 pr10 h36' />
-                    <TextField label='contact language' disabled className='w50pc brnone br4 h36' />
-                  </div>
-                </div>
-                <div className='ml30 pb8 mt10 p24'>
-                  <div className='bold fs14 pb8'>Organization names</div>
-                  <div className='fb pb6 df'>
-                    <TextField className='w50pc pr10' disabled label='Registered name' defaultValue='' />
-                    <TextField className='w50pc pr10' disabled label='local name' defaultValue='' />
-                    <TextField label='international name' disabled className='w50pc brnone br4 pr10 h36' />
-                  </div>
-                  <div className='fb pb6 df mt10'>
-                    <TextField label='transliterated Name' disabled className='w50pc pr10 brnone br4 h36' defaultValue='' />
-                    <TextField label='DBA name' disabled className='w50pc brnone br4 pr10 h36' defaultValue='' />
-                    <TextField label='VAT registered name' disabled className='w50pc brnone br4  h36' />
-                  </div>
-                </div>
-
-                <div className='ml30 pb8 mt10 p24'>
-                  <div className='bold fs14 pb8'>Organization identifiers</div>
-                  <div className='fb pb6 df'>
-                    <TextField className='w50pc pr10' disabled label='External Business Partner Identifier' defaultValue='' />
-                    <TextField className='w50pc pr10' disabled label='issuer' defaultValue='' />
-                  </div>
-                  <div className='fb pb6 df mt10'>
-                    <TextField label='Type of Business Partner Identifier' disabled className='w50pc pr10 brnone br4 h36' defaultValue='' />
-                    <TextField label='Identification number' disabled className='w50pc brnone br4 pr10 h36' defaultValue='' />
-                  </div>
-                </div>
-
-                <div className='ml30 pb8 mt10 p24'>
-                  <div className='bold fs14 pb8'>Business Status</div>
-                  <div className='fb pb6 df'>
-                    <TextField className='w50pc pr10' disabled label='State of active/operation' defaultValue='' />
-                    <TextField className='w50pc pr10' disabled label='Valid from' defaultValue='' />
-                    <TextField className='w50pc pr10' disabled label='Valid until' defaultValue='' />
-                  </div>
-                </div>
-
-                <div className='ml30 pb8 mt50 p24 pb20 brbt df fdc fdrr'>
-                  <PrimaryButton text='DATA IS CORRECT' className='ml30' />
-                  <DefaultButton text='REPORT INCORRECT DATA' />
-                </div>
-
-              </div>
-            </div>
-            <div className='mb10'>
-              <input className='collapse-open' type='checkbox' id='collapse-2' />
-              <label className='collapse-btn bgwhite' htmlFor='collapse-2'>
-                <div className='fl fs22 dblock pr20 bold'>2</div>
-                <div className='df fdc'>
-                  <span className='fs22 bold'>Responsibilities &amp; Admin Account</span>
-                  <div className='fs14 mt10'>Distribute responsibilities and add admin account for the persons that know the best what needs to be done.
-                  </div>
-                </div>
-              </label>
-              <div className='collapse-panel bgwhite'>
-                <div className='pb20 p24'>
-                  <div className='ml30 fb pb6 df'>
-                    <TextField label='Email Address' disabled className='w50pc brnone br4 pr10 h36' defaultValue='' />
-                    <TextField label='User Role' disabled className='w50pc brnone br4 pr10 h36' />
-                    <PrimaryButton className='w10pc mt24 br4 h36' text='ADD' />
-                  </div>
-                </div>
-                <div className='ml30 pb8 mt50 p24 pb20 brbt df fdc fdrr'>
-                  <PrimaryButton text='SEND INVITE(S)' />
-                </div>
-              </div>
-            </div>
-            <div className='mb10'>
-              <input className='collapse-open' type='checkbox' id='collapse-3' />
-              <label className='collapse-btn bgwhite' htmlFor='collapse-3'>
-                <div className='fl fs22 dblock pr20 bold'>3</div>
-                <div className='df fdc'>
-                  <span className='fs22 bold'>Catena-X Company Role</span>
-                  <div className='fs14 mt10'>You can choose different roles to participate in Catena-X. Don't worry, you can change it later again.</div>
-                </div>
-              </label>
-              <div className='collapse-panel bgwhite'>
-                <div className='p20'>
-                  <div className='pb20 p24'>
-                    <div className='fb pb6 df'>
-                      <Dropdown
-                        placeholder="Select Participant Role"
-                        label="Participant Role"
-                        multiSelect
-                        options={DropdownControlledMultiExampleOptions}
-                        styles={dropdownStyles}
-                      />
-                    </div>
-                    <div className='mr50 mt20 bgfe w100-100 df fdc'>
-                      <span className='fs18 bold mt20'>Role description and details</span>
-                      <span className='fs16 bold mt20'>Active Participant</span>
-                      <span className='fs14 mt20'>A network partner that provides and/or consumes business data (e.g. parts master data) and actively participates in at least one  use case.</span>
-                      <span className='fs14'>Examples : OEM, Supplier, KMU(SME) etc. We differentiate in two types: Self-Managed (e.g. own IdP) and Catena-X-Managed (e.g. IdP-Integration)  </span>
-                      <span className='fs16 bold mt20'>App Provider</span>
-                      <span className='fs14 mt20'>A network partner that provides Apps (or possible other software services) within the Ecosystem including pricing, billing, provisioning or similar.</span>
-                      <span className='fs16 bold mt20'>Operation and Infrastructure Provider</span>
-                      <span className='fs14 mt20'>A network partner that provides operations and/or Infrastructure services within the Catena-X network.</span>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-            <div className='mb10'>
-              <input className='collapse-open' type='checkbox' id='collapse-4' />
-              <label className='collapse-btn bgwhite' htmlFor='collapse-4'>
-                <div className='fl fs22 dblock pr20 bold'>4</div>
-                <div className='df fdc'>
-                  <span className='fs22 bold'>Terms &amp; Conditions</span>
-                  <div className='fs14 mt10'>Please check and agree to our terms and conditions. Depending on your selected role, there are different versions.
-                  </div>
-                </div>
-              </label>
-              <div className='collapse-panel bgwhite'>
-                <div className='p20'>
-                  <div className='pb20 p24'>
-                    <span className='fs18 bold mt20'>Active Participant Tearms & Condition</span>
-                    <Checkbox className='mt20' label="Yes, I agree to this"  onRenderLabel={this._renderLabelWithLinktnc}/>
-                    <Checkbox className='mt20' label="Yes, I agree to this" onRenderLabel={this._renderLabelWithLinkdsr} />
-                  </div>
-                  <div className='pb20 p24'>
-                  <span className='fs18 bold mt30'>App Provider Terms & Conditions</span>
-                  <Checkbox className='mt20' label="Yes, I agree to this"  onRenderLabel={this._renderLabelWithLinkaptnc}/>
-                    <Checkbox className='mt20' label="Yes, I agree to this" onRenderLabel={this._renderLabelWithLinkapdsr} />
-                  <Checkbox className='mt20' label="Yes, I agree to" onRenderLabel={this._renderLabelWithLinkpnsc} />
-              </div>
-            </div>
+            <Companydata />
+            <Responsibilities />
+            <Companyrole />
+            <Termsncondition />
+            <Identity />
+            <Certificate />
           </div>
-        </div>
-        <div className='mb10'>
-          <input className='collapse-open' type='checkbox' id='collapse-5' />
-          <label className='collapse-btn bgwhite' htmlFor='collapse-5'>
-            <div className='fl fs22 dblock pr20 bold'>5</div>
-            <div className='df fdc'>
-              <span className='fs22 bold'>Identity Provider</span>
-              <div className='fs14 mt10'>Use Catena-X own IDP or set up and integrate your own IDP
-              </div>
-            </div>
-          </label>
-          <div className='collapse-panel bgwhite'>
-            <div className='p20'>
-            <div className='pb20 p24'>
-                  <span className='fs18 bold mt30'>App Provider Terms & Conditions</span>
-                  <Checkbox className='mt20' label="Catena-X IDP" />
-                    <Checkbox className='mt20' label="Own IDP" />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className='mb10'>
-          <input className='collapse-open' type='checkbox' id='collapse-6' />
-          <label className='collapse-btn bgwhite' htmlFor='collapse-6'>
-            <div className='fl fs22 dblock pr20 bold'>6</div>
-            <div className='df fdc'>
-              <span className='fs22 bold'>Certificates</span>
-              <div className='fs14 mt10'>Upload and verify your certificate</div>
-            </div>
-          </label>
-          <div className='collapse-panel bgwhite'>
-            <div className='p20'>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing
-                elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis
-                nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+        </div >
       </div >
-
-      </div >
-      
     );
   }
 }
