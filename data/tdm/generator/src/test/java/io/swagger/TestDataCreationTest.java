@@ -28,7 +28,7 @@ public class TestDataCreationTest {
     private CatenaXApiControllerDelegateImpl delegate;
 
     @Test
-    void create_and_persist_G30_vehicle_with_aspects() {
+    void create_and_persist_G30_vehicle_with_no_duplicated_aspects() {
         // Given
         String oneId = "CAXSWPFTJQEVZNZZ";
         delegate.createVehicle(oneId, 1, "G30");
@@ -39,6 +39,7 @@ public class TestDataCreationTest {
 
         // Then
         assertThat(aspectsVehicle).isNotEmpty();
+        assertThat(aspectsVehicle).hasSize(1); // no duplications
         assertThat(aspectsGearbox).isNotEmpty();
     }
 
