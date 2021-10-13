@@ -106,5 +106,4 @@ jobs:
             acrcatenatest.azurecr.io/core:${{ github.run_id }}
           imagepullsecrets: |
             pullsecretacr      
-          kubectl-version: 'latest'   
-          namespace: coreservices
+          kubectl-version: 'latest' 
