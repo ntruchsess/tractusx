@@ -61,3 +61,6 @@ jobs:
           AZURE_REGISTRY_PASSWORD: ${{secrets.AZURE_REGISTRY_PASSWORD}}
           AZURE_REGISTRY_USERNAME: ${{secrets.AZURE_REGISTRY_USERNAME}}
           AZURE_CREDENTIALS: ${{secrets.AZURE_CREDENTIALS}}
+          AKS_RG: 'catena-tests'
+          AKS_CLUSTER: 'catenatesttob'
+          helmDeploymentName: 'Invitation'
