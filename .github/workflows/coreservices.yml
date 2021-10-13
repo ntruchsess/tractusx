@@ -93,7 +93,7 @@ jobs:
         uses: Azure/k8s-bake@v1
         with:
           renderEngine: 'helm2'            
-          helmChart: './coreservices/invitation/src/CatenaX.NetworkServices.Invitation.Service/charts/'
+          helmChart: './charts/'
           helm-version: 'latest'
           overrides: |
             image.repository:acrcatenatest.azurecr.io/core
