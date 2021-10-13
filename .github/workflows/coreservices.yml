@@ -89,11 +89,11 @@ jobs:
       - name: Baking the helm chart to generate the manifests to deploy
         uses: Azure/k8s-bake@v1
         with:
-          renderEngine: helm            
-          helmChart: ./coreservices/invitation/src/CatenaX.NetworkServices.Invitation.Service/charts/
+          renderEngine: 'helm'            
+          helmChart: './coreservices/invitation/src/CatenaX.NetworkServices.Invitation.Service/charts/'
           helm-version: 'latest'
           overrides: |
-            image.repository=acrcatenatest.azurecr.io/core
+            image.repository:acrcatenatest.azurecr.io/core
             image.tag:${{ github.run_id }} 
         id: bake
             
