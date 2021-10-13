@@ -97,36 +97,6 @@ jobs:
 
       - name: Init Helm
         run: |
-          helm install invitation-service --set image.repository=acrcatenatest.azurecr.io/core --set image.tag=${{github.run_id}} ./coreservices/invitation/src/CatenaX.NetworkServices.Invitation.Service/blueprint
+          helm install invitation-service -n coreservices --set image.repository=acrcatenatest.azurecr.io/core --set image.tag=${{github.run_id}} ./coreservices/invitation/src/CatenaX.NetworkServices.Invitation.Service/blueprint
 
-      - name: Baking the helm chart to generate the manifests to deploy
-        uses: Azure/k8s-bake@v1
-        with:
-          renderEngine: 'helm2'            
-          helmChart: '.coreservices/invitation/src/CatenaX.NetworkServices.Invitation.Service/blueprint'
-          helm-version: 'latest'
-          # overrides: |
-          #   image.repository:acrcatenatest.azurecr.io/core
-          #   image.tag:${{ github.run_id }} 
-        id: bake
-            
-      # - name: Deploy app to AKS
-      #   uses: azure/k8s-deploy@v1.3
-      #   with:
-      #     manifests: ${{ steps.bake.outputs.manifestsBundle }}
-      #     images: |
-      #       acrcatenatest.azurecr.io/core:${{ github.run_id }}
-      #     imagepullsecrets: |
-      #       pullsecretacr         
-      #     namespace: coreservices
-
-      # - name: Deploy app to AKS
-      #   uses: azure/k8s-deploy@v1.3
-      #   with:
-      #     manifests: |
-      #       coreservices/invitation/src/CatenaX.NetworkServices.Invitation.Service/manifest/kubernetes.yaml
-      #     images: |
-      #       acrcatenatest.azurecr.io/core:${{ github.run_id }}
-      #     imagepullsecrets: |
-      #       pullsecretacr      
-      #     kubectl-version: 'latest' 
+      
