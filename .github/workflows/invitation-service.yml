@@ -1,4 +1,4 @@
-name: CoreServicesBuild_Composite
+name: Invitation-Service
 
 on: 
   push:
@@ -34,11 +34,8 @@ jobs:
               if [[ "${{github.ref}}" == refs/heads/main ]]; then
                 echo "Determined INTEGRATION"
                 echo "::set-output name=workspace::int"
-              elif [[ "${{github.ref}}" = refs/heads/feature/CAX-1-semantics || "${{github.ref}}" = refs/heads/feature/CAX-1-semantics@CXMVP-50-semantic-adapter ]]; then
-                  echo "Determined SEMANTICS"
-                  echo "::set-output name=workspace::dev042"
               elif [[ "${{github.ref}}" = refs/heads/feature/CAX-9-onboarding || "${{github.ref}}" = refs/heads/feature/CAX-9-onboarding@cicd ]]; then
-                  echo "Determined SEMANTICS"
+                  echo "Determined Invitation"
                   echo "::set-output name=workspace::dev003"
               else 
                   echo "Unsupported Branch on CATENAX. Leaving Workspace empty."
