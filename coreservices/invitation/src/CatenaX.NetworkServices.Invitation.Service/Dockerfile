@@ -1,29 +1,26 @@
 #See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
-ARG VERSION=3.1-alpine3.10
-FROM mcr.microsoft.com/dotnet/core/sdk:$VERSION AS build-env
-
-
+FROM mcr.microsoft.com/dotnet/aspnet:3.1 AS base
 WORKDIR /app
-
 EXPOSE 80
 EXPOSE 443
 
-ADD [^.]* "/app/"
+FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
+WORKDIR /src
+COPY ["invitation/src/CatenaX.NetworkServices.Invitation.Service/CatenaX.NetworkServices.Invitation.Service.csproj", "invitation/src/CatenaX.NetworkServices.Invitation.Service/"]
+COPY ["mailing/src/CatenaX.NetworkServices.Mailing.Template/CatenaX.NetworkServices.Mailing.Template.csproj", "mailing/src/CatenaX.NetworkServices.Mailing.Template/"]
+COPY ["mailing/src/CatenaX.NetworkServices.Mailing.SendMail/CatenaX.NetworkServices.Mailing.SendMail.csproj", "mailing/src/CatenaX.NetworkServices.Mailing.SendMail/"]
+COPY ["invitation/src/CatenaX.NetworkServices.Invitation.Identity/CatenaX.NetworkServices.Invitation.Identity.csproj", "invitation/src/CatenaX.NetworkServices.Invitation.Identity/"]
+COPY ["invitation/src/CatenaX.NetworkServices.Invitation.Library/CatenaX.NetworkServices.Invitation.Library.csproj", "invitation/src/CatenaX.NetworkServices.Invitation.Library/"]
+RUN dotnet restore "invitation/src/CatenaX.NetworkServices.Invitation.Service/CatenaX.NetworkServices.Invitation.Service.csproj"
+COPY . .
+WORKDIR "/src/invitation/src/CatenaX.NetworkServices.Invitation.Service"
+RUN dotnet build "CatenaX.NetworkServices.Invitation.Service.csproj" -c Release -o /app/build
 
-RUN dotnet restore
-RUN dotnet publish \
-  -c Release \
-  -o ./output
-FROM mcr.microsoft.com/dotnet/core/aspnet:$VERSION
+FROM build AS publish
+RUN dotnet publish "CatenaX.NetworkServices.Invitation.Service.csproj" -c Release -o /app/publish
 
-
+FROM base AS final
 WORKDIR /app
-COPY --from=build-env /app/output .
-
-ENV DOTNET_RUNNING_IN_CONTAINER=true 
-ENV ASPNETCORE_URLS=http://+:8080 
-
-
-EXPOSE 8080
+COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "CatenaX.NetworkServices.Invitation.Service.dll"]
