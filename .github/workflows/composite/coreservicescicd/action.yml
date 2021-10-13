@@ -16,18 +16,30 @@ inputs:
   environment:
     description: 'Environment'
     required: true
+
+  AZURE_REGISTRY_USERNAME:
+    description: 'username of registry'
+    required: true
+
+  AZURE_REGISTRY_PASSWORD:
+    description: 'password of registry'
+    required: true
+
+  AZURE_CREDENTIALS:
+    description: 'Credentials for Azure'
+    required: true
 runs:
   using: "composite"
   steps:
       - uses: azure/login@v1
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          creds: ${{ inputs.AZURE_CREDENTIALS }}
         
       - uses: azure/docker-login@v1
         with:
           login-server: ${{inputs.acrName}}.azurecr.io
-          username: ${{ secrets.AZURE_REGISTRY_USERNAME }}
-          password: ${{ secrets.AZURE_REGISTRY_PASSWORD }}
+          username: ${{ inputs.AZURE_REGISTRY_USERNAME }}
+          password: ${{ inputs.AZURE_REGISTRY_PASSWORD }}
 
       - run: |
           docker build -f ${{inputs.srcFolder}}/Dockerfile -t ${{inputs.acrName}}.azurecr.io/tractusx/${{inputs.imageName}}:${{ github.run_id }} coreservices/.
@@ -37,7 +49,7 @@ runs:
       - name: Azure Kubernetes set context
         uses: azure/aks-set-context@v1
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          creds: ${{ inputs.AZURE_CREDENTIALS }}
           resource-group: catena-tests
           cluster-name: catenatesttob
         
@@ -50,8 +62,8 @@ runs:
         with:
           namespace: coreservices
           container-registry-url: ${{inputs.acrName}}.azurecr.io
-          container-registry-username: ${{ secrets.AZURE_REGISTRY_USERNAME }}            
-          container-registry-password: ${{ secrets.AZURE_REGISTRY_PASSWORD }}
+          container-registry-username: ${{ inputs.AZURE_REGISTRY_USERNAME }}            
+          container-registry-password: ${{ inputs.AZURE_REGISTRY_PASSWORD }}
           secret-name: pullsecretacr
 
       - name: Init Helm
