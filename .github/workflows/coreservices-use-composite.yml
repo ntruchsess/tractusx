@@ -1,4 +1,4 @@
-name: CoreServicesBuild
+name: CoreServicesBuild_Composite
 
 on: 
   push:
@@ -63,4 +63,4 @@ jobs:
           AZURE_CREDENTIALS: ${{secrets.AZURE_CREDENTIALS}}
           AKS_RG: 'catena-tests'
           AKS_CLUSTER: 'catenatesttob'
-          helmDeploymentName: 'Invitation'
+          helmDeploymentName: 'invitation'
