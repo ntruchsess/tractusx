@@ -90,11 +90,12 @@ jobs:
         uses: Azure/k8s-bake@v1
         with:
           renderEngine: helm            
-          helmChart: coreservices/invitation/src/CatenaX.NetworkServices.Invitation.Service/charts/
-          helm-version: latest
+          helmChart: ./coreservices/invitation/src/CatenaX.NetworkServices.Invitation.Service/charts/
+          helm-version: 'latest'
           overrides: |
             image.repository=acrcatenatest.azurecr.io/core
-            image.tag:${{ github.run_id }}
+            image.tag:${{ github.run_id }} 
+        id: bake
             
       - name: Deploy app to AKS
         uses: azure/k8s-deploy@v1.3
