@@ -1,0 +1,67 @@
+name: 'Deploy Coreservice'
+description: 'Deploy a Core Service'
+inputs:
+  srcFolder:  
+    description: 'folder of the srcs'
+    required: true
+
+  imageName:  
+    description: 'name of the Image'
+    required: true
+
+  acrName:  
+    description: 'Name of the ACR'
+    required: true
+
+  environment:
+    description: 'Environment'
+    required: true
+runs:
+  using: "composite"
+  steps:
+      
+     
+      - name: 'Login via Azure CLI'
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+        
+      - uses: azure/docker-login@v1
+        with:
+          login-server: ${{inputs.acrName}}.azurecr.io
+          username: ${{ secrets.AZURE_REGISTRY_USERNAME }}
+          password: ${{ secrets.AZURE_REGISTRY_PASSWORD }}
+      - run: |
+          docker build -f ${{inputs.srcFolder}}/Dockerfile -t ${{inputs.acrName}}.azurecr.io/tractusx/${{inputs.imageName}}:${{ github.run_id }} coreservices/.
+          docker push ${{inputs.acrName}}.azurecr.io/tractusx/${{inputs.imageName}}:${{ github.run_id }}
+            
+      - name: Azure Kubernetes set context
+        uses: azure/aks-set-context@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          resource-group: catena-tests
+          cluster-name: catenatesttob
+        
+      - run: |
+          kubectl create namespace coreservices --dry-run -o json | kubectl apply -f -
+        
+      - name: Create imagepullsecret for Azure Container registry (ACR)
+        uses: azure/k8s-create-secret@v1.1
+        with:
+          namespace: coreservices
+          container-registry-url: ${{inputs.acrName}}.azurecr.io
+          container-registry-username: ${{ secrets.AZURE_REGISTRY_USERNAME }}            
+          container-registry-password: ${{ secrets.AZURE_REGISTRY_PASSWORD }}
+          secret-name: pullsecretacr
+
+      - name: Init Helm
+        run: |
+          curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 > get_helm.sh
+          chmod 700 get_helm.sh
+          ./get_helm.sh
+
+      - name: Init Helm
+        run: |
+          helm upgrade invitation-service -n coreservices --set image.repository=${{inputs.acrName}}.azurecr.io/tractusx/${{inputs.imageName}} --set image.tag=${{github.run_id}} --set imagePullSecret=pullsecretacr ./coreservices/invitation/src/CatenaX.NetworkServices.Invitation.Service/helm-invitation/
+
+      
