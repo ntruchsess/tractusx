@@ -24,8 +24,8 @@ jobs:
       - uses: azure/docker-login@v1
         with:
           login-server: acrcatenatest.azurecr.io
-          username: ${{ secrets.REGISTRY_USERNAME }}
-          password: ${{ secrets.REGISTRY_PASSWORD }}
+          username: ${{ secrets.AZURE_REGISTRY_USERNAME }}
+          password: ${{ secrets.AZURE_REGISTRY_PASSWORD }}
       - run: |
           docker build -t acrcatenatest.azurecr.io/tractusx/core:${{ github.run_id }} .
           docker push acrcatenatest.azurecr.io/tractusx/core:${{ github.run_id }}
