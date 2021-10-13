@@ -31,7 +31,6 @@ jobs:
                 echo "Unsupported Environment on ECLIPSE. Leaving Workspace empty."
              fi
           else 
-            if [[ "${{github.repository}}" == catenax/tractusx ]]; then
               if [[ "${{github.ref}}" == refs/heads/main ]]; then
                 echo "Determined INTEGRATION"
                 echo "::set-output name=workspace::int"
@@ -44,8 +43,6 @@ jobs:
               else 
                   echo "Unsupported Branch on CATENAX. Leaving Workspace empty."
               fi
-            else
-                echo "Unsupported Environment/Repository. Leaving Workspace empty."
             fi
           fi
 
