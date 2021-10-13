@@ -27,7 +27,7 @@ jobs:
           username: ${{ secrets.AZURE_REGISTRY_USERNAME }}
           password: ${{ secrets.AZURE_REGISTRY_PASSWORD }}
       - run: |
-          docker build -f coreservices/invitation/src/CatenaX.NetworkServices.Invitation.Service/Dockerfile -t acrcatenatest.azurecr.io/tractusx/core:${{ github.run_id }} .
+          docker build -f coreservices/invitation/src/CatenaX.NetworkServices.Invitation.Service/Dockerfile -t acrcatenatest.azurecr.io/tractusx/core:${{ github.run_id }} coreservices/.
           docker push acrcatenatest.azurecr.io/tractusx/core:${{ github.run_id }}
             
       # - name: Azure Kubernetes set context
