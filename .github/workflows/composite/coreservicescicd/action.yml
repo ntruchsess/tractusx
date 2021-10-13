@@ -9,12 +9,24 @@ inputs:
     description: 'name of the Image'
     required: true
 
+  helmDeploymentName:
+    description: 'Name of the Helm Deployment'
+    required: true
+
   acrName:  
     description: 'Name of the ACR'
     required: true
 
   environment:
     description: 'Environment'
+    required: true
+
+  AKS_RG:
+    description: 'ResourceGroup of AKS'
+    required: true
+
+  AKS_CLUSTER:
+    description: 'Name of the AKS'
     required: true
 
   AZURE_REGISTRY_USERNAME:
@@ -50,8 +62,8 @@ runs:
         uses: azure/aks-set-context@v1
         with:
           creds: ${{ inputs.AZURE_CREDENTIALS }}
-          resource-group: catena-tests
-          cluster-name: catenatesttob
+          resource-group: ${{ inputs.AKS_RG }}
+          cluster-name: ${{ inputs.AKS_CLUSTER }}
         
       - run: |
           kubectl create namespace coreservices --dry-run -o json | kubectl apply -f -
@@ -75,7 +87,7 @@ runs:
 
       - name: Init Helm
         run: |
-          helm upgrade invitation-service -n coreservices --set image.repository=${{inputs.acrName}}.azurecr.io/tractusx/${{inputs.imageName}} --set image.tag=${{github.run_id}} --set imagePullSecret=pullsecretacr ./coreservices/invitation/src/CatenaX.NetworkServices.Invitation.Service/helm-invitation/
+          helm upgrade ${{inputs.helmDeploymentName}} -n coreservices --set image.repository=${{inputs.acrName}}.azurecr.io/tractusx/${{inputs.imageName}} --set image.tag=${{github.run_id}} --set imagePullSecret=pullsecretacr ./${{inputs.srcFolder}}/helmchart/
         shell: bash
 
       
