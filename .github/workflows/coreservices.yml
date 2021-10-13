@@ -30,21 +30,21 @@ jobs:
           docker build -f coreservices/invitation/src/CatenaX.NetworkServices.Invitation.Service/Dockerfile -t acrcatenatest.azurecr.io/tractusx/core:${{ github.run_id }} coreservices/.
           docker push acrcatenatest.azurecr.io/tractusx/core:${{ github.run_id }}
             
-      # - name: Azure Kubernetes set context
-      #   uses: azure/aks-set-context@v1
-      #   with:
-      #     creds: ${{ secrets.AZURE_CREDENTIALS }}
-      #     resource-group: catenax-dev-rg
-      #     cluster-name: catenax-dev-aks-services
+      - name: Azure Kubernetes set context
+        uses: azure/aks-set-context@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          resource-group: catena-tests
+          cluster-name: catenatesttob
         
-      # - name: Create imagepullsecret for Azure Container registry (ACR)
-      #   uses: azure/k8s-create-secret@v1.1
-      #   with:
-      #     namespace: cdns
-      #     container-registry-url: catenaxdevacr.azurecr.io
-      #     container-registry-username: ${{ secrets.REGISTRY_USERNAME }}            
-      #     container-registry-password: ${{ secrets.REGISTRY_PASSWORD }}
-      #     secret-name: cdns-ips
+      - name: Create imagepullsecret for Azure Container registry (ACR)
+        uses: azure/k8s-create-secret@v1.1
+        with:
+          namespace: coreservices
+          container-registry-url: acrcatenatest.azurecr.io
+          container-registry-username: ${{ secrets.REGISTRY_USERNAME }}            
+          container-registry-password: ${{ secrets.REGISTRY_PASSWORD }}
+          secret-name: pullsecretacr
 
       # - name: Baking the helm chart to generate the manifests to deploy
       #   uses: Azure/k8s-bake@v1
