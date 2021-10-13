@@ -1,4 +1,4 @@
-name: CDNSBuild
+name: CoreServicesBuild
 
 on: 
   push:
