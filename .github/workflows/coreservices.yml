@@ -2,9 +2,12 @@ name: CoreServicesBuild
 
 on: 
   push:
-    branches: [ main ]
+    branches: 
+    - main
+    - feature/CAX-9-onboarding@cicd
     paths:
       - 'coreservices/invitation/src/**'
+  workflow_dispatch:
 
 jobs:
   build:
