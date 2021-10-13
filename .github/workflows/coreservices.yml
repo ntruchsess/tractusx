@@ -42,8 +42,8 @@ jobs:
         with:
           namespace: coreservices
           container-registry-url: acrcatenatest.azurecr.io
-          container-registry-username: ${{ secrets.REGISTRY_USERNAME }}            
-          container-registry-password: ${{ secrets.REGISTRY_PASSWORD }}
+          container-registry-username: ${{ secrets.AZURE_REGISTRY_USERNAME }}            
+          container-registry-password: ${{ secrets.AZURE_REGISTRY_PASSWORD }}
           secret-name: pullsecretacr
 
       # - name: Baking the helm chart to generate the manifests to deploy
