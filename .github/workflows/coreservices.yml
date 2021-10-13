@@ -97,6 +97,6 @@ jobs:
 
       - name: Init Helm
         run: |
-          helm install invitation-service -n coreservices --set image.repository=acrcatenatest.azurecr.io/tractusx/core --set image.tag=${{github.run_id}} --set imagePullSecret=pullsecretacr ./coreservices/invitation/src/CatenaX.NetworkServices.Invitation.Service/helm-invitation/
+          helm upgrade invitation-service -n coreservices --set image.repository=acrcatenatest.azurecr.io/tractusx/core --set image.tag=${{github.run_id}} --set imagePullSecret=pullsecretacr ./coreservices/invitation/src/CatenaX.NetworkServices.Invitation.Service/helm-invitation/
 
       
