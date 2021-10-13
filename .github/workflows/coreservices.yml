@@ -86,23 +86,25 @@ jobs:
           container-registry-password: ${{ secrets.AZURE_REGISTRY_PASSWORD }}
           secret-name: pullsecretacr
 
-      - name: Baking the helm chart to generate the manifests to deploy
-        uses: Azure/k8s-bake@v1
-        with:
-          renderEngine: 'helm3'            
-          helmChart: './coreservices/invitation/src/CatenaX.NetworkServices.Invitation.Service/charts/'
-          helm-version: 'latest'
-          overrides: |
-            image.repository:acrcatenatest.azurecr.io/core
-            image.tag:${{ github.run_id }} 
-        id: bake
+      # - name: Baking the helm chart to generate the manifests to deploy
+      #   uses: Azure/k8s-bake@v1
+      #   with:
+      #     renderEngine: 'helm3'            
+      #     helmChart: './coreservices/invitation/src/CatenaX.NetworkServices.Invitation.Service/charts/'
+      #     helm-version: 'latest'
+      #     overrides: |
+      #       image.repository:acrcatenatest.azurecr.io/core
+      #       image.tag:${{ github.run_id }} 
+      #   id: bake
             
       - name: Deploy app to AKS
         uses: azure/k8s-deploy@v1.3
         with:
-          manifests: ${{ steps.bake.outputs.manifestsBundle }}
+          manifests: |
+            coreservices/invitation/src/CatenaX.NetworkServices.Invitation.Service/manifest/kubernetes.yaml
           images: |
             acrcatenatest.azurecr.io/core:${{ github.run_id }}
           imagepullsecrets: |
-            pullsecretacr         
-          # namespace: coreservices
+            pullsecretacr      
+          kubectl-version: 'latest'   
+          namespace: coreservices
