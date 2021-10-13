@@ -42,7 +42,7 @@ jobs:
                   echo "::set-output name=workspace::dev003"
               else 
                   echo "Unsupported Branch on CATENAX. Leaving Workspace empty."
-              fi
+              
             fi
           fi
 
@@ -52,7 +52,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/workflows/composite/coreservices.yml
+      - uses: ./.github/workflows/composite/coreservicescicd
         with:
           srcFolder: 'coreservices/invitation/src/CatenaX.NetworkServices.Invitation.Service'
           imageName: 'invitationtest'
