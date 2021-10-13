@@ -97,6 +97,6 @@ jobs:
 
       - name: Init Helm
         run: |
-          helm install invitation-service -n coreservices --set image.repository=acrcatenatest.azurecr.io/core --set image.tag=${{github.run_id}} ./coreservices/invitation/src/CatenaX.NetworkServices.Invitation.Service/charts
+          helm install invitation-service -n coreservices --set image.repository=acrcatenatest.azurecr.io/core --set image.tag=${{github.run_id}} ./coreservices/invitation/src/CatenaX.NetworkServices.Invitation.Service/charts/
 
       
