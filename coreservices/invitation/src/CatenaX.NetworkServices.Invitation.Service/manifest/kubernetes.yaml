@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: Invitation-Service
+  name: invitation-service
   labels:
-    app: Invitation-Service
+    app: invitation-service
 spec:
   revisionHistoryLimit: 0
   replicas: 1
   selector:
     matchLabels:
-      app: Invitation-Service
+      app: invitation-service
   template:
     metadata:
       labels:
-        app: Invitation-Service
+        app: invitation-service
       annotations:
         buildID: ""
     spec:
       containers:
-        - name: Invitation-Service
+        - name: invitation-service
           image: "test:stable"
           imagePullPolicy: Always
           ports:
