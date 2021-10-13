@@ -1,7 +1,7 @@
 # Default values for container-blueprint.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
-fullnameOverride: Invitation-Service
+fullnameOverride: invitation-service
 image:
   repository: test
   tag: stable
