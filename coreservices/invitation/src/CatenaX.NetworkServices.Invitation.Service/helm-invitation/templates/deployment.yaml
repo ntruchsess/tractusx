@@ -35,5 +35,7 @@ spec:
           env:
           - name: "ASPNETCORE_ENVIRONMENT"
             value: "Kubernetes"
+      imagePullSecrets:
+      - name: {{ .Values.imagePullSecret }}
 
             
