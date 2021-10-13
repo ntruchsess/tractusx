@@ -4,12 +4,52 @@ on:
   push:
     branches: 
     - main
+    - feature/CAX-9-onboarding
     - feature/CAX-9-onboarding@cicd
     paths:
       - 'coreservices/invitation/src/**'
   workflow_dispatch:
 
 jobs:
+  environment:
+  # name of the job starts with a "run-level" subordinate to the workflow such that we can
+  # depend on them in order to implement workflow dependencies
+    name: 40 Services Semantics Determine Target Environment
+    runs-on: ubuntu-latest
+    outputs:
+      workspace: ${{ steps.setvars.outputs.workspace }}
+
+    steps:
+     - name: Set variables
+       id: setvars
+       run: |
+        if [[ "${{github.repository}}" == eclipse/tractusx ]]; then
+             if [[ "${{github.ref}}" == refs/heads/main ]]; then
+                echo "Determined PRODUCTION"
+                echo "::set-output name=workspace::prod"
+             else
+                echo "Unsupported Environment on ECLIPSE. Leaving Workspace empty."
+             fi
+          else 
+            if [[ "${{github.repository}}" == catenax/tractusx ]]; then
+              if [[ "${{github.ref}}" == refs/heads/main ]]; then
+                echo "Determined INTEGRATION"
+                echo "::set-output name=workspace::int"
+              elif [[ "${{github.ref}}" = refs/heads/feature/CAX-1-semantics || "${{github.ref}}" = refs/heads/feature/CAX-1-semantics@CXMVP-50-semantic-adapter ]]; then
+                  echo "Determined SEMANTICS"
+                  echo "::set-output name=workspace::dev042"
+              elif [[ "${{github.ref}}" = refs/heads/feature/CAX-9-onboarding || "${{github.ref}}" = refs/heads/feature/CAX-9-onboarding@cicd ]]; then
+                  echo "Determined SEMANTICS"
+                  echo "::set-output name=workspace::dev003"
+              else 
+                  echo "Unsupported Branch on CATENAX. Leaving Workspace empty."
+              fi
+            else
+                echo "Unsupported Environment/Repository. Leaving Workspace empty."
+            fi
+          fi
+
+
   build:
     runs-on: ubuntu-latest
 
@@ -40,29 +80,29 @@ jobs:
       - name: Create imagepullsecret for Azure Container registry (ACR)
         uses: azure/k8s-create-secret@v1.1
         with:
-          namespace: coreservices
+          # namespace: coreservices
           container-registry-url: acrcatenatest.azurecr.io
           container-registry-username: ${{ secrets.AZURE_REGISTRY_USERNAME }}            
           container-registry-password: ${{ secrets.AZURE_REGISTRY_PASSWORD }}
           secret-name: pullsecretacr
 
-      # - name: Baking the helm chart to generate the manifests to deploy
-      #   uses: Azure/k8s-bake@v1
-      #   with:
-      #     renderEngine: helm            
-      #     helmChart: ./cdnschart/
-      #     helm-version: latest
-      #     overrides: |
-      #       image.tag:${{ github.run_id }}
-      #     id: bake
+      - name: Baking the helm chart to generate the manifests to deploy
+        uses: Azure/k8s-bake@v1
+        with:
+          renderEngine: helm            
+          helmChart: coreservices/invitation/src/CatenaX.NetworkServices.Invitation.Service/charts/
+          helm-version: latest
+          overrides: |
+            image.repository=acrcatenatest.azurecr.io/core
+            image.tag:${{ github.run_id }}
+          id: bake
             
-      # - name: Deploy app to AKS
-      #   uses: azure/k8s-deploy@v1.3
-      #   with:
-      #     manifests: ${{ steps.bake.outputs.manifestsBundle }}
-      #     images: |
-      #       catenaxdevacr.azurecr.io/tractusx/cdns:${{ github.run_id }}
-      #     imagepullsecrets: |
-      #       cdns-ips          
-      #     namespace: cdns
-      #     route-method: ingress
+      - name: Deploy app to AKS
+        uses: azure/k8s-deploy@v1.3
+        with:
+          manifests: ${{ steps.bake.outputs.manifestsBundle }}
+          images: |
+            acrcatenatest.azurecr.io/core:${{ github.run_id }}
+          imagepullsecrets: |
+            pullsecretacr         
+          # namespace: coreservices
