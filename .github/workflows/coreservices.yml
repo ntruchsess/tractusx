@@ -95,7 +95,6 @@ jobs:
           overrides: |
             image.repository=acrcatenatest.azurecr.io/core
             image.tag:${{ github.run_id }}
-          id: bake
             
       - name: Deploy app to AKS
         uses: azure/k8s-deploy@v1.3
