@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
-
+using CatenaX.NetworkServices.Cosent.Library.Data;
 using CatenaX.NetworkServices.Onboarding.Service.Model;
 
 using Dapper;
@@ -30,6 +30,16 @@ namespace CatenaX.NetworkServices.Onboarding.Service.OnboardingAccess
             }
         }
 
+        public async Task<IEnumerable<ConsentForCompanyRole>> GetConsentForCompanyRole(int roleId)
+        {
+            var sql = $"select * from get_company_role({roleId})";
+
+            using (_dbConnection)
+            {
+                return await _dbConnection.QueryAsync<ConsentForCompanyRole>(sql);
+            }
+        }
+
         public async Task SetCompanyRoles(CompanyToRoles rolesToSet)
         {
             using (_dbConnection)
@@ -43,6 +53,27 @@ namespace CatenaX.NetworkServices.Onboarding.Service.OnboardingAccess
                     await _dbConnection.ExecuteAsync(sql, parameters);
 
                 }
+            }
+        }
+
+        public async Task SignConsent(SignConsentRequest signedConsent)
+        {
+            var sql = $"SELECT sign_consent('{signedConsent.companyId}',{signedConsent.consentId},{signedConsent.companyRoleId}, '{signedConsent.userName}')";
+
+            using (_dbConnection)
+            {
+                await _dbConnection.ExecuteAsync(sql);
+            }
+        }
+
+        public async Task<IEnumerable<SignedConsent>> SignedConsentsByCompanyId(string companyId)
+        {
+            var sql = $"select * from get_signed_consents_for_company_id('{companyId}')";
+
+
+            using (_dbConnection)
+            {
+                return await _dbConnection.QueryAsync<SignedConsent>(sql);
             }
         }
     }

@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\consent\src\CatenaX.NetworkServices.Cosent.Library.Data\CatenaX.NetworkServices.Cosent.Library.Data.csproj" />
     <ProjectReference Include="..\..\..\invitation\src\CatenaX.NetworkServices.Invitation.Identity\CatenaX.NetworkServices.Invitation.Identity.csproj" />
     <ProjectReference Include="..\..\..\mockup\src\CatenaX.NetworkServices.Mockups\CatenaX.NetworkServices.Mockups.csproj" />
   </ItemGroup>
