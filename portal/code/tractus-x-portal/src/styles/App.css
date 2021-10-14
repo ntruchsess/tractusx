@@ -380,6 +380,8 @@ iframe {border-style: none;}
 .mw600 {min-width: 600px;max-width:600px}
 .mw475 {min-width: 475px;max-width:475px}
 .mw510 {min-width: 510px;max-width:510px}
+.pt3{padding-top:3px} 
+.pb3 {padding-bottom:3px}
 .p0 {padding:0px !important}
 .p4 {padding:4px}
 .p5 {padding:5px}
