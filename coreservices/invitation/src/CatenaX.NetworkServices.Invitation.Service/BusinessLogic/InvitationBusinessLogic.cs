@@ -8,6 +8,7 @@ using CatenaX.NetworkServices.Invitation.Identity.Model;
 using CatenaX.NetworkServices.Invitation.Library;
 using CatenaX.NetworkServices.Invitation.Service.DataAccess;
 using CatenaX.NetworkServices.Invitation.Service.Mail;
+using CatenaX.NetworkServices.Mockups;
 
 namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
 {
@@ -16,8 +17,6 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
         private readonly IIdentityManager _identityManager;
         private readonly IMailingService _mailingService;
         //private readonly IDataAccess _dataAccess;
-
-        private List<string> Groups = new List<string> {"Invitation", "IT Admin", "Legal Admin", "Signing Manager" };
 
         public InvitationBusinessLogic(IIdentityManager identityManager, IMailingService mailingService)
         {
@@ -53,7 +52,7 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
 
 
 
-            foreach (string group in Groups)
+            foreach (string group in UserRoles.Roles)
             {
                 var newGroup = new CreateGroup {
                     Name = group

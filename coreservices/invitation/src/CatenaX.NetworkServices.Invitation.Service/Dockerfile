@@ -7,13 +7,15 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
-COPY ["Invitation/src/CatenaX.NetworkServices.Invitation.Service/CatenaX.NetworkServices.Invitation.Service.csproj", "Invitation/src/CatenaX.NetworkServices.Invitation.Service/"]
-COPY ["Invitation/src/CatenaX.NetworkServices.Invitation.Library/CatenaX.NetworkServices.Invitation.Library.csproj", "Invitation/src/CatenaX.NetworkServices.Invitation.Library/"]
-COPY ["Invitation/src/CatenaX.NetworkServices.Invitation.Identity/CatenaX.NetworkServices.Invitation.Identity.csproj", "Invitation/src/CatenaX.NetworkServices.Invitation.Identity/"]
-COPY ["Invitation/src/keycloak.net-branch/src/Keycloak.Net/Keycloak.Net.csproj", "Invitation/src/keycloak.net-branch/src/Keycloak.Net/"]
-RUN dotnet restore "Invitation/src/CatenaX.NetworkServices.Invitation.Service/CatenaX.NetworkServices.Invitation.Service.csproj"
+COPY ["invitation/src/CatenaX.NetworkServices.Invitation.Service/CatenaX.NetworkServices.Invitation.Service.csproj", "invitation/src/CatenaX.NetworkServices.Invitation.Service/"]
+COPY ["mailing/src/CatenaX.NetworkServices.Mailing.Template/CatenaX.NetworkServices.Mailing.Template.csproj", "mailing/src/CatenaX.NetworkServices.Mailing.Template/"]
+COPY ["mailing/src/CatenaX.NetworkServices.Mailing.SendMail/CatenaX.NetworkServices.Mailing.SendMail.csproj", "mailing/src/CatenaX.NetworkServices.Mailing.SendMail/"]
+COPY ["invitation/src/CatenaX.NetworkServices.Invitation.Identity/CatenaX.NetworkServices.Invitation.Identity.csproj", "invitation/src/CatenaX.NetworkServices.Invitation.Identity/"]
+COPY ["mockup/src/CatenaX.NetworkServices.Mockups/CatenaX.NetworkServices.Mockups.csproj", "mockup/src/CatenaX.NetworkServices.Mockups/"]
+COPY ["invitation/src/CatenaX.NetworkServices.Invitation.Library/CatenaX.NetworkServices.Invitation.Library.csproj", "invitation/src/CatenaX.NetworkServices.Invitation.Library/"]
+RUN dotnet restore "invitation/src/CatenaX.NetworkServices.Invitation.Service/CatenaX.NetworkServices.Invitation.Service.csproj"
 COPY . .
-WORKDIR "/src/Invitation/src/CatenaX.NetworkServices.Invitation.Service"
+WORKDIR "/src/invitation/src/CatenaX.NetworkServices.Invitation.Service"
 RUN dotnet build "CatenaX.NetworkServices.Invitation.Service.csproj" -c Release -o /app/build
 
 FROM build AS publish
