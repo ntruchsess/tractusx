@@ -327,3 +327,4 @@ jobs:
       working-directory: ./infrastructure/terraform
       run: |
         az ad app permission add --id  ${{ steps.create_app.outputs.APPID  }} --api 00000002-0000-0000-c000-000000000000 --api-permissions 311a71cc-e848-46a1-bdf8-97ff7156d8e6=Scope
+

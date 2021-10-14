@@ -75,3 +75,4 @@ Waiting for AAD role to propagate[################################    ]  90.0000
 ## Bugs
 
 The mixture of kubernetes setups and deployments leads to a configuration dependencies (kubernetes provider depends on module.aks outputs). This may lead to terraform sometimes loose its configurations.
+
