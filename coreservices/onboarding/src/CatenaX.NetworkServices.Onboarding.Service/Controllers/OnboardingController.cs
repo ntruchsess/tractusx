@@ -40,8 +40,8 @@ namespace CatenaX.NetworkServices.Onboarding.Service.Controllers
             }
             else
             {
-                await _onboardingBusinessLogic.GetCompanyByOneId(oneId);
-                return new OkResult();
+                var result = await _onboardingBusinessLogic.GetCompanyByOneId(oneId);
+                return new OkObjectResult(result);
             } 
         }
 
@@ -57,6 +57,22 @@ namespace CatenaX.NetworkServices.Onboarding.Service.Controllers
             else
             {
                 await _onboardingBusinessLogic.CreateUsers(userToCreate, realm, authorization);
+                return new OkResult();
+            }
+        }
+
+        [HttpPut]
+        [Route("company/{realm}/companyRoles")]
+        public async Task<IActionResult> SetCompanyRoles([FromRoute] string realm, [FromHeader] string authorization, [FromBody] CompanyToRoles rolesToSet)
+        {
+
+            if (!ValidateTokenAsync(realm, authorization, out var response))
+            {
+                return response;
+            }
+            else
+            {
+                await _onboardingBusinessLogic.SetCompanyRoles(rolesToSet);
                 return new OkResult();
             }
         }

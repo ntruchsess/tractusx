@@ -15,5 +15,7 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
         Task<List<CompanyRole>> GetCompanyRoles();
 
         Task CreateUsers(List<User> userList, string realm, string token);
+
+        Task SetCompanyRoles(CompanyToRoles rolesToSet);
     }
 }

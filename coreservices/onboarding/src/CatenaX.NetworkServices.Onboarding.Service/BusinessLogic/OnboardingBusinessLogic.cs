@@ -58,5 +58,10 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
             var result =  await _dbAccess.GetAllCompanyRoles();
             return result.ToList();
         }
+
+        public async Task SetCompanyRoles(CompanyToRoles rolesToSet)
+        {
+            await _dbAccess.SetCompanyRoles(rolesToSet);
+        }
     }
 }
