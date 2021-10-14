@@ -19,7 +19,6 @@ import Responsibilities from './responsibilities';
 import Companyrole from './companyrole';
 import Termsncondition from './termsncondition';
 import Identity from './identity';
-import Certificate from './certificate';
 
 
 @observer
@@ -38,7 +37,6 @@ export default class Onboarding extends React.Component {
             <Companyrole />
             <Termsncondition />
             <Identity />
-            <Certificate />
           </div>
         </div >
       </div >
