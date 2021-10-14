@@ -1,4 +1,4 @@
-namespace CatenaX.NetworkServices.Invitation.Service.DataAccess
+namespace CatenaX.NetworkServices.Mockups
 {
 
 	public class Company

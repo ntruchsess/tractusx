@@ -37,6 +37,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Inv
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Invitation.Service", "invitation\src\CatenaX.NetworkServices.Invitation.Service\CatenaX.NetworkServices.Invitation.Service.csproj", "{A1088127-BA35-4B52-9F5A-F5B8FE9DAF18}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "onboarding", "onboarding", "{7C9ED9CD-BF6F-4148-AA11-CDE8857BC170}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Onboarding.Service", "onboarding\src\CatenaX.NetworkServices.Onboarding.Service\CatenaX.NetworkServices.Onboarding.Service.csproj", "{9132085F-C153-4BB5-B359-B080DAB0991F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mockup", "mockup", "{3911B636-69F0-4B46-944D-499B75A2CB0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatenaX.NetworkServices.Mockups", "mockup\src\CatenaX.NetworkServices.Mockups\CatenaX.NetworkServices.Mockups.csproj", "{FC99059C-95DF-4CBC-9B09-7F4C738E7F2F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +87,14 @@ Global
 		{A1088127-BA35-4B52-9F5A-F5B8FE9DAF18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1088127-BA35-4B52-9F5A-F5B8FE9DAF18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1088127-BA35-4B52-9F5A-F5B8FE9DAF18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9132085F-C153-4BB5-B359-B080DAB0991F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9132085F-C153-4BB5-B359-B080DAB0991F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9132085F-C153-4BB5-B359-B080DAB0991F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9132085F-C153-4BB5-B359-B080DAB0991F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC99059C-95DF-4CBC-9B09-7F4C738E7F2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC99059C-95DF-4CBC-9B09-7F4C738E7F2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC99059C-95DF-4CBC-9B09-7F4C738E7F2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC99059C-95DF-4CBC-9B09-7F4C738E7F2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,6 +115,10 @@ Global
 		{1D6136F2-7946-47DE-95D8-05D021DBA3B4} = {7A5F84BE-3B45-483A-8EF1-4E1E94F144DC}
 		{91955C31-F283-4963-A626-9743BC32AD86} = {7A5F84BE-3B45-483A-8EF1-4E1E94F144DC}
 		{A1088127-BA35-4B52-9F5A-F5B8FE9DAF18} = {7A5F84BE-3B45-483A-8EF1-4E1E94F144DC}
+		{7C9ED9CD-BF6F-4148-AA11-CDE8857BC170} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
+		{9132085F-C153-4BB5-B359-B080DAB0991F} = {7C9ED9CD-BF6F-4148-AA11-CDE8857BC170}
+		{3911B636-69F0-4B46-944D-499B75A2CB0A} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
+		{FC99059C-95DF-4CBC-9B09-7F4C738E7F2F} = {3911B636-69F0-4B46-944D-499B75A2CB0A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {23E9EF5A-FB26-4AAC-952E-0695A1245B8E}

@@ -16,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\mailing\src\CatenaX.NetworkServices.Mailing.SendMail\CatenaX.NetworkServices.Mailing.SendMail.csproj" />
     <ProjectReference Include="..\..\..\mailing\src\CatenaX.NetworkServices.Mailing.Template\CatenaX.NetworkServices.Mailing.Template.csproj" />
+    <ProjectReference Include="..\..\..\mockup\src\CatenaX.NetworkServices.Mockups\CatenaX.NetworkServices.Mockups.csproj" />
     <ProjectReference Include="..\CatenaX.NetworkServices.Invitation.Identity\CatenaX.NetworkServices.Invitation.Identity.csproj" />
     <ProjectReference Include="..\CatenaX.NetworkServices.Invitation.Library\CatenaX.NetworkServices.Invitation.Library.csproj" />
   </ItemGroup>
