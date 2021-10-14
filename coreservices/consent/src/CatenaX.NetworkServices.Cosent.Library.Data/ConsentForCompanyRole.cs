@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace CatenaX.NetworkServices.Cosent.Library.Data
 {
-    public class CompanyRole
+    public class ConsentForCompanyRole
     {
         [JsonPropertyName("role_id")]
         public int Id { get; set; }

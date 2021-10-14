@@ -15,7 +15,7 @@ namespace CatenaX.NetworkServices.Cosent.Library
             this.connectionString = connectionString;
         }
 
-        public IEnumerable<CompanyRole> GetCompanyRoles()
+        public IEnumerable<ConsentForCompanyRole> GetCompanyRoles()
         {
             var query = "select * from get_company_role()";
             using (var con = new NpgsqlConnection(connectionString))
@@ -23,12 +23,12 @@ namespace CatenaX.NetworkServices.Cosent.Library
                 con.Open();
 
                 var cmd = new NpgsqlCommand(query, con);
-               return cmd.ExecuteReader().Query<CompanyRole>();
+               return cmd.ExecuteReader().Query<ConsentForCompanyRole>();
 
             }
         }
 
-        public IEnumerable<CompanyRole> GetCompanyRoles(int roleId)
+        public IEnumerable<ConsentForCompanyRole> GetCompanyRoles(int roleId)
         {
             var query = $"select * from get_company_role({roleId})";
             using (var con = new NpgsqlConnection(connectionString))
@@ -36,7 +36,7 @@ namespace CatenaX.NetworkServices.Cosent.Library
                 con.Open();
 
                 var cmd = new NpgsqlCommand(query, con);
-                return cmd.ExecuteReader().Query<CompanyRole>();
+                return cmd.ExecuteReader().Query<ConsentForCompanyRole>();
 
             }
         }
