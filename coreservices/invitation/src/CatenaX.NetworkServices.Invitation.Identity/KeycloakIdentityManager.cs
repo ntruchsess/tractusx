@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 using Keycloak.Net;
 using Keycloak.Net.Models.RealmsAdmin;
 using Keycloak.Net.Models.Users;
-
+using Keycloak.Net.Models.Clients;
+using Keycloak.Net.Models.ClientScopes;
 using Keycloak.Net.Models.Groups;
 using CatenaX.NetworkServices.Invitation.Identity.Model;
 using PasswordGenerator;
@@ -30,6 +32,25 @@ namespace CatenaX.NetworkServices.Invitation.Identity.Identity
                 DefaultRoles = new List<string>{"role1","role2" }
             };
             await _client.ImportRealmAsync(realm.Name, realmToCreate);
+        }
+
+        public async Task CreateClient(string realm, CreateClient client)
+        {
+            var clientToCreate = new Client
+            {
+                ClientId = client.ClientId,
+                RedirectUris = client.RedirectUris,
+                Protocol = client.Protocol,
+                Attributes = client.Attributes,
+                FullScopeAllowed = client.FullScopeAllowed,
+                ProtocolMappers = client.ProtocollMappers.Aggregate(new List<ClientProtocolMapper>(),(list,item) => {
+                    list.Add(new ClientProtocolMapper
+                    {
+                    });
+                    return list;
+                })
+            };
+            await _client.CreateClientAsync(realm, clientToCreate);
         }
 
         public async Task<string> CreateUser(string realm, CreateUser user)

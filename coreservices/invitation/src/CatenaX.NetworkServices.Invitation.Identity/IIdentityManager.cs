@@ -11,6 +11,8 @@ namespace CatenaX.NetworkServices.Invitation.Identity
     {
         Task CreateRealm(CreateRealm realm);
 
+        Task CreateClient(string realm, CreateClient client);
+
         Task<string> CreateUser(string realm, CreateUser user);
 
         Task CreateGroup(string realm, CreateGroup group);

@@ -51,7 +51,32 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
 
             await _identityManager.CreateRealm(newRealm);
 
+            var newClient = new CreateClient
+            {
+                ClientId = "urn:federation:MicrosoftOnline",
+                RedirectUris = new List<string>{
+                    "https://login.microsoftonline.com/login.srf"
+                },
+                Protocol = "saml",
+                Attributes = new Dictionary<string,object>{
+                    { "saml.assertion.signature", true },
+                    { "saml.signing.certificate", "MIIC/TCCAeWgAwIBAgIQN/GPegnT8blP2EcSdMMbBzANBgkqhkiG9w0BAQsFADApMScwJQYDVQQDEx5MaXZlIElEIFNUUyBTaWduaW5nIFB1YmxpYyBLZXkwHhcNMjEwMjE4MDAwMDAwWhcNMjYwMjE4MDAwMDAwWjApMScwJQYDVQQDEx5MaXZlIElEIFNUUyBTaWduaW5nIFB1YmxpYyBLZXkwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDXdLGU2Ll5RPdDUnKQ+f/HS5qiTay2cCh9U2AS6oDM6SOxVhYGtoeJ1VPebcLnpgLfhPxzrwWoVzXSEF+VRQbnYID2Jb4khjgyEeoThk3VqrThwhahpSbBg2vo06vIOp1TS2R1BiwHKTLoB1i1IJnaIFSC3BN6pY4flXWyLQt/5ABXElv2XZLqXM9Eefj6Ji40nLIsiW4dWw3BDa/ywWW0MsiW5ojGq4vovcAgENe/4NUbju70gHP/WS5D9bW5p+OIQi7/unrlWe/h3A6jtBbbRlXYXlN+Z22uTTyyCD/W8zeXaACLvHagwEMrQePDXBZqc/iX2kI+ooZr1sC/H39RAgMBAAGjITAfMB0GA1UdDgQWBBSrX2dm3LwT9jb/p+bAAdYQpE+/NjANBgkqhkiG9w0BAQsFAAOCAQEAeqJfYHnsA9qhGttXFfFpPW4DQLh5w6JCce7vGvWINr5fr1DnQdcOr+wwjQ/tqbckAL2v6z1AqjhS78kbfegnAQDwioJZ1olYYvLOxKoa6HF+b1/p0Mlub8Zukk2n1b2lKPBBOibOasSY7gQDwlIZi7tl9nMTxUfdYK+E5Axv7DVnmUCwcnnpV5/1SFdNyW2kWO4C68rrjMOvECfwrKkbfVJM8f9krEUBuoBF8dTDv7D2ZM4Q2buC70NbfaNWUX0yFvKI0IuTqk8RBfGTRQ4fZAbhMPaykEpBu6dNjTi5YOa0lNqFGS7Ax7leCh5x9lV8elcLkXs8ySo8AOQJk0hgIw==" },
+                    { "saml.signature.algorithm", "RSA_SHA256" },
+                    { "saml_single_logout_service_url_post", "https://login.microsoftonline.com/login.srf" },
+                    { "saml.client.signature", false },
+                    { "saml.authnstatement", true },
+                    { "saml_assertion_consumer_url_post", "https://login.microsoftonline.com/login.srf" },
+                    { "saml_name_id_format", "persistent" },
+                    { "saml.server.signature", true },
+                    { "saml.server.signature.keyinfo.ext", false }
+                },
+                FullScopeAllowed = true,
+                ProtocollMappers = new List<CreateClientProtocolMapper>
+                {
+                }
+            };
 
+            await _identityManager.CreateClient(realmName, newClient);
 
             foreach (string group in Groups)
             {
