@@ -17,6 +17,7 @@ import { observer } from 'mobx-react';
 import { observable } from 'mobx';
 import adalContext from '../helpers/adalConfig';
 import { Icon, Pivot, PivotItem } from '@fluentui/react';
+import { AppState } from '../stores/appstate';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import Logo from './logo';
 interface IProp extends RouteComponentProps{

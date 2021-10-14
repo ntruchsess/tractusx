@@ -14,6 +14,7 @@
 
 import * as React from 'react';
 import { observer } from 'mobx-react';
+import DragDrop from './dragdrop';
 
 @observer
 export default class Certificate extends React.Component {
@@ -31,13 +32,7 @@ export default class Certificate extends React.Component {
         </label>
         <div className='collapse-panel bgwhite'>
           <div className='p20'>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing
-              elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis
-              nostrud exercitation ullamco laboris nisi ut aliquip
-              ex ea commodo consequat.
-            </p>
+            <DragDrop />
           </div>
         </div>
       </div>
