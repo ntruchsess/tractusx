@@ -1,6 +1,8 @@
 DROP TABLE  IF EXISTS public.companyroles_consens;
 DROP TABLE IF EXISTS public.companyroles_signed_consens;
 
+DROP TABLE IF EXISTS public.company_selected_roles;
+
 DROP TABLE IF EXISTS public.companyroles;
 CREATE TABLE public.companyroles (
     id  SERIAL  PRIMARY KEY,
@@ -13,6 +15,13 @@ CREATE TABLE public.consens (
     title varchar(40) NOT NULL,
     link varchar(250) NOT NULL
 );
+
+CREATE TABLE public.company_selected_roles (
+    id  SERIAL  PRIMARY KEY,
+    company_id varchar(100) NOT NULL,
+    role_id int references public.companyroles(id)
+);
+
 
 CREATE TABLE public.companyroles_consens (
   role_id int references public.companyroles(id),

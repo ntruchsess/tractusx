@@ -8,5 +8,7 @@ namespace CatenaX.NetworkServices.Onboarding.Service.OnboardingAccess
     public interface IOnboardingDBAccess
     {
         Task<IEnumerable<CompanyRole>> GetAllCompanyRoles();
+
+        Task SetCompanyRoles(CompanyToRoles rolesToSet);
     }
 }

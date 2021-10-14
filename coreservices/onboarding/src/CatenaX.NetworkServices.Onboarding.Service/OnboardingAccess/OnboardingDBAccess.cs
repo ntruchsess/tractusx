@@ -30,5 +30,20 @@ namespace CatenaX.NetworkServices.Onboarding.Service.OnboardingAccess
             }
         }
 
+        public async Task SetCompanyRoles(CompanyToRoles rolesToSet)
+        {
+            using (_dbConnection)
+            {
+                foreach (var role in rolesToSet.roles)
+                {
+                    var parameters = new { roleId = role, companyId = rolesToSet.CompanyId };
+                    string sql = "Insert Into public.company_selected_roles (company_id, role_id) values(@companyId, @roleId)";
+
+
+                    await _dbConnection.ExecuteAsync(sql, parameters);
+
+                }
+            }
+        }
     }
 }
