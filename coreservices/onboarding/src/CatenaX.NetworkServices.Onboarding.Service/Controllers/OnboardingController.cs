@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CatenaX.NetworkServices.Onboarding.Service.BusinessLogic;
+using CatenaX.NetworkServices.Onboarding.Service.Model;
+
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 using System;
@@ -17,11 +20,13 @@ namespace CatenaX.NetworkServices.Onboarding.Service.Controllers
 
         private readonly ILogger<OnboardingController> _logger;
         private readonly HttpClient _httpClient;
+        private readonly IOnboardingBusinessLogic _onboardingBusinessLogic;
 
-        public OnboardingController(ILogger<OnboardingController> logger, IHttpClientFactory clientFactory)
+        public OnboardingController(ILogger<OnboardingController> logger, IHttpClientFactory clientFactory, IOnboardingBusinessLogic onboardingBusinessLogic)
         {
             _logger = logger;
             _httpClient = clientFactory.CreateClient("keycloak");
+            _onboardingBusinessLogic = onboardingBusinessLogic;
         }
 
         [HttpGet]
@@ -35,11 +40,57 @@ namespace CatenaX.NetworkServices.Onboarding.Service.Controllers
             }
             else
             {
+                await _onboardingBusinessLogic.GetCompanyByOneId(oneId);
+                return new OkResult();
+            } 
+        }
+
+        [HttpPost]
+        [Route("company/{realm}/users")]
+        public async Task<IActionResult> CreateUsers([FromRoute] string realm, [FromHeader] string authorization ,[FromBody] List<User> userToCreate)
+        {
+
+            if (!ValidateTokenAsync(realm, authorization, out var response))
+            {
+                return response;
+            }
+            else
+            {
+                await _onboardingBusinessLogic.CreateUsers(userToCreate, realm, authorization);
                 return new OkResult();
             }
+        }
 
+        [HttpGet]
+        [Route("company/{realm}/companyRoles")]
+        public async Task<IActionResult> GetCompanyRoles([FromRoute] string realm, [FromHeader] string authorization)
+        {
 
-            
+            if (!ValidateTokenAsync(realm, authorization, out var response))
+            {
+                return response;
+            }
+            else
+            {
+                var companyRoles = await _onboardingBusinessLogic.GetCompanyRoles();
+                return new OkObjectResult(companyRoles);
+            }
+        }
+
+        [HttpGet]
+        [Route("company/{realm}/userRoles")]
+        public async Task<IActionResult> GetUserRoles([FromRoute] string realm, [FromHeader] string authorization)
+        {
+
+            if (!ValidateTokenAsync(realm, authorization, out var response))
+            {
+                return response;
+            }
+            else
+            {
+                var userRoles = await _onboardingBusinessLogic.GetAvailableUserRole();
+                return new OkObjectResult(userRoles);
+            }
         }
 
         private bool ValidateTokenAsync(string realm, string authorization, out IActionResult response)

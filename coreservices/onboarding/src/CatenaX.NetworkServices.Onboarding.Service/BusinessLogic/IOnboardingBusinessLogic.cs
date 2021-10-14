@@ -10,8 +10,10 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
     {
         Task<Company> GetCompanyByOneId(string oneId);
 
-        Task<List<string>> GetAvailableUserRole(); 
+        Task<List<string>> GetAvailableUserRole();
 
-        Task CreateUser(List<User> userList);
+        Task<List<CompanyRole>> GetCompanyRoles();
+
+        Task CreateUsers(List<User> userList, string realm, string token);
     }
 }
