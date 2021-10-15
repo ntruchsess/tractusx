@@ -1,4 +1,3 @@
-// Copyright (c) 2021 Microsoft
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,6 +34,7 @@ import { NewSemanticModel } from './newsemanticmodel';
 import SemanticHub from './semantichub';
 import SemanticModelDetail from './semanticmodeldetail';
 import DigitalTwins from './digitaltwins';
+import Onboarding from './onboarding';
 
 const navStyles: Partial<INavStyles> = {
   root: {
@@ -236,6 +236,7 @@ class Home extends React.Component<RouteComponentProps> {
               <Route path='/home/partners' component={(props) => <YellowPages {...props} />} />
               <Route path='/home/notification' component={(props) => <NotificationCenter {...props} />} />
               <Route path='/home/notimp' component={(props) => <NotImp {...props} />} />
+              <Route path='/home/onboarding' component={(props) => <Onboarding {...props} />} />
             </Switch>
           </div>
         </div>

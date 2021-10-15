@@ -35,7 +35,7 @@ jobs:
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
       - run: |
-          docker build -t catenaxdevacr.azurecr.io/tractusx/cdns:${{ github.run_id }} .
+          docker build  -t catenaxdevacr.azurecr.io/tractusx/cdns:${{ github.run_id }} .
           docker push catenaxdevacr.azurecr.io/tractusx/cdns:${{ github.run_id }}
             
       - name: Azure Kubernetes set context
