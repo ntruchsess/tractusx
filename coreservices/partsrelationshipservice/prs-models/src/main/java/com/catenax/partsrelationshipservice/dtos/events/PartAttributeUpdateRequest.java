@@ -7,8 +7,9 @@
 // See the LICENSE file(s) distributed with this work for
 // additional information regarding license terms.
 //
-package net.catenax.brokerproxy.requests;
+package com.catenax.partsrelationshipservice.dtos.events;
 
+import com.catenax.partsrelationshipservice.annotations.ValueOfEnum;
 import com.catenax.partsrelationshipservice.dtos.PartAttribute;
 import com.catenax.partsrelationshipservice.dtos.PartId;
 import com.catenax.partsrelationshipservice.dtos.PartInfo;
@@ -16,7 +17,6 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 import lombok.Value;
-import net.catenax.brokerproxy.annotations.ValueOfEnum;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -48,12 +48,4 @@ public class PartAttributeUpdateRequest {
     @Schema(description = "Instant at which the update was applied")
     @NotNull
     private Instant effectTime;
-
-    /**
-     * Gets enums value for part attribute.
-     * @return see {@link PartAttribute}
-     */
-    public PartAttribute getName() {
-        return PartAttribute.valueOf(name);
-    }
 }

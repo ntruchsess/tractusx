@@ -7,7 +7,7 @@
 // See the LICENSE file(s) distributed with this work for
 // additional information regarding license terms.
 //
-package net.catenax.brokerproxy.requests;
+package com.catenax.partsrelationshipservice.dtos.events;
 
 import com.catenax.partsrelationshipservice.dtos.PartLifecycleStage;
 import com.catenax.partsrelationshipservice.dtos.PartRelationship;
@@ -19,7 +19,7 @@ import lombok.Value;
 import javax.validation.constraints.NotNull;
 import java.time.Instant;
 
-/*** Request for updates to {@link PartRelationship}s. */
+/*** Payload for request for updates to {@link PartRelationship}s. */
 @Schema(description = "Describes an update of a relationship")
 @Value
 @Builder(toBuilder = true, setterPrefix = "with")

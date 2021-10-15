@@ -7,12 +7,15 @@
 // See the LICENSE file(s) distributed with this work for
 // additional information regarding license terms.
 //
-package net.catenax.brokerproxy.requests;
+package net.catenax.prs.testing;
 
 import com.catenax.partsrelationshipservice.dtos.PartAttribute;
 import com.catenax.partsrelationshipservice.dtos.PartLifecycleStage;
+import com.catenax.partsrelationshipservice.dtos.events.PartAspectsUpdateRequest;
+import com.catenax.partsrelationshipservice.dtos.events.PartAttributeUpdateRequest;
+import com.catenax.partsrelationshipservice.dtos.events.PartRelationshipUpdate;
+import com.catenax.partsrelationshipservice.dtos.events.PartRelationshipsUpdateRequest;
 import com.github.javafaker.Faker;
-import net.catenax.prs.testing.DtoMother;
 
 import static java.util.Collections.singletonList;
 import static java.util.concurrent.TimeUnit.DAYS;
@@ -24,7 +27,7 @@ import static java.util.concurrent.TimeUnit.DAYS;
  * https://martinfowler.com/bliki/ObjectMother.html</a>
  */
 @SuppressWarnings("checkstyle:MagicNumber")
-public class RequestMother {
+public class UpdateRequestMother {
     /**
      * JavaFaker instance used to generate random data.
      */
@@ -35,12 +38,12 @@ public class RequestMother {
     private final transient DtoMother generate = new DtoMother();
 
     /**
-     * Generate a {@link PartRelationshipUpdateRequest} containing random data.
+     * Generate a {@link PartRelationshipsUpdateRequest} containing random data.
      *
      * @return never returns {@literal null}.
      */
-    public PartRelationshipUpdateRequest partRelationshipUpdateList() {
-        return PartRelationshipUpdateRequest.builder()
+    public PartRelationshipsUpdateRequest partRelationshipUpdateList() {
+        return PartRelationshipsUpdateRequest.builder()
                 .withRelationships(singletonList(partRelationshipUpdate()))
                 .build();
     }
@@ -60,12 +63,12 @@ public class RequestMother {
     }
 
     /**
-     * Generate a {@link PartAspectUpdateRequest} containing random data.
+     * Generate a {@link PartAspectsUpdateRequest} containing random data.
      *
      * @return never returns {@literal null}.
      */
-    public PartAspectUpdateRequest partAspectUpdate() {
-        return PartAspectUpdateRequest.builder()
+    public PartAspectsUpdateRequest partAspectUpdate() {
+        return PartAspectsUpdateRequest.builder()
                 .withPart(generate.partId())
                 .withAspects(singletonList(generate.partAspect()))
                 .withRemove(false)

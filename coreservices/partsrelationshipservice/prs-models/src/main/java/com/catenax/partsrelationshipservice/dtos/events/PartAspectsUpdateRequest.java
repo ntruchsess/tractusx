@@ -7,7 +7,7 @@
 // See the LICENSE file(s) distributed with this work for
 // additional information regarding license terms.
 //
-package net.catenax.brokerproxy.requests;
+package com.catenax.partsrelationshipservice.dtos.events;
 
 import com.catenax.partsrelationshipservice.dtos.Aspect;
 import com.catenax.partsrelationshipservice.dtos.PartId;
@@ -22,13 +22,13 @@ import javax.validation.constraints.NotNull;
 import java.time.Instant;
 import java.util.List;
 
-/*** Request for updates to {@link Aspect}s. */
-@Schema(description = PartAspectUpdateRequest.DESCRIPTION)
+/*** Event for updates to {@link Aspect}s. */
+@Schema(description = PartAspectsUpdateRequest.DESCRIPTION)
 @Value
 @Builder(toBuilder = true, setterPrefix = "with")
-@JsonDeserialize(builder = PartAspectUpdateRequest.PartAspectUpdateRequestBuilder.class)
+@JsonDeserialize(builder = PartAspectsUpdateRequest.PartAspectsUpdateRequestBuilder.class)
 @SuppressWarnings("PMD.CommentRequired")
-public class PartAspectUpdateRequest {
+public class PartAspectsUpdateRequest {
     public static final String DESCRIPTION = "Describes an update of a part aspect location.";
 
     @NotNull

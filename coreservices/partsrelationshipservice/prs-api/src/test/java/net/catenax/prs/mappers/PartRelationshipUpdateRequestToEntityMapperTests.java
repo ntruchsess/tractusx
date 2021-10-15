@@ -3,7 +3,7 @@ package net.catenax.prs.mappers;
 import net.catenax.prs.entities.PartIdEntityPart;
 import net.catenax.prs.entities.PartRelationshipEntity;
 import net.catenax.prs.entities.PartRelationshipEntityKey;
-import net.catenax.prs.testing.PartUpdateEventMother;
+import net.catenax.prs.testing.UpdateRequestMother;
 import org.junit.jupiter.api.Test;
 
 import java.time.Instant;
@@ -12,15 +12,15 @@ import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class PartRelationshipUpdateEventToEntityMapperTests {
-    PartUpdateEventMother generate = new PartUpdateEventMother();
-    PartRelationshipUpdateEventToEntityMapper sut = new PartRelationshipUpdateEventToEntityMapper();
+public class PartRelationshipUpdateRequestToEntityMapperTests {
+    UpdateRequestMother generate = new UpdateRequestMother();
+    PartRelationshipUpdateRequestToEntityMapper sut = new PartRelationshipUpdateRequestToEntityMapper();
 
 
     @Test
     void toRelationships() {
         //arrange
-        var input = generate.relationshipUpdateEvent();
+        var input = generate.partRelationshipUpdateList();
         var relationshipUpdateId = UUID.randomUUID();
         var eventTimestamp = Instant.now();
         var expectedEntities = input.getRelationships().stream()
