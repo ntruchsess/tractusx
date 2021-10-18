@@ -58,6 +58,8 @@ namespace CatenaX.NetworkServices.Onboarding.Service
             //app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CatenaX.NetworkServices.Onboarding.Service v1"));
 
             app.UseAuthorization();
 
