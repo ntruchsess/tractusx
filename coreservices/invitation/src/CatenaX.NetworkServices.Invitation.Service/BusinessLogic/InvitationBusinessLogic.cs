@@ -7,8 +7,10 @@ using CatenaX.NetworkServices.Invitation.Identity;
 using CatenaX.NetworkServices.Invitation.Identity.Model;
 using CatenaX.NetworkServices.Invitation.Library;
 using CatenaX.NetworkServices.Invitation.Service.DataAccess;
-using CatenaX.NetworkServices.Invitation.Service.Mail;
+using CatenaX.NetworkServices.Mailing.SendMail;
 using CatenaX.NetworkServices.Mockups;
+
+using Microsoft.Extensions.Configuration;
 
 namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
 {
@@ -16,13 +18,14 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
     {
         private readonly IIdentityManager _identityManager;
         private readonly IMailingService _mailingService;
+        private readonly IConfiguration _configuration;
         //private readonly IDataAccess _dataAccess;
 
-        public InvitationBusinessLogic(IIdentityManager identityManager, IMailingService mailingService)
+        public InvitationBusinessLogic(IIdentityManager identityManager, IMailingService mailingService, IConfiguration configuration)
         {
             _identityManager = identityManager;
             _mailingService = mailingService;
-            //_dataAccess = dataAccess;
+            _configuration = configuration;
         }
 
         public async Task ExecuteInvitation(string identifier)
@@ -41,7 +44,7 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
 
             var company = query.Query(InvitationData.OneId);
 
-            var realmName = company.name1;
+            var realmName = company.name1.Replace(' ','-');
 
             var newRealm = new CreateRealm
             {
@@ -69,7 +72,18 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
 
             var password = await _identityManager.CreateUser(realmName, newUser);
 
-            await _mailingService.SendMails(InvitationData.EMail, password, realmName);
+            await _identityManager.AssignRolesToUser(realmName, InvitationData.EMail, "realm-management", new List<string> { "manage-users" });
+
+            await _identityManager.CreateClient(realmName, $"client-{realmName.ToLower()}");
+
+            var mailParameters = new Dictionary<string, string>
+            {
+                { "passwort", password },
+                { "companyName", realmName },
+                { "url", $"{_configuration.GetValue<string>("BasePortalAddress")}/?company={realmName}&user={InvitationData.EMail}&oneId={InvitationData.OneId}"  }
+            };
+
+            await _mailingService.SendMails(InvitationData.EMail, mailParameters, new List<string> { "invite", "password"} );
         }
     }
 
