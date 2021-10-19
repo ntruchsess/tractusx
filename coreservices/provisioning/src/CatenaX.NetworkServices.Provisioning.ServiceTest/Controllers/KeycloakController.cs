@@ -18,6 +18,9 @@ namespace CatenaX.NetworkServices.Provisioning.Service.Controllers
     [Route("api/provisioning")]
     public class KeycloakController : ControllerBase
     {
+        private static string TRIGGERGROUP = "Onboarding";
+        private static string CERTCLIENT = "urn:federation:MicrosoftOnline";
+        private static string CERTATTRIBUTE = "saml.signing.certificate";
         private readonly ILogger<KeycloakController> _logger;
         private readonly KeycloakClient _Client;
         private readonly IKeycloakAccess _KeycloakAccess;
@@ -33,9 +36,9 @@ namespace CatenaX.NetworkServices.Provisioning.Service.Controllers
         {
             try
             {
-                IEnumerable<Group> groups = await _Client.GetGroupHierarchyAsync(realm);
+                IEnumerable<Group> groups = await _Client.GetGroupHierarchyAsync(realm,null,null,TRIGGERGROUP);
                 return groups.Any(group => {
-                    return group.Name == KeycloakAccess.ONBOARDING;
+                    return group.Name == TRIGGERGROUP;
                 });
             }
             catch (Exception e)
@@ -84,7 +87,7 @@ namespace CatenaX.NetworkServices.Provisioning.Service.Controllers
         {
             try
             {
-                var group = await _KeycloakAccess.GetGroup(realm,KeycloakAccess.ONBOARDING);
+                var group = await _KeycloakAccess.GetGroup(realm,TRIGGERGROUP);
                 if (group != null)
                 {
                     await _KeycloakAccess.DeleteGroup(realm,group.Id);
@@ -118,7 +121,21 @@ namespace CatenaX.NetworkServices.Provisioning.Service.Controllers
         {
             try
             {
-                return new ActionResult<IEnumerable<string>>((await _KeycloakAccess.GetOnboardingRealmGroupsAsync()).Select(x => x.Item1.Id));
+                return new ActionResult<IEnumerable<string>>((await _KeycloakAccess.GetOnboardingRealmGroupsAsync(TRIGGERGROUP)).Select(x => x.Item1.Id));
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.ToString());
+                return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+            }
+        }
+        [HttpGet]
+        [Route("realms/{realm}/cert")]
+        public async Task<ActionResult<string>> GetSigningCert(string realm)
+        {
+            try
+            {
+                return new ActionResult<string>(await _KeycloakAccess.GetClientAttributeAsync(realm,CERTCLIENT,CERTATTRIBUTE));
             }
             catch (Exception e)
             {

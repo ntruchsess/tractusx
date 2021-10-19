@@ -5,7 +5,6 @@ namespace CatenaX.NetworkServices.Provisioning.ActiveDirectory
 {
     public class ClientSettings
     {
-        public const string Position = "ActiveDirectory:Client";
         public string Authority { get; set; }
         public string ClientId { get; set; }
         public string ClientSecret { get; set; }

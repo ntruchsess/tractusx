@@ -7,7 +7,6 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Text;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 
 using CatenaX.NetworkServices.Provisioning.ActiveDirectory.Model;
@@ -16,6 +15,7 @@ namespace CatenaX.NetworkServices.Provisioning.ActiveDirectory
 {
     public class Federation : IFederation
     {
+        public const string ConfigPosition = "ActiveDirectory:Federation";
         static readonly HttpClient client = new HttpClient();
         private FederationSettings _Settings;
         private IClientToken _Token;
@@ -25,13 +25,8 @@ namespace CatenaX.NetworkServices.Provisioning.ActiveDirectory
             _Token = clientToken;
         }
 
-        public async Task CreateFederation(string realm)
+        public async Task CreateFederation(IDictionary<string,string> values)
         {
-            var values = new Dictionary<string,string>{
-                { "realm", realm },
-                { "id", _Settings.Id },
-                { "cert", _Settings.Cert }
-            };
             var token = await _Token.GetToken();
             var domainFederation = new SamlOrWsFedExternalDomainFederation {
                 ODataType = replaceValues(_Settings.Request.ODataType,values),

@@ -32,9 +32,9 @@ namespace CatenaX.NetworkServices.Provisioning.Service
                     .ConfigureMailSettings(Configuration.GetSection(UserEmail.ProviderPosition))
                     .ConfigureTemplateSettings(Configuration.GetSection(UserEmail.TemplatePosition))
                     .ConfigureUserEmailSettings(Configuration.GetSection(UserEmail.UserEmailPosition))
-                    .ConfigureKeycloakSettings(Configuration.GetSection(KeycloakSettings.Position))
-                    .ConfigureClientSettings(Configuration.GetSection(ClientSettings.Position))
-                    .ConfigureFederationSettings(Configuration.GetSection(FederationSettings.Position));
+                    .ConfigureKeycloakSettings(Configuration.GetSection(KeycloakAccess.ConfigPosition))
+                    .ConfigureClientSettings(Configuration.GetSection(ClientToken.ConfigPosition))
+                    .ConfigureFederationSettings(Configuration.GetSection(Federation.ConfigPosition));
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {

@@ -10,7 +10,8 @@ namespace CatenaX.NetworkServices.Provisioning.Keycloak
 {
     public class KeycloakAccess:IKeycloakAccess
     {
-        public static readonly string ONBOARDING = "Onboarding";
+        public const string ConfigPosition = "KeyCloak";
+
         readonly KeycloakClient _Client;
         readonly string _AdminRealm;
         public KeycloakAccess(IKeycloakFactory keycloakFactory)
@@ -24,36 +25,51 @@ namespace CatenaX.NetworkServices.Provisioning.Keycloak
         }
         public Task<Group> GetGroup(string realmId, string groupName)
         {
-            return _Client.GetGroupHierarchyAsync(realmId).ContinueWith(taskGroups =>
-                taskGroups.Result.FirstOrDefault( group => group.Name == groupName ));
+            return _Client.GetGroupHierarchyAsync(realmId,null,null,groupName).ContinueWith(taskGroups =>
+                taskGroups.IsCompletedSuccessfully ?
+                    taskGroups.Result.FirstOrDefault( group => group.Name == groupName ) : null);
         }
-        public Task<IEnumerable<(Realm,Group)>> GetOnboardingRealmGroupsAsync()
+        public Task<IEnumerable<(Realm,Group)>> GetOnboardingRealmGroupsAsync(string triggerGroup)
         {
             return GetRealms()
                 .ContinueWith(taskRealms => {
-                    var selectTasks = taskRealms.Result.Select(realm => 
-                        GetGroup(realm.Id,ONBOARDING)
-                            .ContinueWith(taskGroup =>
-                                (realm,taskGroup.Result)
-                            )
-                    );
-                    Task.WhenAny(selectTasks).Wait();
-                    return selectTasks.Select(task =>
-                        task.Result
-                    ).Where(result =>
-                        result.Item2 != null
-                    );
+                    if (taskRealms.IsCompletedSuccessfully) {
+                        var selectTasks = taskRealms.Result.Select(realm =>
+                            GetGroup(realm.Id,triggerGroup)
+                                .ContinueWith(taskGroup =>
+                                    (realm,taskGroup.Result)
+                                )
+                        );
+                        Task.WhenAll(selectTasks).Wait();
+                        return selectTasks.Select(task =>
+                            task.Result
+                        ).Where(result =>
+                            result.Item2 != null
+                        );
+                    } else {
+                        return null;
+                    }
                 });
         }
-
         public Task<IEnumerable<User>> GetUsers(string realmId)
         {
             return _Client.GetUsersAsync(realmId);
         }
-
         public Task<IEnumerable<Realm>> GetRealms()
         {
             return _Client.GetRealmsAsync(_AdminRealm);
+        }
+        public Task<string> GetClientAttributeAsync(string realm, string clientId, string attribute)
+        {
+            return _Client.GetClientsAsync(realm,clientId).ContinueWith(taskClients => {
+                if (taskClients.IsCompletedSuccessfully) {
+                    var client = taskClients.Result.FirstOrDefault(client =>
+                        client.ClientId == clientId);
+                    return (string)(client == null ? null : client.Attributes[attribute]);
+                } else {
+                    return null;
+                }
+            });
         }
     }
 }

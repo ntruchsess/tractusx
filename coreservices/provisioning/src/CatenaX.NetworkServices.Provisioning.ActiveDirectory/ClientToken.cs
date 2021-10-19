@@ -9,6 +9,7 @@ namespace CatenaX.NetworkServices.Provisioning.ActiveDirectory
 {
     public class ClientToken:IClientToken
     {
+        public const string ConfigPosition = "ActiveDirectory:Client";
         string[] scopes = new string[] { "https://graph.microsoft.com/.default" };
         private readonly ClientSettings _Config;
         IConfidentialClientApplication _App;
