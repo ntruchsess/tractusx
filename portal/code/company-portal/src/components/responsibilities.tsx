@@ -85,8 +85,8 @@ export default class Responsibilities extends React.Component {
                   </div>
                   <div className='ml30 mt10 df'>
                  {this.newarray.map(d => {
-                      return ( <div key={d.id} className='bgcda br15 pl10 pr10 pt3 pb3 mr15'> <Icon className='fgblack fs14 bold mr5' iconName='mail' />
-                      {d.eMail} ({d.userRole}) <Icon className='fgblack fs14 bold mr5' iconName='BoxMultiplySolid' onClick={() => this.removeUser(d.id)}/> </div>)
+                      return ( <div key={d.id} className='bgcda br15 pl10 pr10 pt3 pb3 mr15 jcc aic df'> <Icon className='fgblack fs14 bold mr5' iconName='mail' />
+                      <span>{d.eMail} ({d.userRole}) </span> <Icon className='fgblack fs14 bold mr5' iconName='BoxMultiplySolid' onClick={() => this.removeUser(d.id)}/> </div>)
                     })
                     }
                   </div>
