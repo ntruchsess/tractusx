@@ -7,7 +7,7 @@ using CatenaX.NetworkServices.Invitation.Identity;
 using CatenaX.NetworkServices.Invitation.Identity.Model;
 using CatenaX.NetworkServices.Invitation.Library;
 using CatenaX.NetworkServices.Invitation.Service.DataAccess;
-using CatenaX.NetworkServices.Invitation.Service.Mail;
+using CatenaX.NetworkServices.Mailing.SendMail;
 using CatenaX.NetworkServices.Mockups;
 
 namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
