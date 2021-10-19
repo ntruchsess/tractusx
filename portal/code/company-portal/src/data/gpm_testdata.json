@@ -1,0 +1,5988 @@
+[
+  {
+    "oneID": "Partner_00015_Clothing",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Clothing Network GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128136"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Clothing.de",
+        "website": "https://www.Clothing.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456790",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "CLOTHING _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Chieminger Str.",
+        "itinaryInformation": "string",
+        "houseNumber": "17",
+        "houseNumberSupplement": "",
+        "postalCode": "83355",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Grabenst\u00E4tt",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00016_B\u00FClte",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "B\u00FClte GmbH Kunststofferzeugnisse",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128137"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@B\u00FClte.de",
+        "website": "https://www.Buelte.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456791",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "B\u00DCLTE _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Carl-Sonnenschein-Str.",
+        "itinaryInformation": "string",
+        "houseNumber": "22",
+        "houseNumberSupplement": "",
+        "postalCode": "59348",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "L\u00FCdinghausen",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00017_HELLER",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "HELLER LEDER GmbH & Co. KG",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128138"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@HELLER.de",
+        "website": "https://www.HELLER.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456792",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "HELLER _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Hauptstr.",
+        "itinaryInformation": "string",
+        "houseNumber": "1",
+        "houseNumberSupplement": "",
+        "postalCode": "37619",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Hehlen",
+        "district": "",
+        "region": "Niedersachsen",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00018_Willy",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Willy Maisel GmbH World of Textiles",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128139"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Willy.de",
+        "website": "https://www.Willy.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456793",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "WILLY _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "M\u00FCnchberger Str.",
+        "itinaryInformation": "string",
+        "houseNumber": "46",
+        "houseNumberSupplement": "",
+        "postalCode": "95176",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Konradsreuth",
+        "district": "",
+        "region": "Bayern",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00019_Diehl",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Diehl AKO Stiftung & Co. KG",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128140"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Diehl.de",
+        "website": "https://www.Diehl.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456794",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "DIEHL _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Pfannerstr. -",
+        "itinaryInformation": "string",
+        "houseNumber": "83",
+        "houseNumberSupplement": "",
+        "postalCode": "88239",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Wangen im Allg\u00E4u",
+        "district": "",
+        "region": "Baden-W\u00FCrttemberg",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00020_ENDTER",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "ENDTER SinterTechnics GmbH & Co. KG",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128141"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@ENDTER.de",
+        "website": "https://www.ENDTER.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456795",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "ENDTER _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Harry-Endter-Str.",
+        "itinaryInformation": "string",
+        "houseNumber": "1",
+        "houseNumberSupplement": "",
+        "postalCode": "54570",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Densborn",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00021_Autolackierung",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Autolackierung HEINZ",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128142"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Autolackierung.de",
+        "website": "https://www.Autolackierung.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456796",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "AUTOLACKIERUNG _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Perl\u00E4ckerstr.",
+        "itinaryInformation": "string",
+        "houseNumber": "8",
+        "houseNumberSupplement": "",
+        "postalCode": "76767",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Hagenbach",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00022_Nostalgic-Art",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Nostalgic-Art Merchandising GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128143"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Nostalgic-Art.de",
+        "website": "https://www.Nostalgic-Art.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456797",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "NOSTALGIC-ART _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Am Borsigturm",
+        "itinaryInformation": "string",
+        "houseNumber": "156",
+        "houseNumberSupplement": "",
+        "postalCode": "13507",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Berlin",
+        "district": "",
+        "region": "Berlin",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00023_Von",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Von Roll Deutschland GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128144"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Von.de",
+        "website": "https://www.Von.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456798",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "VON _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Theodor-Sachs-Str.",
+        "itinaryInformation": "string",
+        "houseNumber": "1",
+        "houseNumberSupplement": "",
+        "postalCode": "86199",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Augsburg",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00024_LIDER",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "LIDER GmbH Transportschutz",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128145"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@LIDER.de",
+        "website": "https://www.LIDER.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456799",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "LIDER _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "K\u00E4the-Kollwitz-Str.",
+        "itinaryInformation": "string",
+        "houseNumber": "26",
+        "houseNumberSupplement": "",
+        "postalCode": "76227",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Karlsruhe",
+        "district": "",
+        "region": "Baden-W\u00FCrttemberg",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00025_Weppler",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Weppler Filter GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128146"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Weppler.de",
+        "website": "https://www.Weppler.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456800",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "WEPPLER _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Zimmersm\u00FChlenweg",
+        "itinaryInformation": "string",
+        "houseNumber": "61",
+        "houseNumberSupplement": "",
+        "postalCode": "61440",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Oberursel/Ts.",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00026_WEHN",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "WEHN FAHRZEUGTECHNIK GMBH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128147"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@WEHN.de",
+        "website": "https://www.WEHN.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456801",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "WEHN _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "OBERHAUSENER STR.",
+        "itinaryInformation": "string",
+        "houseNumber": "5",
+        "houseNumberSupplement": "",
+        "postalCode": "57234",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "WILNSDORF",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00027_FEUER",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "FEUER powertrain GmbH&Co.KG",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128148"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@FEUER.de",
+        "website": "https://www.FEUER.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456802",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "FEUER _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Rothenburgstr.",
+        "itinaryInformation": "string",
+        "houseNumber": "27",
+        "houseNumberSupplement": "",
+        "postalCode": "99734",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Nordhausen",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00028_Hecht",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Hecht GmbH Metallverarbeitung",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128149"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Hecht.de",
+        "website": "https://www.Hecht.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456803",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "HECHT _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Eikestr.",
+        "itinaryInformation": "string",
+        "houseNumber": "1",
+        "houseNumberSupplement": "A",
+        "postalCode": "37574",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Einbeck (OT Kreiensen)",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00029_Gentas",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Gentas GmbH Industrie- u. Fahrzeugbedarf",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128150"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Gentas.de",
+        "website": "https://www.Gentas.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456804",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "GENTAS _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Eulenthaler Str.",
+        "itinaryInformation": "string",
+        "houseNumber": "44",
+        "houseNumberSupplement": "",
+        "postalCode": "51491",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Overath",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00030_Kerspe",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Kerspe GmbH + Co. KG",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128151"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Kerspe.de",
+        "website": "https://www.Kerspe.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456805",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "KERSPE _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Im alten Ohl",
+        "itinaryInformation": "string",
+        "houseNumber": "13",
+        "houseNumberSupplement": "",
+        "postalCode": "51688",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Wipperf\u00FCrth",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00031_ATT",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "ATT AutomotiveThermoTech GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128152"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@ATT.de",
+        "website": "https://www.ATT.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456806",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "ATT _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Am Bolzenbacher Kreuz",
+        "itinaryInformation": "string",
+        "houseNumber": "12",
+        "houseNumberSupplement": "",
+        "postalCode": "51789",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Lindlar",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00032_B&K",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "B&K Kabeltechnik GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128153"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@B&K.de",
+        "website": "https://www.B&K.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456807",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "B_K _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Gottlieb-Daimler-Str.",
+        "itinaryInformation": "string",
+        "houseNumber": "3",
+        "houseNumberSupplement": "",
+        "postalCode": "71106",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Magstadt",
+        "district": "",
+        "region": "Baden-W\u00FCrttemberg",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00033_Overath",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Overath EPP GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128154"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Overath.de",
+        "website": "https://www.Overath.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456808",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "OVERATH _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Lunapark",
+        "itinaryInformation": "string",
+        "houseNumber": "2",
+        "houseNumberSupplement": "",
+        "postalCode": "39646",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Oebisfelde",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00034_Schwarz-Chemie",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Schwarz-Chemie",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128155"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Schwarz-Chemie.de",
+        "website": "https://www.Schwarz-Chemie.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456809",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "SCHWARZ-CHEMIE_1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Alte Heuchstetter Str.",
+        "itinaryInformation": "string",
+        "houseNumber": "26",
+        "houseNumberSupplement": "",
+        "postalCode": "89547",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Gussenstadt",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00035_Swoboda",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Swoboda KG",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128156"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Swoboda.de",
+        "website": "https://www.Swoboda.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456810",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "SWOBODA _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Max-Swoboda-Stra\u00DFe",
+        "itinaryInformation": "string",
+        "houseNumber": "1",
+        "houseNumberSupplement": "",
+        "postalCode": "87487",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Wiggensbach",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00036_Kunststoffwerk",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Kunststoffwerk Katzbach GmbH & Co. KG",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128157"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Kunststoffwerk.de",
+        "website": "https://www.Kunststoffwerk.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456811",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "KUNSTSTOFFWERK _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Ziegeleiweg",
+        "itinaryInformation": "string",
+        "houseNumber": "2",
+        "houseNumberSupplement": "",
+        "postalCode": "93413",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Cham",
+        "district": "",
+        "region": "Bayern",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00037_Becker",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Becker Kunststofftechnik GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128158"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Becker.de",
+        "website": "https://www.Becker.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456812",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "BECKER _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Bach\u00E4cker",
+        "itinaryInformation": "string",
+        "houseNumber": "1",
+        "houseNumberSupplement": "",
+        "postalCode": "88367",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Hohentengen",
+        "district": "",
+        "region": "Baden-W\u00FCrttemberg",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00038_Wilde",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Wilde Cosmetics GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128159"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Wilde.de",
+        "website": "https://www.Wilde.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456813",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "WILDE _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Rheingaustr.  A",
+        "itinaryInformation": "string",
+        "houseNumber": "1",
+        "houseNumberSupplement": "",
+        "postalCode": "65375",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Oestrich-Winkel",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00039_Uebler",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Uebler GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128160"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Uebler.de",
+        "website": "https://www.Uebler.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456814",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "UEBLER _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Daimlerstr.",
+        "itinaryInformation": "string",
+        "houseNumber": "22",
+        "houseNumberSupplement": "B",
+        "postalCode": "91301",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Forchheim",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00040_HEUTE",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "HEUTE + COMP.",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128161"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@HEUTE.de",
+        "website": "https://www.HEUTE.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456815",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "HEUTE _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Kaiserstr. -",
+        "itinaryInformation": "string",
+        "houseNumber": "188",
+        "houseNumberSupplement": "",
+        "postalCode": "42477",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "RADEVORMWALD",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00041_Ehmann",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Ehmann & Partner GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128162"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Ehmann.de",
+        "website": "https://www.Ehmann.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456816",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "EHMANN _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Bernbrunner Str.",
+        "itinaryInformation": "string",
+        "houseNumber": "54",
+        "houseNumberSupplement": "",
+        "postalCode": "74831",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Gundelsheim",
+        "district": "",
+        "region": "Baden-W\u00FCrttemberg",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00042_ART",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "ART tuning gmbh",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128163"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@ART.de",
+        "website": "https://www.ART.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456817",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "ART _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Am Keuper",
+        "itinaryInformation": "string",
+        "houseNumber": "3",
+        "houseNumberSupplement": "",
+        "postalCode": "90475",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "N\u00FCrnberg",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00043_Martina",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Martina Scheel ecos office center stuttgart",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128164"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Martina.de",
+        "website": "https://www.Martina.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456818",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "MARTINA _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Stockholmer Platz",
+        "itinaryInformation": "string",
+        "houseNumber": "1",
+        "houseNumberSupplement": "",
+        "postalCode": "70173",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Stuttgart",
+        "district": "",
+        "region": "Baden-W\u00FCrttemberg",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00044_Gie\u00DFerei",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Gie\u00DFerei HEUNISCH GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128165"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Gie\u00DFerei.de",
+        "website": "https://www.Giesserei.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456819",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "GIE\u00DFEREI _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Westheimer Str.",
+        "itinaryInformation": "string",
+        "houseNumber": "4",
+        "houseNumberSupplement": "",
+        "postalCode": "91438",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Bad Windsheim",
+        "district": "",
+        "region": "Bayern",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00045_Schleicher",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Schleicher Fahrzeugteile GmbH & Co. KG",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128166"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Schleicher.de",
+        "website": "https://www.Schleicher.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456820",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "SCHLEICHER _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Boschetsrieder Str.",
+        "itinaryInformation": "string",
+        "houseNumber": "125",
+        "houseNumberSupplement": "",
+        "postalCode": "81379",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "M\u00FCnchen",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00046_Ashimori",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Ashimori Europe GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128167"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Ashimori.de",
+        "website": "https://www.Ashimori.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456821",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "ASHIMORI _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Amundsenstr.",
+        "itinaryInformation": "string",
+        "houseNumber": "2",
+        "houseNumberSupplement": "",
+        "postalCode": "71063",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Sindelfingen",
+        "district": "",
+        "region": "Baden-W\u00FCrttemberg",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00047_HHW",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "HHW Hans Hilpert Werbemittel HGmbH & Co. KG",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128168"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@HHW.de",
+        "website": "https://www.HHW.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456822",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "HHW _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Borsteler Chaussee  Haus",
+        "itinaryInformation": "string",
+        "houseNumber": "4",
+        "houseNumberSupplement": "",
+        "postalCode": "22456",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Hamburg",
+        "district": "",
+        "region": "Hamburg",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00048_Schloss",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Schloss zu Hopferau BERA GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128169"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Schloss.de",
+        "website": "https://www.Schloss.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456823",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "SCHLOSS _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Schlo\u00DFstr. -",
+        "itinaryInformation": "string",
+        "houseNumber": "11",
+        "houseNumberSupplement": "",
+        "postalCode": "87659",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Hopferau",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00049_PlastSolutions",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "PlastSolutions GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128170"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@PlastSolutions.de",
+        "website": "https://www.PlastSolutions.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456824",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "PLASTSOLUTIONS _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Julius-Hatry-Str.",
+        "itinaryInformation": "string",
+        "houseNumber": "1",
+        "houseNumberSupplement": "",
+        "postalCode": "68163",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Mannheim",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00050_Karl",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Karl Henrich Stahl- u. Rohrleitungsbau GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128171"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Karl.de",
+        "website": "https://www.Karl.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456825",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "KARL _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Schafscheuerstr.",
+        "itinaryInformation": "string",
+        "houseNumber": "12",
+        "houseNumberSupplement": "",
+        "postalCode": "68307",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Mannheim",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00051_Siedlaczek",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Siedlaczek Technologies GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128172"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Siedlaczek.de",
+        "website": "https://www.Siedlaczek.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456826",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "SIEDLACZEK _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Am Leitzelbach",
+        "itinaryInformation": "string",
+        "houseNumber": "34",
+        "houseNumberSupplement": "",
+        "postalCode": "74889",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Sinsheim",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00052_ZINQ",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "ZINQ Hagen GmbH & Co. KG",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128173"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@ZINQ.de",
+        "website": "https://www.ZINQ.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456827",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "ZINQ _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "An der H\u00FCtte -",
+        "itinaryInformation": "string",
+        "houseNumber": "31",
+        "houseNumberSupplement": "",
+        "postalCode": "58135",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Hagen",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00053_Summerer",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Summerer Technologies GmbH & Co. KG",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128174"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Summerer.de",
+        "website": "https://www.Summerer.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456828",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "SUMMERER _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Eschengrund",
+        "itinaryInformation": "string",
+        "houseNumber": "1",
+        "houseNumberSupplement": "",
+        "postalCode": "83135",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Schechen",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00054_ABC",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "ABC Kunststoff- u. Extrusionstechnik GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128175"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@ABC.de",
+        "website": "https://www.ABC.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456829",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "ABC _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Lindenstr.",
+        "itinaryInformation": "string",
+        "houseNumber": "125",
+        "houseNumberSupplement": "",
+        "postalCode": "53721",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Siegburg",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00055_Sommer",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Sommer GmbH SCHILDERFABRIK",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128176"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Sommer.de",
+        "website": "https://www.Sommer.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456830",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "SOMMER _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Steinbeisstr.",
+        "itinaryInformation": "string",
+        "houseNumber": "7",
+        "houseNumberSupplement": "D",
+        "postalCode": "71691",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Freiberg",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00056_Micro",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Micro Mobility Systems D GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128177"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Micro.de",
+        "website": "https://www.Micro.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456831",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "MICRO _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Fuhrmannstr.",
+        "itinaryInformation": "string",
+        "houseNumber": "8",
+        "houseNumberSupplement": "",
+        "postalCode": "72351",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Geislingen",
+        "district": "",
+        "region": "Baden-W\u00FCrttemberg",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00057_FKT",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "FKT Formenbau und Kunststofftechnik GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128178"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@FKT.de",
+        "website": "https://www.FKT.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456832",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "FKT _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Jahnstra\u00DFe",
+        "itinaryInformation": "string",
+        "houseNumber": "4",
+        "houseNumberSupplement": "",
+        "postalCode": "7819",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Triptis",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00058_ZENDER",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "ZENDER Automobile GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128179"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@ZENDER.de",
+        "website": "https://www.ZENDER.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456833",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "ZENDER _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Saarbr\u00FCcker Str.",
+        "itinaryInformation": "string",
+        "houseNumber": "77",
+        "houseNumberSupplement": "",
+        "postalCode": "66564",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Ottweiler",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00059_Hans",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Hans K\u00FCppers Bosch-dienst",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128180"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Hans.de",
+        "website": "https://www.Hans.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456834",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "HANS _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Robert-Bosch-Str.",
+        "itinaryInformation": "string",
+        "houseNumber": "7",
+        "houseNumberSupplement": "",
+        "postalCode": "52441",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Linnich",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00060_KRAUSHAAR",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "KRAUSHAAR Metallverarbeitung GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128181"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@KRAUSHAAR.de",
+        "website": "https://www.KRAUSHAAR.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456835",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "KRAUSHAAR _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Dieselstr.",
+        "itinaryInformation": "string",
+        "houseNumber": "2",
+        "houseNumberSupplement": "E",
+        "postalCode": "74632",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Neuenstein",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00061_THEODOR",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "THEODOR BRANDT GMBH BREMS- U KUPPLUNGSBELAEGE",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128182"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@THEODOR.de",
+        "website": "https://www.THEODOR.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456836",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "THEODOR _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "FALKENBERGER STR.",
+        "itinaryInformation": "string",
+        "houseNumber": "31",
+        "houseNumberSupplement": "",
+        "postalCode": "53947",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "NETTERSHEIM",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00062_Christian",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Christian Locker GmbH Korbwaren - Rattanm\u00F6bel",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128183"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Christian.de",
+        "website": "https://www.Christian.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456837",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "CHRISTIAN _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Wallweg",
+        "itinaryInformation": "string",
+        "houseNumber": "34",
+        "houseNumberSupplement": "",
+        "postalCode": "96328",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "K\u00FCps",
+        "district": "",
+        "region": "Bayern",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00063_Robbe",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Robbe & Berking GmbH & Co.KG Silbermanufaktur seit 1874",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128184"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Robbe.de",
+        "website": "https://www.Robbe.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456838",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "ROBBE _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Zur Bleiche",
+        "itinaryInformation": "string",
+        "houseNumber": "44",
+        "houseNumberSupplement": "F",
+        "postalCode": "24941",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Flensburg",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00064_TESONA",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "TESONA GmbH & Co.KG",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128185"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@TESONA.de",
+        "website": "https://www.TESONA.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456839",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "TESONA _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Am K\u00FCnkelhof",
+        "itinaryInformation": "string",
+        "houseNumber": "4",
+        "houseNumberSupplement": "",
+        "postalCode": "99820",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "H\u00F6rselberg/Hainich",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00065_Hanomag",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Hanomag H\u00E4rtecenter GmbH nur Buchhaltung",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128186"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Hanomag.de",
+        "website": "https://www.Hanomag.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456840",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "HANOMAG _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Merkurstr.",
+        "itinaryInformation": "string",
+        "houseNumber": "4",
+        "houseNumberSupplement": "",
+        "postalCode": "30419",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Hannover",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00066_POLIFIBRA",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "POLIFIBRA FOLIEN HANDELS- GESELLSCHAFT MBH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128187"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@POLIFIBRA.de",
+        "website": "https://www.POLIFIBRA.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456841",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "POLIFIBRA _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "BRUNNENSTR.",
+        "itinaryInformation": "string",
+        "houseNumber": "4",
+        "houseNumberSupplement": "",
+        "postalCode": "65551",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "LIMBURG",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00067_Georg",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Georg Franz & Brose GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128188"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Georg.de",
+        "website": "https://www.Georg.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456842",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "GEORG _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "K\u00F6penicker Str. a",
+        "itinaryInformation": "string",
+        "houseNumber": "7",
+        "houseNumberSupplement": "",
+        "postalCode": "10997",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Berlin",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00068_BorgWarner",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "BorgWarner Drivetrain Engineering GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128189"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@BorgWarner.de",
+        "website": "https://www.BorgWarner.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456843",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "BORGWARNER _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Hockenheimer Str.",
+        "itinaryInformation": "string",
+        "houseNumber": "167",
+        "houseNumberSupplement": "",
+        "postalCode": "68775",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Ketsch",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00069_KWO",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "KWO Kunststoffteile GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128190"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@KWO.de",
+        "website": "https://www.KWO.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456844",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "KWO _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Talweg -",
+        "itinaryInformation": "string",
+        "houseNumber": "24",
+        "houseNumberSupplement": "",
+        "postalCode": "74254",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Offenau",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00070_Seeberger",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Seeberger GmbH & Co. KG",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128191"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Seeberger.de",
+        "website": "https://www.Seeberger.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456845",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "SEEBERGER _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Langenst\u00FCck",
+        "itinaryInformation": "string",
+        "houseNumber": "5",
+        "houseNumberSupplement": "",
+        "postalCode": "58579",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Schalksm\u00FChle",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00071_flip-flop",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "flip-flop GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128192"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@flip-flop.de",
+        "website": "https://www.flip-flop.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456846",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "FLIP-FLOP _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Neuffer am Park",
+        "itinaryInformation": "string",
+        "houseNumber": "4",
+        "houseNumberSupplement": "",
+        "postalCode": "66957",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Pirmasens",
+        "district": "",
+        "region": "Rheinland-Pfalz",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00072_VITO",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "VITO Irmen GmbH & Co. KG",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128193"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@VITO.de",
+        "website": "https://www.VITO.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456847",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "VITO _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Mittelstr. -",
+        "itinaryInformation": "string",
+        "houseNumber": "80",
+        "houseNumberSupplement": "",
+        "postalCode": "53424",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Remagen",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00073_LPG",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "LPG mbH Lautsprecher Produkt.-Ges.mbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128194"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@LPG.de",
+        "website": "https://www.LPG.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456848",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "LPG _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Pfaffenweg",
+        "itinaryInformation": "string",
+        "houseNumber": "31",
+        "houseNumberSupplement": "",
+        "postalCode": "89231",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Neu-Ulm",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00074_Thierbach",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Thierbach GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128195"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Thierbach.de",
+        "website": "https://www.Thierbach.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456849",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "THIERBACH _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Criesbacher Str.",
+        "itinaryInformation": "string",
+        "houseNumber": "33",
+        "houseNumberSupplement": "",
+        "postalCode": "74676",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Niedernhall",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00075_Sch\u00F6nemann",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Sch\u00F6nemann Systeme GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128196"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Sch\u00F6nemann.de",
+        "website": "https://www.Sch\u00F6nemann.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456850",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "SCH\u00D6NEMANN _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Spergauer Str.  -",
+        "itinaryInformation": "string",
+        "houseNumber": "66",
+        "houseNumberSupplement": "",
+        "postalCode": "6237",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Leuna",
+        "district": "",
+        "region": "Sachsen-Anhalt",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00076_BRUDER",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "BRUDER Spielwaren GmbH + Co. KG",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128197"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@BRUDER.de",
+        "website": "https://www.BRUDER.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456851",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "BRUDER _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Bernbacher Strasse",
+        "itinaryInformation": "string",
+        "houseNumber": "66",
+        "houseNumberSupplement": "",
+        "postalCode": "90768",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Fuerth",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00077_SES-STERLING",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "SES-STERLING GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128198"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@SES-STERLING.de",
+        "website": "https://www.SES-STERLING.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456852",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "SES-STERLING _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Alte Str.",
+        "itinaryInformation": "string",
+        "houseNumber": "22",
+        "houseNumberSupplement": "",
+        "postalCode": "79576",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Weil am Rhein",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00078_HERZOG",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "HERZOG GMBH + CO. KG PLANEN- + ZELTE-FABRIK",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128199"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@HERZOG.de",
+        "website": "https://www.HERZOG.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456853",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "HERZOG _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "MAX-EYTH-STR.",
+        "itinaryInformation": "string",
+        "houseNumber": "4",
+        "houseNumberSupplement": "",
+        "postalCode": "74366",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "KIRCHHEIM",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00079_Song",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Song Chuan Precision Europe GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128200"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Song.de",
+        "website": "https://www.Song.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456854",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "SONG _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Wilhelm-Mangels-Str.",
+        "itinaryInformation": "string",
+        "houseNumber": "6",
+        "houseNumberSupplement": "",
+        "postalCode": "56410",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Montabaur",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00080_G\u00E4rtner",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "G\u00E4rtner & Lang GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128201"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@G\u00E4rtner.de",
+        "website": "https://www.Gaertner.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456855",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "G\u00C4RTNER _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Sch\u00FCtzenweg",
+        "itinaryInformation": "string",
+        "houseNumber": "6",
+        "houseNumberSupplement": "",
+        "postalCode": "36205",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Sontra",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00081_G\u00FCnther",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "G\u00FCnther Beck Techn. Kunststoffteile",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128202"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@G\u00FCnther.de",
+        "website": "https://www.G\u00FCnther.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456856",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "G\u00DCNTHER _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Robert-Bosch-Str.",
+        "itinaryInformation": "string",
+        "houseNumber": "15",
+        "houseNumberSupplement": "",
+        "postalCode": "71106",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Magstadt",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00082_Stober",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Stober Medien GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128203"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Stober.de",
+        "website": "https://www.Stober.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456857",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "STOBER _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Industriestr.",
+        "itinaryInformation": "string",
+        "houseNumber": "12",
+        "houseNumberSupplement": "",
+        "postalCode": "76344",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Eggenstein",
+        "district": "",
+        "region": "Baden-W\u00FCrttemberg",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00083_GT-Marketing",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "GT-Marketing GmbH Thomas Guth",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128204"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@GT-Marketing.de",
+        "website": "https://www.GT-Marketing.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456858",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "GT-MARKETING _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Tennenloher Str.",
+        "itinaryInformation": "string",
+        "houseNumber": "89",
+        "houseNumberSupplement": "",
+        "postalCode": "90425",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "N\u00FCrnberg",
+        "district": "",
+        "region": "Bayern",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00084_Otto",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Otto Beh GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128205"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Otto.de",
+        "website": "https://www.Otto.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456859",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "OTTO _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Am Kronenhof",
+        "itinaryInformation": "string",
+        "houseNumber": "10",
+        "houseNumberSupplement": "",
+        "postalCode": "73728",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Esslingen",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00085_Gebr.",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Gebr. Hilgenberg GmbH & Co. KG",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128206"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Gebr..de",
+        "website": "https://www.Gebr..de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456860",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "GEBR. _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Adlerstr.",
+        "itinaryInformation": "string",
+        "houseNumber": "6",
+        "houseNumberSupplement": "",
+        "postalCode": "45307",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Essen",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00086_WVL",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "WVL Werkzeug- &Vorrichtungsbau Lichtenstein GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128207"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@WVL.de",
+        "website": "https://www.WVL.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456861",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "WVL _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Buchenstr.",
+        "itinaryInformation": "string",
+        "houseNumber": "15",
+        "houseNumberSupplement": "",
+        "postalCode": "9356",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "St. Egidien",
+        "district": "",
+        "region": "Sachsen",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00087_Bric`s",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Bric`s Handelsgesellschaft mbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128208"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Bric`s.de",
+        "website": "https://www.Bric`s.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456862",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "BRIC`S _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Martin-Luther-Platz",
+        "itinaryInformation": "string",
+        "houseNumber": "32",
+        "houseNumberSupplement": "",
+        "postalCode": "40212",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "D\u00FCsseldorf",
+        "district": "",
+        "region": "Nordrhein-Westfalen",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00088_Pewag",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Pewag Deutschland GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128209"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Pewag.de",
+        "website": "https://www.Pewag.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456863",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "PEWAG _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Otto-Brenner-Str.",
+        "itinaryInformation": "string",
+        "houseNumber": "4",
+        "houseNumberSupplement": "",
+        "postalCode": "59425",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Unna",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00089_Herpa",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Herpa Miniaturmodelle GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128210"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Herpa.de",
+        "website": "https://www.Herpa.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456864",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "HERPA _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Leonrodstr.",
+        "itinaryInformation": "string",
+        "houseNumber": "66",
+        "houseNumberSupplement": "",
+        "postalCode": "90599",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Dietenhofen",
+        "district": "",
+        "region": "Bayern",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00090_MBM",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "MBM Maschinen- und Metallbau GmbH & Co. KG",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128211"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@MBM.de",
+        "website": "https://www.MBM.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456865",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "MBM _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Am Gerth-Turm",
+        "itinaryInformation": "string",
+        "houseNumber": "44",
+        "houseNumberSupplement": "",
+        "postalCode": "9356",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "St. Egidien",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00091_Laser-",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Laser- und Medizin- Technologie GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128212"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Laser-.de",
+        "website": "https://www.Laser-.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456866",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "LASER- _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Fabeckstr.",
+        "itinaryInformation": "string",
+        "houseNumber": "85",
+        "houseNumberSupplement": "",
+        "postalCode": "14195",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Berlin",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00092_Karl",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Karl Josef Schmied Lederwarencreation GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128213"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Karl.de",
+        "website": "https://www.Karl.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456867",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "KARL _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Marienstr.  A",
+        "itinaryInformation": "string",
+        "houseNumber": "3",
+        "houseNumberSupplement": "",
+        "postalCode": "64807",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Dieburg",
+        "district": "",
+        "region": "Hessen",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00093_Kathrein",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Kathrein SE",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128214"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Kathrein.de",
+        "website": "https://www.Kathrein.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456868",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "KATHREIN _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Anton-Kathrein-Str.",
+        "itinaryInformation": "string",
+        "houseNumber": "5",
+        "houseNumberSupplement": "",
+        "postalCode": "83022",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Rosenheim",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00094_ICT",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "ICT SUEDWERK GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128215"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@ICT.de",
+        "website": "https://www.ICT.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456869",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "ICT _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Bajuwarenring a",
+        "itinaryInformation": "string",
+        "houseNumber": "55",
+        "houseNumberSupplement": "",
+        "postalCode": "82041",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Oberhaching",
+        "district": "",
+        "region": "Bayern",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00095_Stopfix-Bremse",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Stopfix-Bremse Schr\u00F6ter & Co. GmbH",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128216"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@Stopfix-Bremse.de",
+        "website": "https://www.Stopfix-Bremse.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456870",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "STOPFIX-BREMSE _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "Waldkraiburger Str.",
+        "itinaryInformation": "string",
+        "houseNumber": "7",
+        "houseNumberSupplement": "",
+        "postalCode": "82538",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Geretsried",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00096_SICO-SINGE",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "SICO-SINGE GMBH & CO KG KUNSTSTOFFVERARBEITUNG",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128217"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@SICO-SINGE.de",
+        "website": "https://www.SICO-SINGE.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "49",
+            "number": "123456871",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "SICO-SINGE _1",
+        "language": "DE",
+        "addressType": "PHYSICAL_ADDRESS",
+        "coName": "",
+        "street": "INDUSTRIESTRASSE",
+        "itinaryInformation": "string",
+        "houseNumber": "12",
+        "houseNumberSupplement": "",
+        "postalCode": "35781",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "WEILBURG",
+        "district": "",
+        "region": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        }
+      }
+    ]
+  }
+]
