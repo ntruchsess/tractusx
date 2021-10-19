@@ -20,16 +20,13 @@ namespace CatenaX.NetworkServices.Mailing.SendMail
             _sendMail = sendMail;
         }
 
-        public async Task SendMails(string eMail, string password, string companyName)
+        public async Task SendMails(string eMail, Dictionary<string, string> parameters, List<string> templates)
         {
-            var url = $"/{companyName}";
-            var inviteParams = new Dictionary<string, string> { { "companyname", companyName } };
-            var inviteMail = _templateManager.ApplyTemplate("invite", inviteParams);
-            await _sendMail.Send("Notifications@catena-x.net", eMail, inviteMail.Subject, inviteMail.Body);
-
-            var pwParams = new Dictionary<string, string> { { "password", password } };
-            var pwMail = _templateManager.ApplyTemplate("password", pwParams);
-            await _sendMail.Send("Notifications@catena-x.net", eMail, pwMail.Subject, pwMail.Body);
+            foreach(var temp in templates)
+            {
+                var inviteMail = _templateManager.ApplyTemplate(temp, parameters);
+                await _sendMail.Send("Notifications@catena-x.net", eMail, inviteMail.Subject, inviteMail.Body);
+            }
         }
     }
 }

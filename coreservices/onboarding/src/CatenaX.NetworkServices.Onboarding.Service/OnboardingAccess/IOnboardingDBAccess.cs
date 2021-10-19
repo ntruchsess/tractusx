@@ -13,7 +13,6 @@ namespace CatenaX.NetworkServices.Onboarding.Service.OnboardingAccess
         Task SetCompanyRoles(CompanyToRoles rolesToSet);
         Task SignConsent(SignConsentRequest signedConsent);
         Task<IEnumerable<SignedConsent>> SignedConsentsByCompanyId(string companyId);
-
         Task SetIdp(SetIdp idpToSet);
     }
 }

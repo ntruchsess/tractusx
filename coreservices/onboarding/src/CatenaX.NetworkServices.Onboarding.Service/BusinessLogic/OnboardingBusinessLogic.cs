@@ -43,7 +43,15 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
                 };
 
                 var password = await manager.CreateUser(realm, newUser);
-                await _mailingService.SendMails(user.eMail, password, realm);
+
+
+                var mailParameters = new Dictionary<string, string>
+            {
+                { "passwort", password },
+                { "companyName", realm }
+            };
+
+                await _mailingService.SendMails(user.eMail, mailParameters, new List<string> { "invite", "password" });
             }
         }
 
