@@ -1,29 +1,19 @@
 import Keycloak from "keycloak-js";
 
-/*
-function getQueryParams(qs) {
-  qs = qs.split('+').join(' ');
+//TODO: go to company selection if no url parameter for company is specified
+const searchParams = new URLSearchParams(window.location.search);
+const realm = searchParams.get('company') || 'microsoft';
+const user = searchParams.get('user') || '';
 
-  var params = {},
-      tokens,
-      re = /[?&]?([^=]+)=([^&]*)/g;
-
-  while (tokens = re.exec(qs)) {
-      params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
-  }
-
-  return params;
-}
 const _kc = new Keycloak({
-  "realm": getQueryParams(window.location.search).company,
-  "auth-server-url": "http://20.79.210.70:8080/auth",
+  "url": "http://20.79.210.70:8080/auth",
+  "realm": realm,
+  "clientId": "onboard",
   "ssl-required": "external",
-  "resource": "onboard",
   "public-client": true
 });
-*/
 
-const _kc = new Keycloak('/keycloak.json');
+//const _kc = new Keycloak('/keycloak.json');
 
 /**
  * Initializes Keycloak instance and calls the provided callback function if successfully authenticated.
