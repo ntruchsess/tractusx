@@ -1,13 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using CatenaX.NetworkServices.Mailing.Template;
+
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-using CatenaX.NetworkServices.Mailing.SendMail;
-using CatenaX.NetworkServices.Mailing.Template;
 
-namespace CatenaX.NetworkServices.Invitation.Service.Mail
+namespace CatenaX.NetworkServices.Mailing.SendMail
 {
     public class MailingService : IMailingService
     {
@@ -22,6 +22,7 @@ namespace CatenaX.NetworkServices.Invitation.Service.Mail
 
         public async Task SendMails(string eMail, string password, string companyName)
         {
+            var url = $"/{companyName}";
             var inviteParams = new Dictionary<string, string> { { "companyname", companyName } };
             var inviteMail = _templateManager.ApplyTemplate("invite", inviteParams);
             await _sendMail.Send("Notifications@catena-x.net", eMail, inviteMail.Subject, inviteMail.Body);
@@ -29,7 +30,6 @@ namespace CatenaX.NetworkServices.Invitation.Service.Mail
             var pwParams = new Dictionary<string, string> { { "password", password } };
             var pwMail = _templateManager.ApplyTemplate("password", pwParams);
             await _sendMail.Send("Notifications@catena-x.net", eMail, pwMail.Subject, pwMail.Body);
-
         }
     }
 }

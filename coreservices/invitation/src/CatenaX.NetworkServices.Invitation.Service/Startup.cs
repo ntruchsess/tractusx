@@ -8,7 +8,6 @@ using CatenaX.NetworkServices.Mailing.Template;
 using CatenaX.NetworkServices.Invitation.Identity;
 using CatenaX.NetworkServices.Invitation.Identity.Identity;
 using CatenaX.NetworkServices.Invitation.Service.BusinessLogic;
-using CatenaX.NetworkServices.Invitation.Service.Mail;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;

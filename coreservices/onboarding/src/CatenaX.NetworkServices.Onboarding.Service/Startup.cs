@@ -1,3 +1,5 @@
+using CatenaX.NetworkServices.Mailing.SendMail;
+using CatenaX.NetworkServices.Mailing.Template;
 using CatenaX.NetworkServices.Onboarding.Service.BusinessLogic;
 using CatenaX.NetworkServices.Onboarding.Service.OnboardingAccess;
 
@@ -45,6 +47,11 @@ namespace CatenaX.NetworkServices.Onboarding.Service
             services.AddTransient<IOnboardingBusinessLogic, OnboardingBusinessLogic>();
             services.AddTransient<IOnboardingDBAccess, OnboardingDBAccess>();
             services.AddTransient<IDbConnection>(conn => new NpgsqlConnection(Configuration.GetValue<string>("PostgresConnectionString")));
+            services.AddTransient<IMailingService, MailingService>();
+            services.AddTransient<ISendMail, SendMail>()
+            .AddTransient<ITemplateManager, TemplateManager>()
+            .ConfigureTemplateSettings(Configuration.GetSection(TemplateSettings.Position))
+            .ConfigureMailSettings(Configuration.GetSection(MailSettings.Position));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

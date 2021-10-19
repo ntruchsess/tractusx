@@ -2,6 +2,7 @@
 using CatenaX.NetworkServices.Invitation.Identity;
 using CatenaX.NetworkServices.Invitation.Identity.Identity;
 using CatenaX.NetworkServices.Invitation.Identity.Model;
+using CatenaX.NetworkServices.Mailing.SendMail;
 using CatenaX.NetworkServices.Mockups;
 using CatenaX.NetworkServices.Onboarding.Service.Model;
 using CatenaX.NetworkServices.Onboarding.Service.OnboardingAccess;
@@ -20,11 +21,13 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
     {
         private readonly IConfiguration _configuration;
         private readonly IOnboardingDBAccess _dbAccess;
+        private readonly IMailingService _mailingService;
 
-        public OnboardingBusinessLogic(IConfiguration configuration, IOnboardingDBAccess onboardingDBAccess)
+        public OnboardingBusinessLogic(IConfiguration configuration, IOnboardingDBAccess onboardingDBAccess, IMailingService mailingService)
         {
             _configuration = configuration;
             _dbAccess = onboardingDBAccess;
+            _mailingService = mailingService;
         }
 
         public async Task CreateUsers(List<User> userList, string realm, string token)
@@ -40,7 +43,15 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
                 };
 
                 var password = await manager.CreateUser(realm, newUser);
+                await _mailingService.SendMails(user.eMail, password, realm);
             }
+        }
+
+        public async Task FinishOnboarding(string token, string realm)
+        {
+            var manager = new KeycloakIdentityManager(new KeycloakClient(_configuration.GetValue<string>("KeyCloakConnectionString"), () => token));
+            var group = new CreateGroup { Name = "Onboarding" };
+            await manager.CreateGroup(realm, group);
         }
 
         public Task<List<string>> GetAvailableUserRole()
@@ -68,6 +79,11 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
         public async Task SetCompanyRoles(CompanyToRoles rolesToSet)
         {
             await _dbAccess.SetCompanyRoles(rolesToSet);
+        }
+
+        public async Task SetIdp(SetIdp idpToSet)
+        {
+            await _dbAccess.SetIdp(idpToSet);
         }
 
         public async Task SignConsent(SignConsentRequest signedConsent )

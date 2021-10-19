@@ -56,6 +56,16 @@ namespace CatenaX.NetworkServices.Onboarding.Service.OnboardingAccess
             }
         }
 
+        public async Task SetIdp(SetIdp idpToSet)
+        {
+            using (_dbConnection)
+            {
+                    var parameters = new { companyId = idpToSet.companyId, idp = idpToSet.idp };
+                    string sql = "Insert Into public.company_selected_idp (company_id, idp) values(@companyId, @idp)";
+                    await _dbConnection.ExecuteAsync(sql, parameters);
+            }
+        }
+
         public async Task SignConsent(SignConsentRequest signedConsent)
         {
             var sql = $"SELECT sign_consent('{signedConsent.companyId}',{signedConsent.consentId},{signedConsent.companyRoleId}, '{signedConsent.userName}')";

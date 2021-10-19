@@ -26,8 +26,7 @@ namespace CatenaX.NetworkServices.Invitation.Identity.Identity
         {
             var realmToCreate = new Realm
             {
-                _Realm = realm.Name,
-                DefaultRoles = new List<string>{"role1","role2" }
+                _Realm = realm.Name
             };
             await _client.ImportRealmAsync(realm.Name, realmToCreate);
         }
@@ -48,6 +47,11 @@ namespace CatenaX.NetworkServices.Invitation.Identity.Identity
             await _client.CreateUserAsync(realm, userToCreate);
 
             return result;
+        }
+
+        public async Task AssignUserManagementToUser(string realm)
+        {
+
         }
 
         public async Task CreateGroup(string realm, CreateGroup group)

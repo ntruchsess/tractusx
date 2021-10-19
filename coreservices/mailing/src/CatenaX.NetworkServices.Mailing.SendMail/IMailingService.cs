@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace CatenaX.NetworkServices.Invitation.Service.Mail
+namespace CatenaX.NetworkServices.Mailing.SendMail
 {
     public interface IMailingService
     {

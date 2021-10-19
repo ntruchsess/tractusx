@@ -22,6 +22,12 @@ CREATE TABLE public.company_selected_roles (
     role_id int references public.companyroles(id)
 );
 
+CREATE TABLE public.company_selected_idp (
+    id  SERIAL  PRIMARY KEY,
+    company_id varchar(100) NOT NULL,
+    idp VARCHAR(100) NOT NULL
+);
+
 
 CREATE TABLE public.companyroles_consens (
   role_id int references public.companyroles(id),
