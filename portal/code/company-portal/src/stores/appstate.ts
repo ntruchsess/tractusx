@@ -14,7 +14,6 @@
 
 import { observable } from 'mobx';
 import { Application } from '../data/application';
-//import adalContext from '../helpers/adalConfig';
 import UserService from '../helpers/UserService';
 
 const A = {

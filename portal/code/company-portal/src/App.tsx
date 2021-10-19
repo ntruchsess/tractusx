@@ -19,14 +19,8 @@ import { observer } from 'mobx-react';
 import { Redirect, Route, Router, Switch } from 'react-router-dom';
 import './styles/App.css';
 import Home from './components/home';
-import DataUpload from './components/apps/dataupload';
-import DataUpload2 from './components/apps/dataupload2';
-import Registration from './components/registration/register';
-import VerifyCompany from './components/registration/verifycompany';
 import Registrationoneid from './components/registrationoneid';
 import Emailregister from './components/emailregister';
-//import { withAdalLoginApi } from './helpers/adalConfig';
-import Loading from './components/loading';
 import { AppState } from './stores/appstate';
 import Login from './components/login';
 
@@ -52,18 +46,11 @@ export default class App extends React.Component {
     //const ProtectedUpload1 = withAdalLoginApi(DataUpload, () => <Loading/>, () => <div>Application timeout. Please refresh your browser (F5)</div>);
     //const ProtectedUpload2 = withAdalLoginApi(DataUpload2, () => <Loading/>, () => <div>Application timeout. Please refresh your browser (F5)</div>);
     const ProtectedHome = Home;
-    const ProtectedUpload1 = DataUpload;
-    const ProtectedUpload2 = DataUpload2;
     return (
       <Router history={history}>
         <Switch>
-          <Redirect path='/' exact to='/home/dashboard' />
+          <Redirect path='/' exact to='/home/onboarding' />
           <Route path='/home' render={(props) => <ProtectedHome/>} />
-          <Route path='/registration' component={(props) => <Registration {...props}/>} />
-          <Route path='/register' component={(props) => <Registration {...props}/>} />
-          <Route path='/verifyoneid' component={(props) => <VerifyCompany {...props}/>} />
-          <Route path='/dataupload' render={()=><ProtectedUpload1/>} />
-          <Route path='/dataupload2' render={()=><ProtectedUpload2/>} />
           <Route path='/registrationoneid' component={(props) => <Registrationoneid {...props}/>} />
           <Route path='/emailregister' component={(props) => <Emailregister {...props}/>} />
           <Route path='/login' component={(props) => <Login {...props}/>} />
