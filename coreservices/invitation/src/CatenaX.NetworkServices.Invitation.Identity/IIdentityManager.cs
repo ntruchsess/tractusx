@@ -14,5 +14,9 @@ namespace CatenaX.NetworkServices.Invitation.Identity
         Task<string> CreateUser(string realm, CreateUser user);
 
         Task CreateGroup(string realm, CreateGroup group);
+
+        Task AssignRolesToUser(string realm, string username, string clientId, List<string> roleNames);
+
+        Task CreateClient(string realm, string clientName);
     }
 }
