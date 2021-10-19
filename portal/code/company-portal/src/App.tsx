@@ -20,7 +20,7 @@ import { Redirect, Route, Router, Switch } from 'react-router-dom';
 import './styles/App.css';
 import Home from './components/home';
 import Registrationoneid from './components/registrationoneid';
-import Emailregister from './components/emailregister';
+import Registration from './components/registration';
 import { AppState } from './stores/appstate';
 import Login from './components/login';
 
@@ -42,9 +42,6 @@ export default class App extends React.Component {
   }
 
   public render() {
-    //const ProtectedHome = withAdalLoginApi(Home, () => <Loading/>, () => <div>Application timeout. Please refresh your browser (F5)</div>);
-    //const ProtectedUpload1 = withAdalLoginApi(DataUpload, () => <Loading/>, () => <div>Application timeout. Please refresh your browser (F5)</div>);
-    //const ProtectedUpload2 = withAdalLoginApi(DataUpload2, () => <Loading/>, () => <div>Application timeout. Please refresh your browser (F5)</div>);
     const ProtectedHome = Home;
     return (
       <Router history={history}>
@@ -52,7 +49,7 @@ export default class App extends React.Component {
           <Redirect path='/' exact to='/home/onboarding' />
           <Route path='/home' render={(props) => <ProtectedHome/>} />
           <Route path='/registrationoneid' component={(props) => <Registrationoneid {...props}/>} />
-          <Route path='/emailregister' component={(props) => <Emailregister {...props}/>} />
+          <Route path='/register' component={(props) => <Registration {...props}/>} />
           <Route path='/login' component={(props) => <Login {...props}/>} />
         </Switch>
       </Router>
