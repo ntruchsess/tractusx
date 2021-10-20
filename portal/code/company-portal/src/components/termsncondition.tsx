@@ -15,10 +15,24 @@
 import * as React from 'react';
 import { observer } from 'mobx-react';
 import { Checkbox, Link } from '@fluentui/react';
+import { getConsentForCompanyRoles } from '../helpers/utils';
 
 @observer
 export default class Termsncondition extends React.Component {
 
+  public getConsent: any;
+
+  async componentDidMount() {
+    try {
+      this.getConsent = await getConsentForCompanyRoles(1);
+      console.log(this.getConsent);
+    } catch {
+
+    }
+  }
+
+  
+ 
     _renderLabelWithLinktnc() {
         return (
           <span>
