@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { CompanyDetails } from "../data/companyDetails";
+import { CompanyDetails, CompanyRole, ConsentForCompanyRoles, UserRole } from "../data/companyDetails";
 import UserService  from '../helpers/UserService';
 
-
+const url = 'https://catenax-dev003-app-onboarding-service.azurewebsites.net';
 export function getCompanyDetails(oneId: String): Promise<CompanyDetails> {
-  const realm = 'microsoft';
+  const realm = UserService.realm;
   // const url = process.env.REACT_APP_ONBOARDING_SERVICE_BASE_URL;
   // const endpoint=process.env.ONBOARDING_COMPANY_DETAILS;
-  const url = 'https://catenax-dev003-app-onboarding-service.azurewebsites.net';
+  
   const endpoint = 'api/onboarding/company';
   const token = UserService.getToken();
   const u= `${url}/${endpoint}/${realm}/${oneId}`;
@@ -44,3 +44,88 @@ export function getCompanyDetails(oneId: String): Promise<CompanyDetails> {
 
   return promise;
 }
+
+export function getCompanyRoles(): Promise<CompanyRole[]> {
+  const realm = UserService.realm;
+  // const url = process.env.REACT_APP_ONBOARDING_SERVICE_BASE_URL;
+  // const endpoint=process.env.ONBOARDING_COMPANY_DETAILS;
+  const endpoint = 'api/onboarding/company';
+  const token = UserService.getToken();
+  const u= `${url}/${endpoint}/${realm}/companyRoles`;
+  //const u = `${url}?businessPartnerOneId=${oneId}`;
+  let companyRolesRes: CompanyRole[] = [];
+  const promise = new Promise<CompanyRole[]>((resolve, reject) => {
+    fetch(u, { method: 'GET', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } })
+    .then((val) => val.json().then((data) => {
+      if (val.ok) {
+        Object.assign(companyRolesRes,data)
+        resolve(companyRolesRes);
+      } else {
+        reject(val.statusText);
+      }
+    })).catch((error) => {
+        alert(error);
+        console.log(error, error.message, error.status);
+        reject(error.message);
+      });
+  });
+
+  return promise;
+}
+
+export function getConsentForCompanyRoles(roleId: Number): Promise<ConsentForCompanyRoles[]> {
+  const realm = UserService.realm;
+  // const url = process.env.REACT_APP_ONBOARDING_SERVICE_BASE_URL;
+  // const endpoint=process.env.ONBOARDING_COMPANY_DETAILS;
+  const endpoint = 'api/onboarding/company';
+  const token = UserService.getToken();
+  const u= `${url}/${endpoint}/${realm}/consentsFoCompanyRole/${roleId}`;
+  console.log(u);
+  //const u = `${url}?businessPartnerOneId=${oneId}`;
+  let myConsentResponseData: ConsentForCompanyRoles[] = [];
+  const promise = new Promise<ConsentForCompanyRoles[]>((resolve, reject) => {
+    fetch(u, { method: 'GET', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } })
+    .then((val) => val.json().then((data) => {
+      if (val.ok) {
+        Object.assign(myConsentResponseData,data)
+        resolve(myConsentResponseData);
+      } else {
+        reject(val.statusText);
+      }
+    })).catch((error) => {
+        alert(error);
+        console.log(error, error.message, error.status);
+        reject(error.message);
+      });
+  });
+  return promise;
+}
+
+export function getUserRoles(): Promise<UserRole[]> {
+  const realm = UserService.realm;
+  // const url = process.env.REACT_APP_ONBOARDING_SERVICE_BASE_URL;
+  // const endpoint=process.env.ONBOARDING_COMPANY_DETAILS;
+  const endpoint = 'api/onboarding/company';
+  const token = UserService.getToken();
+  const u= `${url}/${endpoint}/${realm}/userRoles`;
+  //const u = `${url}?businessPartnerOneId=${oneId}`;
+  let userRolesRes: UserRole[] = [];
+  const promise = new Promise<UserRole[]>((resolve, reject) => {
+    fetch(u, { method: 'GET', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } })
+    .then((val) => val.json().then((data) => {
+      if (val.ok) {
+        Object.assign(userRolesRes,data)
+        resolve(userRolesRes);
+      } else {
+        reject(val.statusText);
+      }
+    })).catch((error) => {
+        alert(error);
+        console.log(error, error.message, error.status);
+        reject(error.message);
+      });
+  });
+
+  return promise;
+}
+

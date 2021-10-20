@@ -18,32 +18,41 @@ import { observer } from 'mobx-react';
 import { TextField } from '@fluentui/react';
 import { PrimaryButton, IDropdownOption, Dropdown, Icon } from '@fluentui/react';
 import { ToastContainer, toast } from 'react-toastify';
-
-const options: IDropdownOption[] = [
-  { key: 'admin', text: 'IT Administrator' },
-  { key: 'legal', text: 'Legal' },
-  { key: 'signinmanager', text: 'Signin Manager' }]
+import { getUserRoles } from '../helpers/utils';
+import UserService from '../helpers/UserService';
 
 interface IUserResponsibilities{
   id:number,
-  userRole:string,
-  eMail:string
+  eMail:string,
+  role:string
 }
 
-
+var options : IDropdownOption[] = [];
 
 @observer
 export default class Responsibilities extends React.Component {
   @observable private email: string = "";
-  @observable private userRole: any = "admin";
+  @observable private userRole: any = "";
   @observable private newarray: IUserResponsibilities[] = [];
+  public newUserRole:IDropdownOption[];
   
   constructor(props) {
     super(props);
     this.state = { userRole: ''};
   }
+  public userRoles: any;
+  async componentDidMount() {
+    try {
+      this.userRoles = await getUserRoles();
+      console.log(this.userRoles);
+      this.newUserRole  = this.userRoles.map(x => {return{key:x,text:x}});
+      Object.assign(options, this.newUserRole)
+      console.log(options);
+    } catch {
 
-  // static newarray = [];
+    }
+  }
+  
   private addButtonClick() {
     if (this.email === "" || this.userRole === "") {
       toast.error('Email or User Role empty.');
@@ -52,16 +61,39 @@ export default class Responsibilities extends React.Component {
     var data =
     {
       "id": Math.floor(Math.random() * 100),
-      "userRole": this.userRole,
-      "eMail": this.email
+      "eMail": this.email,
+      "role": this.userRole   
     }
     this.newarray.push(data);
     this.email='';
-    this.userRole='admin';
+    this.userRole='';
   }
 
   private removeUser(id: number) {
         this.newarray = this.newarray.filter(x => x.id !== id);
+  }
+
+  private sendInvites() {
+    var realm = UserService.realm;
+    const token = UserService.getToken();
+    var u = `https://catenax-dev003-app-onboarding-service.azurewebsites.net/api/onboarding/company/${realm}/users`;
+    const data = this.newarray.map(({id,...rest}) => ({...rest}));
+    if(data.length > 0){
+    fetch(u, { method: 'POST', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } , body: JSON.stringify(data) })
+      .then((response) => {
+        if (response.ok) {
+          toast.success('Sent Invite');
+        }
+        else throw Error();
+      }
+
+      ).catch((error) => {
+        toast.error('Unable to sent invte')
+      });
+    }else{
+      toast.error('Email or User Role empty.')
+    }
+
   }
 
   public render() {
@@ -86,13 +118,13 @@ export default class Responsibilities extends React.Component {
                   <div className='ml30 mt10 df'>
                  {this.newarray.map(d => {
                       return ( <div key={d.id} className='bgcda br15 pl10 pr10 pt3 pb3 mr15 jcc aic df'> <Icon className='fgblack fs14 bold mr5' iconName='mail' />
-                      <span>{d.eMail} ({d.userRole}) </span> <Icon className='fgblack fs14 bold mr5' iconName='BoxMultiplySolid' onClick={() => this.removeUser(d.id)}/> </div>)
+                      <span className='mr5'>{d.eMail} ({d.role}) </span> <Icon className='fgblack fs14 bold mr5 ' iconName='BoxMultiplySolid' onClick={() => this.removeUser(d.id)}/> </div>)
                     })
                     }
                   </div>
                 </div>
                 <div className='ml30 pb8 mt50 p24 pb20 brbt df fdc fdrr'>
-                  <PrimaryButton text='SEND INVITE(S)' />
+                  <PrimaryButton text='SEND INVITE(S)' onClick={()=>this.sendInvites()}/>
                 </div>
               </div>
               <ToastContainer />
