@@ -6,7 +6,7 @@ const realm = searchParams.get('company') || 'microsoft';
 const user = searchParams.get('user') || '';
 
 const _kc = new Keycloak({
-  "url": "http://20.79.210.70:8080/auth",
+  "url": "https://catenax-dev003-keycloak-service.azurewebsites.net/auth",
   "realm": realm,
   "clientId": "onboard",
   "ssl-required": "external",
@@ -68,6 +68,7 @@ const UserService = {
   getInitials,
   getDomain,
   hasRole,
+  realm
 };
 
 export default UserService;
