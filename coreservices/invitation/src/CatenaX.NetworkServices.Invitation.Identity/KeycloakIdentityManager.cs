@@ -10,6 +10,8 @@ using Keycloak.Net.Models.Users;
 using Keycloak.Net.Models.Groups;
 using CatenaX.NetworkServices.Invitation.Identity.Model;
 using PasswordGenerator;
+using System.Linq;
+using Keycloak.Net.Models.Clients;
 
 namespace CatenaX.NetworkServices.Invitation.Identity.Identity
 {
@@ -27,7 +29,7 @@ namespace CatenaX.NetworkServices.Invitation.Identity.Identity
             var realmToCreate = new Realm
             {
                 _Realm = realm.Name,
-                DefaultRoles = new List<string>{"role1","role2" }
+                Enabled = true
             };
             await _client.ImportRealmAsync(realm.Name, realmToCreate);
         }
@@ -42,7 +44,8 @@ namespace CatenaX.NetworkServices.Invitation.Identity.Identity
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Groups = user.Groups,
-                Credentials = new List<Credentials>() { new Credentials { Type = "Password", Value = result } }
+                Credentials = new List<Credentials>() { new Credentials { Type = "Password", Value = result } },
+                Enabled = true
                 
             };
             await _client.CreateUserAsync(realm, userToCreate);
@@ -57,6 +60,26 @@ namespace CatenaX.NetworkServices.Invitation.Identity.Identity
                 Name = group.Name
             };
             await _client.CreateGroupAsync(realm, groupToCreate);
+        }
+
+        public async Task AssignRolesToUser(string realm, string username, string clientId, List<string> roleNames)
+        {
+            var user = await _client.GetUsersAsync(realm, username: username);
+            var userId = user.First().Id;
+
+            var result = await _client.GetRoleMappingsForUserAsync(realm, userId);
+            var allClients = await _client.GetClientsAsync(realm);
+            var clientKCId = allClients.Where(c => c.ClientId.Equals(clientId)).First().Id;
+
+            var getRoles = await _client.GetRolesAsync(realm, clientKCId);
+            var roles = getRoles.Where(r => roleNames.Contains(r.Name));
+
+            await _client.AddClientRoleMappingsToUserAsync(realm, userId, clientKCId, roles);
+        }
+
+        public async Task CreateClient(string realm, string clientName)
+        {
+            await _client.CreateClientAsync(realm, new Client { Id = clientName, PublicClient = true, DirectAccessGrantsEnabled = true });
         }
     }
 }
