@@ -8,5 +8,7 @@ namespace CatenaX.NetworkServices.Provisioning.Keycloak
         KeycloakClient CreateKeycloakClient();
 
         string GetAdminRealm();
+
+        string GetConnectionString();
     }
 }

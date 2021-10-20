@@ -23,7 +23,8 @@ namespace CatenaX.NetworkServices.Provisioning.Service
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSingleton<IClientToken, ClientToken>()
+            services.AddHttpClient()
+                    .AddSingleton<IClientToken, ClientToken>()
                     .AddTransient<IFederation, Federation>()
                     .AddTransient<IKeycloakFactory, KeycloakFactory>()
                     .AddTransient<IKeycloakAccess,KeycloakAccess>()
@@ -35,6 +36,7 @@ namespace CatenaX.NetworkServices.Provisioning.Service
                     .ConfigureTemplateSettings(Configuration.GetSection(UserEmail.TemplatePosition))
                     .ConfigureUserEmailSettings(Configuration.GetSection(UserEmail.UserEmailPosition))
                     .ConfigureKeycloakSettings(Configuration.GetSection(KeycloakAccess.ConfigPosition))
+                    .ConfigureKeycloakAccessSettings(Configuration.GetSection(KeycloakAccess.ConfigPosition))
                     .ConfigureClientSettings(Configuration.GetSection(ClientToken.ConfigPosition))
                     .ConfigureFederationSettings(Configuration.GetSection(Federation.ConfigPosition))
                     .ConfigureProvisioningSettings(Configuration.GetSection(ProvisioningService.ConfigPosition));

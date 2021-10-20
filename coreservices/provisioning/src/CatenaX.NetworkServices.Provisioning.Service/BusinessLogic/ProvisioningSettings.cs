@@ -6,8 +6,6 @@ namespace CatenaX.NetworkServices.Provisioning.Service.BusinessLogic
     public class ProvisioningSettings
     {
         public string TriggerGroup { get; set; }
-        public string ClientId { get; set; }
-        public string CertAttribute { get; set; }
         public string DomainBase { get; set; }
     }
     public static class ProvisioningSettingsExtention

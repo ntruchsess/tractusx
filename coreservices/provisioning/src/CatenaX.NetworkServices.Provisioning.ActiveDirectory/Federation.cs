@@ -16,13 +16,14 @@ namespace CatenaX.NetworkServices.Provisioning.ActiveDirectory
     public class Federation : IFederation
     {
         public const string ConfigPosition = "ActiveDirectory:Federation";
-        static readonly HttpClient client = new HttpClient();
+        private readonly HttpClient _Client;
         private FederationSettings _Settings;
         private IClientToken _Token;
-        public Federation(IOptions<FederationSettings> federationSettings, IClientToken clientToken)
+        public Federation(IOptions<FederationSettings> federationSettings, IClientToken clientToken, IHttpClientFactory clientFactory)
         {
             _Settings = federationSettings.Value;
             _Token = clientToken;
+            _Client = clientFactory.CreateClient();
         }
 
         public async Task CreateFederation(IDictionary<string,string> values)
@@ -52,7 +53,7 @@ namespace CatenaX.NetworkServices.Provisioning.ActiveDirectory
             request.Content = new StringContent(content, Encoding.UTF8);
             request.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-            var response = await client.SendAsync(request);
+            var response = await _Client.SendAsync(request);
             response.EnsureSuccessStatusCode();
 
             var responseContent = await response.Content.ReadAsStringAsync();

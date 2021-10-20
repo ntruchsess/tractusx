@@ -131,11 +131,11 @@ namespace CatenaX.NetworkServices.Provisioning.Service.Controllers
         }
         [HttpGet]
         [Route("realms/{realm}/cert")]
-        public async Task<ActionResult<string>> GetSigningCert(string realm)
+        public async Task<ActionResult<string>> GetSamlCert(string realm)
         {
             try
             {
-                return new ActionResult<string>(await _KeycloakAccess.GetClientAttributeAsync(realm,CERTCLIENT,CERTATTRIBUTE));
+                return new ActionResult<string>(await _KeycloakAccess.GetSamlDescriptorCert(realm));
             }
             catch (Exception e)
             {

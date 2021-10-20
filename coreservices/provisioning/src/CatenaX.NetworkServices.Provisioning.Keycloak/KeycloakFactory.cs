@@ -20,5 +20,10 @@ namespace CatenaX.NetworkServices.Provisioning.Keycloak
         {
             return _Settings.AuthRealm;
         }
+
+        public string GetConnectionString()
+        {
+            return _Settings.ConnectionString;
+        }
     }
 }

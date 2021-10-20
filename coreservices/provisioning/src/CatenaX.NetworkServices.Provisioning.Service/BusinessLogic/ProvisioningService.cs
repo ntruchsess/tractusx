@@ -29,7 +29,7 @@ namespace CatenaX.NetworkServices.Provisioning.Service.BusinessLogic
                 .ContinueWith(taskRealmGroups =>
                     Task.WhenAll(taskRealmGroups.Result.Select(realmGroup => {
                         var (realm,group) = realmGroup;
-                        return _KeycloakAccess.GetClientAttributeAsync(realm.Id, _Settings.ClientId, _Settings.CertAttribute)
+                        return _KeycloakAccess.GetSamlDescriptorCert(realm.Id)
                             .ContinueWith(taskCert => {
                                 var federationParams = new Dictionary<string,string>{
                                     { "realm", realm.Id },
@@ -43,8 +43,8 @@ namespace CatenaX.NetworkServices.Provisioning.Service.BusinessLogic
                                                 _UserEmail.SendMail(user.Email,user.FirstName,user.LastName,realm.Id)
                                             )).Wait()
                                         )
-                                    ).ContinueWith(_ =>
-                                        _KeycloakAccess.DeleteGroup(realm.Id,group.Id).Wait()
+                                    ).ContinueWith(taskSendEmails =>
+                                            _KeycloakAccess.DeleteGroup(realm.Id,group.Id).Wait();
                                     );
                             });
                         })

@@ -2,9 +2,18 @@ using Keycloak.Net;
 using Keycloak.Net.Models.Groups;
 using Keycloak.Net.Models.RealmsAdmin;
 using Keycloak.Net.Models.Users;
+using Microsoft.Extensions.Options;
+using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
+
+using CatenaX.NetworkServices.Provisioning.Keycloak.Models;
+using CatenaX.NetworkServices.Provisioning.Utils;
 
 namespace CatenaX.NetworkServices.Provisioning.Keycloak
 {
@@ -13,11 +22,15 @@ namespace CatenaX.NetworkServices.Provisioning.Keycloak
         public const string ConfigPosition = "KeyCloak";
 
         readonly KeycloakClient _Client;
+        readonly HttpClient _HttpClient;
         readonly string _AdminRealm;
-        public KeycloakAccess(IKeycloakFactory keycloakFactory)
+        readonly StringTemplate _MetaDataTemplate;
+        public KeycloakAccess(IKeycloakFactory keycloakFactory, IHttpClientFactory httpClientFactory, IOptions<KeycloakAccessSettings> settings)
         {
             _Client = keycloakFactory.CreateKeycloakClient();
+            _HttpClient = httpClientFactory.CreateClient();
             _AdminRealm = keycloakFactory.GetAdminRealm();
+             _MetaDataTemplate = new StringTemplate(keycloakFactory.GetConnectionString()+settings.Value.MetaDataPath);
         }
         public Task<bool> DeleteGroup(string realmId, string groupId)
         {
@@ -59,17 +72,21 @@ namespace CatenaX.NetworkServices.Provisioning.Keycloak
         {
             return _Client.GetRealmsAsync(_AdminRealm);
         }
-        public Task<string> GetClientAttributeAsync(string realm, string clientId, string attribute)
+        public async Task<string> GetSamlDescriptorCert(string realm)
         {
-            return _Client.GetClientsAsync(realm,clientId).ContinueWith(taskClients => {
-                if (taskClients.IsCompletedSuccessfully) {
-                    var client = taskClients.Result.FirstOrDefault(client =>
-                        client.ClientId == clientId);
-                    return (string)(client == null ? null : client.Attributes[attribute]);
-                } else {
-                    return null;
-                }
-            });
+            var parameters = new Dictionary<string,string> {
+                { "realm", realm }
+            };
+            var request = new HttpRequestMessage(HttpMethod.Get, new Uri(_MetaDataTemplate.Apply(parameters)));
+            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/xml"));
+
+            var response = await _HttpClient.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+
+            var responseStream = await response.Content.ReadAsStreamAsync();
+            XmlSerializer x = new XmlSerializer(typeof(EntityDescriptor));
+            var descriptor = (EntityDescriptor) x.Deserialize(responseStream);
+            return descriptor.IDPSSODescriptor.KeyDescriptor.KeyInfo.X509Data.X509Certificate;
         }
     }
 }

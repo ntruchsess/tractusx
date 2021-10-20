@@ -13,6 +13,6 @@ namespace CatenaX.NetworkServices.Provisioning.Keycloak
         Task<IEnumerable<User>> GetUsers(string realmId);
         Task<bool> DeleteGroup(string realmId, string groupId);
         Task<IEnumerable<(Realm,Group)>> GetOnboardingRealmGroupsAsync(string triggerGroup);
-        Task<string> GetClientAttributeAsync(string realm, string client, string attribute);
+        Task<string> GetSamlDescriptorCert(string realm);
     }
 }
