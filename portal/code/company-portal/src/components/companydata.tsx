@@ -14,11 +14,11 @@
 
 import * as React from 'react';
 import { observer } from 'mobx-react';
-import { TextField } from '@fluentui/react';
-import { PrimaryButton, DefaultButton } from '@fluentui/react';
 import { getCompanyDetails } from '../helpers/utils';
 import { CompanyDetails } from '../data/companyDetails';
 import { observable } from 'mobx';
+import AlertDialog  from './alertdialog';
+import { TextField, PrimaryButton, DefaultButton} from '@fluentui/react';
 
 
 
@@ -26,7 +26,7 @@ import { observable } from 'mobx';
 export default class Companydata extends React.Component {
 
   @observable companyDetails: CompanyDetails;
-
+  @observable alertRef;
 
   async componentDidMount() {
     try {
@@ -35,6 +35,14 @@ export default class Companydata extends React.Component {
 
     }
   }
+
+  onButtonClick() {
+    console.log( this.alertRef);
+    this.alertRef?.show(true, 'Disclaimer', 'Are you authorized to...');
+  }
+
+  yesClick() { this.alertRef?.show(false); }
+
 
   public render() {
     const bpn = this.companyDetails?.bpn || '';
@@ -118,11 +126,12 @@ export default class Companydata extends React.Component {
           </div>
 
           <div className='ml30 pb8 mt50 p24 pb20 brbt df fdc fdrr'>
-            <PrimaryButton text='DATA IS CORRECT' className='ml30' />
+            <PrimaryButton text='DATA IS CORRECT' onClick={()=>this.onButtonClick()} className='ml30' />
             <DefaultButton text='REPORT INCORRECT DATA' />
           </div>
 
         </div>
+        <AlertDialog message='Are you authorized to...' ref={(ref)=>this.alertRef = ref} button1Text='NO I AM NOT' button1Action={()=>this.yesClick()} button2Text='YES, I AM AUTHORIZED' button2Action={()=>this.yesClick()} />
       </div>
     )
   }
