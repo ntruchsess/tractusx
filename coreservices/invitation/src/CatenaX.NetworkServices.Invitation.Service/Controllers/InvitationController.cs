@@ -13,7 +13,7 @@ using Microsoft.Extensions.Logging;
 namespace CatenaX.NetworkServices.Invitation.Service.Controllers
 {
     [ApiController]
-    [Route("api/Invitation")]
+    [Route("api/invitation")]
     public class InvitationController : ControllerBase
     {
 

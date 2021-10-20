@@ -14,6 +14,7 @@ COPY ["invitation/src/CatenaX.NetworkServices.Invitation.Identity/CatenaX.Networ
 COPY ["provisioning/src/CatenaX.NetworkServices.Provisioning.ActiveDirectory/CatenaX.NetworkServices.Provisioning.ActiveDirectory.csproj", "provisioning/src/CatenaX.NetworkServices.Provisioning.ActiveDirectory/"]
 COPY ["mailing/src/CatenaX.NetworkServices.Mailing.SendMail/CatenaX.NetworkServices.Mailing.SendMail.csproj", "mailing/src/CatenaX.NetworkServices.Mailing.SendMail/"]
 COPY ["provisioning/src/CatenaX.NetworkServices.Provisioning.Mail/CatenaX.NetworkServices.Provisioning.Mail.csproj", "provisioning/src/CatenaX.NetworkServices.Provisioning.Mail/"]
+COPY ["provisioning/src/CatenaX.NetworkServices.Provisioning.Utils/CatenaX.NetworkServices.Provisioning.Utils.csproj", "provisioning/src/CatenaX.NetworkServices.Provisioning.Utils/"]
 RUN dotnet restore "provisioning/src/CatenaX.NetworkServices.Provisioning.Service/CatenaX.NetworkServices.Provisioning.Service.csproj"
 COPY . .
 WORKDIR "/src/provisioning/src/CatenaX.NetworkServices.Provisioning.Service"

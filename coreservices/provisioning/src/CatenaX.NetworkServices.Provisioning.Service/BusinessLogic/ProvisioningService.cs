@@ -44,7 +44,7 @@ namespace CatenaX.NetworkServices.Provisioning.Service.BusinessLogic
                                             )).Wait()
                                         )
                                     ).ContinueWith(taskSendEmails =>
-                                            _KeycloakAccess.DeleteGroup(realm.Id,group.Id).Wait();
+                                            _KeycloakAccess.DeleteGroup(realm.Id,group.Id).Wait()
                                     );
                             });
                         })

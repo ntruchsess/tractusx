@@ -9,7 +9,7 @@ namespace CatenaX.NetworkServices.Mockups
 new Company(){
 bpn = "CAXLZJVJEBYWYYZZ",
 accountGroup = "OEM",
-name1 = "Bayerische Motoren Werke Aktiengesellschaft",
+name1 = "BMW",
 addressVersion = "EN",
 country = "Germany",
 city = "Tucker",
@@ -25,7 +25,7 @@ new Company(){
 bpn = "CAXSPGQORIGHFAZZ",
 parent = "CAXLZJVJEBYWYYZZ",
 accountGroup = "OEM Plant",
-name1 = "BMW Plant Munich",
+name1 = "BMWPlantMunich",
 addressVersion = "EN",
 country = "Germany",
 city = "Austell",
@@ -36,7 +36,7 @@ taxNumber1 = "DE470914600",
 taxNumber1Type = "UST-ID",
 vatNumber = "DE470914600",
 vatNumberType = "UST-ID",
-},
+}
 };
 
         public Company Query(string oneID)

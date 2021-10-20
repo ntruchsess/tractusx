@@ -1,12 +1,21 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
+using CatenaX.NetworkServices.Invitation.Identity.Identity;
 using CatenaX.NetworkServices.Invitation.Service.BusinessLogic;
 using CatenaX.NetworkServices.Invitation.Service.Controllers;
 
+using Keycloak.Net.Models.Clients;
+using Keycloak.Net.Models.RealmsAdmin;
+using Keycloak.Net.Models.Roles;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging.Abstractions;
+
+using Newtonsoft.Json;
 
 using NSubstitute;
 using NSubstitute.ExceptionExtensions;
