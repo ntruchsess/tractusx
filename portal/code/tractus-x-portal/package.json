@@ -34,7 +34,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dist": "npm run build && mkdir -p dist && cd build && 7z u ../build.zip .",
+    "deploy": "az webapp deployment source config-zip --resource-group catenax-dev003-rg --name catenax-dev003-app-portal --src ./dist/build.zip"
   },
   "eslintConfig": {
     "extends": [
