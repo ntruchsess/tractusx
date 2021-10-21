@@ -14,13 +14,20 @@ namespace CatenaX.NetworkServices.Mailing.SendMail
             _MailSettings = mailSettings.Value;
         }
 
-        Task ISendMail.Send(string sender, string recipient, string subject, string body)
+        Task ISendMail.Send(string sender, string recipient, string subject, string body, bool useHtml = false)
         {
             var message = new MimeMessage();
             message.From.Add(MailboxAddress.Parse(sender));
             message.To.Add(MailboxAddress.Parse(recipient));
             message.Subject = subject;
-            message.Body    = new TextPart("plain") { Text = body };
+            if(useHtml)
+            {
+                message.Body = new TextPart("html") { Text = body };
+            }
+            else
+            {
+                message.Body = new TextPart("plain") { Text = body };
+            }
             return _send(message);
         }
 
