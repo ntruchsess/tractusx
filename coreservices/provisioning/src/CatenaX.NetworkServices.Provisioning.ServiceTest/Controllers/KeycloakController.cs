@@ -121,7 +121,7 @@ namespace CatenaX.NetworkServices.Provisioning.Service.Controllers
         {
             try
             {
-                return new ActionResult<IEnumerable<string>>((await _KeycloakAccess.GetOnboardingRealmGroupsAsync(TRIGGERGROUP)).Select(x => x.Item1.Id));
+                return new ActionResult<IEnumerable<string>>((await _KeycloakAccess.GetOnboardingRealmGroupsAsync(TRIGGERGROUP)).Select(x => x.Item1._Realm));
             }
             catch (Exception e)
             {

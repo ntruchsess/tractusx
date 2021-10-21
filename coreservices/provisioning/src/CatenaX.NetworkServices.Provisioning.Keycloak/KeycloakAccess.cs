@@ -48,7 +48,7 @@ namespace CatenaX.NetworkServices.Provisioning.Keycloak
                 .ContinueWith(taskRealms => {
                     if (taskRealms.IsCompletedSuccessfully) {
                         var selectTasks = taskRealms.Result.Select(realm =>
-                            GetGroup(realm.Id,triggerGroup)
+                            GetGroup(realm._Realm,triggerGroup)
                                 .ContinueWith(taskGroup =>
                                     (realm,taskGroup.Result)
                                 )

@@ -29,22 +29,22 @@ namespace CatenaX.NetworkServices.Provisioning.Service.BusinessLogic
                 .ContinueWith(taskRealmGroups =>
                     Task.WhenAll(taskRealmGroups.Result.Select(realmGroup => {
                         var (realm,group) = realmGroup;
-                        return _KeycloakAccess.GetSamlDescriptorCert(realm.Id)
+                        return _KeycloakAccess.GetSamlDescriptorCert(realm._Realm)
                             .ContinueWith(taskCert => {
                                 var federationParams = new Dictionary<string,string>{
-                                    { "realm", realm.Id },
+                                    { "realm", realm._Realm },
                                     { "base", _Settings.DomainBase },
                                     { "cert", taskCert.Result }
                                 };
                                 return _Federation.CreateFederation(federationParams).ContinueWith(_ =>
-                                    _KeycloakAccess.GetUsers(realm.Id)
+                                    _KeycloakAccess.GetUsers(realm._Realm)
                                         .ContinueWith(taskUsers =>
                                             Task.WhenAll(taskUsers.Result.Select(user =>
-                                                _UserEmail.SendMail(user.Email,user.FirstName,user.LastName,realm.Id)
+                                                _UserEmail.SendMail(user.Email,user.FirstName,user.LastName,realm._Realm)
                                             )).Wait()
                                         )
                                     ).ContinueWith(taskSendEmails =>
-                                            _KeycloakAccess.DeleteGroup(realm.Id,group.Id).Wait()
+                                            _KeycloakAccess.DeleteGroup(realm._Realm,group.Id).Wait()
                                     );
                             });
                         })
