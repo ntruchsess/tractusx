@@ -25,7 +25,7 @@ namespace CatenaX.NetworkServices.Mailing.SendMail
             foreach(var temp in templates)
             {
                 var inviteMail = _templateManager.ApplyTemplate(temp, parameters);
-                await _sendMail.Send("Notifications@catena-x.net", eMail, inviteMail.Subject, inviteMail.Body);
+                await _sendMail.Send("Notifications@catena-x.net", eMail, inviteMail.Subject, inviteMail.Body, inviteMail.isHtml);
             }
         }
     }
