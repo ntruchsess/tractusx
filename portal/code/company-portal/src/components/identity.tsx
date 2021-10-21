@@ -29,7 +29,7 @@ private onChange(ev,checked){
 
   private onSubmitClick(){
     if(checkedData){
-    var OneID = 'CAXLZJVJEBYWYYZZ';
+    var OneID = UserService.oneid;
     var realm = UserService.realm;
     const token = UserService.getToken();
     var u = `https://catenax-dev003-app-onboarding-service.azurewebsites.net/api/onboarding/company/${realm}/idp`;
