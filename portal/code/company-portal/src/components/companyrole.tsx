@@ -17,13 +17,19 @@ import { observer } from 'mobx-react';
 import { Dropdown, IDropdownOption, IDropdownStyles, PrimaryButton } from '@fluentui/react';
 import { getCompanyRoles } from '../helpers/utils';
 import { observable } from 'mobx';
+import UserService from '../helpers/UserService';
+import { toast } from 'react-toastify';
 
 const dropdownStyles: Partial<IDropdownStyles> = { dropdown: { width: 300 } };
 var dropdowndata : IDropdownOption[] = [];
-
+interface ISelectedValues{
+  key:number,
+  text:string,
+  selected:boolean
+}
+var selectedValue: any[] = [];
 @observer
 export default class Companyrole extends React.Component {
-  @observable selectedCompany: any;
   public companyRoles: any;
   //@observable newcompanydata: ;
   public newcompanydata:IDropdownOption[];
@@ -38,13 +44,36 @@ export default class Companyrole extends React.Component {
   }
 
   private onSubmitClick(){
-        console.log(this.selectedCompany);
-  }
+    var OneID = 'CAXLZJVJEBYWYYZZ';
+    var realm = UserService.realm;
+    const token = UserService.getToken();
+    var u = `https://catenax-dev003-app-onboarding-service.azurewebsites.net/api/onboarding/company/${realm}/companyRoles`;
+    const data = {
+      'companyId': OneID,
+      'roles': selectedValue
+    }
+    fetch(u, { method: 'PUT', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } , body: JSON.stringify(data) })
+      .then((response) => {
+        if (response.ok) {
+          toast.success('Sent Invite');
+        }
+        else throw Error();
+      }
+
+      ).catch((error) => {
+        toast.error('Unable to sent invte')
+      });
+    }
 
   private onChange(ev,item){
-    console.log(item);
-   //this.selectedCompany = item.selected ? [...this.selectedCompany, item.key] : this.selectedCompany.filter(key => key !== item.key);
-  // console.log(this.selectedCompany)
+    if(item.selected){
+     selectedValue.push(item.key);
+    }else{
+      console.log('else');
+      selectedValue =    selectedValue.filter(function(i) {
+        return i !== item.key
+    })
+    }  
   }
 
   public render() {
@@ -82,7 +111,7 @@ export default class Companyrole extends React.Component {
                 <span className='fs14 mt20'>A network partner that provides operations and/or Infrastructure services within the Catena-X network.</span>
               </div>
 
-              <div className='ml30 pb8 mt50 p24 pb20 brbt df fdc fdrr'>
+              <div className='pb8 mt50 p24 pb20 brbt df fdc fdrr'>
                    <PrimaryButton text='SUBMIT' onClick={()=>this.onSubmitClick()}/>
                 </div>
             </div>

@@ -14,7 +14,7 @@
 
 import * as React from 'react';
 import { observer } from 'mobx-react';
-import { Checkbox, Link } from '@fluentui/react';
+import { Checkbox, Link, PrimaryButton } from '@fluentui/react';
 import { getConsentForCompanyRoles } from '../helpers/utils';
 
 @observer
@@ -114,6 +114,9 @@ export default class Termsncondition extends React.Component {
               <Checkbox className='mt20' label="Yes, I agree to this" onRenderLabel={this._renderLabelWithLinkapdsr} />
             <Checkbox className='mt20' label="Yes, I agree to" onRenderLabel={this._renderLabelWithLinkpnsc} />
         </div>
+        <div className='pb8 mt50 p24 pb20 brbt df fdc fdrr'>
+                   <PrimaryButton text='SUBMIT'/>
+                </div>
       </div>
     </div>
   </div>
