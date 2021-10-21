@@ -20,7 +20,7 @@ import AppCard from './appcard';
 import { RouteComponentProps, withRouter } from 'react-router';
 
 @observer
-class AppStore extends React.Component<RouteComponentProps> {
+class AppStore123 extends React.Component<RouteComponentProps> {
 
   public render() {
 
@@ -38,7 +38,7 @@ class AppStore extends React.Component<RouteComponentProps> {
           <span className='tac pt5 fgb5 fs10 ml50'>Test our FREE applications</span>
         </div>
 
-        {AppState.state.categoriesnew.map((c, index) => (
+        {AppState.state.categories.map((c, index) => (
           <div key={index} className='ml50 mr50 mb30 w100pc df fdc bgf5'>
             <span className='bold fs14 ml10'>{c.text}</span>
             <div className='w100-100'>
@@ -53,4 +53,4 @@ class AppStore extends React.Component<RouteComponentProps> {
   }
 }
 
-export default withRouter(AppStore);
+export default withRouter(AppStore123);

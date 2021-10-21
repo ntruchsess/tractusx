@@ -42,7 +42,9 @@ export default class Companydata extends React.Component {
     this.alertRef?.show(true, 'Disclaimer', 'Are you authorized by your company to confirm this data?');
   }
 
-  yesClick() { this.alertRef?.show(false); }
+  yesClick() { 
+    this.alertRef?.show(false); 
+  }
 
 
   public render() {
@@ -133,7 +135,7 @@ export default class Companydata extends React.Component {
           </div>
 
         </div>
-        <AlertDialog message='Are you authorized by your company to confirm this data?' ref={(ref)=>this.alertRef = ref} button1Text='NO I AM NOT' button1Action={()=>this.yesClick()} button2Text='YES, I AM AUTHORIZED' button2Action={()=>this.yesClick()} />
+        <AlertDialog message='Are you authorized by your company to confirm this data?' ref={(ref)=>this.alertRef = ref} button1Text='YES, I AM AUTHORIZED' button1Action={()=>this.yesClick()} button2Text='NO I AM NOT' button2Action={()=>this.yesClick()} />
       </div>
     )
   }

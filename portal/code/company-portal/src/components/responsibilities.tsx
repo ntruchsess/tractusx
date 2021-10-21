@@ -42,6 +42,8 @@ export default class Responsibilities extends React.Component {
   }
   public userRoles: any;
   async componentDidMount() {
+    const onboarding = window.localStorage.getItem('onboarding');
+    console.log("responsibilities", onboarding)
     try {
       this.userRoles = await getUserRoles();
       console.log(this.userRoles);
