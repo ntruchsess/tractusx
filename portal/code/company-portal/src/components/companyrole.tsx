@@ -44,7 +44,7 @@ export default class Companyrole extends React.Component {
   }
 
   private onSubmitClick(){
-    var OneID = 'CAXLZJVJEBYWYYZZ';
+    var OneID = UserService.oneid;
     var realm = UserService.realm;
     const token = UserService.getToken();
     var u = `https://catenax-dev003-app-onboarding-service.azurewebsites.net/api/onboarding/company/${realm}/companyRoles`;
@@ -109,6 +109,10 @@ export default class Companyrole extends React.Component {
                 <span className='fs14 mt20'>A network partner that provides Apps (or possible other software services) within the Ecosystem including pricing, billing, provisioning or similar.</span>
                 <span className='fs16 bold mt20'>Operation and Infrastructure Provider</span>
                 <span className='fs14 mt20'>A network partner that provides operations and/or Infrastructure services within the Catena-X network.</span>
+                <span className='fs16 bold mt20'>Consulting Partner</span>
+                <span className='fs14 mt20'>A network partner that consults and enables other partners to participate into the network. E. g. Support with onboarding, support with use case & data integration</span>
+                <span className='fs16 bold mt20'>Clearing House (Clearinghaus)</span>
+                <span className='fs14 mt20'>A network partner that acts as an intermediary for a certain use case / mandate betwen various parties (e. g. as trustee)</span>
               </div>
 
               <div className='pb8 mt50 p24 pb20 brbt df fdc fdrr'>

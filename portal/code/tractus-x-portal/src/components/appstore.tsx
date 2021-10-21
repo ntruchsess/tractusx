@@ -16,7 +16,7 @@ import * as React from 'react';
 import { observer } from 'mobx-react';
 import { PrimaryButton } from '@fluentui/react';
 import { AppState } from '../stores/appstate';
-import AppCard from './appcard';
+import AppCardData from './appcarddata';
 import { RouteComponentProps, withRouter } from 'react-router';
 
 @observer
@@ -43,7 +43,7 @@ class AppStore extends React.Component<RouteComponentProps> {
             <span className='bold fs14 ml10'>{c.text}</span>
             <div className='w100-100'>
               <div className='ovx h250 df'>
-                {c.apps.map((a, index) => <AppCard key={index} app={a} />)}
+                <AppCardData />
               </div>
             </div>
           </div>
