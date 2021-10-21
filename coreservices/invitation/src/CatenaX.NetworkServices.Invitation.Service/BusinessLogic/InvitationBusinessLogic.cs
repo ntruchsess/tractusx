@@ -78,8 +78,8 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
 
             var mailParameters = new Dictionary<string, string>
             {
-                { "passwort", password },
-                { "companyName", realmName },
+                { "password", password },
+                { "companyname", realmName },
                 { "url", $"{_configuration.GetValue<string>("BasePortalAddress")}/?company={realmName}&user={InvitationData.EMail}&oneId={InvitationData.OneId}"  }
             };
 
