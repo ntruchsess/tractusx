@@ -10,6 +10,7 @@ using System.Text.Json;
 using System.Text.RegularExpressions;
 
 using CatenaX.NetworkServices.Provisioning.ActiveDirectory.Model;
+using CatenaX.NetworkServices.Provisioning.Utils;
 
 namespace CatenaX.NetworkServices.Provisioning.ActiveDirectory
 {
@@ -17,37 +18,52 @@ namespace CatenaX.NetworkServices.Provisioning.ActiveDirectory
     {
         public const string ConfigPosition = "ActiveDirectory:Federation";
         private readonly HttpClient _Client;
-        private FederationSettings _Settings;
-        private IClientToken _Token;
+        private readonly FederationSettings _Settings;
+        private readonly IClientToken _Token;
+        private readonly StringTemplate _RequestUriTemplate;
+        private readonly StringTemplate _IssuerUriTemplate;
+        private readonly StringTemplate _DisplayNameTemplate;
+        private readonly StringTemplate _MetadataExchangeUriTemplate;
+        private readonly StringTemplate _PassiveSignInUriTemplate;
+        private readonly IList<StringTemplate> _DomainIdTemplates;
+        private readonly StringTemplate _SigningCertificateTemplate;
+
         public Federation(IOptions<FederationSettings> federationSettings, IClientToken clientToken, IHttpClientFactory clientFactory)
         {
             _Settings = federationSettings.Value;
             _Token = clientToken;
             _Client = clientFactory.CreateClient();
+            _RequestUriTemplate = new StringTemplate(_Settings.RequestUri);
+            _IssuerUriTemplate = new StringTemplate(_Settings.Request.IssuerUri);
+            _DisplayNameTemplate = new StringTemplate(_Settings.Request.DisplayName);
+            _MetadataExchangeUriTemplate = new StringTemplate(_Settings.Request.MetadataExchangeUri);
+            _PassiveSignInUriTemplate = new StringTemplate(_Settings.Request.PassiveSignInUri);
+            _DomainIdTemplates = _Settings.Request.DomainIds.Select(id => new StringTemplate(id)).ToList();
+            _SigningCertificateTemplate = new StringTemplate(_Settings.Request.SigningCertificate);
         }
 
         public async Task CreateFederation(IDictionary<string,string> values)
         {
             var token = await _Token.GetToken();
             var domainFederation = new SamlOrWsFedExternalDomainFederation {
-                ODataType = replaceValues(_Settings.Request.ODataType,values),
-                IssuerUri = replaceValues(_Settings.Request.IssuerUri,values),
-                DisplayName = replaceValues(_Settings.Request.DisplayName,values),
-                MetadataExchangeUri = replaceValues(_Settings.Request.MetadataExchangeUri,values),
-                PassiveSignInUri = replaceValues(_Settings.Request.PassiveSignInUri,values),
-                PreferredAuthenticationProtocol = replaceValues(_Settings.Request.PreferredAuthenticationProtocol,values),
-                Domains = _Settings.Request.Domains.Aggregate(new List<ExternalDomainName>(),(y,z) => {
-                    y.Add(new ExternalDomainName {
-                        ODataType = replaceValues(z.ODataType,values),
-                        Id = replaceValues(z.Id,values)
+                ODataType = _Settings.Request.ODataType,
+                IssuerUri = _IssuerUriTemplate.Apply(values),
+                DisplayName = _DisplayNameTemplate.Apply(values),
+                MetadataExchangeUri = _MetadataExchangeUriTemplate.Apply(values),
+                PassiveSignInUri = _PassiveSignInUriTemplate.Apply(values),
+                PreferredAuthenticationProtocol = _Settings.Request.PreferredAuthenticationProtocol,
+                Domains = _DomainIdTemplates.Aggregate(new List<ExternalDomainName>(),(domains,template) => {
+                    domains.Add(new ExternalDomainName {
+                        ODataType = _Settings.Request.DomainODataType,
+                        Id = template.Apply(values)
                     });
-                    return y;
+                    return domains;
                 }),
-                SigningCertificate = replaceValues(_Settings.Request.SigningCertificate,values)
+                SigningCertificate = _SigningCertificateTemplate.Apply(values)
             };
 
             var content = JsonSerializer.Serialize(domainFederation);
-            var request = new HttpRequestMessage(HttpMethod.Post, new Uri(replaceValues(_Settings.RequestUri,values)));
+            var request = new HttpRequestMessage(HttpMethod.Post, new Uri(_RequestUriTemplate.Apply(values)));
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             request.Headers.Authorization = new AuthenticationHeaderValue(token.Type,token.Value);
             request.Content = new StringContent(content, Encoding.UTF8);
@@ -57,19 +73,6 @@ namespace CatenaX.NetworkServices.Provisioning.ActiveDirectory
             response.EnsureSuccessStatusCode();
 
             var responseContent = await response.Content.ReadAsStringAsync();
-        }
-
-        private string replaceValues(string template, IDictionary<string,string> parameters)
-        {
-            return Regex.Replace(
-                template,
-                @"\{(\w+)\}", //replaces any text surrounded by { and }
-                m =>
-                {
-                    string value;
-                    return parameters.TryGetValue(m.Groups[1].Value, out value) ? value : "null";
-                }
-            );
         }
     }
 }

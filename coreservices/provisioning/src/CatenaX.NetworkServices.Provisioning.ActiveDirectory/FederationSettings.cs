@@ -20,14 +20,9 @@ namespace CatenaX.NetworkServices.Provisioning.ActiveDirectory
         public string MetadataExchangeUri { get; set; }
         public string PassiveSignInUri { get; set; }
         public string PreferredAuthenticationProtocol { get; set; }
-        public List<Domain> Domains { get; set; }
+        public string DomainODataType { get; set; }
+        public List<string> DomainIds { get; set; }
         public string SigningCertificate { get; set; }
-    }
-
-    public class Domain
-    {
-        public string ODataType { get; set; }
-        public string Id { get; set; }
     }
 
     public static class FederationSettingsExtention

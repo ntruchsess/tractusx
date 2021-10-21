@@ -32,7 +32,7 @@ namespace CatenaX.NetworkServices.Provisioning.Mail
                 { "realm", realm }
             };
             var inviteMail = _templateManager.ApplyTemplate(_settings.Template, templateParams);
-            return _sendMail.Send(_settings.SenderEmail, email, inviteMail.Subject, inviteMail.Body);
+            return _sendMail.Send(_settings.SenderEmail, email, inviteMail.Subject, inviteMail.Body, inviteMail.isHtml);
         }
     }
 }
