@@ -19,10 +19,42 @@ import Responsibilities from './responsibilities';
 import Companyrole from './companyrole';
 import Termsncondition from './termsncondition';
 import Identity from './identity';
+import { PrimaryButton } from '@fluentui/react';
+import { toast } from 'react-toastify';
+import UserService from '../helpers/UserService';
 
 
 @observer
 export default class Onboarding extends React.Component {
+  componentDidMount(){
+   
+    const onboarding = {
+      companydata: false,
+      userRole: false,
+      companyrole: false,
+      companyterms: false,
+      identity: false
+  }
+    window.localStorage.setItem('onboarding', JSON.stringify(onboarding));
+  }
+  private onSubmitClick(){
+    var realm = UserService.realm;
+    const token = UserService.getToken();
+    var u = `https://catenax-dev003-app-onboarding-service.azurewebsites.net/api/onboarding/company/${realm}/finishOnboarding`;
+  
+    fetch(u, { method: 'PUT', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } })
+      .then((response) => {
+        if (response.ok) {
+          toast.success('Data Saved');
+        }
+        else throw Error();
+      }
+
+      ).catch((error) => {
+        toast.error('Unable to save data')
+      });
+    }
+
   public render() {
     return (
       <div className='w100pc h100pc df fdc'>
@@ -37,6 +69,9 @@ export default class Onboarding extends React.Component {
             <Companyrole />
             <Termsncondition />
             <Identity />
+            <div className='pb8 mt50 p24 pb20 brbt df fdc fdrr'>
+                   <PrimaryButton text='SAVE' onClick={()=>this.onSubmitClick()}/>
+                </div>
           </div>
         </div >
       </div >

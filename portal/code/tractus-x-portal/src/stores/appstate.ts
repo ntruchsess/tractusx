@@ -193,6 +193,8 @@ export class AppState {
     { text: 'Top 10 Downloads', apps: this.topApps },
     { text: 'Business Apps', apps: this.bizApps },
     { text: 'Add-Ons for Connectors', apps: this.addOns }];
+    public readonly categoriesnew: any[] = [
+      { text: 'Recommendation', apps: this.topApps }];
   public readonly dashboardCategories: any[] = [{ text: 'Installed apps', apps: this.installedApps }];
   // { text: 'All apps', apps: this.apps }];
 

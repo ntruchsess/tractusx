@@ -14,10 +14,44 @@
 
 import * as React from 'react';
 import { observer } from 'mobx-react';
-import { Checkbox } from '@fluentui/react';
+import { Checkbox, PrimaryButton } from '@fluentui/react';
+import UserService from '../helpers/UserService';
+import { toast } from 'react-toastify';
+import { observable } from 'mobx';
 
+var checkedData: boolean;
 @observer
 export default class Identity extends React.Component {
+ 
+private onChange(ev,checked){
+     checkedData = checked;
+}
+
+  private onSubmitClick(){
+    if(checkedData){
+    var OneID = 'CAXLZJVJEBYWYYZZ';
+    var realm = UserService.realm;
+    const token = UserService.getToken();
+    var u = `https://catenax-dev003-app-onboarding-service.azurewebsites.net/api/onboarding/company/${realm}/idp`;
+    const data = {
+      'companyId': OneID,
+      'idp': 'Catena-X IDP'
+    }
+    fetch(u, { method: 'PUT', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } , body: JSON.stringify(data) })
+      .then((response) => {
+        if (response.ok) {
+          toast.success('Data Submitted');
+        }
+        else throw Error();
+      }
+
+      ).catch((error) => {
+        toast.error('Unable submit data')
+      });
+    }else{
+      toast.error('Please select identity')
+    }
+    }
 
   public render() {
     return (
@@ -35,9 +69,12 @@ export default class Identity extends React.Component {
           <div className='p20'>
           <div className='pb20 p24'>
                 <span className='fs18 bold mt30'>App Provider Terms & Conditions</span>
-                <Checkbox className='mt20' label="Catena-X IDP" />
-                  <Checkbox className='mt20' label="Own IDP" />
+                <Checkbox className='mt20' label="Catena-X IDP"  onChange={this.onChange}/>
+                  <Checkbox className='mt20' disabled label="Own IDP" />
             </div>
+            <div className='pb8 mt50 p24 pb20 brbt df fdc fdrr'>
+                   <PrimaryButton text='SUBMIT' onClick={()=>this.onSubmitClick()}/>
+                </div>
           </div>
         </div>
       </div>
