@@ -9,68 +9,40 @@
 //
 package net.catenax.prs.smoketest;
 
-import io.restassured.RestAssured;
-import io.restassured.authentication.BasicAuthScheme;
-import io.restassured.builder.RequestSpecBuilder;
-import org.junit.jupiter.api.BeforeEach;
+import net.catenax.prs.dtos.PartRelationshipsWithInfos;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 
 import static io.restassured.RestAssured.given;
-import static net.catenax.prs.dtos.PartsTreeView.AS_MAINTAINED;
-import static org.hamcrest.Matchers.greaterThan;
-import static org.hamcrest.Matchers.hasSize;
+import static net.catenax.prs.dtos.PartsTreeView.AS_BUILT;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Smoke tests verify that the cloud infrastructure where PRS runs is working as expected
  * @see <a href="https://confluence.catena-x.net/display/CXM/PRS+Testing+Strategy">PRS Testing Strategy</a>
  */
 @Tag("SmokeTests")
-public class SmokeTests {
-
-    private static final String PATH = "/api/v0.1/vins/{vin}/partsTree";
-    private static final String SAMPLE_VIN = "YS3DD78N4X7055320";
-    private static final String VIN = "vin";
-    private static final String VIEW = "view";
-    private String userName;
-    private String password;
-
-    @BeforeEach
-    public void setUp() {
-        // If no config specified, run the smoke test against the service deployed in dev001.
-        RestAssured.baseURI = System.getProperty("baseURI") == null ?
-                "https://catenaxdev001akssrv.germanywestcentral.cloudapp.azure.com" : System.getProperty("baseURI");
-        userName = System.getProperty("userName");
-        password = System.getProperty("password");
-    }
+public class SmokeTests extends SmokeTestsBase {
 
     @Test
     public void getPartsTreeByVin_success() {
 
-        var specificationBuilder = new RequestSpecBuilder();
+        var response =
+            given()
+                .spec(getRequestSpecification())
+                .baseUri(prsApiUri)
+                .pathParam(VIN, SAMPLE_VIN)
+                .queryParam(VIEW, AS_BUILT)
+            .when()
+                .get(PATH_BY_VIN)
+            .then()
+                .assertThat()
+                .statusCode(HttpStatus.OK.value())
+                .extract().as(PartRelationshipsWithInfos.class);
 
-        // Add basic auth if a userName and password have been specified.
-        if (userName != null && password != null) {
-            var auth = new BasicAuthScheme();
-            auth.setUserName(userName);
-            auth.setPassword(password);
-            specificationBuilder.setAuth(auth).build();
-        }
-
-        var specification = specificationBuilder.build();
-
-        given()
-            .spec(specification)
-            .pathParam(VIN, SAMPLE_VIN)
-            .queryParam(VIEW, AS_MAINTAINED)
-        .when()
-            .get(PATH)
-        .then()
-            .assertThat()
-            .statusCode(HttpStatus.OK.value())
-            .body("relationships", hasSize(greaterThan(0)))
-            .body("partInfos", hasSize(greaterThan(0)));
+        assertThat(response.getRelationships()).isNotEmpty();
+        assertThat(response.getPartInfos()).isNotEmpty();
     }
 
 }
