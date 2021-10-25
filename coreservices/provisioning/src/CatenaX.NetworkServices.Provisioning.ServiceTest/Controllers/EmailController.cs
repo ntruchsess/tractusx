@@ -29,8 +29,8 @@ namespace CatenaX.NetworkServices.Provisioning.Service.Controllers
         {
             try
             {
-                var users = await _KeycloakAccess.GetUsers(realm);
-                await Task.WhenAll(users.Select( user => _UserEmail.SendMail(user.Email,user.FirstName,user.LastName,realm)));
+                var users = await _KeycloakAccess.GetUsersAsync(realm);
+                await Task.WhenAll(users.Select( user => _UserEmail.SendMailAsync(user.Email,user.FirstName,user.LastName,realm)));
                 return new OkResult();
             }
             catch (Exception e)

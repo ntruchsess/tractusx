@@ -67,7 +67,7 @@ namespace CatenaX.NetworkServices.Provisioning.Service.Controllers
         {
             try
             {
-                var _group = await _KeycloakAccess.GetGroup(realm,group);
+                var _group = await _KeycloakAccess.GetGroupAsync(realm,group);
                 if (_group != null)
                 {
                     return new ActionResult<Group>(_group);
@@ -87,10 +87,10 @@ namespace CatenaX.NetworkServices.Provisioning.Service.Controllers
         {
             try
             {
-                var group = await _KeycloakAccess.GetGroup(realm,TRIGGERGROUP);
+                var group = await _KeycloakAccess.GetGroupAsync(realm,TRIGGERGROUP);
                 if (group != null)
                 {
-                    await _KeycloakAccess.DeleteGroup(realm,group.Id);
+                    await _KeycloakAccess.DeleteGroupAsync(realm,group.Id);
                     return new OkResult();
                 }
                 return new NotFoundResult();
@@ -107,7 +107,7 @@ namespace CatenaX.NetworkServices.Provisioning.Service.Controllers
         {
             try
             {
-                return new ActionResult<IEnumerable<Realm>>(await _KeycloakAccess.GetRealms());
+                return new ActionResult<IEnumerable<Realm>>(await _KeycloakAccess.GetRealmsAsync());
             }
             catch (Exception e)
             {
@@ -135,7 +135,7 @@ namespace CatenaX.NetworkServices.Provisioning.Service.Controllers
         {
             try
             {
-                return new ActionResult<string>(await _KeycloakAccess.GetSamlDescriptorCert(realm));
+                return new ActionResult<string>(await _KeycloakAccess.GetSamlDescriptorCertAsync(realm));
             }
             catch (Exception e)
             {

@@ -7,7 +7,6 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Text;
 using System.Text.Json;
-using System.Text.RegularExpressions;
 
 using CatenaX.NetworkServices.Provisioning.ActiveDirectory.Model;
 using CatenaX.NetworkServices.Provisioning.Utils;
@@ -42,7 +41,7 @@ namespace CatenaX.NetworkServices.Provisioning.ActiveDirectory
             _SigningCertificateTemplate = new StringTemplate(_Settings.Request.SigningCertificate);
         }
 
-        public async Task CreateFederation(IDictionary<string,string> values)
+        public async Task<bool> CreateFederation(IDictionary<string,string> values)
         {
             var token = await _Token.GetToken();
             var domainFederation = new SamlOrWsFedExternalDomainFederation {
@@ -52,13 +51,11 @@ namespace CatenaX.NetworkServices.Provisioning.ActiveDirectory
                 MetadataExchangeUri = _MetadataExchangeUriTemplate.Apply(values),
                 PassiveSignInUri = _PassiveSignInUriTemplate.Apply(values),
                 PreferredAuthenticationProtocol = _Settings.Request.PreferredAuthenticationProtocol,
-                Domains = _DomainIdTemplates.Aggregate(new List<ExternalDomainName>(),(domains,template) => {
-                    domains.Add(new ExternalDomainName {
+                Domains = _DomainIdTemplates.Select(template =>
+                    new ExternalDomainName {
                         ODataType = _Settings.Request.DomainODataType,
                         Id = template.Apply(values)
-                    });
-                    return domains;
-                }),
+                    }).ToList(),
                 SigningCertificate = _SigningCertificateTemplate.Apply(values)
             };
 
@@ -69,10 +66,7 @@ namespace CatenaX.NetworkServices.Provisioning.ActiveDirectory
             request.Content = new StringContent(content, Encoding.UTF8);
             request.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-            var response = await _Client.SendAsync(request);
-            response.EnsureSuccessStatusCode();
-
-            var responseContent = await response.Content.ReadAsStringAsync();
+            return (await _Client.SendAsync(request)).IsSuccessStatusCode;
         }
     }
 }

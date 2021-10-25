@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace CatenaX.NetworkServices.Provisioning.Service
 {
@@ -18,6 +13,14 @@ namespace CatenaX.NetworkServices.Provisioning.Service
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration(appConfiguration => {
+                    foreach(var source in appConfiguration.Sources) {
+                        var fileSource = source as FileConfigurationSource;
+                        if (fileSource != null) {
+                            fileSource.ReloadOnChange = false;
+                        }
+                    }
+                })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();

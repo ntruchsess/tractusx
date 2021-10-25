@@ -5,7 +5,7 @@ using System.Linq;
 using CatenaX.NetworkServices.Provisioning.Keycloak;
 using CatenaX.NetworkServices.Provisioning.ActiveDirectory;
 using CatenaX.NetworkServices.Provisioning.Mail;
-
+using Keycloak.Net.Models.Users;
 namespace CatenaX.NetworkServices.Provisioning.Service.BusinessLogic
 {
     public class ProvisioningService : IProvisioningService
@@ -23,33 +23,34 @@ namespace CatenaX.NetworkServices.Provisioning.Service.BusinessLogic
             _Settings = settings.Value;
         }
 
-        public Task CheckAndExecuteProvisioning()
+        public Task CheckAndExecuteProvisioningAsync()
         {
             return _KeycloakAccess.GetOnboardingRealmGroupsAsync(_Settings.TriggerGroup)
                 .ContinueWith(taskRealmGroups =>
                     Task.WhenAll(taskRealmGroups.Result.Select(realmGroup => {
                         var (realm,group) = realmGroup;
-                        return _KeycloakAccess.GetSamlDescriptorCert(realm._Realm)
-                            .ContinueWith(taskCert => {
-                                var federationParams = new Dictionary<string,string>{
+                        return _KeycloakAccess.GetSamlDescriptorCertAsync(realm._Realm)
+                            .ContinueWith(taskCert =>
+                                _Federation.CreateFederation(new Dictionary<string,string>{
                                     { "realm", realm._Realm },
                                     { "base", _Settings.DomainBase },
                                     { "cert", taskCert.Result }
-                                };
-                                return _Federation.CreateFederation(federationParams).ContinueWith(_ =>
-                                    _KeycloakAccess.GetUsers(realm._Realm)
-                                        .ContinueWith(taskUsers =>
-                                            Task.WhenAll(taskUsers.Result.Select(user =>
-                                                _UserEmail.SendMail(user.Email,user.FirstName,user.LastName,realm._Realm)
-                                            )).Wait()
-                                        )
-                                    ).ContinueWith(taskSendEmails =>
-                                            _KeycloakAccess.DeleteGroup(realm._Realm,group.Id).Wait()
-                                    );
-                            });
-                        })
-                    ).Wait()
-                );
+                                }))
+                            .Unwrap().ContinueWith(taskCreateFederation =>
+                                (taskCreateFederation.IsCompletedSuccessfully && taskCreateFederation.Result)
+                                    ? _KeycloakAccess.DeleteGroupAsync(realm._Realm,group.Id)
+                                    : Task.FromResult(false))
+                            .Unwrap().ContinueWith(taskDeleteGroup =>
+                                (taskDeleteGroup.IsCompletedSuccessfully && taskDeleteGroup.Result)
+                                    ? _KeycloakAccess.GetUsersAsync(realm._Realm)
+                                    : Task.FromResult((IEnumerable<User>)null))
+                            .Unwrap().ContinueWith(taskGetUsers =>
+                                (taskGetUsers.IsCompletedSuccessfully && taskGetUsers.Result != null)
+                                    ? Task.WhenAll(taskGetUsers.Result.Select(user =>
+                                        _UserEmail.SendMailAsync(user.UserName,user.FirstName,user.LastName,realm._Realm)))
+                                    : new Task(() => {}))
+                            .Unwrap();
+                    }))).Unwrap();
         }
     }
 }

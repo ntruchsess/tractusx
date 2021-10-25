@@ -4,6 +4,6 @@ namespace CatenaX.NetworkServices.Provisioning.Service.BusinessLogic
 {
     public interface IProvisioningService
     {
-        Task CheckAndExecuteProvisioning();
+        Task CheckAndExecuteProvisioningAsync();
     }
 }

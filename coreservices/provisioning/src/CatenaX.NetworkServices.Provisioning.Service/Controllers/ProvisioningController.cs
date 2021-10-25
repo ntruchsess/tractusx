@@ -27,7 +27,7 @@ namespace CatenaX.NetworkServices.Provisioning.Service.Controllers
         {
             try
             {
-                await _ProvisioningService.CheckAndExecuteProvisioning();
+                await _ProvisioningService.CheckAndExecuteProvisioningAsync();
                 return new OkResult();
             }
             catch (Exception e)

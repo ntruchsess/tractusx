@@ -8,11 +8,11 @@ namespace CatenaX.NetworkServices.Provisioning.Keycloak
 {
     public interface IKeycloakAccess
     {
-        Task<IEnumerable<Realm>> GetRealms();
-        Task<Group> GetGroup(string realmId, string groupName);
-        Task<IEnumerable<User>> GetUsers(string realmId);
-        Task<bool> DeleteGroup(string realmId, string groupId);
+        Task<IEnumerable<Realm>> GetRealmsAsync();
+        Task<Group> GetGroupAsync(string realmId, string groupName);
+        Task<IEnumerable<User>> GetUsersAsync(string realmId);
+        Task<bool> DeleteGroupAsync(string realmId, string groupId);
         Task<IEnumerable<(Realm,Group)>> GetOnboardingRealmGroupsAsync(string triggerGroup);
-        Task<string> GetSamlDescriptorCert(string realm);
+        Task<string> GetSamlDescriptorCertAsync(string realm);
     }
 }

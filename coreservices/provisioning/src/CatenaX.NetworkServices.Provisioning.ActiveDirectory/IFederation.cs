@@ -7,6 +7,6 @@ namespace CatenaX.NetworkServices.Provisioning.ActiveDirectory
 {
     public interface IFederation
     {
-        Task CreateFederation(IDictionary<string,string> values);
+        Task<bool> CreateFederation(IDictionary<string,string> values);
     }
 }
