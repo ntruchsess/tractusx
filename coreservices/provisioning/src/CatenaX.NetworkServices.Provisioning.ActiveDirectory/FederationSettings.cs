@@ -6,13 +6,13 @@ namespace CatenaX.NetworkServices.Provisioning.ActiveDirectory
 {
     public class FederationSettings
     {
-        public string Id { get; set; }
-        public string Cert { get; set; }
-        public string RequestUri { get; set; }
-        public Request Request { get; set; }
+        public string CreateFederationUri { get; set; }
+        public CreateFederationRequest CreateFederationRequest { get; set; }
+        public string SendInvitationUri { get; set; }
+        public string SendInvitationRedirectUrl { get; set; }
     }
 
-    public class Request
+    public class CreateFederationRequest
     {
         public string ODataType { get; set; }
         public string IssuerUri { get; set; }

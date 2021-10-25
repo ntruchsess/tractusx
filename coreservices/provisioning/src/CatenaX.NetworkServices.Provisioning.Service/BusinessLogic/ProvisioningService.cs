@@ -31,7 +31,7 @@ namespace CatenaX.NetworkServices.Provisioning.Service.BusinessLogic
                         var (realm,group) = realmGroup;
                         return _KeycloakAccess.GetSamlDescriptorCertAsync(realm._Realm)
                             .ContinueWith(taskCert =>
-                                _Federation.CreateFederation(new Dictionary<string,string>{
+                                _Federation.CreateFederationAsync(new Dictionary<string,string>{
                                     { "realm", realm._Realm },
                                     { "base", _Settings.DomainBase },
                                     { "cert", taskCert.Result }
@@ -47,8 +47,14 @@ namespace CatenaX.NetworkServices.Provisioning.Service.BusinessLogic
                             .Unwrap().ContinueWith(taskGetUsers =>
                                 (taskGetUsers.IsCompletedSuccessfully && taskGetUsers.Result != null)
                                     ? Task.WhenAll(taskGetUsers.Result.Select(user =>
-                                        _UserEmail.SendMailAsync(user.UserName,user.FirstName,user.LastName,realm._Realm)))
-                                    : new Task(() => {}))
+                                        _Federation.SendInvitationAsync(user.UserName)
+                                            .ContinueWith(taskSendInvitation =>
+                                                (taskSendInvitation.IsCompletedSuccessfully && taskSendInvitation.Result)
+                                                    ? _UserEmail.SendMailAsync(user.UserName,user.FirstName,user.LastName,realm._Realm)
+                                                    : (Task)null
+                                            ).Unwrap()
+                                        ))
+                                    : (Task)null)
                             .Unwrap();
                     }))).Unwrap();
         }

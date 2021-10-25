@@ -6,6 +6,6 @@ namespace CatenaX.NetworkServices.Provisioning.ActiveDirectory
 {
     public interface IClientToken
     {
-        Task<Token> GetToken();
+        Task<Token> GetTokenAsync();
     }
 }

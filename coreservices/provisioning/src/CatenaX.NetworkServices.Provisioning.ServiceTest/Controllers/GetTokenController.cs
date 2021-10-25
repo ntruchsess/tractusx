@@ -28,7 +28,7 @@ namespace CatenaX.NetworkServices.Provisioning.Service.Controllers
         {
             try
             {
-                var token = await _logic.GetToken();
+                var token = await _logic.GetTokenAsync();
                 return token;
             }
             catch (Exception e)

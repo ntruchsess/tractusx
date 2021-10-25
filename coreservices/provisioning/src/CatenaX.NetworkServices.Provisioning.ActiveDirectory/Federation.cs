@@ -32,41 +32,53 @@ namespace CatenaX.NetworkServices.Provisioning.ActiveDirectory
             _Settings = federationSettings.Value;
             _Token = clientToken;
             _Client = clientFactory.CreateClient();
-            _RequestUriTemplate = new StringTemplate(_Settings.RequestUri);
-            _IssuerUriTemplate = new StringTemplate(_Settings.Request.IssuerUri);
-            _DisplayNameTemplate = new StringTemplate(_Settings.Request.DisplayName);
-            _MetadataExchangeUriTemplate = new StringTemplate(_Settings.Request.MetadataExchangeUri);
-            _PassiveSignInUriTemplate = new StringTemplate(_Settings.Request.PassiveSignInUri);
-            _DomainIdTemplates = _Settings.Request.DomainIds.Select(id => new StringTemplate(id)).ToList();
-            _SigningCertificateTemplate = new StringTemplate(_Settings.Request.SigningCertificate);
+            _RequestUriTemplate = new StringTemplate(_Settings.CreateFederationUri);
+            _IssuerUriTemplate = new StringTemplate(_Settings.CreateFederationRequest.IssuerUri);
+            _DisplayNameTemplate = new StringTemplate(_Settings.CreateFederationRequest.DisplayName);
+            _MetadataExchangeUriTemplate = new StringTemplate(_Settings.CreateFederationRequest.MetadataExchangeUri);
+            _PassiveSignInUriTemplate = new StringTemplate(_Settings.CreateFederationRequest.PassiveSignInUri);
+            _DomainIdTemplates = _Settings.CreateFederationRequest.DomainIds.Select(id => new StringTemplate(id)).ToList();
+            _SigningCertificateTemplate = new StringTemplate(_Settings.CreateFederationRequest.SigningCertificate);
         }
 
-        public async Task<bool> CreateFederation(IDictionary<string,string> values)
-        {
-            var token = await _Token.GetToken();
-            var domainFederation = new SamlOrWsFedExternalDomainFederation {
-                ODataType = _Settings.Request.ODataType,
+        public Task<bool> CreateFederationAsync(IDictionary<string,string> values) =>
+            PostJsonAuthenticated(_RequestUriTemplate.Apply(values), new SamlOrWsFedExternalDomainFederation {
+                ODataType = _Settings.CreateFederationRequest.ODataType,
                 IssuerUri = _IssuerUriTemplate.Apply(values),
                 DisplayName = _DisplayNameTemplate.Apply(values),
                 MetadataExchangeUri = _MetadataExchangeUriTemplate.Apply(values),
                 PassiveSignInUri = _PassiveSignInUriTemplate.Apply(values),
-                PreferredAuthenticationProtocol = _Settings.Request.PreferredAuthenticationProtocol,
+                PreferredAuthenticationProtocol = _Settings.CreateFederationRequest.PreferredAuthenticationProtocol,
                 Domains = _DomainIdTemplates.Select(template =>
                     new ExternalDomainName {
-                        ODataType = _Settings.Request.DomainODataType,
+                        ODataType = _Settings.CreateFederationRequest.DomainODataType,
                         Id = template.Apply(values)
                     }).ToList(),
                 SigningCertificate = _SigningCertificateTemplate.Apply(values)
-            };
+            });
 
-            var content = JsonSerializer.Serialize(domainFederation);
-            var request = new HttpRequestMessage(HttpMethod.Post, new Uri(_RequestUriTemplate.Apply(values)));
-            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            request.Headers.Authorization = new AuthenticationHeaderValue(token.Type,token.Value);
-            request.Content = new StringContent(content, Encoding.UTF8);
-            request.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+        public Task<bool> SendInvitationAsync(string email) =>
+            PostJsonAuthenticated(_Settings.SendInvitationUri, new Invitation {
+                InvitedUserEmailAddress = email,
+                InviteRedirectUrl = _Settings.SendInvitationRedirectUrl,
+                SendInvitationMessage = false
+            });
 
-            return (await _Client.SendAsync(request)).IsSuccessStatusCode;
-        }
+        private Task<bool> PostJsonAuthenticated(string url, object json) =>
+            _Token.GetTokenAsync().ContinueWith(taskGetToken => {
+                if (taskGetToken.IsCompletedSuccessfully && taskGetToken.Result != null)
+                {
+                    var request = new HttpRequestMessage(HttpMethod.Post, new Uri(url));
+                    request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    request.Headers.Authorization = new AuthenticationHeaderValue(taskGetToken.Result.Type,taskGetToken.Result.Value);
+                    request.Content = new StringContent(JsonSerializer.Serialize(json), Encoding.UTF8);
+                    request.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                    return _Client.SendAsync(request);
+                } else {
+                    return Task.FromResult(new HttpResponseMessage(System.Net.HttpStatusCode.Unauthorized));
+                }
+            }).Unwrap().ContinueWith(taskSendAsync =>
+                taskSendAsync.IsCompletedSuccessfully && taskSendAsync.Result.IsSuccessStatusCode
+            );
     }
 }
