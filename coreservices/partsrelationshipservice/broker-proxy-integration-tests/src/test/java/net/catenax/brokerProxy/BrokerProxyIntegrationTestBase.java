@@ -15,6 +15,7 @@ import com.github.javafaker.Faker;
 import io.restassured.RestAssured;
 import net.catenax.brokerproxy.BrokerProxyApplication;
 import net.catenax.brokerproxy.configuration.BrokerProxyConfiguration;
+import net.catenax.prs.testing.DtoMother;
 import net.catenax.prs.testing.UpdateRequestMother;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -82,10 +83,17 @@ abstract class BrokerProxyIntegrationTestBase {
     protected static final Faker faker = new Faker();
 
     /**
-     * Broker proxy mother to generate object.
+     * Object Mother to generate broker proxy response data for testing.
      */
     protected final BrokerProxyResponseMother generateResponse = new BrokerProxyResponseMother();
-    protected final UpdateRequestMother generate = new UpdateRequestMother();
+    /**
+     * Object Mother to generate update api DTO data for testing.
+     */
+    protected static final UpdateRequestMother generate = new UpdateRequestMother();
+    /**
+     * Object Mother to generate core DTO data for testing.
+     */
+    protected static final DtoMother generateDto = new DtoMother();
     /**
      * Broker proxy api configuration settings.
      */
