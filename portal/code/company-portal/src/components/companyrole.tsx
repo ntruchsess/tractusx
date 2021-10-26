@@ -16,17 +16,11 @@ import * as React from 'react';
 import { observer } from 'mobx-react';
 import { Dropdown, IDropdownOption, IDropdownStyles, PrimaryButton } from '@fluentui/react';
 import { getCompanyRoles } from '../helpers/utils';
-import { observable } from 'mobx';
 import UserService from '../helpers/UserService';
 import { toast } from 'react-toastify';
 
 const dropdownStyles: Partial<IDropdownStyles> = { dropdown: { width: 300 } };
 var dropdowndata : IDropdownOption[] = [];
-interface ISelectedValues{
-  key:number,
-  text:string,
-  selected:boolean
-}
 var selectedValue: any[] = [];
 @observer
 export default class Companyrole extends React.Component {

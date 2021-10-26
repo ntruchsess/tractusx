@@ -55,6 +55,17 @@ class AppCard extends React.Component<IProp> {
     }
   }
 
+  onClickTitle(){
+    if(this.props.app.url){
+      if (this.props.app.url.substr(0, 1) !== '/') {
+        window.open(this.props.app.url, '_blank');
+      } else {
+        this.props.history.push(this.props.app.url);
+      }
+       return false;
+     }
+  }
+
   public render() {
     const a = this.props.app;
     const text = this.props.buttonText || a.purchase;
@@ -68,7 +79,7 @@ class AppCard extends React.Component<IProp> {
             {!this.props.hideRating && <Ratings className='ml15 mt50' app={a} />}
           </div>
           <div className='ml15 fs14 fggrey mb5'>{a.companyName}</div>
-          <div className='ml15 bold fs14 minh40'>{a.title}</div>
+          <div className='ml15 bold fs14 minh40' onClick={()=>this.onClickTitle()}>{a.title}</div>
           <div className='h50 mt20 tal ml15'>
             <div className='fglgreen bold fs14'>{text}</div>
             {!this.props.hideUsage && <div className='fsxs fgb5'>{a.usage}</div>}

@@ -90,7 +90,7 @@ export default class AppDetail extends React.Component<RouteComponentProps> {
               <PrimaryButton className='w170 h50 br5 fs14 ml100' text={app.purchase} onClick={() => this.openClick()} />
             </div>
             <div className='ml50 w100-100 mt20 df bglightgrey'>
-              <div className='df oa'>
+              <div className='df oa scroll'>
                 {app.screenshots.map((s, index) => <img key={index} className='mr10 card mt5 ml5 mr5 mb5' src={s} alt='screenshot' width={260}
                   onMouseEnter={() => this.mouseEnter(s)} />)}
               </div>
