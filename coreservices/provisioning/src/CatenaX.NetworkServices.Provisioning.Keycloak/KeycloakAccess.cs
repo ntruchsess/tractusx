@@ -31,25 +31,23 @@ namespace CatenaX.NetworkServices.Provisioning.Keycloak
             _AdminRealm = keycloakFactory.GetAdminRealm();
              _MetaDataTemplate = new StringTemplate(keycloakFactory.GetConnectionString()+settings.Value.MetaDataPath);
         }
-        public Task<bool> DeleteGroupAsync(string realmId, string groupId)
+        public async Task DeleteGroupAsync(string realmId, string groupId)
         {
-            return _Client.DeleteGroupAsync(realmId,groupId);
+            var result = await _Client.DeleteGroupAsync(realmId,groupId);
+            if (!result) throw new GroupNotDeletedException(realmId,groupId);
         }
-        public Task<Group> GetGroupAsync(string realmId, string groupName)
+        public async Task<Group> GetGroupAsync(string realmId, string groupName)
         {
-            return _Client.GetGroupHierarchyAsync(realmId,null,null,groupName).ContinueWith(taskGroups =>
-                taskGroups.IsCompletedSuccessfully ?
-                    taskGroups.Result.FirstOrDefault( group => group.Name == groupName ) : null);
+            var groups = await _Client.GetGroupHierarchyAsync(realmId,null,null,groupName);
+            return groups.FirstOrDefault( group => group.Name == groupName );
         }
-        public Task<IEnumerable<(Realm,Group)>> GetOnboardingRealmGroupsAsync(string triggerGroup)
+        public async Task<IEnumerable<(Realm,Group)>> GetOnboardingRealmGroupsAsync(string triggerGroup)
         {
-            return GetRealmsAsync()
-                .ContinueWith(taskGetRealms =>
-                    Task.WhenAll(taskGetRealms.Result.Select(realm =>
-                        GetGroupAsync(realm._Realm,triggerGroup)
-                            .ContinueWith(taskGetGroup => (realm,taskGetGroup.Result))))
-                    .ContinueWith(taskWhenAll =>
-                        taskWhenAll.Result.Where(x => x.Item2 != null))).Unwrap();
+            return await Task.WhenAll((await GetRealmsAsync()).Select(async realm =>
+                (realm,await GetGroupAsync(realm._Realm,triggerGroup))
+            )).ContinueWith(taskWhenAll =>
+                taskWhenAll.Result.Where(x => x.Item2 != null)
+            );
         }
         public Task<IEnumerable<User>> GetUsersAsync(string realmId)
         {
@@ -59,7 +57,7 @@ namespace CatenaX.NetworkServices.Provisioning.Keycloak
         {
             return _Client.GetRealmsAsync(_AdminRealm);
         }
-        public Task<string> GetSamlDescriptorCertAsync(string realm)
+        public async Task<string> GetSamlDescriptorCertAsync(string realm)
         {
             var parameters = new Dictionary<string,string> {
                 { "realm", realm }
@@ -67,12 +65,14 @@ namespace CatenaX.NetworkServices.Provisioning.Keycloak
             var request = new HttpRequestMessage(HttpMethod.Get, new Uri(_MetaDataTemplate.Apply(parameters)));
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/xml"));
 
-            return _HttpClient.SendAsync(request)
-                .ContinueWith(taskSend =>
-                    taskSend.Result.EnsureSuccessStatusCode().Content.ReadAsStreamAsync())
-                .Unwrap().ContinueWith(taskResponseStream =>
-                    ((EntityDescriptor)new XmlSerializer(typeof(EntityDescriptor)).Deserialize(taskResponseStream.Result))
-                        .IDPSSODescriptor.KeyDescriptor.KeyInfo.X509Data.X509Certificate);
+            var entityDescriptor = ((EntityDescriptor)new XmlSerializer(typeof(EntityDescriptor)).Deserialize(
+                await (await _HttpClient.SendAsync(request)).EnsureSuccessStatusCode().Content.ReadAsStreamAsync()
+            ));
+            var idpssodescriptor = entityDescriptor == null ? null : entityDescriptor.IDPSSODescriptor;
+            var keyDescriptor = idpssodescriptor == null ? null : idpssodescriptor.KeyDescriptor;
+            var keyInfo = keyDescriptor == null ? null : keyDescriptor.KeyInfo;
+            var x509Data = keyInfo.X509Data == null ? null : keyInfo.X509Data;
+            return x509Data == null ? null : x509Data.X509Certificate;
         }
     }
 }

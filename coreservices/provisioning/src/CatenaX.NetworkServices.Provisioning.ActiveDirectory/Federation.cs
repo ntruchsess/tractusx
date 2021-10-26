@@ -41,7 +41,7 @@ namespace CatenaX.NetworkServices.Provisioning.ActiveDirectory
             _SigningCertificateTemplate = new StringTemplate(_Settings.CreateFederationRequest.SigningCertificate);
         }
 
-        public Task<bool> CreateFederationAsync(IDictionary<string,string> values) =>
+        public Task CreateFederationAsync(IDictionary<string,string> values) =>
             PostJsonAuthenticated(_RequestUriTemplate.Apply(values), new SamlOrWsFedExternalDomainFederation {
                 ODataType = _Settings.CreateFederationRequest.ODataType,
                 IssuerUri = _IssuerUriTemplate.Apply(values),
@@ -57,28 +57,22 @@ namespace CatenaX.NetworkServices.Provisioning.ActiveDirectory
                 SigningCertificate = _SigningCertificateTemplate.Apply(values)
             });
 
-        public Task<bool> SendInvitationAsync(string email) =>
+        public Task SendInvitationAsync(string email) =>
             PostJsonAuthenticated(_Settings.SendInvitationUri, new Invitation {
                 InvitedUserEmailAddress = email,
                 InviteRedirectUrl = _Settings.SendInvitationRedirectUrl,
                 SendInvitationMessage = false
             });
 
-        private Task<bool> PostJsonAuthenticated(string url, object json) =>
-            _Token.GetTokenAsync().ContinueWith(taskGetToken => {
-                if (taskGetToken.IsCompletedSuccessfully && taskGetToken.Result != null)
-                {
-                    var request = new HttpRequestMessage(HttpMethod.Post, new Uri(url));
-                    request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                    request.Headers.Authorization = new AuthenticationHeaderValue(taskGetToken.Result.Type,taskGetToken.Result.Value);
-                    request.Content = new StringContent(JsonSerializer.Serialize(json), Encoding.UTF8);
-                    request.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-                    return _Client.SendAsync(request);
-                } else {
-                    return Task.FromResult(new HttpResponseMessage(System.Net.HttpStatusCode.Unauthorized));
-                }
-            }).Unwrap().ContinueWith(taskSendAsync =>
-                taskSendAsync.IsCompletedSuccessfully && taskSendAsync.Result.IsSuccessStatusCode
-            );
+        private async Task PostJsonAuthenticated(string url, object json)
+        {
+            var token = await _Token.GetTokenAsync();
+            var request = new HttpRequestMessage(HttpMethod.Post, new Uri(url));
+            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            request.Headers.Authorization = new AuthenticationHeaderValue(token.Type,token.Value);
+            request.Content = new StringContent(JsonSerializer.Serialize(json), Encoding.UTF8);
+            request.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            (await _Client.SendAsync(request)).EnsureSuccessStatusCode();
+        }
     }
 }

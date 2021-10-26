@@ -23,7 +23,6 @@ namespace CatenaX.NetworkServices.Provisioning.ActiveDirectory
                                           .Build();
         }
 
-        public Task<Token> GetTokenAsync() => _App.AcquireTokenForClient(scopes).ExecuteAsync()
-            .ContinueWith(taskExecute => new Token(taskExecute.Result));
+        public async Task<Token> GetTokenAsync() => new Token(await _App.AcquireTokenForClient(scopes).ExecuteAsync());
     }
 }

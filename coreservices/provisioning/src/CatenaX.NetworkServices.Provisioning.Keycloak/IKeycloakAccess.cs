@@ -11,7 +11,7 @@ namespace CatenaX.NetworkServices.Provisioning.Keycloak
         Task<IEnumerable<Realm>> GetRealmsAsync();
         Task<Group> GetGroupAsync(string realmId, string groupName);
         Task<IEnumerable<User>> GetUsersAsync(string realmId);
-        Task<bool> DeleteGroupAsync(string realmId, string groupId);
+        Task DeleteGroupAsync(string realmId, string groupId);
         Task<IEnumerable<(Realm,Group)>> GetOnboardingRealmGroupsAsync(string triggerGroup);
         Task<string> GetSamlDescriptorCertAsync(string realm);
     }

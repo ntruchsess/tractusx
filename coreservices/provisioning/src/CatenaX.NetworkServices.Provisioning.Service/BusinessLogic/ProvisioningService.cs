@@ -23,40 +23,23 @@ namespace CatenaX.NetworkServices.Provisioning.Service.BusinessLogic
             _Settings = settings.Value;
         }
 
-        public Task CheckAndExecuteProvisioningAsync()
+        public async Task CheckAndExecuteProvisioningAsync()
         {
-            return _KeycloakAccess.GetOnboardingRealmGroupsAsync(_Settings.TriggerGroup)
-                .ContinueWith(taskRealmGroups =>
-                    Task.WhenAll(taskRealmGroups.Result.Select(realmGroup => {
-                        var (realm,group) = realmGroup;
-                        return _KeycloakAccess.GetSamlDescriptorCertAsync(realm._Realm)
-                            .ContinueWith(taskCert =>
-                                _Federation.CreateFederationAsync(new Dictionary<string,string>{
-                                    { "realm", realm._Realm },
-                                    { "base", _Settings.DomainBase },
-                                    { "cert", taskCert.Result }
-                                }))
-                            .Unwrap().ContinueWith(taskCreateFederation =>
-                                (taskCreateFederation.IsCompletedSuccessfully && taskCreateFederation.Result)
-                                    ? _KeycloakAccess.DeleteGroupAsync(realm._Realm,group.Id)
-                                    : Task.FromResult(false))
-                            .Unwrap().ContinueWith(taskDeleteGroup =>
-                                (taskDeleteGroup.IsCompletedSuccessfully && taskDeleteGroup.Result)
-                                    ? _KeycloakAccess.GetUsersAsync(realm._Realm)
-                                    : Task.FromResult((IEnumerable<User>)null))
-                            .Unwrap().ContinueWith(taskGetUsers =>
-                                (taskGetUsers.IsCompletedSuccessfully && taskGetUsers.Result != null)
-                                    ? Task.WhenAll(taskGetUsers.Result.Select(user =>
-                                        _Federation.SendInvitationAsync(user.UserName)
-                                            .ContinueWith(taskSendInvitation =>
-                                                (taskSendInvitation.IsCompletedSuccessfully && taskSendInvitation.Result)
-                                                    ? _UserEmail.SendMailAsync(user.UserName,user.FirstName,user.LastName,realm._Realm)
-                                                    : (Task)null
-                                            ).Unwrap()
-                                        ))
-                                    : (Task)null)
-                            .Unwrap();
-                    }))).Unwrap();
+            await Task.WhenAll(
+                (await _KeycloakAccess.GetOnboardingRealmGroupsAsync(_Settings.TriggerGroup)).Select(async realmGroup => {
+                    var (realm,group) = realmGroup;
+                    await _Federation.CreateFederationAsync(new Dictionary<string,string>{
+                        { "realm", realm._Realm },
+                        { "base", _Settings.DomainBase },
+                        { "cert", await _KeycloakAccess.GetSamlDescriptorCertAsync(realm._Realm) }
+                    });
+                    await _KeycloakAccess.DeleteGroupAsync(realm._Realm,group.Id);
+                    await Task.WhenAll((await _KeycloakAccess.GetUsersAsync(realm._Realm)).Select(async user => {
+                        await _Federation.SendInvitationAsync(user.UserName);
+                        await _UserEmail.SendMailAsync(user.UserName,user.FirstName,user.LastName,realm._Realm);
+                    }));
+                })
+            );
         }
     }
 }
