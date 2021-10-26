@@ -30,7 +30,7 @@ export default class Registrationoneid extends React.Component {
   private registrationButtonClick() {
     console.log("register");
 
-    var u = 'http://cxonbiardoing.azurewebsites.net/api/onboarding'
+    var u = 'https://catenax-dev003-app-invitation-service.azurewebsites.net/api/invitation'
 
     var data =
     {

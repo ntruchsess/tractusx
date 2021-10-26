@@ -22,7 +22,8 @@ namespace CatenaX.NetworkServices.Mailing.Template
                 var Template = _Templates[id];
                 return new Mail(
                     replaceValues(Template.Subject,parameters),
-                    replaceValues(Template.Body,parameters)
+                    replaceValues(Template.Body,parameters),
+                    Template.html
                 );
             }
             catch(ArgumentNullException)

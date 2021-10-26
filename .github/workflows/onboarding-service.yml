@@ -1,4 +1,4 @@
-name: Invitation-Service
+name: Onboarding-Service
 
 on: 
   push:
@@ -6,7 +6,7 @@ on:
     - main
     - feature/CAX-9-onboarding
     paths:
-      - 'coreservices/invitation/src/**'
+      - 'coreservices/onboarding/src/**'
   workflow_dispatch:
 
 jobs:
@@ -52,10 +52,10 @@ jobs:
       - uses: ./.github/workflows/composite/coreservicescicd
         with:
           srcFolder: 'coreservices/invitation/src/CatenaX.NetworkServices.Invitation.Service'
-          imageName: 'invitationservice'
+          imageName: 'onboardingservice'
           acrName: 'catenaxacr'
           environment: ${{needs.environment.outputs.workspace}}
           AZURE_REGISTRY_PASSWORD: ${{secrets.AZURE_REGISTRY_PASSWORD}}
           AZURE_REGISTRY_USERNAME: ${{secrets.AZURE_REGISTRY_USERNAME}}
           AZURE_CREDENTIALS: ${{secrets.AZURE_CREDENTIALS}}
-          helmDeploymentName: 'invitation'
+          helmDeploymentName: 'onboarding'

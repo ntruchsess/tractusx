@@ -4,11 +4,12 @@ import Keycloak from "keycloak-js";
 const searchParams = new URLSearchParams(window.location.search);
 const realm = searchParams.get('company') || 'microsoft';
 const oneid = searchParams.get('oneid') || 'CAXLZJVJEBYWYYZZ';
+const user = searchParams.get('user') || '';
 
 const _kc = new Keycloak({
   "url": "https://catenax-dev003-keycloak-service.azurewebsites.net/auth",
   "realm": realm,
-  "clientId": "onboard",
+  "clientId": `client-${realm.toLowerCase()}`,
   "ssl-required": "external",
   "public-client": true,
   "oneid": oneid
@@ -54,7 +55,9 @@ const getUsername = () => _kc.tokenParsed?.preferred_username;
 
 const getInitials = () => _kc.tokenParsed?.preferred_username.split(/[.@]/).reduce((a,b) => a+b[0],'').substring(0,2).toUpperCase();
 
-const getDomain = () => 'Microsoft';//_kc.tokenParsed?.split('/').pop();
+const getDomain = () => realm;//_kc.tokenParsed?.split('/').pop();
+
+const getOneid = () => oneid;
 
 const hasRole = (roles) => roles.some((role) => _kc.hasRealmRole(role));
 
