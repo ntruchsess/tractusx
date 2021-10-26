@@ -14,7 +14,7 @@ jobs:
   environment:
   # name of the job starts with a "run-level" subordinate to the workflow such that we can
   # depend on them in order to implement workflow dependencies
-    name: 40 Services Semantics Determine Target Environment
+    name: Determine Target Environment
     runs-on: ubuntu-latest
     outputs:
       workspace: ${{ steps.setvars.outputs.workspace }}
