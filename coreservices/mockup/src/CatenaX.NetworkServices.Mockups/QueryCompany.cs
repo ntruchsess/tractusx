@@ -36,6 +36,22 @@ taxNumber1 = "DE470914600",
 taxNumber1Type = "UST-ID",
 vatNumber = "DE470914600",
 vatNumberType = "UST-ID",
+},
+new Company(){
+bpn = "CAXSPGQORIGHFAYZ",
+parent = "CAXLZJVJEBYWYYZZ",
+accountGroup = "OEM Plant",
+name1 = "Contoso",
+addressVersion = "EN",
+country = "Germany",
+city = "Austell",
+postalCode = 16679,
+street1 = "Shaliman",
+houseNumber = 31,
+taxNumber1 = "DE470914600",
+taxNumber1Type = "UST-ID",
+vatNumber = "DE470914600",
+vatNumberType = "UST-ID",
 }
 };
 
