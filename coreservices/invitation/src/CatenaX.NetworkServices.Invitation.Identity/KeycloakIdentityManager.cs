@@ -12,16 +12,19 @@ using CatenaX.NetworkServices.Invitation.Identity.Model;
 using PasswordGenerator;
 using System.Linq;
 using Keycloak.Net.Models.Clients;
+using Microsoft.Extensions.Configuration;
 
 namespace CatenaX.NetworkServices.Invitation.Identity.Identity
 {
     public class KeycloakIdentityManager : IIdentityManager
     {
         private readonly KeycloakClient _client;
+        private readonly string _baseAddress;
 
-        public KeycloakIdentityManager(KeycloakClient client)
+        public KeycloakIdentityManager(KeycloakClient client, string baseAddress)
         {
             _client = client;
+            _baseAddress = baseAddress;
         }
 
         public async Task CreateRealm(CreateRealm realm)
@@ -79,7 +82,7 @@ namespace CatenaX.NetworkServices.Invitation.Identity.Identity
 
         public async Task CreateClient(string realm, string clientName)
         {
-            await _client.CreateClientAsync(realm, new Client { Id = clientName, PublicClient = true, DirectAccessGrantsEnabled = true });
+            await _client.CreateClientAsync(realm, new Client { Id = clientName, PublicClient = true, DirectAccessGrantsEnabled = true, RedirectUris = new List<string> { "http://localhost:3000/*",$"{_baseAddress}/*"  } });
         }
     }
 }

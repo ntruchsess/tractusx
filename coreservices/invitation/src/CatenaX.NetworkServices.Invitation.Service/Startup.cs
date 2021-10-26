@@ -32,7 +32,7 @@ namespace CatenaX.NetworkServices.Invitation.Service
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddTransient<IIdentityManager>(x => new KeycloakIdentityManager(new Keycloak.Net.KeycloakClient(Configuration.GetValue<string>("KeyCloakConnectionString"), Configuration.GetValue<string>("KeyCloakUser"), Configuration.GetValue<string>("KeyCloakUserPassword"), authRealm: "master")));
+            services.AddTransient<IIdentityManager>(x => new KeycloakIdentityManager(new Keycloak.Net.KeycloakClient(Configuration.GetValue<string>("KeyCloakConnectionString"), Configuration.GetValue<string>("KeyCloakUser"), Configuration.GetValue<string>("KeyCloakUserPassword"), authRealm: "master"), Configuration.GetValue<string>("BasePortalAddress")));
             services.AddTransient<IInvitationBusinessLogic,InvitationBusinessLogic>();
             services.AddTransient<IMailingService, MailingService>();
             services.AddTransient<ISendMail, SendMail>()
