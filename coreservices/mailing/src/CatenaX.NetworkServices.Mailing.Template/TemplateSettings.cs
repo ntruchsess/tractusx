@@ -13,6 +13,7 @@ namespace CatenaX.NetworkServices.Mailing.Template
     {
         public string Subject { get; set; }
         public string Body { get; set; }
+        public bool html { get; set; }
     }
     public static class TemplateSettingsExtention
     {

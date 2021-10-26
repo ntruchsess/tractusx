@@ -21,14 +21,6 @@ inputs:
     description: 'Environment'
     required: true
 
-  AKS_RG:
-    description: 'ResourceGroup of AKS'
-    required: true
-
-  AKS_CLUSTER:
-    description: 'Name of the AKS'
-    required: true
-
   AZURE_REGISTRY_USERNAME:
     description: 'username of registry'
     required: true
@@ -54,16 +46,16 @@ runs:
           password: ${{ inputs.AZURE_REGISTRY_PASSWORD }}
 
       - run: |
-          docker build -f ${{inputs.srcFolder}}/Dockerfile -t ${{inputs.acrName}}.azurecr.io/tractusx/${{inputs.imageName}}:${{ github.run_id }} coreservices/.
-          docker push ${{inputs.acrName}}.azurecr.io/tractusx/${{inputs.imageName}}:${{ github.run_id }}
+          docker build -f ${{inputs.srcFolder}}/Dockerfile -t ${{inputs.acrName}}.azurecr.io/${{inputs.imageName}}:${{ github.run_id }} coreservices/.
+          docker push ${{inputs.acrName}}.azurecr.io/${{inputs.imageName}}:${{ github.run_id }}
         shell: bash
             
       - name: Azure Kubernetes set context
         uses: azure/aks-set-context@v1
         with:
           creds: ${{ inputs.AZURE_CREDENTIALS }}
-          resource-group: ${{ inputs.AKS_RG }}
-          cluster-name: ${{ inputs.AKS_CLUSTER }}
+          resource-group: catenax-${{ inputs.environment }}-rg
+          cluster-name: catenax-${{ inputs.environment }}-aks-services
         
       - run: |
           kubectl create namespace coreservices --dry-run -o json | kubectl apply -f -
