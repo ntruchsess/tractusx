@@ -14,7 +14,6 @@
 
 import * as React from 'react';
 import { observer } from 'mobx-react';
-import { Application } from '../data/application';
 import RatingsApp from './ratingsApp';
 import { RouteComponentProps, withRouter } from 'react-router';
 
@@ -35,7 +34,7 @@ class AppCardData extends React.Component<IProp> {
   public render() {
     return (
       <>
-        <div className='h250 m5 br4 bsAppStore bgwhite minw200 maxw200 cpointer hov'>
+        <div className='h270 m5 br4 bsAppStore bgwhite minw200 maxw200 cpointer hov'>
         <div className='df fdc h120'>
             <div className='flex1' />
             <RatingsApp className='ml15 mt50' app='4.8' />
@@ -48,7 +47,7 @@ class AppCardData extends React.Component<IProp> {
           </div>
         </div>
 
-        <div className='h250 m5 br4 bsAppStore bgwhite minw200 maxw200 cpointer hov'>
+        <div className='h270 m5 br4 bsAppStore bgwhite minw200 maxw200 cpointer hov'>
           <div className='df fdc h120'>
             <div className='flex1' />
             <RatingsApp className='ml15 mt50' app='4.9' />
@@ -61,7 +60,7 @@ class AppCardData extends React.Component<IProp> {
           </div>
         </div>
 
-        <div className='h250 m5 br4 bsAppStore bgwhite minw200 maxw200 cpointer hov'>
+        <div className='h270 m5 br4 bsAppStore bgwhite minw200 maxw200 cpointer hov'>
         <div className='df fdc h120'>
             <div className='flex1' />
             <RatingsApp className='ml15 mt50' app='4.5' />
@@ -74,7 +73,7 @@ class AppCardData extends React.Component<IProp> {
           </div>
         </div>
 
-        <div className='h250 m5 br4 bsAppStore bgwhite minw200 maxw200 cpointer hov'>
+        <div className='h270 m5 br4 bsAppStore bgwhite minw200 maxw200 cpointer hov'>
         <div className='df fdc h120'>
             <div className='flex1' />
            <RatingsApp className='ml15 mt50' app='4.7' />
@@ -86,7 +85,7 @@ class AppCardData extends React.Component<IProp> {
            <div className='fsxs fgb5'>demo</div>
           </div>
         </div>
-        <div className='h250 m5 br4 bsAppStore bgwhite minw200 maxw200 cpointer hov'>
+        <div className='h270 m5 br4 bsAppStore bgwhite minw200 maxw200 cpointer hov'>
         <div className='df fdc h120'>
             <div className='flex1' />
             <RatingsApp className='ml15 mt50' app='4.7' />

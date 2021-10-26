@@ -4,7 +4,6 @@ import Keycloak from "keycloak-js";
 const searchParams = new URLSearchParams(window.location.search);
 const realm = searchParams.get('company') || 'microsoft';
 const oneid = searchParams.get('oneid') || 'CAXLZJVJEBYWYYZZ';
-const user = searchParams.get('user') || '';
 
 const _kc = new Keycloak({
   "url": "https://catenax-dev003-keycloak-service.azurewebsites.net/auth",
