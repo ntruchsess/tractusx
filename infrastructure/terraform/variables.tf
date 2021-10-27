@@ -21,30 +21,46 @@ variable "environment" {
 variable "azure_subscription_id" {
   description = "Subscription ID of the deployment principal"
   type = string
+<<<<<<< HEAD
   default = null
+=======
+>>>>>>> 8fd2e2d8d95525f65e962b421958c241ea692cd5
 }
 
 variable "azure_client_id" {
   description = "Client ID of the deployment principal"
   type = string
+<<<<<<< HEAD
   default = null
+=======
+>>>>>>> 8fd2e2d8d95525f65e962b421958c241ea692cd5
 }
 
 variable "azure_client_secret" {
   description = "Client Secret of the deployment principal"
   type = string
+<<<<<<< HEAD
   default = null
+=======
+>>>>>>> 8fd2e2d8d95525f65e962b421958c241ea692cd5
 }
 
 variable "azure_tenant_id" {
   description = "Tenant ID of the deployment principal"
   type = string
+<<<<<<< HEAD
   default = null
+=======
+>>>>>>> 8fd2e2d8d95525f65e962b421958c241ea692cd5
 }
 
 variable "aks_public_ssh_key" {
   description = "Path to the public ssh key file the kubernetes cluster should employ."
   type = string
+<<<<<<< HEAD
+=======
+  default     = "~/.ssh/id_rsa.pub"
+>>>>>>> 8fd2e2d8d95525f65e962b421958c241ea692cd5
 }
 
 variable "aks_admin_group_id" {
@@ -61,11 +77,19 @@ variable "azure_storage_access_key" {
 variable "catenax_admin" {
   description = "Default username for catenax admins"
   type = string
+<<<<<<< HEAD
+=======
+  default = "CatenaX"
+>>>>>>> 8fd2e2d8d95525f65e962b421958c241ea692cd5
 }
 
 variable "catenax_admin_password" {
   description = "Default password for catenax admins"
   type = string
+<<<<<<< HEAD
+=======
+  default = "XanetaC42"
+>>>>>>> 8fd2e2d8d95525f65e962b421958c241ea692cd5
 }
 
 variable "workspace_to_stage_map" {
@@ -75,10 +99,13 @@ variable "workspace_to_stage_map" {
     dev002  = "dev"
     dev003  = "dev"
     dev042  = "dev"
+<<<<<<< HEAD
     dev005  = "dev"
     dev006  = "dev"
     dev008  = "dev"
     dev009  = "dev"
+=======
+>>>>>>> 8fd2e2d8d95525f65e962b421958c241ea692cd5
     int     = "int"    
     prod    = "prod"
   }

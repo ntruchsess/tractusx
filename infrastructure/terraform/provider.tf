@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 variable "aks_host" {
   description = "Kubernetes Host. Use module.aks_services.kube_admin_config if not set."
   type = string
@@ -41,14 +42,30 @@ provider "kubernetes" {
   client_key             = base64decode(( var.aks_client_key != "") ?  var.aks_client_key : module.aks_services.kube_admin_config.0.client_key)
   client_certificate     = base64decode(( var.aks_client_certificate != "") ?  var.aks_client_certificate : module.aks_services.kube_admin_config.0.client_certificate)
   cluster_ca_certificate = base64decode(( var.aks_cluster_certificate != "") ?  var.aks_cluster_certificate : module.aks_services.kube_admin_config.0.cluster_ca_certificate)
+=======
+provider "kubernetes" {
+  host                   = module.aks_services.kube_admin_config.0.host
+  username               = module.aks_services.kube_admin_config.0.username
+  password               = module.aks_services.kube_admin_config.0.password
+  client_key             = base64decode(module.aks_services.kube_admin_config.0.client_key)
+  client_certificate     = base64decode(module.aks_services.kube_admin_config.0.client_certificate)
+  cluster_ca_certificate = base64decode(module.aks_services.kube_admin_config.0.cluster_ca_certificate)
+>>>>>>> 8fd2e2d8d95525f65e962b421958c241ea692cd5
 }
 
 provider "helm" {
     debug = true
     kubernetes {
+<<<<<<< HEAD
       host                   = ( var.aks_host != "") ? var.aks_host :  module.aks_services.kube_admin_config.0.host
       client_key             = base64decode(( var.aks_client_key != "" ) ?  var.aks_client_key : module.aks_services.kube_admin_config.0.client_key)
       client_certificate     = base64decode(( var.aks_client_certificate != "") ?  var.aks_client_certificate : module.aks_services.kube_admin_config.0.client_certificate)
       cluster_ca_certificate = base64decode(( var.aks_cluster_certificate != "") ?  var.aks_cluster_certificate : module.aks_services.kube_admin_config.0.cluster_ca_certificate)
+=======
+        host     = module.aks_services.kube_admin_config.0.host
+        client_key             = base64decode(module.aks_services.kube_admin_config.0.client_key)
+        client_certificate     = base64decode(module.aks_services.kube_admin_config.0.client_certificate)
+        cluster_ca_certificate = base64decode(module.aks_services.kube_admin_config.0.cluster_ca_certificate)
+>>>>>>> 8fd2e2d8d95525f65e962b421958c241ea692cd5
     }  
 }

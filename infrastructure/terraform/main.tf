@@ -17,9 +17,19 @@ module "landscape_variables" {
 # Shared infrastructure (shared services resource group, landscape resource group, monitoring, ...)
 ####################################################################################################
 
+<<<<<<< HEAD
 # this is just queried/imported as its does not belong to this state
 data "azurerm_resource_group" "shared_services_rg" {
   name     = "shared-services-rg"
+=======
+resource "azurerm_resource_group" "shared_services_rg" {
+  name     = "shared-services-rg"
+  location = var.location
+
+  tags = {
+    environment = "shared-services"
+  }
+>>>>>>> 8fd2e2d8d95525f65e962b421958c241ea692cd5
 }
 
 resource "azurerm_resource_group" "default_rg" {
@@ -33,8 +43,13 @@ resource "azurerm_resource_group" "default_rg" {
 
 resource "azurerm_log_analytics_workspace" "shared" {
   name                = "${var.prefix}-${var.environment}-log"
+<<<<<<< HEAD
   resource_group_name = data.azurerm_resource_group.shared_services_rg.name
   location            = data.azurerm_resource_group.shared_services_rg.location
+=======
+  resource_group_name = azurerm_resource_group.shared_services_rg.name
+  location            = azurerm_resource_group.shared_services_rg.location
+>>>>>>> 8fd2e2d8d95525f65e962b421958c241ea692cd5
   sku                 = "PerGB2018"
   retention_in_days   = 30
 
@@ -76,11 +91,24 @@ module "aks_vnet" {
 # Azure Container Registry (Shared)
 ###################################################################################################
 
+<<<<<<< HEAD
 # is just queried/imported as it does not belong to this state
 data "azurerm_container_registry" "shared_acr" {
   name                = "${var.prefix}acr"
   resource_group_name = data.azurerm_resource_group.shared_services_rg.name
   depends_on = [ data.azurerm_resource_group.shared_services_rg ]
+=======
+resource "azurerm_container_registry" "acr" {
+  name                = "${var.prefix}${var.environment}acr"
+  resource_group_name = azurerm_resource_group.shared_services_rg.name
+  location            = azurerm_resource_group.shared_services_rg.location
+  sku                 = "Standard"
+  admin_enabled       = true
+
+  tags = {
+    environment = "${var.environment}"
+  }
+>>>>>>> 8fd2e2d8d95525f65e962b421958c241ea692cd5
 }
 
 ####################################################################################################
@@ -338,6 +366,7 @@ resource "kubernetes_namespace" "semantics_namespace" {
   }
 }
 
+<<<<<<< HEAD
 # Sample Connectors
 resource "kubernetes_namespace" "connector_namespace" {
   metadata {
@@ -352,6 +381,8 @@ resource "kubernetes_namespace" "iam_namespace" {
   }
 }
 
+=======
+>>>>>>> 8fd2e2d8d95525f65e962b421958c241ea692cd5
 ####################################################################################################
 # Create a database service
 ####################################################################################################
@@ -392,4 +423,35 @@ resource "azurerm_storage_account" "appstorage" {
   #  default_action             = "Allow"
   #  virtual_network_subnet_ids = [module.aks_vnet.subnet_ids["${var.prefix}-${var.environment}-aks-node-subnet"]]
   #}
+<<<<<<< HEAD
+=======
+}
+
+####################################################################################################
+# Create a databases
+####################################################################################################
+
+resource "azurerm_postgresql_database" "onboarding" {
+  name                = "onboarding"
+  resource_group_name = azurerm_resource_group.default_rg.name 
+  server_name         = azurerm_postgresql_server.database.name
+  charset             = "UTF8"
+  collation           = "English_United States.1252"
+}
+
+resource "azurerm_postgresql_database" "membercompany" {
+  name                = "membercompany"
+  resource_group_name = azurerm_resource_group.default_rg.name 
+  server_name         = azurerm_postgresql_server.database.name
+  charset             = "UTF8"
+  collation           = "English_United States.1252"
+}
+
+resource "azurerm_postgresql_database" "consents" {
+  name                = "consents"
+  resource_group_name = azurerm_resource_group.default_rg.name 
+  server_name         = azurerm_postgresql_server.database.name
+  charset             = "UTF8"
+  collation           = "English_United States.1252"
+>>>>>>> 8fd2e2d8d95525f65e962b421958c241ea692cd5
 }
