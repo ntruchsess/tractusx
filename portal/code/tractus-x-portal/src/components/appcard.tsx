@@ -75,6 +75,7 @@ class AppCard extends React.Component<IProp> {
           <div className='df fdc h120'>
             {text === 'OPEN' && <IconButton className='ml150 mt10 ml15' iconProps={{ iconName: 'infoSolid', className: 'fs20' }} title='Show app description'
               onClick={(ev: any) => this.cardClick(ev, true)} />}
+           { (this.props.app.background) && <div className={this.props.app.background}></div> }
             <div className='flex1'/>
             {!this.props.hideRating && <Ratings className='ml15 mt50' app={a} />}
           </div>
