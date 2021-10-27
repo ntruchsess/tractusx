@@ -17,7 +17,6 @@ import { observer } from 'mobx-react';
 import { Checkbox, PrimaryButton } from '@fluentui/react';
 import UserService from '../helpers/UserService';
 import { toast } from 'react-toastify';
-import { observable } from 'mobx';
 
 var checkedData: boolean;
 @observer

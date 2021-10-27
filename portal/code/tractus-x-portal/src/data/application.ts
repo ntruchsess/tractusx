@@ -24,4 +24,5 @@ export class Application {
   public usage = '';
   public purchase = '';
   public url = '';
+  public background = '';
 }
