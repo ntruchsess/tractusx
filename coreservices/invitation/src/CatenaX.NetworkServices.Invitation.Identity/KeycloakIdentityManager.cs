@@ -43,12 +43,18 @@ namespace CatenaX.NetworkServices.Invitation.Identity.Identity
                 Protocol = client.Protocol,
                 Attributes = client.Attributes,
                 FullScopeAllowed = client.FullScopeAllowed,
-                ProtocolMappers = client.ProtocollMappers.Aggregate(new List<ClientProtocolMapper>(),(list,item) => {
-                    list.Add(new ClientProtocolMapper
-                    {
-                    });
-                    return list;
-                })
+                ProtocolMappers = client.ProtocollMappers.Select(item =>
+                    new ClientProtocolMapper {
+                        Name = item.Name,
+                        Protocol = item.Protocol,
+                        ProtocolMapper = item.ProtocolMapper,
+                        ConsentRequired = item.ConsentRequired,
+                        Config = new ClientConfig {
+                            UserAttribute = (string)item.Config["user.attribute"],
+                            FriendlyName = (string)item.Config["friendly.name"],
+                            AttributeName = (string)item.Config["attribute.name"]
+                    }
+                }).ToList()
             };
             await _client.CreateClientAsync(realm, clientToCreate);
         }

@@ -73,6 +73,17 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
                 FullScopeAllowed = true,
                 ProtocollMappers = new List<CreateClientProtocolMapper>
                 {
+                    new CreateClientProtocolMapper {
+                        Name = "emailaddress",
+                        Protocol = "saml",
+                        ProtocolMapper = "saml-user-property-mapper",
+                        ConsentRequired = false,
+                        Config = new Dictionary<string,object> {
+                            { "user.attribute", "email" },
+                            { "friendly.name", "emailaddress" },
+                            { "attribute.name", "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" }
+                        }
+                    }
                 }
             };
 
