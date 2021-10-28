@@ -40,7 +40,7 @@ export default class Onboarding extends React.Component {
   private onSubmitClick(){
     var realm = UserService.realm;
     const token = UserService.getToken();
-    var u = `https://catenax-dev003-app-onboarding-service.azurewebsites.net/api/onboarding/company/${realm}/finishOnboarding`;
+    var u = `${process.env.REACT_APP_ONBOARDING_URL}/api/onboarding/company/${realm}/finishOnboarding`;
   
     fetch(u, { method: 'PUT', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } })
       .then((response) => {
