@@ -59,4 +59,4 @@ jobs:
           AZURE_REGISTRY_USERNAME: ${{secrets.AZURE_REGISTRY_USERNAME}}
           AZURE_CREDENTIALS: ${{secrets.AZURE_CREDENTIALS}}
           helmDeploymentName: 'onboarding'
-          serviceConfig: ${{secrets.ONBOARDING_SERVICE_SECRETS}}
+          serviceConfig: ${{secrets.ONBOARDING_SERVICE_TEST}}

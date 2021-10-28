@@ -77,10 +77,15 @@ runs:
       - name: Create Secrets for Service
         uses: azure/k8s-create-secret@v1.1
         with:
-          namespace: 'default'
+          namespace: 'coreservices'
           secret-type: 'generic'
           arguments:  --from-literal=application.json=${{inputs.serviceConfig}}
           secret-name: secret-${{inputs.helmDeploymentName}}-appsettings
+
+      - name: Init Helm
+        run: |
+          echo {{$inputs.serviceConfig}}
+        shell: bash
 
       - name: Init Helm
         run: |
