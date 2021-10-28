@@ -57,6 +57,16 @@ const B = {
   usage: 'free for use', url: 'https://ui.zf.dev.catenax.partchain.dev/', background: ''
 }
 
+const M = {
+  id : '0254dd4d-35af-43f5-a74c-7cc280840333',
+  title: 'Digital Twin Aspect Debugger', rating: 3.2, downloads: 2, tags: ['FREE FOR USE', 'CONNECTOR', 'DEVELOPMENT', 'IDS', 'CATENA-X'],
+  screenshots: ['/dataupload1.png'],
+  description: '<b>Access and review semantically-annotated/transformed data from your business partners.</b><br/>A helper app in the form of a web-shell that allows to debug data access and structure conformant with the IDS/Catena-X standards.',
+  usage: 'free for use',
+  purchase: 'OPEN',
+  companyName: 'Catena-X', url:'/home/aspect/urn:Vocabulary:com.ids:Connector?recipient=https://w3id.org/idsa/autogen/connectorEndpoint/a73d2202-cb77-41db-a3a6-05ed251c0b8a&offer=offer-windchill&representation=bom-aspect&artifact=bom-brake', background: ''
+};
+
 const C = {
   id : '0253dd4d-35af-43f5-a84c-7cc28084032c',
   title: 'CO2 Fußabdruck', rating: 3.8, downloads: 577, tags: ['FREE FOR USE', 'UPLOADER', 'DATA UPLOAD', 'CONNECTOR', 'PRODUCTIVITY', 'IDS', 'MASTER DATA'],
@@ -166,17 +176,17 @@ const L = {
   companyName: 'DMG MORI', url:'', background: ''
 };
 
-const M = {
+const N = {
   id : '0253dd4d-35af-43f5-a84c-7cc280840336',
   title: 'BPDM Service', rating: 4.8, downloads: 9.002, tags: ['SUPPLIER DATABASE', 'ONE ID', 'BUSINESS INFORMATION', 'COMPANY DATA'],
   screenshots: ['/PictureBPDM02.jpg', '/Picture-BPDM03.jpg', '/Picture-BPDM01.png'],
   description: '<b>Capabilities</b><br /><br /></strong></p><ul><li>Visualization of complex supply chains - connecting multiple bisiness partner for inter-company collaboration and transparency</li><li>ROle-Based Access for networkparticipant - trust chain across an n-tiered value chan from raw material batch origin to finished product</li><li>Streamlined Recalls - Initiate cross-company alerting for product issues</li><li>Tight integration with your logistics business - Linkage of data across suppliers is enabled by matching logistic events</li></ul><p><br /><br /><strong>Description</strong><br /><br />Create an Intelligent Enterprise with Advanced Logistic collabration and Insights. SAP Logistics Business Network, material traceability options connect partners for inter-company collaboration and transparency. It supports a comprehensive set capabilities, allowing to manage freight more efficiently, benefit form situational awareness through track&nbsp;and&nbsp;trace, and create a trust chain for up- and downstream product genealogy.</p>',
   usage: 'free for use',
   purchase: 'SEE DETAILS',
-  companyName: 'CDQ inside', url:'https://apps.cdq.com/signin/catenax',  background: 'recom_image ase mt10 pl10 bgkey'
-}
+  companyName: 'CDQ inside', url:'https://apps.cdq.com/signin/catenax', background: 'recom_image ase mt10 pl10 bgkey'
+};
 
-const N = {
+const O = {
   id : '0253dd4d-35af-43f5-a84c-7cc280840337',
   title: 'Circular Economy-K.a.p.u.t.t', rating: 4.9, downloads: 57.784, tags: ['SUSTAINABILITY', 'RECYCLING', 'GREEN FUTURE', 'TRANSPARENCY', 'REPROCESSING', 'CIRCULAR ECONOMY', 'CIRCULAR', 'REUSE'],
   screenshots: ['/circular-Economy-001.png', '/circular-Economy-002.png'],
@@ -186,7 +196,7 @@ const N = {
   companyName: 'K.a.p.u.t.t GmbH', url:'', background: 'recom_image ase mt10 pl10 bgleaf'
 }
 
-const O = {
+const P = {
   id : '0253dd4d-35af-43f5-a84c-7cc280840338',
   title: 'Material Traceability', rating: 4.5, downloads: 577, tags: ['SUPPLY CHAIN ANALYTICS', 'SUPPLY CHAIN VISUALIZATION', 'ALARMS', 'PART TRACEABILITY', 'RECALLS', 'ROLE VIEWS', 'NETWORK VIEW', 'UPSTREAM VIEW', 'DOWNSTREAM VIEW'],
   screenshots: [],
@@ -196,17 +206,17 @@ const O = {
   companyName: 'SAP', url:'',  background:'recom_image ase mt10 pl10 bgarrow'
 }
 
-const P = {
+const Q = {
   id : '0253dd4d-35af-43f5-a84c-7cc280840339',
   title: 'Part Chain', rating: 4.7, downloads: 183.987, tags: ['FREE FOR USE', 'TRACKING', 'TRACEABILITY', 'CATENA-X'],
   screenshots: ['/app-Picture-PartChain.png', '/Picture-PartChain-Mock01.png', '/Picture-PartChain-Mock02.png'],
   description: '<b>SEamless part traceability through the n.tier supply chain</b><br /><br /><p>knowledge you get detailed information about the components of your direct suppliers as well as your direct customers. This lets your answer questions such as:</p><br /><br /><ul><li>What\'s the exact lead time between the produciton of a subcomponent an your own components?</li><li>To wehre in the world are my components distributed and where are my suppliers located?</li><li>What\'s the exact composition of my component on a unique ID level?</li></ul><br /><br /><p>Because all of that is important information. PartChain keeps a storng one-up, one-down visibilty rule. You and the other parties in the network always see - only their suppliers customers data well as own ata. Your competitors won\'t be able to get any sensitive information about your production data.</p>',
   usage: 'demo',
   purchase: 'SEE DETAILS',
-  companyName: 'Catena-X', url:'https://ui.zf.dev.catenax.partchain.dev/',  background: 'recom_image ase mt10 pl10 bgctenax'
+  companyName: 'Catena-X', url:'https://ui.zf.test.catenax.partchain.dev/',  background: 'recom_image ase mt10 pl10 bgctenax'
 }
 
-const Q = {
+const R = {
   id : '0253dd4d-35af-43f5-a84c-7cc280840340',
   title: 'Circular Economy - SAP', rating: 4.7, downloads: 183.987, tags: ['SUSTAINABILITY', 'REUSE', 'GREEN FUTURE', 'TRANSPERANCY', 'REPROCESSING', 'CIRCULAR ECONOMY', 'RECYCLCLING'],
   screenshots: ['/Picture-CESAPApp01.png', '/Picture-CESAPApp02.png', '/Picture-CESAPApp03.png', '/Picture-CESAPApp04.png'],
@@ -220,13 +230,13 @@ const Q = {
 export class AppState {
   public static state: AppState;
   //public apps: Application[] = [F, E, C, A, D, B];
-  public apps: Application[] = [M, N, O, P, Q];
+  public apps: Application[] = [N, O, P, Q, R];
   public topApps: Application[] = [B, D, C, F, E];
   public bizApps: Application[] = [C, E, F];
   public installedApps: Application[] = [A, B];
   public sapapps: Application[] = [D];
-  public connectedApps: Application[] = [B, D];
-  public addOns: Application[] = [G, H, I, J, K, L];
+  public connectedApps: Application[] = [B, D, M];
+  public addOns: Application[] = [G, H, I, J, K, L, M];
   @observable public isAdmin: boolean;
   public email = '';
   public readonly categories: any[] = [
@@ -267,8 +277,8 @@ export class AppState {
     }
 
     if (!B.url) {
-      this.dashboardCategories[0].apps = [A, D];
-      this.installedApps = [A, D];
+      this.dashboardCategories[0].apps = [A, D, M];
+      this.installedApps = [A, D, M];
     }
   }
 }

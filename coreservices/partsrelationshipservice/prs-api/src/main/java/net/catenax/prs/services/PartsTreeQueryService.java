@@ -9,10 +9,11 @@
 //
 package net.catenax.prs.services;
 
-import com.catenax.partsrelationshipservice.dtos.PartRelationshipsWithInfos;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.catenax.prs.configuration.PrsConfiguration;
+import net.catenax.prs.controllers.ApiErrorsConstants;
+import net.catenax.prs.dtos.PartRelationshipsWithInfos;
 import net.catenax.prs.entities.PartAspectEntity;
 import net.catenax.prs.entities.PartAttributeEntity;
 import net.catenax.prs.entities.PartIdEntityPart;
@@ -25,6 +26,7 @@ import net.catenax.prs.repositories.PartRelationshipRepository;
 import net.catenax.prs.requests.PartsTreeByObjectIdRequest;
 import org.springframework.stereotype.Service;
 
+import java.text.MessageFormat;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Set;
@@ -67,7 +69,7 @@ public class PartsTreeQueryService {
     public PartRelationshipsWithInfos getPartsTree(final PartsTreeByObjectIdRequest request) {
         final var depth = request.getDepth().orElse(configuration.getPartsTreeMaxDepth());
         if (depth > configuration.getPartsTreeMaxDepth()) {
-            throw new MaxDepthTooLargeException();
+            throw new MaxDepthTooLargeException(MessageFormat.format(ApiErrorsConstants.PARTS_TREE_MAX_DEPTH, configuration.getPartsTreeMaxDepth()));
         }
         final var tree = relationshipRepository.getPartsTree(
                 request.getOneIDManufacturer(),
@@ -76,7 +78,7 @@ public class PartsTreeQueryService {
 
         final var allIds = getAllIds(tree);
 
-        final var typeNames = attributeRepository.findAllBy(allIds, PrsConfiguration.PART_TYPE_NAME_ATTRIBUTE_NAME);
+        final var typeNames = attributeRepository.findAllBy(allIds, PrsConfiguration.PART_TYPE_NAME_ATTRIBUTE);
         final var aspects = request.getAspect()
                 .map(aspect -> aspectRepository.findAllBy(allIds, aspect))
                 .orElseGet(Collections::emptyList);
