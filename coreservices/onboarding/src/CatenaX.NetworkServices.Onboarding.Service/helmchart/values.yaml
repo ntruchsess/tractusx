@@ -9,7 +9,7 @@ image:
   
 ingress:
   serviceHost: test.com
-
+  clusterIssuer: place
 imagePullSecret: someSecret
 
 deployment:

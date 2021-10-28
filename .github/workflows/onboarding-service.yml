@@ -60,3 +60,4 @@ jobs:
           AZURE_CREDENTIALS: ${{secrets.AZURE_CREDENTIALS}}
           helmDeploymentName: 'onboarding'
           serviceConfig: ${{secrets.ONBOARDING_SERVICE_TEST}}
+          CLUSTER_ISSUER: service

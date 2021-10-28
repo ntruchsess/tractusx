@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  # different name
+  name: certificate{{ .Values.ingress.clusterIssuer }}
+spec:
+  # dedicate secret for the TLS cert
+  secretName: certificate{{ .Values.ingress.clusterIssuer }}-secret
+  issuerRef:
+    # referencing the production issuer
+    name: letsencrypt-{{ .Values.ingress.clusterIssuer }}
+    kind: ClusterIssuer
+  dnsNames:
+  - {{ .Values.ingress.serviceHost }}
