@@ -14,5 +14,6 @@ namespace CatenaX.NetworkServices.Provisioning.Keycloak
         Task DeleteGroupAsync(string realmId, string groupId);
         Task<IEnumerable<(Realm,Group)>> GetOnboardingRealmGroupsAsync(string triggerGroup);
         Task<string> GetSamlDescriptorCertAsync(string realm);
+        Task CreateFederationClient(string realm);
     }
 }

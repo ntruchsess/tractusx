@@ -6,7 +6,7 @@ namespace Keycloak.Net.Models.Clients
     {
         [JsonProperty("userinfotokenclaim")]
         public string UserInfoTokenClaim { get; set; }
-        [JsonProperty("userattribute")]
+        [JsonProperty("user.attribute")]
         public string UserAttribute { get; set; }
         [JsonProperty("idtokenclaim")]
         public string IdTokenClaim { get; set; }
@@ -16,5 +16,9 @@ namespace Keycloak.Net.Models.Clients
         public string ClaimName { get; set; }
         [JsonProperty("jsonTypelabel")]
         public string JsonTypelabel { get; set; }
+        [JsonProperty("friendly.name")]
+        public string FriendlyName { get; set; }
+        [JsonProperty("attribute.name")]
+        public string AttributeName { get; set; }
     }
 }

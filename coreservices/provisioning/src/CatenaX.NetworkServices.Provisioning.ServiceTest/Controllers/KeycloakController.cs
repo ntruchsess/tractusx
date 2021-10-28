@@ -143,5 +143,20 @@ namespace CatenaX.NetworkServices.Provisioning.Service.Controllers
                 return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
             }
         }
+        [HttpGet]
+        [Route("realms/{realm}/createclient")]
+        public async Task<ActionResult> CreateFederationClient(string realm)
+        {
+            try
+            {
+                await _KeycloakAccess.CreateFederationClient(realm);
+                return new OkResult();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.ToString());
+                return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+            }
+        }
     }
 }

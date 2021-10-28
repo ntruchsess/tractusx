@@ -1,4 +1,5 @@
 using Keycloak.Net;
+using Keycloak.Net.Models.Clients;
 using Keycloak.Net.Models.Groups;
 using Keycloak.Net.Models.RealmsAdmin;
 using Keycloak.Net.Models.Users;
@@ -24,12 +25,14 @@ namespace CatenaX.NetworkServices.Provisioning.Keycloak
         readonly HttpClient _HttpClient;
         readonly string _AdminRealm;
         readonly StringTemplate _MetaDataTemplate;
+        readonly FederationClientSettings _FederationClient;
         public KeycloakAccess(IKeycloakFactory keycloakFactory, IHttpClientFactory httpClientFactory, IOptions<KeycloakAccessSettings> settings)
         {
             _Client = keycloakFactory.CreateKeycloakClient();
             _HttpClient = httpClientFactory.CreateClient();
             _AdminRealm = keycloakFactory.GetAdminRealm();
-             _MetaDataTemplate = new StringTemplate(keycloakFactory.GetConnectionString()+settings.Value.MetaDataPath);
+            _MetaDataTemplate = new StringTemplate(keycloakFactory.GetConnectionString()+settings.Value.MetaDataPath);
+            _FederationClient = settings.Value.FederationClient;
         }
         public async Task DeleteGroupAsync(string realmId, string groupId)
         {
@@ -74,5 +77,26 @@ namespace CatenaX.NetworkServices.Provisioning.Keycloak
             var x509Data = keyInfo.X509Data == null ? null : keyInfo.X509Data;
             return x509Data == null ? null : x509Data.X509Certificate;
         }
+        public Task CreateFederationClient(string realm) =>
+            _Client.CreateClientAsync(realm, new Client {
+                ClientId = _FederationClient.ClientId,
+                RedirectUris = _FederationClient.RedirectUris,
+                Protocol = _FederationClient.Protocol,
+                Attributes = _FederationClient.Attributes,
+                FullScopeAllowed = _FederationClient.FullScopeAllowed,
+                ProtocolMappers = _FederationClient.ProtocolMappers.Select(mapper =>
+                    new ClientProtocolMapper {
+                        Name = mapper.Name,
+                        Protocol = mapper.Protocol,
+                        ProtocolMapper = mapper.ProtocolMapper,
+                        ConsentRequired = mapper.ConsentRequired,
+                        Config = new ClientConfig {
+                            UserAttribute = (string)mapper.Config["user.attribute"],
+                            FriendlyName = (string)mapper.Config["friendly.name"],
+                            AttributeName = (string)mapper.Config["attribute.name"]
+                        }
+                    }
+                ).ToList()
+            });
     }
 }

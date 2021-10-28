@@ -5,7 +5,7 @@ using System.Linq;
 using CatenaX.NetworkServices.Provisioning.Keycloak;
 using CatenaX.NetworkServices.Provisioning.ActiveDirectory;
 using CatenaX.NetworkServices.Provisioning.Mail;
-using Keycloak.Net.Models.Users;
+
 namespace CatenaX.NetworkServices.Provisioning.Service.BusinessLogic
 {
     public class ProvisioningService : IProvisioningService
@@ -28,6 +28,7 @@ namespace CatenaX.NetworkServices.Provisioning.Service.BusinessLogic
             await Task.WhenAll(
                 (await _KeycloakAccess.GetOnboardingRealmGroupsAsync(_Settings.TriggerGroup)).Select(async realmGroup => {
                     var (realm,group) = realmGroup;
+                    await _KeycloakAccess.CreateFederationClient(realm._Realm);
                     await _Federation.CreateFederationAsync(new Dictionary<string,string>{
                         { "realm", realm._Realm },
                         { "base", _Settings.DomainBase },
