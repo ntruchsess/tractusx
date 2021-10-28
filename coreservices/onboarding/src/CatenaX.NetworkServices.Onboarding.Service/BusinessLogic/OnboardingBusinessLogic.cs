@@ -4,6 +4,8 @@ using CatenaX.NetworkServices.Invitation.Identity.Identity;
 using CatenaX.NetworkServices.Invitation.Identity.Model;
 using CatenaX.NetworkServices.Mailing.SendMail;
 using CatenaX.NetworkServices.Mockups;
+using CatenaX.NetworkServices.Onboarding.Service.CDQ;
+using CatenaX.NetworkServices.Onboarding.Service.CDQ.Model;
 using CatenaX.NetworkServices.Onboarding.Service.Model;
 using CatenaX.NetworkServices.Onboarding.Service.OnboardingAccess;
 
@@ -22,17 +24,19 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
         private readonly IConfiguration _configuration;
         private readonly IOnboardingDBAccess _dbAccess;
         private readonly IMailingService _mailingService;
+        private readonly ICDQAccess _cdqAccess;
 
-        public OnboardingBusinessLogic(IConfiguration configuration, IOnboardingDBAccess onboardingDBAccess, IMailingService mailingService)
+        public OnboardingBusinessLogic(IConfiguration configuration, IOnboardingDBAccess onboardingDBAccess, IMailingService mailingService, ICDQAccess cdqAccess)
         {
             _configuration = configuration;
             _dbAccess = onboardingDBAccess;
             _mailingService = mailingService;
+            _cdqAccess = cdqAccess;
         }
 
         public async Task CreateUsers(List<User> userList, string realm, string token)
         {
-            var manager = new KeycloakIdentityManager(new KeycloakClient(_configuration.GetValue<string>("KeyCloakConnectionString"), () => token));
+            var manager = new KeycloakIdentityManager(new KeycloakClient(_configuration.GetValue<string>("KeyCloakConnectionString"), () => token),"");
             foreach (User user in userList)
             {
                 var newUser = new CreateUser
@@ -57,7 +61,7 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
 
         public async Task FinishOnboarding(string token, string realm)
         {
-            var manager = new KeycloakIdentityManager(new KeycloakClient(_configuration.GetValue<string>("KeyCloakConnectionString"), () => token));
+            var manager = new KeycloakIdentityManager(new KeycloakClient(_configuration.GetValue<string>("KeyCloakConnectionString"), () => token), "");
             var group = new CreateGroup { Name = "Onboarding" };
             await manager.CreateGroup(realm, group);
         }
@@ -67,10 +71,9 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
             return Task.FromResult(UserRoles.Roles);
         }
 
-        public Task<Company> GetCompanyByOneId(string oneId)
+        public async Task<FetchBusinessPartnerDto> GetCompanyByOneId(string oneId)
         {
-            var query = new QueryCompany();
-            return Task.FromResult(query.Query(oneId));
+            return await _cdqAccess.FetchBusinessPartner(oneId);
         }
 
         public async Task<List<CompanyRole>> GetCompanyRoles()
