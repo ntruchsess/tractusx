@@ -1,52 +1,80 @@
+/*
+ *
+ */
 package com.catenax.tdm.model.v1;
 
 import java.util.Objects;
-import org.springframework.validation.annotation.Validated;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonValue;
+import org.springframework.validation.annotation.Validated;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+// TODO: Auto-generated Javadoc
 /**
- * StatusValueCharacteristic
+ * StatusValueCharacteristic.
  */
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-09-14T13:43:11.126Z[GMT]")
 
+@Entity
+@Table(name = "aspect_basic_statusvalue")
+public class StatusValueCharacteristic implements OneOfStatusValueCharacteristic {
 
-public class StatusValueCharacteristic  implements OneOfStatusValueCharacteristic {
+	/** The db id. */
+	@Id
+	@GeneratedValue
+	@JsonIgnore
+	private Long dbId;
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return true;
-  }
+	@JsonValue
+	private String status;
 
-  @Override
-  public int hashCode() {
-    return Objects.hash();
-  }
+	public StatusValueCharacteristic() {
+	}
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class StatusValueCharacteristic {\n");
-    
-    sb.append("}");
-    return sb.toString();
-  }
+	public StatusValueCharacteristic(String status) {
+		this.status = status;
+	}
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	/**
+	 * Gets the db id.
+	 *
+	 * @return the db id
+	 */
+	public Long getDbId() {
+		return dbId;
+	}
+
+	/**
+	 * @return the status
+	 */
+	public String getStatus() {
+		return status;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		StatusValueCharacteristic that = (StatusValueCharacteristic) o;
+		return status.equals(that.status);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(status);
+	}
+
+	@Override
+	public String toString() {
+		return "StatusValueCharacteristic{" +
+				"status='" + status + '\'' +
+				'}';
+	}
 }

@@ -4,6 +4,7 @@ metadata:
   name: prs-ingress
 
 spec:
+  ingressClassName: {{ .Values.ingress.className }}
   rules:
     - host: {{ .Values.ingress.host }}
       http:
@@ -15,10 +16,10 @@ spec:
                 name: prs
                 port:
                   number: 80
-          - path: /swagger-ui
+          - path: /broker-proxy
             pathType: Prefix
             backend:
               service:
-                name: prs
+                name: broker-proxy
                 port:
                   number: 80

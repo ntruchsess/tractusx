@@ -26,10 +26,13 @@ module "eventhubs_namespace" {
 }
 
 module "eventhub_catenax_events" {
-  source                  = "./modules/eventhub"
-  eventhub_namespace_name = module.eventhubs_namespace.name
-  name                    = "catenax_events"
-  resource_group_name     = local.resource_group_name
+  source                                     = "./modules/eventhub"
+  eventhub_namespace_name                    = module.eventhubs_namespace.name
+  name                                       = "catenax_events"
+  resource_group_name                        = local.resource_group_name
+  location                                   = local.location
+  capture_storage_account_name               = "${var.prefix}${var.environment}capture"
+  receive_and_send_primary_connection_string = module.eventhubs_namespace.receive_and_send_primary_connection_string
 }
 
 # create namespace for PRS
@@ -52,6 +55,11 @@ resource "helm_release" "prs" {
   }
 
   set {
+    name  = "ingress.className"
+    value = var.ingress_class_name
+  }
+
+  set {
     name  = "prs.image.repository"
     value = "${var.image_registry}/prs"
   }
@@ -64,6 +72,16 @@ resource "helm_release" "prs" {
   set {
     name  = "prs.apiUrl"
     value = "https://${var.ingress_host}"
+  }
+
+  set {
+    name  = "brokerproxy.image.repository"
+    value = "${var.image_registry}/broker-proxy"
+  }
+
+  set {
+    name  = "brokerproxy.image.tag"
+    value = var.image_tag
   }
 
   set_sensitive {
