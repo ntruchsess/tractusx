@@ -84,7 +84,7 @@ runs:
 
       - name: Init Helm
         run: |
-          echo {{$inputs.serviceConfig}}
+          echo ${{inputs.serviceConfig}}
         shell: bash
 
       - name: Init Helm

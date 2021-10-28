@@ -39,12 +39,12 @@ spec:
           - name: secrets
             mountPath: /app/secrets
             readOnly: true
+      imagePullSecrets:
+      - name: {{ .Values.imagePullSecret }}
       volumes:
       - name: secrets
         secret:
           secretName: secret-{{.Release.Name}}-appsettings
           
-      imagePullSecrets:
-      - name: {{ .Values.imagePullSecret }}
 
             
