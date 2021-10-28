@@ -101,7 +101,7 @@ runs:
 
       - name: Init Helm
         run: |
-          helm upgrade --install ${{inputs.helmDeploymentName}} -n coreservices --set image.repository=${{inputs.acrName}}.azurecr.io/tractusx/${{inputs.imageName}} --set image.tag=${{github.run_id}} --set imagePullSecret=pullsecretacr --set ingress.serviceHost=catenax${{ inputs.environment }}akssrv.germanywestcentral.cloudapp.azure.com ./${{inputs.srcFolder}}/helmchart/
+          helm upgrade --install ${{inputs.helmDeploymentName}} -n coreservices --set image.repository=${{inputs.acrName}}.azurecr.io/${{inputs.imageName}} --set image.tag=${{github.run_id}} --set imagePullSecret=pullsecretacr --set ingress.serviceHost=catenax${{ inputs.environment }}akssrv.germanywestcentral.cloudapp.azure.com ./${{inputs.srcFolder}}/helmchart/
         shell: bash
 
       
