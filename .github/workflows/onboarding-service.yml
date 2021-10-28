@@ -51,7 +51,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ./.github/workflows/composite/coreservicescicd
         with:
-          srcFolder: 'coreservices/invitation/src/CatenaX.NetworkServices.Invitation.Service'
+          srcFolder: 'coreservices/onboarding/src/CatenaX.NetworkServices.Onboarding.Service'
           imageName: 'onboardingservice'
           acrName: 'catenaxacr'
           environment: ${{needs.environment.outputs.workspace}}
