@@ -2,12 +2,12 @@ import Keycloak from "keycloak-js";
 
 //TODO: go to company selection if no url parameter for company is specified
 const searchParams = new URLSearchParams(window.location.search);
-const realm = searchParams.get('company') || 'microsoft';
-const oneid = searchParams.get('oneid') || 'CAXLZJVJEBYWYYZZ';
+const realm = searchParams.get('company') || 'Catena-X';
+const oneid = searchParams.get('oneId') || 'CAXABCDEFGHIJKLM';
 const user = searchParams.get('user') || '';
 
 const _kc = new Keycloak({
-  "url": "https://catenax-dev003-keycloak-service.azurewebsites.net/auth",
+  "url": process.env.REACT_APP_KEYCLOAK_URL,
   "realm": realm,
   "clientId": `client-${realm.toLowerCase()}`,
   "ssl-required": "external",
