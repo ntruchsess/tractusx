@@ -81,13 +81,6 @@ export default class Termsncondition extends React.Component {
         );
       }
 
-      // private linkClick() {
-      //   alert("hi")
-      //  // console.log( this.alertRef);
-      //   //this.alertRef?.show(true, 'Disclaimer', 'Are you authorized by your company to confirm this data?');
-      // }
-
-     
       yesClick() { 
         alertRef?.show(false); 
       }
