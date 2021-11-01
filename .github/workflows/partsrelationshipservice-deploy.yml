@@ -57,6 +57,12 @@ jobs:
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Cache maven packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2
+          key: build-${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
       - name: "Build and push MTPDC images to ACR"
         run: |
           set -euo pipefail # safe mode
@@ -101,15 +107,29 @@ jobs:
             terraform init -backend-config=key=mtpdc.$ENVIRONMENT.${{ matrix.partition.key }}.tfstate
             terraform apply --var-file "../cd/environments/$ENVIRONMENT.tfvars" -auto-approve
             terraform output -json > ../terraform-outputs.json
+            jq 'map_values(select(.sensitive | not))' ../terraform-outputs.json > ../terraform-outputs-safe.json
 
         env:
           AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Cache maven packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2
+          key: smoke-${{ matrix.partition.key}}-${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
 
       - name: Run smoke tests
         run: |
           set -euo pipefail # safe mode
           api_url=$(jq -r .api_url.value terraform-outputs.json)
           mvn --batch-mode --update-snapshots -Dgroups=SmokeTests test -DbaseURI=$api_url
+
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: terraform-outputs-${{ matrix.partition.key }}
+          path: coreservices/partsrelationshipservice/terraform-outputs-safe.json
 
       - name: "Load test data"
         run: |
@@ -121,8 +141,38 @@ jobs:
           pushd cd/test-data
             ./load-test-data.sh
 
+  system_test:
+    needs:
+    - configure
+    - deploy
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: coreservices/partsrelationshipservice
+    env:
+      ENVIRONMENT: ${{ needs.configure.outputs.environment }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Download all workflow run artifacts
+        uses: actions/download-artifact@v2
+        with:
+          path: coreservices/partsrelationshipservice
+
+      - name: "Build index of dataspace URLs for stub registry"
+        run: |
+          jq -s 'INDEX(.dataspace_partition.value)' terraform-outputs-*/terraform-outputs-safe.json > dataspace-locations.json
+
+      - name: Cache maven packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2
+          key: systemtest-${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+
       - name: "Run system tests"
         run: |
           set -euo pipefail # safe mode
-          api_url=$(jq -r .api_url.value terraform-outputs.json)
+          first_dataspace=$(jq -r '.partitions | .[0].key' cd/dataspace-partitions.json)
+          api_url=$(jq -r ".$first_dataspace.api_url.value" dataspace-locations.json)
           mvn --batch-mode --update-snapshots -Dgroups=SystemTests test -DbaseURI=$api_url -Denvironment=$ENVIRONMENT
