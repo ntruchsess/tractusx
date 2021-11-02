@@ -24,7 +24,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: {{ template "onboarding-service.fullname" . }}
+            name: {{ template "onboarding-service.name" . }}-service
             port:
               number: 443
             
