@@ -26,5 +26,5 @@ spec:
           service:
             name: {{ template "onboarding-service.fullname" . }}
             port:
-              number: 5001
+              number: 8080
             
