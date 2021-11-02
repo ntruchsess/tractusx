@@ -13,4 +13,4 @@ ingress:
 imagePullSecret: someSecret
 
 deployment:
-  containerPort: 8080
+  containerPort: 443
