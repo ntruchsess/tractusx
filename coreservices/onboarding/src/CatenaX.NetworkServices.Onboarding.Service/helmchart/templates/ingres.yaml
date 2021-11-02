@@ -26,5 +26,5 @@ spec:
           service:
             name: {{ template "onboarding-service.name" . }}-service
             port:
-              number: 443
+              number: 8080
             

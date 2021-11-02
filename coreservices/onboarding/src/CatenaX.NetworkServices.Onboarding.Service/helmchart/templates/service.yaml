@@ -5,6 +5,8 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-  - port: 443
+  - port: 8080
+    protocol: "TCP"
+    targetPort: 443
   selector:
     app: {{ template "onboarding-service.name" . }}
