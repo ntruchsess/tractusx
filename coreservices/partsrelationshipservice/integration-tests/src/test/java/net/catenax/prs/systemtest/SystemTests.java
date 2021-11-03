@@ -9,15 +9,25 @@
 //
 package net.catenax.prs.systemtest;
 
-import net.catenax.prs.client.api.PartsRelationshipServiceApi;
-import org.junit.jupiter.api.BeforeEach;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import net.catenax.prs.client.composite.CompositePartsRelationshipClient;
+import net.catenax.prs.client.requests.PartsTreeByObjectIdRequest;
+import net.catenax.prs.registryclient.StubRegistryClient;
+import net.catenax.prs.registryclient.config.PartitionDeploymentsConfig;
+import net.catenax.prs.registryclient.config.PartitionsConfig;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Paths;
+
 import static java.lang.String.format;
 import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
 import static net.javacrumbs.jsonunit.core.Option.IGNORING_ARRAY_ORDER;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 /**
@@ -30,6 +40,28 @@ public class SystemTests extends SystemTestsBase {
 
     private static final String VEHICLE_ONEID = "CAXSWPFTJQEVZNZZ";
     private static final String VEHICLE_OBJECTID = "UVVZI9PKX5D37RFUB";
+    private static final ObjectMapper objectMapper = new ObjectMapper();
+    private static StubRegistryClient registryClient;
+
+    private final CompositePartsRelationshipClient client = new CompositePartsRelationshipClient(registryClient);
+
+    @BeforeAll
+    static void setUp() throws Exception {
+        var partitions = readJson("../cd/dataspace-partitions.json", PartitionsConfig.class, "");
+
+        var partitionAttributes = readJson("../dataspace-deployments.json", PartitionDeploymentsConfig.class,
+                "For development, see README.md for instructions on downloading the file.");
+
+        registryClient = new StubRegistryClient(partitions, partitionAttributes);
+    }
+
+    private static <T> T readJson(String path, Class<T> type, String message) throws IOException {
+        try {
+            return objectMapper.readValue(Paths.get(path).toFile(), type);
+        } catch (FileNotFoundException e) {
+            throw new FileNotFoundException("File not found: " + path + ". " + message);
+        }
+    }
 
     @Test
     void getPartsTreeByOneIdAndObjectId(TestInfo testInfo) throws Exception {
@@ -44,21 +76,22 @@ public class SystemTests extends SystemTestsBase {
         // skip test on INT environment
         assumeTrue(resource != null, "Test not available on environment " + environment);
 
-        var client = new PartsRelationshipServiceApi();
-        client.getApiClient().setBasePath(prsApiUri);
-
         // Act
         var response =
-                client.getPartsTreeByOneIdAndObjectId(
-                                VEHICLE_ONEID,
-                                VEHICLE_OBJECTID,
-                                "AS_BUILT",
-                                ASPECT_MATERIAL,
-                                2);
+                client.getPartsTree(
+                        PartsTreeByObjectIdRequest.builder()
+                                .oneIDManufacturer(VEHICLE_ONEID)
+                                .objectIDManufacturer(VEHICLE_OBJECTID)
+                                .view("AS_BUILT")
+                                .aspect(ASPECT_MATERIAL)
+                                .depth(2)
+                                .build());
 
         // Assert
-        assertThatJson(response)
+        assertThatJson(response.getResult())
             .when(IGNORING_ARRAY_ORDER)
             .isEqualTo(new String(resource.readAllBytes()));
+
+        assertThat(response.getUnresolved()).isEmpty();
     }
 }

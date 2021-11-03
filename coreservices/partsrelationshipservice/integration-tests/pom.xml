@@ -62,7 +62,7 @@
         </dependency>
         <dependency>
             <groupId>net.catenax.prs</groupId>
-            <artifactId>prs-client</artifactId>
+            <artifactId>prs-composite-client</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
