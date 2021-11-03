@@ -9,14 +9,13 @@
 //
 package net.catenax.prs.systemtest;
 
+import net.catenax.prs.client.api.PartsRelationshipServiceApi;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
-import org.springframework.http.HttpStatus;
 
-import static io.restassured.RestAssured.given;
 import static java.lang.String.format;
-import static net.catenax.prs.dtos.PartsTreeView.AS_BUILT;
 import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
 import static net.javacrumbs.jsonunit.core.Option.IGNORING_ARRAY_ORDER;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
@@ -33,34 +32,29 @@ public class SystemTests extends SystemTestsBase {
     private static final String VEHICLE_OBJECTID = "UVVZI9PKX5D37RFUB";
 
     @Test
-    public void getPartsTreeByOneIdAndObjectId(TestInfo testInfo) throws Exception {
+    void getPartsTreeByOneIdAndObjectId(TestInfo testInfo) throws Exception {
         // Arrange
         var environment = System.getProperty("environment", "dev");
 
         // getResourceAsStream returns null if resource not found
         var resource = getClass().getResourceAsStream(format("%s-%s-expected.json",
-            testInfo.getTestMethod().get().getName(),
-            environment));
+                testInfo.getTestMethod().orElseThrow().getName(),
+                environment));
 
         // skip test on INT environment
         assumeTrue(resource != null, "Test not available on environment " + environment);
 
+        var client = new PartsRelationshipServiceApi();
+        client.getApiClient().setBasePath(prsApiUri);
+
         // Act
         var response =
-            given()
-                .spec(getRequestSpecification())
-                .baseUri(prsApiUri)
-                .pathParam(ONE_ID_MANUFACTURER, VEHICLE_ONEID)
-                .pathParam(OBJECT_ID_MANUFACTURER, VEHICLE_OBJECTID)
-                .queryParam(VIEW, AS_BUILT)
-                .queryParam(ASPECT, ASPECT_MATERIAL)
-                .queryParam(DEPTH, 2)
-            .when()
-                .get(PATH_BY_IDS)
-            .then()
-                .assertThat()
-                .statusCode(HttpStatus.OK.value())
-                .extract().asString();
+                client.getPartsTreeByOneIdAndObjectId(
+                                VEHICLE_ONEID,
+                                VEHICLE_OBJECTID,
+                                "AS_BUILT",
+                                ASPECT_MATERIAL,
+                                2);
 
         // Assert
         assertThatJson(response)
