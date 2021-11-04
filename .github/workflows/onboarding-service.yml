@@ -34,7 +34,7 @@ jobs:
                 echo "Determined INTEGRATION"
                 echo "::set-output name=workspace::int"
               elif [[ "${{github.ref}}" = refs/heads/feature/CAX-9-onboarding  || "${{github.ref}}" = refs/heads/feature/CAX-9-onboarding@CICD ]]; then
-                  echo "Determined Invitation"
+                  echo "Determined Environment"
                   echo "::set-output name=workspace::dev003"
               else 
                   echo "Unsupported Branch on CATENAX. Leaving Workspace empty."
