@@ -59,3 +59,5 @@ jobs:
           AZURE_REGISTRY_USERNAME: ${{secrets.AZURE_REGISTRY_USERNAME}}
           AZURE_CREDENTIALS: ${{secrets.AZURE_CREDENTIALS}}
           helmDeploymentName: 'invitation'
+          serviceConfig: ${{secrets.ONBOARDING_SERVICE_SECRETS}}
+          CLUSTER_ISSUER: service
