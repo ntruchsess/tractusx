@@ -20,7 +20,7 @@ spec:
   - host: {{ .Values.ingress.serviceHost }}
     http:
       paths:
-      - path: /api(/|$)(.*)
+      - path: /api/invitation(/|$)(.*)
         pathType: Prefix
         backend:
           service:
