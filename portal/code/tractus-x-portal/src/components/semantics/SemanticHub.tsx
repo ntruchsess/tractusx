@@ -21,11 +21,12 @@ import ErrorMessage from '../ErrorMessage';
 import Loading from '../loading';
 
 export default class SemanticHub extends React.Component<any, any>{
-  
   constructor(props) {
     super(props);
     this.state = { 
-      models: null, 
+      models: null,
+      filterActive: false,
+      reloadDropdown: false,
       filterParams: new URLSearchParams(''),
       searchInput: '',
       error: null
@@ -65,22 +66,30 @@ export default class SemanticHub extends React.Component<any, any>{
   }
 
   setFilter(name, value){
+    this.setState({filterActive: true});
     let currentFilter = new URLSearchParams(this.state.filterParams);
     if(currentFilter.has(name)){
       currentFilter.set(name, value);
     } else {
       currentFilter.append(name, value);
     }
-    console.log(value);
     this.setState({filterParams: currentFilter});
   }
 
   clearFilter(){
+    this.reloadDropdown();
+    this.setState({filterActive: false});
     this.setState({searchInput: ''});
     this.setState({filterParams:  new URLSearchParams('')});
   }
 
+  reloadDropdown(){
+    this.setState({reloadDropdown: true});
+    setTimeout(() => this.setState({reloadDropdown: false}), 100);
+  }
+
   onSearchChange(value){
+    if(value === undefined) value = '';
     this.setState({searchInput: value});
   }
 
@@ -122,26 +131,38 @@ export default class SemanticHub extends React.Component<any, any>{
       { key: 'bamm', text: 'BAMM' },
       { key: 'owl', text: 'OWL' }
     ];
+    const filterStyles = {minHeight: '60px'};
     return (
       <div className='p44'>
         {this.state.models ? 
           <div>
-            <div className="df aife jcfe mb20">
-              <Dropdown placeholder="Filter"
-                label="Bas Vocabulary"
-                options={vocabOptions}
-                styles={dropdownStyles}
-                onChange={this.onTypeDropdownChange}
+            <div className="df aife jcfe mb20" style={filterStyles}>
+              { !this.state.reloadDropdown &&
+                <div className="df">
+                  <Dropdown placeholder="Filter"
+                    label="Vocabulary Type"
+                    options={vocabOptions}
+                    styles={dropdownStyles}
+                    onChange={this.onTypeDropdownChange}
+                  />
+                  <Dropdown placeholder="Filter"
+                    label="Availability"
+                    options={availableOptions}
+                    styles={dropdownStyles}
+                    onChange={this.onAvailableDropdownChange}
+                  />
+                </div>
+              }
+              <SearchBox className="w300"
+                placeholder="Filter for Name or Namespace"
+                value={this.state.searchInput}
+                onSearch={this.onInputSearch}
+                onClear={this.onSearchClear}
+                onChange={(_, newValue) => this.onSearchChange(newValue)}
               />
-              <Dropdown placeholder="Filter"
-                label="Availability"
-                options={availableOptions}
-                styles={dropdownStyles}
-                onChange={this.onAvailableDropdownChange}
-              />
-              <SearchBox className="w300" placeholder="Filter for Name or Namespace" value={this.state.searchInput} onSearch={this.onInputSearch} onClear={this.onSearchClear} onChange={(_, newValue) => this.onSearchChange(newValue)}/>
+              {this.state.filterActive && <PrimaryButton onClick={this.clearFilter} text="Clear Filter" className="ml20"/> }
             </div>
-            {this.state.models.length > 0 ? 
+            {this.state.models.length > 0 ?
               <div className="df fwrap">
                 {this.state.models.map((data, index) => (
                   <div key={index} className='m5 p20 bgpanel flex40 br4 bsdatacatalog'>
