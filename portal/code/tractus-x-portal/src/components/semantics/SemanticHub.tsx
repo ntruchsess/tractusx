@@ -19,6 +19,11 @@ import DescriptionList from '../lists/descriptionlist';
 import { encodeID, getModels } from './data';
 import ErrorMessage from '../ErrorMessage';
 import Loading from '../loading';
+import Pagination from '../navigation/Pagination';
+import ListCountSelector from '../navigation/ListCountSelector';
+
+const defaultPage = 0;
+const defaultPageSize = 10;
 
 export default class SemanticHub extends React.Component<any, any>{
   constructor(props) {
@@ -27,9 +32,12 @@ export default class SemanticHub extends React.Component<any, any>{
       models: null,
       filterActive: false,
       reloadDropdown: false,
-      filterParams: new URLSearchParams(''),
+      filterParams: new URLSearchParams(`page=${defaultPage}&pageSize=${defaultPageSize}`),
       searchInput: '',
-      error: null
+      error: null,
+      currentPage: defaultPage,
+      pageSize: defaultPageSize,
+      hasNoNextPage: false
     };
 
     this.clearFilter = this.clearFilter.bind(this);
@@ -38,6 +46,9 @@ export default class SemanticHub extends React.Component<any, any>{
     this.onInputSearch = this.onInputSearch.bind(this);
     this.onTypeDropdownChange = this.onTypeDropdownChange.bind(this);
     this.onAvailableDropdownChange = this.onAvailableDropdownChange.bind(this);
+    this.onPageBefore = this.onPageBefore.bind(this);
+    this.onPageNext = this.onPageNext.bind(this);
+    this.onItemCountClick = this.onItemCountClick.bind(this);
   }
 
   componentDidMount() {
@@ -54,8 +65,8 @@ export default class SemanticHub extends React.Component<any, any>{
     getModels(this.state.filterParams)
       .then(
         models => this.setState({models}), 
-        error => this.setState({error: error.message})
-      );
+        error => this.setState({error: error.message}))
+      .then(() => this.checkForNextPage());
   }
 
   private getIcon(data: any) {
@@ -65,14 +76,30 @@ export default class SemanticHub extends React.Component<any, any>{
     </span>
   }
 
-  setFilter(name, value){
-    this.setState({filterActive: true});
+  checkForNextPage(){
+    const nextPageNum = this.state.currentPage + 1;
+    const params = new URLSearchParams(this.state.filterParams);
+    params.set('page', nextPageNum);
+    getModels(params)
+      .then(models => {
+        if(models.length === 0){
+          this.setState({hasNoNextPage: true});
+        } else {
+          this.setState({hasNoNextPage: false});
+        }
+      });
+  }
+
+  setFilter(...params: { name: string, value: any }[]){
     let currentFilter = new URLSearchParams(this.state.filterParams);
-    if(currentFilter.has(name)){
-      currentFilter.set(name, value);
-    } else {
-      currentFilter.append(name, value);
-    }
+    params.map(param => {
+      if(currentFilter.has(param.name)){
+        currentFilter.set(param.name, param.value);
+      } else {
+        currentFilter.append(param.name, param.value);
+      }
+    })
+    this.setState({filterActive: true});
     this.setState({filterParams: currentFilter});
   }
 
@@ -80,7 +107,8 @@ export default class SemanticHub extends React.Component<any, any>{
     this.reloadDropdown();
     this.setState({filterActive: false});
     this.setState({searchInput: ''});
-    this.setState({filterParams:  new URLSearchParams('')});
+    this.setState({filterParams:  new URLSearchParams(`page=${defaultPage}&pageSize=${defaultPageSize}`)});
+    this.setState({currentPage:defaultPage,pageSize:defaultPageSize});
   }
 
   reloadDropdown(){
@@ -100,23 +128,47 @@ export default class SemanticHub extends React.Component<any, any>{
 
   onInputSearch(input){
     if(input.includes('.')){
-      this.setFilter('namespaceFilter', encodeID(input));
+      this.setFilter({name: 'namespaceFilter', value: encodeID(input)});
     } else {
-      this.setFilter('nameFilter', input);
+      this.setFilter({name: 'nameFilter', value: input});
     }
   }
   
   onTypeDropdownChange(ev, option){
-    this.setFilter('type', option.text);
+    this.setFilter({name: 'type', value: option.text});
   }
 
   onAvailableDropdownChange(ev, option){
     const convertedInput = option.key === 1;
-    this.setFilter('isPrivate', convertedInput);
+    this.setFilter({name: 'isPrivate', value: convertedInput});
   }
 
   encodeID(id){
     return encodeID(id);
+  }
+
+  onPageBefore(){
+    this.setState({currentPage: this.state.currentPage - 1}, () => this.updatePageFilter());
+  }
+
+  onPageNext(){
+    this.setState({currentPage: this.state.currentPage + 1}, () => this.updatePageFilter());
+  }
+
+  updatePageFilter(){
+    this.setFilter({name: 'page', value: this.state.currentPage});
+  }
+
+  onItemCountClick(count: number){
+    const paramPageSize = { name: 'pageSize', value: count };
+    if(this.state.currentPage > defaultPage){
+      const paramDefaultPage = { name: 'page', value: defaultPage };
+      this.setState({pageSize: count});
+      this.setState({currentPage: defaultPage});
+      this.setFilter(paramPageSize, paramDefaultPage);
+    } else {
+      this.setState({pageSize: count}, () => this.setFilter(paramPageSize))
+    }
   }
 
   public render() {
@@ -163,27 +215,37 @@ export default class SemanticHub extends React.Component<any, any>{
               {this.state.filterActive && <PrimaryButton onClick={this.clearFilter} text="Clear Filter" className="ml20"/> }
             </div>
             {this.state.models.length > 0 ?
-              <div className="df fwrap">
-                {this.state.models.map((data, index) => (
-                  <div key={index} className='m5 p20 bgpanel flex40 br4 bsdatacatalog'>
-                    <div className='df aifs mb15'>
-                      <Link className="mr20 tdn" to={{
-                        pathname: `/home/semanticmodel/${this.encodeID(data.id)}`
-                      }}>
-                        <span className='fs24 bold fg191'>{data.name}</span>
-                      </Link>
+              <div>
+                <ListCountSelector activeCount={this.state.pageSize} onCountClick={this.onItemCountClick}/>
+                <div className="df fwrap mt20">
+                  {this.state.models.map((data, index) => (
+                    <div key={index} className='m5 p20 bgpanel flex40 br4 bsdatacatalog'>
+                      <div className='df aifs mb15'>
+                        <Link className="mr20 tdn" to={{
+                          pathname: `/home/semanticmodel/${this.encodeID(data.id)}`
+                        }}>
+                          <span className='fs24 bold fg191'>{data.name}</span>
+                        </Link>
+                      </div>
+                      <span className='fs14 pt8'>{data.description}</span>
+                      <div className='mt20 mb30'>
+                        <DescriptionList title="Publisher" description={data.publisher} />
+                        <DescriptionList title="Namespace" description={data.id ? data.id : '-'} />
+                        <DescriptionList title="Model Version" description={data.version} />
+                        <DescriptionList title="Vocabulary Type" description={data.type} />
+                        <DescriptionList title="Private" description={String(data.private)} />
+                      </div>
                     </div>
-                    <span className='fs14 pt8'>{data.description}</span>
-                    <div className='mt20 mb30'>
-                      <DescriptionList title="Publisher" description={data.publisher} />
-                      <DescriptionList title="Namespace" description={data.id ? data.id : '-'} />
-                      <DescriptionList title="Model Version" description={data.version} />
-                      <DescriptionList title="Vocabulary Type" description={data.type} />
-                      <DescriptionList title="Private" description={String(data.private)} />
-                    </div>
-                  </div>
-                ))}
-              </div> : 
+                  ))}
+                  <Pagination pageNumber={this.state.currentPage}
+                    onPageBefore={this.onPageBefore}
+                    onPageNext={this.onPageNext}
+                    isDisabledNext={this.state.hasNoNextPage}>
+                  </Pagination>
+                </div>
+              </div>
+
+              : 
               <div className="df fdc aic">
                 <span className="fs20">No matches found!</span>
                 <PrimaryButton text='Reset Filter' className="mt20" onClick={this.clearFilter} />
