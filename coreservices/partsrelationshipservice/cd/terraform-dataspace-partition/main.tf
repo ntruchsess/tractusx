@@ -68,7 +68,7 @@ resource "helm_release" "prs" {
 
   set {
     name  = "prs.image.repository"
-    value = "${var.image_registry}/prs"
+    value = "${var.image_registry}/prs-api"
   }
 
   set {
