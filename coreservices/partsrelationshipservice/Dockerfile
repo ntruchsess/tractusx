@@ -6,6 +6,7 @@ WORKDIR /build
 
 COPY ci ci
 COPY api api
+COPY .mvn .mvn
 COPY pom.xml .
 
 COPY broker-proxy-integration-tests broker-proxy-integration-tests
@@ -16,6 +17,7 @@ COPY prs-client prs-client
 COPY prs-composite-client prs-composite-client
 COPY prs-models prs-models
 COPY prs-parent prs-parent
+COPY prs-parent-spring-boot prs-parent-spring-boot
 COPY prs-testing prs-testing
 
 # the --mount option requires BuildKit.
