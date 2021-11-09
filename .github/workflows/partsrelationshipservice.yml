@@ -32,7 +32,10 @@ jobs:
 
       - name: Build with Maven
         run: |
-          mvn --batch-mode --update-snapshots verify
+          mvn --batch-mode --update-snapshots -s settings.xml verify
+        env:
+          PRS_EDC_PKG_USERNAME: ${{ secrets.PRS_EDC_PKG_USERNAME }}
+          PRS_EDC_PKG_PASSWORD: ${{ secrets.PRS_EDC_PKG_PASSWORD }}
 
   build_images:
     strategy:
@@ -40,10 +43,13 @@ jobs:
         image:
           - prs-api
           - broker-proxy
+          - prs-connector-provider
+          - prs-connector-consumer
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: coreservices/partsrelationshipservice
+
     steps:
       - uses: actions/checkout@v2
 
@@ -51,7 +57,7 @@ jobs:
         run: |
           # RUN --mount=type=cache is used in the PRS Dockerfile to cache directories for maven.
           # And the --mount option requires BuildKit.
-          DOCKER_BUILDKIT=1 docker build --build-arg BUILD_TARGET=${{ matrix.image }} --target ${{ matrix.image }} .
+          DOCKER_BUILDKIT=1 docker build --build-arg PRS_EDC_PKG_USERNAME=${{ secrets.PRS_EDC_PKG_USERNAME }} --build-arg PRS_EDC_PKG_PASSWORD=${{ secrets.PRS_EDC_PKG_PASSWORD }} --build-arg BUILD_TARGET=${{ matrix.image }} --target ${{ matrix.image }} .
 
   check:
     runs-on: ubuntu-latest
