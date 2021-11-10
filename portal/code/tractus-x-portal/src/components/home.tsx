@@ -35,8 +35,8 @@ import { NewSemanticModel } from './semantics/NewSemanticModel';
 import SemanticHub from './semantics/SemanticHub';
 import SemanticModelDetail from './semantics/SemanticModelDetail';
 import Aspect from './aspect';
-import DigitalTwins from './digitaltwins/digitaltwins';
-import { DigitalTwinDetail } from './digitaltwins/digitaltwindetail';
+import DigitalTwins from './digitaltwins/DigitalTwins';
+import { DigitalTwinDetail } from './digitaltwins/DigitalTwinDetail';
 
 const navStyles: Partial<INavStyles> = {
   root: {
@@ -178,9 +178,7 @@ const navLinkGroupsSemantics: INavLinkGroup[] = [
   }
 ];
 
-
-
-const noNav = ['digitaltwins', 'semanticmodel', 'developerhub', 'appstore', 'notification', 'organization', 'partners', 'usermanagement'];
+const noNav = ['digitaltwin', 'developerhub', 'appstore', 'notification', 'organization', 'partners', 'usermanagement'];
 
 @observer
 class Home extends React.Component<RouteComponentProps> {
