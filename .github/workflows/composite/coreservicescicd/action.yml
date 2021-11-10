@@ -85,8 +85,10 @@ runs:
           ${{inputs.serviceConfig}}
           EOF
           )
+          configChanged=${config//{{env}}/replacementenvironment}
+          
           cat << EOF > appsettings.json
-          echo ${config//{{env}}/replacementenvironment}
+          configChanged
           EOF
         shell: bash
 
