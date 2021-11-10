@@ -50,6 +50,8 @@ jobs:
         image:
           - prs-api
           - broker-proxy
+          - prs-connector-consumer
+          - prs-connector-provider
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -70,6 +72,9 @@ jobs:
           set -euo pipefail # safe mode
           source cd/environments/${{ needs.configure.outputs.environment }}.sh
           cd/build_and_push_docker.sh "$TF_VAR_image_registry" "${{ matrix.image }}" "${{ needs.configure.outputs.image_tag }}"
+        env:
+          PRS_EDC_PKG_USERNAME: ${{ secrets.PRS_EDC_PKG_USERNAME }}
+          PRS_EDC_PKG_PASSWORD: ${{ secrets.PRS_EDC_PKG_PASSWORD }}
 
   deploy_common:
     needs:
@@ -92,6 +97,26 @@ jobs:
           TERRAFORM_VARS: ../environments/${{ needs.configure.outputs.environment }}.sh
     outputs:
       application_insights_name: ${{ steps.terraform.outputs.application_insights_name }}
+
+  deploy_connectors:
+    needs:
+      - configure
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: coreservices/partsrelationshipservice/cd/terraform-connector-consumer
+    steps:
+      - uses: actions/checkout@v2
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: "Run Terraform, deploying connectors."
+        run: ../run-terraform.sh
+        env:
+          AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
+          TERRAFORM_STATE_BLOB: consumer.${{ needs.configure.outputs.environment }}.${{ matrix.partition.key }}.tfstate
+          TERRAFORM_VARS: ../environments/${{ needs.configure.outputs.environment }}.sh
+          TF_VAR_image_tag: ${{ needs.configure.outputs.image_tag }} # Image tag of connectors
 
   deploy_partitions:
     needs:
