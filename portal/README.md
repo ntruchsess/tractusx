@@ -1,3 +1,3 @@
-# Portal applications
+# Portal application
 
-Portal applications for the Catena-X PoC.
+Portal application for the Catena-X PoC.
