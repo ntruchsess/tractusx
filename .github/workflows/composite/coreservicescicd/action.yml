@@ -81,9 +81,8 @@ runs:
 
       - name: Init Helm
         run: |
-          file = ${{inputs.serviceConfig}}
           cat << EOF > appsettings.json
-          echo "${file/{{env}}/test}"
+          echo "${${{inputs.serviceConfig}}/{{env}}/test}"
           EOF
         shell: bash
 
