@@ -41,9 +41,7 @@ export default class Companyrole extends React.Component {
     var OneID = UserService.oneid;
     var realm = UserService.realm;
     const token = UserService.getToken();
-    const url = process.env.REACT_APP_ONBOARDING_URL;
-    const endpoint = process.env.REACT_APP_ONBOARDING_ENDPOINT;    
-    const u= `${url}/${endpoint}/${realm}/companyRoles`;
+    var u = `https://catenax-dev003-app-onboarding-service.azurewebsites.net/api/onboarding/company/${realm}/companyRoles`;
     const data = {
       'companyId': OneID,
       'roles': selectedValue
