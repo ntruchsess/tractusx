@@ -53,10 +53,10 @@ runs:
           username: ${{ inputs.AZURE_REGISTRY_USERNAME }}
           password: ${{ inputs.AZURE_REGISTRY_PASSWORD }}
 
-#      - run: |
-#          docker build -f ${{inputs.srcFolder}}/Dockerfile -t ${{inputs.acrName}}.azurecr.io/${{inputs.imageName}}:${{ github.run_id }} coreservices/.
-#          docker push ${{inputs.acrName}}.azurecr.io/${{inputs.imageName}}:${{ github.run_id }}
-#        shell: bash
+      - run: |
+          docker build -f ${{inputs.srcFolder}}/Dockerfile -t ${{inputs.acrName}}.azurecr.io/${{inputs.imageName}}:${{ github.run_id }} coreservices/.
+          docker push ${{inputs.acrName}}.azurecr.io/${{inputs.imageName}}:${{ github.run_id }}
+        shell: bash
             
       - name: Azure Kubernetes set context
         uses: azure/aks-set-context@v1
@@ -98,8 +98,6 @@ runs:
           arguments:  --from-file=appsettings.json
           secret-name: secret-${{inputs.helmDeploymentName}}-appsettings
 
-      
-
       - name: Init Helm
         run: |
           curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 > get_helm.sh
@@ -107,7 +105,7 @@ runs:
           ./get_helm.sh
         shell: bash
 
-#      - name: Init Helm
-#        run: |
-#          helm upgrade --install ${{inputs.helmDeploymentName}} -n coreservices --set image.repository=${{inputs.acrName}}.azurecr.io/${{inputs.imageName}} --set image.tag=${{github.run_id}} --set imagePullSecret=pullsecretacr --set ingress.serviceHost=catenax${{ inputs.environment }}akssrv.germanywestcentral.cloudapp.azure.com --set ingress.clusterIssuer=${{inputs.CLUSTER_ISSUER}} ./${{inputs.srcFolder}}/helmchart/
-#        shell: bash
+      - name: Init Helm
+        run: |
+          helm upgrade --install ${{inputs.helmDeploymentName}} -n coreservices --set image.repository=${{inputs.acrName}}.azurecr.io/${{inputs.imageName}} --set image.tag=${{github.run_id}} --set imagePullSecret=pullsecretacr --set ingress.serviceHost=catenax${{ inputs.environment }}akssrv.germanywestcentral.cloudapp.azure.com --set ingress.clusterIssuer=${{inputs.CLUSTER_ISSUER}} ./${{inputs.srcFolder}}/helmchart/
+        shell: bash
