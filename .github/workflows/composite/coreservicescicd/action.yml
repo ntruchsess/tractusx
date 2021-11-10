@@ -82,7 +82,7 @@ runs:
       - name: Init Helm
         run: |
           config=$(cat <<EOF
-          ${{inpts.serviceConfig}}
+          ${{inputs.serviceConfig}}
           EOF
           )
           cat << EOF > appsettings.json
