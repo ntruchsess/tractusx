@@ -87,9 +87,7 @@ runs:
           )
           configChanged=${config//{{env}}/replacementenvironment}
           
-          cat << EOF > appsettings.json
-          configChanged
-          EOF
+          echo "$configChanged" > appsettings.json
         shell: bash
 
       - name: Create Secrets for Service
