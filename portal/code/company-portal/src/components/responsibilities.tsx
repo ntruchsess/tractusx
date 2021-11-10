@@ -78,7 +78,9 @@ export default class Responsibilities extends React.Component {
   private sendInvites() {
     var realm = UserService.realm;
     const token = UserService.getToken();
-    var u = `https://catenax-dev003-app-onboarding-service.azurewebsites.net/api/onboarding/company/${realm}/users`;
+    const url = process.env.REACT_APP_ONBOARDING_URL;
+    const endpoint = process.env.REACT_APP_ONBOARDING_ENDPOINT;    
+    const u= `${url}/${endpoint}/${realm}/users`;
     const data = this.newarray.map(({id,...rest}) => ({...rest}));
     if(data.length > 0){
     fetch(u, { method: 'POST', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } , body: JSON.stringify(data) })

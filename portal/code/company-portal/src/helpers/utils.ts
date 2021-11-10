@@ -15,16 +15,12 @@
 import { CompanyDetails, CompanyRole, ConsentForCompanyRoles, UserRole } from "../data/companyDetails";
 import UserService  from '../helpers/UserService';
 
-const url = 'https://catenax-dev003-app-onboarding-service.azurewebsites.net';
+const url = process.env.REACT_APP_ONBOARDING_URL;
+const endpoint = process.env.REACT_APP_ONBOARDING_ENDPOINT;
 export function getCompanyDetails(oneId: String): Promise<CompanyDetails> {
   const realm = UserService.realm;
-  // const url = process.env.REACT_APP_ONBOARDING_SERVICE_BASE_URL;
-  // const endpoint=process.env.ONBOARDING_COMPANY_DETAILS;
-  
-  const endpoint = 'api/onboarding/company';
   const token = UserService.getToken();
   const u= `${url}/${endpoint}/${realm}/${oneId}`;
-  //const u = `${url}?businessPartnerOneId=${oneId}`;
   let myResponseData: CompanyDetails = new CompanyDetails();
   const promise = new Promise<CompanyDetails>((resolve, reject) => {
     fetch(u, { method: 'GET', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } })
@@ -47,12 +43,8 @@ export function getCompanyDetails(oneId: String): Promise<CompanyDetails> {
 
 export function getCompanyRoles(): Promise<CompanyRole[]> {
   const realm = UserService.realm;
-  // const url = process.env.REACT_APP_ONBOARDING_SERVICE_BASE_URL;
-  // const endpoint=process.env.ONBOARDING_COMPANY_DETAILS;
-  const endpoint = 'api/onboarding/company';
   const token = UserService.getToken();
   const u= `${url}/${endpoint}/${realm}/companyRoles`;
-  //const u = `${url}?businessPartnerOneId=${oneId}`;
   let companyRolesRes: CompanyRole[] = [];
   const promise = new Promise<CompanyRole[]>((resolve, reject) => {
     fetch(u, { method: 'GET', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } })
@@ -75,13 +67,9 @@ export function getCompanyRoles(): Promise<CompanyRole[]> {
 
 export function getConsentForCompanyRoles(roleId: Number): Promise<ConsentForCompanyRoles[]> {
   const realm = UserService.realm;
-  // const url = process.env.REACT_APP_ONBOARDING_SERVICE_BASE_URL;
-  // const endpoint=process.env.ONBOARDING_COMPANY_DETAILS;
   const endpoint = 'api/onboarding/company';
   const token = UserService.getToken();
   const u= `${url}/${endpoint}/${realm}/consentsFoCompanyRole/${roleId}`;
-  console.log(u);
-  //const u = `${url}?businessPartnerOneId=${oneId}`;
   let myConsentResponseData: ConsentForCompanyRoles[] = [];
   const promise = new Promise<ConsentForCompanyRoles[]>((resolve, reject) => {
     fetch(u, { method: 'GET', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } })
@@ -103,12 +91,8 @@ export function getConsentForCompanyRoles(roleId: Number): Promise<ConsentForCom
 
 export function getUserRoles(): Promise<UserRole[]> {
   const realm = UserService.realm;
-  // const url = process.env.REACT_APP_ONBOARDING_SERVICE_BASE_URL;
-  // const endpoint=process.env.ONBOARDING_COMPANY_DETAILS;
-  const endpoint = 'api/onboarding/company';
   const token = UserService.getToken();
   const u= `${url}/${endpoint}/${realm}/userRoles`;
-  //const u = `${url}?businessPartnerOneId=${oneId}`;
   let userRolesRes: UserRole[] = [];
   const promise = new Promise<UserRole[]>((resolve, reject) => {
     fetch(u, { method: 'GET', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } })
