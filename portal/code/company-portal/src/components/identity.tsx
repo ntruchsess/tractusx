@@ -14,24 +14,33 @@
 
 import * as React from 'react';
 import { observer } from 'mobx-react';
-import { Checkbox, PrimaryButton } from '@fluentui/react';
+import { ChoiceGroup, PrimaryButton, IChoiceGroupOption } from '@fluentui/react';
 import UserService from '../helpers/UserService';
 import { toast } from 'react-toastify';
 
-var checkedData: boolean;
+var identitydata;
+const options: IChoiceGroupOption[] = [
+  { key: 'ssi', text: 'SSI' },
+  { key: 'catena-x-idp', text: 'Catena-X IDP' },
+  { key: 'company-idp', text: 'Company IDP' },
+];
 @observer
 export default class Identity extends React.Component {
+
+private onChange(ev,option){
  
-private onChange(ev,checked){
-     checkedData = checked;
+  identitydata = option.key;
+  console.log(identitydata);
 }
 
   private onSubmitClick(){
-    if(checkedData){
+    if(identitydata){
     var OneID = UserService.oneid;
     var realm = UserService.realm;
     const token = UserService.getToken();
-    var u = `https://catenax-dev003-app-onboarding-service.azurewebsites.net/api/onboarding/company/${realm}/idp`;
+    const url = process.env.REACT_APP_ONBOARDING_URL;
+    const endpoint = process.env.REACT_APP_ONBOARDING_ENDPOINT;    
+    const u= `${url}/${endpoint}/${realm}/idp`;
     const data = {
       'companyId': OneID,
       'idp': 'Catena-X IDP'
@@ -68,8 +77,7 @@ private onChange(ev,checked){
           <div className='p20'>
           <div className='pb20 p24'>
                 <span className='fs18 bold mt30'>App Provider Terms & Conditions</span>
-                <Checkbox className='mt20' label="Catena-X IDP"  onChange={this.onChange}/>
-                  <Checkbox className='mt20' disabled label="Own IDP" />
+                <ChoiceGroup defaultSelectedKey="B" options={options} onChange={this.onChange} required={true} />;
             </div>
             <div className='pb8 mt50 p24 pb20 brbt df fdc fdrr'>
                    <PrimaryButton text='SUBMIT' onClick={()=>this.onSubmitClick()}/>
