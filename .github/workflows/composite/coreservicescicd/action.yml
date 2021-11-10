@@ -83,7 +83,7 @@ runs:
         run: |
           test = '${{inputs.serviceConfig}}'
           cat << EOF > appsettings.json
-          echo ${test//{{env}}/test}
+          echo ${test//{{env}}/replacementenvironment}
           EOF
         shell: bash
 
