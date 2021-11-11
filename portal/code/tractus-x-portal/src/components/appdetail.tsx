@@ -21,7 +21,7 @@ import Ratings from './ratings';
 import { RouteComponentProps } from 'react-router';
 import AppCard from './appcard';
 import { format } from '../helpers/utils';
-import BackLink from './navigation/backlink';
+import BackLink from './navigation/BackLink';
 
 @observer
 export default class AppDetail extends React.Component<RouteComponentProps> {
@@ -74,7 +74,7 @@ export default class AppDetail extends React.Component<RouteComponentProps> {
         <div className='df h100pc'>
           <div className='ml50 mr20 mt20 w100-20 bgwhite df fdc oa'>
             <div className='df mr50 ml50 mt50'>
-              <span className='fs14 fggrey'>Catena-X</span>
+              <span className='fs14 fggrey'>{app.companyName}</span>
               <div className='flex1' />
               <Ratings app={app} />
             </div>
