@@ -23,19 +23,19 @@ import UserService from '../helpers/UserService';
 
 interface IUserResponsibilities {
   id: number,
-  eMail: string,
-  message: string,
-  role: string
+  eMail: string,  
+  role: string,
+  message: string
 }
 
 var options: IDropdownOption[] = [];
 
 @observer
 export default class Responsibilities extends React.Component {
-  @observable private email: string = "";
-  @observable private message: string = "";
+  @observable private email: string = ""; 
   @observable private userRole: any = "";  
   @observable private newarray: IUserResponsibilities[] = [];
+  @observable private message: string = "";
   public newUserRole: IDropdownOption[];
 
   constructor(props) {
@@ -65,14 +65,14 @@ export default class Responsibilities extends React.Component {
     const data =
     {
       "id": Math.floor(Math.random() * 100),
-      "eMail": this.email,
-      "message": this.message,
-      "role": this.userRole
+      "eMail": this.email,      
+      "role": this.userRole,
+      "message": this.message
     }
     this.newarray.push(data);
-    this.email = '';
-    this.message = '';
+    this.email = '';    
     this.userRole = '';
+    this.message = '';
   }
 
   private removeUser(id: number) {
@@ -119,9 +119,9 @@ export default class Responsibilities extends React.Component {
         <div className='collapse-panel bgwhite'>
           <div className='pb20 p24'>
             <div className='ml30 fb pb6 df'>
-              <TextField label='Email Address' className='w50pc brnone br4 pr10 h36' value={this.email} onChange={(ev, val) => this.email = val} />
-              <TextField label='Message' className='w50pc brnone br4 pr10 h36' value={this.message} onChange={(ev, val) => this.message = val} />
+              <TextField label='Email Address' className='w50pc brnone br4 pr10 h36' value={this.email} onChange={(ev, val) => this.email = val} />              
               <Dropdown placeholder="User Role" label="User Role" options={options} className='w50pc brnone br4 pr10 h36' onChange={(ev, val) => this.userRole = val.key} selectedKey={this.userRole} />
+              <TextField label='Message' className='w50pc brnone br4 pr10 h36' value={this.message} onChange={(ev, val) => this.message = val} />
               <PrimaryButton className='w10pc mt24 br4 h36' text='ADD' onClick={() => this.addButtonClick()} />
             </div>
             <div className='ml30 mt10 df'>
