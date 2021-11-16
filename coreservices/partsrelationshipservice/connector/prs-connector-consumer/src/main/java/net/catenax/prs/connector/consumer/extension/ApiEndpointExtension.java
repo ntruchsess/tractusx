@@ -7,9 +7,12 @@
 // See the LICENSE file(s) distributed with this work for
 // additional information regarding license terms.
 //
-package org.eclipse.dataspaceconnector.extensions.api;
+package net.catenax.prs.connector.consumer.extension;
 
-import org.eclipse.dataspaceconnector.extensions.annotations.ExcludeFromCodeCoverageGeneratedReport;
+import net.catenax.prs.connector.annotations.ExcludeFromCodeCoverageGeneratedReport;
+import net.catenax.prs.connector.consumer.controller.ConsumerApiController;
+import net.catenax.prs.connector.consumer.middleware.RequestMiddleware;
+import net.catenax.prs.connector.consumer.transfer.FileStatusChecker;
 import org.eclipse.dataspaceconnector.spi.protocol.web.WebService;
 import org.eclipse.dataspaceconnector.spi.system.ServiceExtension;
 import org.eclipse.dataspaceconnector.spi.system.ServiceExtensionContext;
@@ -37,10 +40,12 @@ public class ApiEndpointExtension implements ServiceExtension {
     public void initialize(final ServiceExtensionContext context) {
         final var monitor = context.getMonitor();
 
+        final var middleware = new RequestMiddleware(monitor);
+
         final var webService = context.getService(WebService.class);
         final var processManager = context.getService(TransferProcessManager.class);
         final var processStore = context.getService(TransferProcessStore.class);
-        webService.registerController(new ConsumerApiController(context.getMonitor(), processManager, processStore));
+        webService.registerController(new ConsumerApiController(context.getMonitor(), processManager, processStore, middleware));
 
         final var statusCheckerReg = context.getService(StatusCheckerRegistry.class);
         statusCheckerReg.register("File", new FileStatusChecker(monitor));

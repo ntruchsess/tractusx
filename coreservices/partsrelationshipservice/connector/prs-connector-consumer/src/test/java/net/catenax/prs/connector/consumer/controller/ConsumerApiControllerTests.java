@@ -1,7 +1,9 @@
+package net.catenax.prs.connector.consumer.controller;
+
 import com.github.javafaker.Faker;
 import jakarta.ws.rs.core.Response;
-import org.eclipse.dataspaceconnector.extensions.api.ConsumerApiController;
-import org.eclipse.dataspaceconnector.extensions.api.FileRequest;
+import net.catenax.prs.connector.consumer.middleware.RequestMiddleware;
+import net.catenax.prs.connector.requests.FileRequest;
 import org.eclipse.dataspaceconnector.monitor.ConsoleMonitor;
 import org.eclipse.dataspaceconnector.spi.monitor.Monitor;
 import org.eclipse.dataspaceconnector.spi.transfer.TransferInitiateResponse;
@@ -34,6 +36,9 @@ public class ConsumerApiControllerTests {
 
     @Spy
     Monitor monitor = new ConsoleMonitor();
+
+    @Spy
+    RequestMiddleware middleware = new RequestMiddleware(monitor);
 
     @Mock
     TransferProcessStore processStore;
