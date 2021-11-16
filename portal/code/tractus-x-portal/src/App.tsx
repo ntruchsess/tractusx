@@ -29,8 +29,6 @@ import { withAdalLoginApi } from './helpers/adalConfig';
 import Loading from './components/loading';
 import { AppState } from './stores/appstate';
 import Login from './components/login';
-import AppStoreIframe from './components/appStoreIframe';
-
 const history = createBrowserHistory();
 
 @observer
@@ -65,7 +63,6 @@ export default class App extends React.Component {
           <Route path='/invite' component={(props) => <Registrationoneid {...props}/>} />
           <Route path='/emailregister' component={(props) => <Emailregister {...props}/>} />
           <Route path='/login' component={(props) => <Login {...props}/>} />
-          <Route path='/appstore' component={(props) => <AppStoreIframe {...props} />} />
         </Switch>
       </Router>
     );

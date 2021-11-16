@@ -1,8 +1,8 @@
 package net.catenax.prs.services;
 
-import com.catenax.partsrelationshipservice.dtos.PartRelationshipsWithInfos;
 import com.github.javafaker.Faker;
 import net.catenax.prs.configuration.PrsConfiguration;
+import net.catenax.prs.dtos.PartRelationshipsWithInfos;
 import net.catenax.prs.entities.EntitiesMother;
 import net.catenax.prs.entities.PartAttributeEntity;
 import net.catenax.prs.entities.PartIdEntityPart;
@@ -27,7 +27,6 @@ import java.util.List;
 import java.util.Set;
 
 import static java.util.Collections.emptyList;
-import static java.util.Collections.emptySet;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.mockito.Mockito.verifyNoInteractions;
@@ -52,15 +51,16 @@ public class PartsTreeQueryServiceTests {
     Faker faker = new Faker();
     int maxDepth = faker.number().numberBetween(10, 20);
 
-    RequestMother generateRequest = new RequestMother();
-    PartsTreeByObjectIdRequest request = generateRequest.byObjectId();
-
     EntitiesMother generate = new EntitiesMother();
     PartIdEntityPart car1 = generate.partId();
     PartIdEntityPart gearbox1 = generate.partId();
     PartIdEntityPart gearwheel1 = generate.partId();
 
-    Set<PartIdEntityPart> allPartIds = Set.of(car1, gearbox1, gearwheel1);
+    RequestMother generateRequest = new RequestMother();
+    PartIdEntityPart requestId = generate.partId();
+    PartsTreeByObjectIdRequest request = generateRequest.byObjectId(requestId);
+
+    Set<PartIdEntityPart> allPartIds = Set.of(requestId, car1, gearbox1, gearwheel1);
     PartRelationshipEntity car1_gearbox1 = generate.partRelationship(car1, gearbox1);
     PartRelationshipEntity gearbox1_gearwheel1 = generate.partRelationship(gearbox1, gearwheel1);
 
@@ -74,7 +74,7 @@ public class PartsTreeQueryServiceTests {
      * but not for {@link #gearbox1}. Expected service behavior on missing {@literal partTypeName} attribute
      * is to return a {@literal null} value for that field.
      */
-    List<PartAttributeEntity> attributes = List.of(generate.partTypeName(gearwheel1), generate.partTypeName(car1));
+    List<PartAttributeEntity> attributes = List.of(generate.partTypeNameAttribute(gearwheel1), generate.partTypeNameAttribute(car1));
 
     DtoMother generateDto = new DtoMother();
 
@@ -91,7 +91,7 @@ public class PartsTreeQueryServiceTests {
             .thenReturn(emptyList());
 
         when(mapper
-                .toPartRelationshipsWithInfos(emptyList(), emptySet(), emptyList(), emptyList()))
+                .toPartRelationshipsWithInfos(emptyList(), Set.of(requestId), emptyList(), emptyList()))
                 .thenReturn(resultDto);
 
         // Act
@@ -202,7 +202,7 @@ public class PartsTreeQueryServiceTests {
                 .thenReturn(relationships);
 
         when(attributeRepository
-                .findAllBy(allPartIds, PrsConfiguration.PART_TYPE_NAME_ATTRIBUTE_NAME))
+                .findAllBy(allPartIds, PrsConfiguration.PART_TYPE_NAME_ATTRIBUTE))
                 .thenReturn(attributes);
     }
 }

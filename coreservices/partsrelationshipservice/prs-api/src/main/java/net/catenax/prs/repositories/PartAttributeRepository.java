@@ -10,10 +10,11 @@
 package net.catenax.prs.repositories;
 
 import net.catenax.prs.entities.PartAttributeEntity;
+import net.catenax.prs.entities.PartAttributeEntityKey;
 import net.catenax.prs.entities.PartIdEntityPart;
-import net.catenax.prs.entities.PartInformationKey;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.Collection;
 import java.util.List;
@@ -21,7 +22,7 @@ import java.util.List;
 /**
  * JPA Repository for managing {@link PartAttributeEntity} objects.
  */
-public interface PartAttributeRepository extends JpaRepository<PartAttributeEntity, PartInformationKey> {
+public interface PartAttributeRepository extends JpaRepository<PartAttributeEntity, PartAttributeEntityKey> {
     /**
      * Returns all instances of the type {@link PartAttributeEntity}
      * for the given Part IDs and attribute name.
@@ -37,6 +38,10 @@ public interface PartAttributeRepository extends JpaRepository<PartAttributeEnti
      * The size can be equal or less than the number of given {@literal partIds}.
      * @see org.springframework.data.repository.CrudRepository#findAllById(Iterable)
      */
-    @Query("SELECT a FROM PartAttributeEntity a WHERE a.key.partId IN (:partIds) AND a.key.name = :name")
-    List<PartAttributeEntity> findAllBy(Collection<PartIdEntityPart> partIds, String name);
+    @Query("SELECT a FROM PartAttributeEntity a WHERE a.key.partId IN (:partIds) AND a.key.attribute = :name")
+    List<PartAttributeEntity> findAllBy(
+            @Param("partIds")
+            Collection<PartIdEntityPart> partIds,
+            @Param("name")
+            String name);
 }

@@ -2,6 +2,9 @@ package net.catenax.prs.entities;
 
 import com.github.javafaker.Faker;
 import net.catenax.prs.configuration.PrsConfiguration;
+import net.catenax.prs.dtos.PartLifecycleStage;
+
+import java.util.concurrent.TimeUnit;
 
 import static java.time.Instant.now;
 import static java.util.UUID.randomUUID;
@@ -22,7 +25,7 @@ public class EntitiesMother {
     /**
      * Generate a {@link PartRelationshipEntity} linking two parts,
      * with a {@link PartRelationshipEntity#getUploadDateTime()} equal to the current time
-     * and a random {@link PartRelationshipEntityKey#getPartRelationshipListId()}.
+     * and a random {@link PartRelationshipEntity#getPartRelationshipListId()}.
      *
      * @param parentId parent in the relationship.
      * @param childId  child in the relationship.
@@ -32,12 +35,17 @@ public class EntitiesMother {
         return PartRelationshipEntity.builder()
                 .key(partRelationshipKey(parentId, childId))
                 .uploadDateTime(now())
+                .partRelationshipListId(randomUUID())
                 .build();
+    }
+
+    public PartRelationshipEntity partRelationship() {
+        return partRelationship(partId(), partId());
     }
 
     /**
      * Generate a {@link PartRelationshipEntityKey} linking two parts,
-     * with a random {@link PartRelationshipEntityKey#getPartRelationshipListId()}.
+     * with a random {@link PartRelationshipEntity#getPartRelationshipListId()}.
      *
      * @param parentId parent in the relationship.
      * @param childId  child in the relationship.
@@ -47,7 +55,9 @@ public class EntitiesMother {
         return PartRelationshipEntityKey.builder()
                 .childId(childId)
                 .parentId(parentId)
-                .partRelationshipListId(randomUUID())
+                .effectTime(faker.date().past(faker.number().randomDigitNotZero(), TimeUnit.DAYS).toInstant())
+                .lifeCycleStage(PartLifecycleStage.BUILD)
+                .removed(false)
                 .build();
     }
 
@@ -69,20 +79,27 @@ public class EntitiesMother {
 
     public PartAspectEntity partAspect(PartIdEntityPart id) {
         return PartAspectEntity.builder()
-                .key(partInformationKey(id, faker.lorem().word()))
+                .key(partAspectEntityKey(id, faker.lorem().word()))
                 .url(faker.internet().url())
                 .build();
     }
 
-    public PartAttributeEntity partTypeName(PartIdEntityPart id) {
+    public PartAttributeEntity partTypeNameAttribute(PartIdEntityPart id) {
         return PartAttributeEntity.builder()
-                .key(partInformationKey(id, PrsConfiguration.PART_TYPE_NAME_ATTRIBUTE_NAME))
+                .key(partAttributeEntityKey(id, PrsConfiguration.PART_TYPE_NAME_ATTRIBUTE))
                 .value(faker.commerce().productName())
                 .build();
     }
 
-    private PartInformationKey partInformationKey(PartIdEntityPart id, String name) {
-        return PartInformationKey.builder()
+    private PartAttributeEntityKey partAttributeEntityKey(PartIdEntityPart id, String attribute) {
+        return PartAttributeEntityKey.builder()
+                .partId(id)
+                .attribute(attribute)
+                .build();
+    }
+
+    private PartAspectEntityKey partAspectEntityKey(PartIdEntityPart id, String name) {
+        return PartAspectEntityKey.builder()
                 .partId(id)
                 .name(name)
                 .build();

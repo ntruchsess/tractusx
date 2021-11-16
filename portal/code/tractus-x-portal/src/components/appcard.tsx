@@ -68,7 +68,7 @@ class AppCard extends React.Component<IProp> {
 
   public render() {
     const a = this.props.app;
-    const text = this.props.buttonText || a.purchase;
+    const text = this.props.buttonText || a.details || a.purchase;
     if (!this.props.wide) {
       return (
         <div className='h250 m5 br4 bsAppStore bgwhite minw200 maxw200 cpointer hov' onClick={() => this.cardClick()}>

@@ -1,6 +1,7 @@
 openapi: 3.0.1
 info:
-  description: API to retrieve parts tree information.
+  description: API to retrieve parts tree information. See <a href="https://confluence.catena-x.net/display/CXM/PRS+Environments+and+Test+Data">this
+    page</a> for more information on test data available in this environment.
   title: Catena-X Parts Relationship Service
   version: v0.1
 servers:
@@ -47,6 +48,7 @@ paths:
         schema:
           type: integer
           format: int32
+          minimum: 1
       responses:
         "200":
           content:
@@ -54,9 +56,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/PartRelationshipsWithInfos'
           description: Parts tree for a part
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request
       summary: Get a PartsTree for a part
       tags:
-      - Parts Relationship Service API
+      - Parts Relationship Service
   /api/v0.1/vins/{vin}/partsTree:
     get:
       operationId: getPartsTreeByVin
@@ -91,6 +99,7 @@ paths:
         schema:
           type: integer
           format: int32
+          minimum: 1
       responses:
         "200":
           content:
@@ -98,6 +107,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/PartRelationshipsWithInfos'
           description: Parts tree for a vehicle
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request
         "404":
           content:
             application/json:
@@ -106,7 +121,7 @@ paths:
           description: A vehicle was not found with the given VIN
       summary: Get a PartsTree for a VIN
       tags:
-      - Parts Relationship Service API
+      - Parts Relationship Service
 components:
   schemas:
     Aspect:
@@ -117,11 +132,15 @@ components:
           type: string
           description: Aspect name
           example: CE
+          maxLength: 10000
+          minLength: 1
         url:
           type: string
           format: url
           description: URL location of aspect data
           example: http://aspects-url/CE
+          maxLength: 10000
+          minLength: 1
       required:
       - name
       - url
@@ -129,6 +148,12 @@ components:
       type: object
       description: Error response
       properties:
+        errors:
+          type: array
+          description: List of errors
+          items:
+            type: string
+            description: List of errors
         message:
           type: string
           description: Error message
@@ -213,9 +238,13 @@ components:
           description: "Unique identifier of a single, unique physical (sub)component/part/batch,\
             \ given by its manufacturer. For a vehicle, the Vehicle Identification\
             \ Number (VIN)."
+          maxLength: 10000
+          minLength: 1
         oneIDManufacturer:
           type: string
           description: Readable ID of manufacturer including plant
+          maxLength: 10000
+          minLength: 1
       required:
       - objectIDManufacturer
       - oneIDManufacturer

@@ -19,8 +19,10 @@ import lombok.ToString;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.time.Instant;
 
 /**
  * JPA entity part representing an attribute key-value pair attached to a part identifier.
@@ -40,11 +42,26 @@ public class PartAttributeEntity implements Serializable {
      * and attribute name.
      */
     @EmbeddedId
-    private PartInformationKey key;
+    @NotNull
+    @Valid
+    private PartAttributeEntityKey key;
 
     /**
      * The attribute value.
      */
     @NotNull
     private String value;
+
+    /**
+     * Instant at which part attribute came into effect.
+     */
+    @NotNull
+    private Instant effectTime;
+
+    /**
+     * The time at which the data was uploaded.
+     */
+    @NotNull
+    private Instant lastModifiedTime;
+
 }

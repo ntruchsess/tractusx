@@ -3,15 +3,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.catenax.prs</groupId>
-        <artifactId>prs-parent</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../prs-parent</relativePath>
+        <groupId>net.catenax.prs</groupId>
+        <artifactId>prs-parent-spring-boot</artifactId>
+        <version>${revision}</version>
+        <relativePath>../prs-parent-spring-boot</relativePath>
     </parent>
 
-    <groupId>net.catenax.prs</groupId>
     <artifactId>prs-api</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
 
     <name>PRS API</name>
     <description>Part Relationship Service</description>
@@ -30,9 +28,21 @@
             <artifactId>springdoc-openapi-ui</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
         </dependency>
         <dependency>
             <groupId>net.catenax.prs</groupId>
@@ -62,7 +72,7 @@
         <dependency>
             <groupId>net.catenax.prs</groupId>
             <artifactId>prs-testing</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${revision}</version>
             <scope>test</scope>
         </dependency>
         <dependency>

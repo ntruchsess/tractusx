@@ -1,3 +1,6 @@
+/*
+ *
+ */
 package com.catenax.tdm;
 
 import java.util.ArrayList;
@@ -8,78 +11,127 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import com.catenax.tdm.model.v1.MemberCompanyRole;
 import com.catenax.tdm.model.v1.PartRelationshipWithInfos;
-import com.catenax.tdm.model.v1.Traceability;
 import com.catenax.tdm.sampledata.PartRelationshipSampleData;
-import com.catenax.tdm.sampledata.TraceabilitySampleData;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TestDataGenerator.
+ */
 public class TestDataGenerator {
 
-    public static List<MemberCompanyRole> getAllCompanyRoles() {
-        List<MemberCompanyRole> result = new ArrayList<MemberCompanyRole>();
+	/** The Constant upper. */
+	private static final String upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-        for (MemberCompanyRole role : MemberCompanyRole.values()) {
-            result.add(role);
-        }
+	/** The Constant lower. */
+	private static final String lower = upper.toLowerCase(Locale.ROOT);
 
-        return result;
-    }
-    
-    public static List<PartRelationshipWithInfos> generatePrsDataFromVehicle(BOM bom) {
-    	List<PartRelationshipWithInfos> result = new ArrayList<PartRelationshipWithInfos>();
-    			
-    	result.add(PartRelationshipSampleData.bomToPri(bom, 100));
+	/** The Constant digits. */
+	private static final String digits = "0123456789";
 
-    	return result;
-    }
+	/** The Constant alphanum. */
+	private static final String alphanum = upper + lower + digits;
 
-    public static int genInt(int min, int max) {
-        int result = 0;
+	/** The Constant symbols. */
+	private static final char[] symbols = alphanum.toCharArray();
 
-        return result;
-    }
-    
-    private static final String upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	/**
+	 * Generate prs data from vehicle.
+	 *
+	 * @param bom the bom
+	 * @return the list
+	 */
+	public static List<PartRelationshipWithInfos> generatePrsDataFromVehicle(BOM bom) {
+		final List<PartRelationshipWithInfos> result = new ArrayList<>();
 
-    private static final String lower = upper.toLowerCase(Locale.ROOT);
+		result.add(PartRelationshipSampleData.bomToPri(bom, 100));
 
-    private static final String digits = "0123456789";
+		return result;
+	}
 
-    private static final String alphanum = upper + lower + digits;
-    
-    private static final char[] symbols = alphanum.toCharArray();
-    
-    private static final Random random = ThreadLocalRandom.current();
+	/**
+	 * Gen int.
+	 *
+	 * @param min the min
+	 * @param max the max
+	 * @return the int
+	 */
+	public static int genInt(int min, int max) {
+		final int result = 0;
 
-    public static char randChar() {
-    	int i = random.nextInt(symbols.length);
-    	char r = symbols[i];    	
-    	return r;
-    }
-    
-    public static String genString(int len) {
-    	String result = "";
-    	
-    	for(int i = 0; i < len; i++) {
-    		result += randChar();
-    	}
+		return result;
+	}
 
-        return result;
-    }
-    
-    public static String genString(String prefix, int len) {
-        String result = prefix;
-        
-        result += genString(len - result.length());
+	/**
+	 * Gen string.
+	 *
+	 * @param len the len
+	 * @return the string
+	 */
+	public static String genString(int len) {
+		String result = "";
 
-        return result;
-    }
+		for (int i = 0; i < len; i++) {
+			result += randChar();
+		}
 
-    public static String genVIN(String prefix) {
-        String result = prefix;
-        
-        result += genString(17 - result.length());
+		return result;
+	}
 
-        return result.toUpperCase();
-    }
+	/**
+	 * Gen string.
+	 *
+	 * @param prefix the prefix
+	 * @param len    the len
+	 * @return the string
+	 */
+	public static String genString(String prefix, int len) {
+		String result = prefix;
+
+		result += genString(len - result.length());
+
+		return result;
+	}
+
+	/**
+	 * Gen VIN.
+	 *
+	 * @param prefix the prefix
+	 * @return the string
+	 */
+	public static String genVIN(String prefix) {
+		String result = prefix;
+
+		result += genString(17 - result.length());
+
+		return result.toUpperCase();
+	}
+
+	/**
+	 * Gets the all company roles.
+	 *
+	 * @return the all company roles
+	 */
+	public static List<MemberCompanyRole> getAllCompanyRoles() {
+		final List<MemberCompanyRole> result = new ArrayList<>();
+
+		for (final MemberCompanyRole role : MemberCompanyRole.values()) {
+			result.add(role);
+		}
+
+		return result;
+	}
+
+	/**
+	 * Rand char.
+	 *
+	 * @return the char
+	 */
+	public static char randChar() {
+		// ThreadLocalRandom.current() must not be stored in a static variable so that the
+		// correct random number generator instance is fetched for the current thread
+		Random random = ThreadLocalRandom.current();
+		final int i = random.nextInt(symbols.length);
+		return symbols[i];
+	}
 
 }

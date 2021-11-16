@@ -15,13 +15,49 @@
 #   Windows, (git)-bash shell, java 11 (java) and maven (mvn) in the $PATH.
 #
 # Synposis: 
-#   ./run_local.sh
+#   ./run_local.sh (-build)? (clean)? (-suspend)? (-debug)?
 #
 # Comments: 
 #
 
-mvn clean install
-java \
-    -classpath .\;target/semantics-1.0.0.jar \
-    org.springframework.boot.loader.JarLauncher
+DEBUG_PORT=8888
+DEBUG_SUSPEND=n
+DEBUG_OPTIONS=
+DB_FILE=./target/db_semantics
+CLEAN_DB=n
+
+for var in "$@"
+do
+  if [ "$var" == "-debug" ]; then
+    DEBUG_OPTIONS="-agentlib:jdwp=transport=dt_socket,address=${DEBUG_PORT},server=y,suspend=${DEBUG_SUSPEND}"
+  else 
+      if [ "$var" == "-build" ]; then
+        mvn install -DskipTests -Dmaven.javadoc.skip=true
+      else       
+        if [ "$var" == "-suspend" ]; then
+          DEBUG_SUSPEND=y
+        else
+          if [ "$var" == "-clean" ]; then
+            CLEAN_DB=y
+            mvn clean
+          fi
+        fi
+      fi
+  fi
+done
+
+H2_URL=jdbc:h2:file:${DB_FILE}
+
+if [ "$CLEAN_DB" == "y" ]; then
+  rm -f ${DB_FILE}*
+fi
+
+CALL_ARGS="-classpath ./src/main/resources;target/semantics-1.0.0.jar \
+           -Dspring.datasource.url=$H2_URL\
+           -Dserver.ssl.enabled=false $DEBUG_OPTIONS\
+           org.springframework.boot.loader.JarLauncher" 
+
+java ${CALL_ARGS}
+
+    
  

@@ -84,7 +84,9 @@ class Header extends React.Component<IProp> {
   public render() {
     const href = window.location.href;
     const path = href.substr(href.lastIndexOf('/') + 1);
-    const key = String(keys.indexOf(path));
+    let key = String(keys.indexOf(path));
+    if(href.includes('semanticmodel')) key = '4'; //just hack - nav code here needs to be cleaned up!
+    if(href.includes('digitaltwin')) key = '3'; //just hack - nav code here needs to be cleaned up!
     return (
       <div className='w100pc minh80 df aic bgwhite'>
         <div className='df cpointer' onClick={() => this.homeClick()}>
@@ -101,7 +103,7 @@ class Header extends React.Component<IProp> {
           })}
           <PivotItem key='search' className='ml20 mr20' headerText='' itemIcon='search' />
         </Pivot>}
-        { this.isAdmin &&  <div className='cpointer' onClick={() => this.onBoardingClick()}>Invite Business Partner</div> }
+        {/* { this.isAdmin &&  <div className='cpointer' onClick={() => this.onBoardingClick()}>Invite Business Partner</div> } */}
         <div className='flex1' />
         <div className='bgblue fgwhite aic jcc df fs16 br50pc h40 w40 mr10' onClick={() => this.userClick()}>{this.initials}</div>
         <div className='df fdc mr50'>
