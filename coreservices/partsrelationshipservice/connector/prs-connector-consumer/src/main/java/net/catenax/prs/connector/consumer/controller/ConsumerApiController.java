@@ -18,21 +18,14 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import lombok.RequiredArgsConstructor;
 import net.catenax.prs.connector.consumer.middleware.RequestMiddleware;
+import net.catenax.prs.connector.consumer.service.ConsumerService;
 import net.catenax.prs.connector.requests.FileRequest;
 import org.eclipse.dataspaceconnector.spi.monitor.Monitor;
-import org.eclipse.dataspaceconnector.spi.transfer.TransferProcessManager;
-import org.eclipse.dataspaceconnector.spi.transfer.response.ResponseStatus;
-import org.eclipse.dataspaceconnector.spi.transfer.store.TransferProcessStore;
-import org.eclipse.dataspaceconnector.spi.types.domain.metadata.DataEntry;
-import org.eclipse.dataspaceconnector.spi.types.domain.transfer.DataAddress;
-import org.eclipse.dataspaceconnector.spi.types.domain.transfer.DataRequest;
-import org.eclipse.dataspaceconnector.spi.types.domain.transfer.TransferProcessStates;
+import org.eclipse.dataspaceconnector.spi.transfer.TransferInitiateResponse;
 
-import java.util.Objects;
-import java.util.UUID;
-
-import static java.lang.String.format;
+import java.util.Optional;
 
 /**
  * Consumer API Controller.
@@ -41,28 +34,23 @@ import static java.lang.String.format;
 @Consumes({MediaType.APPLICATION_JSON})
 @Produces({MediaType.APPLICATION_JSON})
 @Path("/")
-// Removed warning for rule BeanMembersShouldSerialize because members are already final, adding
-// transient will not have impact on serialization.
-@SuppressWarnings({"PMD.CommentRequired", "PMD.GuardLogStatement", "PMD.BeanMembersShouldSerialize"})
+@RequiredArgsConstructor
 public class ConsumerApiController {
 
+    /**
+     * Logger.
+     */
     private final Monitor monitor;
-    private final TransferProcessManager processManager;
-    private final TransferProcessStore processStore;
-    private final RequestMiddleware middleware;
 
     /**
-     * @param monitor        This is a logger.
-     * @param processManager Process manager responsible for sending messages to provider.
-     * @param processStore   Manages storage of TransferProcess state.
-     * @param middleware     Processes service exceptions.
+     * Service implementation.
      */
-    public ConsumerApiController(final Monitor monitor, final TransferProcessManager processManager, final TransferProcessStore processStore, final RequestMiddleware middleware) {
-        this.monitor = monitor;
-        this.processManager = processManager;
-        this.processStore = processStore;
-        this.middleware = middleware;
-    }
+    private final ConsumerService service;
+
+    /**
+     * Middleware to process request exceptions.
+     */
+    private final RequestMiddleware middleware;
 
     /**
      * Health endpoint.
@@ -77,9 +65,12 @@ public class ConsumerApiController {
     }
 
     /**
-     * Endpoint to trigger a request, so that a file get copied into a specific destination.
-     *
-     * @param request Request parameters.
+     * Endpoint to trigger a request, so that parts tree get written into a file.
+     * Consumer will forward the PartsTreeByObjectIdRequest to a provider.
+     * @param request FileRequest.
+     *                Contains a PartsTreeByObjectIdRequest corresponding to prs-request and other
+     *                information such that the destination file where the result of the PRS
+     *                request should be written.
      * @return TransferInitiateResponse with process id.
      */
     @POST
@@ -88,37 +79,18 @@ public class ConsumerApiController {
     @Produces(MediaType.TEXT_PLAIN)
     public Response initiateTransfer(final FileRequest request) {
         return middleware.invoke(() -> {
-
-            monitor.info(format("Received request for file %s against provider %s", request.getFilename(), request.getConnectorAddress()));
-
-            Objects.requireNonNull(request.getFilename(), "filename");
-            Objects.requireNonNull(request.getConnectorAddress(), "connectorAddress");
-
-            final var dataRequest = DataRequest.Builder.newInstance()
-                    .id(UUID.randomUUID().toString()) //this is not relevant, thus can be random
-                    .connectorAddress(request.getConnectorAddress()) //the address of the provider connector
-                    .protocol("ids-rest") //must be ids-rest
-                    .connectorId("consumer")
-                    .dataEntry(DataEntry.Builder.newInstance() //the data entry is the source asset
-                            .id(request.getFilename())
-                            .policyId("use-eu")
-                            .build())
-                    .dataDestination(DataAddress.Builder.newInstance()
-                            .type("File") //the provider uses this to select the correct DataFlowController
-                            .property("path", request.getDestinationPath()) //where we want the file to be stored
-                            .build())
-                    .managedResources(false) //we do not need any provisioning
-                    .build();
-
-            final var response = processManager.initiateConsumerRequest(dataRequest);
-            return response.getStatus() == ResponseStatus.OK ? Response.ok(response.getId()).build() : Response.status(Response.Status.NOT_FOUND).build();
+            final Optional<TransferInitiateResponse> transferInfo;
+            transferInfo = service.initiateTransfer(request);
+            return transferInfo.isPresent()
+                    ? Response.ok(transferInfo.get().getId()).build()
+                    : Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         });
     }
 
     /**
      * Provides status of a process
      *
-     * @param requestId If of the process
+     * @param requestId ID of the process
      * @return Process state
      */
     @GET
@@ -126,13 +98,10 @@ public class ConsumerApiController {
     @Produces(MediaType.TEXT_PLAIN)
     public Response getStatus(final @PathParam("id") String requestId) {
         return middleware.invoke(() -> {
-            monitor.info("Getting status of data request " + requestId);
-
-            final var process = processStore.find(requestId);
-            if (process == null) {
-                return Response.status(Response.Status.NOT_FOUND).build();
-            }
-            return Response.ok(TransferProcessStates.from(process.getState()).toString()).build();
+            final var status = service.getStatus(requestId);
+            return status.isPresent()
+                    ? Response.ok(status.get().name()).build()
+                    : Response.status(Response.Status.NOT_FOUND).build();
         });
     }
 }

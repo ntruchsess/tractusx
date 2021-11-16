@@ -7,8 +7,10 @@
 // See the LICENSE file(s) distributed with this work for
 // additional information regarding license terms.
 //
-package org.eclipse.dataspaceconnector.extensions.api;
+package net.catenax.prs.connector.provider;
 
+import net.catenax.prs.client.api.PartsRelationshipServiceApi;
+import net.catenax.prs.connector.annotations.ExcludeFromCodeCoverageGeneratedReport;
 import org.eclipse.dataspaceconnector.policy.model.Action;
 import org.eclipse.dataspaceconnector.policy.model.AtomicConstraint;
 import org.eclipse.dataspaceconnector.policy.model.LiteralExpression;
@@ -20,36 +22,47 @@ import org.eclipse.dataspaceconnector.spi.system.ServiceExtension;
 import org.eclipse.dataspaceconnector.spi.system.ServiceExtensionContext;
 import org.eclipse.dataspaceconnector.spi.transfer.flow.DataFlowManager;
 import org.eclipse.dataspaceconnector.spi.types.domain.metadata.DataEntry;
-import org.eclipse.dataspaceconnector.spi.types.domain.metadata.GenericDataCatalogEntry;
 
 import java.util.Set;
 
 import static org.eclipse.dataspaceconnector.policy.model.Operator.IN;
 
 /**
- * Extension to transfer file.
+ * Extension to call PRS API and save the results.
  */
-@SuppressWarnings("PMD.CommentRequired")
-public class FileTransferExtension implements ServiceExtension {
+@ExcludeFromCodeCoverageGeneratedReport
+public class PartsRelationshipServiceApiExtension implements ServiceExtension {
 
+    /**
+     * Hard-coded policy allowing use in Europe only, for demonstration purposes.
+     */
     public static final String USE_EU_POLICY = "use-eu";
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Set<String> requires() {
         return Set.of("edc:webservice", PolicyRegistry.FEATURE);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void initialize(final ServiceExtensionContext context) {
 
-        final var dataFlowMgr = context.getService(DataFlowManager.class);
-        final var flowController = new FileTransferFlowController(context.getMonitor());
-        dataFlowMgr.register(flowController);
+        final var prsApiUrl = context.getSetting("PRS_API_URL", "http://localhost:8080");
+        final var prsClient = new PartsRelationshipServiceApi();
+        prsClient.getApiClient().setBasePath(prsApiUrl);
 
+        final var dataFlowMgr = context.getService(DataFlowManager.class);
+        final var flowController = new PartsRelationshipServiceApiToFileFlowController(context.getMonitor(), prsClient);
+        dataFlowMgr.register(flowController);
 
         registerDataEntries(context);
         savePolicies(context);
-        context.getMonitor().info("File Transfer Extension initialized!");
+        context.getMonitor().info(getClass().getName() + " initialized!");
     }
 
     private void savePolicies(final ServiceExtensionContext context) {
@@ -64,14 +77,7 @@ public class FileTransferExtension implements ServiceExtension {
 
     private void registerDataEntries(final ServiceExtensionContext context) {
         final var metadataStore = context.getService(MetadataStore.class);
-
-        final GenericDataCatalogEntry file1 = GenericDataCatalogEntry.Builder.newInstance()
-                .property("type", "File")
-                .property("path", "/tmp/copy/source")
-                .property("filename", "test-document.txt")
-                .build();
-
-        final DataEntry entry1 = DataEntry.Builder.newInstance().id("test-document").policyId(USE_EU_POLICY).catalogEntry(file1).build();
+        final DataEntry entry1 = DataEntry.Builder.newInstance().id("prs-request").policyId(USE_EU_POLICY).build();
         metadataStore.save(entry1);
     }
 }

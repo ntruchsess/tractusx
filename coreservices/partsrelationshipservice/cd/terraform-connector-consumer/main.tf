@@ -72,4 +72,10 @@ resource "helm_release" "prs-connector-provider" {
     name  = "image.tag"
     value = var.image_tag
   }
+
+  set {
+    name  = "prs.apiUrl"
+    value = var.prs_api_url
+  }
 }
+

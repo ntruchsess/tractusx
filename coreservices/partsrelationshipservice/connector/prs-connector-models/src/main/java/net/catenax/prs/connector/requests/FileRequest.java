@@ -9,20 +9,17 @@
 //
 package net.catenax.prs.connector.requests;
 
-
-import lombok.Data;
+import lombok.Builder;
+import lombok.Value;
+import lombok.extern.jackson.Jacksonized;
 
 /**
  * JSON payload for file transfer request.
  */
-@Data
+@Value
+@Jacksonized
+@Builder(toBuilder = true)
 public class FileRequest {
-
-    /**
-     * Path of file source.
-     */
-    private String filename;
-
     /**
      * Provider connector address to send the message to.
      */
@@ -32,4 +29,9 @@ public class FileRequest {
      * Destination path where the file should be copied.
      */
     private String destinationPath;
+
+    /**
+     * Parts Tree Request.
+     */
+    private PartsTreeByObjectIdRequest partsTreeRequest;
 }

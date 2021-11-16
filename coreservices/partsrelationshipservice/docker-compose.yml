@@ -89,6 +89,7 @@ services:
         BUILD_TARGET: prs-connector-provider
     environment:
       APPLICATIONINSIGHTS_CONNECTION_STRING: "${APPLICATIONINSIGHTS_CONNECTION_STRING}"
+      PRS_API_URL: "http://prs:8080"
     ports:
       - 8181:8181
       - 4006:4006

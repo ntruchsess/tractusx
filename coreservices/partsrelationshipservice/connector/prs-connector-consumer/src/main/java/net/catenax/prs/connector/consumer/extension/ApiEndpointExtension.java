@@ -12,6 +12,7 @@ package net.catenax.prs.connector.consumer.extension;
 import net.catenax.prs.connector.annotations.ExcludeFromCodeCoverageGeneratedReport;
 import net.catenax.prs.connector.consumer.controller.ConsumerApiController;
 import net.catenax.prs.connector.consumer.middleware.RequestMiddleware;
+import net.catenax.prs.connector.consumer.service.ConsumerService;
 import net.catenax.prs.connector.consumer.transfer.FileStatusChecker;
 import org.eclipse.dataspaceconnector.spi.protocol.web.WebService;
 import org.eclipse.dataspaceconnector.spi.system.ServiceExtension;
@@ -45,7 +46,9 @@ public class ApiEndpointExtension implements ServiceExtension {
         final var webService = context.getService(WebService.class);
         final var processManager = context.getService(TransferProcessManager.class);
         final var processStore = context.getService(TransferProcessStore.class);
-        webService.registerController(new ConsumerApiController(context.getMonitor(), processManager, processStore, middleware));
+        final var service = new ConsumerService(monitor, processManager, processStore);
+
+        webService.registerController(new ConsumerApiController(monitor, service, middleware));
 
         final var statusCheckerReg = context.getService(StatusCheckerRegistry.class);
         statusCheckerReg.register("File", new FileStatusChecker(monitor));
