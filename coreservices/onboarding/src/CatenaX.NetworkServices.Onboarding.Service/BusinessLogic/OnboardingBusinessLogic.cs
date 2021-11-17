@@ -1,4 +1,4 @@
-using CatenaX.NetworkServices.Cosent.Library.Data;
+﻿using CatenaX.NetworkServices.Cosent.Library.Data;
 using CatenaX.NetworkServices.Invitation.Identity;
 using CatenaX.NetworkServices.Invitation.Identity.Identity;
 using CatenaX.NetworkServices.Invitation.Identity.Model;
@@ -44,14 +44,20 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
 
                 var password = await manager.CreateUser(realm, newUser);
 
+                var inviteTemplateName = "invite";
+                if (!string.IsNullOrWhiteSpace(user.Message))
+                { 
+                    inviteTemplateName = "inviteWithMessage";
+                }
 
                 var mailParameters = new Dictionary<string, string>
                 {
                     { "password", password },
                     { "companyname", realm },
+                    { "message", user.Message }
                 };
 
-                await _mailingService.SendMails(user.eMail, mailParameters, new List<string> { "invite", "password" });
+                await _mailingService.SendMails(user.eMail, mailParameters, new List<string> { inviteTemplateName, "password" });
             }
         }
 
