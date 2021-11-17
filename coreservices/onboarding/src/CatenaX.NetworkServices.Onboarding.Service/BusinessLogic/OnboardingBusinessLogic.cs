@@ -1,4 +1,4 @@
-﻿using CatenaX.NetworkServices.Cosent.Library.Data;
+using CatenaX.NetworkServices.Cosent.Library.Data;
 using CatenaX.NetworkServices.Invitation.Identity;
 using CatenaX.NetworkServices.Invitation.Identity.Identity;
 using CatenaX.NetworkServices.Invitation.Identity.Model;
@@ -46,10 +46,10 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
 
 
                 var mailParameters = new Dictionary<string, string>
-            {
-                { "passwort", password },
-                { "companyName", realm }
-            };
+                {
+                    { "password", password },
+                    { "companyname", realm },
+                };
 
                 await _mailingService.SendMails(user.eMail, mailParameters, new List<string> { "invite", "password" });
             }
