@@ -1,5 +1,6 @@
 ﻿using CatenaX.NetworkServices.Onboarding.Service.CDQ.Model;
 
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
@@ -16,16 +17,30 @@ namespace CatenaX.NetworkServices.Onboarding.Service.CDQ
             _httpClient = _httpFactory.CreateClient("cdq");
         }
 
-        public async Task<FetchBusinessPartnerDto> FetchBusinessPartner(string cdqId)
+        public async Task<List<FetchBusinessPartnerDto>> FetchBusinessPartner(string cdqId)
         {
+            var response = new List<FetchBusinessPartnerDto>();
             var content = JsonSerializer.Serialize(new { cdqId = cdqId });
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
             var result = await _httpClient.PostAsync("v3/businesspartners/fetch", stringContent);
             if (result.IsSuccessStatusCode)
             {
-                return JsonSerializer.Deserialize<FetchBusinessPartnerDto>(await result.Content.ReadAsStringAsync());
+                var body = JsonSerializer.Deserialize<FetchBusinessPartnerDto>(await result.Content.ReadAsStringAsync());
+                response.Add(body);
+                
             }
-            return null;
+            else
+            {
+                var lookupContent = JsonSerializer.Serialize(value: new FetchBusinessPartnerDto { businessPartner = new Businesspartner { names = new[] { new Name { value = cdqId, type = new Type { technicalKey = "DOING_BUSINESS_AS" } } } } });
+                var lookupStringContent = new StringContent(lookupContent, Encoding.UTF8, "application/json");
+                var fetchRequest = await _httpClient.PostAsync("v3/businesspartners/lookup", lookupStringContent);
+                if (fetchRequest.IsSuccessStatusCode)
+                {
+                    var fetched = JsonSerializer.Deserialize<PaginatedFetchBusinessPartner>(await fetchRequest.Content.ReadAsStringAsync());
+                    response.AddRange(fetched.values);
+                }
+            }
+            return response;
         }
     }
 }

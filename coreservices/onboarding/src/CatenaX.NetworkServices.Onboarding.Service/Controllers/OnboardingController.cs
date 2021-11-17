@@ -201,8 +201,6 @@ namespace CatenaX.NetworkServices.Onboarding.Service.Controllers
 
         private bool ValidateTokenAsync(string realm, string authorization, out IActionResult response)
         {
-            response = null;
-            return true;
             var token = "";
             try
             {
