@@ -10,7 +10,7 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
 {
     public interface IOnboardingBusinessLogic
     {
-        Task<List<FetchBusinessPartnerDto>> GetCompanyByOneId(string oneId);
+        Task<List<FetchBusinessPartnerDto>> GetCompanyByIdentifier(string companyIdentifier);
         Task<List<string>> GetAvailableUserRole();
         Task<List<CompanyRole>> GetCompanyRoles();
         Task CreateUsers(List<User> userList, string realm, string token);

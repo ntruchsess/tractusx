@@ -71,9 +71,9 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
             return Task.FromResult(UserRoles.Roles);
         }
 
-        public async Task<List<FetchBusinessPartnerDto>> GetCompanyByOneId(string oneId)
+        public async Task<List<FetchBusinessPartnerDto>> GetCompanyByIdentifier(string companyIdentifier)
         {
-            return await _cdqAccess.FetchBusinessPartner(oneId);
+            return await _cdqAccess.FetchBusinessPartner(companyIdentifier);
         }
 
         public async Task<List<CompanyRole>> GetCompanyRoles()

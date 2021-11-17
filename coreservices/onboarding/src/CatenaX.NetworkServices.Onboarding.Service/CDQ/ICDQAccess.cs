@@ -7,6 +7,6 @@ namespace CatenaX.NetworkServices.Onboarding.Service.CDQ
 {
     public interface ICDQAccess
     {
-        Task<List<FetchBusinessPartnerDto>> FetchBusinessPartner(string cdqId);
+        Task<List<FetchBusinessPartnerDto>> FetchBusinessPartner(string companyIdentifier);
     }
 }

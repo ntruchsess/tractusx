@@ -34,7 +34,7 @@ namespace CatenaX.NetworkServices.Onboarding.Service.Controllers
         [HttpGet]
         [Route("company/{realm}/{oneId}")]
         [ProducesResponseType(typeof(Company), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> GetOneObject([FromRoute] string realm, [FromRoute] string oneId, [FromHeader] string authorization)
+        public async Task<IActionResult> GetOneObject([FromRoute] string realm, [FromRoute] string companyIdentifier, [FromHeader] string authorization)
         {
 
             if (!ValidateTokenAsync(realm, authorization, out var response))
@@ -43,7 +43,7 @@ namespace CatenaX.NetworkServices.Onboarding.Service.Controllers
             }
             else
             {
-                var result = await _onboardingBusinessLogic.GetCompanyByOneId(oneId);
+                var result = await _onboardingBusinessLogic.GetCompanyByIdentifier(companyIdentifier);
                 return new OkObjectResult(result);
             }
         }
