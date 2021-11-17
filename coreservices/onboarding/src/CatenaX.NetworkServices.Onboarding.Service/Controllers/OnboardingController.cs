@@ -215,6 +215,8 @@ namespace CatenaX.NetworkServices.Onboarding.Service.Controllers
             var result = _httpClient.GetAsync($"{realm}/protocol/openid-connect/userinfo").Result;
             if (result.IsSuccessStatusCode)
             {
+                // TODO: Get User Name and E-Mail from Token
+                var userInfo = result.Content.ReadAsStringAsync().Result;
                 response = null;
                 return true;
             }
