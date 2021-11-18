@@ -11,7 +11,9 @@
     <description>Root module containing connector modules.</description>
 
     <modules>
+        <module>prs-connector-models</module>
         <module>prs-connector-consumer</module>
         <module>prs-connector-provider</module>
+        <module>prs-connector-testing</module>
     </modules>
 </project>

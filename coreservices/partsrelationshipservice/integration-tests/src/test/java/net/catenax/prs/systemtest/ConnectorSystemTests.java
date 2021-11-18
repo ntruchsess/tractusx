@@ -9,7 +9,9 @@
 //
 package net.catenax.prs.systemtest;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.RestAssured;
+import net.catenax.prs.requests.PartsTreeByObjectIdRequest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
@@ -24,6 +26,9 @@ import java.util.Map;
 import java.util.UUID;
 
 import static io.restassured.RestAssured.given;
+import static net.catenax.prs.systemtest.SystemTestsBase.ASPECT_MATERIAL;
+import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
+import static net.javacrumbs.jsonunit.core.Option.IGNORING_ARRAY_ORDER;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.awaitility.Awaitility.await;
 
@@ -41,33 +46,35 @@ public class ConnectorSystemTests {
     private static final String baseURI = System.getProperty("ConnectorProviderBaseURI", "https://catenaxdev001akssrv.germanywestcentral.cloudapp.azure.com");
     private static final String namespace = System.getProperty("ConnectorProviderK8sNamespace", "prs-connectors");
     private static final String pod = System.getProperty("ConnectorProviderK8sPod", "prs-connector-provider-0");
+    private static final String VEHICLE_ONEID = "CAXSWPFTJQEVZNZZ";
+    private static final String VEHICLE_OBJECTID = "UVVZI9PKX5D37RFUB";
+    private static final ObjectMapper objectMapper = new ObjectMapper();
 
     @Test
     public void downloadFile() throws Exception {
 
         // Arrange
+        var environment = System.getProperty("environment", "dev");
 
-        var payload = UUID.randomUUID().toString();
-
-        // Create source file on Provider pod, to be copied to destination file
-        var createSourceFile = runOnProviderPod(
-                "sh",
-                "-c",
-                "echo " + payload + " > /tmp/copy/source/test-document.txt"
-        );
-        int exitCode = createSourceFile.waitFor();
-        assertThat(exitCode)
-                .as("kubectl command failed")
-                .isEqualTo(0);
+        // Temporarily hardcode the file path. It will change when adding several providers.
+        var fileWithExpectedOutput = "getPartsTreeByOneIdAndObjectId-dev-bmw-expected.json";
+        var payload = getClass().getResourceAsStream(fileWithExpectedOutput);
 
         // Act
 
         // Send query to Consumer connector, to perform file copy on Provider
         var destFile = "/tmp/copy/dest/" + UUID.randomUUID();
-        Map<String, String> params = new HashMap<>();
+        Map<String, Object> params = new HashMap<>();
         params.put("filename", "test-document");
         params.put("connectorAddress", baseURI + "/prs-connector-provider");
         params.put("destinationPath", destFile);
+        params.put("partsTreeRequest", PartsTreeByObjectIdRequest.builder()
+                .oneIDManufacturer(VEHICLE_ONEID)
+                .objectIDManufacturer(VEHICLE_OBJECTID)
+                .view("AS_BUILT")
+                .aspect(ASPECT_MATERIAL)
+                .depth(2)
+                .build());
 
         RestAssured.baseURI = baseURI + "/prs-connector-consumer";
         var requestId =
@@ -92,7 +99,11 @@ public class ConnectorSystemTests {
                 .untilAsserted(() -> {
                     var exec = runOnProviderPod("cat", destFile);
                     try (InputStream inputStream = exec.getInputStream()) {
-                        assertThat(inputStream).hasContent(payload);
+                        String result = new String(inputStream.readAllBytes());
+                        String expectedResult = new String(payload.readAllBytes());
+                        assertThatJson(result)
+                                .when(IGNORING_ARRAY_ORDER)
+                                .isEqualTo(expectedResult);
                     }
                     exec.waitFor();
                 });
