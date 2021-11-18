@@ -30,7 +30,7 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
             _mailingService = mailingService;
         }
 
-        public async Task CreateUsers(List<User> userList, string realm, string token)
+        public async Task CreateUsersAsync(List<User> userList, string realm, string token)
         {
             var manager = new KeycloakIdentityManager(new KeycloakClient(_configuration.GetValue<string>("KeyCloakConnectionString"), () => token), "");
             foreach (User user in userList)
@@ -61,51 +61,51 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
             }
         }
 
-        public async Task FinishOnboarding(string token, string realm)
+        public async Task FinishOnboardingAsync(string token, string realm)
         {
             var manager = new KeycloakIdentityManager(new KeycloakClient(_configuration.GetValue<string>("KeyCloakConnectionString"), () => token),"");
             var group = new CreateGroup { Name = "Onboarding" };
             await manager.CreateGroup(realm, group);
         }
 
-        public Task<List<string>> GetAvailableUserRole()
+        public Task<List<string>> GetAvailableUserRoleAsync()
         {
             return Task.FromResult(UserRoles.Roles);
         }
 
-        public Task<Company> GetCompanyByOneId(string oneId)
+        public Task<Company> GetCompanyByOneIdAsync(string oneId)
         {
             var query = new QueryCompany();
             return Task.FromResult(query.Query(oneId));
         }
 
-        public async Task<List<CompanyRole>> GetCompanyRoles()
+        public async Task<List<CompanyRole>> GetCompanyRolesAsync()
         {
             var result = await _dbAccess.GetAllCompanyRoles();
             return result.ToList();
         }
 
-        public async Task<List<ConsentForCompanyRole>> GetConsentForCompanyRole(int roleId)
+        public async Task<List<ConsentForCompanyRole>> GetConsentForCompanyRoleAsync(int roleId)
         {
             return (await _dbAccess.GetConsentForCompanyRole(roleId)).ToList();
         }
 
-        public async Task SetCompanyRoles(CompanyToRoles rolesToSet)
+        public async Task SetCompanyRolesAsync(CompanyToRoles rolesToSet)
         {
             await _dbAccess.SetCompanyRoles(rolesToSet);
         }
 
-        public async Task SetIdp(SetIdp idpToSet)
+        public async Task SetIdpAsync(SetIdp idpToSet)
         {
             await _dbAccess.SetIdp(idpToSet);
         }
 
-        public async Task SignConsent(SignConsentRequest signedConsent )
+        public async Task SignConsentAsync(SignConsentRequest signedConsent )
         {
             await _dbAccess.SignConsent(signedConsent);
         }
 
-        public async Task<List<SignedConsent>> SignedConsentsByCompanyId(string companyId)
+        public async Task<List<SignedConsent>> SignedConsentsByCompanyIdAsync(string companyId)
         {
            return (await _dbAccess.SignedConsentsByCompanyId(companyId)).ToList();
         }

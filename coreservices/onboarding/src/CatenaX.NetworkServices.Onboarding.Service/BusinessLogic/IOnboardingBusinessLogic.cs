@@ -9,15 +9,15 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
 {
     public interface IOnboardingBusinessLogic
     {
-        Task<Company> GetCompanyByOneId(string oneId);
-        Task<List<string>> GetAvailableUserRole();
-        Task<List<CompanyRole>> GetCompanyRoles();
-        Task CreateUsers(List<User> userList, string realm, string token);
-        Task SetCompanyRoles(CompanyToRoles rolesToSet);
-        Task<List<ConsentForCompanyRole>> GetConsentForCompanyRole(int roleId);
-        Task SignConsent(SignConsentRequest signedConsent);
-        Task<List<SignedConsent>> SignedConsentsByCompanyId(string companyId);
-        Task SetIdp(SetIdp idpToSet);
-        Task FinishOnboarding(string token, string realm);
+        Task<Company> GetCompanyByOneIdAsync(string oneId);
+        Task<List<string>> GetAvailableUserRoleAsync();
+        Task<List<CompanyRole>> GetCompanyRolesAsync();
+        Task CreateUsersAsync(List<User> userList, string realm, string token);
+        Task SetCompanyRolesAsync(CompanyToRoles rolesToSet);
+        Task<List<ConsentForCompanyRole>> GetConsentForCompanyRoleAsync(int roleId);
+        Task SignConsentAsync(SignConsentRequest signedConsent);
+        Task<List<SignedConsent>> SignedConsentsByCompanyIdAsync(string companyId);
+        Task SetIdpAsync(SetIdp idpToSet);
+        Task FinishOnboardingAsync(string token, string realm);
     }
 }
