@@ -32,15 +32,15 @@ var options: IDropdownOption[] = [];
 
 @observer
 export default class Responsibilities extends React.Component {
-  @observable private email: string = ""; 
-  @observable private userRole: any = "";  
+  @observable private email: string = "";
+  @observable private userRole: any = "";
   @observable private newarray: IUserResponsibilities[] = [];
   @observable private message: string = "";
   public newUserRole: IDropdownOption[];
 
   constructor(props) {
     super(props);
-    this.state = { userRole: '' };
+    this.state = { userRole: ''};
   }
   public userRoles: any;
   async componentDidMount() {
