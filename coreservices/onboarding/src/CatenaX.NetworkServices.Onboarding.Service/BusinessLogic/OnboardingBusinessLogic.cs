@@ -30,10 +30,10 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
             _mailingService = mailingService;
         }
 
-        public async Task CreateUsersAsync(List<User> userList, string realm, string token)
+        public async Task CreateUsersAsync(List<UserCreationInfo> userList, string realm, string token, Dictionary<string, string> userInfo)
         {
             var manager = new KeycloakIdentityManager(new KeycloakClient(_configuration.GetValue<string>("KeyCloakConnectionString"), () => token), "");
-            foreach (User user in userList)
+            foreach (UserCreationInfo user in userList)
             {
                 var newUser = new CreateUser
                 {
@@ -54,7 +54,10 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
                 {
                     { "password", password },
                     { "companyname", realm },
-                    { "message", user.Message }
+                    { "message", user.Message },
+                    { "eMailPreferredUsernameCreatedBy", userInfo["preferred_username"] },
+                    { "nameCreatedBy", userInfo["name"] }
+                    
                 };
 
                 await _mailingService.SendMails(user.eMail, mailParameters, new List<string> { inviteTemplateName, "password" });

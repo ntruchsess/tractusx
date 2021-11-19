@@ -5,7 +5,7 @@ using CatenaX.NetworkServices.Onboarding.Service.Model;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,9 +39,9 @@ namespace CatenaX.NetworkServices.Onboarding.Service.Controllers
 
         [HttpPost]
         [Route("company/{realm}/users")]
-        public Task<IActionResult> CreateUsersAsync([FromRoute] string realm, [FromHeader] string authorization, [FromBody] List<User> userToCreate) =>
-            ValidateTokenAsync(realm, authorization, async () => {
-                await _onboardingBusinessLogic.CreateUsersAsync(userToCreate, realm, authorization.Split(" ")[1]);
+        public Task<IActionResult> CreateUsersAsync([FromRoute] string realm, [FromHeader] string authorization, [FromBody] List<UserCreationInfo> userToCreate) =>
+            ValidateTokenAsync(realm, authorization, async (userInfo) => {
+                await _onboardingBusinessLogic.CreateUsersAsync(userToCreate, realm, authorization.Split(" ")[1], userInfo);
                 return new OkResult();
             });
 
@@ -106,7 +106,7 @@ namespace CatenaX.NetworkServices.Onboarding.Service.Controllers
                 new OkObjectResult(await _onboardingBusinessLogic.GetAvailableUserRoleAsync()));
 
         private delegate Task<IActionResult> ValidatedAction();
-        private delegate Task<IActionResult> ValidatedUserInfoAction(HttpResponseMessage userInfoResponse);
+        private delegate Task<IActionResult> ValidatedUserInfoAction(Dictionary<string, string> userInfo);
 
         private Task<IActionResult> ValidateTokenAsync(string realm, string authorization, ValidatedAction action) =>
             ValidateTokenAsync(realm, authorization, _ => action());
@@ -130,9 +130,11 @@ namespace CatenaX.NetworkServices.Onboarding.Service.Controllers
                 {
                     return new StatusCodeResult((int)HttpStatusCode.Forbidden);
                 }
-                // TODO: Get User Name and E-Mail from Token and pass to action(..)
-                //var userInfo = result.Content.ReadAsStringAsync().Result;
-                return await action(response);
+                
+                var userInfo = await response.Content.ReadAsStringAsync();
+                Dictionary<string, string> userInfoOutput = JsonConvert.DeserializeObject<Dictionary<string, string>>(userInfo);
+                
+                return await action(userInfoOutput);
             }
             catch (Exception e)
             {
