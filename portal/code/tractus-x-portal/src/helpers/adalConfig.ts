@@ -81,7 +81,7 @@ class AdalContext {
         if (error) {
           console.log(error);
           if (error.msg === 'login_required' || error.msg === 'interaction_required') {
-            this.authContext.login();
+            window.location.href = getReplyUrl()
           } else {
             // AlertDialog.(error.message);
           }
