@@ -109,9 +109,9 @@ namespace CatenaX.NetworkServices.Onboarding.Service.Controllers
         private delegate Task<IActionResult> ValidatedUserInfoAction(Dictionary<string, string> userInfo);
 
         private Task<IActionResult> ValidateTokenAsync(string realm, string authorization, ValidatedAction action) =>
-            ValidateTokenAsync(realm, authorization, _ => action());
+            ValidateTokenAsync(realm, authorization, _ => action(), false);
         
-        private async Task<IActionResult> ValidateTokenAsync(string realm, string authorization, ValidatedUserInfoAction action)
+        private async Task<IActionResult> ValidateTokenAsync(string realm, string authorization, ValidatedUserInfoAction action, bool deserialize = true)
         {
             var token = "";
             try
@@ -130,11 +130,11 @@ namespace CatenaX.NetworkServices.Onboarding.Service.Controllers
                 {
                     return new StatusCodeResult((int)HttpStatusCode.Forbidden);
                 }
-                
-                var userInfo = await response.Content.ReadAsStringAsync();
-                Dictionary<string, string> userInfoOutput = JsonConvert.DeserializeObject<Dictionary<string, string>>(userInfo);
-                
-                return await action(userInfoOutput);
+                return await action(
+                    deserialize
+                        ? JsonConvert.DeserializeObject<Dictionary<string, string>>(await response.Content.ReadAsStringAsync())
+                        : null
+                );
             }
             catch (Exception e)
             {
