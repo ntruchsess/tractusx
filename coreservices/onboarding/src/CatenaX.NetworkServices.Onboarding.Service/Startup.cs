@@ -52,7 +52,14 @@ namespace CatenaX.NetworkServices.Onboarding.Service
             });
             services.AddTransient<IOnboardingBusinessLogic, OnboardingBusinessLogic>();
             services.AddTransient<IOnboardingDBAccess, OnboardingDBAccess>();
-            services.AddTransient<ICDQAccess, CDQAccess>();
+            if (Configuration.GetValue<bool>("CDQ-Enabled"))
+            {
+                services.AddTransient<ICDQAccess, CDQAccess>();
+            }
+            else
+            {
+                services.AddTransient<ICDQAccess, CDQAccessMock>();
+            }
             services.AddTransient<IDbConnection>(conn => new NpgsqlConnection(Configuration.GetValue<string>("PostgresConnectionString")));
             services.AddTransient<IMailingService, MailingService>();
             services.AddTransient<ISendMail, SendMail>()
