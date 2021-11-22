@@ -1,6 +1,7 @@
 ﻿using CatenaX.NetworkServices.Onboarding.Service.CDQ.Model;
 
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
@@ -31,9 +32,32 @@ namespace CatenaX.NetworkServices.Onboarding.Service.CDQ
             }
             else
             {
-                var lookupContent = JsonSerializer.Serialize(value: new FetchBusinessPartnerDto { businessPartner = new Businesspartner { names = new[] { new Name { value = companyIdentifier, type = new Type { technicalKey = "DOING_BUSINESS_AS" } } } } });
+                //Fetch by BPN
+                var lookupContent = JsonSerializer.Serialize(value: new FetchBusinessPartnerDto { businessPartner = new Businesspartner { identifiers = new[] { new Identifier { value = companyIdentifier, type = new Type { technicalKey = "CX_BPN" } } } } });
                 var lookupStringContent = new StringContent(lookupContent, Encoding.UTF8, "application/json");
                 var fetchRequest = await _httpClient.PostAsync("v3/businesspartners/lookup", lookupStringContent);
+                if (fetchRequest.IsSuccessStatusCode)
+                {
+                    var fetched = JsonSerializer.Deserialize<PaginatedFetchBusinessPartner>(await fetchRequest.Content.ReadAsStringAsync());
+                    if(fetched.values.Count() == 1)
+                    {
+                        content = JsonSerializer.Serialize(new { cdqId = fetched.values.First().cdqId });
+                        stringContent = new StringContent(content, Encoding.UTF8, "application/json");
+                        result = await _httpClient.PostAsync("v3/businesspartners/fetch", stringContent);
+                        if (result.IsSuccessStatusCode)
+                        {
+                            var body = JsonSerializer.Deserialize<FetchBusinessPartnerDto>(await result.Content.ReadAsStringAsync());
+                            response.Add(body);
+                            return response;
+                        }
+                    }
+                }
+
+
+                //fetchByName
+                lookupContent = JsonSerializer.Serialize(value: new FetchBusinessPartnerDto { businessPartner = new Businesspartner { names = new[] { new Name { value = companyIdentifier, type = new Type { technicalKey = "DOING_BUSINESS_AS" } } } } });
+                lookupStringContent = new StringContent(lookupContent, Encoding.UTF8, "application/json");
+                fetchRequest = await _httpClient.PostAsync("v3/businesspartners/lookup", lookupStringContent);
                 if (fetchRequest.IsSuccessStatusCode)
                 {
                     var fetched = JsonSerializer.Deserialize<PaginatedFetchBusinessPartner>(await fetchRequest.Content.ReadAsStringAsync());
