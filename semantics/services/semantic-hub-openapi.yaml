@@ -19,22 +19,42 @@ paths:
           schema:
             default: ""
             type: string
+            description: substring to search in the model`s namespace
         - in: query
           name: nameFilter
           schema:
             default: ""
             type: string
+            description: substring to search in the name of a model's definitions (see nameType)
+        - in: query
+          name: nameType
+          schema:
+            default: "_NAME_"
+            type: string
+            description: RDF object whose name is searched (_NAME_ means bamm-c:Aspect or owl:Schema, _DESCRIPTION_ means search inside bamm:Description, otherwise the short-qualified name of the object)
         - in: query
           name: isPrivate
           schema:
             type: boolean
+            description: Optional privacy flag
         - in: query
           name: type
           schema:
             type: string
             enum:
               - BAMM
+              - RDF
               - OWL
+            description: Optional vocabulary type
+        - in: query
+          name: status
+          schema:
+            type: string
+            enum:
+              - DRAFT
+              - RELEASED
+              - DEPRECATED
+            description: Optional model status
         - in: query
           name: pageSize
           required: true
@@ -45,12 +65,14 @@ paths:
               - 10
               - 50
               - 100
+            description: Size of the pages that the results should be partitioned in
         - in: query
           name: page
           required: true
           schema:
             default: 0
             type: integer
+            description: The page to return
       responses:
         '200':
           $ref: '#/components/responses/ModelList'
@@ -311,7 +333,14 @@ components:
           type: string
           enum:
             - BAMM
+            - RDF
             - OWL
+        status:
+          type: string
+          enum:
+            - DRAFT
+            - RELEASED
+            - DEPRECATED
     ModelList:
       type: array
       items:
@@ -321,11 +350,21 @@ components:
       properties:
         private:
           type: boolean
+        publisher:
+          description: The publisher name
+          type: string
         type:
           type: string
           enum:
             - BAMM
+            - RDF
             - OWL
+        status:
+          type: string
+          enum:
+            - DRAFT
+            - RELEASED
+            - DEPRECATED
         model:
           description: >-
             The actual model definition in the format defined by the type
