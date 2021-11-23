@@ -1,6 +1,6 @@
 ﻿namespace CatenaX.NetworkServices.Onboarding.Service.Model
 {
-    public class User
+    public class UserCreationInfo
     {
         public string eMail { get; set; }
 
