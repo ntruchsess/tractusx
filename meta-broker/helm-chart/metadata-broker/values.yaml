@@ -8,14 +8,19 @@ replicaCount: 1
 image:
   # -- Image pull policy settings
   pullPolicy: IfNotPresent
-  # -- Apache Jena Fuseki image
-  brokerFusekiImage: idsacontainerregistry01.azurecr.io/broker-fuseki
-  # -- Apache Jena Fuseki image tag
-  brokerFusekiImageTag: latest
   # -- Metadata-broker image 
-  brokerCoreImage: idsacontainerregistry01.azurecr.io/broker-core
+  brokerCoreImage: catenaxdev001acr.azurecr.io/ids-metadata-broker
   # -- Metadata-broker image tag
-  brokerCoreImageTag: 4.0.2
+  brokerCoreImageTag: latest
+
+broker-fuseki:
+  deploy: true
+  address: ""
+
+broker-elasticsearch:
+  deploy: true
+  address: ""
+  replicas: 1
 
 # -- Secret with docketconfig.json to access repository
 imagePullSecrets:
@@ -28,7 +33,7 @@ fullnameOverride: ""
 
 serviceAccount:
   # -- Specifies whether a service account should be created
-  create: true
+  create: false
   # -- Annotations to add to the service account
   annotations: {}
   # -- The name of the service account to use.
@@ -38,19 +43,17 @@ serviceAccount:
 env:
   # -- Environment variables that allow to configure application. Please check broker [repo](https://github.com/International-Data-Spaces-Association/metadata-broker-open-core)
   config:
-    SPARQL_URL: ""
-    ELASTICSEARCH_HOSTNAME: ""
-    ELASTICSEARCH_PORT: ""
-    DAPS_URL: ""
-    DAPS_VALIDATEINCOMING: ""
-    COMPONENT_URI: ""
-    COMPONENT_CATALOG_URI: ""
-    INFOMODEL_VALIDATEWITHSHACL: ""
-    JWKS_TRUSTEDHOSTS: ""
+    ELASTICSEARCH_HOSTNAME: "elasticsearch-master"
+    ELASTICSEARCH_PORT: "9200"
+    DAPS_URL: "https://catenaxdev001akssrv.germanywestcentral.cloudapp.azure.com/daps/token"
+    DAPS_VALIDATEINCOMING: "true"
+    COMPONENT_URI: "https://catenaxdev001akssrv.germanywestcentral.cloudapp.azure.com/broker/"
+    COMPONENT_CATALOG_URI: "https://catenaxdev001akssrv.germanywestcentral.cloudapp.azure.com/broker/connectors/"
+    INFOMODEL_VALIDATEWITHSHACL: "true"
+    JWKS_TRUSTEDHOSTS: "catenaxdev001akssrv.germanywestcentral.cloudapp.azure.com"
+    SPARQL_URL: "http://{{ .Release.Name }}-broker-fuseki:3030/connectorData"
   # -- Environment variables that will stored in Kubernetes secret
   secret:
-    # -- Fuseki application default admin password
-    ADMIN_PASSWORD: "admin"
     # -- Password for generated keystore
     KEYSTORE_PASSWORD: "changeme"
     # -- Alias for keypair inside generated keystore
@@ -95,17 +98,13 @@ ingress:
   # -- Define path prefix starting with /, e.g. /broker
   rootPath: ""
   # -- Allow to enable and disable ingress
-  enabled: false
+  enabled: true
   # -- Paths configuration
   paths:
   - path: /broker(/|$)(.*)
     pathType: Prefix
     serviceName: ""
     portNumber: 8080
-  - path: /fuseki
-    pathType: Prefix
-    serviceName: ""
-    portNumber: 3030
   # -- Ingress annotations
   annotations:
     kubernetes.io/ingress.class: nginx
@@ -113,7 +112,9 @@ ingress:
     nginx.ingress.kubernetes.io/use-regex: "true"
   # -- TLS settings
   tls:
-    enabled: false
+    enabled: true
+    # -- Release name will be used as a secretName if this field is empty
+    secretName: ""
     certMgr:
       # -- If enabled cert-manager will be used to issue ingress cert
       enabled: false

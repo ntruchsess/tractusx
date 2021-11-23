@@ -11,8 +11,5 @@ spec:
       port: 8080
       targetPort: 8080
       protocol: TCP
-    - name: fuseki-http
-      port: 3030
-      targetPort: 3030
   selector:
     {{- include "metadata-broker-open-core.selectorLabels" . | nindent 4 }}

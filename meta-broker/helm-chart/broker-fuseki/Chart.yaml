@@ -1,6 +1,6 @@
 apiVersion: v2
-name: metadata-broker-open-core
-description: A Meta-data broker Helm chart for Kubernetes
+name: broker-fuseki
+description: A Helm chart for Kubernetes
 
 # A chart can be either an 'application' or a 'library' chart.
 #
@@ -20,4 +20,5 @@ version: 0.1.0
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
-appVersion: 4.0.2
+# It is recommended to use it with quotes.
+appVersion: "4.0.0"

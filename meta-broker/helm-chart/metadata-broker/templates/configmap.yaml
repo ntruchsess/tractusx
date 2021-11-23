@@ -7,6 +7,6 @@ metadata:
 data:
   {{- range $key, $val := .Values.env.config }}
   {{- if $val}}
-    {{ $key }}: "{{ $val }}"
+    {{ $key }}: "{{ tpl $val $ }}"
   {{- end }}
   {{- end}}
