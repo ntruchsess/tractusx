@@ -6,6 +6,8 @@
   "dependencies": {
     "@fluentui/react": "^8.18.0",
     "history": "^4.10.1",
+    "i18next": "^21.5.3",
+    "i18next-browser-languagedetector": "^6.1.2",
     "keycloak-js": "^15.0.2",
     "mobx": "^5.15.7",
     "mobx-react": "^6.2.2",
@@ -13,6 +15,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.14.0",
     "react-drag-drop-files": "^2.1.14",
+    "react-i18next": "^11.14.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-toastify": "^8.0.3",
