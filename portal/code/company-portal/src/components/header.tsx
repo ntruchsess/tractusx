@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import * as React from 'react';
-import in16n from '../i18n';
+import i18n from '../i18n';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
 import UserService from '../helpers/UserService';
@@ -21,14 +21,13 @@ import { Icon } from '@fluentui/react';
 import { AppState } from '../stores/appstate';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import Logo from './logo';
-import i18n from '../i18n';
 interface IProp extends RouteComponentProps {
   href: string;
   hidePivot?: boolean;
   appTitle?: string;
 }
 
-const changeLanguage = (ln) => {
+const changeLanguage = (ln: string) => {
   return () => {
     i18n.changeLanguage(ln);
   }
