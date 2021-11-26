@@ -13,7 +13,6 @@
 // limitations under the License.
 
 import ReactDOM from 'react-dom';
-import './i18n';
 import './styles/reset.css';
 import './styles/index.css';
 import App from './App';
