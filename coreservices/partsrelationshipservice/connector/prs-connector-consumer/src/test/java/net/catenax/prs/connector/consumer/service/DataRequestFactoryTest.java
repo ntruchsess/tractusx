@@ -17,11 +17,17 @@ import org.eclipse.dataspaceconnector.spi.types.domain.transfer.DataRequest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullSource;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import javax.validation.constraints.Null;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static net.catenax.prs.connector.constants.PrsConnectorConstants.DATA_REQUEST_PRS_DESTINATION_PATH;
 import static net.catenax.prs.connector.constants.PrsConnectorConstants.DATA_REQUEST_PRS_REQUEST_PARAMETERS;
@@ -55,13 +61,16 @@ class DataRequestFactoryTest {
         sut = new DataRequestFactory(monitor, configuration, new JsonUtil(monitor), registryClient);
     }
 
-    @Test
-    void generateRequest_WhenNoRegistryMatch_ReturnsEmpty() {
-        assertThat(sut.createRequest(fileRequest, partId)).isEmpty();
+    @ParameterizedTest
+    @NullSource
+    @ValueSource(strings = {"www.connector.com"})
+    void generateRequest_WhenConnectorUrlSameAsPrevious_ReturnsEmpty(String connectorAddress) {
+        when(registryClient.getUrl(partId)).thenReturn(Optional.ofNullable(connectorAddress));
+        assertThat(sut.createRequests(fileRequest, connectorAddress, Stream.of(partId))).isEmpty();
     }
 
     @Test
-    void generateRequest_WhenRegistryMatch_ReturnsDataRequest() throws Exception {
+    void generateRequest_WhenConnectorUrlDifferentFromPrevious_ReturnsDataRequest() throws Exception {
         // Arrange
         when(registryClient.getUrl(partId))
                 .thenReturn(Optional.of(connectorAddress));
@@ -94,10 +103,13 @@ class DataRequestFactoryTest {
                 .managedResources(true)
                 .build();
 
+        // Act
+        var requests = sut.createRequests(fileRequest, null, Stream.of(partId))
+                .collect(Collectors.toList());
+
         // Assert
-        assertThat(sut.createRequest(fileRequest, partId))
-                .isPresent()
-                .get()
+        assertThat(requests)
+                .singleElement()
                 .usingRecursiveComparison()
                 .ignoringFields("id")
                 .isEqualTo(expectedRequest);

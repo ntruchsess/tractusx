@@ -24,8 +24,12 @@ import org.eclipse.dataspaceconnector.spi.types.domain.transfer.DataAddress;
 import org.eclipse.dataspaceconnector.spi.types.domain.transfer.DataRequest;
 
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Stream;
+
+import static java.lang.String.format;
 
 /**
  * Generates EDC {@link DataRequest}s populated for calling Providers to invoke the PRS API
@@ -61,15 +65,50 @@ public class DataRequestFactory {
     private final StubRegistryClient registryClient;
 
     /**
-     * Generates an EDC {@link DataRequest} populated for calling Providers to invoke the PRS API
+     * Generates EDC {@link DataRequest}s populated for calling Providers to invoke the PRS API
      * to retrieve partial parts trees.
+     * <p>
+     * If the {@code previousUrlOrNull} argument is non-{@code null}, this method will not return
+     * data requests pointing to that Provider URL. This ensures only parts tree queries pointing
+     * to other providers are issued in subsequent recursive retrievals.
      *
-     * @param requestTemplate client request.
-     * @param partId          the part for which to retrieve the partial parts tree.
-     * @return a {@link DataRequest} if the requested Part ID was resolved in the registry,
-     * otherwise empty.
+     * @param requestTemplate   client request.
+     * @param previousUrlOrNull the Provider URL used for retrieving the {@code partIds},
+     *                          or {@code null} for the first retrieval.
+     * @param partIds           the parts for which to retrieve partial parts trees.
+     * @return a {@link DataRequest} for each item {@code partIds} for which the Provider URL
+     * was resolves in the registry <b>and</b> is not identical to {@code previousUrlOrNull},
+     * that allows retrieving the partial parts tree for the given part.
      */
-    /* package */ Optional<DataRequest> createRequest(final FileRequest requestTemplate, final PartId partId) {
+    /* package */ Stream<DataRequest> createRequests(
+            final FileRequest requestTemplate,
+            final String previousUrlOrNull,
+            final Stream<PartId> partIds) {
+        return partIds
+                .flatMap(partId -> createRequest(requestTemplate, previousUrlOrNull, partId).stream());
+    }
+
+    private Optional<DataRequest> createRequest(
+            final FileRequest requestTemplate,
+            final String previousUrlOrNull,
+            final PartId partId) {
+
+        // Resolve Provider URL for part from registry
+        final var registryResponse = registryClient.getUrl(partId);
+        if (!registryResponse.isPresent()) {
+            monitor.info(format("Registry did not resolve %s", partId));
+            return Optional.empty();
+        }
+
+        final var providerUrlForPartId = registryResponse.get();
+
+        // If provider URL has not changed between requests, then children
+        // for that part have already been fetched in the previous request.
+        if (Objects.equals(previousUrlOrNull, providerUrlForPartId)) {
+            monitor.debug(format("Not issuing a new request for %s", partId));
+            return Optional.empty();
+        }
+
         final var newPartsTreeRequest = requestTemplate.getPartsTreeRequest().toBuilder()
                 .oneIDManufacturer(partId.getOneIDManufacturer())
                 .objectIDManufacturer(partId.getObjectIDManufacturer())
@@ -77,12 +116,11 @@ public class DataRequestFactory {
 
         final var partsTreeRequestAsString = jsonUtil.asString(newPartsTreeRequest);
 
-        final var connectorAddress = registryClient.getUrl(partId);
-        monitor.info("Mapped data request to " + connectorAddress);
+        monitor.info("Mapped data request to " + providerUrlForPartId);
 
-        return connectorAddress.map(url -> DataRequest.Builder.newInstance()
+        return Optional.of(DataRequest.Builder.newInstance()
                 .id(UUID.randomUUID().toString()) //this is not relevant, thus can be random
-                .connectorAddress(url) //the address of the provider connector
+                .connectorAddress(providerUrlForPartId) //the address of the provider connector
                 .protocol("ids-rest") //must be ids-rest
                 .connectorId("consumer")
                 .dataEntry(DataEntry.Builder.newInstance() //the data entry is the source asset

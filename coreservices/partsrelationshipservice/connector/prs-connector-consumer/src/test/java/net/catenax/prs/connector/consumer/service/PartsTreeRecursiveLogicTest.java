@@ -2,6 +2,7 @@ package net.catenax.prs.connector.consumer.service;
 
 import com.github.javafaker.Faker;
 import net.catenax.prs.client.model.PartId;
+import net.catenax.prs.client.model.PartRelationship;
 import net.catenax.prs.client.model.PartRelationshipsWithInfos;
 import net.catenax.prs.connector.requests.FileRequest;
 import net.catenax.prs.connector.requests.PartsTreeByObjectIdRequest;
@@ -16,6 +17,9 @@ import org.eclipse.dataspaceconnector.spi.types.domain.transfer.TransferProcess;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EmptySource;
+import org.junit.jupiter.params.provider.NullSource;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.Mock;
@@ -24,11 +28,13 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.stream.Stream;
 
 import static net.catenax.prs.connector.constants.PrsConnectorConstants.DATA_REQUEST_PRS_DESTINATION_PATH;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.ArgumentMatchers.isNull;
+import static org.mockito.ArgumentMatchers.same;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -55,8 +61,12 @@ class PartsTreeRecursiveLogicTest {
     PartsTreesAssembler assembler;
     @Mock
     DataRequest dataRequest;
+    @Mock
+    Stream<DataRequest> dataRequestStream;
     @Captor
     ArgumentCaptor<Stream<PartRelationshipsWithInfos>> partsTreesCaptor;
+    @Captor
+    ArgumentCaptor<Stream<PartId>> partIdsCaptor;
 
     @BeforeEach
     public void setUp() {
@@ -64,52 +74,80 @@ class PartsTreeRecursiveLogicTest {
     }
 
     @Test
-    void initiate_WhenNoDataRequest_ReturnsEmptyStream() {
+    void createInitialPartsTreeRequest_WhenNoDataRequest_ReturnsEmptyStream() {
         // Arrange
-        when(dataRequestFactory.createRequest(fileRequest, partId))
-                .thenReturn(Optional.empty());
+        when(dataRequestFactory.createRequests(eq(fileRequest), isNull(), partIdsCaptor.capture()))
+                .thenReturn(Stream.empty());
 
         // Act
-        var result = sut.initiate(fileRequest);
+        var result = sut.createInitialPartsTreeRequest(fileRequest);
 
         // Assert
         assertThat(result).isEmpty();
+        assertThat(partIdsCaptor.getValue()).containsExactly(partId);
     }
 
     @Test
-    void initiate_WhenDataRequest_ReturnsStream() {
+    void createInitialPartsTreeRequest_WhenDataRequest_ReturnsStream() {
         // Arrange
-        when(dataRequestFactory.createRequest(fileRequest, partId))
-                .thenReturn(Optional.of(dataRequest));
+        when(dataRequestFactory.createRequests(eq(fileRequest), isNull(), partIdsCaptor.capture()))
+                .thenReturn(Stream.of(dataRequest));
 
         // Act
-        var result = sut.initiate(fileRequest);
+        var result = sut.createInitialPartsTreeRequest(fileRequest);
 
         // Assert
         assertThat(result).containsExactly(dataRequest);
+        assertThat(partIdsCaptor.getValue()).containsExactly(partId);
     }
 
     @Test
-    void recurse() {
+    void createSubsequentPartsTreeRequests() {
         // Arrange
-        var transfer = generate.transferProcess();
+        var transfer = transferProcess(blobName);
+        var relationship = generate.relationship();
+        var tree = generate.prsOutput().addRelationshipsItem(relationship);
+
+        when(blobStoreApi.getBlob(storageAccountName, containerName, blobName)).thenReturn(serialize(tree));
+        when(dataRequestFactory.createRequests(same(fileRequest), eq(rootQueryConnectorAddress), partIdsCaptor.capture())).thenReturn(dataRequestStream);
 
         // Act
-        var result = sut.recurse(transfer, fileRequest);
+        var result = sut.createSubsequentPartsTreeRequests(transfer, fileRequest);
 
         // Assert
-        assertThat(result).isEmpty();
+        assertThat(result).isSameAs(dataRequestStream);
+        assertThat(partIdsCaptor.getValue()).containsExactly(relationship.getChild());
+    }
+
+    @ParameterizedTest
+    @NullSource
+    @EmptySource
+    void createSubsequentPartsTreeRequests_noRelationships(List<PartRelationship> partRelationships) {
+        // Arrange
+        var transfer = transferProcess(blobName);
+        var tree = generatePrsOutput();
+        tree.setRelationships(partRelationships);
+
+        when(blobStoreApi.getBlob(storageAccountName, containerName, blobName)).thenReturn(serialize(tree));
+        when(dataRequestFactory.createRequests(same(fileRequest), eq(rootQueryConnectorAddress), partIdsCaptor.capture())).thenReturn(dataRequestStream);
+
+        // Act
+        var result = sut.createSubsequentPartsTreeRequests(transfer, fileRequest);
+
+        // Assert
+        assertThat(result).isSameAs(dataRequestStream);
+        assertThat(partIdsCaptor.getValue()).isEmpty();
     }
 
     @Test
-    void complete_WithNoInput() {
+    void assemblePartialPartTreeBlobs_WithNoInput() {
         // Arrange
         PartRelationshipsWithInfos prsOutput = generatePrsOutput();
         when(assembler.assemblePartsTrees(partsTreesCaptor.capture()))
                 .thenReturn(prsOutput);
 
         // Act
-        sut.complete(List.of(), storageAccountName, containerName, blobName);
+        sut.assemblePartialPartTreeBlobs(List.of(), storageAccountName, containerName, blobName);
 
         // Assert
         assertThat(partsTreesCaptor.getValue()).isEmpty();
@@ -121,7 +159,7 @@ class PartsTreeRecursiveLogicTest {
     }
 
     @Test
-    void complete_WithInput() {
+    void assemblePartialPartTreeBlobs_WithInput() {
         // Arrange
         var blob1 = faker.lorem().characters();
         var blob2 = faker.lorem().characters();
@@ -143,7 +181,7 @@ class PartsTreeRecursiveLogicTest {
                 .thenReturn(serialize(prsOutput3));
 
         // Act
-        sut.complete(List.of(transfer1, transfer2, transfer3), storageAccountName, containerName, blobName);
+        sut.assemblePartialPartTreeBlobs(List.of(transfer1, transfer2, transfer3), storageAccountName, containerName, blobName);
 
         // Assert
         assertThat(partsTreesCaptor.getValue()).containsExactly(prsOutput1, prsOutput2, prsOutput3);
@@ -180,4 +218,5 @@ class PartsTreeRecursiveLogicTest {
                 .addRelationshipsItem(generate.relationship())
                 .addPartInfosItem(generate.partInfo());
     }
+
 }
