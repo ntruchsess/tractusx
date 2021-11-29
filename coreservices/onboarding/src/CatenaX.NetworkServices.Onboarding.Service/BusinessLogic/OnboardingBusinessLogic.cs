@@ -80,7 +80,7 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
             return Task.FromResult(UserRoles.Roles);
         }
 
-        public Task<List<FetchBusinessPartnerDto>> GetCompanyByOneIdAsync(string companyIdentifier)
+        public async Task<List<FetchBusinessPartnerDto>> GetCompanyByOneIdAsync(string companyIdentifier)
         {
             return await _cdqAccess.FetchBusinessPartner(companyIdentifier);
         }
