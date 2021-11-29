@@ -1,31 +1,92 @@
-export class CompanyDetails{
-    public bpn: string;
-    public parent: string;
-    public accountGroup: string;
-    public name1: string;
-    public name2: string;
-    public name3: string;
-    public name4: string;
-    public addressVersion: string;
-    public country: string;
-    public city: string;
-    public postalCode: 0;
-    public street1: string;
-    public street2: string;
-    public street3: string;
-    public houseNumber: 0;
-    public taxNumber1: string;
-    public taxNumber1Type: string;
-    public taxNumber2: string;
-    public taxNumber2Type: string;
-    public taxNumber3: string;
-    public taxNumber3Type: string;
-    public taxNumber4: string;
-    public taxNumber4Type: string;
-    public taxNumber5: string;
-    public taxNumber5Type: string;
-    public vatNumber: string;
-    public vatNumberType: string
+  export class CompanyDetails
+  {
+      public cdqId: string; 
+      public dataSource: string; 
+      public businessPartner: Businesspartner; 
+  }
+  export class Businesspartner
+  {
+      public names: Name[]; 
+      public identifiers: Identifier[]; 
+      public categories: object[]; 
+      public addresses: Address[]; 
+      public formattedSapRecord: Formattedsaprecord; 
+      public types: object[]; 
+  }
+  export class Formattedsaprecord
+  {
+      public narp : string; 
+      public stceg: string; 
+      public country: string; 
+      public countryCode: string; 
+      public city: string; 
+      public postalCode: string; 
+      public street1: string; 
+      public houseNum: string; 
+  }
+  export class Name
+  {
+      public type: Type; 
+      public value: string; 
+      public language: Language; 
+  }
+  export class Type
+  {
+      public url: string; 
+      public name: string; 
+      public technicalKey: string; 
+  }
+  export class Language
+  {
+  }
+  export class Identifier
+  {
+      public type: Type; 
+      public value: string; 
+      public status: Status; 
+  }
+  export class Status
+  {
+      public technicalKey: string; 
+  }
+  export class Address
+  {
+      public country: Country; 
+      public administrativeAreas: object[]; 
+      public postCodes: Postcode[]; 
+      public localities: Locality[]; 
+      public thoroughfares: Thoroughfare[]; 
+      public premises: object[]; 
+      public postalDeliveryPoints: object[]; 
+      public types: Type[]; 
+      public formattedAddress: Formattedaddress; 
+  }
+  export class Country
+  {
+      public shortName: string; 
+      public value: string; 
+  }
+  export class Formattedaddress
+  {
+      public country: string; 
+      public locality: string; 
+      public postalCode: string; 
+      public thoroughfare: string; 
+  }
+  export class Postcode
+  {
+      public value: string; 
+      public type: Type; 
+  }
+  export class Locality
+  {
+      public value: string; 
+  }
+  export class Thoroughfare
+  {
+      public type: Type; 
+      public number: string; 
+      public value: string; 
   }
 
  export class CompanyRole{
@@ -44,3 +105,7 @@ export class CompanyDetails{
     public consent_title : string;
     public link: string;
  }
+
+      
+ 
+ 

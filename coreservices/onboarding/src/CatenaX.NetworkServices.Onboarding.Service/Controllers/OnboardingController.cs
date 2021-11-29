@@ -5,9 +5,7 @@ using CatenaX.NetworkServices.Onboarding.Service.Model;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-
 using Newtonsoft.Json;
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -96,7 +94,7 @@ namespace CatenaX.NetworkServices.Onboarding.Service.Controllers
         [Route("company/{realm}/finishOnboarding")]
         public Task<IActionResult> FinishOnboardingAsync([FromRoute] string realm, [FromHeader] string authorization) =>
             ValidateTokenAsync(realm, authorization, async () => {
-                await _onboardingBusinessLogic.FinishOnboardingAsync(authorization.Split(" ")[1], realm);
+                await _onboardingBusinessLogic.FinishOnboardingAsync(authorization.Split(" ")[1],realm);
                 return new OkResult();
             });
 
@@ -112,7 +110,7 @@ namespace CatenaX.NetworkServices.Onboarding.Service.Controllers
 
         private Task<IActionResult> ValidateTokenAsync(string realm, string authorization, ValidatedAction action) =>
             ValidateTokenAsync(realm, authorization, _ => action(), false);
-
+        
         private async Task<IActionResult> ValidateTokenAsync(string realm, string authorization, ValidatedUserInfoAction action, bool deserialize = true)
         {
             var token = "";

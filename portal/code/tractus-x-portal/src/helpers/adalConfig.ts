@@ -70,6 +70,7 @@ class AdalContext {
       }
 
       const user = this.AuthContext.getCachedUser();
+      console.log(JSON.stringify(user))
       if (user) {
         this.authContext.config.extraQueryParameter = 'login_hint=' + (user.profile.upn || user.userName);
       }
@@ -80,7 +81,7 @@ class AdalContext {
         if (error) {
           console.log(error);
           if (error.msg === 'login_required' || error.msg === 'interaction_required') {
-            this.authContext.login();
+            window.location.href = getReplyUrl()
           } else {
             // AlertDialog.(error.message);
           }
