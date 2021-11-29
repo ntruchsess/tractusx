@@ -56,7 +56,7 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
                     { "companyname", realm },
                     { "message", user.Message },
                     { "eMailPreferredUsernameCreatedBy", userInfo["preferred_username"] },
-                    { "nameCreatedBy", userInfo["name"] }
+                    { "nameCreatedBy", userInfo.GetValueOrDefault("name") ?? userInfo["preferred_username"]}
                     
                 };
 
@@ -74,6 +74,22 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
         public Task<List<string>> GetAvailableUserRoleAsync()
         {
             return Task.FromResult(UserRoles.Roles);
+        }
+
+        public async Task<List<string>> GetAvailableUserGroupAsync(string token, string realm)
+        {
+            var client = new KeycloakClient(_configuration.GetValue<string>("KeyCloakConnectionString"), () => token);
+            var userGroups = await client.GetGroupHierarchyAsync(realm);
+
+            return userGroups.Select(g => g.Name).ToList();
+        }
+
+        public async Task<List<string>> GetOwnUserGroupAsync(string token, string realm, string userId)
+        {
+            var client = new KeycloakClient(_configuration.GetValue<string>("KeyCloakConnectionString"), () => token);
+            var userGroups = await client.GetUserGroupsAsync(realm, userId);
+
+            return userGroups.Select(g => g.Name).ToList();
         }
 
         public Task<Company> GetCompanyByOneIdAsync(string oneId)
