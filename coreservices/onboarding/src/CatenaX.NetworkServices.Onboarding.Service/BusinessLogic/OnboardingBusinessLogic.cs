@@ -4,6 +4,8 @@ using CatenaX.NetworkServices.Invitation.Identity.Identity;
 using CatenaX.NetworkServices.Invitation.Identity.Model;
 using CatenaX.NetworkServices.Mailing.SendMail;
 using CatenaX.NetworkServices.Mockups;
+using CatenaX.NetworkServices.Onboarding.Service.CDQ;
+using CatenaX.NetworkServices.Onboarding.Service.CDQ.Model;
 using CatenaX.NetworkServices.Onboarding.Service.Model;
 using CatenaX.NetworkServices.Onboarding.Service.OnboardingAccess;
 
@@ -22,12 +24,14 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
         private readonly IConfiguration _configuration;
         private readonly IOnboardingDBAccess _dbAccess;
         private readonly IMailingService _mailingService;
+        private readonly ICDQAccess _cdqAccess;
 
-        public OnboardingBusinessLogic(IConfiguration configuration, IOnboardingDBAccess onboardingDBAccess, IMailingService mailingService)
+        public OnboardingBusinessLogic(IConfiguration configuration, IOnboardingDBAccess onboardingDBAccess, IMailingService mailingService, ICDQAccess cdqAccess)
         {
             _configuration = configuration;
             _dbAccess = onboardingDBAccess;
             _mailingService = mailingService;
+            _cdqAccess = cdqAccess;
         }
 
         public async Task CreateUsersAsync(List<UserCreationInfo> userList, string realm, string token, Dictionary<string, string> userInfo)
@@ -76,10 +80,9 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
             return Task.FromResult(UserRoles.Roles);
         }
 
-        public Task<Company> GetCompanyByOneIdAsync(string oneId)
+        public async Task<List<FetchBusinessPartnerDto>> GetCompanyByOneIdAsync(string companyIdentifier)
         {
-            var query = new QueryCompany();
-            return Task.FromResult(query.Query(oneId));
+            return await _cdqAccess.FetchBusinessPartner(companyIdentifier);
         }
 
         public async Task<List<CompanyRole>> GetCompanyRolesAsync()

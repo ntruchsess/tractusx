@@ -1,6 +1,7 @@
 using CatenaX.NetworkServices.Mailing.SendMail;
 using CatenaX.NetworkServices.Mailing.Template;
 using CatenaX.NetworkServices.Onboarding.Service.BusinessLogic;
+using CatenaX.NetworkServices.Onboarding.Service.CDQ;
 using CatenaX.NetworkServices.Onboarding.Service.OnboardingAccess;
 
 using Microsoft.AspNetCore.Builder;
@@ -44,8 +45,21 @@ namespace CatenaX.NetworkServices.Onboarding.Service
             {
                 c.BaseAddress = new Uri($"{ Configuration.GetValue<string>("KeyCloakConnectionString")}/auth/realms/");
             });
+            services.AddHttpClient("cdq", c =>
+            {
+                c.DefaultRequestHeaders.Add("X-API-KEY", Configuration.GetValue<string>("CDQ-SubscriptionKey"));
+                c.BaseAddress = new Uri($"{ Configuration.GetValue<string>("CDQ-Address")}");
+            });
             services.AddTransient<IOnboardingBusinessLogic, OnboardingBusinessLogic>();
             services.AddTransient<IOnboardingDBAccess, OnboardingDBAccess>();
+            if (Configuration.GetValue<bool>("CDQ-Enabled"))
+            {
+                services.AddTransient<ICDQAccess, CDQAccess>();
+            }
+            else
+            {
+                services.AddTransient<ICDQAccess, CDQAccessMock>();
+            }
             services.AddTransient<IDbConnection>(conn => new NpgsqlConnection(Configuration.GetValue<string>("PostgresConnectionString")));
             services.AddTransient<IMailingService, MailingService>();
             services.AddTransient<ISendMail, SendMail>()
