@@ -45,16 +45,17 @@ namespace CatenaX.NetworkServices.Onboarding.Service
             {
                 c.BaseAddress = new Uri($"{ Configuration.GetValue<string>("KeyCloakConnectionString")}/auth/realms/");
             });
-            services.AddHttpClient("cdq", c =>
-            {
-                c.DefaultRequestHeaders.Add("X-API-KEY", Configuration.GetValue<string>("CDQ_SubscriptionKey"));
-                c.BaseAddress = new Uri($"{ Configuration.GetValue<string>("CDQ_Address")}");
-            });
+            
             services.AddTransient<IOnboardingBusinessLogic, OnboardingBusinessLogic>();
             services.AddTransient<IOnboardingDBAccess, OnboardingDBAccess>();
-            if (Configuration.GetValue<bool>("CDQ_Enabled"))
+            if (Configuration.GetValue<bool?>("CDQ_Enabled") != null && Configuration.GetValue<bool>("CDQ_Enabled"))
             {
                 services.AddTransient<ICDQAccess, CDQAccess>();
+                services.AddHttpClient("cdq", c =>
+                {
+                    c.DefaultRequestHeaders.Add("X-API-KEY", Configuration.GetValue<string>("CDQ_SubscriptionKey"));
+                    c.BaseAddress = new Uri($"{ Configuration.GetValue<string>("CDQ_Address")}");
+                });
             }
             else
             {
