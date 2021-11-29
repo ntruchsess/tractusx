@@ -33,7 +33,7 @@ namespace CatenaX.NetworkServices.Onboarding.Service.CDQ
             else
             {
                 //Fetch by BPN
-                var lookupContent = JsonSerializer.Serialize(value: new FetchBusinessPartnerDto { businessPartner = new Businesspartner { identifiers = new[] { new Identifier { value = companyIdentifier, type = new Type { technicalKey = "CX_BPN" } } } } });
+                var lookupContent = JsonSerializer.Serialize(value: new FetchBusinessPartnerRequest {matchValue = 0.54, businessPartner = new Businesspartner { identifiers = new[] { new Identifier { value = companyIdentifier, type = new Type { technicalKey = "CX_BPN" } } }, addresses = new[] { new Address { country = new Country { shortName = "DE" } } } } });
                 var lookupStringContent = new StringContent(lookupContent, Encoding.UTF8, "application/json");
                 var fetchRequest = await _httpClient.PostAsync("v3/businesspartners/lookup", lookupStringContent);
                 if (fetchRequest.IsSuccessStatusCode)
@@ -55,7 +55,7 @@ namespace CatenaX.NetworkServices.Onboarding.Service.CDQ
 
 
                 //fetchByName
-                lookupContent = JsonSerializer.Serialize(value: new FetchBusinessPartnerDto { businessPartner = new Businesspartner { names = new[] { new Name { value = companyIdentifier, type = new Type { technicalKey = "DOING_BUSINESS_AS" } } } } });
+                lookupContent = JsonSerializer.Serialize(value: new FetchBusinessPartnerRequest { matchValue = 0.54, businessPartner = new Businesspartner { names = new[] { new Name { value = companyIdentifier, type = new Type { technicalKey = "LOCAL" } } } } });
                 lookupStringContent = new StringContent(lookupContent, Encoding.UTF8, "application/json");
                 fetchRequest = await _httpClient.PostAsync("v3/businesspartners/lookup", lookupStringContent);
                 if (fetchRequest.IsSuccessStatusCode)
