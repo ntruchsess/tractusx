@@ -200,3 +200,27 @@ export function getUserRoles(): Promise<UserRole[]> {
 
   return promise;
 }
+
+export function getOwnUserRoles(): Promise<UserRole[]> {
+  const realm = UserService.realm;
+  const token = UserService.getToken();
+  const u= `${url}/${endpoint}/${realm}/ownUserRoles`;
+  let userRolesRes: UserRole[] = [];
+  const promise = new Promise<UserRole[]>((resolve, reject) => {
+    fetch(u, { method: 'GET', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } })
+    .then((val) => val.json().then((data) => {
+      if (val.ok) {
+        Object.assign(userRolesRes,data)
+        resolve(userRolesRes);
+      } else {
+        reject(val.statusText);
+      }
+    })).catch((error) => {
+        alert(error);
+        console.log(error, error.message, error.status);
+        reject(error.message);
+      });
+  });
+
+  return promise;
+}
