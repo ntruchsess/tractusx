@@ -20,6 +20,7 @@ import { Icon } from '@fluentui/react';
 import { AppState } from '../stores/appstate';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import Logo from './logo';
+import { getOwnUserRoles } from '../helpers/utils';
 interface IProp extends RouteComponentProps{
   href: string;
   hidePivot?: boolean;
@@ -32,11 +33,13 @@ class Header extends React.Component<IProp> {
   @observable initials = '';
   @observable selectedKey = '';
   @observable isAdmin = false;
+  @observable userRoles = [];
 
   public async componentDidMount() {
 
     this.username = UserService.getUsername();
     this.initials = UserService.getInitials();
+    this.userRoles = await getOwnUserRoles();
     AppState.state.isAdmin = true;
   
     this.isAdmin = AppState.state.isAdmin;
@@ -74,7 +77,7 @@ class Header extends React.Component<IProp> {
           <span className='fs14'>{this.username}</span>
           <div className='df'>
             <span className='fs14'>{UserService.getDomain()}</span>
-            {this.isAdmin && <span className='ml5 fs14'>(Admin)</span>}
+            <span className='ml5 fs14'>({this.userRoles.join(", ")})</span>
           </div>
         </div>
       </div>
