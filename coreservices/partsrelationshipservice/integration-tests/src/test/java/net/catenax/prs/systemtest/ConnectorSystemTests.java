@@ -46,8 +46,6 @@ public class ConnectorSystemTests {
 
     private static final String consumerURI = System.getProperty("ConnectorConsumerURI",
             "https://catenaxdev001akssrv.germanywestcentral.cloudapp.azure.com/prs-connector-consumer");
-    private static final String providerURI = System.getProperty("ConnectorProviderURI",
-            "https://catenaxdev001akssrv.germanywestcentral.cloudapp.azure.com/bmw/mtpdc/connector");
     private static final String VEHICLE_ONEID = "CAXSWPFTJQEVZNZZ";
     private static final String VEHICLE_OBJECTID = "UVVZI9PKX5D37RFUB";
 
@@ -66,8 +64,7 @@ public class ConnectorSystemTests {
 
         // Send query to Consumer connector, to perform file copy on Provider
         Map<String, Object> params = new HashMap<>();
-        params.put("connectorAddress", providerURI);
-        params.put("partsTreeRequest", PartsTreeByObjectIdRequest.builder()
+        params.put("byObjectIdRequest", PartsTreeByObjectIdRequest.builder()
                 .oneIDManufacturer(VEHICLE_ONEID)
                 .objectIDManufacturer(VEHICLE_OBJECTID)
                 .view("AS_BUILT")
@@ -81,8 +78,9 @@ public class ConnectorSystemTests {
                         .contentType("application/json")
                         .body(params)
                 .when()
-                        .post("/api/v0.1/file")
+                        .post("/api/v0.1/retrievePartsTree")
                 .then()
+
                         .assertThat()
                         .statusCode(HttpStatus.OK.value())
                         .extract().asString();
@@ -102,10 +100,6 @@ public class ConnectorSystemTests {
         // Assert
         String result = getUrl(sasUrl);
 
-        // We suspect the connectorSystemTests to be flaky when running right after the deployment workflow.
-        // But it is hard to reproduce, so logging the results, to help when this will happen again.
-        System.out.println(String.format("expectedResult: %s", expectedResult));
-        System.out.println(String.format("Result: %s", result));
         assertThatJson(result)
                 .when(IGNORING_ARRAY_ORDER)
                 .isEqualTo(expectedResult);

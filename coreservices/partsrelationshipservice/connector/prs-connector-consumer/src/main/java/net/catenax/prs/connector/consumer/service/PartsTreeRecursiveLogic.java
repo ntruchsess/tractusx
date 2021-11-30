@@ -15,7 +15,7 @@ import net.catenax.prs.client.model.PartId;
 import net.catenax.prs.client.model.PartRelationship;
 import net.catenax.prs.client.model.PartRelationshipsWithInfos;
 import net.catenax.prs.connector.constants.PrsConnectorConstants;
-import net.catenax.prs.connector.requests.FileRequest;
+import net.catenax.prs.connector.requests.PartsTreeRequest;
 import net.catenax.prs.connector.requests.PartsTreeByObjectIdRequest;
 import net.catenax.prs.connector.util.JsonUtil;
 import org.eclipse.dataspaceconnector.common.azure.BlobStoreApi;
@@ -70,17 +70,17 @@ public class PartsTreeRecursiveLogic {
      * Generates an EDC {@link DataRequest} populated for calling a Provider to invoke the PRS API
      * to retrieve the first partial parts tree.
      *
-     * @param fileRequest client request.
+     * @param partsTreeRequest client request.
      * @return a {@link DataRequest} if the requested Part ID was resolved in the registry,
      * otherwise empty.
      */
-    /* package */ Stream<DataRequest> createInitialPartsTreeRequest(final FileRequest fileRequest) {
-        final var partId = toPartId(fileRequest.getPartsTreeRequest());
-        final var request = fileRequest.getPartsTreeRequest();
+    /* package */ Stream<DataRequest> createInitialPartsTreeRequest(final PartsTreeRequest partsTreeRequest) {
+        final var partId = toPartId(partsTreeRequest.getByObjectIdRequest());
+        final var prsRequest = partsTreeRequest.getByObjectIdRequest();
         final var requestContext = DataRequestFactory.RequestContext.builder()
-                .requestTemplate(fileRequest)
+                .requestTemplate(partsTreeRequest)
                 .queriedPartId(partId)
-                .depth(request.getDepth())
+                .depth(prsRequest.getDepth())
                 .build();
         return dataRequestFactory.createRequests(requestContext, Stream.of(partId));
     }
@@ -99,7 +99,7 @@ public class PartsTreeRecursiveLogic {
      */
     /* package */ Stream<DataRequest> createSubsequentPartsTreeRequests(
             final TransferProcess transferProcess,
-            final FileRequest requestTemplate) {
+            final PartsTreeRequest requestTemplate) {
         final var previousUrl = transferProcess.getDataRequest().getConnectorAddress();
         final var requestAsString = transferProcess.getDataRequest().getProperties().get(PrsConnectorConstants.DATA_REQUEST_PRS_REQUEST_PARAMETERS);
         final var request = jsonUtil.fromString(requestAsString, PartsTreeByObjectIdRequest.class);
@@ -139,7 +139,7 @@ public class PartsTreeRecursiveLogic {
         final var partialTrees = completedTransfers.stream()
                 .map(this::downloadPartialPartsTree)
                 .map(payload -> jsonUtil.fromString(new String(payload), PartRelationshipsWithInfos.class));
-        final var assembledTree = assembler.assemblePartsTrees(partialTrees);
+        final var assembledTree = assembler.retrievePartsTrees(partialTrees);
         final var blob = jsonUtil.asString(assembledTree).getBytes(StandardCharsets.UTF_8);
 
         monitor.info(format("Uploading assembled parts tree to %s/%s/%s",

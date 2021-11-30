@@ -19,7 +19,7 @@ import net.catenax.prs.client.model.PartRelationship;
 import net.catenax.prs.connector.constants.PrsConnectorConstants;
 import net.catenax.prs.connector.consumer.configuration.ConsumerConfiguration;
 import net.catenax.prs.connector.consumer.registry.StubRegistryClient;
-import net.catenax.prs.connector.requests.FileRequest;
+import net.catenax.prs.connector.requests.PartsTreeRequest;
 import net.catenax.prs.connector.util.JsonUtil;
 import org.eclipse.dataspaceconnector.schema.azure.AzureBlobStoreSchema;
 import org.eclipse.dataspaceconnector.spi.EdcException;
@@ -122,13 +122,13 @@ public class DataRequestFactory {
             }
         }
 
-        final var newPartsTreeRequest = requestContext.requestTemplate.getPartsTreeRequest().toBuilder()
+        final var newPrsRequest = requestContext.requestTemplate.getByObjectIdRequest().toBuilder()
                 .oneIDManufacturer(partId.getOneIDManufacturer())
                 .objectIDManufacturer(partId.getObjectIDManufacturer())
                 .depth(remainingDepth)
                 .build();
 
-        final var partsTreeRequestAsString = jsonUtil.asString(newPartsTreeRequest);
+        final var prsRequestAsString = jsonUtil.asString(newPrsRequest);
 
         monitor.info(format("Mapped data request to url: %s, previous depth: %d, new depth: %d",
                 providerUrlForPartId,
@@ -149,7 +149,7 @@ public class DataRequestFactory {
                         .property(AzureBlobStoreSchema.ACCOUNT_NAME, configuration.getStorageAccountName())
                         .build())
                 .properties(Map.of(
-                        PrsConnectorConstants.DATA_REQUEST_PRS_REQUEST_PARAMETERS, partsTreeRequestAsString,
+                        PrsConnectorConstants.DATA_REQUEST_PRS_REQUEST_PARAMETERS, prsRequestAsString,
                         PrsConnectorConstants.DATA_REQUEST_PRS_DESTINATION_PATH, PARTIAL_PARTS_TREE_BLOB_NAME
                 ))
                 .managedResources(true)
@@ -167,7 +167,7 @@ public class DataRequestFactory {
         /**
          * The original PRS request received from the client.
          */
-        private FileRequest requestTemplate;
+        private PartsTreeRequest requestTemplate;
         /**
          * the Provider URL used for retrieving the {@code partIds}, or {@code null} for the first retrieval.
          */

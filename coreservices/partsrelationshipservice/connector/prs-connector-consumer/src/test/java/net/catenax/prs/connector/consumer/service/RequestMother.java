@@ -5,7 +5,7 @@ import net.catenax.prs.client.model.PartId;
 import net.catenax.prs.client.model.PartInfo;
 import net.catenax.prs.client.model.PartRelationship;
 import net.catenax.prs.client.model.PartRelationshipsWithInfos;
-import net.catenax.prs.connector.requests.FileRequest;
+import net.catenax.prs.connector.requests.PartsTreeRequest;
 import net.catenax.prs.connector.requests.PartsTreeByObjectIdRequest;
 import org.eclipse.dataspaceconnector.spi.types.domain.transfer.TransferProcess;
 
@@ -23,9 +23,9 @@ public class RequestMother {
                 .depth(faker.number().numberBetween(1, 5));
     }
 
-    public FileRequest fileRequest() {
-        return FileRequest.builder()
-                .partsTreeRequest(request().build())
+    public PartsTreeRequest partsTreeRequest() {
+        return PartsTreeRequest.builder()
+                .byObjectIdRequest(request().build())
                 .build();
     }
 

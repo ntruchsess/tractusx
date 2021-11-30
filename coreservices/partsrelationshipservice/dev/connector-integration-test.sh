@@ -12,7 +12,7 @@ chmod +x retry
 ./wait-for-it.sh -t 60 prs:8080
 
 # Send request to consumer connector
-requestId=$(curl -f -X POST http://consumer:8181/api/v0.1/file -H "Content-type:application/json" -d '{"partsTreeRequest": {
+requestId=$(curl -f -X POST http://consumer:8181/api/v0.1/retrievePartsTree -H "Content-type:application/json" -d '{"byObjectIdRequest": {
     "oneIDManufacturer": "BMW MUC", "objectIDManufacturer": "YS3DD78N4X7055320", "view": "AS_BUILT", "aspect": "MATERIAL", "depth": 2}}')
 
 # Poll status endpoint until job completed

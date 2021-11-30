@@ -14,7 +14,7 @@ import lombok.RequiredArgsConstructor;
 import net.catenax.prs.connector.consumer.configuration.ConsumerConfiguration;
 import net.catenax.prs.connector.job.MultiTransferJob;
 import net.catenax.prs.connector.job.RecursiveJobHandler;
-import net.catenax.prs.connector.requests.FileRequest;
+import net.catenax.prs.connector.requests.PartsTreeRequest;
 import net.catenax.prs.connector.util.JsonUtil;
 import org.eclipse.dataspaceconnector.spi.monitor.Monitor;
 import org.eclipse.dataspaceconnector.spi.types.domain.transfer.DataRequest;
@@ -55,8 +55,8 @@ public class PartsTreeRecursiveJobHandler implements RecursiveJobHandler {
     @Override
     public Stream<DataRequest> initiate(final MultiTransferJob job) {
         monitor.info("Initiating recursive retrieval for Job " + job.getJobId());
-        final FileRequest fileRequest = getFileRequest(job);
-        return logic.createInitialPartsTreeRequest(fileRequest);
+        final PartsTreeRequest partsTreeRequest = getPartsTreeRequest(job);
+        return logic.createInitialPartsTreeRequest(partsTreeRequest);
     }
 
     /**
@@ -66,7 +66,7 @@ public class PartsTreeRecursiveJobHandler implements RecursiveJobHandler {
     public Stream<DataRequest> recurse(final MultiTransferJob job, final TransferProcess transferProcess) {
         monitor.info("Proceeding with recursive retrieval for Job " + job.getJobId());
 
-        final var requestTemplate = getFileRequest(job);
+        final var requestTemplate = getPartsTreeRequest(job);
         return logic.createSubsequentPartsTreeRequests(transferProcess, requestTemplate);
     }
 
@@ -83,8 +83,8 @@ public class PartsTreeRecursiveJobHandler implements RecursiveJobHandler {
         logic.assemblePartialPartTreeBlobs(completedTransfers, targetAccountName, targetContainerName, targetBlobName);
     }
 
-    private FileRequest getFileRequest(final MultiTransferJob job) {
-        final var fileRequestAsString = job.getJobData().get(ConsumerService.PARTS_REQUEST_KEY);
-        return jsonUtil.fromString(fileRequestAsString, FileRequest.class);
+    private PartsTreeRequest getPartsTreeRequest(final MultiTransferJob job) {
+        final var partsTreeRequestAsString = job.getJobData().get(ConsumerService.PARTS_REQUEST_KEY);
+        return jsonUtil.fromString(partsTreeRequestAsString, PartsTreeRequest.class);
     }
 }

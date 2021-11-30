@@ -6,7 +6,7 @@ import com.github.javafaker.Faker;
 import net.catenax.prs.client.model.PartId;
 import net.catenax.prs.connector.consumer.configuration.ConsumerConfiguration;
 import net.catenax.prs.connector.consumer.registry.StubRegistryClient;
-import net.catenax.prs.connector.requests.FileRequest;
+import net.catenax.prs.connector.requests.PartsTreeRequest;
 import net.catenax.prs.connector.requests.PartsTreeByObjectIdRequest;
 import net.catenax.prs.connector.util.JsonUtil;
 import org.eclipse.dataspaceconnector.monitor.ConsoleMonitor;
@@ -47,8 +47,8 @@ class DataRequestFactoryTest {
     RequestMother generate = new RequestMother();
     PartsTreeByObjectIdRequest.PartsTreeByObjectIdRequestBuilder prsRequest = generate.request()
             .depth(depth);
-    FileRequest fileRequest = FileRequest.builder()
-            .partsTreeRequest(prsRequest.build())
+    PartsTreeRequest partsTreeRequest = PartsTreeRequest.builder()
+            .byObjectIdRequest(prsRequest.build())
             .build();
     PartId rootPartId = generate.partId();
     PartId partId = generate.partId();
@@ -60,7 +60,7 @@ class DataRequestFactoryTest {
             .build();
     DataRequestFactory sut;
     DataRequestFactory.RequestContext.RequestContextBuilder requestContextBuilder = DataRequestFactory.RequestContext.builder()
-            .requestTemplate(fileRequest)
+            .requestTemplate(partsTreeRequest)
             .depth(depth)
             .queriedPartId(rootPartId);
     @Mock
@@ -86,7 +86,7 @@ class DataRequestFactoryTest {
         when(registryClient.getUrl(partId))
                 .thenReturn(Optional.of(connectorAddress));
 
-        PartsTreeByObjectIdRequest expectedPrsRequest = fileRequest.getPartsTreeRequest()
+        PartsTreeByObjectIdRequest expectedPrsRequest = partsTreeRequest.getByObjectIdRequest()
                 .toBuilder()
                 .oneIDManufacturer(partId.getOneIDManufacturer())
                 .objectIDManufacturer(partId.getObjectIDManufacturer())
