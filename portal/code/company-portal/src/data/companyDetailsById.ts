@@ -1,25 +1,43 @@
-export class CompanyDetails {
+export class CompanyDetailsById {
     public cdqId: string;
     public dataSource: string;
     public businessPartner: Businesspartner;
 }
 export class Businesspartner {
     public names: Name[];
+    public legalForm: Legalform;
     public identifiers: Identifier[];
-    public categories: object[];
+    public categories: [];
     public addresses: Address[];
+    public externalId: string;
     public formattedSapRecord: Formattedsaprecord;
-    public types: object[];
+    public types: [];
 }
+
+export class Legalform {
+    public name: string;
+}
+
 export class Formattedsaprecord {
+    public name1: string;
+    public legalEntity: string;
+    public legalForm: string;
     public narp: string;
     public stceg: string;
     public country: string;
     public countryCode: string;
+    public region: string;
+    public regionCodeSap: string;
+    public regionCode: string;
+    public county: string;
+    public countyCode: string;
     public city: string;
-    public postalCode: string;
+    public district: string;
     public street1: string;
     public houseNum: string;
+    public latitude: string;
+    public longitude: string;
+    public postalCode: string;
 }
 export class Name {
     public type: Type;
@@ -51,6 +69,8 @@ export class Address {
     public postalDeliveryPoints: object[];
     public types: Type[];
     public formattedAddress: Formattedaddress;
+    public geographicCoordinates: Geographiccoordinates
+
 }
 export class Country {
     public shortName: string;
@@ -58,7 +78,11 @@ export class Country {
 }
 export class Formattedaddress {
     public country: string;
+    public administrativeArea: string;
+    public region: string;
+    public regionCode: string;
     public locality: string;
+    public district: string;
     public postalCode: string;
     public thoroughfare: string;
 }
@@ -75,25 +99,12 @@ export class Thoroughfare {
     public value: string;
 }
 
-export class CompanyRole {
-    public id: number;
-    public title: string;
+export class Geographiccoordinates {
+    public latitude: number;
+    public longitude: number;
 }
 
-export class UserRole {
-    public role: string;
-}
-
-export class ConsentForCompanyRoles {
-    public role_id: number;
-    public role_title: string;
-    public consent_id: number;
-    public consent_title: string;
-    public link: string;
-}
 export abstract class CompanyTechnicalKey {
     public static International = "INTERNATIONAL";
 }
-
-
 
