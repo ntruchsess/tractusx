@@ -105,6 +105,20 @@ namespace CatenaX.NetworkServices.Onboarding.Service.Controllers
             ValidateTokenAsync(realm, authorization, async () =>
                 new OkObjectResult(await _onboardingBusinessLogic.GetAvailableUserRoleAsync()));
 
+        [HttpGet]
+        [Route("company/{realm}/availableUserRoles")]
+        [ProducesResponseType(typeof(List<string>), (int)HttpStatusCode.OK)]
+        public Task<IActionResult> GetAvailableUserRoles([FromRoute] string realm, [FromHeader] string authorization) =>
+            ValidateTokenAsync(realm, authorization, async () =>
+                new OkObjectResult(await _onboardingBusinessLogic.GetAvailableUserRolesAsync(authorization.Split(" ")[1],realm)));
+        
+        [HttpGet]
+        [Route("company/{realm}/ownUserRoles")]
+        [ProducesResponseType(typeof(List<string>), (int)HttpStatusCode.OK)]
+        public Task<IActionResult> GetOwnUserRolesAsync([FromRoute] string realm, [FromHeader] string authorization) =>
+            ValidateTokenAsync(realm, authorization, async (userInfo) =>
+                new OkObjectResult(await _onboardingBusinessLogic.GetOwnUserRolesAsync(authorization.Split(" ")[1],realm, userInfo["sub"])));
+
         private delegate Task<IActionResult> ValidatedAction();
         private delegate Task<IActionResult> ValidatedUserInfoAction(Dictionary<string, string> userInfo);
 

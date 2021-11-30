@@ -11,6 +11,8 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
     {
         Task<Company> GetCompanyByOneIdAsync(string oneId);
         Task<List<string>> GetAvailableUserRoleAsync();
+        Task<List<string>> GetAvailableUserRolesAsync(string token, string realm);
+        Task<List<string>> GetOwnUserRolesAsync(string token, string realm, string userId);
         Task<List<CompanyRole>> GetCompanyRolesAsync();
         Task CreateUsersAsync(List<UserCreationInfo> userList, string realm, string token, Dictionary<string, string> userInfo);
         Task SetCompanyRolesAsync(CompanyToRoles rolesToSet);
