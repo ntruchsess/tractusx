@@ -1,43 +1,25 @@
-export class CompanyDetailsById {
+export class CompanyDetails {
     public cdqId: string;
     public dataSource: string;
     public businessPartner: Businesspartner;
 }
 export class Businesspartner {
     public names: Name[];
-    public legalForm: Legalform;
     public identifiers: Identifier[];
-    public categories: [];
+    public categories: object[];
     public addresses: Address[];
-    public externalId: string;
     public formattedSapRecord: Formattedsaprecord;
-    public types: [];
+    public types: object[];
 }
-
-export class Legalform {
-    public name: string;
-}
-
 export class Formattedsaprecord {
-    public name1: string;
-    public legalEntity: string;
-    public legalForm: string;
     public narp: string;
     public stceg: string;
     public country: string;
     public countryCode: string;
-    public region: string;
-    public regionCodeSap: string;
-    public regionCode: string;
-    public county: string;
-    public countyCode: string;
     public city: string;
-    public district: string;
+    public postalCode: string;
     public street1: string;
     public houseNum: string;
-    public latitude: string;
-    public longitude: string;
-    public postalCode: string;
 }
 export class Name {
     public type: Type;
@@ -69,8 +51,6 @@ export class Address {
     public postalDeliveryPoints: object[];
     public types: Type[];
     public formattedAddress: Formattedaddress;
-    public geographicCoordinates: Geographiccoordinates
-
 }
 export class Country {
     public shortName: string;
@@ -78,11 +58,7 @@ export class Country {
 }
 export class Formattedaddress {
     public country: string;
-    public administrativeArea: string;
-    public region: string;
-    public regionCode: string;
     public locality: string;
-    public district: string;
     public postalCode: string;
     public thoroughfare: string;
 }
@@ -98,13 +74,3 @@ export class Thoroughfare {
     public number: string;
     public value: string;
 }
-
-export class Geographiccoordinates {
-    public latitude: number;
-    public longitude: number;
-}
-
-export abstract class CompanyTechnicalKey {
-    public static International = "INTERNATIONAL";
-}
-
