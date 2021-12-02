@@ -1,5 +1,6 @@
 ﻿using CatenaX.NetworkServices.Cosent.Library.Data;
 using CatenaX.NetworkServices.Mockups;
+using CatenaX.NetworkServices.Onboarding.Service.CDQ.Model;
 using CatenaX.NetworkServices.Onboarding.Service.Model;
 
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ namespace CatenaX.NetworkServices.Onboarding.Service.BusinessLogic
 {
     public interface IOnboardingBusinessLogic
     {
-        Task<Company> GetCompanyByOneIdAsync(string oneId);
+        Task<List<FetchBusinessPartnerDto>> GetCompanyByIdentifierAsync(string companyIdentifier);
         Task<List<string>> GetAvailableUserRoleAsync();
         Task<List<string>> GetAvailableUserRolesAsync(string token, string realm);
         Task<List<string>> GetOwnUserRolesAsync(string token, string realm, string userId);

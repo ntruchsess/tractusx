@@ -35,7 +35,7 @@ namespace CatenaX.NetworkServices.Onboarding.Service.Controllers
         [ProducesResponseType(typeof(Company), (int)HttpStatusCode.OK)]
         public Task<IActionResult> GetOneObjectAsync([FromRoute] string realm, [FromRoute] string oneId, [FromHeader] string authorization) =>
             ValidateTokenAsync(realm, authorization, async () =>
-                new OkObjectResult(await _onboardingBusinessLogic.GetCompanyByOneIdAsync(oneId)));
+                new OkObjectResult(await _onboardingBusinessLogic.GetCompanyByIdentifierAsync(oneId)));
 
         [HttpPost]
         [Route("company/{realm}/users")]
