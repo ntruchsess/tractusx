@@ -31,8 +31,6 @@ export default class Companydata extends React.Component {
   @observable companyDetailsById: CompanyDetails[];
   @observable alertRef;
   @observable searchParameter: string;
-  // @observable dropdownOptions: IDropdownOption[] = [];
-
 
   async fillFormData(value) {
     console.log(value)
