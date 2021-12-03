@@ -28,7 +28,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dist": "npm run build && mkdir -p dist && cd build && 7z u ../dist/build.zip .",
-    "deploy": "az webapp deployment source config-zip --resource-group catenax-dev003-rg --name catenax-dev003-app-man-onboarding-win --src ./dist/build.zip"
+    "deploy": "export CAX_ENV=${CAX_ENV:-dev003} && az webapp deployment source config-zip --resource-group catenax-${CAX_ENV}-rg --name catenax-${CAX_ENV}-app-onboarding --src ./dist/build.zip"
   },
   "eslintConfig": {
     "extends": [
