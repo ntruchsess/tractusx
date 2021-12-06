@@ -37,7 +37,7 @@ import SemanticModelDetail from './semantics/SemanticModelDetail';
 import Aspect from './aspect';
 import DigitalTwins from './digitaltwins/DigitalTwins';
 import { DigitalTwinDetail } from './digitaltwins/DigitalTwinDetail';
-
+import Admin from './admin';
 const navStyles: Partial<INavStyles> = {
   root: {
     width: 250,
@@ -89,9 +89,17 @@ const navLinkGroups2: INavLinkGroup[] = [
   {
     links: [
       {
+        name: 'Administration',
+        url: '/home/admin',
+        key: 'key4',
+        expandAriaLabel: 'Expand section',
+        collapseAriaLabel: 'Collapse section',
+        title: ''
+      },
+      {
         name: 'Notification Center',
         url: '/home/notification',
-        key: 'key4',
+        key: 'key5',
         expandAriaLabel: 'Expand section',
         collapseAriaLabel: 'Collapse section',
         title: ''
@@ -99,7 +107,7 @@ const navLinkGroups2: INavLinkGroup[] = [
       {
         name: 'Organization',
         url: '/home/organization',
-        key: 'key5',
+        key: 'key6',
         expandAriaLabel: 'Expand section',
         collapseAriaLabel: 'Collapse section',
         title: ''
@@ -107,7 +115,7 @@ const navLinkGroups2: INavLinkGroup[] = [
       {
         name: 'Partner Network',
         url: '/home/partners',
-        key: 'key6',
+        key: 'key7',
         expandAriaLabel: 'Expand section',
         collapseAriaLabel: 'Collapse section',
         title: ''
@@ -115,7 +123,7 @@ const navLinkGroups2: INavLinkGroup[] = [
       {
         name: 'User Management',
         url: '/home/usermanagement',
-        key: 'key7',
+        key: 'key8',
         expandAriaLabel: 'Expand section',
         collapseAriaLabel: 'Collapse section',
         title: ''
@@ -197,7 +205,7 @@ class Home extends React.Component<RouteComponentProps> {
     this.props.history.push(item.url);
   }
 
-  hasLeftTopNavi(): boolean{
+  hasLeftTopNavi(): boolean {
     return noNav.filter(nav => window.location.href.includes(nav)).length === 0;
   }
 
@@ -205,7 +213,7 @@ class Home extends React.Component<RouteComponentProps> {
     let groups = navLinkGroups;
     if (window.location.href.includes('/datacatalog')) groups = navLinkGroupsData;
     if (window.location.href.includes('/semantichub') || window.location.href.includes('/newsemanticmodel')) groups = navLinkGroupsSemantics;
-  
+
     return (
       <div className='w100pc h100pc df fdc bgf5'>
         <Header href={window.location.href} />
@@ -240,6 +248,7 @@ class Home extends React.Component<RouteComponentProps> {
               <Route path='/home/partners' component={(props) => <YellowPages {...props} />} />
               <Route path='/home/notification' component={(props) => <NotificationCenter {...props} />} />
               <Route path='/home/notimp' component={(props) => <NotImp {...props} />} />
+              <Route path='/home/admin' component={(props) => <Admin {...props} />} />
             </Switch>
           </div>
         </div>
