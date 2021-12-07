@@ -55,7 +55,7 @@ jobs:
           srcFolder: 'coreservices/onboarding/src/CatenaX.NetworkServices.Onboarding.Service'
           imageName: 'onboardingservice'
           acrName: 'catenaxacr'
-          environment: ${{needs.environment.outputs.workspace}}
+          environment: int
           AZURE_REGISTRY_PASSWORD: ${{secrets.AZURE_REGISTRY_PASSWORD}}
           AZURE_REGISTRY_USERNAME: ${{secrets.AZURE_REGISTRY_USERNAME}}
           AZURE_CREDENTIALS: ${{secrets.AZURE_CREDENTIALS}}
