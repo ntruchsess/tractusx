@@ -6,15 +6,18 @@ import jakarta.validation.Validator;
 import jakarta.ws.rs.core.Response;
 import net.catenax.prs.connector.consumer.middleware.RequestMiddleware;
 import net.catenax.prs.connector.consumer.service.ConsumerService;
+import net.catenax.prs.connector.consumer.service.StatusResponse;
+import net.catenax.prs.connector.job.JobInitiateResponse;
+import net.catenax.prs.connector.job.JobState;
 import net.catenax.prs.connector.parameters.GetStatusParameters;
-import net.catenax.prs.connector.requests.FileRequest;
+import net.catenax.prs.connector.requests.PartsTreeRequest;
 import org.eclipse.dataspaceconnector.monitor.ConsoleMonitor;
 import org.eclipse.dataspaceconnector.spi.monitor.Monitor;
-import org.eclipse.dataspaceconnector.spi.transfer.TransferInitiateResponse;
 import org.eclipse.dataspaceconnector.spi.transfer.response.ResponseStatus;
-import org.eclipse.dataspaceconnector.spi.types.domain.transfer.TransferProcessStates;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EnumSource;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Spy;
@@ -49,20 +52,18 @@ public class ConsumerApiControllerTests {
 
     GetStatusParameters parameters = new GetStatusParameters(UUID.randomUUID().toString());
 
-    TransferProcessStates status = faker.options().option(TransferProcessStates.class);
+    JobState jobStatus = faker.options().option(JobState.class);
 
-    FileRequest fileRequest = FileRequest.builder()
-            .connectorAddress(faker.internet().url())
-            .destinationPath(faker.file().fileName())
+    PartsTreeRequest partsTreeRequest = PartsTreeRequest.builder()
             .build();
 
-    TransferInitiateResponse transferResponse = TransferInitiateResponse.Builder.newInstance()
-            .id(faker.lorem().characters())
+    JobInitiateResponse jobResponse = JobInitiateResponse.builder()
+            .jobId(faker.lorem().characters())
             .status(faker.options().option(ResponseStatus.class)).build();
 
     private ConstraintViolation<GetStatusParameters> getStatusViolation = mock(ConstraintViolation.class);
-   
-    private ConstraintViolation<FileRequest> fileRequestViolation = mock(ConstraintViolation.class);
+
+    private ConstraintViolation<PartsTreeRequest> partsTreeRequestViolation = mock(ConstraintViolation.class);
 
     @Test
     public void checkHealth_Returns() {
@@ -70,31 +71,31 @@ public class ConsumerApiControllerTests {
     }
 
     @Test
-    public void initiateTransfer_WhenFailure_ReturnsError() {
+    public void retrievePartsTree_WhenFailure_ReturnsError() {
         // Act
-        var response = controller.initiateTransfer(fileRequest);
+        var response = controller.retrievePartsTree(partsTreeRequest);
         // Assert
         assertThat(response.getStatus()).isEqualTo(500);
         assertThat(response.getEntity()).isNull();
     }
 
     @Test
-    public void initiateTransfer_WhenSuccess_ReturnsTransferId() {
+    public void retrievePartsTree_WhenSuccess_ReturnsTransferId() {
         // Arrange
-        when(service.initiateTransfer(fileRequest)).thenReturn(Optional.of(transferResponse));
+        when(service.retrievePartsTree(partsTreeRequest)).thenReturn(jobResponse);
         // Act
-        var response = controller.initiateTransfer(fileRequest);
+        var response = controller.retrievePartsTree(partsTreeRequest);
         // Assert
         assertThat(response.getStatus()).isEqualTo(200);
-        assertThat(response.getEntity()).isEqualTo(transferResponse.getId());
+        assertThat(response.getEntity()).isEqualTo(jobResponse.getJobId());
     }
 
     @Test
     public void initiate_OnValidationFailure_ReturnsError() {
         // Arrange
-        when(validator.validate(fileRequest)).thenReturn(Set.of(fileRequestViolation));
+        when(validator.validate(partsTreeRequest)).thenReturn(Set.of(partsTreeRequestViolation));
         // Act
-        var response = controller.initiateTransfer(fileRequest);
+        var response = controller.retrievePartsTree(partsTreeRequest);
         // Assert
         assertThat(response.getStatus()).isEqualTo(Response.Status.BAD_REQUEST.getStatusCode());
     }
@@ -108,14 +109,44 @@ public class ConsumerApiControllerTests {
     }
 
     @Test
-    public void getStatus_WhenSuccess_ReturnsStatus() {
+    public void getStatus_WhenCompleted_ReturnsSASToken() {
         // Arrange
-        when(service.getStatus(parameters.getRequestId())).thenReturn(Optional.of(status));
+        var sasToken = faker.lorem().word();
+        when(service.getStatus(parameters.getRequestId())).thenReturn(Optional.of(
+                StatusResponse.builder().sasToken(sasToken).build()));
         // Act
         var response = controller.getStatus(parameters);
         // Assert
-        assertThat(response.getEntity()).isEqualTo(status.name());
+        assertThat(response.getEntity()).isEqualTo(sasToken);
         assertThat(response.getStatus()).isEqualTo(Response.Status.OK.getStatusCode());
+    }
+
+    @Test
+    public void getStatus_WhenSuccess_ReturnsStatus() {
+        // Arrange
+        when(service.getStatus(parameters.getRequestId())).thenReturn(Optional.of(
+                StatusResponse.builder().status(jobStatus).build()));
+        // Act
+        var response = controller.getStatus(parameters);
+        // Assert
+        assertThat(response.getEntity()).isEqualTo(jobStatus.name());
+        assertThat(response.getStatus()).isEqualTo(Response.Status.ACCEPTED.getStatusCode());
+    }
+
+    @ParameterizedTest
+    @EnumSource(
+            value = JobState.class,
+            names = {"COMPLETED"},
+            mode = EnumSource.Mode.EXCLUDE)
+    public void getStatus_WhenNotCompleted_ReturnsStatus(JobState jobStatus) {
+        // Arrange
+        when(service.getStatus(parameters.getRequestId())).thenReturn(Optional.of(
+                StatusResponse.builder().status(jobStatus).build()));
+        // Act
+        var response = controller.getStatus(parameters);
+        // Assert
+        assertThat(response.getEntity()).isEqualTo(jobStatus.toString());
+        assertThat(response.getStatus()).isEqualTo(Response.Status.ACCEPTED.getStatusCode());
     }
 
     @Test

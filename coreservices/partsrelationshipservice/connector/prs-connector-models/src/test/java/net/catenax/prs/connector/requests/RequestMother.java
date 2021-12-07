@@ -15,11 +15,9 @@ class RequestMother {
                 .build();
     }
 
-    static FileRequest generateFileRequest() {
-        return FileRequest.builder()
-                .connectorAddress(faker.internet().url())
-                .destinationPath(faker.file().fileName())
-                .partsTreeRequest(generateApiRequest())
+    static PartsTreeRequest generatePartsTreeRequest() {
+        return PartsTreeRequest.builder()
+                .byObjectIdRequest(generateApiRequest())
                 .build();
     }
 

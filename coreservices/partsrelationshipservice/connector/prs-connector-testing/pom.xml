@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.catenax.prs</groupId>
+        <groupId>net.catenax.prs</groupId>
         <artifactId>prs-connector-parent</artifactId>
         <version>${revision}</version>
         <relativePath>../prs-connector-parent</relativePath>
@@ -37,7 +37,7 @@
         <dependency>
             <groupId>net.javacrumbs.json-unit</groupId>
             <artifactId>json-unit-assertj</artifactId>
-            <version>2.28.0</version>
+            <version>${json-unit-assertj.version}</version>
             <scope>compile</scope>
        </dependency>
     </dependencies>

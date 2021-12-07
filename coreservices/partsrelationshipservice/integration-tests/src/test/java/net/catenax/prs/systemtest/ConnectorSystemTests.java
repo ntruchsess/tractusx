@@ -9,8 +9,6 @@
 //
 package net.catenax.prs.systemtest;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import io.restassured.RestAssured;
 import net.catenax.prs.requests.PartsTreeByObjectIdRequest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -18,14 +16,17 @@ import org.springframework.http.HttpStatus;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
+import java.util.Objects;
 
 import static io.restassured.RestAssured.given;
+import static java.lang.String.format;
 import static net.catenax.prs.systemtest.SystemTestsBase.ASPECT_MATERIAL;
 import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
 import static net.javacrumbs.jsonunit.core.Option.IGNORING_ARRAY_ORDER;
@@ -43,12 +44,10 @@ import static org.awaitility.Awaitility.await;
 @Tag("SystemTests")
 public class ConnectorSystemTests {
 
-    private static final String baseURI = System.getProperty("ConnectorProviderBaseURI", "https://catenaxdev001akssrv.germanywestcentral.cloudapp.azure.com");
-    private static final String namespace = System.getProperty("ConnectorProviderK8sNamespace", "prs-connectors");
-    private static final String pod = System.getProperty("ConnectorProviderK8sPod", "prs-connector-provider-0");
+    private static final String consumerURI = System.getProperty("ConnectorConsumerURI",
+            "https://catenaxdev001akssrv.germanywestcentral.cloudapp.azure.com/prs-connector-consumer");
     private static final String VEHICLE_ONEID = "CAXSWPFTJQEVZNZZ";
     private static final String VEHICLE_OBJECTID = "UVVZI9PKX5D37RFUB";
-    private static final ObjectMapper objectMapper = new ObjectMapper();
 
     @Test
     public void downloadFile() throws Exception {
@@ -56,19 +55,16 @@ public class ConnectorSystemTests {
         // Arrange
         var environment = System.getProperty("environment", "dev");
 
-        // Temporarily hardcode the file path. It will change when adding several providers.
-        var fileWithExpectedOutput = "getPartsTreeByOneIdAndObjectId-dev-bmw-expected.json";
-        var payload = getClass().getResourceAsStream(fileWithExpectedOutput);
+        var fileWithExpectedOutput = format("getPartsTreeByOneIdAndObjectId-%s-expected.json", environment);
+        InputStream resourceAsStream = getClass().getResourceAsStream(fileWithExpectedOutput);
+        Objects.requireNonNull(resourceAsStream);
+        var expectedResult = new String(resourceAsStream.readAllBytes());
 
         // Act
 
         // Send query to Consumer connector, to perform file copy on Provider
-        var destFile = "/tmp/copy/dest/" + UUID.randomUUID();
         Map<String, Object> params = new HashMap<>();
-        params.put("filename", "test-document");
-        params.put("connectorAddress", baseURI + "/prs-connector-provider");
-        params.put("destinationPath", destFile);
-        params.put("partsTreeRequest", PartsTreeByObjectIdRequest.builder()
+        params.put("byObjectIdRequest", PartsTreeByObjectIdRequest.builder()
                 .oneIDManufacturer(VEHICLE_ONEID)
                 .objectIDManufacturer(VEHICLE_OBJECTID)
                 .view("AS_BUILT")
@@ -76,14 +72,15 @@ public class ConnectorSystemTests {
                 .depth(2)
                 .build());
 
-        RestAssured.baseURI = baseURI + "/prs-connector-consumer";
         var requestId =
                 given()
+                        .baseUri(consumerURI)
                         .contentType("application/json")
                         .body(params)
                 .when()
-                        .post("/api/file")
+                        .post("/api/v0.1/retrievePartsTree")
                 .then()
+
                         .assertThat()
                         .statusCode(HttpStatus.OK.value())
                         .extract().asString();
@@ -91,36 +88,49 @@ public class ConnectorSystemTests {
         // An ID is returned, for polling
         assertThat(requestId).isNotBlank();
 
-        // Assert
-
-        // Expect the destination file to appear on the Provider pod
+        // Get sasUrl
         await()
-                .atMost(Duration.ofSeconds(30))
-                .untilAsserted(() -> {
-                    var exec = runOnProviderPod("cat", destFile);
-                    try (InputStream inputStream = exec.getInputStream()) {
-                        String result = new String(inputStream.readAllBytes());
-                        String expectedResult = new String(payload.readAllBytes());
-                        assertThatJson(result)
-                                .when(IGNORING_ARRAY_ORDER)
-                                .isEqualTo(expectedResult);
-                    }
-                    exec.waitFor();
-                });
+                .atMost(Duration.ofSeconds(120))
+                .pollInterval(Duration.ofSeconds(1))
+                .untilAsserted(() -> getSasUrl(requestId));
+
+        // retrieve blob
+        var sasUrl = getSasUrl(requestId);
+
+        // Assert
+        String result = getUrl(sasUrl);
+
+        assertThatJson(result)
+                .when(IGNORING_ARRAY_ORDER)
+                .isEqualTo(expectedResult);
     }
 
-    private Process runOnProviderPod(String... command) throws IOException {
-        var l = new ArrayList<>(Arrays.asList(
-                "kubectl",
-                "exec",
-                "-n",
-                namespace,
-                pod,
-                "--"));
-        l.addAll(Arrays.asList(command));
-        return new ProcessBuilder()
-                .redirectError(ProcessBuilder.Redirect.INHERIT)
-                .command(l)
-                .start();
+    private String getUrl(String sasUrl) throws IOException, InterruptedException {
+        var httpClient = HttpClient.newBuilder()
+                .version(HttpClient.Version.HTTP_1_1)
+                .build();
+
+        var request = HttpRequest.newBuilder()
+                .GET()
+                .uri(URI.create(sasUrl))
+                .build();
+
+        var response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+        assertThat(response.statusCode()).isEqualTo(200);
+
+        return response.body();
+    }
+
+    private String getSasUrl(String requestId) {
+        return
+                given()
+                        .baseUri(consumerURI)
+                        .pathParam("requestId", requestId)
+                .when()
+                        .get("/api/v0.1/datarequest/{requestId}/state")
+                .then()
+                        .assertThat()
+                        .statusCode(HttpStatus.OK.value())
+                        .extract().asString();
     }
 }
