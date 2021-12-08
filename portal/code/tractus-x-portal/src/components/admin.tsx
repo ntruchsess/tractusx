@@ -14,40 +14,30 @@
 
 import * as React from 'react';
 import { observer } from 'mobx-react';
-import { Link } from 'react-router-dom';
-
+import { AdminState } from '../stores/adminstate';
+import AdminCard from './adminCard';
+import { RouteComponentProps, withRouter } from 'react-router';
 @observer
-export default class Admin extends React.Component {
+class Admin extends React.Component<RouteComponentProps> {
+
 
     public render() {
         return (
             <div className='m16 bgpanel bgpanel br4 p24'>
-                <div className='border-gradient border-gradient-green'>
-                    <h1 className="fs24 bold mb20 ml20">Administration</h1>
-                </div>
-                <div className='df fwrap'>
-
-                    <Link className="m5 p20 bgpanel flex20 br4 bsdatacatalog tdn h40pc" to={{
-                        pathname: ``
-                    }}>
-                        <h1 className='fs16 fg191 bold mb20 mt50pc minh40'>Company Data Management</h1>
-                        <div className='fglgreen bold fs14'>Draft</div>
-                    </Link>
-                    <Link className="m5 p20 bgpanel flex20 br4 bsdatacatalog tdn h40pc" to={{
-                        pathname: ``
-                    }}>
-                        <h1 className='fs16 fg191 bold mb20 mt50pc minh40'>User Management</h1>
-                        <div className='fglgreen bold fs14'>Draft</div>
-
-                    </Link>
-                    <Link className="m5 p20 bgpanel flex20 br4 bsdatacatalog tdn h40pc" to={{
-                        pathname: ``
-                    }}>
-                        <h1 className='fs16 fg191 bold mb20 mt50pc minh40'>Business Partner Management</h1>
-                        <div className='fglgreen bold fs14'>Draft</div>
-                    </Link>
-                </div>
+                {console.log(AdminState.state)}
+                {AdminState.state.categories.map((c, index) => (
+                    <div key={index}>
+                        <div className='border-gradient border-gradient-green'>
+                            <h1 className="fs24 bold mb20 ml20">{c.text}</h1>
+                        </div>
+                        <div className='df fwrap'>
+                            {c.apps.map((a, index) => <AdminCard key={index} app={a} />)}
+                        </div>
+                    </div>
+                ))}
             </div>
         )
     }
 }
+
+export default withRouter(Admin);
