@@ -89,17 +89,9 @@ const navLinkGroups2: INavLinkGroup[] = [
   {
     links: [
       {
-        name: 'Administration',
-        url: '/home/admin',
-        key: 'key4',
-        expandAriaLabel: 'Expand section',
-        collapseAriaLabel: 'Collapse section',
-        title: ''
-      },
-      {
         name: 'Notification Center',
         url: '/home/notification',
-        key: 'key5',
+        key: 'key4',
         expandAriaLabel: 'Expand section',
         collapseAriaLabel: 'Collapse section',
         title: ''
@@ -107,7 +99,7 @@ const navLinkGroups2: INavLinkGroup[] = [
       {
         name: 'Organization',
         url: '/home/organization',
-        key: 'key6',
+        key: 'key5',
         expandAriaLabel: 'Expand section',
         collapseAriaLabel: 'Collapse section',
         title: ''
@@ -115,7 +107,7 @@ const navLinkGroups2: INavLinkGroup[] = [
       {
         name: 'Partner Network',
         url: '/home/partners',
-        key: 'key7',
+        key: 'key6',
         expandAriaLabel: 'Expand section',
         collapseAriaLabel: 'Collapse section',
         title: ''
@@ -123,7 +115,7 @@ const navLinkGroups2: INavLinkGroup[] = [
       {
         name: 'User Management',
         url: '/home/usermanagement',
-        key: 'key8',
+        key: 'key7',
         expandAriaLabel: 'Expand section',
         collapseAriaLabel: 'Collapse section',
         title: ''
@@ -223,6 +215,11 @@ class Home extends React.Component<RouteComponentProps> {
               {this.hasLeftTopNavi() && <Nav className='bgwhite' selectedKey={Home.selectedKey1} ariaLabel='Navigation panel' styles={navStyles} groups={groups}
                 onLinkClick={(ev, item) => this.linkClick(ev, item)} />}
               <div className='flex1 bgwhite' />
+              <li className='admin_button'>
+                <a className='' href="/home/admin">
+                  Administration
+                </a>
+              </li>
               <Nav className='bgwhite' selectedKey={Home.selectedKey2} ariaLabel='Navigation panel' styles={navStyles} groups={navLinkGroups2}
                 onLinkClick={(ev, item) => this.linkClick(ev, item)} />
             </div>

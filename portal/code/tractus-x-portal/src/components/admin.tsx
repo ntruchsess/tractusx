@@ -22,30 +22,30 @@ export default class Admin extends React.Component {
     public render() {
         return (
             <div className='m16 bgpanel bgpanel br4 p24'>
-                <h1 className="fs24 bold mb20">Administration</h1>
+                <div className='border-gradient border-gradient-green'>
+                    <h1 className="fs24 bold mb20 ml20">Administration</h1>
+                </div>
                 <div className='df fwrap'>
 
-                    <Link className="m5 p20 bgpanel flex25 br4 bsdatacatalog tdn h40pc" to={{
+                    <Link className="m5 p20 bgpanel flex20 br4 bsdatacatalog tdn h40pc" to={{
                         pathname: ``
                     }}>
                         <h1 className='fs16 fg191 bold mb20 mt50pc minh40'>Company Data Management</h1>
                         <div className='fglgreen bold fs14'>Draft</div>
                     </Link>
-                    <Link className="m5 p20 bgpanel flex25 br4 bsdatacatalog tdn h40pc" to={{
+                    <Link className="m5 p20 bgpanel flex20 br4 bsdatacatalog tdn h40pc" to={{
                         pathname: ``
                     }}>
                         <h1 className='fs16 fg191 bold mb20 mt50pc minh40'>User Management</h1>
                         <div className='fglgreen bold fs14'>Draft</div>
 
                     </Link>
-                    <Link className="m5 p20 bgpanel flex25 br4 bsdatacatalog tdn h40pc" to={{
+                    <Link className="m5 p20 bgpanel flex20 br4 bsdatacatalog tdn h40pc" to={{
                         pathname: ``
                     }}>
                         <h1 className='fs16 fg191 bold mb20 mt50pc minh40'>Business Partner Management</h1>
                         <div className='fglgreen bold fs14'>Draft</div>
                     </Link>
-
-
                 </div>
             </div>
         )
