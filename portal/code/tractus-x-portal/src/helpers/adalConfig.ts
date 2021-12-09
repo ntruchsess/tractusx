@@ -74,24 +74,25 @@ class AdalContext {
       if (user) {
         this.authContext.config.extraQueryParameter = 'login_hint=' + (user.profile.upn || user.userName);
       }
-  
+
       adalGetToken(this.authContext, resource).then((token) => {
         resolve(token);
       }, (error) => {
+        console.log(error)
         if (error) {
           console.log(error);
           if (error.msg === 'login_required' || error.msg === 'interaction_required') {
-            this.authContext.login();
+            window.location.href = getReplyUrl()
           } else {
             // AlertDialog.(error.message);
           }
         }
       });
     });
-  
+
     return promise;
   }
-  
+
   public getToken(): Promise<string | null> {
     return adalGetToken(this.authContext, endpoint);
   }
@@ -113,10 +114,10 @@ class AdalContext {
         reject(error.message);
       })
     });
-  
+
     return promise;
   }
-  
+
   public getFullName(): string {
     let name = '';
     const user = this.authContext.getCachedUser();
