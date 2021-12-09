@@ -4,7 +4,7 @@ on:
   push:
     branches: 
     - main
-    - feature/CAX-9-onboarding
+    - feature/CAX-9-portal
     paths:
       - 'coreservices/provisioning/src/**'
   workflow_dispatch:
