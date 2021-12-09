@@ -4,7 +4,7 @@ on:
   push:
     branches: 
     - main
-    - feature/CAX-9-onboarding
+    - feature/CAX-portal
     paths:
       - 'coreservices/invitation/src/**'
   workflow_dispatch:
@@ -33,8 +33,8 @@ jobs:
               if [[ "${{github.ref}}" == refs/heads/main ]]; then
                 echo "Determined INTEGRATION"
                 echo "::set-output name=workspace::int"
-              elif [[ "${{github.ref}}" = refs/heads/feature/CAX-9-onboarding  || "${{github.ref}}" = refs/heads/feature/CAX-9-onboarding@CICD ]]; then
-                  echo "Determined Environment"
+              elif [[ "${{github.ref}}" = refs/heads/feature/CAX-portal || "${{github.ref}}" = refs/heads/feature/CAX-portal@CPLP-308-CICD ]]; then
+                  echo "Determined dev003"
                   echo "::set-output name=workspace::dev003"
               else 
                   echo "Unsupported Branch on CATENAX. Leaving Workspace empty."
