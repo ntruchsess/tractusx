@@ -55,7 +55,7 @@ on:
       # ART1 Semantics Layer and Digitial Twin Dev Space
       - feature/CATX-A1-SLDT
       # Onboarding Dev Space
-      - feature/CAX-portal@CPLP-308-CICD-2-focus-portal
+      - feature/CAX-portal
       # ADAPT HERE TO ADD NEW WORKSPACES
 
 ###############################################################
@@ -102,8 +102,9 @@ jobs:
             else 
                 echo "Unsupported Branch on CATENAX. Leaving Workspace empty."
             fi
-          elif [[ "${{github.ref}}" = refs/heads/feature/CAX-portal@CPLP-308-CICD-2-focus-portal ]]; then
-            echo "Determined testdev003"
+          elif [[ "${{github.repository}}" == tractusx-team-portal-onboarding/tractusx ]]; then
+            if [[ "${{github.ref}}" = refs/heads/feature/CAX-portal ]]; then
+            echo "Determined dev003"
             echo "::set-output name=workspace::dev003"
           else
             echo "Unsupported Environment/Repository. Leaving Workspace empty."
