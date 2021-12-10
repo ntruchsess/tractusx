@@ -266,10 +266,21 @@ const T = {
   companyName: 'German Edge Cloud', url: 'https://catenax-dt-rec.iam-prw.cfapps.eu10.hana.ondemand.com', background: ''
 }
 
+const U = {
+  id: '0253dd4d-35af-43f5-a84c-7cc280840343',
+  title: 'SAP DCM', rating: 0, downloads: 0, tags: [],
+  screenshots: [],
+  description: 'The SAP Demand & Capacity Management application for Catena-X provides users the ability to increase transparency in their supply chains through a collaborative demand and capacity management.<br /><br />At a core functionality, the app provides a common view on customer\'s planned material demand and supplier\'s capacities. It provides a continuous monitoring of the planned demand and capacity situation and an automatic in-app alerting in case of bottleneck situations.<br /><br />Customers thereby get faster insights and notifications of capacity shortages or delivery problems before they impact their production. Suppliers benefit from the increased demand transparency avoiding over-capacities and capacity shortages by leveraging production flexibilities. Thus, partners can make collaborative decisions with respect to appropriate measures and achieve a more robust and resilient supply chain.',
+  usage: 'free for use',
+  purchase: 'OPEN APP',
+  details: 'SEE DETAILS',
+  companyName: 'SAP', url: '', background: ''
+}
+
 export class AppState {
   public static state: AppState;
   //public apps: Application[] = [F, E, C, A, D, B];
-  public apps: Application[] = [N, O, P, Q, R, S, T];
+  public apps: Application[] = [N, O, P, Q, R, S, T, U];
   public topApps: Application[] = [B, D, C, F, E];
   public bizApps: Application[] = [C, E, F];
   public installedApps: Application[] = [A, B];
