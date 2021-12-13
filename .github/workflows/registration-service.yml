@@ -44,8 +44,7 @@ jobs:
 
 
   publish:
-    if: ${{needs.environment.outputs.workspace}}
-    environment: ${{needs.environment.outputs.workspace}}
+    environment: dev003
     runs-on: ubuntu-latest
     needs: environment
     steps:
@@ -55,7 +54,7 @@ jobs:
           srcFolder: 'coreservices/registration/src/CatenaX.NetworkServices.Registration.Service'
           imageName: 'registrationservice'
           acrName: 'catenaxacr'
-          environment: ${{needs.environment.outputs.workspace}}
+          environment: dev003
           AZURE_REGISTRY_PASSWORD: ${{secrets.AZURE_REGISTRY_PASSWORD}}
           AZURE_REGISTRY_USERNAME: ${{secrets.AZURE_REGISTRY_USERNAME}}
           AZURE_CREDENTIALS: ${{secrets.AZURE_CREDENTIALS}}
