@@ -2,53 +2,41 @@ name: container-scan
 on: push
 
 jobs:
-  repo-scan:
+  security-scan:
     name: repo vunerability scan
     runs-on: ubuntu-18.04
     continue-on-error: true
     steps:
-      - name: Checkout code
+      - name: checkout code
         uses: actions/checkout@v2
 
-      - name: Run Trivy vulnerability scanner in repo mode
-        uses: aquasecurity/trivy-action@master
-        with:
-          scan-type: 'fs'
-          ignore-unfixed: true
-          format: 'template'
-          template: '@/contrib/sarif.tpl'
-          output: 'trivy-results.sarif'
-          severity: 'CRITICAL'
-          exit-code: '1'
+      - name: run trivy vulnerability scanner in repo mode
+        run: |
+          docker pull aquasec/trivy
+          docker run --volume $(pwd):/data aquasec/trivy --debug fs --format template --template '@/contrib/sarif.tpl' --output /data/trivy-results.sarif --severity 'CRITICAL,HIGH' --exit-code 1 /data
 
-      - name: Upload Trivy scan results to GitHub Security tab
+      - name: upload trivy scan results to github security tab
         uses: github/codeql-action/upload-sarif@v1
         if: always()
         with:
           sarif_file: 'trivy-results.sarif'
 
-  iac-scan:
+  config-scan:
+    runs-on: ubuntu-latest
     name: iac configuration scan
-    runs-on: ubuntu-18.04
     continue-on-error: true
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Run Trivy vulnerability scanner in IaC mode
-        uses: aquasecurity/trivy-action@master
-        with:
-          scan-type: 'config'
-          hide-progress: false
-          format: 'json'
-          output: 'iac-results.json'
-          ignore-unfixed: true
-          severity: 'CRITICAL'
-          exit-code: '1'
-
-      - name: Upload iac scan results to artifacts
+      - name: checkout code
+        uses: actions/checkout@master
+        
+      - name: checkov iac scan
         if: always()
-        uses: actions/upload-artifact@v2
+        run: |
+          pip3 install checkov
+          checkov --directory . -o sarif
+          
+      - name: upload checkov scan results to github security tab
+        uses: github/codeql-action/upload-sarif@v1
+        if: always()
         with:
-          name: iac_configuration_scan
-          path: 'iac-results.json'
+          sarif_file: 'results.sarif'
