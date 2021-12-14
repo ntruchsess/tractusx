@@ -263,7 +263,7 @@ const T = {
   usage: 'free for use',
   purchase: 'OPEN APP',
   details: 'SEE DETAILS',
-  companyName: 'German Edge Cloud', url: 'https://catenax-dt-rec.iam-prw.cfapps.eu10.hana.ondemand.com', background: ''
+  companyName: 'German Edge Cloud', url: '', background: ''
 }
 
 const U = {

@@ -80,7 +80,7 @@ class Header extends React.Component<IProp> {
         <div className='flex1' />
         <div className='flex1' />
         <div className='bgblue fgwhite aic jcc df fs16 br50pc h40 w40 mr10' onClick={() => this.userClick()}>{this.initials}</div>
-        <div>
+        <div className='mr20'>
           <button onClick={changeLanguage("en")}>EN</button>
           <button onClick={changeLanguage("de")}>DE</button>
         </div>

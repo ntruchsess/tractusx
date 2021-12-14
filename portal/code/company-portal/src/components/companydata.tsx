@@ -40,7 +40,7 @@ export default class Companydata extends React.Component {
 
       if (details.length > 1) {
         // let companies = details.map(x => { return { key: x.cdqId, text: (x.businessPartner.names?.find(y => y.type?.technicalKey === CompanyTechnicalKey.International)?.value) || x.businessPartner.names[0].value } })
-        let companies = details.map(x => { return { key: x.cdqId, text: x.businessPartner.names[0].value } });
+        let companies = details.map(x => { return { key: x.cdqId, text: `${x.businessPartner.names[0].value}, Street ${x.businessPartner?.[0]?.businessPartner.addresses[0].thoroughfares?.find(x => x.type?.technicalKey === 'STREET')?.value} ,City ${x.businessPartner?.[0]?.businessPartner.addresses[0]?.postCodes.find(x => x.type?.technicalKey === 'CITY')?.value}` } });
         Object.assign(dropdownOptions, companies);
       } else {
         try {
@@ -81,21 +81,16 @@ export default class Companydata extends React.Component {
     const registeredName = toJS(this.companyDetailsById?.[0]?.businessPartner.names.find(x => x.type.technicalKey === 'REGISTERED')?.value) || '';
     const localName = toJS(this.companyDetailsById?.[0]?.businessPartner.names.find(x => x.type.technicalKey === 'LOCAL')?.value) || '';
     const internationalName = toJS(this.companyDetailsById?.[0]?.businessPartner.names.find(x => x.type.technicalKey === 'INTERNATIONAL')?.value) || '';
-    const transliteralName = toJS(this.companyDetailsById?.[0]?.businessPartner.names.find(x => x.type.technicalKey === 'TRANSLITERATED')?.value) || '';
-    const dbaName = toJS(this.companyDetailsById?.[0]?.businessPartner.names.find(x => x.type.technicalKey === 'DOING_BUSINESS_AS')?.value) || '';
     const vatRegisteredName = toJS(this.companyDetailsById?.[0]?.businessPartner.names.find(x => x.type.technicalKey === 'VAT_REGISTERED')?.value) || '';
-    // const externalBusiness = toJS(this.companyDetailsById?.[0]?.businessPartner.identifiers.pop());
-    // const externalBusinessIdentifier = externalBusiness?.value || '';
-    // const externalBusinessIdentifierType = externalBusiness?.type.technicalKey || '';
-    // const identificationNumber = externalBusiness?.value || '';
-    // const stateActivity = toJS(this.companyDetailsById?.businessPartner.identifiers.st) || ''
+    const externalBusiness = toJS(this.companyDetailsById?.[0]?.businessPartner.identifiers[this.companyDetailsById?.[0]?.businessPartner.identifiers.length - 1]);
+    const externalBusinessIdentifier = externalBusiness?.value || '';
+    const externalBusinessIdentifierType = externalBusiness?.type.technicalKey || '';
+    const identificationNumber = externalBusiness?.value || '';
     const street1 = toJS(this.companyDetailsById?.[0]?.businessPartner.addresses[0].thoroughfares?.find(x => x.type?.technicalKey === 'STREET')?.value) || '';
     const street2 = toJS(this.companyDetailsById?.[0]?.businessPartner.addresses[0].thoroughfares?.find(x => x.type?.technicalKey === 'STREET')?.value) || '';
     const street3 = toJS(this.companyDetailsById?.[0]?.businessPartner.addresses[0].thoroughfares?.find(x => x.type?.technicalKey === 'SQUARE')?.value) || '';
     const additionalInformation = 'N/A';
-    const country = toJS(this.companyDetailsById?.[0]?.businessPartner.addresses[0]?.country.shortName) || '';
-    const region = toJS(this.companyDetailsById?.[0]?.businessPartner.addresses[0]?.administrativeAreas?.find(x => x.value === 'REGION')?.shortName) || '';
-    const county = toJS(this.companyDetailsById?.[0]?.businessPartner.addresses[0]?.administrativeAreas?.find(x => x.value === 'COUNTY')?.value) || '';
+    const country = `${toJS(this.companyDetailsById?.[0]?.businessPartner.addresses[0]?.country.shortName)} / ${toJS(this.companyDetailsById?.[0]?.businessPartner.addresses[0]?.country.value)}` || '';
     const postal = toJS(this.companyDetailsById?.[0]?.businessPartner.addresses[0]?.postCodes.find(x => x.type?.technicalKey === 'REGULAR')?.value) || '';
     const city = toJS(this.companyDetailsById?.[0]?.businessPartner.addresses[0]?.postCodes.find(x => x.type?.technicalKey === 'CITY')?.value) || '';
     const district = toJS(this.companyDetailsById?.[0]?.businessPartner.addresses[0]?.postCodes.find(x => x.type?.technicalKey === 'DISTRICT')?.value) || '';
@@ -122,7 +117,7 @@ export default class Companydata extends React.Component {
                   onSearch={(value) => this.fillFormData(value)}
                 />
               </div>
-              {(this.companyDetails) ?
+              {(this.companyDetails && this.companyDetails.length > 1) ?
                 <Dropdown options={dropdownOptions} className='w50pc brnone br4 pr10 h36' onChange={(e, item) => this.onChange(e, item)} /> : ''}
             </div>
             <div className='ml30 pb20 p24'>
@@ -140,8 +135,6 @@ export default class Companydata extends React.Component {
                 <TextField label='international name' value={internationalName} className='w50pc brnone br4 pr10 h36' />
               </div>
               <div className='fb pb6 df mt10'>
-                <TextField label='transliterated Name' className='w50pc pr10 brnone br4 h36' value={transliteralName} />
-                <TextField label='DBA name' className='w50pc brnone br4 pr10 h36' value={dbaName} />
                 <TextField label='VAT registered name' className='w50pc brnone br4  h36' value={vatRegisteredName} />
               </div>
             </div>
@@ -149,12 +142,12 @@ export default class Companydata extends React.Component {
             <div className='ml30 pb8 mt10 p24'>
               <div className='bold fs14 pb8'>Organization identifiers</div>
               <div className='fb pb6 df'>
-                <TextField className='w50pc pr10' label='External Business Partner Identifier' value='' />
+                <TextField className='w50pc pr10' label='External Business Partner Identifier' value={externalBusinessIdentifier} />
                 <TextField className='w50pc pr10' label='issuer' value="N/A" />
               </div>
               <div className='fb pb6 df mt10'>
-                <TextField label='Type of Business Partner Identifier' className='w50pc pr10 brnone br4 h36' value='' />
-                <TextField label='Identification number' className='w50pc brnone br4 pr10 h36' value='' />
+                <TextField label='Type of Business Partner Identifier' className='w50pc pr10 brnone br4 h36' value={externalBusinessIdentifierType} />
+                <TextField label='Identification number' className='w50pc brnone br4 pr10 h36' value={identificationNumber} />
               </div>
             </div>
 
@@ -184,32 +177,6 @@ export default class Companydata extends React.Component {
               <div className='fb pb6 df mt10'>
                 <TextField className='w50pc pr10' label='Postal Code' value={postal} />
                 <TextField label='City' className='w50pc pr10 brnone br4 h36' value={city} />
-              </div>
-            </div>
-
-            <div className='ml30 pb8 mt10 p24'>
-              <div className='bold fs14 pb8'>Contact</div>
-              <div className='fb pb6 df'>
-                <TextField className='w50pc pr10' label='Email address' defaultValue='' />
-                <TextField className='w50pc pr10' label='Website' defaultValue='' />
-                <TextField className='w50pc pr10' label='Country prefix' defaultValue='' />
-              </div>
-              <div className='fb pb6 df'>
-                <TextField className='w50pc pr10' label='Phone number' defaultValue='' />
-                <TextField className='w50pc pr10' label='Mobile Phone' defaultValue='' />
-                <TextField className='w50pc pr10' label='Fax' defaultValue='' />
-              </div>
-            </div>
-
-            <div className='ml30 pb8 mt10 p24'>
-              <div className='bold fs14 pb8'>Account</div>
-              <div className='fb pb6 df'>
-                <TextField className='w50pc pr10' label='IBAN' defaultValue='' />
-                <TextField className='w50pc pr10' label='Currency' defaultValue='' />
-              </div>
-              <div className='fb pb6 df'>
-                <TextField className='w50pc pr10' label='BIC' defaultValue='' />
-                <TextField className='w50pc pr10' label='Country of bank' defaultValue='' />
               </div>
             </div>
 
