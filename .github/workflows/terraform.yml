@@ -176,7 +176,7 @@ jobs:
       run: | 
           az config set extension.use_dynamic_install=yes_without_prompt
           az account subscription list # temp, remove
-          terraform init -backend-config="access_key=${{secrets.TEST_STORAGE_KEY}}" -input=false
+          terraform init -backend-config="access_key=${{secrets.TFSTATE_STORAGEACCOUNT_KEY}}" -input=false
           echo "::set-output name=WORKSPACE::$(terraform workspace list | grep "${{needs.environment.outputs.workspace}}")"
 
     # Create Workspace 
