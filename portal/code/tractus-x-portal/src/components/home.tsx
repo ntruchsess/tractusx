@@ -38,6 +38,8 @@ import Aspect from './aspect';
 import DigitalTwins from './digitaltwins/DigitalTwins';
 import { DigitalTwinDetail } from './digitaltwins/DigitalTwinDetail';
 import Admin from './admin';
+import Help from './help';
+
 const navStyles: Partial<INavStyles> = {
   root: {
     width: 250,
@@ -246,6 +248,7 @@ class Home extends React.Component<RouteComponentProps> {
               <Route path='/home/notification' component={(props) => <NotificationCenter {...props} />} />
               <Route path='/home/notimp' component={(props) => <NotImp {...props} />} />
               <Route path='/home/admin' component={(props) => <Admin {...props} />} />
+              <Route path='/home/help' component={(props) => <Help {...props} />} />
             </Switch>
           </div>
         </div>
