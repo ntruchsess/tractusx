@@ -75,6 +75,10 @@ class Header extends React.Component<IProp> {
   private userClick() {
     const token = adalContext.getCachedToken();
     console.log(token);
+  }
+  private logoutClick() {
+    const token = adalContext.getCachedToken();
+    console.log(token);
     adalContext.logOut();
   }
 
@@ -108,12 +112,15 @@ class Header extends React.Component<IProp> {
         {/* { this.isAdmin &&  <div className='cpointer' onClick={() => this.onBoardingClick()}>Invite Business Partner</div> } */}
         <div className='flex1' />
         <div className='bgblue fgwhite aic jcc df fs16 br50pc h40 w40 mr10' onClick={() => this.userClick()}>{this.initials}</div>
-        <div className='df fdc mr50'>
+        <div className='df fdc mr10'>
           <span className='fs14'>{this.username}</span>
           <div className='df'>
             <span className='fs14'>{adalContext.getDomain(adalContext.getUsername())}</span>
             {this.isAdmin && <span className='ml5 fs14'>(Admin)</span>}
           </div>
+        </div>
+        <div className='df mr50 fg cpointer'>
+          <span onClick={() => this.logoutClick()}>Logout</span>
         </div>
       </div>
     );
