@@ -61,10 +61,13 @@ class Header extends React.Component<IProp> {
     //const token = adalContext.getCachedToken();
     const token = UserService.getToken();
     console.log(token);
-    UserService.doLogout();
   }
 
-
+  private logoutClick() {
+    const token = UserService.getCachedToken();
+    console.log(token);
+    UserService.logOut();
+  }
 
   public render() {
 
@@ -90,6 +93,9 @@ class Header extends React.Component<IProp> {
             <span className='fs14'>{UserService.getDomain()}</span>
             <span className='ml5 fs14'>({this.userRoles.join(", ")})</span>
           </div>
+        </div>
+        <div className='df mr50 fg cpointer'>
+          <span onClick={() => this.logoutClick()}>Logout</span>
         </div>
       </div>
     );
