@@ -66,7 +66,7 @@ runs:
           cluster-name: catenax-${{ inputs.environment }}-aks-services
         
       - run: |
-          kubectl create namespace coreservices --dry-run -o json | kubectl apply -f -
+          kubectl create namespace coreservices --dry-run none -o json | kubectl apply -f -
         shell: bash
         
       - name: Create imagepullsecret for Azure Container registry (ACR)
