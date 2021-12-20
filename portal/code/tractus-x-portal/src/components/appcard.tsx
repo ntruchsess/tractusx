@@ -55,15 +55,15 @@ class AppCard extends React.Component<IProp> {
     }
   }
 
-  onClickTitle(){
-    if(this.props.app.url){
+  onClickTitle() {
+    if (this.props.app.url) {
       if (this.props.app.url.substr(0, 1) !== '/') {
         window.open(this.props.app.url, '_blank');
       } else {
         this.props.history.push(this.props.app.url);
       }
-       return false;
-     }
+      return false;
+    }
   }
 
   public render() {
@@ -75,12 +75,12 @@ class AppCard extends React.Component<IProp> {
           <div className='df fdc h120'>
             {text === 'OPEN' && <IconButton className='ml150 mt10 ml15' iconProps={{ iconName: 'infoSolid', className: 'fs20' }} title='Show app description'
               onClick={(ev: any) => this.cardClick(ev, true)} />}
-           { (this.props.app.background) && <div className={this.props.app.background}></div> }
-            <div className='flex1'/>
+            {(this.props.app.background) && <div className={this.props.app.background}></div>}
+            <div className='flex1' />
             {!this.props.hideRating && <Ratings className='ml15 mt50' app={a} />}
           </div>
           <div className='ml15 fs14 fggrey mb5'>{a.companyName}</div>
-          <div className='ml15 bold fs14 minh40' onClick={()=>this.onClickTitle()}>{a.title}</div>
+          <div className='ml15 bold fs14 minh40' onClick={() => this.onClickTitle()}>{a.title}</div>
           <div className='h50 mt20 tal ml15'>
             <div className='fglgreen bold fs14'>{text}</div>
             {!this.props.hideUsage && <div className='fsxs fgb5'>{a.usage}</div>}
@@ -90,7 +90,7 @@ class AppCard extends React.Component<IProp> {
     } else {
       return (
         <div className='w340 minh160 maxh160 m5 br4 bsAppStore bgwhite cpointer hov' onClick={(ev) => this.cardClick(ev, true)}>
-          <Ratings className='mt20 ml15 mb5' app={a} />
+          {!this.props.hideRating && <Ratings className='mt20 ml15 mb5' app={a} />}
           <div className='ml15 fs14 fggrey mb5 mt20'>{a.companyName}</div>
           <div className='df'>
             <div className='ml15 bold fs14 minh40'>{a.title}</div>

@@ -277,10 +277,21 @@ const U = {
   companyName: 'SAP', url: '', background: ''
 }
 
+const V = {
+  id: '0253dd4d-35af-43f5-a84c-7cc280840344',
+  title: 'SupplyOn', rating: null, downloads: null, tags: [],
+  screenshots: [],
+  description: 'SupplyOn offers SaaS solutions in the area of Supplier Management, Source-to-APQP, Procure-to-pay, Supply Chain Collaboration, Production-to-supply, Transport & Empties Management as well as Supplier Quality Management<br /><br />All are integrated into the SupplyOn portal with ten thousands of registered suppliers.',
+  usage: '',
+  purchase: 'OPEN APP',
+  details: 'SEE DETAILS',
+  companyName: 'SupplyOn', url: '', background: ''
+}
+
 export class AppState {
   public static state: AppState;
   //public apps: Application[] = [F, E, C, A, D, B];
-  public apps: Application[] = [N, O, P, Q, R, S, T, U];
+  public apps: Application[] = [N, O, P, Q, R, S, T, U, V];
   public topApps: Application[] = [B, D, C, F, E];
   public bizApps: Application[] = [C, E, F];
   public installedApps: Application[] = [A, B];
