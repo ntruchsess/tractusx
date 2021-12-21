@@ -298,6 +298,7 @@ export class AppState {
   public sapapps: Application[] = [D];
   public connectedApps: Application[] = [B, D, M];
   public addOns: Application[] = [G, H, I, J, K, L, M];
+  public appsNetwork: Application[] = [N];
   @observable public isAdmin: boolean;
   public email = '';
   public readonly categories: any[] = [
@@ -305,7 +306,7 @@ export class AppState {
     { text: 'Business Apps', apps: this.bizApps },
     { text: 'Add-Ons for Connectors', apps: this.addOns }];
   public readonly categoriesnew: any[] = [
-    { text: 'Recommendation', apps: this.apps }];
+    { text: 'Recommendation', apps: this.apps }, { text: 'Networks', apps: this.appsNetwork }];
   public readonly dashboardCategories: any[] = [{ text: 'Installed apps', apps: this.installedApps }];
   // { text: 'All apps', apps: this.apps }];
 

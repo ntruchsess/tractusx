@@ -90,7 +90,7 @@ class AppCard extends React.Component<IProp> {
     } else {
       return (
         <div className='w340 minh160 maxh160 m5 br4 bsAppStore bgwhite cpointer hov' onClick={(ev) => this.cardClick(ev, true)}>
-          {!this.props.hideRating && <Ratings className='mt20 ml15 mb5' app={a} />}
+          <Ratings className='mt20 ml15 mb5' app={a} />
           <div className='ml15 fs14 fggrey mb5 mt20'>{a.companyName}</div>
           <div className='df'>
             <div className='ml15 bold fs14 minh40'>{a.title}</div>
