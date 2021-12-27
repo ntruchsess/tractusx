@@ -285,20 +285,20 @@ const V = {
   usage: '',
   purchase: 'OPEN APP',
   details: 'SEE DETAILS',
-  companyName: 'SupplyOn', url: '', background: ''
+  companyName: 'SupplyOn', url: '', background: null
 }
 
 export class AppState {
   public static state: AppState;
   //public apps: Application[] = [F, E, C, A, D, B];
-  public apps: Application[] = [N, O, P, Q, R, S, T, U, V];
+  public apps: Application[] = [N, O, P, Q, R, S, T, U];
   public topApps: Application[] = [B, D, C, F, E];
   public bizApps: Application[] = [C, E, F];
   public installedApps: Application[] = [A, B];
   public sapapps: Application[] = [D];
   public connectedApps: Application[] = [B, D, M];
   public addOns: Application[] = [G, H, I, J, K, L, M];
-  public appsNetwork: Application[] = [N];
+  public appsNetwork: Application[] = [V];
   @observable public isAdmin: boolean;
   public email = '';
   public readonly categories: any[] = [
