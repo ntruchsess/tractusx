@@ -13,8 +13,6 @@
 // limitations under the License.
 
 import ReactDOM from 'react-dom';
-import './styles/reset.css';
-import './styles/index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 //import { runWithAdal } from 'react-adal';
@@ -26,13 +24,13 @@ import { BrowserRouter } from 'react-router-dom';
 
 //runWithAdal(
 //  adalContext.AuthContext,
-UserService.initKeycloak(
-    () => {
-        const rootDiv = document.getElementById('root') as HTMLElement;
-        ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, rootDiv);
-    }
-    //,DO_NOT_LOGIN
-);
+// UserService.initKeycloak(
+//     () => {
+const rootDiv = document.getElementById('root') as HTMLElement;
+ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, rootDiv);
+//     }
+//     //,DO_NOT_LOGIN
+// );
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
