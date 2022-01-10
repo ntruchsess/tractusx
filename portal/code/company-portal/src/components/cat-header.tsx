@@ -13,14 +13,55 @@
 // limitations under the License.
 
 import * as React from 'react';
+import i18n from '../i18n';
 import { observer } from 'mobx-react';
+import { observable } from 'mobx';
 import { Row, Col } from 'react-bootstrap';
+import UserService from '../helpers/UserService';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
+
+interface IProp extends RouteComponentProps {
+    href: string;
+    hidePivot?: boolean;
+    appTitle?: string;
+}
 
 @observer
-export default class Header extends React.Component {
+class Header extends React.Component<IProp> {
+    @observable username = '';
+    @observable initials = '';
+    @observable userRoles = [];
+    @observable language = i18n.language;
+
+    public async componentDidMount() {
+        this.username = UserService.getUsername();
+        this.initials = UserService.getInitials();
+    }
+
+    private userClick() {
+        //const token = adalContext.getCachedToken();
+        const token = UserService.getToken();
+        console.log(token);
+    }
+
+    private logoutClick() {
+        const token = UserService.getCachedToken();
+        console.log(token);
+        UserService.logOut();
+    }
+
+
+
     public render() {
+
+        const changeLanguage = lng => {
+            this.language = lng;
+            i18n.changeLanguage(lng);
+        };
+
         return (
-            <Row className='header-container'>
+
+            <Row className='header-container' >
                 <Col>
                     <div className='logo'>
                         <img src='/logo_cx.svg' alt='logo' />
@@ -28,15 +69,26 @@ export default class Header extends React.Component {
                 </Col>
                 <Col>
                     <div className='d-flex flex-row-reverse profile'>
-                        <div className='profile-lang'><a href='/profile'>EN</a></div>
-                        <div className='profile-lang lang-sel'><a href='/help'>DE</a></div>
+                        <div className='profile-lang'><span className={this.language === 'en' ? 'lang-sel' : ''} onClick={() => changeLanguage('en')} > EN </span></div>
+                        <div className='profile-lang'><span className={this.language === 'de' ? 'lang-sel' : ''} onClick={() => changeLanguage('de')} > DE</span></div>
                         <div className='profile-link partion'></div>
-                        <div className='profile-link user'><span className='user-icon'></span>
+                        <div className='profile-link user'>
+                            <input id="myid" type="checkbox" />
+                            <label htmlFor="myid" className='user-icon'></label>
+                            <span className="tooltiptext"> <div> {this.username}</div>
+                                < div > {UserService.getDomain()}</div>
+                                <div>({this.userRoles.join(", ")})</div>
+                                <div className='logout' onClick={() => this.logoutClick()}>Logout</div>
+                            </span>
                         </div>
+                        {/* <div className='profile-link user'><span className='user-icon'></span>
+                            <span className="tooltiptext">Tooltip text</span>
+                        </div> */}
                         <div className='profile-link'><a href='/help'>Help</a></div>
                     </div>
-                </Col>
-            </Row>
+                </Col >
+            </Row >
         );
     }
 }
+export default withRouter(Header);

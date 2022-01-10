@@ -10,8 +10,15 @@
     font-weight: 500
     }
 
+    
     @font-face {
-        font-family: "LibreFranklin-heading";
+        font-family: "Libre Franklin 400";
+    src: url("./fonts/LibreFranklin-VariableFont_wght.ttf");
+    font-weight: 400
+    }
+
+    @font-face {
+        font-family: "Libre Franklin 600";
     src: url("./fonts/LibreFranklin-VariableFont_wght.ttf");
     font-weight: 600
     }
@@ -38,19 +45,25 @@
 
   h1, h2, h3, h4, h5, h6{
     font-weight: 600;
-    font-family: "LibreFranklin-heading";
+    font-family: "Libre Franklin 600";
   }
 
   .profile-link{
     margin-right: 20px;
+    cursor: pointer;
   }
 
   .profile-lang{
     margin-right: 10px;
+   color: #0F71CB;
+   cursor: pointer;
+   
+   ;
   }
 
   .profile-link a, .profile-lang a {
     text-decoration: none;
+    cursor: pointer;
   }
 
   .partion{
@@ -66,6 +79,7 @@
     background-color: #EDF0F4;
     border: 1px solid #EDF0F4;
     box-shadow: 0px 35px 35px 10px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
   }
 
  .container-body{
@@ -118,16 +132,7 @@
     margin-right: 10px;
  }
 
- .user-icon{
-    background-color: #0F71CB;
-    background-position: center;
-    border-radius: 50%;
-    background-repeat: no-repeat;
-    background-image: url(/src/vector.png);
-    display: block;
-    height: 30px;
-    width: 30px;
- }
+ 
 
  .nav-link {
     color: #000000 !important;
@@ -136,7 +141,7 @@
     font-weight: 300;
 }
 
-.lang-sel a{
+.lang-sel {
     color:#000000;
    border-bottom: 2px solid #000000;
    
@@ -170,12 +175,152 @@
 
  .step-highlight{
     font-size: 24px;
-    font-family: 'font-LibreFranklin-heading';
-    font-weight: 600;
+    font-family: "Libre Franklin 600";
     height:50px;
     width:50px;
     border-radius: 50%; 
     background-color: #0F71CB;
     color:#ffffff;
     margin-bottom: 15px;
+}
+
+input, select{
+    background: #F7F7F7;
+    border-radius: 6px 6px 0px 0px;
+    height:40px;
+    outline: 0;
+    border-width: 0 0 1px;
+    border-color: #8E8E8E;
+    margin: 0 10px;
+    width:100%;
+    color:#8D8D8D;
+    font-size: 16px;
+}
+
+.head-section{
+    margin-bottom:60px;
+}
+
+.companydata-form label{
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-family: "LibreFranklin-bold";
+}
+
+
+
+.section-divider {
+    display: flex;
+    flex-direction: row;
+    font-size: 14px;
+    font-family: "LibreFranklin-bold";
+}
+  
+.section-divider:before,
+.section-divider:after {
+    content: "";
+    flex: 1 1;
+    border-bottom: 2px solid #DADADA;
+    margin: auto;
+}
+  
+.section-divider span {
+    height: 25px;
+    width: 210px;
+    margin: 60px 0;
+}
+
+.company-hint{
+    color: #717171;
+    font-size: 12px;
+    font-family: 'Libre Franklin 400';
+    padding-top: 10px;
+}
+
+.form-data{
+    margin-bottom: 30px;
+}
+
+.form-heading{
+   font-size: 18px;
+   font-family: 'Libre Franklin 600';
+   padding: 30px 0;
+}
+
+.calender{
+  position: relative;
+}
+.date-picker input{
+  padding-right: 30px;
+}
+
+.calender-icon{ 
+  position: absolute;
+  right: 24px;
+  top: 42px;
+  color: #939393;
+}
+
+.user-icon{
+  background-color: #0F71CB;
+  background-position: center;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-image: url(/src/vector.png);
+  display: block;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
+ .user {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+} 
+
+.tooltiptext {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  background: #303030;
+  border-radius: 4px;
+  color: #fff;
+  margin: 7px 0 0px -88px;
+  font-size: 14px;
+  padding: 13px;
+  width: 220px;
+  position: absolute;
+  display: none;
+  font-family: 'LibreFranklin-bold';
+}
+
+
+.tooltiptext:before{
+  border: solid;
+  border-color: #303030 transparent;
+  border-width: 0 5px 8px 5px;
+  content: "";
+  left: 45%;
+  top: -8px;
+  position: absolute;
+}
+
+
+.user label {
+  display: inline-block;
+}
+
+.user input {
+  display: none;
+}
+
+.user input:checked ~ .tooltiptext {
+  display: block;
+}
+
+.logout{
+text-decoration: underline;
+cursor: pointer;
 }

@@ -1,6 +1,9 @@
 {
     "translation": {
         "greetMessage": "Welcome to Catena-X",
-        "subHeading": "Please finish the company onboarding by finishing the following tasks to actively participate and use all functions in the Catena-X Automotive Network Portal. Most of the tasks can be done in parallel."
+        "subHeading": "Please finish the company onboarding by finishing the following tasks to actively participate and use all functions in the Catena-X Automotive Network Portal. Most of the tasks can be done in parallel.",
+        "registration": "Registration",
+        "regiStep": "Register to Catena-X by entering all information requested in the following 5 Steps",
+        "regiSubHeading": "Please finish the company onboarding by finishing the following tasks to actively participate and use all functions in the Catena-X Automotive Network Portal. Most of the tasks can be done in parallel."
     }
 }

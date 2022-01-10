@@ -15,6 +15,7 @@
     "moment": "^2.29.1",
     "react": "^16.13.1",
     "react-bootstrap": "^2.0.4",
+    "react-datepicker": "^4.5.0",
     "react-dom": "^16.14.0",
     "react-drag-drop-files": "^2.1.14",
     "react-i18next": "^11.14.3",
@@ -22,6 +23,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-toastify": "^8.0.3",
+    "react-tooltip": "^4.2.21",
     "vis": "^4.21.0-EOL",
     "web-vitals": "^1.1.2"
   },

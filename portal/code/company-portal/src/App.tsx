@@ -49,7 +49,7 @@ export default class App extends React.Component {
     return (
       <Router history={history}>
         <Switch>
-          <Redirect path='/' exact to='/landing' />
+          <Redirect path='/' exact to='/home' />
           <Route path='/landing' render={(props) => <Landing {...props} />} />
           <Route path='/registration' render={(props) => <RegistrationCax {...props} />} />
           <Route path='/home' render={(props) => <ProtectedHome />} />

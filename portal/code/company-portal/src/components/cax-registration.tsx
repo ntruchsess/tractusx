@@ -14,25 +14,28 @@
 
 import * as React from 'react';
 import { observer } from 'mobx-react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
-import { BsCheckCircle } from 'react-icons/bs';
-import Header from './cat-header';
+import { Container, Row, Col } from 'react-bootstrap';
 import Footer from './footer';
-
+import Header from './cat-header'
+import { AiOutlineQuestionCircle, AiOutlineCalendar } from 'react-icons/ai'
+import ReactTooltip from 'react-tooltip';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { withTranslation, WithTranslation } from 'react-i18next';
 
 @observer
-export default class RegistrationCax extends React.Component {
+class RegistrationCax extends React.Component<WithTranslation> {
     public render() {
 
         return (
             <Container>
-                <Header />
+                <Header href={window.location.href} />
                 <Row>
                     <Col>
                         <div className="mx-auto col-9">
-                            <h4>Registration</h4>
-                            <div>Register to Catena-X by entering all information requested in the following 5 Steps.</div>
-                            <div>In case you want to leave the registration and join back later, please use the logout function on the top right user icon.</div>
+                            <h4>{this.props.t('registration')}</h4>
+                            <div>{this.props.t('regiStep')}.</div>
+                            <div>{this.props.t('regiSubHeading')}</div>
                         </div>
                         <div className="mx-auto col-11 reg-steps">
                             <Row className="stepper-wrapper row-cols-5">
@@ -68,19 +71,128 @@ export default class RegistrationCax extends React.Component {
                                 </div>
                             </Row>
                         </div>
-                        <div className="mx-auto col-9 container-registration">
-                            <div className='mx-auto step-highlight d-flex align-items-center justify-content-center'>1</div>
-                            <h4 className='mx-auto d-flex align-items-center justify-content-center'>Verify your company data</h4>
-                            <div className='mx-auto text-center col-9'>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</div>
+                        <div className='mx-auto col-9 container-registration'>
+                            <div className='head-section'>
+                                <div className='mx-auto step-highlight d-flex align-items-center justify-content-center'>1</div>
+                                <h4 className='mx-auto d-flex align-items-center justify-content-center'>Verify your company data</h4>
+                                <div className='mx-auto text-center col-9'>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</div>
+                            </div>
+                            <div className='companydata-form'>
+                                <Row className='mx-auto col-9'>
+                                    <div className='form-search'>
+                                        <label> Search database for your company </label>
+                                        <input type="text" defaultValue='12312' />
+                                    </div>
+                                </Row>
+                                <Row className='col-9 mx-auto'>
+                                    <div className="section-divider">
+                                        <span className='text-center'>or enter your data manually:</span>
+                                    </div>
+                                </Row>
+                                <Row className='mx-auto col-9'>
+                                    <div className='form-data'>
+                                        <label> BPN <AiOutlineQuestionCircle color='#939393' data-tip="hello world" /></label>
+                                        <input type="text" defaultValue='450284560' />
+                                        <div className='company-hint'>Your BPN code lorem ipsum dolores.</div>
+                                    </div>
+                                </Row>
+                                <Row className='mx-auto col-9'>
+                                    <div className='form-data'>
+                                        <label> Legal Entity Name <AiOutlineQuestionCircle color='#939393' data-tip="hello world" /> </label>
+                                        <input type="text" defaultValue='' />
+                                        <div className='company-hint'>Helper Text lorem Ipsum dolores.</div>
+                                    </div>
+                                </Row>
+                                <Row className='mx-auto col-9'>
+                                    <div className='form-data'>
+                                        <label> Registered name <AiOutlineQuestionCircle color='#939393' data-tip="hello world" /></label>
+                                        <input type="text" defaultValue='' />
+                                        <div className='company-hint'>Helper Text lorem Ipsum dolores.</div>
+                                    </div>
+                                </Row>
+
+                                <Row className='mx-auto col-9'>
+                                    <span className='form-heading'>Organization Address</span>
+                                </Row>
+
+                                <Row className='mx-auto col-9'>
+                                    <div className='form-data'>
+                                        <label> Street with House Number </label>
+                                        <input type="text" defaultValue='' />
+                                    </div>
+                                </Row>
+
+                                <Row className='mx-auto col-9'>
+                                    <div className='col-4 form-data'>
+                                        <label> Postal Code </label>
+                                        <input type="text" defaultValue='' />
+                                    </div>
+
+                                    <div className='col-8 form-data'>
+                                        <label> City </label>
+                                        <input type="text" defaultValue='' />
+                                    </div>
+                                </Row>
+
+                                <Row className='mx-auto col-9'>
+                                    <div className='form-data'>
+                                        <label> Country </label>
+                                        <select
+                                            defaultValue='Choose your country'
+                                        >
+                                            <option value="">Choose your country</option>
+                                            <option value="test1">test 1</option>
+                                            <option value="test2">Test 2</option>
+                                            <option value="test3">Test 3</option>
+                                        </select>
+                                    </div>
+                                </Row>
+
+                                <Row className='mx-auto col-9'>
+                                    <span className='form-heading'>Business status</span>
+                                </Row>
+
+                                <Row className='mx-auto col-9'>
+                                    <div className='form-data'>
+                                        <label> State of activity /operation </label>
+                                        <select
+                                            defaultValue='active'
+                                        >
+                                            <option value="active">Active</option>
+                                            <option value="test2">Test 2</option>
+                                            <option value="test3">Test 3</option>
+                                        </select>
+                                    </div>
+                                </Row>
+
+                                <Row className='mx-auto col-9'>
+                                    <div className='form-data calender'>
+                                        <label> Valid until </label>
+                                        <DatePicker className='date-picker' />
+                                        <AiOutlineCalendar className='calender-icon' />
+                                    </div>
+                                </Row>
+
+                                <Row className='mx-auto col-9'>
+                                    <div className='form-data calender'>
+                                        <label> Valid until </label>
+                                        <DatePicker className='date-picker' />
+                                        <AiOutlineCalendar className='calender-icon' />
+                                    </div>
+                                </Row>
+
+                            </div>
                         </div>
                         <div className="mx-auto col-9 d-flex align-items-center justify-content-center info">
-                            <span className=''>More information in our <a href=''>help section</a>.
+                            <span className=''>Please enter all the required information before proceeding. More information in our <a href=''>help section</a>.
                             </span>
                         </div>
                     </Col>
                 </Row>
                 <Footer />
+                <ReactTooltip />
             </Container >
         );
     }
 }
+export default withTranslation()(RegistrationCax);

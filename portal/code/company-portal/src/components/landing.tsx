@@ -26,7 +26,7 @@ export default class Landing extends React.Component {
 
         return (
             <Container>
-                <Header />
+                <Header href={window.location.href} />
                 <Row>
                     <Col>
                         <div className="mx-auto col-9 container-body">
