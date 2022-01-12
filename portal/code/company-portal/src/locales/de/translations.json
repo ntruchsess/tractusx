@@ -1,9 +1,36 @@
 {
     "translation": {
-        "greetMessage": "Willkommen bei Catena-X",
-        "subHeading": "Bitte schließen Sie das Unternehmens-Onboarding ab, indem Sie die folgenden Aufgaben erledigen, um aktiv teilzunehmen und alle Funktionen im Catena-X Automotive Network Portal zu nutzen. Die meisten Aufgaben können parallel erledigt werden",
-        "registration": "Anmeldung",
-        "regiStep": "Bitte schließen Sie das Unternehmens-Onboarding ab, indem Sie die folgenden Aufgaben erledigen, um aktiv teilzunehmen und alle Funktionen im Catena-X Automotive Network Portal zu nutzen. Die meisten Aufgaben können parallel erledigt werden",
-        "regiSubHeading": "sjhdajsdhas"
+        "landing": {},
+        "registration": {
+            "greetMessage": "Willkommen bei Catena-X",
+            "subHeading": "Bitte schließen Sie das Unternehmens-Onboarding ab, indem Sie die folgenden Aufgaben erledigen, um aktiv teilzunehmen und alle Funktionen im Catena-X Automotive Network Portal zu nutzen. Die meisten Aufgaben können parallel erledigt werden",
+            "registration": "Anmeldung",
+            "regiStep": "Bitte schließen Sie das Unternehmens-Onboarding ab, indem Sie die folgenden Aufgaben erledigen, um aktiv teilzunehmen und alle Funktionen im Catena-X Automotive Network Portal zu nutzen. Die meisten Aufgaben können parallel erledigt werden",
+            "regiSubHeading": "sjhdajsdhas",
+            "companyData": "Company data",
+            "responsAdmin": "Responsibilities & admin account",
+            "companyRole": "Company Role",
+            "uploadDocument": "Upload documents",
+            "verifyEntries": "Verify your entries"
+        },
+        "registrationStepOne": {
+            "verifyCompayDataHeading": "Verify your company data",
+            "verifyCompayDataSubHeading": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
+            "seachDatabase": "Search database for your company",
+            "enterManualText": "or enter your data manually:",
+            "bpn": "BPN",
+            "legalEntity": "Legal Entity Name",
+            "helperText": "Helper Text lorem Ipsum dolores.",
+            "registeredName": "Registered name",
+            "organizationAdd": "Organization Address",
+            "streetHouseNumber": "Street with House Number",
+            "postalCode": "Postal Code",
+            "city": "City",
+            "country": "Country",
+            "businessStatus": "Business status",
+            "stateOfActivity": "State of activity /operation",
+            "validFrom": "Valid From",
+            "validUntil": "Valid until"
+        }
     }
 }

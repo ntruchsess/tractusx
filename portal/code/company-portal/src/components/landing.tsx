@@ -18,10 +18,11 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 import { BsCheckCircle } from 'react-icons/bs';
 import Header from './cat-header';
 import Footer from './footer';
+import { withTranslation, WithTranslation } from 'react-i18next';
 
 
 @observer
-export default class Landing extends React.Component {
+class Landing extends React.Component<WithTranslation> {
     public render() {
 
         return (
@@ -30,21 +31,21 @@ export default class Landing extends React.Component {
                 <Row>
                     <Col>
                         <div className="mx-auto col-9 container-body">
-                            <h4>Welcome to Catena-X - The Automotive Network</h4>
-                            <h6 className='col-8'>Please finish the following application form to complete the registration of your company for Catena-X</h6>
+                            <h4>{this.props.t('landing.greetingMsg')}</h4>
+                            <h6 className='col-8'>{this.props.t('landing.heading1')}</h6>
                             <Row className='content'>
                                 <Col>
                                     <div className='content-items'>
-                                        <BsCheckCircle color='#0F71CB' className='check-circle' />The registration form consists of 5 steps and will take approximately 5-10 minutes of your time
+                                        <BsCheckCircle color='#0F71CB' className='check-circle' />{this.props.t('landing.point1')}
                                     </div>
                                     <div className='content-items'>
-                                        <BsCheckCircle color='#0F71CB' className='check-circle' /> You will need the commercial register form of your company. If you want to invite colleagues from your company, you need their email addresses
+                                        <BsCheckCircle color='#0F71CB' className='check-circle' />{this.props.t('landing.point2')}
                                     </div>
                                     <div className='content-items'>
-                                        <BsCheckCircle color='#0F71CB' className='check-circle' />You can pause the registration at any time. Re-connect to your registration status by using the login data which you received via e-mail.
+                                        <BsCheckCircle color='#0F71CB' className='check-circle' />{this.props.t('landing.point3')}
                                     </div>
                                     <Button className='button' size="lg">
-                                        Lets get started
+                                        {this.props.t('landing.buttonText1')}
                                     </Button>{' '}
                                 </Col>
                                 <Col className='d-flex align-items-center justify-content-center'>
@@ -53,7 +54,7 @@ export default class Landing extends React.Component {
                             </Row>
                         </div>
                         <div className="mx-auto w-75 d-flex align-items-center justify-content-center info">
-                            <span className=''>More information in our <a href=''>help section</a>.
+                            <span className=''>{this.props.t('landing.footerText1')} <a href=''>{this.props.t('landing.footerText2')}</a>.
                             </span>
                         </div>
                     </Col>
@@ -63,3 +64,4 @@ export default class Landing extends React.Component {
         );
     }
 }
+export default withTranslation()(Landing);
