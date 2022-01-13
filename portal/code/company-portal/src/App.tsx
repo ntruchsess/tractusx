@@ -12,21 +12,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import * as React from 'react';
-import { initializeIcons, loadTheme } from '@fluentui/react';
-import { createBrowserHistory } from 'history';
-import { observer } from 'mobx-react';
-import { Redirect, Route, Router, Switch } from 'react-router-dom';
-import './styles/newApp.css';
-import Home from './components/home';
-import Registrationoneid from './components/registrationoneid';
-import Registration from './components/registration';
-import Authinfo from './components/authinfo';
-import { AppState } from './stores/appstate';
-import Login from './components/login';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import Landing from './components/landing'
-import RegistrationCax from './components/cax-registration';
+import * as React from "react";
+import { initializeIcons, loadTheme } from "@fluentui/react";
+import { createBrowserHistory } from "history";
+import { observer } from "mobx-react";
+import { Redirect, Route, Router, Switch } from "react-router-dom";
+import "./styles/newApp.css";
+import Home from "./components/home";
+import Registrationoneid from "./components/registrationoneid";
+import Registration from "./components/registration";
+import Authinfo from "./components/authinfo";
+import { AppState } from "./stores/appstate";
+import Login from "./components/login";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import Landing from "./components/landing";
+import RegistrationCax from "./components/cax-registration";
 const history = createBrowserHistory();
 
 @observer
@@ -36,7 +36,9 @@ export default class App extends React.Component {
     super(props);
     if (App.first) {
       initializeIcons();
-      loadTheme({ palette: { themePrimary: '#BAC938', themeDarkAlt: '#E6AA1E' } })
+      loadTheme({
+        palette: { themePrimary: "#BAC938", themeDarkAlt: "#E6AA1E" },
+      });
     }
 
     AppState.state = new AppState();
@@ -49,14 +51,23 @@ export default class App extends React.Component {
     return (
       <Router history={history}>
         <Switch>
-          <Redirect path='/' exact to='/home' />
-          <Route path='/landing' render={(props) => <Landing {...props} />} />
-          <Route path='/registration' render={(props) => <RegistrationCax {...props} />} />
-          <Route path='/home' render={(props) => <ProtectedHome />} />
-          <Route path='/registrationoneid' component={(props) => <Registrationoneid {...props} />} />
-          <Route path='/register' component={(props) => <Registration {...props} />} />
-          <Route path='/login' component={(props) => <Login {...props} />} />
-          <Route path='/authinfo' component={(props) => <Authinfo />} />
+          <Redirect path="/" exact to="/landing" />
+          <Route path="/landing" render={(props) => <Landing {...props} />} />
+          <Route
+            path="/registration"
+            render={(props) => <RegistrationCax {...props} />}
+          />
+          <Route path="/home" render={(props) => <ProtectedHome />} />
+          <Route
+            path="/registrationoneid"
+            component={(props) => <Registrationoneid {...props} />}
+          />
+          <Route
+            path="/register"
+            component={(props) => <Registration {...props} />}
+          />
+          <Route path="/login" component={(props) => <Login {...props} />} />
+          <Route path="/authinfo" component={(props) => <Authinfo />} />
         </Switch>
       </Router>
     );
