@@ -22,7 +22,6 @@ import ReactTooltip from "react-tooltip";
 import "react-datepicker/dist/react-datepicker.css";
 import { withTranslation, WithTranslation } from "react-i18next";
 import CompanyDataCax from "./cax-companyData";
-import { AiOutlineUser, AiOutlineDelete } from "react-icons/ai";
 import Button from "./button";
 import ResponsibilitiesCax from "./cax-responsibilities";
 
@@ -58,6 +57,7 @@ class RegistrationCax extends React.Component<WithTranslation> {
                       {this.props.t("registration.companyData")}
                     </div>
                   </Row>
+                  <Row><div className={this.currentActiveStep === 1?"step-border col-10 mx-auto" : ""}></div></Row>
                 </div>
                 <div className="stepper-item completed col">
                   <Row className="stepper-row">
@@ -66,6 +66,7 @@ class RegistrationCax extends React.Component<WithTranslation> {
                       {this.props.t("registration.responsAdmin")}
                     </div>
                   </Row>
+                  <Row><div className={this.currentActiveStep === 2?"step-border col-10 mx-auto" : ""}></div></Row>
                 </div>
                 <div className="stepper-item active col">
                   <Row className="stepper-row">
@@ -74,6 +75,7 @@ class RegistrationCax extends React.Component<WithTranslation> {
                       {this.props.t("registration.companyRole")}
                     </div>
                   </Row>
+                  <Row><div className={this.currentActiveStep === 3?"step-border col-10 mx-auto" : ""}></div></Row>
                 </div>
                 <div className="stepper-item col">
                   <Row className="stepper-row">
@@ -82,6 +84,7 @@ class RegistrationCax extends React.Component<WithTranslation> {
                       {this.props.t("registration.uploadDocument")}
                     </div>
                   </Row>
+                  <Row><div className={this.currentActiveStep === 4?"step-border col-10 mx-auto" : ""}></div></Row>
                 </div>
                 <div className="stepper-item col">
                   <Row className="stepper-row">
@@ -90,6 +93,7 @@ class RegistrationCax extends React.Component<WithTranslation> {
                       {this.props.t("registration.verifyEntries")}
                     </div>
                   </Row>
+                  <Row><div className={this.currentActiveStep === 5?"step-border col-10 mx-auto" : ""}></div></Row>
                 </div>
               </Row>
             </div>

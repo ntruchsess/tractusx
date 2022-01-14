@@ -18,7 +18,7 @@ import { Row } from 'react-bootstrap';
 import { withTranslation, WithTranslation } from 'react-i18next';
 import { AiOutlineQuestionCircle, AiOutlineCalendar } from 'react-icons/ai'
 import DatePicker from "react-datepicker";
-
+import SearchInput from 'react-search-input'
 @observer
 class CompanyDataCax extends React.Component<WithTranslation> {
 
@@ -35,7 +35,7 @@ class CompanyDataCax extends React.Component<WithTranslation> {
                     <Row className='mx-auto col-9'>
                         <div className='form-search'>
                             <label> {this.props.t('registrationStepOne.seachDatabase')}</label>
-                            <input type="text" defaultValue='12312' />
+                            <SearchInput className="search-input" />
                         </div>
                     </Row>
                     <Row className='col-9 mx-auto'>
@@ -45,21 +45,21 @@ class CompanyDataCax extends React.Component<WithTranslation> {
                     </Row>
                     <Row className='mx-auto col-9'>
                         <div className='form-data'>
-                            <label> {this.props.t('bpn')} <AiOutlineQuestionCircle color='#939393' data-tip="hello world" /></label>
+                            <label> {this.props.t('registrationStepOne.bpn')} <AiOutlineQuestionCircle color='#939393' data-tip="hello world" /></label>
                             <input type="text" defaultValue='450284560' />
                             <div className='company-hint'>{this.props.t('registrationStepOne.helperText')}</div>
                         </div>
                     </Row>
                     <Row className='mx-auto col-9'>
                         <div className='form-data'>
-                            <label> {this.props.t('legalEntity')} <AiOutlineQuestionCircle color='#939393' data-tip="hello world" /> </label>
+                            <label> {this.props.t('registrationStepOne.legalEntity')} <AiOutlineQuestionCircle color='#939393' data-tip="hello world" /> </label>
                             <input type="text" defaultValue='' />
                             <div className='company-hint'>{this.props.t('registrationStepOne.helperText')}</div>
                         </div>
                     </Row>
                     <Row className='mx-auto col-9'>
                         <div className='form-data'>
-                            <label> {this.props.t('registeredName')} <AiOutlineQuestionCircle color='#939393' data-tip="hello world" /></label>
+                            <label> {this.props.t('registrationStepOne.registeredName')} <AiOutlineQuestionCircle color='#939393' data-tip="hello world" /></label>
                             <input type="text" defaultValue='' />
                             <div className='company-hint'>{this.props.t('registrationStepOne.helperText')}</div>
                         </div>

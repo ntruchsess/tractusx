@@ -430,13 +430,11 @@ textarea {
 
 
 .error label {
-  color: #D91E18
-  ;
+  color: #D91E18;
 }
 
 .error input[type=text] {
-  border-color: #D91E18
-  ;
+  border-color: #D91E18;
 }
 
 .error-message {
@@ -448,6 +446,17 @@ textarea {
 
 .error .calender-icon{
   color: #D91E18;
+}
+
+.stepper-item{
+   position: relative;
+}
+
+.step-border{
+  position: absolute;
+  border-bottom: 2px solid blue;
+  top: 3em;
+  left: 1.2em;
 }
 
 
