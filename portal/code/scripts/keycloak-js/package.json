@@ -1,0 +1,12 @@
+{
+  "name": "keycloak-js",
+  "version": "0.0.1",
+  "description": "keycloak automation in js",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^11.0.0",
+    "https-proxy-agent": "^5.0.0",
+    "node-fetch": "^2.3.0"
+  }
+}
