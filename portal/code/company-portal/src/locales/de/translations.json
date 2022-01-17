@@ -13,16 +13,16 @@
             "footerText2": "Hilfe"
         },
         "registration": {
-            "greetMessage": "Welcome to Catena-X",
-            "subHeading": "Please finish the company onboarding by finishing the following tasks to actively participate and use all functions in the Catena-X Automotive Network Portal. Most of the tasks can be done in parallel.",
+            "greetMessage": "Willkommen bei Catena-X – das Automotive Network",
+            "subHeading": "Füllen Sie das folgende Antragsformular aus, um die Registrierung Ihres Unternehmens abzuschließen und Teil von Catena-X zu werden.",
             "registration": "Registration",
-            "regiStep": "Register to Catena-X by entering all information requested in the following 5 Steps",
-            "regiSubHeading": "Please finish the company onboarding by finishing the following tasks to actively participate and use all functions in the Catena-X Automotive Network Portal. Most of the tasks can be done in parallel.",
-            "companyData": "Company data",
-            "responsAdmin": "Responsibilities & admin account",
-            "companyRole": "Company Role",
-            "uploadDocument": "Upload documents",
-            "verifyEntries": "Verify your entries"
+            "regiStep": "Füllen Sie das folgende Antragsformular aus, um die Registrierung Ihres Unternehmens abzuschließen und Teil von Catena-X zu werden.",
+            "regiSubHeading": "",
+            "companyData": "Legal Entity Daten",
+            "responsAdmin": "Güfe Users hinzu",
+            "companyRole": "Unternehmensrolle",
+            "uploadDocument": "Dokumente",
+            "verifyEntries": "Überprüfung"
         },
         "registrationStepOne": {
             "verifyCompayDataHeading": "Company Daten",
