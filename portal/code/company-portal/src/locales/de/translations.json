@@ -9,7 +9,7 @@
             "point2": "Für die Registrierung werden folgende dokumente benötigt: Handelsregisterauszug der Legal Entity. Als Teil der Registrierung, können weitere Admins eingeladen werden, falls diese benötigt werden um die Registrierung erfolgrecih abzuschließen.",
             "point3": "Die Registrierung kann zu jedem Zeitpunkt pausiert werden. Mit ihren Login Daten können Sie jederzeit zum letzten Status zurückkehren und die Registrierung später beenden.",
             "buttonText1": "Registrierung starten",
-            "footerText1": "Mehr Informationen finden Sie in unserer ",
+            "footerText1": "Mehr Informationen finden Sie unter ",
             "footerText2": "Hilfe"
         },
         "registration": {
@@ -18,11 +18,11 @@
             "registration": "Registration",
             "regiStep": "Füllen Sie das folgende Antragsformular aus, um die Registrierung Ihres Unternehmens abzuschließen und Teil von Catena-X zu werden.",
             "regiSubHeading": "",
-            "companyData": "Legal Entity Daten",
-            "responsAdmin": "Güfe Users hinzu",
+            "companyData": "Rechtsträger",
+            "responsAdmin": "Benutzer hinzufügen",
             "companyRole": "Unternehmensrolle",
             "uploadDocument": "Dokumente",
-            "verifyEntries": "Überprüfung"
+            "verifyEntries": "Prüfen & Senden"
         },
         "registrationStepOne": {
             "verifyCompayDataHeading": "Company Daten",
@@ -30,18 +30,18 @@
             "seachDatabase": "Unternhemensdaten Suche",
             "enterManualText": "oder füllen Sie die relevanten Felder manuell aus:",
             "bpn": "BPN",
-            "legalEntity": "Legal Entity Name",
-            "helperText": "Business-Partner-Number",
-            "registeredName": "Registered name",
+            "legalEntity": "Rechtsträger",
+            "helperText": "Business-Partner-Nummer",
+            "registeredName": "Eingetragener Unternehmensname",
             "organizationAdd": "Organisationsadresse",
             "streetHouseNumber": "Straße und Hausnummer",
             "postalCode": "Postleitzahl",
             "city": "Stadt",
             "country": "Land",
-            "businessStatus": "Business status",
+            "businessStatus": "Business Status",
             "stateOfActivity": "State of activity /operation",
-            "validFrom": "Valid From",
-            "validUntil": "Valid until"
+            "validFrom": "Gültig ab",
+            "validUntil": "Gültig bis"
         }
     }
 }
