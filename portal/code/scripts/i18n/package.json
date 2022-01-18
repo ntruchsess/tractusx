@@ -1,0 +1,11 @@
+{
+  "name": "catenax-portal-i18n",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "dotenv": "^14.2.0",
+    "uuid": "^8.3.2"
+  }
+}
