@@ -4,10 +4,10 @@
     "translation": {
         "landing": {
             "greetingMsg": "Willkommen bei Catena-X – das Automotive Network",
-            "heading1": "Füllen Sie das folgende Antragsformular aus, um die Registrierung Ihres Unternehmens abzuschließen und Teil von Catena-X zu werden.",
+            "heading1": "Füllen Sie das folgende Antragsformular aus, um die Catena-X Registrierung Ihres Unternehmens abzuschließen.",
             "point1": "Die Registrierung besteht aus 5 Schritten. Insgesamt benötigen Sie 5-10 Minuten um alle Schritt zu durchlaufen.",
-            "point2": "Für die Registrierung werden folgende dokumente benötigt: Handelsregisterauszug der Legal Entity. Als Teil der Registrierung, können weitere Admins eingeladen werden, falls diese benötigt werden um die Registrierung erfolgrecih abzuschließen.",
-            "point3": "Die Registrierung kann zu jedem Zeitpunkt pausiert werden. Mit ihren Login Daten können Sie jederzeit zum letzten Status zurückkehren und die Registrierung später beenden.",
+            "point2": "Um die Registrierung direkt abschließen zu können, wird das Handelsregister benötigt sowie eine Bestätigung der Catena-X Terms & Conditions.",
+            "point3": "Die Registrierung kann zu jedem Zeitpunkt pausiert werden. Mit ihren Login Daten können Sie zu einem späteren Zeitpunkt zum letzten Status der Registrierung zurückkehren und fortfahren.",
             "buttonText1": "Registrierung starten",
             "footerText1": "Mehr Informationen finden Sie unter ",
             "footerText2": "Hilfe"
