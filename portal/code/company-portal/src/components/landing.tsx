@@ -16,7 +16,7 @@ import * as React from "react";
 import { observer } from "mobx-react";
 import { Container, Row, Col } from "react-bootstrap";
 import { BsCheckCircle } from "react-icons/bs";
-import Header from "./cat-header";
+import Header from "./cax-header";
 import Footer from "./footer";
 import { withTranslation, WithTranslation } from "react-i18next";
 import Button from "./button";
