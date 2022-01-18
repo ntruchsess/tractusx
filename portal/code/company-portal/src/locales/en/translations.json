@@ -4,7 +4,7 @@
             "greetingMsg": "Welcome to Catena-X - The Automotive Network",
             "heading1": "Please finish the following application form to complete the registration of your company for Catena-X",
             "point1": "The registration form consists of 5 steps and will take approximately 5-10 minutes of your time",
-            "point2": "You will need the commercial register form of your company. If you want to invite colleagues from your company, you need their email addresses",
+            "point2": "You will need the commercial register form of your company. Additionally, you will be able to invite colleagues from your company to the registration via their e-mail addresse",
             "point3": "You can pause the registration at any time. Re-connect to your registration status by using the login data which you received via e-mail.",
             "buttonText1": "Lets get started",
             "footerText1": "More information in our ",
@@ -12,24 +12,24 @@
         },
         "registration": {
             "greetMessage": "Welcome to Catena-X",
-            "subHeading": "Please finish the company onboarding by finishing the following tasks to actively participate and use all functions in the Catena-X Automotive Network Portal. Most of the tasks can be done in parallel.",
+            "subHeading": "Please finish the company onboarding by finishing the following tasks to join Catena-X - Automotive Network Portal.",
             "registration": "Registration",
             "regiStep": "Register to Catena-X by entering all information requested in the following 5 Steps",
-            "regiSubHeading": "Please finish the company onboarding by finishing the following tasks to actively participate and use all functions in the Catena-X Automotive Network Portal. Most of the tasks can be done in parallel.",
-            "companyData": "Company data",
-            "responsAdmin": "Responsibilities & admin account",
+            "regiSubHeading": "Please finish the company onboarding by finishing the following tasks to actively participate and use all functions in the Catena-X Automotive Network Portal.",
+            "companyData": "Company Data",
+            "responsAdmin": "Add Users",
             "companyRole": "Company Role",
-            "uploadDocument": "Upload documents",
-            "verifyEntries": "Verify your entries"
+            "uploadDocument": "Documents",
+            "verifyEntries": "Verify & Submit"
         },
         "registrationStepOne": {
             "verifyCompayDataHeading": "Verify your company data",
-            "verifyCompayDataSubHeading": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
+            "verifyCompayDataSubHeading": "Please add below your legal entity company data. For a quick and easy data entering, use your company BPN Number to automatically retrieve all necessary information. If you dont have the BPN, you can use the legal entity nam as well or your enter the company data manually.",
             "seachDatabase": "Search database for your company",
             "enterManualText": "or enter your data manually:",
             "bpn": "BPN",
             "legalEntity": "Legal Entity Name",
-            "helperText": "Helper Text lorem Ipsum dolores.",
+            "helperText": "Business-Partner-Number",
             "registeredName": "Registered name",
             "organizationAdd": "Organization Address",
             "streetHouseNumber": "Street with House Number",
@@ -38,7 +38,7 @@
             "country": "Country",
             "businessStatus": "Business status",
             "stateOfActivity": "State of activity /operation",
-            "validFrom": "Valid From",
+            "validFrom": "Valid from",
             "validUntil": "Valid until"
         }
     }
