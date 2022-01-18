@@ -23,7 +23,7 @@
             "verifyEntries": "Verify & Submit"
         },
         "registrationStepOne": {
-            "verifyCompayDataHeading": "Verify your company data",
+            "verifyCompayDataHeading": "Add your company data",
             "verifyCompayDataSubHeading": "Please add below your legal entity company data. For a quick and easy data entering, use your company BPN Number to automatically retrieve all necessary information. If you dont have the BPN, you can use the legal entity nam as well or your enter the company data manually.",
             "seachDatabase": "Search database for your company",
             "enterManualText": "or enter your data manually:",
