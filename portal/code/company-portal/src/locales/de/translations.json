@@ -1,6 +1,47 @@
+
+   
 {
     "translation": {
-        "greetMessage": "Willkommen bei Catena-X",
-        "subHeading": "Bitte schließen Sie das Unternehmens-Onboarding ab, indem Sie die folgenden Aufgaben erledigen, um aktiv teilzunehmen und alle Funktionen im Catena-X Automotive Network Portal zu nutzen. Die meisten Aufgaben können parallel erledigt werden"
+        "landing": {
+            "greetingMsg": "Willkommen bei Catena-X – das Automotive Network",
+            "heading1": "Füllen Sie das folgende Antragsformular aus, um die Registrierung Ihres Unternehmens abzuschließen und Teil von Catena-X zu werden.",
+            "point1": "Die Registrierung besteht aus 5 Schritten. Insgesamt benötigen Sie 5-10 Minuten um alle Schritt zu durchlaufen.",
+            "point2": "Für die Registrierung werden folgende dokumente benötigt: Handelsregisterauszug der Legal Entity. Als Teil der Registrierung, können weitere Admins eingeladen werden, falls diese benötigt werden um die Registrierung erfolgrecih abzuschließen.",
+            "point3": "Die Registrierung kann zu jedem Zeitpunkt pausiert werden. Mit ihren Login Daten können Sie jederzeit zum letzten Status zurückkehren und die Registrierung später beenden.",
+            "buttonText1": "Registrierung starten",
+            "footerText1": "Mehr Informationen finden Sie in unserer ",
+            "footerText2": "Hilfe"
+        },
+        "registration": {
+            "greetMessage": "Willkommen bei Catena-X – das Automotive Network",
+            "subHeading": "Füllen Sie das folgende Antragsformular aus, um die Registrierung Ihres Unternehmens abzuschließen und Teil von Catena-X zu werden.",
+            "registration": "Registration",
+            "regiStep": "Füllen Sie das folgende Antragsformular aus, um die Registrierung Ihres Unternehmens abzuschließen und Teil von Catena-X zu werden.",
+            "regiSubHeading": "",
+            "companyData": "Legal Entity Daten",
+            "responsAdmin": "Güfe Users hinzu",
+            "companyRole": "Unternehmensrolle",
+            "uploadDocument": "Dokumente",
+            "verifyEntries": "Überprüfung"
+        },
+        "registrationStepOne": {
+            "verifyCompayDataHeading": "Company Daten",
+            "verifyCompayDataSubHeading": "Bitte fügen Sie in dem relevanten Felden die Company Daten aus. Um schnell und einfach die Daten zu befüllen, empfehlen wir die automatische befüllung der Felder via der Unternehmensdaten suche mit der BPN Nummer. Sollten Sie die BPN nicht zur Hand haben, dann können sie auch mit dem Namen ihres Unternehmens suchen.",
+            "seachDatabase": "Unternhemensdaten Suche",
+            "enterManualText": "oder füllen Sie die relevanten Felder manuell aus:",
+            "bpn": "BPN",
+            "legalEntity": "Legal Entity Name",
+            "helperText": "Business-Partner-Number",
+            "registeredName": "Registered name",
+            "organizationAdd": "Organisationsadresse",
+            "streetHouseNumber": "Straße und Hausnummer",
+            "postalCode": "Postleitzahl",
+            "city": "Stadt",
+            "country": "Land",
+            "businessStatus": "Business status",
+            "stateOfActivity": "State of activity /operation",
+            "validFrom": "Valid From",
+            "validUntil": "Valid until"
+        }
     }
 }

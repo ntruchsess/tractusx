@@ -277,6 +277,17 @@ const U = {
   companyName: 'SAP', url: '', background: ''
 }
 
+const V = {
+  id: '0253dd4d-35af-43f5-a84c-7cc280840344',
+  title: 'SupplyOn', rating: null, downloads: null, tags: [],
+  screenshots: [],
+  description: 'SupplyOn offers SaaS solutions in the area of Supplier Management, Source-to-APQP, Procure-to-pay, Supply Chain Collaboration, Production-to-supply, Transport & Empties Management as well as Supplier Quality Management<br /><br />All are integrated into the SupplyOn portal with ten thousands of registered suppliers.',
+  usage: '',
+  purchase: 'OPEN APP',
+  details: 'SEE DETAILS',
+  companyName: 'SupplyOn', url: '', background: null
+}
+
 export class AppState {
   public static state: AppState;
   //public apps: Application[] = [F, E, C, A, D, B];
@@ -287,6 +298,7 @@ export class AppState {
   public sapapps: Application[] = [D];
   public connectedApps: Application[] = [B, D, M];
   public addOns: Application[] = [G, H, I, J, K, L, M];
+  public appsNetwork: Application[] = [V];
   @observable public isAdmin: boolean;
   public email = '';
   public readonly categories: any[] = [
@@ -294,7 +306,7 @@ export class AppState {
     { text: 'Business Apps', apps: this.bizApps },
     { text: 'Add-Ons for Connectors', apps: this.addOns }];
   public readonly categoriesnew: any[] = [
-    { text: 'Recommendation', apps: this.apps }];
+    { text: 'Recommendation', apps: this.apps }, { text: 'Networks', apps: this.appsNetwork }];
   public readonly dashboardCategories: any[] = [{ text: 'Installed apps', apps: this.installedApps }];
   // { text: 'All apps', apps: this.apps }];
 

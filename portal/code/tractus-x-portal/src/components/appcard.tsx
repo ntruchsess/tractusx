@@ -55,32 +55,38 @@ class AppCard extends React.Component<IProp> {
     }
   }
 
-  onClickTitle(){
-    if(this.props.app.url){
+  onClickTitle() {
+    if (this.props.app.url) {
       if (this.props.app.url.substr(0, 1) !== '/') {
         window.open(this.props.app.url, '_blank');
       } else {
         this.props.history.push(this.props.app.url);
       }
-       return false;
-     }
+      return false;
+    }
   }
 
   public render() {
     const a = this.props.app;
+    console.log(this.props);
+    let appCardClass = '';
+    (this.props.app.background !== null && this.props.hideRating === false) ? appCardClass = 'h250 m5 br4 bsAppStore bgwhite minw200 maxw200 cpointer hov' : appCardClass = 'h150 m5 br4 bsAppStore bgwhite minw200 maxw200 cpointer hov';
     const text = this.props.buttonText || a.details || a.purchase;
     if (!this.props.wide) {
       return (
-        <div className='h250 m5 br4 bsAppStore bgwhite minw200 maxw200 cpointer hov' onClick={() => this.cardClick()}>
-          <div className='df fdc h120'>
-            {text === 'OPEN' && <IconButton className='ml150 mt10 ml15' iconProps={{ iconName: 'infoSolid', className: 'fs20' }} title='Show app description'
-              onClick={(ev: any) => this.cardClick(ev, true)} />}
-           { (this.props.app.background) && <div className={this.props.app.background}></div> }
-            <div className='flex1'/>
-            {!this.props.hideRating && <Ratings className='ml15 mt50' app={a} />}
-          </div>
+
+        <div className={appCardClass} onClick={() => this.cardClick()}>
+          {(this.props.app.background !== null && this.props.hideRating === false) ?
+            <div className='df fdc h120'>
+              {text === 'OPEN' && <IconButton className='ml150 mt10 ml15' iconProps={{ iconName: 'infoSolid', className: 'fs20' }} title='Show app description'
+                onClick={(ev: any) => this.cardClick(ev, true)} />}
+              {(this.props.app.background) && <div className={this.props.app.background}></div>}
+              <div className='flex1' />
+              {!this.props.hideRating && <Ratings className='ml15 mt50' app={a} />}
+            </div> : <div className='m16'></div>
+          }
           <div className='ml15 fs14 fggrey mb5'>{a.companyName}</div>
-          <div className='ml15 bold fs14 minh40' onClick={()=>this.onClickTitle()}>{a.title}</div>
+          <div className='ml15 bold fs14 minh40' onClick={() => this.onClickTitle()}>{a.title}</div>
           <div className='h50 mt20 tal ml15'>
             <div className='fglgreen bold fs14'>{text}</div>
             {!this.props.hideUsage && <div className='fsxs fgb5'>{a.usage}</div>}

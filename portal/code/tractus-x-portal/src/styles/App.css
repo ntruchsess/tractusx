@@ -1,5 +1,9 @@
 
 /* The structure of this CSS file was inspired by Atomic CSS https://acss.io/ as used by Yahoo but this is a simplified version */
+@font-face {
+  font-family: Segoe UI;
+  src: url(./fonts/segoeui.ttf);
+}
 html, body {height:100%;font-family:'Segoe UI', Arial, sans-serif;overflow:hidden;color: black;margin:0px}
 li {margin-left: 20px;}
 iframe {border-style: none;}
