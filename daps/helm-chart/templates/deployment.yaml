@@ -1,6 +1,6 @@
 {{- $fullName := include "omejdn-server.fullname" . -}}
 apiVersion: apps/v1
-kind: StatefulSet
+kind: Deployment
 metadata:
   name: {{ include "omejdn-server.fullname" . }}
   labels:
@@ -9,7 +9,6 @@ spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
-  serviceName: {{ include "omejdn-server.fullname" . }}
   selector:
     matchLabels:
       {{- include "omejdn-server.selectorLabels" . | nindent 6 }}
@@ -31,16 +30,25 @@ spec:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       initContainers:
       - name: init-fill-pvc
-        image: busybox
+        image: alpine
         command: 
         - "sh"
         - "-c"
         args:
         - |
           ls /tmp/
-          if [ ! -f /tmp/users.yml ]; then
+          # if [ ! -f /tmp/users.yml ]; then
             echo "File users.yml not found in pvc!. Creating empty file"
             touch /tmp/users.yml
+          # fi
+          if [ -d /tmp/key.pem ]; then
+            echo "Fix key is directory"
+            rm -rf /tmp/key.pem
+          fi
+          if [ ! -f /tmp/key.pem ]; then
+            echo "File key.pem not found in pvc!. Generating new key!"
+            apk add openssl
+            openssl genrsa -out /tmp/key.pem 1024
           fi
           if [ ! -f /tmp/clients.yml ]; then
             echo "File clients.yml not found in pvc! Creating a new one with default admin client"
@@ -74,6 +82,8 @@ spec:
           env:
           - name: OMEJDN_JWT_AUD_OVERRIDE
             value: "idsc:IDS_CONNECTORS_ALL"
+          - name: OMEJDN_IGNORE_ENV
+            value: "true"
           {{- if .Values.omejdn.createDefaultAdmin }}
           - name: OMEJDN_ADMIN
             value: {{ .Values.omejdn.defaultAdminUser }}
@@ -96,17 +106,29 @@ spec:
             - name: http
               containerPort: 4567
               protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /.well-known/jwks.json
+              port: http              
+              scheme: HTTP
+            failureThreshold: 3
+            periodSeconds: 3
+          readinessProbe:
+            httpGet:
+              path: /.well-known/jwks.json
+              port: http              
+              scheme: HTTP
+            failureThreshold: 3
+            periodSeconds: 1
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
           - mountPath: /opt/config/omejdn.yml
             name: omejdn-config
             subPath: omejdn.yml
-          {{- if .Values.omejdn.serverKey }}
           - mountPath: {{ .Values.omejdn.serverKeyFolderPath }}/key.pem
-            name: server-key
+            name: config
             subPath: key.pem
-          {{- end }}
           - mountPath: /opt/config/users.yml
             name: config
             subPath: users.yml
@@ -133,10 +155,9 @@ spec:
       {{- end }}
       
       volumes:
-      {{- if not .Values.persistence.enabled }}
       - name: config
-        emptyDir: {}
-      {{- end }}
+        persistentVolumeClaim:
+          claimName: {{ include "omejdn-server.fullname" . }}
       {{- if .Values.omejdn.serverKey }}
       - name: server-key
         secret:
@@ -157,16 +178,3 @@ spec:
           items:
           - key: clients.yml
             path: clients.yml
-
-{{- if .Values.persistence.enabled }}
-  volumeClaimTemplates:
-  - metadata:
-      name: config
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      storageClassName: {{ .Values.persistence.storageClass }}
-      resources:
-        requests:
-          storage: {{ .Values.persistence.storageSize }}
-  {{- end }}
-
