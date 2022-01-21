@@ -4,10 +4,10 @@
             "greetingMsg": "Welcome to Catena-X - The Automotive Network",
             "heading1": "Please finish the following application form to complete the registration of your company for Catena-X",
             "point1": "The registration form consists of 5 steps and will take approximately 5-10 minutes of your time",
-            "point2": "You will need the commercial register form of your company. Additionally, you will be able to invite colleagues from your company to the registration via their e-mail addresse",
+            "point2": "To finish the registration in one run, we propose to ensure that you have the commercial register form of your company handy. If you dont have the form, you can invite the right person in your company to support the registration and upload the form.",
             "point3": "You can pause the registration at any time. Re-connect to your registration status by using the login data which you received via e-mail.",
             "buttonText1": "Lets get started",
-            "footerText1": "More information in our ",
+            "footerText1": "More information can get found in the ",
             "footerText2": "help section"
         },
         "registration": {
@@ -25,7 +25,7 @@
         "registrationStepOne": {
             "verifyCompayDataHeading": "Add your company data",
             "verifyCompayDataSubHeading": "Please add below your legal entity company data. For a quick and easy data entering, use your company BPN Number to automatically retrieve all necessary information. If you dont have the BPN, you can use the legal entity nam as well or your enter the company data manually.",
-            "seachDatabase": "Search database for your company",
+            "seachDatabase": "Search for your company data by BPN or Company Name to autofill the relevant data fields",
             "enterManualText": "or enter your data manually:",
             "bpn": "BPN",
             "legalEntity": "Legal Entity Name",
