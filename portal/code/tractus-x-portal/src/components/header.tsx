@@ -16,7 +16,7 @@ import * as React from 'react';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
 import adalContext from '../helpers/adalConfig';
-import { Icon, Pivot, PivotItem } from '@fluentui/react';
+import { Icon, Pivot, PivotItem, IconButton, IContextualMenuProps, IContextualMenuListProps, IRenderFunction, ContextualMenuItemType, ActionButton } from '@fluentui/react';
 import { AppState } from '../stores/appstate';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import Logo from './logo';
@@ -26,8 +26,12 @@ interface IProp extends RouteComponentProps {
   appTitle?: string;
 }
 
-const pivots = ['Dashboard', 'App Store', 'Data Catalog', 'Digital Twins', 'Semantic Hub', 'Developer Hub'];
+const pivots = ['Dashboard', 'App Store', 'Data Catalog', 'Digital Twins', 'Semantic Hub', 'Developer Hub', 'Connector'];
 const keys = pivots.map((p) => p.toLowerCase().replace(' ', ''));
+
+function changeLanguage(lang: string)
+{
+}
 
 @observer
 class Header extends React.Component<IProp> {
@@ -35,14 +39,15 @@ class Header extends React.Component<IProp> {
   @observable initials = '';
   @observable selectedKey = '';
   @observable isAdmin = false;
+  @observable language = 'EN';
+  @observable profileMenuVisible = true;
 
   public async componentDidMount() {
     this.username = adalContext.getFullName();
     this.initials = adalContext.getInitials(this.username);
     AppState.state.isAdmin = true;
 
-
-    //Removed beacuse of login loop  
+    //Removed beacuse of login loop
     // if (adalContext.getDomain(adalContext.getUsername()) === 'Daimler') { // Hack for MS Graph
     //   AppState.state.isAdmin = true;
     // } else if (AppState.state.isAdmin === undefined) {
@@ -82,10 +87,51 @@ class Header extends React.Component<IProp> {
     adalContext.logOut();
   }
 
+  private menuProps: IContextualMenuProps = {
+    onRenderMenuList: (menuListProps: IContextualMenuListProps, defaultRender: IRenderFunction<IContextualMenuListProps>) => {
+      console.log(menuListProps)
+      return (
+        <div className='df fdc'>
+          <div className='p10' style={{ borderBottom: '1px solid #ccc' }}>
+            <div>{this.username}</div>
+            <div className='df'>
+            <div> {adalContext.getDomain(adalContext.getUsername())}</div>
+              {this.isAdmin && <span className='ml5 fs14'>(Admin)</span>}
+            </div>
+          </div>
+          {menuListProps.items.map((it) => <ActionButton className='fgwhite ml10' key={it.key}>{it.text}</ActionButton>)}
+          {/* {defaultRender(menuListProps)} */}
+        </div>
+      );
+    },
+    isBeakVisible: true,
+    styles: { root: { background: '#2373CB', color: 'white' }, container: { color: 'white' } },
+    calloutProps: {styles:{beak: {backgroundColor: '#2373CB'}}},
+    items: [
+      {
+        key: 'account',
+        text: 'My Account',
+      },
+      {
+        key: 'notifications',
+        text: 'Notifications',
+      },
+      {
+        key: 'user',
+        text: 'User Management',
+      },
+      {
+        key: 'logoff',
+        text: 'Sign out',
+      }
+    ]
+  };
+  
+  
+
   private onBoardingClick() {
     this.props.history.push('/invite');
   }
-
 
   public render() {
     const href = window.location.href;
@@ -107,20 +153,23 @@ class Header extends React.Component<IProp> {
           {pivots.map((p) => {
             return <PivotItem key={p.toLowerCase().replace(' ', '')} className='ml20 mr20' headerText={p} />
           })}
-          <PivotItem key='search' className='ml20 mr20' headerText='' itemIcon='search' />
+          {/* <PivotItem key='search' className='ml20 mr20' headerText='' itemIcon='search' /> */}
         </Pivot>}
         {/* { this.isAdmin &&  <div className='cpointer' onClick={() => this.onBoardingClick()}>Invite Business Partner</div> } */}
         <div className='flex1' />
-        <div className='bgblue fgwhite aic jcc df fs16 br50pc h40 w40 mr10' onClick={() => this.userClick()}>{this.initials}</div>
-        <div className='df fdc mr10'>
-          <span className='fs14'>{this.username}</span>
-          <div className='df'>
-            <span className='fs14'>{adalContext.getDomain(adalContext.getUsername())}</span>
-            {this.isAdmin && <span className='ml5 fs14'>(Admin)</span>}
-          </div>
-        </div>
-        <div className='df mr50 fg cpointer'>
-          <span onClick={() => this.logoutClick()}>Logout</span>
+        <div className='df'>
+          <div className='mr20'><a className='tdn' href='/help'>Help</a></div>
+          <IconButton menuProps={this.menuProps} menuIconProps={{
+            iconName: 'Contact',
+            style: {
+              fontWeight: 'bold',
+              fontSize: 18,
+              backgroundColor: '#2373CB',
+              color: 'white', padding: 10, borderRadius: 25
+            }
+          }}/>
+          <div className='fgblue ml20'><span className={this.language === 'de' ? 'lang-sel' : ''} onClick={() => changeLanguage('de')} > DE</span></div>
+          <div className='ml5 mr50'><span className='tdu' onClick={() => changeLanguage('en')} > EN </span></div>
         </div>
       </div>
     );
