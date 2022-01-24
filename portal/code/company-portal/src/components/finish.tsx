@@ -23,13 +23,14 @@ import { RouteComponentProps } from "react-router-dom";
 import BulletList from "./bulletList"
 
 @observer
-class Landing extends React.Component<
+class Finish extends React.Component<
   WithTranslation & RouteComponentProps,
   any
 > {
   private onClick(): void {
     this.props.history.push("/registration");
   }
+
 
   public render() {
     return (
@@ -38,21 +39,16 @@ class Landing extends React.Component<
         <Row>
           <Col>
             <div className="mx-auto col-9 container-body">
-              <h4>{this.props.t("landing.greetingMsg")}</h4>
-              <h6 className="col-8">{this.props.t("landing.heading1")}</h6>
+              <h4 className="col-10">{this.props.t("finish.greetingMsg")}</h4>
+              <h6 className="col-8">{this.props.t("finish.heading1")}</h6>
               <Row className="content">
                 <Col>
-                <BulletList text={this.props.t("landing.point1")}/>
-                <BulletList text={this.props.t("landing.point2")}/>
-                <BulletList text={this.props.t("landing.point3")}/>
-                  <Button
-                    label={this.props.t("landing.buttonText1")}
-                    styleClass="button btn-primaryCax"
-                    handleClick={() => this.onClick()}
-                  />
+                <BulletList text={this.props.t("finish.point1")} icon="circle" />
+                <BulletList text={this.props.t("finish.point2")} icon="circle" />
+                <BulletList text={this.props.t("finish.point3")} icon="circle" />
                 </Col>
                 <Col className="d-flex align-items-center justify-content-center">
-                  <img src="/ID_Card.png" alt="" />
+                  <img src="/mail.png" alt="" />
                 </Col>
               </Row>
             </div>
@@ -69,4 +65,4 @@ class Landing extends React.Component<
     );
   }
 }
-export default withTranslation()(Landing);
+export default withTranslation()(Finish);

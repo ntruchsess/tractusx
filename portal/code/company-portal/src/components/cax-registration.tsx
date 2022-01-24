@@ -24,12 +24,13 @@ import { withTranslation, WithTranslation } from "react-i18next";
 import CompanyDataCax from "./cax-companyData";
 import Button from "./button";
 import ResponsibilitiesCax from "./cax-responsibilities";
+import CompanyRoleCax from "./cax-companyRole";
+import { FaEdit } from "react-icons/fa"
 
 @observer
 class RegistrationCax extends React.Component<WithTranslation> {
   @observable currentActiveStep = 1;
-  @observable companyRoleChecked = new Map();
-
+ 
   private nextClick() {
     this.currentActiveStep = this.currentActiveStep + 1;
   }
@@ -38,18 +39,8 @@ class RegistrationCax extends React.Component<WithTranslation> {
     this.currentActiveStep = this.currentActiveStep - 1;
   }
 
-  private handleCheck(e) {
-    if (
-      e.target.checked === false &&
-      this.companyRoleChecked.has(e.target.name)
-    ) {
-      this.companyRoleChecked.delete(e.target.name);
-    } else {
-      this.companyRoleChecked.set(e.target.name, e.target.checked);
-    }
-
-    console.log(e.target.checked, e.target.name);
-    console.log(this.companyRoleChecked);
+  private editClick(n) {
+    this.currentActiveStep = n;
   }
 
   public render() {
@@ -157,232 +148,7 @@ class RegistrationCax extends React.Component<WithTranslation> {
             ) : this.currentActiveStep === 2 ? (
               <ResponsibilitiesCax />
             ) : this.currentActiveStep === 3 ? (
-              <div className="mx-auto col-9 container-registration">
-                <div className="head-section">
-                  <div className="mx-auto step-highlight d-flex align-items-center justify-content-center">
-                    3
-                  </div>
-                  <h4 className="mx-auto d-flex align-items-center justify-content-center">
-                    The role of your company
-                  </h4>
-                  <div className="mx-auto text-center col-9">
-                    Please select one or more roles for your company to
-                    participant in Catena-X. The company role can always get
-                    updated/changed later. Depending on the selected role, the
-                    offered portal services might differ.
-                  </div>
-                </div>
-                <div className="companydata-form mx-auto col-9">
-                  <div className="company-role-section">
-                    <Row>
-                      <div className="col-1">
-                        <input
-                          type="checkbox"
-                          name="activeParticipant"
-                          className="regular-checkbox"
-                          onChange={(e) => this.handleCheck(e)}
-                        />
-                      </div>
-                      <div className="col-11">
-                        <label>
-                          Active participant (OEM, supplier, KMU/SME){" "}
-                        </label>
-                        <div
-                          className={
-                            !this.companyRoleChecked.has("activeParticipant") ||
-                            !this.companyRoleChecked.get("activeParticipant")
-                              ? "companyRoleVisible"
-                              : "companyRoleHidden"
-                          }
-                        >
-                          <div>
-                            The role of the 'Active participant' is relevant if
-                            you want to:
-                          </div>
-                          <ul>
-                            <li>
-                              provide and /or consume business data (e.g. parts
-                              master data){" "}
-                            </li>
-                            <li>
-                              use the offered portal business applications
-                            </li>
-                          </ul>
-                        </div>
-                        <div
-                          className={
-                            !this.companyRoleChecked.has("activeParticipant") ||
-                            !this.companyRoleChecked.get("activeParticipant")
-                              ? "companyRoleHidden"
-                              : "companyRoleVisible companyRoleTnc"
-                          }
-                        >
-                          <div>
-                            Please check and agree to the items listed below:
-                          </div>
-                          <ul>
-                            <li>
-                              <input
-                                type="checkbox"
-                                className="regular-checkbox"
-                              />
-                              <span>
-                                Yes, I agree to the terms and conditions of the
-                                selected role.
-                              </span>
-                            </li>
-                            <li>
-                              <input
-                                type="checkbox"
-                                className="regular-checkbox"
-                              />
-                              <span>
-                                Yes, I agree to the security regulations of the
-                                selected role.
-                              </span>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </Row>
-                  </div>
-                  <div className="company-role-section">
-                    <Row>
-                      <div className="col-1">
-                        <input
-                          type="checkbox"
-                          name="appProvider"
-                          className="regular-checkbox"
-                          onChange={(e) => this.handleCheck(e)}
-                        />
-                      </div>
-                      <div className="col-11">
-                        <label>App provider</label>
-                        <div
-                          className={
-                            !this.companyRoleChecked.has("appProvider") ||
-                            !this.companyRoleChecked.get("appProvider")
-                              ? "companyRoleVisible"
-                              : "companyRoleHidden"
-                          }
-                        >
-                          <div>
-                            The role of the 'App Provider' is relevant if you
-                            want to:
-                          </div>
-                          <ul>
-                            <li>
-                              provide apps/services within the Catena-X
-                              ecosystem
-                            </li>
-                          </ul>
-                        </div>
-                        <div
-                          className={
-                            !this.companyRoleChecked.has("appProvider") ||
-                            !this.companyRoleChecked.get("appProvider")
-                              ? "companyRoleHidden"
-                              : "companyRoleVisible companyRoleTnc"
-                          }
-                        >
-                          <div>
-                            Please check and agree to the items listed below:
-                          </div>
-                          <ul>
-                            <li>
-                              <input
-                                type="checkbox"
-                                className="regular-checkbox"
-                              />
-                              <span>
-                                Yes, I agree to the <span className="underlineTnc"> terms and conditions </span> of the
-                                selected role.
-                              </span>
-                            </li>
-                            <li>
-                              <input
-                                type="checkbox"
-                                className="regular-checkbox"
-                              />
-                              <span>
-                                Yes, I agree to the security regulations of the
-                                selected role.
-                              </span>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </Row>
-                  </div>
-                  <div className="company-role-section">
-                    <Row>
-                      <div className="col-1">
-                        <input
-                          type="checkbox"
-                          name="operationAndInfra"
-                          className="regular-checkbox"
-                          onChange={(e) => this.handleCheck(e)}
-                        />
-                      </div>
-                      <div className="col-11">
-                        <label>Operation and infrastructure provider</label>
-                        <div
-                          className={
-                            !this.companyRoleChecked.has("operationAndInfra") ||
-                            !this.companyRoleChecked.get("operationAndInfra")
-                              ? "companyRoleVisible"
-                              : "companyRoleHidden"
-                          }
-                        >
-                          <div>
-                            The role of the 'App Provider' is relevant if you:
-                          </div>
-                          <ul>
-                            <li>
-                              provide operations and /or infrastructure services
-                              within the Catena-X network
-                            </li>
-                          </ul>
-                        </div>
-                        <div
-                          className={
-                            !this.companyRoleChecked.has("operationAndInfra") ||
-                            !this.companyRoleChecked.get("operationAndInfra")
-                              ? "companyRoleHidden"
-                              : "companyRoleVisible companyRoleTnc"
-                          }
-                        >
-                          <div>
-                            Please check and agree to the items listed below:
-                          </div>
-                          <ul>
-                            <li>
-                              <input
-                                type="checkbox"
-                                className="regular-checkbox"
-                              />
-                              <span>
-                                Yes, I agree to the terms and conditions of the
-                                selected role.
-                              </span>
-                            </li>
-                            <li>
-                              <input
-                                type="checkbox"
-                                className="regular-checkbox"
-                              />
-                              <span>
-                                Yes, I agree to the security regulations of the
-                                selected role.
-                              </span>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </Row>
-                  </div>
-                </div>
-              </div>
+               <CompanyRoleCax />
             ) : this.currentActiveStep === 4 ? (
               <div className="mx-auto col-9 container-registration">
                 <div className="head-section">
@@ -400,7 +166,127 @@ class RegistrationCax extends React.Component<WithTranslation> {
                 <div className="companydata-form"></div>
               </div>
             ) : (
-              <p> default </p>
+              <div className="mx-auto col-9 container-registration">
+                <div className="head-section">
+                  <div className="mx-auto step-highlight d-flex align-items-center justify-content-center">
+                    5
+                  </div>
+                  <h4 className="mx-auto d-flex align-items-center justify-content-center">
+                    Upload documents
+                  </h4>
+                  <div className="mx-auto text-center col-9">
+                    Please upload your legal company commercial register
+                    document.
+                  </div>
+                </div>
+                <div className="companydata-form mx-auto col-9">
+                  <Row>
+                    <ul className="list-group-cax px-2">
+                      <li className="list-group-item-cax list-header">
+                        <Row>
+                          <span className="col-11">Company Data</span>
+                          <span className="col-1" onClick={()=>this.editClick(1)}><FaEdit className="editIcon"/></span>
+                        </Row>
+                      </li>
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-6">BPN</span>
+                          <span className="col-6">450284560</span>
+                        </Row>
+                      </li>
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-6">Legal Entity Name</span>
+                          <span className="col-6">AMPL corp.</span>
+                        </Row>
+                      </li>
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-6">Registered Name</span>
+                          <span className="col-6">Amplayamirelo</span>
+                        </Row>
+                      </li>
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-6">Street</span>
+                          <span className="col-6">Jupiter Stree 11a</span>
+                        </Row>
+                      </li>
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-6">PLZ / City</span>
+                          <span className="col-6">88456 Munich</span>
+                        </Row>
+                      </li>
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-6">Country</span>
+                          <span className="col-6">Germany</span>
+                        </Row>
+                      </li>
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-6">State of activity</span>
+                          <span className="col-6">Germany</span>
+                        </Row>
+                      </li>
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-6">Valid from</span>
+                          <span className="col-6">10.12.2021</span>
+                        </Row>
+                      </li>
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-6">Valid till</span>
+                          <span className="col-6">15.06.2022</span>
+                        </Row>
+                      </li>
+                     
+                    </ul>
+                  </Row>
+                  <Row>
+                  <ul className="list-group-cax px-2">
+                      <li className="list-group-item-cax list-header">
+                        <Row>
+                          <span className="col-11">Active Role</span>
+                          <span className="col-1" onClick={()=>this.editClick(2)}><FaEdit className="editIcon"/></span>
+                        </Row>
+                      </li>
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-12">Active participant</span>
+                        </Row>
+                      </li>
+                      </ul>
+                  </Row>
+                  <Row>
+                  <ul className="list-group-cax px-2">
+                      <li className="list-group-item-cax list-header">
+                        <Row>
+                          <span className="col-11">Uploaded certificates</span>
+                          <span className="col-1" onClick={()=>this.editClick(3)}><FaEdit  className="editIcon"/></span>
+                        </Row>
+                      </li>
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-12">certificate of approval.pdf</span>
+                        </Row>
+                      </li>
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-12">certificate of incorporation.pdf</span>
+                        </Row>
+                      </li>
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-12">certificate of deposit.pdf</span>
+                        </Row>
+                      </li>
+                      </ul>
+                  </Row>
+                </div>
+              </div>
             )}
             <div className="mx-auto col-9 info">
               <Row>

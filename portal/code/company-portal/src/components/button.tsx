@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 import * as React from "react";
-const styleClass = "button btn-default";
-const Button = ({ label, styleClass, handleClick }) => (
+import { AiOutlineUserAdd } from "react-icons/ai"
+const Button = ({ label, styleClass, handleClick, icon=false }) => (
   <button className={styleClass} onClick={handleClick}>
-    {label}
+    {(!icon) ? label : <><AiOutlineUserAdd className="button-icon" /> <span>{label}</span></>}
   </button>
 );
 
