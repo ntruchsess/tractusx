@@ -321,7 +321,7 @@ textarea {
   padding-right: 30px;
 }
 
-.calender-icon {
+.calender-icon, .error-icon {
   position: absolute;
   right: 24px;
   top: 42px;
@@ -495,8 +495,13 @@ textarea {
   padding-top: 10px;
 }
 
-.error .calender-icon {
+.calender .error-icon {
+  visibility: hidden;
+}
+
+.error .error-icon {
   color: #d91e18;
+  visibility: visible;
 }
 
 .stepper-item {

@@ -172,11 +172,10 @@ class RegistrationCax extends React.Component<WithTranslation> {
                     5
                   </div>
                   <h4 className="mx-auto d-flex align-items-center justify-content-center">
-                    Upload documents
+                  Verify your registration data
                   </h4>
                   <div className="mx-auto text-center col-9">
-                    Please upload your legal company commercial register
-                    document.
+                  Lorem ipsum sapientem ne neque dolor erat,eros solet invidunt duo Quisque aliquid leo. Pretium patrioque sociis eu nihil Cum enim ad.
                   </div>
                 </div>
                 <div className="companydata-form mx-auto col-9">

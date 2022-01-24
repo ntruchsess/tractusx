@@ -173,8 +173,8 @@ class ResponsibilitiesCax extends React.Component<WithTranslation> {
                 onChange={(e) => this.onChange(e)}
                 onFocus={(e) =>  this.onFocus(e)}
               />
-              <AiOutlineExclamationCircle className='calender-icon'/>
-              <div className='error-message'>{this.error.email}</div>
+              <AiOutlineExclamationCircle className='error-icon'/>
+              <div className='error-message'>{this.error.role}</div>
             </div>
           </Row>
 
