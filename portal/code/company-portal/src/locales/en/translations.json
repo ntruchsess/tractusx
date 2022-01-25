@@ -40,6 +40,14 @@
             "stateOfActivity": "State of activity /operation",
             "validFrom": "Valid from",
             "validUntil": "Valid until"
+        },
+        "finish": {
+            "greetingMsg": "Congratulations! Your registration has been successfully submitted!",
+            "heading1": "What happens next?",
+            "point1": "You, as well as added Legal Managers, will receive a e-mail with all the details of your registration form",
+            "point2": "We will validate your registration request. As soon as your registration is approved (usually within 2 working days), you will receive a e-mail confirmation",
+            "point3": "As soon as you received the confirmation e-mail, you will be able to connect to the portal and procceed with the technical onboarding"
         }
+
     }
 }

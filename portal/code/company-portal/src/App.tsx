@@ -27,6 +27,7 @@ import Login from "./components/login";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Landing from "./components/landing";
 import RegistrationCax from "./components/cax-registration";
+import Finish from "./components/finish"
 const history = createBrowserHistory();
 
 @observer
@@ -65,6 +66,10 @@ export default class App extends React.Component {
           <Route
             path="/register"
             component={(props) => <Registration {...props} />}
+          />
+           <Route
+            path="/finish"
+            component={(props) => <Finish {...props} />}
           />
           <Route path="/login" component={(props) => <Login {...props} />} />
           <Route path="/authinfo" component={(props) => <Authinfo />} />

@@ -85,6 +85,10 @@ h6 {
   padding: 40px;
 }
 
+.small-info {
+  height: 130px;
+}
+
 .container-body {
   padding: 60px 60px 60px 100px;
   border-radius: 24px 24px 0 0;
@@ -130,7 +134,16 @@ h6 {
 }
 
 .check-circle {
-  margin-right: 10px;
+  font-size: 20px;
+}
+
+.button-icon {
+  font-size: 20px;
+  margin: 0 5px;
+}
+
+.bullet-points {
+  padding-left: 1.5rem !important;
 }
 
 .nav-link {
@@ -181,7 +194,8 @@ h6 {
   margin-bottom: 15px;
 }
 
-input,
+input[type="text"],
+input[type="search"],
 select {
   background: #f7f7f7;
   border-radius: 6px 6px 0px 0px;
@@ -194,7 +208,40 @@ select {
   font-size: 16px;
 }
 
-input[type="text"] {
+.regular-checkbox {
+  -webkit-appearance: none;
+  border: 2px solid #939393;
+  padding: 8px;
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+}
+
+.regular-checkbox:active,
+.regular-checkbox:checked:active {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05),
+    inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.regular-checkbox:checked {
+  border: 2px solid #0f71cb;
+  color: #ffffff;
+  background-color: #0f71cb;
+}
+
+.regular-checkbox:checked:after {
+  content: "\2713";
+  font-size: 14px;
+  position: absolute;
+  top: -3px;
+  left: 3px;
+  color: #ffffff;
+  vertical-align: middle;
+}
+
+input[type="text"],
+input[type="search"] {
   padding-left: 5px;
 }
 
@@ -274,7 +321,7 @@ textarea {
   padding-right: 30px;
 }
 
-.calender-icon {
+.calender-icon, .error-icon {
   position: absolute;
   right: 24px;
   top: 42px;
@@ -346,14 +393,14 @@ textarea {
 .list-group-cax {
   display: flex;
   flex-direction: column;
-  margin-bottom: 0;
+  margin-bottom: 50px;
   border-radius: 0.25rem;
 }
 
 .list-group-item-cax {
   position: relative;
   display: block;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1rem;
   color: #191715;
   text-decoration: none;
   background-color: #fff;
@@ -364,12 +411,18 @@ textarea {
   border-bottom: 1px solid #dadada;
 }
 
+.list-header{
+  background: #EDF0F4;
+  border: none;
+  font-family: "LibreFranklin-bold";
+} 
 .send-invite {
   margin-bottom: 50px;
 }
 
 .list-group-item-delete {
   text-align: right;
+  cursor: pointer;
 }
 
 .badge-cax {
@@ -427,35 +480,94 @@ textarea {
   background-color: #0f71cb !important;
 }
 
-
 .error label {
-  color: #D91E18;
+  color: #d91e18;
 }
 
-.error input[type=text] {
-  border-color: #D91E18;
+.error input[type="text"],.error select{
+  border-color: #d91e18;
 }
 
 .error-message {
-  color: #D91E18;
+  color: #d91e18;
   font-size: 12px;
   font-family: "Libre Franklin 400";
   padding-top: 10px;
 }
 
-.error .calender-icon{
-  color: #D91E18;
+.calender .error-icon {
+  visibility: hidden;
 }
 
-.stepper-item{
-   position: relative;
+.error .error-icon {
+  color: #d91e18;
+  visibility: visible;
 }
 
-.step-border{
+.stepper-item {
+  position: relative;
+}
+
+.step-border {
   position: absolute;
   border-bottom: 2px solid blue;
   top: 3em;
   left: 1.2em;
 }
 
+.company-role-section {
+  background-image: linear-gradient(
+    to right,
+    #dadada 0%,
+    #dadada 50%,
+    transparent 50%
+  );
+  background-size: 28px 1px;
+  background-repeat: repeat-x;
+  padding: 30px 0;
+}
 
+.company-role-section:first-child {
+  background-image: none;
+  background-repeat: no-repeat;
+  padding: 0 0 30px 0;
+}
+
+.companyRoleVisible {
+  display: block;
+}
+
+.companyRoleHidden {
+  display: none;
+}
+
+.companyRoleTnc ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.companyRoleTnc .regular-checkbox {
+  margin-right: 1rem;
+  padding: 6px;
+}
+
+.companyRoleTnc li {
+  padding: 5px 0;
+}
+
+.companyRoleTnc .regular-checkbox:checked:after {
+  left: 1px;
+  top: -5px;
+}
+
+.underlineTnc {
+  text-decoration: underline;
+  color: #0f71cb;
+  cursor: pointer;
+}
+
+.editIcon{
+  color: #0F71CB ;
+  font-size: 20px;
+  cursor: pointer;
+}
