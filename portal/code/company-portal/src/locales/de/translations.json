@@ -3,13 +3,13 @@
 {
     "translation": {
         "landing": {
-            "greetingMsg": "Willkommen bei Catena-X – das Automotive Network",
-            "heading1": "Füllen Sie das folgende Antragsformular aus, um die Registrierung Ihres Unternehmens abzuschließen und Teil von Catena-X zu werden.",
-            "point1": "Die Registrierung besteht aus 5 Schritten. Insgesamt benötigen Sie 5-10 Minuten um alle Schritt zu durchlaufen.",
-            "point2": "Für die Registrierung werden folgende dokumente benötigt: Handelsregisterauszug der Legal Entity. Als Teil der Registrierung, können weitere Admins eingeladen werden, falls diese benötigt werden um die Registrierung erfolgrecih abzuschließen.",
-            "point3": "Die Registrierung kann zu jedem Zeitpunkt pausiert werden. Mit ihren Login Daten können Sie jederzeit zum letzten Status zurückkehren und die Registrierung später beenden.",
+            "greetingMsg": "Willkommen bei Catena-X – The Automotive Network",
+            "heading1": "Bitte füllen Sie das folgende Antragsformular aus, um die Registrierung Ihres Unternehmens für Catena-X abzuschließen.",
+            "point1": "Das Anmeldeformular besteht aus 5 Schritten, für welche Sie circa 5-10 Minuten benötigen werden.",
+            "point2": "Um die Registrierung direkt abschließen zu können, wird das Handelsregister benötigt sowie eine Bestätigung der Catena-X Terms & Conditions.",
+            "point3": "Die Registrierung kann zu jedem Zeitpunkt pausiert werden. Mit ihren Login Daten können Sie zu einem späteren Zeitpunkt zum letzten Status der Registrierung zurückkehren und fortfahren.",
             "buttonText1": "Registrierung starten",
-            "footerText1": "Mehr Informationen finden Sie in unserer ",
+            "footerText1": "Weitere Informationen finden Sie unter ",
             "footerText2": "Hilfe"
         },
         "registration": {
@@ -18,30 +18,30 @@
             "registration": "Registration",
             "regiStep": "Füllen Sie das folgende Antragsformular aus, um die Registrierung Ihres Unternehmens abzuschließen und Teil von Catena-X zu werden.",
             "regiSubHeading": "",
-            "companyData": "Legal Entity Daten",
-            "responsAdmin": "Güfe Users hinzu",
+            "companyData": "Rechtsträger",
+            "responsAdmin": "Benutzer hinzufügen",
             "companyRole": "Unternehmensrolle",
             "uploadDocument": "Dokumente",
-            "verifyEntries": "Überprüfung"
+            "verifyEntries": "Prüfen & Senden"
         },
         "registrationStepOne": {
-            "verifyCompayDataHeading": "Company Daten",
-            "verifyCompayDataSubHeading": "Bitte fügen Sie in dem relevanten Felden die Company Daten aus. Um schnell und einfach die Daten zu befüllen, empfehlen wir die automatische befüllung der Felder via der Unternehmensdaten suche mit der BPN Nummer. Sollten Sie die BPN nicht zur Hand haben, dann können sie auch mit dem Namen ihres Unternehmens suchen.",
-            "seachDatabase": "Unternhemensdaten Suche",
+            "verifyCompayDataHeading": "Unternehmensdaten",
+            "verifyCompayDataSubHeading": "Bitte fügen Sie in dem relevanten Felden die Unternehmensdaten aus. Um schnell und einfach die Daten zu befüllen, empfehlen wir die automatische befüllung der Felder via der Unternehmensdaten suche mit der BPN Nummer. Sollten Sie die BPN nicht zur Hand haben, dann können sie auch mit dem Namen ihres Unternehmens suchen.",
+            "seachDatabase": "Suche (mit Hilfe der BPN oder dem Unternehmensnamen)",
             "enterManualText": "oder füllen Sie die relevanten Felder manuell aus:",
             "bpn": "BPN",
-            "legalEntity": "Legal Entity Name",
-            "helperText": "Business-Partner-Number",
-            "registeredName": "Registered name",
+            "legalEntity": "Rechtsträger",
+            "helperText": "Business-Partner-Nummer",
+            "registeredName": "Eingetragener Unternehmensname",
             "organizationAdd": "Organisationsadresse",
             "streetHouseNumber": "Straße und Hausnummer",
             "postalCode": "Postleitzahl",
             "city": "Stadt",
             "country": "Land",
-            "businessStatus": "Business status",
+            "businessStatus": "Geschäftsstatus",
             "stateOfActivity": "State of activity /operation",
-            "validFrom": "Valid From",
-            "validUntil": "Valid until"
+            "validFrom": "Gültig ab",
+            "validUntil": "Gültig bis"
         }
     }
 }

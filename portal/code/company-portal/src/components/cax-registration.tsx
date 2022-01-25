@@ -24,17 +24,23 @@ import { withTranslation, WithTranslation } from "react-i18next";
 import CompanyDataCax from "./cax-companyData";
 import Button from "./button";
 import ResponsibilitiesCax from "./cax-responsibilities";
+import CompanyRoleCax from "./cax-companyRole";
+import { FaEdit } from "react-icons/fa"
 
 @observer
 class RegistrationCax extends React.Component<WithTranslation> {
   @observable currentActiveStep = 1;
-
+ 
   private nextClick() {
     this.currentActiveStep = this.currentActiveStep + 1;
   }
 
   private backClick() {
     this.currentActiveStep = this.currentActiveStep - 1;
+  }
+
+  private editClick(n) {
+    this.currentActiveStep = n;
   }
 
   public render() {
@@ -57,7 +63,15 @@ class RegistrationCax extends React.Component<WithTranslation> {
                       {this.props.t("registration.companyData")}
                     </div>
                   </Row>
-                  <Row><div className={this.currentActiveStep === 1?"step-border col-10 mx-auto" : ""}></div></Row>
+                  <Row>
+                    <div
+                      className={
+                        this.currentActiveStep === 1
+                          ? "step-border col-10 mx-auto"
+                          : ""
+                      }
+                    ></div>
+                  </Row>
                 </div>
                 <div className="stepper-item completed col">
                   <Row className="stepper-row">
@@ -66,7 +80,15 @@ class RegistrationCax extends React.Component<WithTranslation> {
                       {this.props.t("registration.responsAdmin")}
                     </div>
                   </Row>
-                  <Row><div className={this.currentActiveStep === 2?"step-border col-10 mx-auto" : ""}></div></Row>
+                  <Row>
+                    <div
+                      className={
+                        this.currentActiveStep === 2
+                          ? "step-border col-10 mx-auto"
+                          : ""
+                      }
+                    ></div>
+                  </Row>
                 </div>
                 <div className="stepper-item active col">
                   <Row className="stepper-row">
@@ -75,7 +97,15 @@ class RegistrationCax extends React.Component<WithTranslation> {
                       {this.props.t("registration.companyRole")}
                     </div>
                   </Row>
-                  <Row><div className={this.currentActiveStep === 3?"step-border col-10 mx-auto" : ""}></div></Row>
+                  <Row>
+                    <div
+                      className={
+                        this.currentActiveStep === 3
+                          ? "step-border col-10 mx-auto"
+                          : ""
+                      }
+                    ></div>
+                  </Row>
                 </div>
                 <div className="stepper-item col">
                   <Row className="stepper-row">
@@ -84,7 +114,15 @@ class RegistrationCax extends React.Component<WithTranslation> {
                       {this.props.t("registration.uploadDocument")}
                     </div>
                   </Row>
-                  <Row><div className={this.currentActiveStep === 4?"step-border col-10 mx-auto" : ""}></div></Row>
+                  <Row>
+                    <div
+                      className={
+                        this.currentActiveStep === 4
+                          ? "step-border col-10 mx-auto"
+                          : ""
+                      }
+                    ></div>
+                  </Row>
                 </div>
                 <div className="stepper-item col">
                   <Row className="stepper-row">
@@ -93,7 +131,15 @@ class RegistrationCax extends React.Component<WithTranslation> {
                       {this.props.t("registration.verifyEntries")}
                     </div>
                   </Row>
-                  <Row><div className={this.currentActiveStep === 5?"step-border col-10 mx-auto" : ""}></div></Row>
+                  <Row>
+                    <div
+                      className={
+                        this.currentActiveStep === 5
+                          ? "step-border col-10 mx-auto"
+                          : ""
+                      }
+                    ></div>
+                  </Row>
                 </div>
               </Row>
             </div>
@@ -102,23 +148,7 @@ class RegistrationCax extends React.Component<WithTranslation> {
             ) : this.currentActiveStep === 2 ? (
               <ResponsibilitiesCax />
             ) : this.currentActiveStep === 3 ? (
-              <div className="mx-auto col-9 container-registration">
-                <div className="head-section">
-                  <div className="mx-auto step-highlight d-flex align-items-center justify-content-center">
-                    3
-                  </div>
-                  <h4 className="mx-auto d-flex align-items-center justify-content-center">
-                    The role of your company
-                  </h4>
-                  <div className="mx-auto text-center col-9">
-                    Please select one or more roles for your company to
-                    participant in Catena-X. The company role can always get
-                    updated/changed later. Depending on the selected role, the
-                    offered portal services might differ.
-                  </div>
-                </div>
-                <div className="companydata-form"></div>
-              </div>
+               <CompanyRoleCax />
             ) : this.currentActiveStep === 4 ? (
               <div className="mx-auto col-9 container-registration">
                 <div className="head-section">
@@ -136,7 +166,126 @@ class RegistrationCax extends React.Component<WithTranslation> {
                 <div className="companydata-form"></div>
               </div>
             ) : (
-              <p> default </p>
+              <div className="mx-auto col-9 container-registration">
+                <div className="head-section">
+                  <div className="mx-auto step-highlight d-flex align-items-center justify-content-center">
+                    5
+                  </div>
+                  <h4 className="mx-auto d-flex align-items-center justify-content-center">
+                  Verify your registration data
+                  </h4>
+                  <div className="mx-auto text-center col-9">
+                  Lorem ipsum sapientem ne neque dolor erat,eros solet invidunt duo Quisque aliquid leo. Pretium patrioque sociis eu nihil Cum enim ad.
+                  </div>
+                </div>
+                <div className="companydata-form mx-auto col-9">
+                  <Row>
+                    <ul className="list-group-cax px-2">
+                      <li className="list-group-item-cax list-header">
+                        <Row>
+                          <span className="col-11">Company Data</span>
+                          <span className="col-1" onClick={()=>this.editClick(1)}><FaEdit className="editIcon"/></span>
+                        </Row>
+                      </li>
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-6">BPN</span>
+                          <span className="col-6">450284560</span>
+                        </Row>
+                      </li>
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-6">Legal Entity Name</span>
+                          <span className="col-6">AMPL corp.</span>
+                        </Row>
+                      </li>
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-6">Registered Name</span>
+                          <span className="col-6">Amplayamirelo</span>
+                        </Row>
+                      </li>
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-6">Street</span>
+                          <span className="col-6">Jupiter Stree 11a</span>
+                        </Row>
+                      </li>
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-6">PLZ / City</span>
+                          <span className="col-6">88456 Munich</span>
+                        </Row>
+                      </li>
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-6">Country</span>
+                          <span className="col-6">Germany</span>
+                        </Row>
+                      </li>
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-6">State of activity</span>
+                          <span className="col-6">Germany</span>
+                        </Row>
+                      </li>
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-6">Valid from</span>
+                          <span className="col-6">10.12.2021</span>
+                        </Row>
+                      </li>
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-6">Valid till</span>
+                          <span className="col-6">15.06.2022</span>
+                        </Row>
+                      </li>
+                     
+                    </ul>
+                  </Row>
+                  <Row>
+                  <ul className="list-group-cax px-2">
+                      <li className="list-group-item-cax list-header">
+                        <Row>
+                          <span className="col-11">Active Role</span>
+                          <span className="col-1" onClick={()=>this.editClick(2)}><FaEdit className="editIcon"/></span>
+                        </Row>
+                      </li>
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-12">Active participant</span>
+                        </Row>
+                      </li>
+                      </ul>
+                  </Row>
+                  <Row>
+                  <ul className="list-group-cax px-2">
+                      <li className="list-group-item-cax list-header">
+                        <Row>
+                          <span className="col-11">Uploaded certificates</span>
+                          <span className="col-1" onClick={()=>this.editClick(3)}><FaEdit  className="editIcon"/></span>
+                        </Row>
+                      </li>
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-12">certificate of approval.pdf</span>
+                        </Row>
+                      </li>
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-12">certificate of incorporation.pdf</span>
+                        </Row>
+                      </li>
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-12">certificate of deposit.pdf</span>
+                        </Row>
+                      </li>
+                      </ul>
+                  </Row>
+                </div>
+              </div>
             )}
             <div className="mx-auto col-9 info">
               <Row>

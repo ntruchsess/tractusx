@@ -23,6 +23,7 @@ import Button from "./button";
 import { getUserRoles } from "../helpers/utils";
 import {AiOutlineExclamationCircle} from 'react-icons/ai'
 import { User } from "../data/companyDetails"
+import { resultItem } from "@fluentui/react/lib/components/ExtendedPicker/PeoplePicker/ExtendedPeoplePicker.scss";
 interface IUserResponsibilities {
   id: number;
   eMail: string;
@@ -62,32 +63,47 @@ class ResponsibilitiesCax extends React.Component<WithTranslation> {
 
   onChange(event) {
     this.updateProperty(event.target.name, event.target.value);
+    this.error[event.target.name] = ''
     console.log(this.user);
+  }
+
+  onFocus(event) {
+    this.error[event.target.name] = ''
   }
 
   validateUser(){
     if (this.user.email === "") {
         this.error.email = 'Email is required';
-    }else if(this.user.role === ""){
+    }
+    
+    if(this.user.role === ""){
       this.error.role = 'Role is required';
     }
+
+    const errorValue = Object.values(this.error).find(x => x !== "");
+    return !errorValue;  
+
   }
 
   private handleClick() {
-   
-    this.validateUser();
-    const data = {
-      id: Math.floor(Math.random() * 100),
-      eMail: this.user.email,
-      role: this.user.role,
-      message: this.user.message,
-    };
-    this.newarray.push(data);
-    this.user.email = "";
-    this.user.role = "";
-    this.user.message = "";
+    // this.validateUser()
+     if(this.validateUser())
+       {
+        const data = {
+          id: Math.floor(Math.random() * 100),
+          eMail: this.user.email,
+          role: this.user.role,
+          message: this.user.message,
+        };
+        this.newarray.push(data);
+        this.user.email = "";
+        this.user.role = "";
+        this.user.message = "";
+        this.error.email = "";
+        this.error.role = "";
 
-    console.log(data);
+     }
+    
   }
 
   private removeUser(id: number) {
@@ -148,16 +164,17 @@ class ResponsibilitiesCax extends React.Component<WithTranslation> {
           </Row>
 
           <Row className="mx-auto col-9">
-            <div className={(this.error.email !== '')? 'form-data error calender' : 'form-data'}>
+            <div className={(this.error.email !== '')? 'form-data error calender' : 'form-data calender'}>
               <label> E-mail address </label>
               <input
                 type="text"
                 name="email"
                 value={this.user.email}
                 onChange={(e) => this.onChange(e)}
+                onFocus={(e) =>  this.onFocus(e)}
               />
-              <AiOutlineExclamationCircle className='calender-icon'/>
-              <div className='error-message'>{this.error.email}</div>
+              <AiOutlineExclamationCircle className='error-icon'/>
+              <div className='error-message'>{this.error.role}</div>
             </div>
           </Row>
 
@@ -169,6 +186,7 @@ class ResponsibilitiesCax extends React.Component<WithTranslation> {
                 <option value="test2">Legal Manager</option>
                 <option value="test3">Signin Manager</option>
               </select>
+              <div className='error-message'>{this.error.email}</div>
             </div>
           </Row>
 
@@ -187,13 +205,14 @@ class ResponsibilitiesCax extends React.Component<WithTranslation> {
           </Row>
 
           <Row className="mx-auto col-9">
-            <Row className="col3">
+            <div>
               <Button
                 styleClass="button btn-primaryCax"
                 label="Add User"
                 handleClick={() => this.handleClick()}
+                icon={true}
               />
-            </Row>
+            </div>
           </Row>
         </div>
       </div>

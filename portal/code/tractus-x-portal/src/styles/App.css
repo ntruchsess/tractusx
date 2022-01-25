@@ -889,6 +889,7 @@ iframe {border-style: none;}
 .b0 {border: 0px}
 .border-y{border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;}
 .tdn {text-decoration: none;}
+.tdu {text-decoration: underline!important;}
 .tduhover:hover {text-decoration: underline;}
 .tdn:hover {text-decoration: none;}
 .noevents { pointer-events: none !important; }

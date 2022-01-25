@@ -294,7 +294,7 @@ export class AppState {
   public apps: Application[] = [N, O, P, Q, R, S, T, U];
   public topApps: Application[] = [B, D, C, F, E];
   public bizApps: Application[] = [C, E, F];
-  public installedApps: Application[] = [A, B];
+  public myApps: Application[] = [A, B, R];
   public sapapps: Application[] = [D];
   public connectedApps: Application[] = [B, D, M];
   public addOns: Application[] = [G, H, I, J, K, L, M];
@@ -306,8 +306,8 @@ export class AppState {
     { text: 'Business Apps', apps: this.bizApps },
     { text: 'Add-Ons for Connectors', apps: this.addOns }];
   public readonly categoriesnew: any[] = [
-    { text: 'Recommendation', apps: this.apps }, { text: 'Networks', apps: this.appsNetwork }];
-  public readonly dashboardCategories: any[] = [{ text: 'Installed apps', apps: this.installedApps }];
+    { text: 'All Apps / Categories', apps: this.apps }, { text: 'Networks', apps: this.appsNetwork }];
+  public readonly dashboardCategories: any[] = [{ text: 'My applications', apps: this.myApps }];
   // { text: 'All apps', apps: this.apps }];
 
   constructor() {
@@ -340,7 +340,7 @@ export class AppState {
 
     if (!B.url) {
       this.dashboardCategories[0].apps = [A, D, M];
-      this.installedApps = [A, D, M];
+      this.myApps = [A, D, M];
     }
   }
 }
