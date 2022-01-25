@@ -126,8 +126,8 @@ class Header extends React.Component<IProp> {
       }
     ]
   };
-  
-  
+
+
 
   private onBoardingClick() {
     this.props.history.push('/invite');
@@ -158,7 +158,7 @@ class Header extends React.Component<IProp> {
         {/* { this.isAdmin &&  <div className='cpointer' onClick={() => this.onBoardingClick()}>Invite Business Partner</div> } */}
         <div className='flex1' />
         <div className='df'>
-          <div className='mr20'><a className='tdn' href='/help'>Help</a></div>
+          <div className='df flex1 fdr jcfe mr20'><div className='cpointer fgblue' onClick={()=> this.props.history.push('/home/help')}>Help</div></div>
           <IconButton menuProps={this.menuProps} menuIconProps={{
             iconName: 'Contact',
             style: {
