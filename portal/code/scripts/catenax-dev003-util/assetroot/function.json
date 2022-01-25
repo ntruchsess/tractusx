@@ -1,0 +1,19 @@
+{
+  "bindings": [
+    {
+      "route": "{asset:regex(^[a-zA-Z0-9-_\\.]{{1,40}}\\.(html?|txt|js|json|css|csv|ico|svg|jpg|png|map)$)}",
+      "authLevel": "Anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}

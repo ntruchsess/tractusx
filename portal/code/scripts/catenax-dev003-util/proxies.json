@@ -1,0 +1,12 @@
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "root": {
+            "matchCondition": {
+                "methods": [ "GET" ],
+                "route": "/"
+            },
+            "backendUri": "https://catenax-dev003-util.azurewebsites.net/index.html"
+        }
+    }
+}

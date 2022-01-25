@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "deploy": "func azure functionapp publish catenax-dev003-translate --javascript --force",
+    "start": "func start --port 3000"
+  },
   "dependencies": {
     "axios": "^0.24.0",
     "dotenv": "^14.2.0",

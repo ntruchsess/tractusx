@@ -1,0 +1,20 @@
+{
+  "name": "catenax-portal-util",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "config": {
+    "env": "dev003"
+  },
+  "scripts": {
+    "deploy": "func azure functionapp publish catenax-${npm_package_config_env}-util --javascript --force",
+    "start": "func start --port 3000"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "dotenv": "^14.2.0",
+    "https-proxy-agent": "^5.0.0",
+    "node-fetch": "^2.3.0",
+    "uuid": "^8.3.2"
+  }
+}

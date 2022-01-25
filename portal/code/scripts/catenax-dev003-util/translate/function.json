@@ -1,0 +1,21 @@
+{
+  "bindings": [
+    {
+      "route": "v1/translate/{source:regex(^[a-zA-Z-]{{2,8}}$)}/{target:regex(^[a-zA-Z-]{{2,8}}(,[a-zA-Z-]{{2,8}})*$)}",
+      "authLevel": "Anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "put",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
