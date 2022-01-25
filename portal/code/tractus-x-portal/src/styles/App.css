@@ -1044,3 +1044,7 @@ mat-form-field .mat-input-placeholder {
     padding-left: 4px;
     color: #fff;
 }
+
+.profile_icon:hover{
+ background-color: white;
+}

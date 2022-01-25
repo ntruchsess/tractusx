@@ -157,7 +157,7 @@ class Header extends React.Component<IProp> {
         </Pivot>}
         {/* { this.isAdmin &&  <div className='cpointer' onClick={() => this.onBoardingClick()}>Invite Business Partner</div> } */}
         <div className='flex1' />
-        <div className='df'>
+        <div className='df aic'>
           <div className='df flex1 fdr jcfe mr20'><div className='cpointer fgblue' onClick={()=> this.props.history.push('/home/help')}>Help</div></div>
           <IconButton menuProps={this.menuProps} menuIconProps={{
             iconName: 'Contact',
@@ -167,7 +167,7 @@ class Header extends React.Component<IProp> {
               backgroundColor: '#2373CB',
               color: 'white', padding: 10, borderRadius: 25
             }
-          }}/>
+          }} className={'bgwhite profile_icon'}/>
           <div className='fgblue ml20'><span className={this.language === 'de' ? 'lang-sel' : ''} onClick={() => changeLanguage('de')} > DE</span></div>
           <div className='ml5 mr50'><span className='tdu' onClick={() => changeLanguage('en')} > EN </span></div>
         </div>
