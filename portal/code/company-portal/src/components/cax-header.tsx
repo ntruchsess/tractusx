@@ -19,7 +19,7 @@ import { observable } from 'mobx';
 import { Row, Col } from 'react-bootstrap';
 import UserService from '../helpers/UserService';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
-import { getOwnUserRoles } from '../helpers/utils';
+import { getUserClientRolesComposite } from '../helpers/utils';
 
 interface IProp extends RouteComponentProps {
     href: string;
@@ -37,7 +37,7 @@ class Header extends React.Component<IProp> {
     public async componentDidMount() {
         this.username = UserService.getUsername();
         this.initials = UserService.getInitials();
-        this.userRoles = await getOwnUserRoles();
+        this.userRoles = await getUserClientRolesComposite();
     }
 
     private userClick() {
