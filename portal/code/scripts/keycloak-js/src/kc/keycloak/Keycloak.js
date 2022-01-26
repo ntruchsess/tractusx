@@ -95,19 +95,19 @@ class Keycloak {
     }
 
     async createClient(realm, client) {
-        return await this.adminCall('POST', `/admin/realms/${realm}/clients`, KeycloakTemplates.getClient(`${realm}-${client}`))
+        return await this.adminCall('POST', `/admin/realms/${realm}/clients`, KeycloakTemplates.getClient(client))
     }
 
     async createClientSecret(realm, clientid) {
-        return await this.adminCall('POST', `/admin/realms/${realm}/clients/${realm}-${clientid}/client-secret`)
+        return await this.adminCall('POST', `/admin/realms/${realm}/clients/${clientid}/client-secret`)
     }
 
     async getClientSecret(realm, clientid) {
-        return await this.adminCall('GET', `/admin/realms/${realm}/clients/${realm}-${clientid}/client-secret`)
+        return await this.adminCall('GET', `/admin/realms/${realm}/clients/${clientid}/client-secret`)
     }
 
     async deleteClient(realm, clientid) {
-        return await this.adminCall('DELETE', `/admin/realms/${realm}/clients/${realm}-${clientid}`)
+        return await this.adminCall('DELETE', `/admin/realms/${realm}/clients/${clientid}`)
     }
 
     async getUsers(realm) {
