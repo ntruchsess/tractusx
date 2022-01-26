@@ -20,7 +20,13 @@ import "react-datepicker/dist/react-datepicker.css";
 import { withTranslation, WithTranslation } from "react-i18next";
 import { AiOutlineUser, AiOutlineDelete } from "react-icons/ai";
 import Button from "./button";
-import { getUserRoles } from "../helpers/utils";
+import {
+  PrimaryButton,
+  IDropdownOption,
+  Dropdown,
+  Icon,
+} from "@fluentui/react";
+import { getClientRolesComposite } from "../helpers/utils";
 import {AiOutlineExclamationCircle} from 'react-icons/ai'
 import { User } from "../data/companyDetails"
 import { resultItem } from "@fluentui/react/lib/components/ExtendedPicker/PeoplePicker/ExtendedPeoplePicker.scss";
@@ -39,22 +45,20 @@ class ResponsibilitiesCax extends React.Component<WithTranslation> {
   @observable private newarray: IUserResponsibilities[] = [];
   @observable private error:User={email: '', role: '', message: ''};
   @observable private message: string = "";
-  @observable private errors: [] = [];
-
-  public userRoles: any;
+  @observable private errors: [] = []; 
+  @observable private availableUserRoles: IDropdownOption[];
 
   async componentDidMount() {
     const onboarding = window.localStorage.getItem("onboarding");
     console.log("responsibilities", onboarding);
-    // try {
-    //   this.userRoles = await getUserRoles();
-    //   console.log(this.userRoles);
-    //   //   this.newUserRole = this.userRoles.map((x) => {
-    //   //     return { key: x, text: x };
-    //   //   });
-    //   //   Object.assign(options, this.newUserRole);
-    //   //   console.log(options);
-    // } catch {}
+    try {
+      const userRoles = await getClientRolesComposite();
+      console.log(userRoles);
+      this.availableUserRoles = userRoles.map((x) => {
+        return { key: x, text: x };
+      });
+      console.log(this.availableUserRoles);
+    } catch {}
   }
 
   updateProperty(key, value) {
@@ -181,11 +185,13 @@ class ResponsibilitiesCax extends React.Component<WithTranslation> {
           <Row className="mx-auto col-9">
             <div  className={(this.error.role !== '')? 'form-data error' : 'form-data'}>
               <label> User role </label>
-              <select value={this.user.role} name="role" onChange={(e) => this.onChange(e)}>
-                <option value="">Please select a role for this user</option>
-                <option value="test2">Legal Manager</option>
-                <option value="test3">Signin Manager</option>
-              </select>
+              <Dropdown
+                placeholder="Please select a role for this user"
+                options={this.availableUserRoles}
+                className="w50pc brnone br4 pr10 h36"
+                onChange={(ev, val) => (this.user.role = val.text)}
+                selectedKey={this.user.role}
+              />
               <div className='error-message'>{this.error.email}</div>
             </div>
           </Row>

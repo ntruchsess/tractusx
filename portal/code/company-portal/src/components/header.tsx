@@ -21,7 +21,7 @@ import { Icon } from '@fluentui/react';
 import { AppState } from '../stores/appstate';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import Logo from './logo';
-import { getOwnUserRoles } from '../helpers/utils';
+import { getUserClientRolesComposite } from '../helpers/utils';
 interface IProp extends RouteComponentProps {
   href: string;
   hidePivot?: boolean;
@@ -46,7 +46,7 @@ class Header extends React.Component<IProp> {
 
     this.username = UserService.getUsername();
     this.initials = UserService.getInitials();
-    this.userRoles = await getOwnUserRoles();
+    this.userRoles = await getUserClientRolesComposite();
     AppState.state.isAdmin = true;
 
     this.isAdmin = AppState.state.isAdmin;

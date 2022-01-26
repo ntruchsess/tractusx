@@ -106,18 +106,32 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
                 new OkObjectResult(await _registrationBusinessLogic.GetAvailableUserRoleAsync()));
 
         [HttpGet]
-        [Route("company/{realm}/availableUserRoles")]
+        [Route("company/{realm}/clients/{clientId}/rolesComposite")]
         [ProducesResponseType(typeof(List<string>), (int)HttpStatusCode.OK)]
-        public Task<IActionResult> GetAvailableUserRoles([FromRoute] string realm, [FromHeader] string authorization) =>
+        public Task<IActionResult> GetClientRolesComposite([FromRoute] string realm,[FromRoute] string clientId, [FromHeader] string authorization) =>
             ValidateTokenAsync(realm, authorization, async () =>
-                new OkObjectResult(await _registrationBusinessLogic.GetAvailableUserRolesAsync(authorization.Split(" ")[1],realm)));
+                new OkObjectResult(await _registrationBusinessLogic.GetClientRolesCompositeAsync(authorization.Split(" ")[1],realm,clientId)));
+
+        [HttpGet]
+        [Route("company/{realm}/clients/{clientId}/userRoleMappingsComposite")]
+        [ProducesResponseType(typeof(List<string>), (int)HttpStatusCode.OK)]
+        public Task<IActionResult> GetUserClientRoleMappingsCompositeAsync([FromRoute] string realm,[FromRoute] string clientId, [FromHeader] string authorization) =>
+            ValidateTokenAsync(realm, authorization, async (userInfo) =>
+                new OkObjectResult(await _registrationBusinessLogic.GetUserClientRoleMappingsCompositeAsync(authorization.Split(" ")[1],realm,userInfo["sub"],clientId)));
+
+        [HttpGet]
+        [Route("company/{realm}/groups")]
+        [ProducesResponseType(typeof(List<string>), (int)HttpStatusCode.OK)]
+        public Task<IActionResult> GetGroups([FromRoute] string realm, [FromHeader] string authorization) =>
+            ValidateTokenAsync(realm, authorization, async () =>
+                new OkObjectResult(await _registrationBusinessLogic.GetGroupsAsync(authorization.Split(" ")[1],realm)));
         
         [HttpGet]
-        [Route("company/{realm}/ownUserRoles")]
+        [Route("company/{realm}/userGroups")]
         [ProducesResponseType(typeof(List<string>), (int)HttpStatusCode.OK)]
-        public Task<IActionResult> GetOwnUserRolesAsync([FromRoute] string realm, [FromHeader] string authorization) =>
+        public Task<IActionResult> GetUserGroupsAsync([FromRoute] string realm, [FromHeader] string authorization) =>
             ValidateTokenAsync(realm, authorization, async (userInfo) =>
-                new OkObjectResult(await _registrationBusinessLogic.GetOwnUserRolesAsync(authorization.Split(" ")[1],realm, userInfo["sub"])));
+                new OkObjectResult(await _registrationBusinessLogic.GetUserGroupsAsync(authorization.Split(" ")[1],realm, userInfo["sub"])));
 
         private delegate Task<IActionResult> ValidatedAction();
         private delegate Task<IActionResult> ValidatedUserInfoAction(Dictionary<string, string> userInfo);
