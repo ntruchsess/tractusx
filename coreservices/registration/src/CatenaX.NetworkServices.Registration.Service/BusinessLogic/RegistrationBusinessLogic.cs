@@ -82,7 +82,23 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
             return Task.FromResult(UserRoles.Roles);
         }
 
-        public async Task<List<string>> GetAvailableUserRolesAsync(string token, string realm)
+        public async Task<List<string>> GetClientRolesCompositeAsync(string token, string realm, string clientId)
+        {
+            var client = new KeycloakClient(_configuration.GetValue<string>("KeyCloakConnectionString"), () => token);
+            var clientRoles = await client.GetRolesAsync(realm, clientId);
+
+            return clientRoles.Where(r => r.Composite == true).Select(g => g.Name).ToList();
+        }
+
+        public async Task<List<string>> GetUserClientRoleMappingsCompositeAsync(string token, string realm, string userId, string clientId)
+        {
+            var client = new KeycloakClient(_configuration.GetValue<string>("KeyCloakConnectionString"), () => token);
+            var clientRoleMappingsComposite = await client.GetClientRoleMappingsForUserAsync(realm, userId, clientId);
+
+            return clientRoleMappingsComposite.Where(r => r.Composite == true).Select(g => g.Name).ToList();
+        }
+
+        public async Task<List<string>> GetGroupsAsync(string token, string realm)
         {
             var client = new KeycloakClient(_configuration.GetValue<string>("KeyCloakConnectionString"), () => token);
             var userGroups = await client.GetGroupHierarchyAsync(realm);
@@ -90,7 +106,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
             return userGroups.Select(g => g.Name).ToList();
         }
 
-        public async Task<List<string>> GetOwnUserRolesAsync(string token, string realm, string userId)
+        public async Task<List<string>> GetUserGroupsAsync(string token, string realm, string userId)
         {
             var client = new KeycloakClient(_configuration.GetValue<string>("KeyCloakConnectionString"), () => token);
             var userGroups = await client.GetUserGroupsAsync(realm, userId);
