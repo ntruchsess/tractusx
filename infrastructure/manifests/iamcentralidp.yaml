@@ -12,59 +12,59 @@
 
 apiVersion: v1
 kind: Service
-metadata:
-  name: iam
+metadata:  
+  name: iamcentralidp
   namespace: iam
   labels:
-    app: iam
+    app: iamcentralidp
 spec:
+  type: ClusterIP
   ports:
   - name: http
     port: 8080
     targetPort: 8080
   selector:
-    app: iam
-  type: ClusterIP
+    app: iamcentralidp
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: iam
+  name: iamcentralidp
   namespace: iam
   labels:
-    app: iam
+    app: iamcentralidp
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: iam
+      app: iamcentralidp
   template:
     metadata:
       labels:
-        app: iam
+        app: iamcentralidp
     spec:
       containers:
-      - name: iam
-        image: quay.io/keycloak/keycloak:15.0.2
+      - name: iamcentralidp
+        image: ${CONTAINER_IMAGE_CENTRALIDP}
         env:
         - name: KEYCLOAK_USER
-          value: "admin"
+          value: ${KEYCLOAK_ADMIN_USER}
         - name: KEYCLOAK_PASSWORD
-          value: "admin"
+          value: ${KEYCLOAK_ADMIN_PASSWORD}
         - name: PROXY_ADDRESS_FORWARDING
           value: "true"
         - name: DB_VENDOR
-          value: "postgres"
+          value: postgres
         - name: DB_ADDR
-          value: "${DB_HOST}.postgres.database.azure.com"
+          value: ${DB_HOST}.postgres.database.azure.com
         - name: DB_DATABASE
-          value: "iam"
+          value: iamcentralidp
         - name: DB_USER
-          value: "${DB_USER}@${DB_HOST}"
+          value: catenax@${DB_HOST}
         - name: DB_PASSWORD
-          value: "${DB_PASSWORD}"
+          value: ${DB_PASSWORD}
         - name: KEYCLOAK_LOGLEVEL
-          value: "INFO"
+          value: INFO
         ports:
         - name: http
           containerPort: 8080
@@ -72,5 +72,5 @@ spec:
           containerPort: 8443
         readinessProbe:
           httpGet:
-            path: /auth/realms/master
+            path: iamcentralidp/auth/realms/master
             port: 8080

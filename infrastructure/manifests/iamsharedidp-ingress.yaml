@@ -14,7 +14,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: iam-ingress
+  name: iamsharedidp-ingress
   namespace: iam
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-service
@@ -22,7 +22,7 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/enable-cors: "true"
     nginx.ingress.kubernetes.io/cors-allow-methods: "PUT, GET, POST, OPTIONS"
-    nginx.ingress.kubernetes.io/cors-allow-origin: "${CATENA_REGISTRATION_URL}"
+    nginx.ingress.kubernetes.io/cors-allow-origin: ${CATENA_REGISTRATION_URL}
     nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
     nginx.ingress.kubernetes.io/proxy-buffering: "on"
     nginx.ingress.kubernetes.io/proxy-buffers-number: "20"
@@ -37,10 +37,10 @@ spec:
   - host: ${CATENA_SERVICE_HOST}
     http:
       paths:
-      - path: /auth(/|$)(.*)
+      - path: /iamsharedidp/auth(/|$)(.*)
         pathType: Prefix
         backend:
           service:
-            name: iam
+            name: iamsharedidp
             port:
               number: 8080
