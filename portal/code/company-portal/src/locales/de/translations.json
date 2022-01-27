@@ -42,6 +42,13 @@
             "stateOfActivity": "State of activity /operation",
             "validFrom": "Gültig ab",
             "validUntil": "Gültig bis"
+         },
+        "finish": {
+            "greetingMsg": "Glückwunsch! Ihre Registrierung wurde erfolgreich abgesendet!",
+            "heading1": "Nächste Schritte",
+            "point1": "Alle Registrierungsteilnehmer ihrer Firma erhalten eine E-Mail mit der Bestätigung und den nächsten Schritten",
+            "point2": "Catena-X prüft in der Zwischenzeit ihren Registrierungsanfrage. Sobald die Prüfung erfolgreich beendet ist, werden wir Ihnen eine Email mit dem direkten Zugang zum Netwzrk senden.",
+            "point3": "Sobald Sie diese E-Mail erhalten haben können Sie sich im Portal anmelden und die technische ntegration starten."
         }
     }
 }
