@@ -24,6 +24,7 @@ import { withTranslation, WithTranslation } from "react-i18next";
 import CompanyDataCax from "./cax-companyData";
 import Button from "./button";
 import ResponsibilitiesCax from "./cax-responsibilities";
+import DragDropUploadFiles from "./dragdrop";
 import CompanyRoleCax from "./cax-companyRole";
 import { FaEdit } from "react-icons/fa"
 
@@ -162,8 +163,12 @@ class RegistrationCax extends React.Component<WithTranslation> {
                     Please upload your legal company commercial register
                     document.
                   </div>
+                  
                 </div>
-                <div className="companydata-form"></div>
+                <div className="companydata-form mx-auto col-9">
+
+                <DragDropUploadFiles/>
+                </div>
               </div>
             ) : (
               <div className="mx-auto col-9 container-registration">

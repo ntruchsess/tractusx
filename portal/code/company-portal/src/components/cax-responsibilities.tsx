@@ -29,7 +29,6 @@ import {
 import { getClientRolesComposite } from "../helpers/utils";
 import {AiOutlineExclamationCircle} from 'react-icons/ai'
 import { User } from "../data/companyDetails"
-import { resultItem } from "@fluentui/react/lib/components/ExtendedPicker/PeoplePicker/ExtendedPeoplePicker.scss";
 interface IUserResponsibilities {
   id: number;
   eMail: string;
