@@ -14,7 +14,7 @@
 
 import { observable } from 'mobx';
 import { Application } from '../data/application';
-import adalContext from '../helpers/adalConfig';
+import UserService from '../helpers/UserService';
 
 const A = {
   id: '0253dd4d-35af-43f5-a84c-7cc28084032a',
@@ -311,7 +311,7 @@ export class AppState {
   // { text: 'All apps', apps: this.apps }];
 
   constructor() {
-    const domain = adalContext.getDomain(adalContext.getUsername());
+    const domain = UserService.getDomain();
     switch (domain) {
       case 'BMW':
       case 'Microsoft':
