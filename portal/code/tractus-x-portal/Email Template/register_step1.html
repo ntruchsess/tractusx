@@ -1,9 +1,9 @@
-<!doctype html>
+ <!doctype html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Welcome to Catena-X Email</title>
+    <title>Register to Catena-X Welcome Email</title>
     <style>
         /* -------------------------------------
             GLOBAL RESETS
@@ -112,8 +112,8 @@
             font-weight: bolder;
             text-transform: capitalize;
             line-height: 1.4;
-            margin: 30px auto 50px;
-            padding: 0 30px;
+            margin: 30px auto 0;
+            padding: 0;
         }
 
         h2 {
@@ -125,6 +125,8 @@
             margin: 30px auto 0;
             padding: 0 60px;
         }
+
+
 
         p {
             font-family: sans-serif;
@@ -207,15 +209,11 @@
                 font-weight: inherit;
                 line-height: inherit;
             }
-
+/*
             .btn-primary table td:hover {
-                background-color: #bfc5cc !important;
-            }
+                background-color: #0B579C !important;
+            }*/
 
-            .btn-primary a:hover {
-                background-color: #bfc5cc !important;
-                border-color: #bfc5cc !important;
-            }
         }
 
         .content-body {
@@ -231,12 +229,101 @@
             line-height: 0;
         }
 
+        h4 {
+            color: #939393;
+            font-weight: normal;
+            font-size: 18px;
+
+
+            font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+            line-height: 1.4;
+            margin: 0 auto 50px;
+        }
+
         .footer-span {
             color: #191715;
             font-size: 12px;
             font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
             line-height: 0;
         }
+
+        .btn {
+            box-sizing: border-box;
+            width: 100%; }
+        .btn > tbody > tr > td {
+            padding-bottom: 15px; }
+        .btn table {
+            width: auto;
+        }
+        .btn table td {
+            background-color: #ffffff;
+            vertical-align: middle;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .btn-primary table td {
+            background-color: #0F71CB;
+        }
+
+        .btn-primary .register-link-text {
+            padding-right: 20px;
+            color: #ffffff;
+            font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            margin-left: 10px;
+            text-decoration: none !important;
+        }
+
+        .btn-primary .register-link-text:hover {
+            border-left: none;
+            color: #ffffff;
+            text-decoration: none !important;
+        }
+
+        .icon-padding{
+            padding-left:25px;
+            padding-right:0;
+
+        }
+
+        .btn-wrapper {
+            height: 50px;
+
+        }
+
+        .btn-wrapper td:hover{
+            background-color: #0B579C !important;
+        }
+
+        .icon-padding svg{
+            color: white;
+            fill: white;
+            width: 22px;
+            vertical-align: middle;
+            padding-bottom: 5px;
+
+        }
+
+        .button-text{
+            text-align: left;
+            cursor: pointer;
+            vertical-align: middle;
+        }
+
+        .link-wrapper{
+            width: 250px;
+            display: block;
+            text-decoration: none !important;
+        }
+
+        hr {
+            border: 0;
+            border-bottom: 1px dashed #DADADA;
+            margin: 20px 0;
+        }
+
 
     </style>
 </head>
@@ -256,7 +343,8 @@
                             <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                 <tr>
                                     <td>
-                                        <h1>Welcome to Catena-X Automotive Network.</h1>
+                                        <h1>Welcome to Catena-X</h1>
+                                        <h4>The Automotive Network</h4>
                                         <p class="content-body">
                                             We like to welcome you to our automotive network. Catena-X. Start your
                                             registration now to join us on our adventure. Password was send via SMS.
@@ -268,6 +356,26 @@
                                             <br/>
                                             <a href="https://catenax-dev003-app-portal.azurewebsites.net/home/dashboard">https://catenax.net/dashboard</a>
                                         </p>
+
+                                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary content-body">
+                                            <tbody>
+                                            <tr>
+                                                <td align="left">
+                                                    <a href="http://htmlemail.io" target="_blank" class="link-wrapper">
+                                                    <table role="presentation" border="0" cellpadding="0" cellspacing="0" >
+                                                        <tbody class="btn-wrapper" >
+                                                        <tr>
+                                                            <td class="button-text icon-padding"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2m0 10c2.7 0 5.8 1.29 6 2H6c.23-.72 3.31-2 6-2m0-12C9.79 4 8 5.79 8 8s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 10c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                                                                <span class="register-link-text">Register Your Company</span></td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <hr />
                                     </td>
                                 </tr>
                             </table>
@@ -299,7 +407,7 @@
                         <tr>
                             <td class="content-block footer-plain-text padding-bottom">
                         <span class="footer-span">
-                            Vertretungsberechtigter Vorstand: Oliver Ganser (Vorstandsvorsitzender)
+                            Vertretungsberechtigter Vorstand: Oliver Ganser (Vorstandsvorsitzender):
                         </span>
                             </td>
                         </tr>
