@@ -1,5 +1,6 @@
 using CatenaX.NetworkServices.Mailing.SendMail;
 using CatenaX.NetworkServices.Mailing.Template;
+using CatenaX.NetworkServices.Registration.Service.BPN;
 using CatenaX.NetworkServices.Registration.Service.BusinessLogic;
 using CatenaX.NetworkServices.Registration.Service.CDQ;
 using CatenaX.NetworkServices.Registration.Service.RegistrationAccess;
@@ -48,6 +49,12 @@ namespace CatenaX.NetworkServices.Registration.Service
             
             services.AddTransient<IRegistrationBusinessLogic, RegistrationBusinessLogic>();
             services.AddTransient<IRegistrationDBAccess, RegistrationDBAccess>();
+
+            services.AddTransient<IBPNAccess, BPNAccess>();
+            services.AddHttpClient("bpn", c =>
+            {
+                c.BaseAddress = new Uri($"{ Configuration.GetValue<string>("BPN_Address")}");
+            });
             if (Configuration.GetValue<bool?>("CDQ_Enabled") != null && Configuration.GetValue<bool>("CDQ_Enabled"))
             {
                 services.AddTransient<ICDQAccess, CDQAccess>();
