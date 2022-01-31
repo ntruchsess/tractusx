@@ -63,6 +63,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "keycloak", "keycloak", "{36
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Keycloak.Net", "keycloak\src\Keycloak.Net\Keycloak.Net.csproj", "{2CEDAD69-E09D-48CA-838B-65D93C26C938}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatenaX.NetworkServices.Keycloak.Factory", "keycloak\src\CatenaX.NetworkServices.Keycloak.Factory\CatenaX.NetworkServices.Keycloak.Factory.csproj", "{917F0EB5-8D6F-4819-9607-0682248DFF49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatenaX.NetworkServices.Keycloak.Authentication", "keycloak\src\CatenaX.NetworkServices.Keycloak.Authentication\CatenaX.NetworkServices.Keycloak.Authentication.csproj", "{FE4A5E1E-2CB8-4149-9D22-C8C8D7FF5708}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -145,6 +149,14 @@ Global
 		{2CEDAD69-E09D-48CA-838B-65D93C26C938}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CEDAD69-E09D-48CA-838B-65D93C26C938}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CEDAD69-E09D-48CA-838B-65D93C26C938}.Release|Any CPU.Build.0 = Release|Any CPU
+		{917F0EB5-8D6F-4819-9607-0682248DFF49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{917F0EB5-8D6F-4819-9607-0682248DFF49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{917F0EB5-8D6F-4819-9607-0682248DFF49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{917F0EB5-8D6F-4819-9607-0682248DFF49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE4A5E1E-2CB8-4149-9D22-C8C8D7FF5708}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE4A5E1E-2CB8-4149-9D22-C8C8D7FF5708}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE4A5E1E-2CB8-4149-9D22-C8C8D7FF5708}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE4A5E1E-2CB8-4149-9D22-C8C8D7FF5708}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -178,6 +190,8 @@ Global
 		{1A8ADE3E-393B-43D6-BE93-9CDB765CB86E} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
 		{B472A6B7-8B43-4BDB-98C5-AD76C9D05297} = {1A8ADE3E-393B-43D6-BE93-9CDB765CB86E}
 		{2CEDAD69-E09D-48CA-838B-65D93C26C938} = {361B4010-82C0-11EC-8131-8BF7616386B6}
+		{917F0EB5-8D6F-4819-9607-0682248DFF49} = {361B4010-82C0-11EC-8131-8BF7616386B6}
+		{FE4A5E1E-2CB8-4149-9D22-C8C8D7FF5708} = {361B4010-82C0-11EC-8131-8BF7616386B6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {23E9EF5A-FB26-4AAC-952E-0695A1245B8E}
