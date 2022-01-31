@@ -24,7 +24,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BPN.Model
         public string type { get; set; }
         public string value { get; set; }
         public string shortName { get; set; }
-        public int number { get; set; }
+        public int? number { get; set; }
     }
 
     public class Profile
@@ -37,7 +37,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BPN.Model
         public string type { get; set; }
         public string value { get; set; }
         public string shortName { get; set; }
-        public int number { get; set; }
+        public int? number { get; set; }
     }
 
     public class Identifier
@@ -70,7 +70,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BPN.Model
         public string type { get; set; }
         public string value { get; set; }
         public string shortName { get; set; }
-        public int number { get; set; }
+        public int? number { get; set; }
     }
 
     public class Address
@@ -93,7 +93,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BPN.Model
     {
         public string value { get; set; }
         public string shortName { get; set; }
-        public int number { get; set; }
+        public int? number { get; set; }
     }
 
 
@@ -109,7 +109,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BPN.Model
         public string type { get; set; }
         public string value { get; set; }
         public string shortName { get; set; }
-        public int number { get; set; }
+        public int? number { get; set; }
     }
 
     public class Locality
@@ -117,7 +117,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BPN.Model
         public string type { get; set; }
         public string value { get; set; }
         public string shortName { get; set; }
-        public int number { get; set; }
+        public int? number { get; set; }
     }
 
     public class Thoroughfare
@@ -125,7 +125,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BPN.Model
         public string type { get; set; }
         public string value { get; set; }
         public string shortName { get; set; }
-        public int number { get; set; }
+        public int? number { get; set; }
     }
 
     public class Premis
@@ -133,7 +133,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BPN.Model
         public string type { get; set; }
         public string value { get; set; }
         public string shortName { get; set; }
-        public int number { get; set; }
+        public int? number { get; set; }
     }
 
     public class Postaldeliverypoint
@@ -141,7 +141,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BPN.Model
         public string type { get; set; }
         public string value { get; set; }
         public string shortName { get; set; }
-        public int number { get; set; }
+        public int? number { get; set; }
     }
 
     public class Version
