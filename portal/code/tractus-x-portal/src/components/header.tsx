@@ -15,7 +15,7 @@
 import * as React from 'react';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
-import adalContext from '../helpers/adalConfig';
+import UserService from '../helpers/UserService';
 import { Icon, Pivot, PivotItem, IconButton, IContextualMenuProps, IContextualMenuListProps, IRenderFunction, ContextualMenuItemType, ActionButton } from '@fluentui/react';
 import { AppState } from '../stores/appstate';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
@@ -36,15 +36,18 @@ function changeLanguage(lang: string)
 @observer
 class Header extends React.Component<IProp> {
   @observable username = '';
+  @observable name = '';
   @observable initials = '';
+  @observable company = '';
   @observable selectedKey = '';
   @observable isAdmin = false;
   @observable language = 'EN';
   @observable profileMenuVisible = true;
 
   public async componentDidMount() {
-    this.username = adalContext.getFullName();
-    this.initials = adalContext.getInitials(this.username);
+    this.name = UserService.getName();
+    this.initials = UserService.getInitials();
+    this.company = UserService.getCompany();
     AppState.state.isAdmin = true;
 
     //Removed beacuse of login loop
@@ -78,13 +81,13 @@ class Header extends React.Component<IProp> {
   }
 
   private userClick() {
-    const token = adalContext.getCachedToken();
+    const token = UserService.getCachedToken();
     console.log(token);
   }
   private logoutClick() {
-    const token = adalContext.getCachedToken();
+    const token = UserService.getCachedToken();
     console.log(token);
-    adalContext.logOut();
+    UserService.logOut();
   }
 
   private menuProps: IContextualMenuProps = {
@@ -93,9 +96,9 @@ class Header extends React.Component<IProp> {
       return (
         <div className='df fdc'>
           <div className='p10' style={{ borderBottom: '1px solid #ccc' }}>
-            <div>{this.username}</div>
+            <div>{this.name}</div>
             <div className='df'>
-            <div> {adalContext.getDomain(adalContext.getUsername())}</div>
+            <div> {UserService.getCompany()}</div>
               {this.isAdmin && <span className='ml5 fs14'>(Admin)</span>}
             </div>
           </div>
