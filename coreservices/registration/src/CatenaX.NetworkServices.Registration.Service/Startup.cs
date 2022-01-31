@@ -3,6 +3,7 @@ using CatenaX.NetworkServices.Mailing.Template;
 using CatenaX.NetworkServices.Registration.Service.BPN;
 using CatenaX.NetworkServices.Registration.Service.BusinessLogic;
 using CatenaX.NetworkServices.Registration.Service.CDQ;
+using CatenaX.NetworkServices.Registration.Service.Custodian;
 using CatenaX.NetworkServices.Registration.Service.RegistrationAccess;
 
 using Microsoft.AspNetCore.Builder;
@@ -49,6 +50,8 @@ namespace CatenaX.NetworkServices.Registration.Service
             
             services.AddTransient<IRegistrationBusinessLogic, RegistrationBusinessLogic>();
             services.AddTransient<IRegistrationDBAccess, RegistrationDBAccess>();
+
+            services.AddCustodianService(Configuration.GetSection("Custodian"));
 
             services.AddTransient<IBPNAccess, BPNAccess>();
             services.AddHttpClient("bpn", c =>

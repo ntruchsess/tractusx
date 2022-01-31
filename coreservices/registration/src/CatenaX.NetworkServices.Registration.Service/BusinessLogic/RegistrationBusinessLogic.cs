@@ -6,6 +6,7 @@ using CatenaX.NetworkServices.Mailing.SendMail;
 using CatenaX.NetworkServices.Mockups;
 using CatenaX.NetworkServices.Registration.Service.BPN;
 using CatenaX.NetworkServices.Registration.Service.BPN.Model;
+using CatenaX.NetworkServices.Registration.Service.Custodian;
 using CatenaX.NetworkServices.Registration.Service.Model;
 using CatenaX.NetworkServices.Registration.Service.RegistrationAccess;
 
@@ -25,13 +26,15 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
         private readonly IRegistrationDBAccess _dbAccess;
         private readonly IMailingService _mailingService;
         private readonly IBPNAccess _bpnAccess;
+        private readonly ICustodianService _custodianService;
 
-        public RegistrationBusinessLogic(IConfiguration configuration, IRegistrationDBAccess registrationDBAccess, IMailingService mailingService, IBPNAccess bpnAccess)
+        public RegistrationBusinessLogic(IConfiguration configuration, IRegistrationDBAccess registrationDBAccess, IMailingService mailingService, IBPNAccess bpnAccess, ICustodianService custodianService)
         {
             _configuration = configuration;
             _dbAccess = registrationDBAccess;
             _mailingService = mailingService;
             _bpnAccess = bpnAccess;
+            _custodianService = custodianService;
         }
 
         public async Task CreateUsersAsync(List<UserCreationInfo> userList, string realm, string token, Dictionary<string, string> userInfo)
@@ -148,6 +151,11 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
         public async Task<List<SignedConsent>> SignedConsentsByCompanyIdAsync(string companyId)
         {
            return (await _dbAccess.SignedConsentsByCompanyId(companyId)).ToList();
+        }
+
+        public async Task CreateCustodianWalletAsync(WalletInformation information)
+        {
+            await _custodianService.CreateWallet(information.bpn, information.name);
         }
     }
 }

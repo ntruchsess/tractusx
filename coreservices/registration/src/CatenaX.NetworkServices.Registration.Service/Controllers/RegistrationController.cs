@@ -45,6 +45,14 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
                 return new OkResult();
             });
 
+        [HttpPost]
+        [Route("company/{realm}/custodianWallet")]
+        public Task<IActionResult> CreateWallet([FromRoute] string realm, [FromHeader] string authorization, [FromBody] WalletInformation walletToCreate) =>
+            ValidateTokenAsync(realm, authorization, async (userInfo) => {
+                await _registrationBusinessLogic.CreateCustodianWalletAsync(walletToCreate);
+                return new OkResult();
+            });
+
         [HttpPut]
         [Route("company/{realm}/companyRoles")]
         public Task<IActionResult> SetCompanyRolesAsync([FromRoute] string realm, [FromHeader] string authorization, [FromBody] CompanyToRoles rolesToSet) =>
@@ -154,10 +162,10 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
             {
                 _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
                 var response = await _httpClient.GetAsync($"{realm}/protocol/openid-connect/userinfo");
-                if (!response.IsSuccessStatusCode)
-                {
-                    return new StatusCodeResult((int)HttpStatusCode.Forbidden);
-                }
+                //if (!response.IsSuccessStatusCode)
+                //{
+                //    return new StatusCodeResult((int)HttpStatusCode.Forbidden);
+                //}
                 return await action(
                     deserialize
                         ? JsonConvert.DeserializeObject<Dictionary<string, string>>(await response.Content.ReadAsStringAsync())
