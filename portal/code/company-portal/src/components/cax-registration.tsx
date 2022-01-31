@@ -27,13 +27,45 @@ import ResponsibilitiesCax from "./cax-responsibilities";
 import DragDropUploadFiles from "./dragdrop";
 import CompanyRoleCax from "./cax-companyRole";
 import { FaEdit } from "react-icons/fa"
+import UserService from '../helpers/UserService';
+import { RouteComponentProps } from "react-router-dom";
+
 
 @observer
-class RegistrationCax extends React.Component<WithTranslation> {
+
+class RegistrationCax extends React.Component<
+  WithTranslation & RouteComponentProps,
+  any
+> {
   @observable currentActiveStep = 1;
  
   private nextClick() {
-    this.currentActiveStep = this.currentActiveStep + 1;
+    
+    if(this.currentActiveStep === 5){
+    const url = process.env.REACT_APP_ONBOARDING_URL;
+    const endpoint = process.env.REACT_APP_ONBOARDING_ENDPOINT;
+    const token = UserService.getToken();
+    const realm = UserService.realm;
+    const featchUrl = `${url}/${endpoint}/${realm}/custodianWallet`;
+    const data = {
+      bpn : "BPNL475774077",
+      name : "string"    
+    }
+      fetch(featchUrl, { method: 'POST', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+      .then((response) => {
+        if (response.ok) {
+          this.props.history.push("/finish");
+        }
+        else throw Error();
+      }
+
+      ).catch((error) => {
+        // toast.error('Onboarding for company id: ' + this.oneId + ' failed. Company is already registered.')
+      });
+
+    }else{
+      this.currentActiveStep = this.currentActiveStep + 1;
+    }
   }
 
   private backClick() {
