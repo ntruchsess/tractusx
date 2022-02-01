@@ -23,6 +23,10 @@ import Button from "./button";
 import { getClientRolesComposite } from "../helpers/utils";
 import { AiOutlineExclamationCircle } from "react-icons/ai";
 import { User } from "../data/companyDetails";
+import UserService from '../helpers/UserService';
+import { ToastContainer, toast } from "react-toastify";
+
+
 interface IUserResponsibilities {
   id: number;
   eMail: string;
@@ -94,6 +98,36 @@ class ResponsibilitiesCax extends React.Component<WithTranslation> {
 
   private removeUser(id: number) {
     this.newarray = this.newarray.filter((x) => x.id !== id);
+  }
+
+  private sendInvites() {
+    const realm = UserService.realm;
+    const token = UserService.getToken();
+    const url = process.env.REACT_APP_ONBOARDING_URL;
+    const endpoint = process.env.REACT_APP_ONBOARDING_ENDPOINT;
+    const u = `${url}/${endpoint}/${realm}/users`;
+    const data = this.newarray.map(({ id, ...rest }) => ({ ...rest }));
+    console.log(data);
+    if (data.length > 0) {
+      fetch(u, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((response) => {
+          if (response.ok) {
+            toast.success("Sent Invite");
+          } else throw Error();
+        })
+        .catch((error) => {
+          toast.error("Unable to sent invite");
+        });
+    } else {
+      toast.error("Email or User Role empty.");
+    }
   }
 
   public render() {
@@ -204,6 +238,14 @@ class ResponsibilitiesCax extends React.Component<WithTranslation> {
                 handleClick={() => this.handleClick()}
                 icon={true}
               />
+            </div>
+            <div>
+            <Button
+                styleClass="button btn-primaryCax"
+                label="Send Invite"
+                handleClick={() => this.sendInvites()}
+              />
+              <ToastContainer />
             </div>
           </Row>
         </div>
