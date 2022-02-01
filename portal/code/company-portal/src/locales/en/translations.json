@@ -47,6 +47,16 @@
             "point1": "You, as well as added Legal Managers, will receive a e-mail with all the details of your registration form",
             "point2": "We will validate your registration request. As soon as your registration is approved (usually within 2 working days), you will receive a e-mail confirmation",
             "point3": "As soon as you received the confirmation e-mail, you will be able to connect to the portal and procceed with the technical onboarding"
+        },
+        "companyRole": {
+            "title":"The role of your company",
+            "subTitle": "Please select one or more roles for your company to participant in Catena-X. The company role can always get updated/changed later. Depending on the selected role, the offered portal services might differ."
+        },
+        "documentUpload": {
+            "title": "Upload documents",
+            "subTitle": "Please upload your legal company commercial register document.",
+            "dragDropMessage": "Drag and drop files here, or click to select files",
+            "upload": "Upload"
         }
 
     }
