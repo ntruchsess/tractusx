@@ -18,6 +18,7 @@
     "react-datepicker": "^4.5.0",
     "react-dom": "^16.14.0",
     "react-drag-drop-files": "^2.1.14",
+    "react-dropzone": "^11.5.1",
     "react-i18next": "^11.14.3",
     "react-icons": "^4.3.1",
     "react-router-dom": "^5.2.0",
