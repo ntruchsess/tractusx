@@ -58,6 +58,8 @@ const doLogout = _kc.logout;
 //forward as header "authentication: Bearer ${getToken()}"
 const getToken = () => _kc.token;
 
+const getParsedToken = () => _kc.tokenParsed;
+
 const isLoggedIn = () => !!_kc.token;
 
 const updateToken = (successCallback) =>
@@ -80,6 +82,7 @@ const UserService = {
   doLogout,
   isLoggedIn,
   getToken,
+  getParsedToken,
   updateToken,
   getUsername,
   getInitials,
