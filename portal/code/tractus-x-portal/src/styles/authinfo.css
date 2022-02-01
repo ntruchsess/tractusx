@@ -1,11 +1,6 @@
-html, body {
-  overflow: auto;
-  background-color: #222;
-  color: white;
-}
-
 pre {
   background-color: #333;
+  color: white;
   margin: 10px;
   padding: 10px;
   border: 1px solid #888;
