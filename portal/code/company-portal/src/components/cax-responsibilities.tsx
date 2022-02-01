@@ -29,37 +29,21 @@ interface IUserResponsibilities {
   role: string;
   message: string;
 }
-
-interface ISelectableOption<T = any> {
-  
-  key: string | number;
-  text: string;
-}
-
-interface IDropdownOption<T = any> extends ISelectableOption<T> {
-  
-  isSelected?: boolean;
-}
-
 @observer
 class ResponsibilitiesCax extends React.Component<WithTranslation> {
 
   @observable private user: User = { email: "", role: "", message: "" };
   @observable private newarray: IUserResponsibilities[] = [];
   @observable private error: User = { email: "", role: "", message: "" };
-  @observable private availableUserRoles: IDropdownOption[];
+  @observable private availableUserRoles: string[];
 
   async componentDidMount() {
     const onboarding = window.localStorage.getItem("onboarding");
     console.log("responsibilities", onboarding);
     try {
-      const userRoles = await getClientRolesComposite();
-      console.log(userRoles);
-      this.availableUserRoles = userRoles.map((x) => {
-        return { key: x, text: x };
-      });
-      console.log(this.availableUserRoles);
-    } catch {}
+      this.availableUserRoles = await getClientRolesComposite();
+    } catch {
+    }
   }
 
   updateProperty(key, value) {
@@ -190,8 +174,8 @@ class ResponsibilitiesCax extends React.Component<WithTranslation> {
             <div className={this.error.role !== "" ? "form-data error" : "form-data"}>
               <label> User role </label>
               <select value={this.user.role} onChange={(e) => this.onChange(e)}>
-                {this.availableUserRoles && this.availableUserRoles.map(({ key, text }, index) => (
-                  <option value={key}>{text}</option>
+                {this.availableUserRoles && this.availableUserRoles.map((role, index) => (
+                  <option value={role}>{role}</option>
                 ))}
               </select>
               <div className="error-message">{this.error.email}</div>
