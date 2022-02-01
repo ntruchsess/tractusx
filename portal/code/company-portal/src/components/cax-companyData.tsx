@@ -87,9 +87,6 @@ class CompanyDataCax extends React.Component<WithTranslation> {
                             <label> {this.props.t('registrationStepOne.seachDatabase')}</label>
                             <SearchInput className="search-input" value={this.value} onChange={(value) => this.fillFormData(value)} />
                         </div>
-                        {(this.companyDetails && this.companyDetails.length > 1) ?
-                        <div>
-                </div> : ''}
                     </Row>
                     <Row className='col-9 mx-auto'>
                         <div className="section-divider">
