@@ -27,7 +27,7 @@ on:
       # Integration environment
       - main
       # DevOps and IAM team integration branch
-      - feature/CAX-12-devops
+      - feature/CAX-12-devops      
       # Onboarding Dev Space
       - feature/CAX-9-onboarding
       - feature/CAX-9-onboarding@deploy
@@ -59,7 +59,7 @@ jobs:
           elif [[ "${{github.repository}}" == catenax/tractusx ]]; then
               if [[ "${{github.ref}}" == refs/heads/main ]]; then
                 echo "Determined INTEGRATION"
-                echo "::set-output name=workspace::int"                             
+                echo "::set-output name=workspace::int"             
               else
                 echo "Unsupported Branch on CATENAX. Leaving Workspace empty."
               fi
