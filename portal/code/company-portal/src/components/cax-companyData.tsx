@@ -23,19 +23,6 @@ import DatePicker from "react-datepicker";
 import SearchInput from 'react-search-input';
 import { FetchBusinessPartnerDto } from "../data/companyDetailsById"
 import { toJS } from 'mobx'
-
-interface ISelectableOption<T = any> {
-  
-    key: string | number;
-    text: string;
-  }
-  
-  interface IDropdownOption<T = any> extends ISelectableOption<T> {
-    
-    isSelected?: boolean;
-  }
-
-let dropdownOptions: IDropdownOption[] = [];
 @observer
 class CompanyDataCax extends React.Component<WithTranslation> {
 
@@ -102,11 +89,6 @@ class CompanyDataCax extends React.Component<WithTranslation> {
                         </div>
                         {(this.companyDetails && this.companyDetails.length > 1) ?
                         <div>
-                            <select onChange={(e) => this.onChange(e)}>
-                {dropdownOptions && dropdownOptions.map(({ key, text }, index) => (
-                  <option key={key} value={key}>{text}</option>
-                ))}
-              </select>
                 </div> : ''}
                     </Row>
                     <Row className='col-9 mx-auto'>

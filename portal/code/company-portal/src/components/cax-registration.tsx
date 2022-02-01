@@ -185,25 +185,7 @@ class RegistrationCax extends React.Component<
             ) : this.currentActiveStep === 3 ? (
                <CompanyRoleCax />
             ) : this.currentActiveStep === 4 ? (
-              <div className="mx-auto col-9 container-registration">
-                <div className="head-section">
-                  <div className="mx-auto step-highlight d-flex align-items-center justify-content-center">
-                    4
-                  </div>
-                  <h4 className="mx-auto d-flex align-items-center justify-content-center">
-                    Upload documents
-                  </h4>
-                  <div className="mx-auto text-center col-9">
-                    Please upload your legal company commercial register
-                    document.
-                  </div>
-                  
-                </div>
-                <div className="companydata-form mx-auto col-9">
-
                 <DragDropUploadFiles/>
-                </div>
-              </div>
             ) : (
               <div className="mx-auto col-9 container-registration">
                 <div className="head-section">
