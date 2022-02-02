@@ -33,7 +33,6 @@ const SemanticModelDetail = (props) => {
   const [examplePayloadUrl, setExamplePayloadUrl] = useState<string | null>(undefined);
   const [isImageLoading, setIsImageLoading] = useState(true);
   const [fileUrl, setFileUrl] = useState<string | null>(undefined);
-  const [payloadError, setPayloadError] = useState(null);
 
   useEffect(() => {
     getModelById(id)
@@ -44,34 +43,19 @@ const SemanticModelDetail = (props) => {
     setExamplePayloadUrl(getExamplePayloadUrl(id));
     setOpenApiUrl(getOpenApiUrl(id, apiBaseUrl));
     setFileUrl(getFileUrl(id));
-  }, [id]);
+  }, [id, apiBaseUrl]);
 
   const diagramOnLoad = () => {
     setIsImageLoading(false);
   }
 
-  const changeExamplePayloadUrl = (_, value) => {
-    setPayloadError('');
+  const changeOpenApiBaseUrl = (_, value) => {
     if(value === '') {
-      setExamplePayloadUrl(getExamplePayloadUrl(id))
+      setApiBaseUrl(getOpenApiUrl(id, apiBaseUrl))
     } else {
-      setExamplePayloadUrl(value);
+      setApiBaseUrl(getOpenApiUrl(id, value))
     }
-    
   }
-
-  const onExamplePayloadClick = () => {
-    fetch(examplePayloadUrl)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          window.open(examplePayloadUrl);
-        },
-        (error) => {
-          setPayloadError('Your URL is invalid.')
-        }
-      )
-    }
 
   return(
     <div>
@@ -79,7 +63,7 @@ const SemanticModelDetail = (props) => {
         <div className="df jcsb w100pc">
           <BackLink history={props.history} />
           <div className="df">
-            <DeleteModel id={id} name={model.name}></DeleteModel>
+            <DeleteModel id={id} name={model.name} version={model.version}></DeleteModel>
           </div>
         </div>
         <h1 className="pb20 fs42">{model.name}</h1>
@@ -87,31 +71,31 @@ const SemanticModelDetail = (props) => {
         <p className="fs18">Aspect Model URN: {model.id}</p>
         <p className="fs18 mb20">Release Status: {model.status}</p>
         <div>
-          <img src={imageUrl} className="w100pc mb30" onLoad={diagramOnLoad}></img>
+          <img src={imageUrl} alt={`Model of ${model.name}`} className="w100pc mb30" onLoad={diagramOnLoad}></img>
           {isImageLoading && <Loading />}
         </div>
         <div className="df fwrap">
-          <a className='detail-link' href={fileUrl} target="_blank">
+          <a className='detail-link' href={fileUrl} target="_blank" rel="noreferrer">
             <Icon className='fgblack fs20 mt2 mr7' iconName='Installation' />
             <span>Download TTL</span>
           </a>
-          <a className='detail-link' href={documentationUrl} target="_blank">
+          <a className='detail-link' href={documentationUrl} target="_blank" rel="noreferrer">
             <Icon className='fgblack fs20 mt2 mr7' iconName='ReportDocument' />
             <span>Documentation</span>
           </a>
-          <a className='detail-link' href={jsonSchemaUrl} target="_blank">
+          <a className='detail-link' href={jsonSchemaUrl} target="_blank" rel="noreferrer">
             <Icon className='fgblack fs20 mt2 mr7' iconName='Code' />
             <span>Download JSON Schema</span>
           </a>
-          <a className='detail-link'href={openApiUrl} target="_blank">
-            <Icon className='fgblack fs20 mt2 mr7' iconName='DataManagementSettings' />
-            <span>Open API</span>
+          <a className='detail-link' href={examplePayloadUrl} target="_blank" rel="noreferrer">
+            <Icon className='fgblack fs20 mt2 mr7' iconName='Code' />
+            <span>Example Payload JSON</span>
           </a>
         </div>
         <div className="df aife">
-          <TextField onChange={changeExamplePayloadUrl} errorMessage={payloadError} className="mr10 w50-40" label="Enter Example Payload Link" />
-          <PrimaryButton onClick={onExamplePayloadClick} title="Get Example Payload JSON">
-            Get JSON
+          <TextField onChange={changeOpenApiBaseUrl} className="mr10 w50-40" label="Enter a base URL to change the default URL" />
+          <PrimaryButton href={openApiUrl} title="Get Open API JSON" target="_blank">
+            Open API
           </PrimaryButton>
         </div>
         </div> :

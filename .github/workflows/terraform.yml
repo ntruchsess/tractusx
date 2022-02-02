@@ -65,10 +65,13 @@ on:
       - feature/A1ODT-60
       # Onboarding env for GPDM
       - feature/A1ODT-11
+      # Onboarding env for GPDM
+      - feature/CAX-12-devops@CPLP-127-two-keycloak-instances     
       # ADAPT HERE TO ADD NEW WORKSPACES
 
+
 env:
-  prefix: cxtsi
+  prefix: catenax
 
 ###############################################################
 # Consists of two jobs, the first determines the environment
@@ -90,7 +93,6 @@ jobs:
     # depend on them in order to implement workflow dependencies
     name: 00 Infrastructure Determine Target Environment
     runs-on: ubuntu-latest
-    environment: Catena-X dev/int
     outputs:
       workspace: ${{ steps.setvars.outputs.workspace }}
 
@@ -112,10 +114,7 @@ jobs:
                 echo "::set-output name=workspace::int"
               elif [[ "${{github.ref}}" == refs/heads/feature/CAX-1-semantics || "${{github.ref}}" = refs/heads/feature/CAX-1-semantics@CXMVP-50-semantic-adapter ]]; then
                   echo "Determined SEMANTICS"
-                  echo "::set-output name=workspace::dev042"
-              elif [[ "${{github.ref}}" == refs/heads/feature/CAX-9-onboarding ]]; then
-                  echo "Determined ONBOARDING"
-                  echo "::set-output name=workspace::dev003"                 
+                  echo "::set-output name=workspace::dev042"                                                                           
               elif [[ "${{github.ref}}" == refs/heads/feature/A1ODT-18 ]]; then
                   echo "Determined DEV010 ENV"
                   echo "::set-output name=workspace::dev010"  
@@ -146,7 +145,6 @@ jobs:
     # depend on them in order to implement workflow dependencies
     name: 09 Infrastructure Terraform
     runs-on: ubuntu-latest
-    environment: Catena-X dev/int
     # rely on the first job
     needs: environment
     # rely on successful detection of the workspace, ignore if empty
@@ -199,28 +197,28 @@ jobs:
     - name: Download Kubernetes SSH Keys
       working-directory: ./infrastructure/terraform
       run: |
-        az storage blob download --name ${{needs.environment.outputs.workspace}}.ssh.pub --container-name sshkeys --account-name cxtsidevtfstate --auth-mode login --file ssh.pub
+        az storage blob download --name ${{needs.environment.outputs.workspace}}.ssh.pub --container-name sshkeys --account-name ${{env.prefix}}devtfstate --auth-mode login --file ssh.pub
         ls -lahtr
 
     # Try to setup 2nd layer provider config (k8, helm) from existing resources (aks-services), otherwise they will be initialised when the aks is created 
-    #- name: Terraform Config
-      #id: tf_config
-      #working-directory: ./infrastructure/terraform
-      #run: |
-        #mv provider.tf provider.tf_muted
-        #terraform show -json | grep -o -E '"kube_admin_config":\[(\{|\*\*\*)(("client_certificate"|"client_key"|"username"|"password"|"host"|"cluster_ca_certificate"):"[^"]+"\,?)+(\}|\*\*\*)\]' > kube_admin_config.json
-        #echo  "::set-output name=AKS_HOST::$(  cat kube_admin_config.json | grep -o -E '"host":"[^"]+"' | sed  -n 's/^"host":"\(.*\)"$/\1/p' )"
-        #echo  "::set-output name=AKS_USER::$(  cat kube_admin_config.json | grep -o -E '"username":"[^"]+"' | sed  -n 's/^"username":"\(.*\)"$/\1/p' )"
-        #echo  "::set-output name=AKS_PASSWORD::$( cat kube_admin_config.json | grep -o -E '"password":"[^"]+"' | sed  -n 's/^"password":"\(.*\)"$/\1/p')"
-        #echo  "::set-output name=AKS_CLIENT_KEY::$( cat kube_admin_config.json | grep -o -E '"client_key":"[^"]+"' | sed  -n 's/^"client_key":"\(.*\)"$/\1/p')"
-        #echo  "::set-output name=AKS_CLIENT_CERTIFICATE::$( cat kube_admin_config.json | grep -o -E '"client_certificate":"[^"]+"' | sed  -n 's/^"client_certificate":"\(.*\)"$/\1/p')"
-        #echo  "::set-output name=AKS_CLUSTER_CERTIFICATE::$( cat kube_admin_config.json | grep -o -E '"cluster_ca_certificate":"[^"]+"' | sed  -n 's/^"cluster_ca_certificate":"\(.*\)"$/\1/p')"
+    - name: Terraform Config
+      id: tf_config
+      working-directory: ./infrastructure/terraform
+      run: |
+        mv provider.tf provider.tf_muted
+        terraform show -json | grep -o -E '"kube_admin_config":\[(\{|\*\*\*)(("client_certificate"|"client_key"|"username"|"password"|"host"|"cluster_ca_certificate"):"[^"]+"\,?)+(\}|\*\*\*)\]' > kube_admin_config.json
+        echo  "::set-output name=AKS_HOST::$(  cat kube_admin_config.json | grep -o -E '"host":"[^"]+"' | sed  -n 's/^"host":"\(.*\)"$/\1/p' )"
+        echo  "::set-output name=AKS_USER::$(  cat kube_admin_config.json | grep -o -E '"username":"[^"]+"' | sed  -n 's/^"username":"\(.*\)"$/\1/p' )"
+        echo  "::set-output name=AKS_PASSWORD::$( cat kube_admin_config.json | grep -o -E '"password":"[^"]+"' | sed  -n 's/^"password":"\(.*\)"$/\1/p')"
+        echo  "::set-output name=AKS_CLIENT_KEY::$( cat kube_admin_config.json | grep -o -E '"client_key":"[^"]+"' | sed  -n 's/^"client_key":"\(.*\)"$/\1/p')"
+        echo  "::set-output name=AKS_CLIENT_CERTIFICATE::$( cat kube_admin_config.json | grep -o -E '"client_certificate":"[^"]+"' | sed  -n 's/^"client_certificate":"\(.*\)"$/\1/p')"
+        echo  "::set-output name=AKS_CLUSTER_CERTIFICATE::$( cat kube_admin_config.json | grep -o -E '"cluster_ca_certificate":"[^"]+"' | sed  -n 's/^"cluster_ca_certificate":"\(.*\)"$/\1/p')"
 
     # Move back the providers (kubernetes, helm) in order to generate a plan
     - name: Terraform Plan
       working-directory: ./infrastructure/terraform
       run: |
-        #mv provider.tf_muted provider.tf
+        mv provider.tf_muted provider.tf
         #export TF_LOG="DEBUG"
         terraform plan \
         -var-file=environments/${{needs.environment.outputs.workspace}}.tfvars \
@@ -245,7 +243,7 @@ jobs:
     - name: Store Terraform Plan
       working-directory: ./infrastructure/terraform
       run: |
-        az storage blob upload --name ${{needs.environment.outputs.workspace}}terraform${GITHUB_SHA}.plan --container-name tfplan --account-name cxtsidevtfstate --auth-mode login --file .terraform/terraform.plan --metadata TYPE=TERRAFORM_PLAN
+        az storage blob upload --name ${{needs.environment.outputs.workspace}}terraform${GITHUB_SHA}.plan --container-name tfplan --account-name ${{env.prefix}}devtfstate --auth-mode login --file .terraform/terraform.plan --metadata TYPE=TERRAFORM_PLAN
 
     # The actual terraform apply
     - name: Terraform Auto-Apply
@@ -360,19 +358,33 @@ jobs:
       run: |
         az postgres db create --name "tdmdb" --resource-group ${{env.prefix}}-${{needs.environment.outputs.workspace}}-rg --server-name ${{env.prefix}}${{needs.environment.outputs.workspace}}database
 
-    # Get IAM DB
-    - name: Azure Try Existing IAM DB
-      id: try_iam_db
+    # Get IAM DB for central IDP KeyCloak instance
+    - name: Azure Try Existing IAMCENTRALIDP DB
+      id: try_iamcentralidp_db
       working-directory: ./infrastructure/terraform
       run: |
-        echo "::set-output name=IAMDB::$(az postgres db list --resource-group ${{env.prefix}}-${{needs.environment.outputs.workspace}}-rg --server-name ${{env.prefix}}${{needs.environment.outputs.workspace}}database --output json | jq -r '.[] | select(.name=="iam") | .id')"
+        echo "::set-output name=IAMDB1::$(az postgres db list --resource-group ${{env.prefix}}-${{needs.environment.outputs.workspace}}-rg --server-name ${{env.prefix}}${{needs.environment.outputs.workspace}}database --output json | jq -r '.[] | select(.name=="iamcentralidp") | .id')"
 
     # Create IAM DB If Needed 
-    - name: Azure Create IAM DB
-      if: ${{steps.try_consumerconnector_db.outputs.IAMDB == '' }}
+    - name: Azure Create IAMCENTRALIDP DB
+      if: ${{steps.try_iamcentralidp_db.outputs.IAMDB1 == '' }}
       working-directory: ./infrastructure/terraform
       run: |
-        az postgres db create --name "iam" --resource-group ${{env.prefix}}-${{needs.environment.outputs.workspace}}-rg --server-name ${{env.prefix}}${{needs.environment.outputs.workspace}}database
+        az postgres db create --name "iamcentralidp" --resource-group ${{env.prefix}}-${{needs.environment.outputs.workspace}}-rg --server-name ${{env.prefix}}${{needs.environment.outputs.workspace}}database
+
+    # Get IAM DB for shared IDP KeyCloak instance
+    - name: Azure Try Existing IAMSHAREDIDP DB
+      id: try_iamsharedidp_db
+      working-directory: ./infrastructure/terraform
+      run: |
+        echo "::set-output name=IAMDB2::$(az postgres db list --resource-group ${{env.prefix}}-${{needs.environment.outputs.workspace}}-rg --server-name ${{env.prefix}}${{needs.environment.outputs.workspace}}database --output json | jq -r '.[] | select(.name=="iamsharedidp") | .id')"
+
+    # Create IAM DB If Needed 
+    - name: Azure Create IAMSHAREDIDP DB
+      if: ${{steps.try_iamsharedidp_db.outputs.IAMDB2 == '' }}
+      working-directory: ./infrastructure/terraform
+      run: |
+        az postgres db create --name "iamsharedidp" --resource-group ${{env.prefix}}-${{needs.environment.outputs.workspace}}-rg --server-name ${{env.prefix}}${{needs.environment.outputs.workspace}}database
 
     # Get App Registration 
     - name: Azure Try Existing App Registration

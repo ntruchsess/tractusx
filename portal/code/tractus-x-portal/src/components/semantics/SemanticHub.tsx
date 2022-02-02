@@ -14,7 +14,7 @@
 
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { Dropdown, Icon, IContextualMenuItem, IDropdownOption, IDropdownStyles, PrimaryButton, SearchBox } from '@fluentui/react';
+import { Dropdown, IContextualMenuItem, IDropdownOption, IDropdownStyles, PrimaryButton, SearchBox } from '@fluentui/react';
 import DescriptionList from '../lists/descriptionlist';
 import { getModels, Status } from './data';
 import ErrorMessage from '../ErrorMessage';
@@ -57,7 +57,7 @@ export default class SemanticHub extends React.Component<any, any>{
       error: null,
       currentPage: defaultPage,
       pageSize: defaultPageSize,
-      hasNoNextPage: false
+      totalPages: 1
     };
 
     this.clearFilter = this.clearFilter.bind(this);
@@ -89,30 +89,11 @@ export default class SemanticHub extends React.Component<any, any>{
   setModels(){
     getModels(this.state.filterParams)
       .then(
-        models => this.setState({models:models.items}), 
-        error => this.setState({error: error.message}))
-      .then(() => this.checkForNextPage());
-  }
-
-  private getIcon(data: any) {
-    return <span className='pt5'><svg version="1.1" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 32 32" enableBackground="new 0 0 32 32" id="svg2"><g id="background"><rect fill="none" width="32" height="32" id="rect6" /></g><path id="path9"
-      d="M 26.997,20.09 V 11.91 C 29.834,11.435 32,8.973 32,6 32,2.687 29.312,0 26,0 c -3.316,0 -6,2.687 -6,6 0,0.609 0.092,1.196 0.261,1.75 l -9.423,4.711 C 9.747,10.972 7.989,10 6,10 c -3.314,0 -6,2.687 -6,6 0,3.312 2.686,6 6,6 1.99,0 3.748,-0.973 4.839,-2.464 l 9.423,4.712 C 20.092,24.803 20,25.391 20,26 c 0,3.312 2.684,6 6,6 3.312,0 6,-2.688 6,-6 0,-2.972 -2.166,-5.435 -5.003,-5.91 z M 11.739,17.751 C 11.908,17.197 12,16.609 12,16 12,15.39 11.908,14.801 11.738,14.247 l 9.422,-4.71 c 0.903,1.235 2.266,2.109 3.839,2.374 v 8.18 c -1.573,0.265 -2.934,1.139 -3.838,2.372 l -9.422,-4.712 z" />
-      </svg>
-    </span>
-  }
-
-  checkForNextPage(){
-    const nextPageNum = this.state.currentPage + 1;
-    const params = new URLSearchParams(this.state.filterParams);
-    params.set('page', nextPageNum);
-    getModels(params)
-      .then(models => {
-        if(models.length === 0){
-          this.setState({hasNoNextPage: true});
-        } else {
-          this.setState({hasNoNextPage: false});
-        }
-      });
+        models => { 
+          this.setState({totalPages: models.totalPages});
+          this.setState({models: models.items});
+        }, 
+        error => this.setState({error: error.message}));
   }
 
   setFilter(...params: { name: string, value: any }[]){
@@ -123,7 +104,8 @@ export default class SemanticHub extends React.Component<any, any>{
       } else {
         currentFilter.append(param.name, param.value);
       }
-      if(param.name != 'pageSize') this.filterActive = true;
+      if(param.name !== 'pageSize') this.filterActive = true;
+      return null;
     })
     this.setState({filterParams: currentFilter});
   }
@@ -295,7 +277,7 @@ export default class SemanticHub extends React.Component<any, any>{
                 onClear={this.onNSSearchClear}
                 onChange={(_, newValue) => this.onNSSearchChange(newValue)}
               />
-               { !this.state.reloadDropdown && 
+              { !this.state.reloadDropdown && 
                 <Dropdown placeholder="Select"
                     label="Object Type"
                     options={searchTypeOptions}
@@ -335,10 +317,10 @@ export default class SemanticHub extends React.Component<any, any>{
                       </div>
                     </div>
                   ))}
-                  <Pagination pageNumber={this.state.currentPage}
+                  <Pagination pageNumber={this.state.currentPage + 1}
                     onPageBefore={this.onPageBefore}
                     onPageNext={this.onPageNext}
-                    isDisabledNext={this.state.hasNoNextPage}>
+                    totalPages={this.state.totalPages}>
                   </Pagination>
                 </div>
               </div>
