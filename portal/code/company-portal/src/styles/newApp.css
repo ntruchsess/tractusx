@@ -321,7 +321,8 @@ textarea {
   padding-right: 30px;
 }
 
-.calender-icon, .error-icon {
+.calender-icon,
+.error-icon {
   position: absolute;
   right: 24px;
   top: 42px;
@@ -411,11 +412,11 @@ textarea {
   border-bottom: 1px solid #dadada;
 }
 
-.list-header{
-  background: #EDF0F4;
+.list-header {
+  background: #edf0f4;
   border: none;
   font-family: "LibreFranklin-bold";
-} 
+}
 .send-invite {
   margin-bottom: 50px;
 }
@@ -484,7 +485,8 @@ textarea {
   color: #d91e18;
 }
 
-.error input[type="text"],.error select{
+.error input[type="text"],
+.error select {
   border-color: #d91e18;
 }
 
@@ -566,8 +568,31 @@ textarea {
   cursor: pointer;
 }
 
-.editIcon{
-  color: #0F71CB ;
+.editIcon {
+  color: #0f71cb;
   font-size: 20px;
   cursor: pointer;
+}
+
+.dropzone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 15em;
+  background-color: #fafafa;
+  align-items: center;
+  border: 3px dashed #eeeeee;
+  cursor: pointer;
+  margin-bottom: 20px;
+  border-radius: 24px;
+}
+
+.selected-file-wrapper {
+  text-align: center;
+}
+
+.selected-file {
+  color: #000;
+  font-weight: bold;
 }

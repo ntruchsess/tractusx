@@ -15,14 +15,64 @@
 import * as React from 'react';
 import { observer } from 'mobx-react';
 import { Row } from 'react-bootstrap';
+import { observable } from 'mobx';
+import { getCompanyDetails } from '../helpers/utils';
 import { withTranslation, WithTranslation } from 'react-i18next';
 import { AiOutlineQuestionCircle, AiOutlineCalendar } from 'react-icons/ai'
 import DatePicker from "react-datepicker";
-import SearchInput from 'react-search-input'
+import SearchInput from 'react-search-input';
+import { FetchBusinessPartnerDto } from "../data/companyDetailsById"
+import { toJS } from 'mobx'
 @observer
 class CompanyDataCax extends React.Component<WithTranslation> {
 
+    @observable companyDetails: FetchBusinessPartnerDto[];
+    @observable companyDetailsById: FetchBusinessPartnerDto[];
+    @observable value: string;
+
+
+    async fillFormData(value) {
+        console.log(value)      
+            try {
+              this.companyDetailsById = await getCompanyDetails(value);
+            } catch (e) {
+              console.log(e.message)
+            }
+      }
+
+      async onSeachChange(ev, item) {
+        try {
+          this.companyDetailsById = await getCompanyDetails(item.key)
+          let details = toJS(this.companyDetails);
+          console.log(details);
+        } catch (e) {
+          console.log(e.message)
+        }
+      }
+
+      async onChange(ev) {
+        try {
+          this.companyDetailsById = await getCompanyDetails(ev.target.value)
+          let details = toJS(this.companyDetailsById);
+          console.log(details);
+        } catch (e) {
+          console.log(e.message)
+        }
+      }
+
     public render() {
+
+         const bpn = toJS(this.companyDetailsById?.[0]?.bpn) ||"";
+         const legalEntity = toJS(this.companyDetailsById?.[0]?.names.find(x => x.type === 'INTERNATIONAL')?.value) || "";
+         const registeredName = toJS(this.companyDetailsById?.[0]?.names.find(x => x.type === 'REGISTERED')?.value) || "";
+         const streetHouseNumber =  toJS(this.companyDetailsById?.[0]?.addresses?.[0]?.thoroughfares.find(x => x.type === 'INDUSTRIAL_ZONE')?.value) || "";
+         const postalCode =  toJS(this.companyDetailsById?.[0]?.addresses?.[0]?.postCodes.find(x => x.type === 'REGULAR')?.value) || "";
+         const city = toJS(this.companyDetailsById?.[0]?.addresses?.[0]?.localities.find(x => x.type === 'BLOCK')?.value) || "";
+         const country = toJS(this.companyDetailsById?.[0]?.addresses?.[0]?.countryCode) || "";
+
+         
+        
+
 
         return (
             <div className='mx-auto col-9 container-registration'>
@@ -35,7 +85,7 @@ class CompanyDataCax extends React.Component<WithTranslation> {
                     <Row className='mx-auto col-9'>
                         <div className='form-search'>
                             <label> {this.props.t('registrationStepOne.seachDatabase')}</label>
-                            <SearchInput className="search-input" />
+                            <SearchInput className="search-input" value={this.value} onChange={(value) => this.fillFormData(value)} />
                         </div>
                     </Row>
                     <Row className='col-9 mx-auto'>
@@ -46,21 +96,21 @@ class CompanyDataCax extends React.Component<WithTranslation> {
                     <Row className='mx-auto col-9'>
                         <div className='form-data'>
                             <label> {this.props.t('registrationStepOne.bpn')} <AiOutlineQuestionCircle color='#939393' data-tip="hello world" /></label>
-                            <input type="text" defaultValue='450284560' />
+                            <input type="text" value={bpn}/>
                             <div className='company-hint'>{this.props.t('registrationStepOne.helperText')}</div>
                         </div>
                     </Row>
                     <Row className='mx-auto col-9'>
                         <div className='form-data'>
                             <label> {this.props.t('registrationStepOne.legalEntity')} <AiOutlineQuestionCircle color='#939393' data-tip="hello world" /> </label>
-                            <input type="text" defaultValue='' />
+                            <input type="text" value={legalEntity}/>
                             <div className='company-hint'>{this.props.t('registrationStepOne.helperText')}</div>
                         </div>
                     </Row>
                     <Row className='mx-auto col-9'>
                         <div className='form-data'>
                             <label> {this.props.t('registrationStepOne.registeredName')} <AiOutlineQuestionCircle color='#939393' data-tip="hello world" /></label>
-                            <input type="text" defaultValue='' />
+                            <input type="text" value={registeredName}/>
                             <div className='company-hint'>{this.props.t('registrationStepOne.helperText')}</div>
                         </div>
                     </Row>
@@ -72,33 +122,34 @@ class CompanyDataCax extends React.Component<WithTranslation> {
                     <Row className='mx-auto col-9'>
                         <div className='form-data'>
                             <label> {this.props.t('registrationStepOne.streetHouseNumber')} </label>
-                            <input type="text" defaultValue='' />
+                            <input type="text" value={streetHouseNumber}/>
                         </div>
                     </Row>
 
                     <Row className='mx-auto col-9'>
                         <div className='col-4 form-data'>
                             <label> {this.props.t('registrationStepOne.postalCode')} </label>
-                            <input type="text" defaultValue='' />
+                            <input type="text" value={postalCode}/>
                         </div>
 
                         <div className='col-8 form-data'>
                             <label>{this.props.t('registrationStepOne.city')}</label>
-                            <input type="text" defaultValue='' />
+                            <input type="text" value={city}/>
                         </div>
                     </Row>
 
                     <Row className='mx-auto col-9'>
                         <div className='form-data'>
                             <label>{this.props.t('registrationStepOne.country')}</label>
-                            <select
+                            {/* <select
                                 defaultValue='Choose your country'
                             >
                                 <option value="">Choose your country</option>
                                 <option value="test1">test 1</option>
                                 <option value="test2">Test 2</option>
                                 <option value="test3">Test 3</option>
-                            </select>
+                            </select> */}
+                            <input type="text" value={country}/>
                         </div>
                     </Row>
 

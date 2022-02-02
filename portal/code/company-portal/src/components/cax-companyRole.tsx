@@ -18,12 +18,6 @@ import { observable } from "mobx";
 import { Row } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
 import { withTranslation, WithTranslation } from "react-i18next";
-import { AiOutlineUser, AiOutlineDelete } from "react-icons/ai";
-import Button from "./button";
-import { getUserRoles } from "../helpers/utils";
-import {AiOutlineExclamationCircle} from 'react-icons/ai'
-import { User } from "../data/companyDetails"
-import { resultItem } from "@fluentui/react/lib/components/ExtendedPicker/PeoplePicker/ExtendedPeoplePicker.scss";
 
 @observer
 class CompanyRoleCax extends React.Component<WithTranslation> {
@@ -53,13 +47,10 @@ class CompanyRoleCax extends React.Component<WithTranslation> {
             3
           </div>
           <h4 className="mx-auto d-flex align-items-center justify-content-center">
-            The role of your company
+          {this.props.t("registration.title")}
           </h4>
           <div className="mx-auto text-center col-9">
-            Please select one or more roles for your company to
-            participant in Catena-X. The company role can always get
-            updated/changed later. Depending on the selected role, the
-            offered portal services might differ.
+          {this.props.t("registration.subTitle")}
           </div>
         </div>
         <div className="companydata-form mx-auto col-9">
@@ -75,7 +66,7 @@ class CompanyRoleCax extends React.Component<WithTranslation> {
               </div>
               <div className="col-11">
                 <label>
-                  Active participant (OEM, supplier, KMU/SME){" "}
+                  Active participant (OEM, supplier, KMU/SME)
                 </label>
                 <div
                   className={
@@ -92,7 +83,7 @@ class CompanyRoleCax extends React.Component<WithTranslation> {
                   <ul>
                     <li>
                       provide and /or consume business data (e.g. parts
-                      master data){" "}
+                      master data)
                     </li>
                     <li>
                       use the offered portal business applications

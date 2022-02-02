@@ -24,15 +24,50 @@ import { withTranslation, WithTranslation } from "react-i18next";
 import CompanyDataCax from "./cax-companyData";
 import Button from "./button";
 import ResponsibilitiesCax from "./cax-responsibilities";
+import DragDropUploadFiles from "./dragdrop";
 import CompanyRoleCax from "./cax-companyRole";
 import { FaEdit } from "react-icons/fa"
+import UserService from '../helpers/UserService';
+import { RouteComponentProps } from "react-router-dom";
+
 
 @observer
-class RegistrationCax extends React.Component<WithTranslation> {
+
+class RegistrationCax extends React.Component<
+  WithTranslation & RouteComponentProps,
+  any
+> {
   @observable currentActiveStep = 1;
  
   private nextClick() {
-    this.currentActiveStep = this.currentActiveStep + 1;
+    
+    if(this.currentActiveStep === 5){
+    const url = process.env.REACT_APP_ONBOARDING_URL;
+    const endpoint = process.env.REACT_APP_ONBOARDING_ENDPOINT;
+    const token = UserService.getToken();
+    const realm = UserService.realm;
+    const featchUrl = `${url}/${endpoint}/${realm}/custodianWallet`;
+    const data = {
+      bpn : "BPNL890867291",
+      name : "German Car Factory"    
+    }
+      fetch(featchUrl, { method: 'POST', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+      .then((response) => {
+        if (response.ok) {
+          this.props.history.push("/finish");
+        }
+        else {
+          this.props.history.push("/finish");
+        }
+      }
+
+      ).catch((error) => {
+        this.props.history.push("/finish");
+      });
+
+    }else{
+      this.currentActiveStep = this.currentActiveStep + 1;
+    }
   }
 
   private backClick() {
@@ -150,21 +185,7 @@ class RegistrationCax extends React.Component<WithTranslation> {
             ) : this.currentActiveStep === 3 ? (
                <CompanyRoleCax />
             ) : this.currentActiveStep === 4 ? (
-              <div className="mx-auto col-9 container-registration">
-                <div className="head-section">
-                  <div className="mx-auto step-highlight d-flex align-items-center justify-content-center">
-                    4
-                  </div>
-                  <h4 className="mx-auto d-flex align-items-center justify-content-center">
-                    Upload documents
-                  </h4>
-                  <div className="mx-auto text-center col-9">
-                    Please upload your legal company commercial register
-                    document.
-                  </div>
-                </div>
-                <div className="companydata-form"></div>
-              </div>
+                <DragDropUploadFiles/>
             ) : (
               <div className="mx-auto col-9 container-registration">
                 <div className="head-section">
@@ -190,31 +211,31 @@ class RegistrationCax extends React.Component<WithTranslation> {
                       <li className="list-group-item-cax">
                         <Row>
                           <span className="col-6">BPN</span>
-                          <span className="col-6">450284560</span>
+                          <span className="col-6">BPNL890867291</span>
                         </Row>
                       </li>
                       <li className="list-group-item-cax">
                         <Row>
                           <span className="col-6">Legal Entity Name</span>
-                          <span className="col-6">AMPL corp.</span>
+                          <span className="col-6">German Car Factory</span>
                         </Row>
                       </li>
                       <li className="list-group-item-cax">
                         <Row>
                           <span className="col-6">Registered Name</span>
-                          <span className="col-6">Amplayamirelo</span>
+                          <span className="col-6"></span>
                         </Row>
                       </li>
                       <li className="list-group-item-cax">
                         <Row>
                           <span className="col-6">Street</span>
-                          <span className="col-6">Jupiter Stree 11a</span>
+                          <span className="col-6">Munich Street</span>
                         </Row>
                       </li>
                       <li className="list-group-item-cax">
                         <Row>
                           <span className="col-6">PLZ / City</span>
-                          <span className="col-6">88456 Munich</span>
+                          <span className="col-6">80807 Munich</span>
                         </Row>
                       </li>
                       <li className="list-group-item-cax">
@@ -226,19 +247,19 @@ class RegistrationCax extends React.Component<WithTranslation> {
                       <li className="list-group-item-cax">
                         <Row>
                           <span className="col-6">State of activity</span>
-                          <span className="col-6">Germany</span>
+                          <span className="col-6"></span>
                         </Row>
                       </li>
                       <li className="list-group-item-cax">
                         <Row>
                           <span className="col-6">Valid from</span>
-                          <span className="col-6">10.12.2021</span>
+                          <span className="col-6"></span>
                         </Row>
                       </li>
                       <li className="list-group-item-cax">
                         <Row>
                           <span className="col-6">Valid till</span>
-                          <span className="col-6">15.06.2022</span>
+                          <span className="col-6"></span>
                         </Row>
                       </li>
                      

@@ -49,6 +49,17 @@
             "point1": "Alle Registrierungsteilnehmer ihrer Firma erhalten eine E-Mail mit der Bestätigung und den nächsten Schritten",
             "point2": "Catena-X prüft in der Zwischenzeit ihren Registrierungsanfrage. Sobald die Prüfung erfolgreich beendet ist, werden wir Ihnen eine Email mit dem direkten Zugang zum Netwzrk senden.",
             "point3": "Sobald Sie diese E-Mail erhalten haben können Sie sich im Portal anmelden und die technische ntegration starten."
+        },
+        "companyRole": {
+            "title":"Rolle des Unternehmens",
+            "subTitle": "Bitte wählen Sie eine oder mehrere Rollen für Ihr Unternehmen aus, um an Catena-X teilzunehmen. Die Unternehmensrolle kann später jederzeit aktualisiert/geändert werden. Je nach gewählter Rolle können die angebotenen Portaldienste abweichen."
+        },
+        "documentUpload": {
+            "title": "Dokumente hochladen",
+            "subTitle": "Bitte laden Sie Ihren rechtsgültigen Handelsregisterauszug hoch.",
+            "dragDropMessage": "Ziehen Sie Dateien hierher und legen Sie sie dort ab, oder klicken Sie, um Dateien auszuwählen",
+            "upload": "Hochladen"
         }
+
     }
 }

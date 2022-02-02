@@ -1,30 +1,13 @@
-import Keycloak from "keycloak-js";
+import Keycloak from 'keycloak-js';
 
-//TODO: go to company selection if no url parameter for company is specified
-const searchParams = new URLSearchParams(window.location.search);
-let realm = searchParams.get('company');
-if (!realm) {
-  realm = localStorage.getItem('company');
-}
-if (!realm) {
-  realm = 'master';
-}
-localStorage.setItem('company', realm);
-
-const searchParamsClientId = new URLSearchParams(window.location.search);
-let clientId = searchParamsClientId.get('clientId');
-if (!clientId) {
-  clientId = localStorage.getItem('clientId');
-}
-if (!clientId || clientId == 'null') {
-  clientId = 'catenax-registration';
-}
+const realm = 'CX-Central';
+const clientId = 'catenax-portal';
 localStorage.setItem('clientId', clientId);
 
 const _kc = new Keycloak({
   "url": process.env.REACT_APP_KEYCLOAK_URL,
-  "realm": realm,
-  "clientId": clientId,
+  "realm": "CX-Central",
+  "clientId": "catenax-portal",
   "ssl-required": "external",
   "public-client": true
 });
@@ -69,10 +52,13 @@ const updateToken = (successCallback) =>
 
 const getUsername = () => _kc.tokenParsed?.preferred_username;
 
+const getName = () => _kc.tokenParsed?.name;
+
 const getInitials = () => _kc.tokenParsed?.preferred_username.split(/[.@]/).reduce((a,b) => a+b[0],'').substring(0,2).toUpperCase();
 
 const getDomain = () => realm;//_kc.tokenParsed?.split('/').pop();
 
+const getCompany = () => _kc.tokenParsed?.email.split('@')[1].split('.')[0].toUpperCase();
 
 const hasRole = (roles) => roles.some((role) => _kc.hasRealmRole(role));
 
@@ -85,8 +71,10 @@ const UserService = {
   getParsedToken,
   updateToken,
   getUsername,
+  getName,
   getInitials,
   getDomain,
+  getCompany,
   hasRole,
   realm,
   clientId
