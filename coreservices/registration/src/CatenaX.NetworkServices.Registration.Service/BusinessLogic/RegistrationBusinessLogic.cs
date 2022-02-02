@@ -4,8 +4,9 @@ using CatenaX.NetworkServices.Invitation.Identity.Identity;
 using CatenaX.NetworkServices.Invitation.Identity.Model;
 using CatenaX.NetworkServices.Mailing.SendMail;
 using CatenaX.NetworkServices.Mockups;
-using CatenaX.NetworkServices.Registration.Service.CDQ;
-using CatenaX.NetworkServices.Registration.Service.CDQ.Model;
+using CatenaX.NetworkServices.Registration.Service.BPN;
+using CatenaX.NetworkServices.Registration.Service.BPN.Model;
+using CatenaX.NetworkServices.Registration.Service.Custodian;
 using CatenaX.NetworkServices.Registration.Service.Model;
 using CatenaX.NetworkServices.Registration.Service.RegistrationAccess;
 
@@ -24,14 +25,16 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
         private readonly IConfiguration _configuration;
         private readonly IRegistrationDBAccess _dbAccess;
         private readonly IMailingService _mailingService;
-        private readonly ICDQAccess _cdqAccess;
+        private readonly IBPNAccess _bpnAccess;
+        private readonly ICustodianService _custodianService;
 
-        public RegistrationBusinessLogic(IConfiguration configuration, IRegistrationDBAccess registrationDBAccess, IMailingService mailingService, ICDQAccess cdqAccess)
+        public RegistrationBusinessLogic(IConfiguration configuration, IRegistrationDBAccess registrationDBAccess, IMailingService mailingService, IBPNAccess bpnAccess, ICustodianService custodianService)
         {
             _configuration = configuration;
             _dbAccess = registrationDBAccess;
             _mailingService = mailingService;
-            _cdqAccess = cdqAccess;
+            _bpnAccess = bpnAccess;
+            _custodianService = custodianService;
         }
 
         public async Task CreateUsersAsync(List<UserCreationInfo> userList, string realm, string token, Dictionary<string, string> userInfo)
@@ -116,7 +119,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
 
         public async Task<List<FetchBusinessPartnerDto>> GetCompanyByIdentifierAsync(string companyIdentifier)
         {
-            return await _cdqAccess.FetchBusinessPartner(companyIdentifier);
+            return await _bpnAccess.FetchBusinessPartner(companyIdentifier);
         }
 
         public async Task<List<CompanyRole>> GetCompanyRolesAsync()
@@ -148,6 +151,11 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
         public async Task<List<SignedConsent>> SignedConsentsByCompanyIdAsync(string companyId)
         {
            return (await _dbAccess.SignedConsentsByCompanyId(companyId)).ToList();
+        }
+
+        public async Task CreateCustodianWalletAsync(WalletInformation information)
+        {
+            await _custodianService.CreateWallet(information.bpn, information.name);
         }
     }
 }

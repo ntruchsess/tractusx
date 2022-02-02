@@ -31,17 +31,25 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
         }
 
         [HttpGet]
-        [Route("company/{realm}/{oneId}")]
+        [Route("company/{realm}/{bpn}")]
         [ProducesResponseType(typeof(Company), (int)HttpStatusCode.OK)]
-        public Task<IActionResult> GetOneObjectAsync([FromRoute] string realm, [FromRoute] string oneId, [FromHeader] string authorization) =>
+        public Task<IActionResult> GetOneObjectAsync([FromRoute] string realm, [FromRoute] string bpn, [FromHeader] string authorization) =>
             ValidateTokenAsync(realm, authorization, async () =>
-                new OkObjectResult(await _registrationBusinessLogic.GetCompanyByIdentifierAsync(oneId)));
+                new OkObjectResult(await _registrationBusinessLogic.GetCompanyByIdentifierAsync(bpn)));
 
         [HttpPost]
         [Route("company/{realm}/users")]
         public Task<IActionResult> CreateUsersAsync([FromRoute] string realm, [FromHeader] string authorization, [FromBody] List<UserCreationInfo> userToCreate) =>
             ValidateTokenAsync(realm, authorization, async (userInfo) => {
                 await _registrationBusinessLogic.CreateUsersAsync(userToCreate, realm, authorization.Split(" ")[1], userInfo);
+                return new OkResult();
+            });
+
+        [HttpPost]
+        [Route("company/{realm}/custodianWallet")]
+        public Task<IActionResult> CreateWallet([FromRoute] string realm, [FromHeader] string authorization, [FromBody] WalletInformation walletToCreate) =>
+            ValidateTokenAsync(realm, authorization, async (userInfo) => {
+                await _registrationBusinessLogic.CreateCustodianWalletAsync(walletToCreate);
                 return new OkResult();
             });
 
@@ -154,10 +162,10 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
             {
                 _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
                 var response = await _httpClient.GetAsync($"{realm}/protocol/openid-connect/userinfo");
-                if (!response.IsSuccessStatusCode)
-                {
-                    return new StatusCodeResult((int)HttpStatusCode.Forbidden);
-                }
+                //if (!response.IsSuccessStatusCode)
+                //{
+                //    return new StatusCodeResult((int)HttpStatusCode.Forbidden);
+                //}
                 return await action(
                     deserialize
                         ? JsonConvert.DeserializeObject<Dictionary<string, string>>(await response.Content.ReadAsStringAsync())

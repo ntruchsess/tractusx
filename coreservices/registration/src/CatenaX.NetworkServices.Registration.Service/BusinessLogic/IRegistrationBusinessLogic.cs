@@ -1,6 +1,6 @@
 ﻿using CatenaX.NetworkServices.Cosent.Library.Data;
 using CatenaX.NetworkServices.Mockups;
-using CatenaX.NetworkServices.Registration.Service.CDQ.Model;
+using CatenaX.NetworkServices.Registration.Service.BPN.Model;
 using CatenaX.NetworkServices.Registration.Service.Model;
 
 using System.Collections.Generic;
@@ -24,5 +24,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
         Task<List<SignedConsent>> SignedConsentsByCompanyIdAsync(string companyId);
         Task SetIdpAsync(SetIdp idpToSet);
         Task FinishRegistrationAsync(string token, string realm);
+
+        Task CreateCustodianWalletAsync(WalletInformation information);
     }
 }

@@ -33,7 +33,7 @@ jobs:
               if [[ "${{github.ref}}" == refs/heads/main ]]; then
                 echo "Determined INTEGRATION"
                 echo "::set-output name=workspace::int"
-              elif [[ "${{github.ref}}" = refs/heads/feature/CAX-portal || "${{github.ref}}" = refs/heads/feature/CAX-portal@ingressissues ]]; then
+              elif [[ "${{github.ref}}" = refs/heads/feature/CAX-portal || "${{github.ref}}" = refs/heads/feature/CAX-portal@bpn-service ]]; then
                   echo "Determined dev003"
                   echo "::set-output name=workspace::dev003"
               else 
