@@ -1,4 +1,4 @@
 exports.Config = {
-    KEYCLOAK_CENTRAL: 'https://catenaxdev003akssrv.germanywestcentral.cloudapp.azure.com/iamcentralidp/auth',
-    KEYCLOAK_SHARED: 'https://catenaxdev003akssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth'
+    KEYCLOAK_CENTRAL: `https://catenax${process.env.CX_ENV}akssrv.germanywestcentral.cloudapp.azure.com/iamcentralidp/auth`,
+    KEYCLOAK_SHARED: `https://catenax${process.env.CX_ENV}akssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth`
 }

@@ -5,31 +5,25 @@ const { KeycloakTemplates } = require('./KeycloakTemplates');
 const agent = process && process.env && process.env.https_proxy
     ? httpsProxyAgent(process.env.https_proxy)
     : undefined
-const admin = {
-    realm: 'master',
-    client: 'admin-cli',
-    username: process.env.KC_USER,
-    password: process.env.KC_PASS
-}
 const nameToID = name => name.toLowerCase().replace(/ +/g,'-')
 
 class Keycloak {
 
-    constructor(base) {
+    constructor(base, username, password) {
         this.base = base
+        this.credentials = {
+            'client_id': 'admin-cli',
+            'grant_type': 'password',
+            'username': username,
+            'password': password
+        }
     }
 
     async authenticate(cred) {
-        const url = `${this.base}/realms/${cred.realm}/protocol/openid-connect/token`
-        const params = {
-            'client_id': cred.client,
-            'grant_type': 'password',
-            'username': cred.username,
-            'password': cred.password
-        }
+        const url = `${this.base}/realms/master/protocol/openid-connect/token`
         const response = await fetch(url, {
             method: 'POST',
-            body: new URLSearchParams(params),
+            body: new URLSearchParams(this.credentials),
             agent: agent
         })
         let result;
@@ -56,7 +50,7 @@ class Keycloak {
     }
 
     async adminCall(method, resource, body) {
-        const token = await this.authenticate(admin)
+        const token = await this.authenticate()
         const url = `${this.base}${resource}`
         const response = await fetch(url, {
             method: method,

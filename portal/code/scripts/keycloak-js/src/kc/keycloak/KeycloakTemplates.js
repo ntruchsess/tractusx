@@ -48,7 +48,7 @@ const KeycloakTemplates = {
             providerId: 'keycloak-oidc',
             config: {
                 clientAuthMethod: 'client_secret_basic',
-                clientId: 'catenax',
+                clientId: `${name}-catenax`,
                 clientSecret: secret,
                 issuer:           `${Config.KEYCLOAK_SHARED}/realms/${realm}`,
                 userInfoUrl:      `${Config.KEYCLOAK_SHARED}/realms/${realm}/protocol/openid-connect/userinfo`,
