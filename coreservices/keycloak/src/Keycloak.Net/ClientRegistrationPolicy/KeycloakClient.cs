@@ -7,7 +7,7 @@ namespace Keycloak.Net
 {
     public partial class KeycloakClient
     {
-        public async Task<IEnumerable<ComponentType>> GetRetrieveProvidersBasePathAsync(string realm) => await GetBaseUrl(realm)
+        public async Task<IEnumerable<ComponentType>> GetRetrieveProvidersBasePathAsync(string realm) => await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
             .AppendPathSegment($"/admin/realms/{realm}/client-registration-policy/providers")
             .GetJsonAsync<IEnumerable<ComponentType>>()
             .ConfigureAwait(false);

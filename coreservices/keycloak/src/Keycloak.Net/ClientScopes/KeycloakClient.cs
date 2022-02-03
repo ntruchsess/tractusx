@@ -9,26 +9,26 @@ namespace Keycloak.Net
     {
         public async Task<bool> CreateClientScopeAsync(string realm, ClientScope clientScope)
         {
-            var response = await GetBaseUrl(realm)
+            var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
                 .AppendPathSegment($"/admin/realms/{realm}/client-scopes")
                 .PostJsonAsync(clientScope)
                 .ConfigureAwait(false);
             return response.IsSuccessStatusCode;
         }
 
-        public async Task<IEnumerable<ClientScope>> GetClientScopesAsync(string realm) => await GetBaseUrl(realm)
+        public async Task<IEnumerable<ClientScope>> GetClientScopesAsync(string realm) => await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
             .AppendPathSegment($"/admin/realms/{realm}/client-scopes")
             .GetJsonAsync<IEnumerable<ClientScope>>()
             .ConfigureAwait(false);
 
-        public async Task<ClientScope> GetClientScopeAsync(string realm, string clientScopeId) => await GetBaseUrl(realm)
+        public async Task<ClientScope> GetClientScopeAsync(string realm, string clientScopeId) => await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
             .AppendPathSegment($"/admin/realms/{realm}/client-scopes/{clientScopeId}")
             .GetJsonAsync<ClientScope>()
             .ConfigureAwait(false);
 
         public async Task<bool> UpdateClientScopeAsync(string realm, string clientScopeId, ClientScope clientScope)
         {
-            var response = await GetBaseUrl(realm)
+            var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
                 .AppendPathSegment($"/admin/realms/{realm}/client-scopes/{clientScopeId}")
                 .PutJsonAsync(clientScope)
                 .ConfigureAwait(false);
@@ -37,7 +37,7 @@ namespace Keycloak.Net
 
         public async Task<bool> DeleteClientScopeAsync(string realm, string clientScopeId)
         {
-            var response = await GetBaseUrl(realm)
+            var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
                 .AppendPathSegment($"/admin/realms/{realm}/client-scopes/{clientScopeId}")
                 .DeleteAsync()
                 .ConfigureAwait(false);

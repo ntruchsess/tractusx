@@ -9,7 +9,7 @@ namespace Keycloak.Net
     {
         public async Task<bool> CreateComponentAsync(string realm, Component componentRepresentation)
         {
-            var response = await GetBaseUrl(realm)
+            var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
                 .AppendPathSegment($"/admin/realms/{realm}/components")
                 .PostJsonAsync(componentRepresentation)
                 .ConfigureAwait(false);
@@ -25,7 +25,7 @@ namespace Keycloak.Net
                 [nameof(type)] = type
             };
 
-            return await GetBaseUrl(realm)
+            return await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
                 .AppendPathSegment($"/admin/realms/{realm}/components")
                 .SetQueryParams(queryParams)
                 .GetJsonAsync<IEnumerable<Component>>()
@@ -34,7 +34,7 @@ namespace Keycloak.Net
 
         public async Task<Component> GetComponentAsync(string realm, string componentId)
         {
-            return await GetBaseUrl(realm)
+            return await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
                 .AppendPathSegment($"/admin/realms/{realm}/components/{componentId}")
                 .GetJsonAsync<Component>()
                 .ConfigureAwait(false);
@@ -42,7 +42,7 @@ namespace Keycloak.Net
 
         public async Task<bool> UpdateComponentAsync(string realm, string componentId, Component componentRepresentation)
         {
-            var response = await GetBaseUrl(realm)
+            var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
                 .AppendPathSegment($"/admin/realms/{realm}/components/{componentId}")
                 .PutJsonAsync(componentRepresentation)
                 .ConfigureAwait(false);
@@ -51,7 +51,7 @@ namespace Keycloak.Net
 
         public async Task<bool> DeleteComponentAsync(string realm, string componentId)
         {
-            var response = await GetBaseUrl(realm)
+            var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
                 .AppendPathSegment($"/admin/realms/{realm}/components/{componentId}")
                 .DeleteAsync()
                 .ConfigureAwait(false);
@@ -65,7 +65,7 @@ namespace Keycloak.Net
                 [nameof(type)] = type
             };
 
-            var result = await GetBaseUrl(realm)
+            var result = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
                 .AppendPathSegment($"/admin/realms/{realm}/components/{componentId}/sub-component-types")
                 .SetQueryParams(queryParams)
                 .GetJsonAsync<IEnumerable<ComponentType>>()

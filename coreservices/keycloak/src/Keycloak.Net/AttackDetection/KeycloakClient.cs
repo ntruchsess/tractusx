@@ -8,7 +8,7 @@ namespace Keycloak.Net
     {
         public async Task<bool> ClearUserLoginFailuresAsync(string realm)
         {
-            var response = await GetBaseUrl(realm)
+            var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
                 .AppendPathSegment($"/admin/realms/{realm}/attack-detection/brute-force/users")
                 .DeleteAsync()
                 .ConfigureAwait(false);
@@ -17,14 +17,14 @@ namespace Keycloak.Net
 
         public async Task<bool> ClearUserLoginFailuresAsync(string realm, string userId)
         {
-            var response = await GetBaseUrl(realm)
+            var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
                 .AppendPathSegment($"/admin/realms/{realm}/attack-detection/brute-force/users/{userId}")
                 .DeleteAsync()
                 .ConfigureAwait(false);
             return response.IsSuccessStatusCode;
         }
 
-        public async Task<UserNameStatus> GetUserNameStatusInBruteForceDetectionAsync(string realm, string userId) => await GetBaseUrl(realm)
+        public async Task<UserNameStatus> GetUserNameStatusInBruteForceDetectionAsync(string realm, string userId) => await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
             .AppendPathSegment($"/admin/realms/{realm}/attack-detection/brute-force/users/{userId}")
             .GetJsonAsync<UserNameStatus>()
             .ConfigureAwait(false);

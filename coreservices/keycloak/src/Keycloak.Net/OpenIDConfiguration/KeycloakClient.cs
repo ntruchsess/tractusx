@@ -6,7 +6,7 @@ namespace Keycloak.Net
 {
     public partial class KeycloakClient
     {
-        public async Task<OpenIDConfiguration> GetOpenIDConfigurationAsync(string realm) => await GetBaseUrl(realm)
+        public async Task<OpenIDConfiguration> GetOpenIDConfigurationAsync(string realm) => await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
             .AppendPathSegment($"/realms/{realm}/.well-known/openid-configuration")
             .GetJsonAsync<OpenIDConfiguration>()
             .ConfigureAwait(false);
