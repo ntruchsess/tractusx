@@ -30,7 +30,7 @@ on:
       - feature/CAX-12-devops
       # Onboarding and Portal Dev Space
       - feature/CAX-portal
-      - feature/CAX-portal@CPLP-412-ingress-config_cors
+      - feature/CAX-portal@CPLP-381-Github-workflows
 
 jobs:
   ########################################
@@ -64,7 +64,7 @@ jobs:
                 echo "Unsupported Branch on CATENAX. Leaving Workspace empty."
               fi
           elif [[ "${{github.repository}}" == tractusx-team-portal-onboarding/tractusx ]]; then
-            if [[ "${{github.ref}}" == refs/heads/feature/CAX-portal@CPLP-412-ingress-config_cors ]]; then
+            if [[ "${{github.ref}}" == refs/heads/feature/CAX-portal@CPLP-381-Github-workflows ]]; then
                 echo "Determined dev003"
                 echo "::set-output name=workspace::dev003"
             else 
