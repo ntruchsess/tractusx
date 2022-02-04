@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Flurl;
@@ -28,8 +28,6 @@ namespace Keycloak.Net.Common.Extensions
             return accessToken;
         }
 
-        private static string GetAccessToken(string url, string realm, string userName, string password) => GetAccessTokenAsync(url, realm, userName, password).GetAwaiter().GetResult();
-
         private static async Task<string> GetAccessTokenAsync(string url, string realm, string clientSecret)
         {
             var result = await url
@@ -49,23 +47,25 @@ namespace Keycloak.Net.Common.Extensions
             return accessToken;
         }
 
-        private static string GetAccessToken(string url, string realm, string clientSecret) => GetAccessTokenAsync(url, realm, clientSecret).GetAwaiter().GetResult();
+        [Obsolete("WithAuthentication is deprecated, please use WithAuthenticationAsync instead.")]
+        public static IFlurlRequest WithAuthentication(this IFlurlRequest request, Func<string> getToken, string url, string realm, string userName, string password, string clientSecret) =>
+            WithAuthenticationAsync(request, getToken == null ? (Func<Task<string>>) null : () => Task.FromResult<string>(getToken()), url, realm, userName, password, clientSecret).GetAwaiter().GetResult();
 
-        public static IFlurlRequest WithAuthentication(this IFlurlRequest request, Func<string> getToken, string url, string realm, string userName, string password, string clientSecret)
+        public static async Task<IFlurlRequest> WithAuthenticationAsync(this IFlurlRequest request, Func<Task<string>> getTokenAsync, string url, string realm, string userName, string password, string clientSecret)
         {
             string token = null;
 
-            if (getToken != null)
+            if (getTokenAsync != null)
             {
-                token = getToken();
+                token = await getTokenAsync().ConfigureAwait(false);
             }
             else if (clientSecret != null)
             {
-                token = GetAccessToken(url, realm, clientSecret);
+                token = await GetAccessTokenAsync(url, realm, clientSecret).ConfigureAwait(false);
             }
             else
             {
-                token = GetAccessToken(url, realm, userName, password);
+                token = await GetAccessTokenAsync(url, realm, userName, password).ConfigureAwait(false);
             }
 
             return request.WithOAuthBearerToken(token);

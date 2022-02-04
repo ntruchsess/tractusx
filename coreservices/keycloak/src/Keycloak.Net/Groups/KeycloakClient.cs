@@ -13,7 +13,7 @@ namespace Keycloak.Net
     {
         public async Task<bool> CreateGroupAsync(string realm, Group group)
         {
-            var response = await GetBaseUrl(realm)
+            var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
                 .AppendPathSegment($"/admin/realms/{realm}/groups")
                 .PostJsonAsync(group)
                 .ConfigureAwait(false);
@@ -30,7 +30,7 @@ namespace Keycloak.Net
                 ["briefRepresentation"] = false
             };
 
-            return await GetBaseUrl(realm)
+            return await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
                 .AppendPathSegment($"/admin/realms/{realm}/groups")
                 .SetQueryParams(queryParams)
                 .GetJsonAsync<IEnumerable<Group>>()
@@ -45,7 +45,7 @@ namespace Keycloak.Net
                 [nameof(top)] = top
             };
 
-            var result = await GetBaseUrl(realm)
+            var result = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
                 .AppendPathSegment($"/admin/realms/{realm}/groups/count")
                 .SetQueryParams(queryParams)
                 .GetJsonAsync()
@@ -56,7 +56,7 @@ namespace Keycloak.Net
 
         public async Task<Group> GetGroupAsync(string realm, string groupId)
         {
-            var result = await GetBaseUrl(realm)
+            var result = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
                 .AppendPathSegment($"/admin/realms/{realm}/groups/{groupId}")
                 .GetJsonAsync<Group>()
                 .ConfigureAwait(false);
@@ -66,7 +66,7 @@ namespace Keycloak.Net
 
         public async Task<bool> UpdateGroupAsync(string realm, string groupId, Group group)
         {
-            var response = await GetBaseUrl(realm)
+            var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
                 .AppendPathSegment($"/admin/realms/{realm}/groups/{groupId}")
                 .PutJsonAsync(group)
                 .ConfigureAwait(false);
@@ -75,7 +75,7 @@ namespace Keycloak.Net
 
         public async Task<bool> DeleteGroupAsync(string realm, string groupId)
         {
-            var response = await GetBaseUrl(realm)
+            var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
                 .AppendPathSegment($"/admin/realms/{realm}/groups/{groupId}")
                 .DeleteAsync()
                 .ConfigureAwait(false);
@@ -84,20 +84,20 @@ namespace Keycloak.Net
 
         public async Task<bool> SetOrCreateGroupChildAsync(string realm, string groupId, Group group)
         {
-            var response = await GetBaseUrl(realm)
+            var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
                 .AppendPathSegment($"/admin/realms/{realm}/groups/{groupId}/children")
                 .PostJsonAsync(group)
                 .ConfigureAwait(false);
             return response.IsSuccessStatusCode;
         }
 
-        public async Task<ManagementPermission> GetGroupClientAuthorizationPermissionsInitializedAsync(string realm, string groupId) => await GetBaseUrl(realm)
+        public async Task<ManagementPermission> GetGroupClientAuthorizationPermissionsInitializedAsync(string realm, string groupId) => await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
             .AppendPathSegment($"/admin/realms/{realm}/groups/{groupId}/management/permissions")
             .GetJsonAsync<ManagementPermission>()
             .ConfigureAwait(false);
 
         public async Task<ManagementPermission> SetGroupClientAuthorizationPermissionsInitializedAsync(string realm, string groupId, ManagementPermission managementPermission) =>
-            await GetBaseUrl(realm)
+            await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
                 .AppendPathSegment($"/admin/realms/{realm}/groups/{groupId}/management/permissions")
                 .PutJsonAsync(managementPermission)
                 .ReceiveJson<ManagementPermission>()
@@ -111,7 +111,7 @@ namespace Keycloak.Net
                 [nameof(max)] = max
             };
 
-            return await GetBaseUrl(realm)
+            return await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
                 .AppendPathSegment($"/admin/realms/{realm}/groups/{groupId}/members")
                 .SetQueryParams(queryParams)
                 .GetJsonAsync<IEnumerable<User>>()
