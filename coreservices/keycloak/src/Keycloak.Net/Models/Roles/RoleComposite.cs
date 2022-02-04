@@ -5,7 +5,7 @@ namespace Keycloak.Net.Models.Roles
 {
     public class RoleComposite
     {
-        [JsonProperty("client")]        
+        [JsonProperty("client")]
         public IDictionary<string, string> Client { get; set; }
         [JsonProperty("realm")]
         public IEnumerable<string> Realm { get; set; }
