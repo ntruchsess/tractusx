@@ -53,8 +53,8 @@ on:
       - main
       # ART1 Semantics Layer and Digitial Twin Dev Space
       - feature/CATX-A1-SLDT
-      # Onboarding Dev Space
-      - feature/CAX-9-onboarding      
+      # Onboarding and Portal Dev Space
+      - feature/CAX-portal@CPLP-381-Github-workflows
       # Temporarily: Semantics Dev Space Terraform/Deplyment Features
       - feature/CAX-1-semantics@CXMVP-50-semantic-adapter
       # Onboarding env for data services team
@@ -65,8 +65,6 @@ on:
       - feature/A1ODT-60
       # Onboarding env for GPDM
       - feature/A1ODT-11
-      # Onboarding env for GPDM
-      - feature/CAX-12-devops@CPLP-127-two-keycloak-instances     
       # ADAPT HERE TO ADD NEW WORKSPACES
 
 
@@ -114,7 +112,7 @@ jobs:
                 echo "::set-output name=workspace::int"
               elif [[ "${{github.ref}}" == refs/heads/feature/CAX-1-semantics || "${{github.ref}}" = refs/heads/feature/CAX-1-semantics@CXMVP-50-semantic-adapter ]]; then
                   echo "Determined SEMANTICS"
-                  echo "::set-output name=workspace::dev042"                                                                           
+                  echo "::set-output name=workspace::dev042"
               elif [[ "${{github.ref}}" == refs/heads/feature/A1ODT-18 ]]; then
                   echo "Determined DEV010 ENV"
                   echo "::set-output name=workspace::dev010"  
@@ -129,6 +127,13 @@ jobs:
                   echo "::set-output name=workspace::dev013"
               else
                   echo "Unsupported Branch on CATENAX. Leaving Workspace empty."
+              fi
+            elif [[ "${{github.repository}}" == tractusx-team-portal-onboarding/tractusx ]]; then
+              if [[ "${{github.ref}}" == refs/heads/feature/CAX-portal@CPLP-381-Github-workflows ]]; then
+                echo "Determined DEV003 ENV"
+                echo "::set-output name=workspace::dev003"
+              else
+                echo "Unsupported Branch on tractusx-team-portal-onboarding. Leaving Workspace empty."
               fi
             else
                 echo "Unsupported Environment/Repository. Leaving Workspace empty."
