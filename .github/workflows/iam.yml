@@ -29,6 +29,7 @@ on:
       # DevOps and IAM team integration branch
       - feature/CAX-12-devops
       # Onboarding and Portal Dev Space
+      - feature/CAX-portal
       - feature/CAX-portal@CPLP-381-Github-workflows
 
 jobs:
