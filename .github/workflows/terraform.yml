@@ -54,6 +54,7 @@ on:
       # ART1 Semantics Layer and Digitial Twin Dev Space
       - feature/CATX-A1-SLDT
       # Onboarding and Portal Dev Space
+      - feature/CAX-portal
       - feature/CAX-portal@CPLP-381-Github-workflows
       # Temporarily: Semantics Dev Space Terraform/Deplyment Features
       - feature/CAX-1-semantics@CXMVP-50-semantic-adapter
