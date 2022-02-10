@@ -59,7 +59,7 @@ export default class App extends React.Component {
                         <Route path="/landing" render={(props) => <Landing {...props} />}/>
                         <Route
                             path="/registration"
-                            render={(props) => <RegistrationCax {...props} />}
+                            render={(props) => <RegistrationCax />}
                         />
                         <Route path="/home" render={(props) => <ProtectedHome/>}/>
                         <Route

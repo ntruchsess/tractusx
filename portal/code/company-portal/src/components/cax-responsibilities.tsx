@@ -15,7 +15,7 @@
 import * as React from "react";
 import {Row} from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
-import {withTranslation, WithTranslation} from "react-i18next";
+import { withTranslation, WithTranslation } from "react-i18next";
 import {AiOutlineUser, AiOutlineDelete} from "react-icons/ai";
 import Button from "./button";
 import {getClientRolesComposite} from "../helpers/utils";
@@ -28,6 +28,8 @@ import {IState} from "../types/store/redux.store.types";
 import {Dispatch} from 'redux';
 import {addToInviteList} from "../actions/user.action";
 import {useEffect, useState} from "react";
+import { useTranslation } from 'react-i18next';
+import { withRouter } from "react-router-dom";
 
 
 interface ResponsibilitiesCaxProps {
@@ -35,7 +37,8 @@ interface ResponsibilitiesCaxProps {
     userInviteList: IUserItem[];
 }
 
-const ResponsibilitiesCax = ({userInviteList, addToInviteList}: ResponsibilitiesCaxProps) => {
+export const ResponsibilitiesCax = ({userInviteList, addToInviteList}: ResponsibilitiesCaxProps) => {
+    const { t } = useTranslation();
     const [email, setEmail] = useState<string | null>("");
     const [role,] = useState<string | null>("Invitation");
     const [personalNote, setPersonalNote] = useState<string | null>("");
@@ -75,11 +78,10 @@ const ResponsibilitiesCax = ({userInviteList, addToInviteList}: Responsibilities
                     2
                 </div>
                 <h4 className="mx-auto d-flex align-items-center justify-content-center">
-                    Responsibility & admin account
+                    {t("Responsibility.responsAndAdmin")}
                 </h4>
                 <div className="mx-auto text-center col-9">
-                    Far far away, behind the word mountains, far from the countries
-                    Vokalia and Consonantia, there live the blind texts.
+                    {t("Responsibility.subTitle")}
                 </div>
             </div>
             <div className="companydata-form">
@@ -117,7 +119,7 @@ const ResponsibilitiesCax = ({userInviteList, addToInviteList}: Responsibilities
                 </Row>
 
                 <Row className="mx-auto col-9">
-                    <div>
+                    <div className="form-data">
                         <label> E-mail address </label>
                         <input
                             type="text"
@@ -129,13 +131,12 @@ const ResponsibilitiesCax = ({userInviteList, addToInviteList}: Responsibilities
                 </Row>
 
                 <Row className="mx-auto col-9">
-
+                 <div className="form-data">
                     <label> User role </label>
                     <select value={role}>
                         <option value='Invitation'>Invitation</option>
                     </select>
-
-
+                </div>
                 </Row>
 
                 <Row className="mx-auto col-9">

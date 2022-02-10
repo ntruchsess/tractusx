@@ -13,8 +13,6 @@
 // limitations under the License.
 
 import * as React from "react";
-import { observer } from "mobx-react";
-import { observable } from "mobx";
 import { Container, Row, Col } from "react-bootstrap";
 import Footer from "./footer";
 import Header from "./cax-header";
@@ -26,22 +24,31 @@ import Button from "./button";
 import ResponsibilitiesCax from "./cax-responsibilities";
 import DragDropUploadFiles from "./dragdrop";
 import CompanyRoleCax from "./cax-companyRole";
-import { FaEdit } from "react-icons/fa"
+import { FaEdit } from "react-icons/fa";
+import {addCurrentStep} from "../actions/user.action";
 import UserService from '../helpers/UserService';
 import { RouteComponentProps } from "react-router-dom";
+import {connect} from 'react-redux';
+import {IState} from "../types/store/redux.store.types";
+import {Dispatch} from 'redux';
+import { useTranslation } from 'react-i18next';
+import {useEffect, useState} from "react";
 
+interface RegistrationCaxProps {
+  addCurrentStep: (step: number) => void;
+}
 
-@observer
+export const RegistrationCax = () => {
 
-class RegistrationCax extends React.Component<
-  WithTranslation & RouteComponentProps,
-  any
-> {
-  @observable currentActiveStep = 1;
- 
-  private nextClick() {
+    const { t } = useTranslation();
+    const [currentActiveStep, setcurrentActiveStep] =  useState(1);
+
+    useEffect(() => {
+      addCurrentStep(currentActiveStep);
+    });
+  const nextClick = () => {
     
-    if(this.currentActiveStep === 5){
+    if(currentActiveStep === 5){
     const url = process.env.REACT_APP_ONBOARDING_URL;
     const endpoint = process.env.REACT_APP_ONBOARDING_ENDPOINT;
     const token = UserService.getToken();
@@ -54,40 +61,40 @@ class RegistrationCax extends React.Component<
       fetch(featchUrl, { method: 'POST', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
       .then((response) => {
         if (response.ok) {
-          this.props.history.push("/finish");
+          // this.props.history.push("/finish");
         }
         else {
-          this.props.history.push("/finish");
+          // this.props.history.push("/finish");
         }
       }
 
       ).catch((error) => {
-        this.props.history.push("/finish");
+        // this.props.history.push("/finish");
       });
 
     }else{
-      this.currentActiveStep = this.currentActiveStep + 1;
+      addCurrentStep(currentActiveStep + 1)
+      setcurrentActiveStep(currentActiveStep + 1);
     }
   }
 
-  private backClick() {
-    this.currentActiveStep = this.currentActiveStep - 1;
+  const backClick = () => {
+    setcurrentActiveStep(currentActiveStep - 1);
   }
 
-  private editClick(n) {
-    this.currentActiveStep = n;
+  const editClick = (n) => {
+    setcurrentActiveStep(n);
   }
 
-  public render() {
     return (
       <Container>
         <Header href={window.location.href} />
         <Row>
           <Col>
             <div className="mx-auto col-9">
-              <h4>{this.props.t("registration.registration")}</h4>
-              <div>{this.props.t("registration.regiStep")}.</div>
-              <div>{this.props.t("registration.regiSubHeading")}</div>
+              <h4>{t("registration.registration")}</h4>
+              <div>{t("registration.regiStep")}.</div>
+              <div>{t("registration.regiSubHeading")}</div>
             </div>
             <div className="mx-auto col-11 reg-steps">
               <Row className="stepper-wrapper row-cols-5">
@@ -95,13 +102,13 @@ class RegistrationCax extends React.Component<
                   <Row className="stepper-row">
                     <div className="step-counter col-3">1</div>
                     <div className="step-name col-9">
-                      {this.props.t("registration.companyData")}
+                      {t("registration.companyData")}
                     </div>
                   </Row>
                   <Row>
                     <div
                       className={
-                        this.currentActiveStep === 1
+                        currentActiveStep === 1
                           ? "step-border col-10 mx-auto"
                           : ""
                       }
@@ -112,13 +119,13 @@ class RegistrationCax extends React.Component<
                   <Row className="stepper-row">
                     <div className="step-counter col-3">2</div>
                     <div className="step-name col-9">
-                      {this.props.t("registration.responsAdmin")}
+                      {t("registration.responsAdmin")}
                     </div>
                   </Row>
                   <Row>
                     <div
                       className={
-                        this.currentActiveStep === 2
+                        currentActiveStep === 2
                           ? "step-border col-10 mx-auto"
                           : ""
                       }
@@ -129,13 +136,13 @@ class RegistrationCax extends React.Component<
                   <Row className="stepper-row">
                     <div className="step-counter col-3">3</div>
                     <div className="step-name col-9">
-                      {this.props.t("registration.companyRole")}
+                      {t("registration.companyRole")}
                     </div>
                   </Row>
                   <Row>
                     <div
                       className={
-                        this.currentActiveStep === 3
+                        currentActiveStep === 3
                           ? "step-border col-10 mx-auto"
                           : ""
                       }
@@ -146,13 +153,13 @@ class RegistrationCax extends React.Component<
                   <Row className="stepper-row">
                     <div className="step-counter col-3">4</div>
                     <div className="step-name col-9">
-                      {this.props.t("registration.uploadDocument")}
+                      {t("registration.uploadDocument")}
                     </div>
                   </Row>
                   <Row>
                     <div
                       className={
-                        this.currentActiveStep === 4
+                        currentActiveStep === 4
                           ? "step-border col-10 mx-auto"
                           : ""
                       }
@@ -163,13 +170,13 @@ class RegistrationCax extends React.Component<
                   <Row className="stepper-row">
                     <div className="step-counter col-3">5</div>
                     <div className="step-name col-9">
-                      {this.props.t("registration.verifyEntries")}
+                      {t("registration.verifyEntries")}
                     </div>
                   </Row>
                   <Row>
                     <div
                       className={
-                        this.currentActiveStep === 5
+                        currentActiveStep === 5
                           ? "step-border col-10 mx-auto"
                           : ""
                       }
@@ -178,13 +185,13 @@ class RegistrationCax extends React.Component<
                 </div>
               </Row>
             </div>
-            {this.currentActiveStep === 1 ? (
+            {currentActiveStep === 1 ? (
               <CompanyDataCax />
-            ) : this.currentActiveStep === 2 ? (
+            ) : currentActiveStep === 2 ? (
               <ResponsibilitiesCax />
-            ) : this.currentActiveStep === 3 ? (
+            ) : currentActiveStep === 3 ? (
                <CompanyRoleCax />
-            ) : this.currentActiveStep === 4 ? (
+            ) : currentActiveStep === 4 ? (
                 <DragDropUploadFiles/>
             ) : (
               <div className="mx-auto col-9 container-registration">
@@ -205,7 +212,7 @@ class RegistrationCax extends React.Component<
                       <li className="list-group-item-cax list-header">
                         <Row>
                           <span className="col-11">Company Data</span>
-                          <span className="col-1" onClick={()=>this.editClick(1)}><FaEdit className="editIcon"/></span>
+                          <span className="col-1" onClick={()=>editClick(1)}><FaEdit className="editIcon"/></span>
                         </Row>
                       </li>
                       <li className="list-group-item-cax">
@@ -270,7 +277,7 @@ class RegistrationCax extends React.Component<
                       <li className="list-group-item-cax list-header">
                         <Row>
                           <span className="col-11">Active Role</span>
-                          <span className="col-1" onClick={()=>this.editClick(2)}><FaEdit className="editIcon"/></span>
+                          <span className="col-1" onClick={()=>editClick(2)}><FaEdit className="editIcon"/></span>
                         </Row>
                       </li>
                       <li className="list-group-item-cax">
@@ -285,7 +292,7 @@ class RegistrationCax extends React.Component<
                       <li className="list-group-item-cax list-header">
                         <Row>
                           <span className="col-11">Uploaded certificates</span>
-                          <span className="col-1" onClick={()=>this.editClick(3)}><FaEdit  className="editIcon"/></span>
+                          <span className="col-1" onClick={()=>editClick(3)}><FaEdit  className="editIcon"/></span>
                         </Row>
                       </li>
                       <li className="list-group-item-cax">
@@ -318,12 +325,12 @@ class RegistrationCax extends React.Component<
                   <Button
                     styleClass="button btn-default"
                     label="Back"
-                    handleClick={() => this.backClick()}
+                    handleClick={() => backClick()}
                   />
                   <Button
                     label="Confirm"
                     styleClass="button btn-primaryCax"
-                    handleClick={() => this.nextClick()}
+                    handleClick={() => nextClick()}
                   />
                 </div>
               </Row>
@@ -335,5 +342,18 @@ class RegistrationCax extends React.Component<
       </Container>
     );
   }
-}
-export default withTranslation()(RegistrationCax);
+
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  addToInviteList: (step: number) => {
+      dispatch(addCurrentStep(step));
+  },
+});
+
+
+export default connect(
+  (state: IState) => ({
+      userInviteList: state.user.userInviteList,
+  }),
+  mapDispatchToProps
+)(withTranslation()(RegistrationCax));
