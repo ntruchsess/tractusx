@@ -18,7 +18,6 @@ import Footer from "./footer";
 import Header from "./cax-header";
 import ReactTooltip from "react-tooltip";
 import "react-datepicker/dist/react-datepicker.css";
-import { withTranslation, WithTranslation } from "react-i18next";
 import CompanyDataCax from "./cax-companyData";
 import Button from "./button";
 import ResponsibilitiesCax from "./cax-responsibilities";
@@ -33,15 +32,19 @@ import {IState} from "../types/store/redux.store.types";
 import {Dispatch} from 'redux';
 import { useTranslation } from 'react-i18next';
 import {useEffect, useState} from "react";
+import { withRouter } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 interface RegistrationCaxProps {
   addCurrentStep: (step: number) => void;
 }
 
-export const RegistrationCax = () => {
+export const RegistrationCax = ({addCurrentStep}: RegistrationCaxProps) => {
 
     const { t } = useTranslation();
     const [currentActiveStep, setcurrentActiveStep] =  useState(1);
+
+    let history = useHistory();
 
     useEffect(() => {
       addCurrentStep(currentActiveStep);
@@ -61,7 +64,7 @@ export const RegistrationCax = () => {
       fetch(featchUrl, { method: 'POST', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
       .then((response) => {
         if (response.ok) {
-          // this.props.history.push("/finish");
+             history.push("/finish");
         }
         else {
           // this.props.history.push("/finish");
@@ -345,15 +348,15 @@ export const RegistrationCax = () => {
 
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  addToInviteList: (step: number) => {
+  addCurrentStep: (step: number) => {
       dispatch(addCurrentStep(step));
   },
 });
 
 
-export default connect(
+export default withRouter(connect(
   (state: IState) => ({
       userInviteList: state.user.userInviteList,
   }),
   mapDispatchToProps
-)(withTranslation()(RegistrationCax));
+)(RegistrationCax));

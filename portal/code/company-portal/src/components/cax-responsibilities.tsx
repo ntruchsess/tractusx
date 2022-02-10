@@ -181,9 +181,9 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 });
 
 
-export default connect(
+export default withRouter(connect(
     (state: IState) => ({
         userInviteList: state.user.userInviteList,
     }),
     mapDispatchToProps
-)(withTranslation()(ResponsibilitiesCax));
+)(ResponsibilitiesCax));
