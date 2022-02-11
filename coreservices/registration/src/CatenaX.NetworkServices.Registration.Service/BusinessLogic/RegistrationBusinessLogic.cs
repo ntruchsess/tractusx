@@ -41,6 +41,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
         public async Task CreateUsersAsync(List<UserCreationInfo> userList, string realm, string token, Dictionary<string, string> userInfo)
         {
             var client = new KeycloakClient(_configuration.GetValue<string>("KeyCloakConnectionString"), () => token);
+            var clientId = _configuration.GetValue<string>("KeyCloakClientID");
             foreach (UserCreationInfo user in userList)
             {
                 var pwd = new Password();
@@ -53,7 +54,6 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
                 };
 
                 var userId = await client.CreateAndRetrieveUserIdAsync(realm, userToCreate).ConfigureAwait(false);
-                var clientId = _configuration.GetValue<string>("KeyCloakClientID");
                 var roles = new [] {await client.GetRoleByNameAsync(realm, clientId, user.Role).ConfigureAwait(false)};
 
                 await client.AddClientRoleMappingsToUserAsync(realm, userId, clientId, roles).ConfigureAwait(false);
