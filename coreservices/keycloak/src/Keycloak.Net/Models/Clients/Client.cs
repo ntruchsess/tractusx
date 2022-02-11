@@ -9,6 +9,8 @@ namespace Keycloak.Net.Models.Clients
         public string Id { get; set; }
         [JsonProperty("clientId")]
         public string ClientId { get; set; }
+        [JsonProperty("rootUrl")]
+        public string RootUrl { get; set; }
         [JsonProperty("name")]
         public string Name { get; set; }
         [JsonProperty("baseUrl")]
@@ -17,6 +19,8 @@ namespace Keycloak.Net.Models.Clients
         public bool? SurrogateAuthRequired { get; set; }
         [JsonProperty("enabled")]
         public bool? Enabled { get; set; }
+        [JsonProperty("alwaysDisplayInConsole")]
+        public bool? AlwaysDisplayInConsole { get; set; }
         [JsonProperty("clientAuthenticatorType")]
         public string ClientAuthenticatorType { get; set; }
         [JsonProperty("redirectUris")]
