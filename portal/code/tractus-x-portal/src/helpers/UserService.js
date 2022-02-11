@@ -60,7 +60,11 @@ const getDomain = () => realm;//_kc.tokenParsed?.split('/').pop();
 
 const getCompany = () => _kc.tokenParsed?.email.split('@')[1].split('.')[0].toUpperCase();
 
-const hasRole = (roles) => roles.some((role) => _kc.hasRealmRole(role));
+const getRoles = () => _kc.tokenParsed?.resource_access['catenax-portal']?.roles;
+
+const hasRole = (role) => UserService.getRoles()?.includes(role);
+
+const isAdmin = () => UserService.hasRole('CX Admin');
 
 const UserService = {
   initKeycloak,
@@ -75,6 +79,8 @@ const UserService = {
   getInitials,
   getDomain,
   getCompany,
+  getRoles,
+  isAdmin,
   hasRole,
   realm,
   clientId
