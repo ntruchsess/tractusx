@@ -26,6 +26,10 @@ namespace Keycloak.Net.Models.IdentityProviders
         public bool? LinkOnly { get; set; }
         [JsonProperty("firstBrokerLoginFlowAlias")]
         public string FirstBrokerLoginFlowAlias { get; set; }
+        [JsonProperty("postBrokerLoginFlowAlias")]
+        public string PostBrokerLoginFlowAlias { get; set; }
+        [JsonProperty("displayName")]
+        public string DisplayName { get; set; }
         [JsonProperty("config")]
         public Config Config { get; set; }
     }
