@@ -52,12 +52,11 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
                     Enabled = true
                 };
 
-                var userId = await client.CreateAndRetrieveUserIdAsync(realm, userToCreate);
+                var userId = await client.CreateAndRetrieveUserIdAsync(realm, userToCreate).ConfigureAwait(false);
                 var clientId = _configuration.GetValue<string>("KeyCloakClientID");
-                var roles = (await client.GetRolesAsync(realm, clientId))
-                    .Where(r => r.Name == user.Role);
+                var roles = new [] {await client.GetRoleByNameAsync(realm, clientId, user.Role).ConfigureAwait(false)};
 
-                await client.AddClientRoleMappingsToUserAsync(realm, userId, clientId, roles);
+                await client.AddClientRoleMappingsToUserAsync(realm, userId, clientId, roles).ConfigureAwait(false);
 
                 var inviteTemplateName = "invite";
                 if (!string.IsNullOrWhiteSpace(user.Message))
@@ -77,7 +76,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
                     
                 };
 
-                await _mailingService.SendMails(user.eMail, mailParameters, new List<string> { inviteTemplateName, "password" });
+                await _mailingService.SendMails(user.eMail, mailParameters, new List<string> { inviteTemplateName, "password" }).ConfigureAwait(false);
             }
         }
 
