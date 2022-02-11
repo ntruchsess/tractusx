@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import * as React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Footer from "./footer";
 import Header from "./cax-header";
@@ -26,7 +25,6 @@ import CompanyRoleCax from "./cax-companyRole";
 import { FaEdit } from "react-icons/fa";
 import {addCurrentStep} from "../actions/user.action";
 import UserService from '../helpers/UserService';
-import { RouteComponentProps } from "react-router-dom";
 import {connect} from 'react-redux';
 import {IState} from "../types/store/redux.store.types";
 import {Dispatch} from 'redux';
@@ -91,7 +89,7 @@ export const RegistrationCax = ({addCurrentStep}: RegistrationCaxProps) => {
 
     return (
       <Container>
-        <Header href={window.location.href} />
+        <Header/>
         <Row>
           <Col>
             <div className="mx-auto col-9">

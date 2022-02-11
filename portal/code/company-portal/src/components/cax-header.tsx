@@ -14,50 +14,27 @@
 
 import * as React from 'react';
 import i18n from '../i18n';
-import { observer } from 'mobx-react';
-import { observable } from 'mobx';
 import { Row, Col } from 'react-bootstrap';
 import UserService from '../helpers/UserService';
-import { RouteComponentProps, withRouter } from 'react-router-dom';
-import { getUserClientRolesComposite } from '../helpers/utils';
+// import { getUserClientRolesComposite } from '../helpers/utils';
+import { useState } from "react";
+import { withRouter } from "react-router-dom";
 
-interface IProp extends RouteComponentProps {
-    href: string;
-    hidePivot?: boolean;
-    appTitle?: string;
-}
+export const Header = () => {
+    const username =  UserService.getUsername();
+    const initials =  UserService.getInitials();
+    const [userRoles, setuserRoles] =  useState([]);
+    const [language, setlanguage] =  useState(i18n.language);
 
-@observer
-class Header extends React.Component<IProp> {
-    @observable username = '';
-    @observable initials = '';
-    @observable userRoles = [];
-    @observable language = i18n.language;
-
-    public async componentDidMount() {
-        this.username = UserService.getUsername();
-        this.initials = UserService.getInitials();
-        this.userRoles = await getUserClientRolesComposite();
-    }
-
-    private userClick() {
-        //const token = adalContext.getCachedToken();
-        const token = UserService.getToken();
-        console.log(token);
-    }
-
-    private logoutClick() {
+    const logoutClick = () => {
         const token = UserService.getCachedToken();
         console.log(token);
         UserService.logOut();
     }
 
 
-
-    public render() {
-
         const changeLanguage = lng => {
-            this.language = lng;
+            setlanguage(lng);
             i18n.changeLanguage(lng);
         };
 
@@ -71,16 +48,16 @@ class Header extends React.Component<IProp> {
                 </Col>
                 <Col>
                     <div className='d-flex flex-row-reverse profile'>
-                        <div className='profile-lang'><span className={this.language === 'en' ? 'lang-sel' : ''} onClick={() => changeLanguage('en')} > EN </span></div>
-                        <div className='profile-lang'><span className={this.language === 'de' ? 'lang-sel' : ''} onClick={() => changeLanguage('de')} > DE</span></div>
+                        <div className='profile-lang'><span className={language === 'en' ? 'lang-sel' : ''} onClick={() => changeLanguage('en')} > EN </span></div>
+                        <div className='profile-lang'><span className={language === 'de' ? 'lang-sel' : ''} onClick={() => changeLanguage('de')} > DE</span></div>
                         <div className='profile-link partion'></div>
                         <div className='profile-link user'>
                             <input id="myid" type="checkbox" />
                             <label htmlFor="myid" className='user-icon'></label>
-                            <span className="tooltiptext"> <div> {this.username}</div>
+                            <span className="tooltiptext"> <div> {username}</div>
                                 < div > {UserService.getDomain()}</div>
-                                <div>({this.userRoles.join(", ")})</div>
-                                <div className='logout' onClick={() => this.logoutClick()}>Logout</div>
+                                <div>({userRoles.join(", ")})</div>
+                                <div className='logout' onClick={() => logoutClick()}>Logout</div>
                             </span>
                         </div>
                         {/* <div className='profile-link user'><span className='user-icon'></span>
@@ -91,6 +68,5 @@ class Header extends React.Component<IProp> {
                 </Col >
             </Row >
         );
-    }
 }
 export default withRouter(Header);
