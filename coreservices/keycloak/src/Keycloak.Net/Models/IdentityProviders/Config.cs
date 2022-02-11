@@ -28,5 +28,7 @@ namespace Keycloak.Net.Models.IdentityProviders
         public string ClientAssertionSigningAlg { get; set; }
         [JsonProperty("syncMode")]
         public string SyncMode{ get; set; }
+        [JsonProperty("validateSignature")]
+        public string ValidateSignature { get; set; }
     }
 }
