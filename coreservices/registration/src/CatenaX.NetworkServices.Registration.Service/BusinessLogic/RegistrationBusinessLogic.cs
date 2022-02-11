@@ -42,9 +42,9 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
         {
             var client = new KeycloakClient(_configuration.GetValue<string>("KeyCloakConnectionString"), () => token);
             var clientId = _configuration.GetValue<string>("KeyCloakClientID");
+            var pwd = new Password();
             foreach (UserCreationInfo user in userList)
             {
-                var pwd = new Password();
                 var password = pwd.Next();
                 var userToCreate = new User
                 {
