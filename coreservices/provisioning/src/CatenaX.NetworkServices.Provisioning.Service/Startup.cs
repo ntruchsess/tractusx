@@ -1,15 +1,16 @@
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-
+using CatenaX.NetworkServices.Keycloak.Authentication;
+using CatenaX.NetworkServices.Keycloak.Factory;
 using CatenaX.NetworkServices.Mailing.SendMail;
 using CatenaX.NetworkServices.Mailing.Template;
-using CatenaX.NetworkServices.Provisioning.Mail;
-using CatenaX.NetworkServices.Provisioning.ActiveDirectory;
-using CatenaX.NetworkServices.Provisioning.Keycloak;
+using CatenaX.NetworkServices.Provisioning.Library;
 using CatenaX.NetworkServices.Provisioning.Service.BusinessLogic;
 
 namespace CatenaX.NetworkServices.Provisioning.Service
@@ -17,34 +18,40 @@ namespace CatenaX.NetworkServices.Provisioning.Service
     public class Startup
     {
         private static string TAG = typeof(Startup).Namespace;
-        private static string VERSION = "v1";
-        public IConfiguration Configuration { get; }
+        private static string VERSION = "v2";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
+
+        public IConfiguration Configuration { get; }
+
+        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddHttpClient()
-                    .AddSwaggerGen(c => c.SwaggerDoc(VERSION, new OpenApiInfo { Title = TAG, Version = VERSION }))
-                    .AddSingleton<IClientToken, ClientToken>()
-                    .AddTransient<IFederation, Federation>()
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options => Configuration.Bind("JwtBearerOptions",options));
+            services.AddSwaggerGen(c => c.SwaggerDoc(VERSION, new OpenApiInfo { Title = TAG, Version = VERSION }))
+                    .AddTransient<IInvitationBusinessLogic,InvitationBusinessLogic>()
+                    .AddTransient<IMailingService, MailingService>()
+                    .AddTransient<ISendMail, SendMail>()
+                    .AddTransient<ITemplateManager, TemplateManager>()
+                    .ConfigureTemplateSettings(Configuration.GetSection(TemplateSettings.Position))
+                    .ConfigureMailSettings(Configuration.GetSection(MailSettings.Position))
+                    .AddTransient<IClaimsTransformation, KeycloakClaimsTransformation>()
                     .AddTransient<IKeycloakFactory, KeycloakFactory>()
-                    .AddTransient<IKeycloakAccess,KeycloakAccess>()
-                    .AddTransient<ISendMail,SendMail>()
-                    .AddTransient<ITemplateManager,TemplateManager>()
-                    .AddTransient<IUserEmail,UserEmail>()
-                    .AddTransient<IProvisioningService,ProvisioningService>()
-                    .ConfigureMailSettings(Configuration.GetSection(UserEmail.ProviderPosition))
-                    .ConfigureTemplateSettings(Configuration.GetSection(UserEmail.TemplatePosition))
-                    .ConfigureUserEmailSettings(Configuration.GetSection(UserEmail.UserEmailPosition))
-                    .ConfigureKeycloakSettings(Configuration.GetSection(KeycloakAccess.ConfigPosition))
-                    .ConfigureKeycloakAccessSettings(Configuration.GetSection(KeycloakAccess.ConfigPosition))
-                    .ConfigureClientSettings(Configuration.GetSection(ClientToken.ConfigPosition))
-                    .ConfigureFederationSettings(Configuration.GetSection(Federation.ConfigPosition))
-                    .ConfigureProvisioningSettings(Configuration.GetSection(ProvisioningService.ConfigPosition));
+                    .AddTransient<IProvisioningManager, ProvisioningManager>()
+                    .ConfigureKeycloakSettingsMap(Configuration.GetSection("Keycloak"))
+                    .ConfigureProvisioningSettings(Configuration.GetSection("Provisioning"))
+                    .Configure<JwtBearerOptions>(options => Configuration.Bind("JwtBearerOptions",options));
         }
+
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -54,11 +61,17 @@ namespace CatenaX.NetworkServices.Provisioning.Service
                 app.UseSwaggerUI(c => c.SwaggerEndpoint(string.Format("/swagger/{0}/swagger.json",VERSION), string.Format("{0} {1}",TAG,VERSION)));
             }
 
+            //app.UseHttpsRedirection();
+
             app.UseRouting();
 
+            app.UseAuthentication();
+            app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
-                endpoints.MapControllers()
-            );
+            {
+                endpoints.MapControllers();
+            });
         }
     }
 }

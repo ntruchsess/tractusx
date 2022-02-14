@@ -1,8 +1,9 @@
+using System;
+
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.FileProviders;
-using System;
+using Microsoft.Extensions.Hosting;
 
 namespace CatenaX.NetworkServices.Provisioning.Service
 {
