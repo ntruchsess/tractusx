@@ -44,9 +44,6 @@ export const RegistrationCax = ({addCurrentStep}: RegistrationCaxProps) => {
 
     let history = useHistory();
 
-    useEffect(() => {
-      addCurrentStep(currentActiveStep);
-    });
   const nextClick = () => {
     
     if(currentActiveStep === 5){

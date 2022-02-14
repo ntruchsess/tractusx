@@ -1,5 +1,5 @@
-import {IUserInviteList} from "../user/user.types";
+import {IUserData} from "../user/user.types";
 
 export interface IState {
-    user: IUserInviteList;
+    user: IUserData;
 }

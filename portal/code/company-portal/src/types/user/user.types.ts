@@ -5,9 +5,11 @@ export interface IUserItem {
     personalNote: string;
 }
 
-export interface IUserInviteList {
-    userInviteList: IUserItem[]
+export interface IUserData {
+    userInviteList: IUserItem[];
+    currentStep: number;
 }
+
 
 export interface IUserResponsibilities {
     id: number;
