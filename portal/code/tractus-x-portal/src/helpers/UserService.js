@@ -62,10 +62,7 @@ const getDomain = () => CX_REALM;
 
 const getTenant = () => _kc.tokenParsed?.tenant;
 
-//TODO:
-//retrieve company name from a map by key tenant (= idp federation alias).
-//for now only show the first part of the tenant as company.
-const getCompany = () => getTenant()?.split(/[_-]/)[0].toUpperCase();
+const getCompany = () => _kc.tokenParsed?.organisation;
 
 const getRoles = () => _kc.tokenParsed?.resource_access[CX_CLIENT]?.roles;
 
