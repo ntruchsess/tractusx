@@ -25,15 +25,15 @@ namespace Keycloak.Net.Models.Users
         [JsonProperty("email")]
         public string Email { get; set; }
         [JsonProperty("disableableCredentialTypes")]
-        public ReadOnlyCollection<string> DisableableCredentialTypes { get; set; }
+        public IEnumerable<string> DisableableCredentialTypes { get; set; }
         [JsonProperty("requiredActions")]
-        public ReadOnlyCollection<string> RequiredActions { get; set; }
+        public IEnumerable<string> RequiredActions { get; set; }
         [JsonProperty("notBefore")]
         public int? NotBefore { get; set; }
         [JsonProperty("access")]
         public UserAccess Access { get; set; }
         [JsonProperty("attributes")]
-        public Dictionary<string, IEnumerable<string>> Attributes { get; set; }
+        public IDictionary<string, IEnumerable<string>> Attributes { get; set; }
         [JsonProperty("clientConsents")]
         public IEnumerable<UserConsent> ClientConsents { get; set; }
         [JsonProperty("clientRoles")]
