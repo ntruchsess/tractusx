@@ -321,7 +321,7 @@ class RegistrationCax extends React.Component<
                     handleClick={() => this.backClick()}
                   />
                   <Button
-                    label="Confirm"
+                    label="Submit"
                     styleClass="button btn-primaryCax"
                     handleClick={() => this.nextClick()}
                   />
