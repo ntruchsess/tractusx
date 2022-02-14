@@ -1,88 +1,113 @@
 # Overview
 
-## alertdialog
+### alertdialog
 Question: is this the alert component? If so, we should also put this into a own folder for design components
 
-## authinfo
+
+### authinfo
+tbd
 
 
-## bulletList
+### bulletList
 Question: is this the bulletlist component? If so, we should also put this into a own folder for design components
 
-## button
+
+### button
 Question: is this the button component? If so, we should also put this into a own folder for design components
 
-## cax-companyData
+
+### cax-companyData
  Registration Service Step "Add Company Data"
 
-## cax-companyRole
+
+### cax-companyRole
  Registration Service Step "Set CompanyRole"
 
-## cax-header
+
+### cax-header
  This is the static header of the Registration pages.
  TASK: Keep, but commenting to be adjusted / enhanced
 
-## cax-registration
+
+### cax-registration
  Registration Service Step "Revisite your data"
 
-## cax-responsibilities
+
+### cax-responsibilities
  Registration Service Step "Invite Users for the Registration"
  TASK: multi language implementation still missing for a number of tags
 
-## certificate
+
+### certificate
  TASK: Functional check needed, not visible whats behind that
 
-## companyrole
+
+### companyrole
  TASK: Old Development, can get deleted
 
-## dragdrop
+
+### dragdrop
  TASK: rename to "Registration Step Document Upload"
 
-## emailregister
+
+### emailregister
  This function is not used anymore - in future we plan to over the own registration to CX, but thats not in scope for 2022. Due to that, I suggest we delete this section. There isnt much code loss
 
-## finish
+
+### finish
  TASK: Rename to Registration Closure
 
-## fother
+
+### fother
  This is the static footer of the Registration pages.
  TASK: Keep, but commenting to be adjusted / enhanced
 
-## header
+
+### header
  TASK: Old Development, can get deleted
 
-## home
+
+### home
  TASK: Old Development, can get deleted
 
-## indentity
+
+### indentity
  TASK: Old Development, can get deleted. However we will need a similar choice in the portal - we should see if we can easily move this.
 
-## landing
+
+### landing
  TASK: Rename to Registration Intro 
 
-## login
+
+### login
  Question: what is that? I dont remeber that we have such a login screen
 
-## logo
+
+### logo
  TASK: Logo needs to get added to a png / picture component area - not in the middle of the developments
 
-## onboarding
+
+### onboarding
  TASK: Old Development, can get deleted
 
-## onboardingsubmit
+
+### onboardingsubmit
  TASK: Old Development, can get deleted
 
-## registration
+
+### registration
   TASK: recheck if this is still used - I guess we can delete it.
 
-## registrationoneid
+
+### registrationoneid
  This is the business partner invite. Triggered by the Company Admin.
  TASK: Rename to "Invite_Business_Partner"
  TASK: Keep, will get redesigned and new implemented, but function and content to be kept
  
 
-## responsibilities
+### responsibilities
  TASK: Old Development, can get deleted
 
-## termsnconditions
+
+### termsnconditions
  TASK: recheck if this is still used - I guess we can delete it.
