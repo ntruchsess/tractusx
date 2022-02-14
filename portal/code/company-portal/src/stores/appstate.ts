@@ -166,19 +166,10 @@ const L = {
   companyName: 'DMG MORI', url: ''
 };
 
-const M = {
-  id: '0253dd4d-35af-43f5-a84c-7cc280840335',
-  title: 'Catena-X Enabled Integrated Data Lake', rating: 5, downloads: 99, tags: ['FREE FOR USE','IDL'],
-  screenshots: ['/data-lake-ss-1.png', '/data-lake-ss-2.png', '/data-lake-ss-2.png'],
-  description: 'Integrated Data Lake (IDL) is a S3 compatible MindSphere application that makes it easy to set up data collection in the cloud for your industrial assets and backend systems.<br />It provides complete flexibility on the type of data you want to import and store as objects. This gives you the ability to break down data silos in your business and consolidate structured, semi-structured as well as un-structured data within MindSphere. Accelerate the ability to get value out of your industrial data.<br />The Catena-X enabled Integrated Data Lake allows the users to exchange the industrial data with Catena-X network. The users can exchange both single files or results of the running industrial processes with partners in the Catena-X network.',
-  usage: 'free for use',
-  purchase: 'PURCHASE',
-  companyName: 'Siemens', url: 'https://castidev-catenaxindustrialdat-castidev.eu1.mindsphere.io/'
-}
 
 export class AppState {
   public static state: AppState;
-  public apps: Application[] = [F, E, C, A, D, B, M];
+  public apps: Application[] = [F, E, C, A, D, B];
   public topApps: Application[] = [B, D, C, F, E];
   public bizApps: Application[] = [C, E, F];
   public installedApps: Application[] = [A, B];
