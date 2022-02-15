@@ -88,9 +88,9 @@ export default class Registrationoneid extends React.Component {
             <div className='mr40 ml40 aic'>
               <TextField placeholder='Enter  Email - Address' className='w100pc br4 h40' value={this.email} onChange={(ev, val) => this.email = val} />
               <TextField placeholder='One ID' className='w100pc br4 h40 mt10' value={this.oneId} onChange={(ev, val) => this.oneId = val} />
-              <TextField placeholder='One ID' className='w100pc br4 h40 mt20' value={this.firstname} onChange={(ev, val) => this.firstname = val} />
-              <TextField placeholder='One ID' className='w100pc br4 h40 mt30' value={this.lastname} onChange={(ev, val) => this.lastname = val} />
-              <TextField placeholder='One ID' className='w100pc br4 h40 mt40' value={this.companyname} onChange={(ev, val) => this.companyname = val} />
+              <TextField placeholder='First Name' className='w100pc br4 h40 mt20' value={this.firstname} onChange={(ev, val) => this.firstname = val} />
+              <TextField placeholder='Last Name' className='w100pc br4 h40 mt30' value={this.lastname} onChange={(ev, val) => this.lastname = val} />
+              <TextField placeholder='Company Name' className='w100pc br4 h40 mt40' value={this.companyname} onChange={(ev, val) => this.companyname = val} />
               <PrimaryButton className='w100pc br4 pr10 h40 mt50' text='INVITE' onClick={() => this.registrationButtonClick()} />
             </div>
             <div className='m40 df fdc'>
