@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Robert Bosch Manufacturing Solutions GmbH
+ * Copyright (c) 2022 Robert Bosch Manufacturing Solutions GmbH
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,21 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package net.catenax.semantics.registry.model.projection;
 
-package net.catenax.semantics;
+import lombok.Value;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import java.time.Instant;
+import java.util.UUID;
 
-import springfox.documentation.annotations.ApiIgnore;
-
-@Controller
-@ApiIgnore
-public class SwaggerController {
-
-   @RequestMapping("/")
-   public String index() {
-      return "redirect:swagger-ui.html";
-   }
-
+@Value
+public class SubmodelMinimal {
+    UUID id;
 }
