@@ -14,7 +14,9 @@ namespace CatenaX.NetworkServices.Keycloak.Factory
         public KeycloakClient CreateKeycloakClient(string instance)
         {
             KeycloakSettings settings = _Settings[instance];
-            return new KeycloakClient(settings.ConnectionString, settings.User, settings.Password, settings.AuthRealm);
+            return settings.ClientSecret == null
+                ? new KeycloakClient(settings.ConnectionString, settings.User, settings.Password, settings.AuthRealm)
+                : new KeycloakClient(settings.ConnectionString, settings.ClientSecret, settings.AuthRealm);
         }
     }
 }

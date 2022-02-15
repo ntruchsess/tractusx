@@ -20,6 +20,7 @@ namespace CatenaX.NetworkServices.Provisioning.Library
                 .Select(x => x.Alias)
                 .Where(x => x.StartsWith(prefix))
                 .Select(x => int.TryParse(x.Substring(prefix_len),out number) ? number : 0)
+                .DefaultIfEmpty(0)
                 .Max()+1);
         }
 
