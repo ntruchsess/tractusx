@@ -22,3 +22,4 @@ As part of the invite in the registration, the user receives 2 documents.
   2. Password email
 
 
+All details can get found here: https://confluence.catena-x.net/display/CORE/E-Mail+Templates
