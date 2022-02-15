@@ -26,6 +26,9 @@ export default class Registrationoneid extends React.Component {
 
   @observable private email: string = "";
   @observable private oneId: string = "";
+  @observable private firstname: string = "";
+  @observable private lastname: string = "";
+  @observable private companyname: string = "";
 
   private registrationButtonClick() {
     console.log("register");
