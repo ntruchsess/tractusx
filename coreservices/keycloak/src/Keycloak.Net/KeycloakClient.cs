@@ -23,13 +23,14 @@ namespace Keycloak.Net
         private readonly string _clientSecret;
         private readonly Func<Task<string>> _getTokenAsync;
         private readonly string _authRealm;
+        private readonly string _clientId;
 
         private KeycloakClient(string url)
         {
             _url = url;
         }
 
-        public KeycloakClient(string url, string userName, string password, string authRealm = null)
+        public KeycloakClient(string url, string userName, string password, string authRealm)
             : this(url)
         {
             _userName = userName;
@@ -37,10 +38,13 @@ namespace Keycloak.Net
             _authRealm = authRealm;
         }
 
-        public KeycloakClient(string url, string clientSecret, string authRealm = null)
+        private KeycloakClient(string url, string userName, string password, string authRealm, string clientId, string clientSecret)
             : this(url)
         {
+            _userName = userName;
+            _password = password;
             _clientSecret = clientSecret;
+            _clientId = clientId;
             _authRealm = authRealm;
         }
 
@@ -58,6 +62,11 @@ namespace Keycloak.Net
             _authRealm = authRealm;
         }
 
+        public static KeycloakClient CreateWithClientId(string url, string clientId, string clientSecret, string authRealm = null)
+        {
+            return new KeycloakClient(url, userName: null, password: null, authRealm, clientId, clientSecret);
+        }
+
         public void SetSerializer(ISerializer serializer)
         {
             _serializer = serializer ?? throw new ArgumentNullException(nameof(serializer));
@@ -66,6 +75,6 @@ namespace Keycloak.Net
         private Task<IFlurlRequest> GetBaseUrlAsync(string targetRealm) => new Url(_url)
             .AppendPathSegment("/auth")
             .ConfigureRequest(settings => settings.JsonSerializer = _serializer)
-            .WithAuthenticationAsync(_getTokenAsync, _url, _authRealm ?? targetRealm, _userName, _password, _clientSecret);
+            .WithAuthenticationAsync(_getTokenAsync, _url, _authRealm ?? targetRealm, _userName, _password, _clientSecret, _clientId);
     }
 }
