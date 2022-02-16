@@ -59,7 +59,7 @@ export const RegistrationCax = ({addCurrentStep}: RegistrationCaxProps) => {
       fetch(featchUrl, { method: 'POST', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
       .then((response) => {
         if (response.ok) {
-             history.push("/finish");
+            history.push("/finish");
         }
         else {
           // this.props.history.push("/finish");

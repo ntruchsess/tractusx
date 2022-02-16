@@ -16,8 +16,8 @@ import * as React from 'react';
 import i18n from '../i18n';
 import { Row, Col } from 'react-bootstrap';
 import UserService from '../helpers/UserService';
-// import { getUserClientRolesComposite } from '../helpers/utils';
-import { useState } from "react";
+import { getUserClientRolesComposite } from '../helpers/utils';
+import { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 
 export const Header = () => {
@@ -25,6 +25,20 @@ export const Header = () => {
     const initials =  UserService.getInitials();
     const [userRoles, setuserRoles] =  useState([]);
     const [language, setlanguage] =  useState(i18n.language);
+
+    useEffect(() => {
+        // declare the data fetching function
+        const fetchData = async () => {
+          const data = await getUserClientRolesComposite();
+          setuserRoles(data);
+        }
+      
+        // call the function
+        fetchData()
+          // make sure to catch any error
+          .catch(console.error);
+      }, [])
+
 
     const logoutClick = () => {
         const token = UserService.getCachedToken();

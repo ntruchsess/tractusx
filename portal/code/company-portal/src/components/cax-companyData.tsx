@@ -17,42 +17,37 @@ import { getCompanyDetails } from '../helpers/utils';
 import { AiOutlineQuestionCircle, AiOutlineCalendar } from 'react-icons/ai'
 import DatePicker from "react-datepicker";
 import SearchInput from 'react-search-input';
-import { FetchBusinessPartnerDto } from "../data/companyDetailsById"
 import { useTranslation } from 'react-i18next';
+import { useState } from 'react';
 
 
 export const CompanyDataCax = () => {
 
     const { t } = useTranslation();
+    const [search, setsearch] =  useState([]);
+    const [bpn, setbpn] =  useState("");
+    const [legalEntity, setlegalEntity] = useState("");
+    const [registeredName, setregisteredName] = useState("");
+    const [streetHouseNumber, setstreetHouseNumber] = useState("");
+    const [postalCode, setpostalCode] = useState("");
+    const [city, setcity] = useState("");
+    const [country, setcountry] = useState("");
+    const [companyDetails, setcompanyDetails] = useState([])
 
-    // async fillFormData(value) {
-    //     console.log(value)      
-    //         try {
-    //           this.companyDetailsById = await getCompanyDetails(value);
-    //         } catch (e) {
-    //           console.log(e.message)
-    //         }
-    //   }
 
-    //   async onSeachChange(ev, item) {
-    //     try {
-    //       this.companyDetailsById = await getCompanyDetails(item.key)
-    //       let details = toJS(this.companyDetails);
-    //       console.log(details);
-    //     } catch (e) {
-    //       console.log(e.message)
-    //     }
-    //   }
-
-    //   async onChange(ev) {
-    //     try {
-    //       this.companyDetailsById = await getCompanyDetails(ev.target.value)
-    //       let details = toJS(this.companyDetailsById);
-    //       console.log(details);
-    //     } catch (e) {
-    //       console.log(e.message)
-    //     }
-    //   }
+    
+      const onSeachChange = async (x) => {
+        setsearch(x)
+        const companyDetails = await getCompanyDetails(x);
+        setcompanyDetails(companyDetails);
+        setbpn(companyDetails?.[0]?.bpn);
+        setlegalEntity(companyDetails?.[0]?.names.find(x => x.type === 'INTERNATIONAL')?.value);
+        setregisteredName(companyDetails?.[0]?.names.find(x => x.type === 'REGISTERED')?.value);
+        setstreetHouseNumber(companyDetails?.[0]?.addresses?.[0]?.thoroughfares.find(x => x.type === 'INDUSTRIAL_ZONE')?.value);
+        setpostalCode(companyDetails?.[0]?.addresses?.[0]?.postCodes.find(x => x.type === 'REGULAR')?.value);
+        setcity(companyDetails?.[0]?.addresses?.[0]?.localities.find(x => x.type === 'BLOCK')?.value);
+        setcountry(companyDetails?.[0]?.addresses?.[0]?.countryCode);
+    }
 
 
         //  const bpn = toJS(this.companyDetailsById?.[0]?.bpn) ||"";
@@ -77,7 +72,7 @@ export const CompanyDataCax = () => {
                     <Row className='mx-auto col-9'>
                         <div className='form-search'>
                             <label> {t('registrationStepOne.seachDatabase')}</label>
-                            <SearchInput className="search-input" value="" />
+                            <SearchInput className="search-input"  value={search} onChange={(search) => onSeachChange(search)} />
                         </div>
                     </Row>
                     <Row className='col-9 mx-auto'>
@@ -88,21 +83,21 @@ export const CompanyDataCax = () => {
                     <Row className='mx-auto col-9'>
                         <div className='form-data'>
                             <label> {t('registrationStepOne.bpn')} <AiOutlineQuestionCircle color='#939393' data-tip="hello world" /></label>
-                            <input type="text" value=""/>
+                            <input type="text" value={bpn}/>
                             <div className='company-hint'>{t('registrationStepOne.helperText')}</div>
                         </div>
                     </Row>
                     <Row className='mx-auto col-9'>
                         <div className='form-data'>
                             <label> {t('registrationStepOne.legalEntity')} <AiOutlineQuestionCircle color='#939393' data-tip="hello world" /> </label>
-                            <input type="text" value=""/>
+                            <input type="text" value={legalEntity}/>
                             <div className='company-hint'>{t('registrationStepOne.helperText')}</div>
                         </div>
                     </Row>
                     <Row className='mx-auto col-9'>
                         <div className='form-data'>
                             <label> {t('registrationStepOne.registeredName')} <AiOutlineQuestionCircle color='#939393' data-tip="hello world" /></label>
-                            <input type="text" value=""/>
+                            <input type="text" value={registeredName}/>
                             <div className='company-hint'>{t('registrationStepOne.helperText')}</div>
                         </div>
                     </Row>
@@ -114,19 +109,19 @@ export const CompanyDataCax = () => {
                     <Row className='mx-auto col-9'>
                         <div className='form-data'>
                             <label> {t('registrationStepOne.streetHouseNumber')} </label>
-                            <input type="text" value=""/>
+                            <input type="text" value={streetHouseNumber}/>
                         </div>
                     </Row>
 
                     <Row className='mx-auto col-9'>
                         <div className='col-4 form-data'>
                             <label> {t('registrationStepOne.postalCode')} </label>
-                            <input type="text" value=""/>
+                            <input type="text" value={postalCode}/>
                         </div>
 
                         <div className='col-8 form-data'>
                             <label>{t('registrationStepOne.city')}</label>
-                            <input type="text" value=""/>
+                            <input type="text" value={city}/>
                         </div>
                     </Row>
 

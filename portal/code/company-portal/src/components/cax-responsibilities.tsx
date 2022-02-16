@@ -40,27 +40,35 @@ interface ResponsibilitiesCaxProps {
 export const ResponsibilitiesCax = ({userInviteList, addToInviteList}: ResponsibilitiesCaxProps) => {
     const { t } = useTranslation();
     const [email, setEmail] = useState<string | null>("");
-    const [role,] = useState<string | null>("Invitation");
+    const [role, setRole] = useState<string | null>("Invitation");
     const [personalNote, setPersonalNote] = useState<string | null>("");
+    const [availableUserRoles, setavailableUserRoles] = useState([])
 
 
-    /*
+    
     useEffect(() => {
 
+        const fetchData = async () => {
+            const dataRoles = await getClientRolesComposite();
+            setavailableUserRoles(dataRoles)
+          }
+        
+          // call the function
+          fetchData()
+            // make sure to catch any error
+            .catch(console.error);
+        }, [])
 
-    }, [userInviteList])
-
-
-     */
+    const onChange = (e) => {
+        console.log(e);
+        setRole(e.target.value)
+    }
 
     const handleClick = () => {
         // this.validateUser()
-        debugger;
-
         const data = {
-
             email: email,
-            role: 'Invitation',
+            role: role,
             personalNote: personalNote,
         };
         //this.newarray.push(data);
@@ -133,9 +141,11 @@ export const ResponsibilitiesCax = ({userInviteList, addToInviteList}: Responsib
                 <Row className="mx-auto col-9">
                  <div className="form-data">
                     <label> User role </label>
-                    <select value={role}>
-                        <option value='Invitation'>Invitation</option>
-                    </select>
+                    <select value={role} onChange={(e) => onChange(e)}>
+                {availableUserRoles && availableUserRoles.map((role, index) => (
+                  <option value={role}>{role}</option>
+                ))}
+              </select>
                 </div>
                 </Row>
 
