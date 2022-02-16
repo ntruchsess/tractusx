@@ -1,26 +1,25 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-using CatenaX.NetworkServices.Mailing.SendMail;
-using CatenaX.NetworkServices.Mailing.Template;
-using CatenaX.NetworkServices.Invitation.Identity;
-using CatenaX.NetworkServices.Invitation.Identity.Identity;
-using CatenaX.NetworkServices.Invitation.Service.BusinessLogic;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
+using CatenaX.NetworkServices.Keycloak.Authentication;
+using CatenaX.NetworkServices.Keycloak.Factory;
+using CatenaX.NetworkServices.Mailing.SendMail;
+using CatenaX.NetworkServices.Mailing.Template;
+using CatenaX.NetworkServices.Provisioning.Library;
+using CatenaX.NetworkServices.Invitation.Service.BusinessLogic;
 
 namespace CatenaX.NetworkServices.Invitation.Service
 {
     public class Startup
     {
+        private static string TAG = typeof(Startup).Namespace;
+        private static string VERSION = "v2";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -32,13 +31,24 @@ namespace CatenaX.NetworkServices.Invitation.Service
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddTransient<IIdentityManager>(x => new KeycloakIdentityManager(new Keycloak.Net.KeycloakClient(Configuration.GetValue<string>("KeyCloakConnectionString"), Configuration.GetValue<string>("KeyCloakUser"), Configuration.GetValue<string>("KeyCloakUserPassword"), authRealm: "master"), Configuration.GetValue<string>("BasePortalAddress")));
-            services.AddTransient<IInvitationBusinessLogic,InvitationBusinessLogic>();
-            services.AddTransient<IMailingService, MailingService>();
-            services.AddTransient<ISendMail, SendMail>()
-            .AddTransient<ITemplateManager, TemplateManager>()
-            .ConfigureTemplateSettings(Configuration.GetSection(TemplateSettings.Position))
-            .ConfigureMailSettings(Configuration.GetSection(MailSettings.Position));
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options => Configuration.Bind("JwtBearerOptions",options));
+            services.AddSwaggerGen(c => c.SwaggerDoc(VERSION, new OpenApiInfo { Title = TAG, Version = VERSION }))
+                    .AddTransient<IInvitationBusinessLogic,InvitationBusinessLogic>()
+                    .AddTransient<IMailingService, MailingService>()
+                    .AddTransient<ISendMail, SendMail>()
+                    .AddTransient<ITemplateManager, TemplateManager>()
+                    .ConfigureTemplateSettings(Configuration.GetSection(TemplateSettings.Position))
+                    .ConfigureMailSettings(Configuration.GetSection(MailSettings.Position))
+                    .AddTransient<IClaimsTransformation, KeycloakClaimsTransformation>()
+                    .AddTransient<IKeycloakFactory, KeycloakFactory>()
+                    .AddTransient<IProvisioningManager, ProvisioningManager>()
+                    .ConfigureKeycloakSettingsMap(Configuration.GetSection("Keycloak"))
+                    .ConfigureProvisioningSettings(Configuration.GetSection("Provisioning"))
+                    .Configure<JwtBearerOptions>(options => Configuration.Bind("JwtBearerOptions",options));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,12 +57,15 @@ namespace CatenaX.NetworkServices.Invitation.Service
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint(string.Format("/swagger/{0}/swagger.json",VERSION), string.Format("{0} {1}",TAG,VERSION)));
             }
 
             //app.UseHttpsRedirection();
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
