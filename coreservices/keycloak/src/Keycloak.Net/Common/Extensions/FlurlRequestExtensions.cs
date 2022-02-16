@@ -28,7 +28,7 @@ namespace Keycloak.Net.Common.Extensions
             return accessToken;
         }
 
-        private static async Task<string> GetAccessTokenAsync(string url, string realm, string clientSecret)
+        private static async Task<string> GetAccessTokenWithClientIdAsync(string url, string realm, string clientSecret, string clientId)
         {
             var result = await url
                 .AppendPathSegment($"/auth/realms/{realm}/protocol/openid-connect/token")
@@ -37,7 +37,7 @@ namespace Keycloak.Net.Common.Extensions
                 {
                     new KeyValuePair<string, string>("grant_type", "client_credentials"),
                     new KeyValuePair<string, string>("client_secret", clientSecret),
-                    new KeyValuePair<string, string>("client_id", "admin-cli")
+                    new KeyValuePair<string, string>("client_id", clientId ?? "admin-cli")
                 })
                 .ReceiveJson().ConfigureAwait(false);
 
@@ -47,11 +47,7 @@ namespace Keycloak.Net.Common.Extensions
             return accessToken;
         }
 
-        [Obsolete("WithAuthentication is deprecated, please use WithAuthenticationAsync instead.")]
-        public static IFlurlRequest WithAuthentication(this IFlurlRequest request, Func<string> getToken, string url, string realm, string userName, string password, string clientSecret) =>
-            WithAuthenticationAsync(request, getToken == null ? (Func<Task<string>>) null : () => Task.FromResult<string>(getToken()), url, realm, userName, password, clientSecret).GetAwaiter().GetResult();
-
-        public static async Task<IFlurlRequest> WithAuthenticationAsync(this IFlurlRequest request, Func<Task<string>> getTokenAsync, string url, string realm, string userName, string password, string clientSecret)
+        public static async Task<IFlurlRequest> WithAuthenticationAsync(this IFlurlRequest request, Func<Task<string>> getTokenAsync, string url, string realm, string userName, string password, string clientSecret, string clientId)
         {
             string token = null;
 
@@ -61,7 +57,7 @@ namespace Keycloak.Net.Common.Extensions
             }
             else if (clientSecret != null)
             {
-                token = await GetAccessTokenAsync(url, realm, clientSecret).ConfigureAwait(false);
+                token = await GetAccessTokenWithClientIdAsync(url, realm, clientSecret, clientId).ConfigureAwait(false);
             }
             else
             {
