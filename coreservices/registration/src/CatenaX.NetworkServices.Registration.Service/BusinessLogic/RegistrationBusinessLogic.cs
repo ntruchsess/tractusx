@@ -49,6 +49,8 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
                 var userToCreate = new User
                 {
                     UserName = user.eMail,
+                    FirstName = user.firstName,
+                    LastName = user.lastName,
                     Credentials = new List<Credentials>() { new Credentials { Type = "Password", Value = password } },
                     Enabled = true
                 };
