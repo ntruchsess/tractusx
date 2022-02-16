@@ -16,7 +16,6 @@
     <ProjectReference Include="..\..\..\mailing\src\CatenaX.NetworkServices.Mailing.SendMail\CatenaX.NetworkServices.Mailing.SendMail.csproj" />
     <ProjectReference Include="..\..\..\mailing\src\CatenaX.NetworkServices.Mailing.Template\CatenaX.NetworkServices.Mailing.Template.csproj" />
     <ProjectReference Include="..\..\..\keycloak\src\CatenaX.NetworkServices.Keycloak.Authentication\CatenaX.NetworkServices.Keycloak.Authentication.csproj" />
-    <ProjectReference Include="..\CatenaX.NetworkServices.Provisioning.Library\CatenaX.NetworkServices.Provisioning.Library.csproj" />
     <ProjectReference Include="..\..\..\provisioning\src\CatenaX.NetworkServices.Provisioning.Library\CatenaX.NetworkServices.Provisioning.Library.csproj" />
   </ItemGroup>
 
