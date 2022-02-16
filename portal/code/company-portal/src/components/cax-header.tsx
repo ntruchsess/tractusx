@@ -41,9 +41,9 @@ export const Header = () => {
 
 
     const logoutClick = () => {
-        const token = UserService.getCachedToken();
-        console.log(token);
-        UserService.logOut();
+        // const token = UserService.getCachedToken();
+        // console.log(token);
+        UserService.doLogout();
     }
 
 
