@@ -4,7 +4,6 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
-using CatenaX.NetworkServices.Invitation.Identity.Identity;
 using CatenaX.NetworkServices.Invitation.Service.BusinessLogic;
 using CatenaX.NetworkServices.Invitation.Service.Controllers;
 
@@ -30,12 +29,13 @@ namespace CatenaX.NetworkServices.Invitation.Service.Tests
         public async Task ExecuteInvitation_ReturnsInternalServerError_OnException()
         {
             //Setup
-            var InvitationBusinessLogic = Substitute.For<IInvitationBusinessLogic>(); 
-            InvitationBusinessLogic.ExecuteInvitation(Arg.Is("testIdent")).Throws<ArgumentException>();
+            var InvitationBusinessLogic = Substitute.For<IInvitationBusinessLogic>();
+            var invitationData = new InvitationData { email = "testIdent" };
+            InvitationBusinessLogic.ExecuteInvitation(Arg.Is(invitationData)).Throws<ArgumentException>();
             var sut = new InvitationController(NullLogger<InvitationController>.Instance, InvitationBusinessLogic);
             
             //Execute
-            var result = await sut.ExecuteInvitation("testIdent");
+            var result = await sut.ExecuteInvitation(invitationData);
             Assert.IsType<StatusCodeResult>(result);
             var statusCodeResult = result as StatusCodeResult;
             Assert.Equal(((int)HttpStatusCode.InternalServerError).ToString(), statusCodeResult.StatusCode.ToString());

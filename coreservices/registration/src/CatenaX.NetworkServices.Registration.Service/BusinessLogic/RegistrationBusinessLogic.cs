@@ -11,9 +11,10 @@ using CatenaX.NetworkServices.Registration.Service.Model;
 using CatenaX.NetworkServices.Registration.Service.RegistrationAccess;
 
 using Keycloak.Net;
-
+using Keycloak.Net.Models.Roles;
+using Keycloak.Net.Models.Users;
 using Microsoft.Extensions.Configuration;
-
+using PasswordGenerator;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -39,17 +40,23 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
 
         public async Task CreateUsersAsync(List<UserCreationInfo> userList, string realm, string token, Dictionary<string, string> userInfo)
         {
-            var manager = new KeycloakIdentityManager(new KeycloakClient(_configuration.GetValue<string>("KeyCloakConnectionString"), () => token), "");
+            var client = new KeycloakClient(_configuration.GetValue<string>("KeyCloakConnectionString"), () => token);
+            var clientId = _configuration.GetValue<string>("KeyCloakClientID");
+            var pwd = new Password();
             foreach (UserCreationInfo user in userList)
             {
-                var newUser = new CreateUser
+                var password = pwd.Next();
+                var userToCreate = new User
                 {
                     UserName = user.eMail,
-                    Email = user.eMail,
-                    Groups = new List<string> { user.Role }
+                    Credentials = new List<Credentials>() { new Credentials { Type = "Password", Value = password } },
+                    Enabled = true
                 };
 
-                var password = await manager.CreateUser(realm, newUser);
+                var userId = await client.CreateAndRetrieveUserIdAsync(realm, userToCreate).ConfigureAwait(false);
+                var roles = new [] {await client.GetRoleByNameAsync(realm, clientId, user.Role).ConfigureAwait(false)};
+
+                await client.AddClientRoleMappingsToUserAsync(realm, userId, clientId, roles).ConfigureAwait(false);
 
                 var inviteTemplateName = "invite";
                 if (!string.IsNullOrWhiteSpace(user.Message))
@@ -69,7 +76,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
                     
                 };
 
-                await _mailingService.SendMails(user.eMail, mailParameters, new List<string> { inviteTemplateName, "password" });
+                await _mailingService.SendMails(user.eMail, mailParameters, new List<string> { inviteTemplateName, "password" }).ConfigureAwait(false);
             }
         }
 

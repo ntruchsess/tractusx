@@ -15,7 +15,11 @@ namespace Keycloak.Net
         public async Task<bool> CreateRoleAsync(string realm, string clientId, Role role)
         {
             var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
-                .AppendPathSegment($"/admin/realms/{realm}/clients/{clientId}/roles")
+                .AppendPathSegment("/admin/realms/")
+                .AppendPathSegment(realm, true)
+                .AppendPathSegment("/clients/")
+                .AppendPathSegment(clientId, true)
+                .AppendPathSegment("/roles")
                 .PostJsonAsync(role)
                 .ConfigureAwait(false);
             return response.IsSuccessStatusCode;
@@ -31,21 +35,35 @@ namespace Keycloak.Net
             };
 
             return await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
-                .AppendPathSegment($"/admin/realms/{realm}/clients/{clientId}/roles")
+                .AppendPathSegment("/admin/realms/")
+                .AppendPathSegment(realm, true)
+                .AppendPathSegment("/clients/")
+                .AppendPathSegment(clientId, true)
+                .AppendPathSegment("/roles")
                 .SetQueryParams(queryParams)
                 .GetJsonAsync<IEnumerable<Role>>()
                 .ConfigureAwait(false);
         }
 
         public async Task<Role> GetRoleByNameAsync(string realm, string clientId, string roleName) => await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
-            .AppendPathSegment($"/admin/realms/{realm}/clients/{clientId}/roles/{roleName}")
+            .AppendPathSegment("/admin/realms/")
+            .AppendPathSegment(realm, true)
+            .AppendPathSegment("/clients/")
+            .AppendPathSegment(clientId, true)
+            .AppendPathSegment("/roles/")
+            .AppendPathSegment(roleName, true)
             .GetJsonAsync<Role>()
             .ConfigureAwait(false);
         
         public async Task<bool> UpdateRoleByNameAsync(string realm, string clientId, string roleName, Role role)
         {
             var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
-                .AppendPathSegment($"/admin/realms/{realm}/clients/{clientId}/roles/{roleName}")
+                .AppendPathSegment("/admin/realms/")
+                .AppendPathSegment(realm, true)
+                .AppendPathSegment("/clients/")
+                .AppendPathSegment(clientId, true)
+                .AppendPathSegment("/roles/")
+                .AppendPathSegment(roleName, true)
                 .PutJsonAsync(role)
                 .ConfigureAwait(false);
             return response.IsSuccessStatusCode;
@@ -54,7 +72,12 @@ namespace Keycloak.Net
         public async Task<bool> DeleteRoleByNameAsync(string realm, string clientId, string roleName)
         {
             var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
-                .AppendPathSegment($"/admin/realms/{realm}/clients/{clientId}/roles/{roleName}")
+                .AppendPathSegment("/admin/realms/")
+                .AppendPathSegment(realm, true)
+                .AppendPathSegment("/clients/")
+                .AppendPathSegment(clientId, true)
+                .AppendPathSegment("/roles/")
+                .AppendPathSegment(roleName, true)
                 .DeleteAsync()
                 .ConfigureAwait(false);
             return response.IsSuccessStatusCode;
@@ -63,33 +86,64 @@ namespace Keycloak.Net
         public async Task<bool> AddCompositesToRoleAsync(string realm, string clientId, string roleName, IEnumerable<Role> roles)
         {
             var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
-                .AppendPathSegment($"/admin/realms/{realm}/clients/{clientId}/roles/{roleName}/composites")
+                .AppendPathSegment("/admin/realms/")
+                .AppendPathSegment(realm, true)
+                .AppendPathSegment("/clients/")
+                .AppendPathSegment(clientId, true)
+                .AppendPathSegment("/roles/")
+                .AppendPathSegment(roleName, true)
+                .AppendPathSegment("/composites")
                 .PostJsonAsync(roles)
                 .ConfigureAwait(false);
             return response.IsSuccessStatusCode;
         }
 
         public async Task<IEnumerable<Role>> GetRoleCompositesAsync(string realm, string clientId, string roleName) => await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
-            .AppendPathSegment($"/admin/realms/{realm}/clients/{clientId}/roles/{roleName}/composites")
+            .AppendPathSegment("/admin/realms/")
+            .AppendPathSegment(realm, true)
+            .AppendPathSegment("/clients/")
+            .AppendPathSegment(clientId, true)
+            .AppendPathSegment("/roles/")
+            .AppendPathSegment(roleName, true)
+            .AppendPathSegment("/composites")
             .GetJsonAsync<IEnumerable<Role>>()
             .ConfigureAwait(false);
 
         public async Task<bool> RemoveCompositesFromRoleAsync(string realm, string clientId, string roleName, IEnumerable<Role> roles)
         {
             var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
-                .AppendPathSegment($"/admin/realms/{realm}/clients/{clientId}/roles/{roleName}/composites")
+                .AppendPathSegment("/admin/realms/")
+                .AppendPathSegment(realm, true)
+                .AppendPathSegment("/clients/")
+                .AppendPathSegment(clientId, true)
+                .AppendPathSegment("/roles/")
+                .AppendPathSegment(roleName, true)
+                .AppendPathSegment("/composites")
                 .SendJsonAsync(HttpMethod.Delete, roles)
                 .ConfigureAwait(false);
             return response.IsSuccessStatusCode;
         }
 
         public async Task<IEnumerable<Role>> GetApplicationRolesForCompositeAsync(string realm, string clientId, string roleName, string forClientId) => await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
-            .AppendPathSegment($"/admin/realms/{realm}/clients/{clientId}/roles/{roleName}/composites/clients/{forClientId}")
+            .AppendPathSegment("/admin/realms/")
+            .AppendPathSegment(realm, true)
+            .AppendPathSegment("/clients/")
+            .AppendPathSegment(clientId, true)
+            .AppendPathSegment("/roles/")
+            .AppendPathSegment(roleName, true)
+            .AppendPathSegment("/composites/clients/")
+            .AppendPathSegment(forClientId, true)
             .GetJsonAsync<IEnumerable<Role>>()
             .ConfigureAwait(false);
 
         public async Task<IEnumerable<Role>> GetRealmRolesForCompositeAsync(string realm, string clientId, string roleName) => await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
-            .AppendPathSegment($"/admin/realms/{realm}/clients/{clientId}/roles/{roleName}/composites/realm")
+            .AppendPathSegment("/admin/realms/")
+            .AppendPathSegment(realm, true)
+            .AppendPathSegment("/clients/")
+            .AppendPathSegment(clientId, true)
+            .AppendPathSegment("/roles/")
+            .AppendPathSegment(roleName, true)
+            .AppendPathSegment("/composites/realm")
             .GetJsonAsync<IEnumerable<Role>>()
             .ConfigureAwait(false);
 
@@ -104,19 +158,37 @@ namespace Keycloak.Net
             };
 
             return await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
-                .AppendPathSegment($"/admin/realms/{realm}/clients/{clientId}/roles/{roleName}/groups")
+                .AppendPathSegment("/admin/realms/")
+                .AppendPathSegment(realm, true)
+                .AppendPathSegment("/clients/")
+                .AppendPathSegment(clientId, true)
+                .AppendPathSegment("/roles/")
+                .AppendPathSegment(roleName, true)
+                .AppendPathSegment("/groups")
                 .SetQueryParams(queryParams)
                 .GetJsonAsync<IEnumerable<Group>>()
                 .ConfigureAwait(false);
         }
 
         public async Task<ManagementPermission> GetRoleAuthorizationPermissionsInitializedAsync(string realm, string clientId, string roleName) => await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
-            .AppendPathSegment($"/admin/realms/{realm}/clients/{clientId}/roles/{roleName}/management/permissions")
+            .AppendPathSegment("/admin/realms/")
+            .AppendPathSegment(realm, true)
+            .AppendPathSegment("/clients/")
+            .AppendPathSegment(clientId, true)
+            .AppendPathSegment("/roles/")
+            .AppendPathSegment(roleName, true)
+            .AppendPathSegment("/management/permissions")
             .GetJsonAsync<ManagementPermission>()
             .ConfigureAwait(false);
 
         public async Task<ManagementPermission> SetRoleAuthorizationPermissionsInitializedAsync(string realm, string clientId, string roleName, ManagementPermission managementPermission) => await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
-            .AppendPathSegment($"/admin/realms/{realm}/clients/{clientId}/roles/{roleName}/management/permissions")
+            .AppendPathSegment("/admin/realms/")
+            .AppendPathSegment(realm, true)
+            .AppendPathSegment("/clients/")
+            .AppendPathSegment(clientId, true)
+            .AppendPathSegment("/roles/")
+            .AppendPathSegment(roleName, true)
+            .AppendPathSegment("/management/permissions")
             .PutJsonAsync(managementPermission)
             .ReceiveJson<ManagementPermission>()
             .ConfigureAwait(false);
@@ -130,7 +202,13 @@ namespace Keycloak.Net
             };
 
             return await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
-                .AppendPathSegment($"/admin/realms/{realm}/clients/{clientId}/roles/{roleName}/users")
+                .AppendPathSegment("/admin/realms/")
+                .AppendPathSegment(realm, true)
+                .AppendPathSegment("/clients/")
+                .AppendPathSegment(clientId, true)
+                .AppendPathSegment("/roles/")
+                .AppendPathSegment(roleName, true)
+                .AppendPathSegment("/users")
                 .SetQueryParams(queryParams)
                 .GetJsonAsync<IEnumerable<User>>()
                 .ConfigureAwait(false);
@@ -139,7 +217,9 @@ namespace Keycloak.Net
         public async Task<bool> CreateRoleAsync(string realm, Role role)
         {
             var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
-                .AppendPathSegment($"/admin/realms/{realm}/roles")
+                .AppendPathSegment("/admin/realms/")
+                .AppendPathSegment(realm, true)
+                .AppendPathSegment("/roles")
                 .PostJsonAsync(role)
                 .ConfigureAwait(false);
             return response.IsSuccessStatusCode;
@@ -155,21 +235,29 @@ namespace Keycloak.Net
             };
 
             return await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
-                .AppendPathSegment($"/admin/realms/{realm}/roles")
+                .AppendPathSegment("/admin/realms/")
+                .AppendPathSegment(realm, true)
+                .AppendPathSegment("/roles")
                 .SetQueryParams(queryParams)
                 .GetJsonAsync<IEnumerable<Role>>()
                 .ConfigureAwait(false);
         }
 
         public async Task<Role> GetRoleByNameAsync(string realm, string roleName) => await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
-            .AppendPathSegment($"/admin/realms/{realm}/roles/{roleName}")
+            .AppendPathSegment("/admin/realms/")
+            .AppendPathSegment(realm, true)
+            .AppendPathSegment("/roles/")
+            .AppendPathSegment(roleName, true)
             .GetJsonAsync<Role>()
             .ConfigureAwait(false);
         
         public async Task<bool> UpdateRoleByNameAsync(string realm, string roleName, Role role)
         {
             var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
-                .AppendPathSegment($"/admin/realms/{realm}/roles/{roleName}")
+                .AppendPathSegment("/admin/realms/")
+                .AppendPathSegment(realm, true)
+                .AppendPathSegment("/roles/")
+                .AppendPathSegment(roleName, true)
                 .PutJsonAsync(role)
                 .ConfigureAwait(false);
             return response.IsSuccessStatusCode;
@@ -178,7 +266,10 @@ namespace Keycloak.Net
         public async Task<bool> DeleteRoleByNameAsync(string realm, string roleName)
         {
             var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
-                .AppendPathSegment($"/admin/realms/{realm}/roles/{roleName}")
+                .AppendPathSegment("/admin/realms/")
+                .AppendPathSegment(realm, true)
+                .AppendPathSegment("/roles/")
+                .AppendPathSegment(roleName, true)
                 .DeleteAsync()
                 .ConfigureAwait(false);
             return response.IsSuccessStatusCode;
@@ -187,33 +278,54 @@ namespace Keycloak.Net
         public async Task<bool> AddCompositesToRoleAsync(string realm, string roleName, IEnumerable<Role> roles)
         {
             var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
-                .AppendPathSegment($"/admin/realms/{realm}/roles/{roleName}/composites")
+                .AppendPathSegment("/admin/realms/")
+                .AppendPathSegment(realm, true)
+                .AppendPathSegment("/roles/")
+                .AppendPathSegment(roleName, true)
+                .AppendPathSegment("/composites")
                 .PostJsonAsync(roles)
                 .ConfigureAwait(false);
             return response.IsSuccessStatusCode;
         }
 
         public async Task<IEnumerable<Role>> GetRoleCompositesAsync(string realm, string roleName) => await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
-            .AppendPathSegment($"/admin/realms/{realm}/roles/{roleName}/composites")
+            .AppendPathSegment("/admin/realms/")
+            .AppendPathSegment(realm, true)
+            .AppendPathSegment("/roles/")
+            .AppendPathSegment(roleName, true)
+            .AppendPathSegment("/composites")
             .GetJsonAsync<IEnumerable<Role>>()
             .ConfigureAwait(false);
 
         public async Task<bool> RemoveCompositesFromRoleAsync(string realm, string roleName, IEnumerable<Role> roles)
         {
             var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
-                .AppendPathSegment($"/admin/realms/{realm}/roles/{roleName}/composites")
+                .AppendPathSegment("/admin/realms/")
+                .AppendPathSegment(realm, true)
+                .AppendPathSegment("/roles/")
+                .AppendPathSegment(roleName, true)
+                .AppendPathSegment("/composites")
                 .SendJsonAsync(HttpMethod.Delete, roles)
                 .ConfigureAwait(false);
             return response.IsSuccessStatusCode;
         }
 
         public async Task<IEnumerable<Role>> GetApplicationRolesForCompositeAsync(string realm, string roleName, string forClientId) => await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
-            .AppendPathSegment($"/admin/realms/{realm}/roles/{roleName}/composites/clients/{forClientId}")
+            .AppendPathSegment("/admin/realms/")
+            .AppendPathSegment(realm, true)
+            .AppendPathSegment("/roles/")
+            .AppendPathSegment(roleName, true)
+            .AppendPathSegment("/composites/clients/")
+            .AppendPathSegment(forClientId, true)
             .GetJsonAsync<IEnumerable<Role>>()
             .ConfigureAwait(false);
 
         public async Task<IEnumerable<Role>> GetRealmRolesForCompositeAsync(string realm, string roleName) => await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
-            .AppendPathSegment($"/admin/realms/{realm}/roles/{roleName}/composites/realm")
+            .AppendPathSegment("/admin/realms/")
+            .AppendPathSegment(realm, true)
+            .AppendPathSegment("/roles/")
+            .AppendPathSegment(roleName, true)
+            .AppendPathSegment("/composites/realm")
             .GetJsonAsync<IEnumerable<Role>>()
             .ConfigureAwait(false);
 
@@ -228,19 +340,31 @@ namespace Keycloak.Net
             };
 
             return await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
-                .AppendPathSegment($"/admin/realms/{realm}/roles/{roleName}/groups")
+                .AppendPathSegment("/admin/realms/")
+                .AppendPathSegment(realm, true)
+                .AppendPathSegment("/roles/")
+                .AppendPathSegment(roleName, true)
+                .AppendPathSegment("/groups")
                 .SetQueryParams(queryParams)
                 .GetJsonAsync<IEnumerable<Group>>()
                 .ConfigureAwait(false);
         }
 
         public async Task<ManagementPermission> GetRoleAuthorizationPermissionsInitializedAsync(string realm, string roleName) => await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
-            .AppendPathSegment($"/admin/realms/{realm}/roles/{roleName}/management/permissions")
+            .AppendPathSegment("/admin/realms/")
+            .AppendPathSegment(realm, true)
+            .AppendPathSegment("/roles/")
+            .AppendPathSegment(roleName, true)
+            .AppendPathSegment("/management/permissions")
             .GetJsonAsync<ManagementPermission>()
             .ConfigureAwait(false);
 
         public async Task<ManagementPermission> SetRoleAuthorizationPermissionsInitializedAsync(string realm, string roleName, ManagementPermission managementPermission) => await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
-            .AppendPathSegment($"/admin/realms/{realm}/roles/{roleName}/management/permissions")
+            .AppendPathSegment("/admin/realms/")
+            .AppendPathSegment(realm, true)
+            .AppendPathSegment("/roles/")
+            .AppendPathSegment(roleName, true)
+            .AppendPathSegment("/management/permissions")
             .PutJsonAsync(managementPermission)
             .ReceiveJson<ManagementPermission>()
             .ConfigureAwait(false);
@@ -254,7 +378,11 @@ namespace Keycloak.Net
             };
 
             return await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
-                .AppendPathSegment($"/admin/realms/{realm}/roles/{roleName}/users")
+                .AppendPathSegment("/admin/realms/")
+                .AppendPathSegment(realm, true)
+                .AppendPathSegment("/roles/")
+                .AppendPathSegment(roleName, true)
+                .AppendPathSegment("/users")
                 .SetQueryParams(queryParams)
                 .GetJsonAsync<IEnumerable<User>>()
                 .ConfigureAwait(false);

@@ -29,7 +29,7 @@ import {connect} from 'react-redux';
 import {IState} from "../types/store/redux.store.types";
 import {Dispatch} from 'redux';
 import { useTranslation } from 'react-i18next';
-import {useEffect, useState} from "react";
+import { useState} from "react";
 import { withRouter } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
@@ -326,7 +326,7 @@ export const RegistrationCax = ({addCurrentStep}: RegistrationCaxProps) => {
                     handleClick={() => backClick()}
                   />
                   <Button
-                    label="Confirm"
+                    label="Submit"
                     styleClass="button btn-primaryCax"
                     handleClick={() => nextClick()}
                   />

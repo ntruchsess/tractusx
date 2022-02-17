@@ -9,6 +9,8 @@ namespace Keycloak.Net.Models.Clients
         public string Id { get; set; }
         [JsonProperty("clientId")]
         public string ClientId { get; set; }
+        [JsonProperty("rootUrl")]
+        public string RootUrl { get; set; }
         [JsonProperty("name")]
         public string Name { get; set; }
         [JsonProperty("baseUrl")]
@@ -17,12 +19,14 @@ namespace Keycloak.Net.Models.Clients
         public bool? SurrogateAuthRequired { get; set; }
         [JsonProperty("enabled")]
         public bool? Enabled { get; set; }
+        [JsonProperty("alwaysDisplayInConsole")]
+        public bool? AlwaysDisplayInConsole { get; set; }
         [JsonProperty("clientAuthenticatorType")]
         public string ClientAuthenticatorType { get; set; }
         [JsonProperty("redirectUris")]
         public IEnumerable<string> RedirectUris { get; set; }
         [JsonProperty("webOrigins")]
-        public IEnumerable<object> WebOrigins { get; set; }
+        public IEnumerable<string> WebOrigins { get; set; }
         [JsonProperty("notBefore")]
         public int? NotBefore { get; set; }
         [JsonProperty("bearerOnly")]
@@ -44,9 +48,9 @@ namespace Keycloak.Net.Models.Clients
         [JsonProperty("protocol")]
         public string Protocol { get; set; }
         [JsonProperty("attributes")]
-        public IDictionary<string, object> Attributes { get; set; }
+        public IDictionary<string, string> Attributes { get; set; }
         [JsonProperty("authenticationFlowBindingOverrides")]
-        public IDictionary<string, object> AuthenticationFlowBindingOverrides { get; set; }
+        public IDictionary<string, string> AuthenticationFlowBindingOverrides { get; set; }
         [JsonProperty("fullScopeAllowed")]
         public bool? FullScopeAllowed { get; set; }
         [JsonProperty("nodeReRegistrationTimeout")]
