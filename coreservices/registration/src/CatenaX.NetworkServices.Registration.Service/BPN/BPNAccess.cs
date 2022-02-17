@@ -23,18 +23,11 @@ namespace CatenaX.NetworkServices.Registration.Service.BPN
         public async Task<List<FetchBusinessPartnerDto>> FetchBusinessPartner(string bpn)
         {
             var response = new List<FetchBusinessPartnerDto>();
-            var result = await _httpClient.GetAsync($"api/catena/businesspartners/{bpn}");
+            var result = await _httpClient.GetAsync($"api/catena/business-partner/{bpn}");
             if (result.IsSuccessStatusCode)
             {
-                try
-                {
                     var body = JsonSerializer.Deserialize<FetchBusinessPartnerDto>(await result.Content.ReadAsStringAsync());
                     response.Add(body);
-
-                } catch(Exception e)
-                {
-                    var test = 5;
-                }    
             }
             
             return response;

@@ -8,13 +8,10 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
 COPY ["provisioning/src/CatenaX.NetworkServices.Provisioning.Service/CatenaX.NetworkServices.Provisioning.Service.csproj", "provisioning/src/CatenaX.NetworkServices.Provisioning.Service/"]
-COPY ["mailing/src/CatenaX.NetworkServices.Mailing.Template/CatenaX.NetworkServices.Mailing.Template.csproj", "mailing/src/CatenaX.NetworkServices.Mailing.Template/"]
-COPY ["provisioning/src/CatenaX.NetworkServices.Provisioning.Keycloak/CatenaX.NetworkServices.Provisioning.Keycloak.csproj", "provisioning/src/CatenaX.NetworkServices.Provisioning.Keycloak/"]
-COPY ["invitation/src/CatenaX.NetworkServices.Invitation.Identity/CatenaX.NetworkServices.Invitation.Identity.csproj", "invitation/src/CatenaX.NetworkServices.Invitation.Identity/"]
-COPY ["provisioning/src/CatenaX.NetworkServices.Provisioning.ActiveDirectory/CatenaX.NetworkServices.Provisioning.ActiveDirectory.csproj", "provisioning/src/CatenaX.NetworkServices.Provisioning.ActiveDirectory/"]
-COPY ["mailing/src/CatenaX.NetworkServices.Mailing.SendMail/CatenaX.NetworkServices.Mailing.SendMail.csproj", "mailing/src/CatenaX.NetworkServices.Mailing.SendMail/"]
-COPY ["provisioning/src/CatenaX.NetworkServices.Provisioning.Mail/CatenaX.NetworkServices.Provisioning.Mail.csproj", "provisioning/src/CatenaX.NetworkServices.Provisioning.Mail/"]
-COPY ["provisioning/src/CatenaX.NetworkServices.Provisioning.Utils/CatenaX.NetworkServices.Provisioning.Utils.csproj", "provisioning/src/CatenaX.NetworkServices.Provisioning.Utils/"]
+COPY ["provisioning/src/CatenaX.NetworkServices.Provisioning.Library/CatenaX.NetworkServices.Provisioning.Library.csproj", "provisioning/src/CatenaX.NetworkServices.Provisioning.Library/"]
+COPY ["keycloak/src/Keycloak.Net/Keycloak.Net.csproj", "keycloak/src/Keycloak.Net/"]
+COPY ["keycloak/src/CatenaX.NetworkServices.Keycloak.Authentication/CatenaX.NetworkServices.Keycloak.Authentication.csproj", "keycloak/src/CatenaX.NetworkServices.Keycloak.Authentication/"]
+COPY ["keycloak/src/CatenaX.NetworkServices.Keycloak.Factory/CatenaX.NetworkServices.Keycloak.Factory.csproj", "keycloak/src/CatenaX.NetworkServices.Keycloak.Factory/"]
 RUN dotnet restore "provisioning/src/CatenaX.NetworkServices.Provisioning.Service/CatenaX.NetworkServices.Provisioning.Service.csproj"
 COPY . .
 WORKDIR "/src/provisioning/src/CatenaX.NetworkServices.Provisioning.Service"

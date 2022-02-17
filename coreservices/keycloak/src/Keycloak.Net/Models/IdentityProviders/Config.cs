@@ -30,5 +30,9 @@ namespace Keycloak.Net.Models.IdentityProviders
         public string SyncMode{ get; set; }
         [JsonProperty("validateSignature")]
         public string ValidateSignature { get; set; }
+        [JsonProperty("userInfoUrl")]
+        public string UserInfoUrl { get; set; }
+        [JsonProperty("issuer")]
+        public string Issuer { get; set; }
     }
 }
