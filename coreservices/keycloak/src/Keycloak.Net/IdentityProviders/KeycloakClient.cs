@@ -17,6 +17,17 @@ namespace Keycloak.Net
             .ReceiveJson<IDictionary<string, object>>()
             .ConfigureAwait(false);
 
+        public async Task<IDictionary<string, object>> ImportIdentityProviderFromUrlAsync(string realm, string url) => await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+            .AppendPathSegment("/admin/realms/")
+            .AppendPathSegment(realm, true)
+            .AppendPathSegment("/identity-provider/import-config")
+            .PostJsonAsync(new Dictionary<string,string> {
+                ["fromUrl"] = url,
+                ["providerId"] = "oidc"
+            })
+            .ReceiveJson<IDictionary<string, object>>()
+            .ConfigureAwait(false);
+
         public async Task<bool> CreateIdentityProviderAsync(string realm, IdentityProvider identityProvider)
         {
             var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))

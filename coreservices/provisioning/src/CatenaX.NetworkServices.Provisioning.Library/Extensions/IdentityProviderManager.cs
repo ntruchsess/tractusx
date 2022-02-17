@@ -42,6 +42,51 @@ namespace CatenaX.NetworkServices.Provisioning.Library
             return await _CentralIdp.UpdateIdentityProviderAsync(_Settings.CentralRealm, alias, identityProvider).ConfigureAwait(false);
         }
 
+        private async Task<IdentityProvider> SetIdentityProviderMetadataFromUrlAsync(IdentityProvider identityProvider, string url)
+        {
+            var metadata = await _CentralIdp.ImportIdentityProviderFromUrlAsync(_Settings.CentralRealm, url).ConfigureAwait(false);
+            if (metadata == null || metadata.Count() == 0) return null;
+            var changed = CloneIdentityProvider(identityProvider);
+            changed.Config ??= new Config();
+            foreach(var (key, value) in metadata)
+            {
+                switch(key)
+                {
+                    case "userInfoUrl":
+                        changed.Config.UserInfoUrl = value as string;
+                        break;
+                    case "validateSignature":
+                        changed.Config.ValidateSignature = value as string;
+                        break;
+                    case "tokenUrl":
+                        changed.Config.TokenUrl = value as string;
+                        break;
+                    case "authorizationUrl":
+                        changed.Config.AuthorizationUrl = value as string;
+                        break;
+                    case "jwksUrl":
+                        changed.Config.JwksUrl = value as string;
+                        break;
+                    case "logoutUrl":
+                        changed.Config.LogoutUrl = value as string;
+                        break;
+                    case "issuer":
+                        changed.Config.Issuer = value as string;
+                        break;
+                    case "useJwksUrl":
+                        changed.Config.UseJwksUrl = value as string;
+                        break;
+                }
+            }
+            return changed;
+        }
+
+        public Task<IdentityProvider> GetCentralIdentityProviderAsync(string alias) =>
+            _CentralIdp.GetIdentityProviderAsync(_Settings.CentralRealm, alias);
+
+        public Task<bool> UpdateCentralIdentityProviderAsync(string alias, IdentityProvider identityProvider) =>
+            _CentralIdp.UpdateIdentityProviderAsync(_Settings.CentralRealm, alias, identityProvider);
+
         private async Task<bool> EnableCentralIdentityProviderAsync(string alias)
         {
             var identityProvider = await _CentralIdp.GetIdentityProviderAsync(_Settings.CentralRealm, alias).ConfigureAwait(false);
