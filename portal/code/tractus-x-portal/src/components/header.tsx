@@ -65,9 +65,7 @@ class Header extends React.Component<IProp> {
     console.log(token);
   }
   private logoutClick() {
-    const token = UserService.getCachedToken();
-    console.log(token);
-    UserService.logOut();
+    UserService.doLogout();
   }
 
   private menuProps: IContextualMenuProps = {
@@ -82,7 +80,7 @@ class Header extends React.Component<IProp> {
               {this.isAdmin && <span className='ml5 fs14'>(Admin)</span>}
             </div>
           </div>
-          {menuListProps.items.map((it) => <ActionButton className='fgwhite ml10' key={it.key}>{it.text}</ActionButton>)}
+          {menuListProps.items.map((it) => <ActionButton className='fgwhite ml10' key={it.key} onClick={this.logoutClick}>{it.text}</ActionButton>)}
           {/* {defaultRender(menuListProps)} */}
         </div>
       );
