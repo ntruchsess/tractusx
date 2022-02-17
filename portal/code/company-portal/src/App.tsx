@@ -43,10 +43,6 @@ export default class App extends React.Component {
                             path="/finish"
                             component={(props) => <Finish {...props} />}
                         />
-                        <Route
-                            path="/finish"
-                            component={(props) => <Finish {...props} />}
-                        />
                     </Switch>
                 </Router>
             </Provider>
