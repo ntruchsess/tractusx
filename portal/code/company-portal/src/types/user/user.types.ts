@@ -5,6 +5,7 @@ export interface IUserItem {
     personalNote: string;
 }
 
+
 export interface IUserData {
     userInviteList: IUserItem[];
     currentStep: number;

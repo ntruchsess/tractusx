@@ -32,6 +32,7 @@ import { useTranslation } from 'react-i18next';
 import { useState} from "react";
 import { withRouter } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import Stepper  from "./stepper";
 
 interface RegistrationCaxProps {
   addCurrentStep: (step: number) => void;
@@ -94,95 +95,7 @@ export const RegistrationCax = ({addCurrentStep}: RegistrationCaxProps) => {
               <div>{t("registration.regiStep")}.</div>
               <div>{t("registration.regiSubHeading")}</div>
             </div>
-            <div className="mx-auto col-11 reg-steps">
-              <Row className="stepper-wrapper row-cols-5">
-                <div className="stepper-item completed col">
-                  <Row className="stepper-row">
-                    <div className="step-counter col-3">1</div>
-                    <div className="step-name col-9">
-                      {t("registration.companyData")}
-                    </div>
-                  </Row>
-                  <Row>
-                    <div
-                      className={
-                        currentActiveStep === 1
-                          ? "step-border col-10 mx-auto"
-                          : ""
-                      }
-                    ></div>
-                  </Row>
-                </div>
-                <div className="stepper-item completed col">
-                  <Row className="stepper-row">
-                    <div className="step-counter col-3">2</div>
-                    <div className="step-name col-9">
-                      {t("registration.responsAdmin")}
-                    </div>
-                  </Row>
-                  <Row>
-                    <div
-                      className={
-                        currentActiveStep === 2
-                          ? "step-border col-10 mx-auto"
-                          : ""
-                      }
-                    ></div>
-                  </Row>
-                </div>
-                <div className="stepper-item active col">
-                  <Row className="stepper-row">
-                    <div className="step-counter col-3">3</div>
-                    <div className="step-name col-9">
-                      {t("registration.companyRole")}
-                    </div>
-                  </Row>
-                  <Row>
-                    <div
-                      className={
-                        currentActiveStep === 3
-                          ? "step-border col-10 mx-auto"
-                          : ""
-                      }
-                    ></div>
-                  </Row>
-                </div>
-                <div className="stepper-item col">
-                  <Row className="stepper-row">
-                    <div className="step-counter col-3">4</div>
-                    <div className="step-name col-9">
-                      {t("registration.uploadDocument")}
-                    </div>
-                  </Row>
-                  <Row>
-                    <div
-                      className={
-                        currentActiveStep === 4
-                          ? "step-border col-10 mx-auto"
-                          : ""
-                      }
-                    ></div>
-                  </Row>
-                </div>
-                <div className="stepper-item col">
-                  <Row className="stepper-row">
-                    <div className="step-counter col-3">5</div>
-                    <div className="step-name col-9">
-                      {t("registration.verifyEntries")}
-                    </div>
-                  </Row>
-                  <Row>
-                    <div
-                      className={
-                        currentActiveStep === 5
-                          ? "step-border col-10 mx-auto"
-                          : ""
-                      }
-                    ></div>
-                  </Row>
-                </div>
-              </Row>
-            </div>
+            <Stepper></Stepper>
             {currentActiveStep === 1 ? (
               <CompanyDataCax />
             ) : currentActiveStep === 2 ? (

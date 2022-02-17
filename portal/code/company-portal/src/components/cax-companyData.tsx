@@ -50,17 +50,6 @@ export const CompanyDataCax = () => {
     }
 
 
-        //  const bpn = toJS(this.companyDetailsById?.[0]?.bpn) ||"";
-        //  const legalEntity = toJS(this.companyDetailsById?.[0]?.names.find(x => x.type === 'INTERNATIONAL')?.value) || "";
-        //  const registeredName = toJS(this.companyDetailsById?.[0]?.names.find(x => x.type === 'REGISTERED')?.value) || "";
-        //  const streetHouseNumber =  toJS(this.companyDetailsById?.[0]?.addresses?.[0]?.thoroughfares.find(x => x.type === 'INDUSTRIAL_ZONE')?.value) || "";
-        //  const postalCode =  toJS(this.companyDetailsById?.[0]?.addresses?.[0]?.postCodes.find(x => x.type === 'REGULAR')?.value) || "";
-        //  const city = toJS(this.companyDetailsById?.[0]?.addresses?.[0]?.localities.find(x => x.type === 'BLOCK')?.value) || "";
-        //  const country = toJS(this.companyDetailsById?.[0]?.addresses?.[0]?.countryCode) || "";
-
-         
-
-
         return (
             <div className='mx-auto col-9 container-registration'>
                 <div className='head-section'>

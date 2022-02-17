@@ -40,7 +40,7 @@ interface ResponsibilitiesCaxProps {
 export const ResponsibilitiesCax = ({userInviteList, addToInviteList}: ResponsibilitiesCaxProps) => {
     const { t } = useTranslation();
     const [email, setEmail] = useState<string | null>("");
-    const [role, setRole] = useState<string | null>("Invitation");
+    const [role, setRole] = useState<string | null>("");
     const [personalNote, setPersonalNote] = useState<string | null>("");
     const [availableUserRoles, setavailableUserRoles] = useState([])
 
@@ -77,6 +77,36 @@ export const ResponsibilitiesCax = ({userInviteList, addToInviteList}: Responsib
         setPersonalNote("");
 
     }
+
+    const sendInvites = () => {
+        const realm = UserService.realm;
+        const token = UserService.getToken();
+        const url = process.env.REACT_APP_ONBOARDING_URL;
+        const endpoint = process.env.REACT_APP_ONBOARDING_ENDPOINT;
+        const u = `${url}/${endpoint}/${realm}/users`;
+        console.log(userInviteList);
+        if (userInviteList.length > 0) {
+          fetch(u, {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(userInviteList),
+          })
+            .then((response) => {
+              if (response.ok) {
+                toast.success("Sent Invite");
+              } else throw Error();
+            })
+            .catch((error) => {
+              toast.error("Unable to sent invite");
+            });
+        } else {
+          toast.error("Email or User Role empty.");
+        }
+      }
+    
 
 
     return (
@@ -164,18 +194,22 @@ export const ResponsibilitiesCax = ({userInviteList, addToInviteList}: Responsib
                 </Row>
 
                 <Row className="mx-auto col-9">
-                    <div>
-                        <Button
-                            styleClass="button btn-primaryCax"
-                            label="Add User"
-                            handleClick={() => handleClick()}
-                            icon={true}
-                        />
-                    </div>
-                    <div>
-
-                        <ToastContainer/>
-                    </div>
+            <div>
+              <Button
+                styleClass="button btn-primaryCax"
+                label="Add User"
+                handleClick={() => handleClick()}
+                icon={true}
+              />
+            </div>
+            <div>
+            <Button
+                styleClass="button btn-primaryCax"
+                label="Send Invite"
+                handleClick={() => sendInvites()}
+              />
+              <ToastContainer />
+            </div>
                 </Row>
             </div>
         </div>
