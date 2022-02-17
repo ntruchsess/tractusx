@@ -5,29 +5,31 @@ using CatenaX.NetworkServices.Registration.Service.BusinessLogic;
 using CatenaX.NetworkServices.Registration.Service.CDQ;
 using CatenaX.NetworkServices.Registration.Service.Custodian;
 using CatenaX.NetworkServices.Registration.Service.RegistrationAccess;
+using CatenaX.NetworkServices.Keycloak.Authentication;
+using CatenaX.NetworkServices.Keycloak.Factory;
+using CatenaX.NetworkServices.Provisioning.Library;
 
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
 using Npgsql;
 
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CatenaX.NetworkServices.Registration.Service
 {
     public class Startup
     {
+        private static string TAG = typeof(Startup).Namespace;
+        private static string VERSION = "v2";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -39,9 +41,14 @@ namespace CatenaX.NetworkServices.Registration.Service
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options => Configuration.Bind("JwtBearerOptions",options));
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "CatenaX.NetworkServices.Registration.Service", Version = "v1" });
+                c.SwaggerDoc(VERSION, new OpenApiInfo { Title = TAG, Version = VERSION });
             });
             services.AddHttpClient("keycloak", c =>
             {
@@ -74,9 +81,15 @@ namespace CatenaX.NetworkServices.Registration.Service
             services.AddTransient<IDbConnection>(conn => new NpgsqlConnection(Configuration.GetValue<string>("PostgresConnectionString")));
             services.AddTransient<IMailingService, MailingService>();
             services.AddTransient<ISendMail, SendMail>()
-            .AddTransient<ITemplateManager, TemplateManager>()
-            .ConfigureTemplateSettings(Configuration.GetSection(TemplateSettings.Position))
-            .ConfigureMailSettings(Configuration.GetSection(MailSettings.Position));
+                    .AddTransient<ITemplateManager, TemplateManager>()
+                    .ConfigureTemplateSettings(Configuration.GetSection(TemplateSettings.Position))
+                    .ConfigureMailSettings(Configuration.GetSection(MailSettings.Position));
+            services.AddTransient<IClaimsTransformation, KeycloakClaimsTransformation>()
+                    .AddTransient<IKeycloakFactory, KeycloakFactory>()
+                    .ConfigureKeycloakSettingsMap(Configuration.GetSection("Keycloak"))
+                    .Configure<JwtBearerOptions>(options => Configuration.Bind("JwtBearerOptions",options));
+            services.AddTransient<IProvisioningManager, ProvisioningManager>()
+                    .ConfigureProvisioningSettings(Configuration.GetSection("Provisioning"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -85,14 +98,15 @@ namespace CatenaX.NetworkServices.Registration.Service
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint(string.Format("/swagger/{0}/swagger.json",VERSION), string.Format("{0} {1}",TAG,VERSION)));
             }
 
             //app.UseHttpsRedirection();
 
             app.UseRouting();
-            app.UseSwagger();
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CatenaX.NetworkServices.Registration.Service v1"));
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

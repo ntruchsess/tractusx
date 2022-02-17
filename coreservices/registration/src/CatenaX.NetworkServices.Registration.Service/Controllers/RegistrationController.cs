@@ -3,6 +3,7 @@ using CatenaX.NetworkServices.Mockups;
 using CatenaX.NetworkServices.Registration.Service.BusinessLogic;
 using CatenaX.NetworkServices.Registration.Service.Model;
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
@@ -38,6 +39,7 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
                 new OkObjectResult(await _registrationBusinessLogic.GetCompanyByIdentifierAsync(bpn)));
 
         [HttpPost]
+        [Authorize(Roles="invite_users")]
         [Route("company/{realm}/users")]
         public Task<IActionResult> CreateUsersAsync([FromRoute] string realm, [FromHeader] string authorization, [FromBody] List<UserCreationInfo> userToCreate) =>
             ValidateTokenAsync(realm, authorization, async (userInfo) => {
