@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Keycloak.Net.Models.IdentityProviders;
-using CatenaX.NetworkServices.Provisioning.Library.Models;
+using Keycloak.Net.Models.OpenIDConfiguration;
 
 namespace CatenaX.NetworkServices.Provisioning.Library
 {
@@ -32,13 +32,13 @@ namespace CatenaX.NetworkServices.Provisioning.Library
             return _CentralIdp.CreateIdentityProviderAsync(_Settings.CentralRealm, newIdp);
         }
 
-        private async Task<bool> UpdateCentralIdentityProviderUrlsAsync(string alias, OpenIDConfig config)
+        private async Task<bool> UpdateCentralIdentityProviderUrlsAsync(string alias, OpenIDConfiguration config)
         {
             var identityProvider = await _CentralIdp.GetIdentityProviderAsync(_Settings.CentralRealm, alias).ConfigureAwait(false);
-            identityProvider.Config.AuthorizationUrl = config.AuthorizationEndpoint;
-            identityProvider.Config.TokenUrl = config.TokenEndpoint;
-            identityProvider.Config.LogoutUrl = config.EndSessionEndpoint;
-            identityProvider.Config.JwksUrl = config.JwksUri;
+            identityProvider.Config.AuthorizationUrl = config.AuthorizationEndpoint.ToString();
+            identityProvider.Config.TokenUrl = config.TokenEndpoint.ToString();
+            identityProvider.Config.LogoutUrl = config.EndSessionEndpoint.ToString();
+            identityProvider.Config.JwksUrl = config.JwksUri.ToString();
             return await _CentralIdp.UpdateIdentityProviderAsync(_Settings.CentralRealm, alias, identityProvider).ConfigureAwait(false);
         }
 

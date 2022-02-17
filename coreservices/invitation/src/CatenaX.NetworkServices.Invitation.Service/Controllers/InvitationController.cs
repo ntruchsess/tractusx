@@ -24,7 +24,7 @@ namespace CatenaX.NetworkServices.Invitation.Service.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles="invite_user")]
+        [Authorize(Roles="invite_new_partner")]
         [Route("api/invitation")]
         public async Task<IActionResult> ExecuteInvitation([FromBody] InvitationData InvitationData)
         {
