@@ -15,7 +15,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { Dropdown, IContextualMenuItem, IDropdownOption, IDropdownStyles, PrimaryButton, SearchBox } from '@fluentui/react';
-import DescriptionList from '../lists/descriptionlist';
+import DescriptionList from '../lists/DescriptionList';
 import { getModels, Status } from './data';
 import ErrorMessage from '../ErrorMessage';
 import Loading from '../loading';

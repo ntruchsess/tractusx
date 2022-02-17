@@ -35,7 +35,7 @@ import { NewSemanticModel } from './semantics/NewSemanticModel';
 import SemanticHub from './semantics/SemanticHub';
 import SemanticModelDetail from './semantics/SemanticModelDetail';
 import Aspect from './aspect';
-import DigitalTwins from './digitaltwins/DigitalTwins';
+import DigitalTwinOverview from './digitaltwins/DigitalTwinOverview';
 import { DigitalTwinDetail } from './digitaltwins/DigitalTwinDetail';
 import Admin from './admin';
 import Help from './help';
@@ -236,7 +236,7 @@ class Home extends React.Component<RouteComponentProps> {
               <Route path='/home/newsemanticmodel' component={(props) => <NewSemanticModel {...props} />} />
               <Route path='/home/semanticmodel/:id' component={(props) => <SemanticModelDetail {...props} />} />
               <Route path='/home/aspect/:connector' component={(props) => <Aspect {...props} />} />
-              <Route path='/home/digitaltwins' component={(props) => <DigitalTwins {...props} />} />
+              <Route path='/home/digitaltwins' component={(props) => <DigitalTwinOverview {...props} />} />
               <Route path='/home/digitaltwin/:id' component={(props) => <DigitalTwinDetail {...props} />} />
               <Route path='/home/developerhub' component={(props) => <DeveloperHub {...props} />} />
               <Route path='/home/appdetail/:id' component={(props) => <AppDetail {...props} />} />

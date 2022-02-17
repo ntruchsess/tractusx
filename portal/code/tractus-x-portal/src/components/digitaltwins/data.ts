@@ -14,34 +14,7 @@
 import UserService from "../../helpers/UserService";
 
 // limitations under the License.
-const TWIN_URL = `${process.env.REACT_APP_SEMANTIC_SERVICE_LAYER_URL}twins`;
-
-interface httpEndpoint {
-  id: string,
-  method: string,
-  url: string
-}
-
-interface aspect {
-  httpEndpoints: httpEndpoint[],
-  id: string,
-  modelReference: {
-    urn: string
-  }
-}
-
-export interface DigitalTwin {
-  aspects: aspect[],
-  description: string,
-  id: string,
-  localIdentifiers: [
-    {
-      key: string,
-      value: string
-    }
-  ],
-  manufacturer: string
-}
+const TWIN_URL = `${process.env.REACT_APP_SEMANTIC_SERVICE_LAYER_URL}registry/shell-descriptors`;
 
 function handleRequest(res: Response){
   if(res.status >= 400) {
@@ -50,12 +23,12 @@ function handleRequest(res: Response){
   return res.json();
 }
 
-export function getTwins(){
+export function getTwins(params = {}){
   const requestOptions = {
     method: 'GET',
     headers: new Headers({"Content-Type": "application/json", "Authorization": `Bearer ${UserService.getToken()}`})
   }
-  return fetch(`${TWIN_URL}`, requestOptions)
+  return fetch(`${TWIN_URL}?${params}`, requestOptions)
     .then(handleRequest);
 }
 
