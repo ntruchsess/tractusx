@@ -11,8 +11,10 @@ using CatenaX.NetworkServices.Provisioning.Library;
 
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -46,15 +48,24 @@ namespace CatenaX.NetworkServices.Registration.Service
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(options => Configuration.Bind("JwtBearerOptions",options));
+
+            services.AddTransient<IClaimsTransformation, KeycloakClaimsTransformation>()
+                    .Configure<JwtBearerOptions>(options => Configuration.Bind("JwtBearerOptions",options));
+
+            services.AddTransient<IAuthorizationHandler,ClaimRequestPathHandler>()
+                    .AddAuthorization(option => {
+                        option.AddPolicy("RealmEqualsTenant", policy =>
+                        {
+                            policy.AddRequirements(new ClaimRequestPathRequirenment("tenant","realm"));
+                        });
+                    })
+                    .AddTransient<IHttpContextAccessor,HttpContextAccessor>();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc(VERSION, new OpenApiInfo { Title = TAG, Version = VERSION });
             });
-            services.AddHttpClient("keycloak", c =>
-            {
-                c.BaseAddress = new Uri($"{ Configuration.GetValue<string>("KeyCloakConnectionString")}/auth/realms/");
-            });
-            
+
             services.AddTransient<IRegistrationBusinessLogic, RegistrationBusinessLogic>();
             services.AddTransient<IRegistrationDBAccess, RegistrationDBAccess>();
 
@@ -79,17 +90,24 @@ namespace CatenaX.NetworkServices.Registration.Service
                 services.AddTransient<ICDQAccess, CDQAccessMock>();
             }
             services.AddTransient<IDbConnection>(conn => new NpgsqlConnection(Configuration.GetValue<string>("PostgresConnectionString")));
-            services.AddTransient<IMailingService, MailingService>();
-            services.AddTransient<ISendMail, SendMail>()
+
+            services.AddTransient<IMailingService, MailingService>()
+                    .AddTransient<ISendMail, SendMail>()
                     .AddTransient<ITemplateManager, TemplateManager>()
                     .ConfigureTemplateSettings(Configuration.GetSection(TemplateSettings.Position))
                     .ConfigureMailSettings(Configuration.GetSection(MailSettings.Position));
-            services.AddTransient<IClaimsTransformation, KeycloakClaimsTransformation>()
-                    .AddTransient<IKeycloakFactory, KeycloakFactory>()
-                    .ConfigureKeycloakSettingsMap(Configuration.GetSection("Keycloak"))
-                    .Configure<JwtBearerOptions>(options => Configuration.Bind("JwtBearerOptions",options));
+
+            services.AddTransient<IKeycloakFactory, KeycloakFactory>()
+                    .ConfigureKeycloakSettingsMap(Configuration.GetSection("Keycloak"));
+
             services.AddTransient<IProvisioningManager, ProvisioningManager>()
                     .ConfigureProvisioningSettings(Configuration.GetSection("Provisioning"));
+
+            // this HttpClient for keycloak should now be obsolete (are there other uses than the (now removed) ValidateToken within the controller?)
+            services.AddHttpClient("keycloak", c =>
+            {
+                c.BaseAddress = new Uri($"{ Configuration.GetValue<string>("KeyCloakConnectionString")}/auth/realms/");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
