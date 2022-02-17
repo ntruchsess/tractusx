@@ -194,7 +194,7 @@ jobs:
          echo "" >>.env
          echo "REACT_APP_BUSINESSPARTNER_SERVICE_URL=https://${{env.CATENA_SERVICE_URL}}/businesspartners/businesspartner" >>.env
          echo "REACT_APP_PORTAL_URL=https://${{env.CATENA_PORTAL_URL}}/" >>.env
-         echo "REACT_APP_SEMANTIC_SERVICE_LAYER_URL=https://${{env.CATENA_SERVICE_URL}}/semantics/api/v1/" >>.env
+         echo "REACT_APP_SEMANTIC_SERVICE_LAYER_URL=https://${{env.CATENA_SERVICE_URL}}/semantics/" >>.env
          echo "REACT_APP_APPLICATION_ID=${{steps.try_app.outputs.APPID}}" >>.env
          echo "REACT_APP_DEFAULT_TENANT_ID=${{env.CATENA_TENANT}}" >>.env         
          echo "REACT_APP_BROKER_ENDPOINT=https://${{env.CATENA_SERVICE_URL}}/connectorprovider" >>.env
