@@ -26,7 +26,6 @@ import { getTwins } from './data';
 import { TwinList } from './interfaces';
 
 const helpMenuItems: IContextualMenuItem[] = [
-    const helpMenuItems: IContextualMenuItem[] = [
       {
         key: 'howto',
         text: 'How to',
