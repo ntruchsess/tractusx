@@ -22,7 +22,6 @@ import RegistrationCax from "./components/cax-registration";
 import Finish from "./components/finish"
 import {Provider} from 'react-redux';
 import store from './stores/store';
-import Registrationoneid from "./components/registrationoneid";
 
 const history = createBrowserHistory();
 
@@ -47,10 +46,6 @@ export default class App extends React.Component {
                         <Route
                             path="/finish"
                             component={(props) => <Finish {...props} />}
-                        />
-                        <Route
-                            path="/registrationoneid"
-                            component={(props) => <Registrationoneid {...props} />}
                         />
                     </Switch>
                 </Router>
