@@ -1,5 +1,9 @@
 {
     "translation": {
+        "header":{
+            "logout": "Logout",
+            "help": "Help"
+        },
         "landing": {
             "greetingMsg": "Welcome to Catena-X - The Automotive Network",
             "heading1": "Please finish the following application form to complete the registration of your company for Catena-X",

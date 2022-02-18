@@ -19,8 +19,13 @@ import UserService from '../helpers/UserService';
 import { getUserClientRolesComposite } from '../helpers/utils';
 import { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
+
 
 export const Header = () => {
+
+    const { t } = useTranslation();
+
     const username =  UserService.getUsername();
     const initials =  UserService.getInitials();
     const [userRoles, setuserRoles] =  useState([]);
@@ -38,14 +43,6 @@ export const Header = () => {
           // make sure to catch any error
           .catch(console.error);
       }, [])
-
-
-    const logoutClick = () => {
-        // const token = UserService.getCachedToken();
-        // console.log(token);
-        UserService.doLogout();
-    }
-
 
         const changeLanguage = lng => {
             setlanguage(lng);
@@ -71,13 +68,10 @@ export const Header = () => {
                             <span className="tooltiptext"> <div> {username}</div>
                                 < div > {UserService.getDomain()}</div>
                                 <div>({userRoles.join(", ")})</div>
-                                <div className='logout' onClick={() => logoutClick()}>Logout</div>
+                                <div className='logout' onClick={() =>  UserService.doLogout()}>{t('header.logout')}</div>
                             </span>
                         </div>
-                        {/* <div className='profile-link user'><span className='user-icon'></span>
-                            <span className="tooltiptext">Tooltip text</span>
-                        </div> */}
-                        <div className='profile-link'><a href='/help'>Help</a></div>
+                        <div className='profile-link'><a href='/help'>{t('header.help')}</a></div>
                     </div>
                 </Col >
             </Row >
