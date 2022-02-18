@@ -1,5 +1,7 @@
 using Keycloak.Net;
 using Microsoft.Extensions.Options;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using CatenaX.NetworkServices.Keycloak.Factory;
 using CatenaX.NetworkServices.Provisioning.Library.Models;
@@ -67,5 +69,11 @@ namespace CatenaX.NetworkServices.Provisioning.Library
 
         public Task<bool> AssignInvitedUserInitialRoles(string centralUserId) =>
             AssignClientRolesToCentralUserAsync(centralUserId,_Settings.InvitedUserInitialRoles);
+
+        public async Task<IEnumerable<string>> GetClientRolesCompositeAsync(string clientId) =>
+            (await _CentralIdp.GetRolesAsync(_Settings.CentralRealm, clientId).ConfigureAwait(false)).Where(r => r.Composite == true).Select(g => g.Name);
+
+        public async Task<IEnumerable<string>> GetUserClientRoleMappingsCompositeAsync(string userId, string clientId) =>
+            (await _CentralIdp.GetClientRoleMappingsForUserAsync(_Settings.CentralRealm, userId, clientId).ConfigureAwait(false)).Where(r => r.Composite == true).Select(g => g.Name);
     }
 }
