@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CatenaX.NetworkServices.Cosent.Library.Data\CatenaX.NetworkServices.Cosent.Library.Data.csproj" />
+    <ProjectReference Include="..\CatenaX.NetworkServices.Consent.Library.Data\CatenaX.NetworkServices.Consent.Library.Data.csproj" />
   </ItemGroup>
 
 </Project>
