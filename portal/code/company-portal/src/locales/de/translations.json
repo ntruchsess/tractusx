@@ -2,6 +2,16 @@
    
 {
     "translation": {
+        "button":{
+            "next": "Weiter",
+            "confirm": "Bestätigen",
+            "submit": "Senden",
+            "back": "zurück"
+        },
+        "header":{
+            "logout": "Ausloggen",
+            "help": "Hilfe"
+        },
         "landing": {
             "greetingMsg": "Willkommen bei Catena-X – The Automotive Network",
             "heading1": "Bitte füllen Sie das folgende Antragsformular aus, um die Registrierung Ihres Unternehmens für Catena-X abzuschließen.",
