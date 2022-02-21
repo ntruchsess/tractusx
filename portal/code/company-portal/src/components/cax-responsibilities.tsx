@@ -15,7 +15,7 @@
 import * as React from "react";
 import {Row} from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
-import { withTranslation, WithTranslation } from "react-i18next";
+import {withTranslation, WithTranslation} from "react-i18next";
 import {AiOutlineUser, AiOutlineDelete} from "react-icons/ai";
 import Button from "./button";
 import {getClientRolesComposite} from "../helpers/utils";
@@ -26,57 +26,84 @@ import {connect} from 'react-redux';
 import {IUserItem, IUserResponsibilities} from "../types/user/user.types";
 import {IState} from "../types/store/redux.store.types";
 import {Dispatch} from 'redux';
-import {addToInviteList} from "../actions/user.action";
+import {addToInviteList, removeFromInviteList} from "../actions/user.action";
 import {useEffect, useState} from "react";
-import { useTranslation } from 'react-i18next';
-import { withRouter } from "react-router-dom";
+import {useTranslation} from 'react-i18next';
+import {withRouter} from "react-router-dom";
+import {v4 as uuidv4} from 'uuid';
 
 
 interface ResponsibilitiesCaxProps {
     addToInviteList: (userItem: IUserItem) => void;
+    removeFromInviteList: (userItem: string) => void;
     userInviteList: IUserItem[];
 }
 
-export const ResponsibilitiesCax = ({userInviteList, addToInviteList}: ResponsibilitiesCaxProps) => {
-    const { t } = useTranslation();
+export const ResponsibilitiesCax = ({
+                                        userInviteList,
+                                        addToInviteList,
+                                        removeFromInviteList
+                                    }: ResponsibilitiesCaxProps) => {
+    const {t} = useTranslation();
     const [email, setEmail] = useState<string | null>("");
     const [role, setRole] = useState<string | null>("");
     const [personalNote, setPersonalNote] = useState<string | null>("");
     const [availableUserRoles, setavailableUserRoles] = useState([])
+    const [error, setError] = useState<{ email: string, role: string }>({email: "", role: ""});
 
-
-    
     useEffect(() => {
 
         const fetchData = async () => {
             const dataRoles = await getClientRolesComposite();
             setavailableUserRoles(dataRoles)
-          }
-        
-          // call the function
-          fetchData()
+            if (dataRoles && dataRoles.length > 0)
+                setRole(dataRoles[0]);
+        }
+
+        // call the function
+        fetchData()
             // make sure to catch any error
             .catch(console.error);
-        }, [])
+    }, [])
 
-    const onChange = (e) => {
-        console.log(e);
+    const onRoleChange = (e) => {
         setRole(e.target.value)
     }
 
     const handleClick = () => {
-        // this.validateUser()
-        const data = {
-            email: email,
-            role: role,
-            personalNote: personalNote,
-        };
-        //this.newarray.push(data);
-        addToInviteList(data)
-        setEmail("");
-        setPersonalNote("");
+        verifyEntry();
+        if (email !== "") {
+            const data = {
+                uiId: uuidv4(),
+                email: email,
+                role: role,
+                personalNote: personalNote,
+            };
+
+            addToInviteList(data);
+            setEmail("");
+            setPersonalNote("");
+            if (availableUserRoles && availableUserRoles.length > 0)
+                setRole(availableUserRoles[0]);
+        }
 
     }
+
+
+    const verifyEntry = () => {
+        if (email === "")
+            setError({email: "Email is required", role: error.role})
+        else {
+            setError({email: "", role: error.role})
+        }
+    }
+
+
+    const removeUser = (userUiId) => {
+
+        removeFromInviteList(userUiId)
+    }
+
 
     const sendInvites = () => {
         const realm = UserService.realm;
@@ -84,29 +111,27 @@ export const ResponsibilitiesCax = ({userInviteList, addToInviteList}: Responsib
         const url = process.env.REACT_APP_ONBOARDING_URL;
         const endpoint = process.env.REACT_APP_ONBOARDING_ENDPOINT;
         const u = `${url}/${endpoint}/${realm}/users`;
-        console.log(userInviteList);
         if (userInviteList.length > 0) {
-          fetch(u, {
-            method: "POST",
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(userInviteList),
-          })
-            .then((response) => {
-              if (response.ok) {
-                toast.success("Sent Invite");
-              } else throw Error();
+            fetch(u, {
+                method: "POST",
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(userInviteList),
             })
-            .catch((error) => {
-              toast.error("Unable to sent invite");
-            });
+                .then((response) => {
+                    if (response.ok) {
+                        toast.success("Sent Invite");
+                    } else throw Error();
+                })
+                .catch((error) => {
+                    toast.error("Unable to sent invite");
+                });
         } else {
-          toast.error("Email or User Role empty.");
+            toast.error("Email or User Role empty.");
         }
-      }
-    
+    }
 
 
     return (
@@ -140,7 +165,7 @@ export const ResponsibilitiesCax = ({userInviteList, addToInviteList}: Responsib
                                                     {d.role}
                                                   </span>
                                                 <span className="col-1 list-group-item-delete">
-                                                    <AiOutlineDelete/>
+                                                    <AiOutlineDelete onClick={() => removeUser(d.uiId)}/>
                                                 </span>
                                             </Row>
                                         </li>
@@ -157,26 +182,29 @@ export const ResponsibilitiesCax = ({userInviteList, addToInviteList}: Responsib
                 </Row>
 
                 <Row className="mx-auto col-9">
-                    <div className="form-data">
+                    <div className={error.email !== ""
+                        ? "form-data error calender"
+                        : "form-data calender"}>
                         <label> E-mail address </label>
                         <input
                             type="text"
                             name="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}/>
-
+                        <AiOutlineExclamationCircle className="error-icon"/>
+                        <div className="error-message">{error.email}</div>
                     </div>
                 </Row>
 
                 <Row className="mx-auto col-9">
-                 <div className="form-data">
-                    <label> User role </label>
-                    <select value={role} onChange={(e) => onChange(e)}>
-                {availableUserRoles && availableUserRoles.map((role, index) => (
-                  <option value={role}>{role}</option>
-                ))}
-              </select>
-                </div>
+                    <div className="form-data">
+                        <label> User role </label>
+                        <select value={role} onChange={(e) => onRoleChange(e)}>
+                            {availableUserRoles && availableUserRoles.map((role, index) => (
+                                <option value={role}>{role}</option>
+                            ))}
+                        </select>
+                    </div>
                 </Row>
 
                 <Row className="mx-auto col-9">
@@ -194,22 +222,22 @@ export const ResponsibilitiesCax = ({userInviteList, addToInviteList}: Responsib
                 </Row>
 
                 <Row className="mx-auto col-9">
-            <div>
-              <Button
-                styleClass="button btn-primaryCax"
-                label="Add User"
-                handleClick={() => handleClick()}
-                icon={true}
-              />
-            </div>
-            <div>
-            <Button
-                styleClass="button btn-primaryCax"
-                label="Send Invite"
-                handleClick={() => sendInvites()}
-              />
-              <ToastContainer />
-            </div>
+                    <div>
+                        <Button
+                            styleClass="button btn-primaryCax"
+                            label="Add User"
+                            handleClick={() => handleClick()}
+                            icon={true}
+                        />
+                    </div>
+                    <div>
+                        <Button
+                            styleClass="button btn-primaryCax"
+                            label="Send Invite"
+                            handleClick={() => sendInvites()}
+                        />
+                        <ToastContainer/>
+                    </div>
                 </Row>
             </div>
         </div>
@@ -221,6 +249,10 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
     addToInviteList: (userItem: IUserItem) => {
 
         dispatch(addToInviteList(userItem));
+    },
+    removeFromInviteList: (userUiId: string) => {
+
+        dispatch(removeFromInviteList(userUiId));
     },
 });
 

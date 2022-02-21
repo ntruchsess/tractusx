@@ -1,5 +1,6 @@
 
 export interface IUserItem {
+    uiId: string;
     email: string;
     role: string;
     personalNote: string;
@@ -13,7 +14,7 @@ export interface IUserData {
 
 
 export interface IUserResponsibilities {
-    id: number;
+    uiId: number;
     eMail: string;
     role: string;
     message: string;
