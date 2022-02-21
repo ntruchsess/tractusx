@@ -26,25 +26,30 @@ import {connect} from 'react-redux';
 import {IUserItem, IUserResponsibilities} from "../types/user/user.types";
 import {IState} from "../types/store/redux.store.types";
 import {Dispatch} from 'redux';
-import {addToInviteList, removeFromInviteList} from "../actions/user.action";
+import {addToInviteList, removeFromInviteList, addCurrentStep} from "../actions/user.action";
 import {useEffect, useState} from "react";
 import {useTranslation} from 'react-i18next';
 import {withRouter} from "react-router-dom";
 import {v4 as uuidv4} from 'uuid';
-
+import FooterButton from "./footerButton";
 
 interface ResponsibilitiesCaxProps {
     addToInviteList: (userItem: IUserItem) => void;
     removeFromInviteList: (userItem: string) => void;
     userInviteList: IUserItem[];
+    currentActiveStep: number;
+    addCurrentStep: (step: number) => void;
+
 }
 
 export const ResponsibilitiesCax = ({
                                         userInviteList,
+                                        currentActiveStep,
                                         addToInviteList,
+                                        addCurrentStep,
                                         removeFromInviteList
                                     }: ResponsibilitiesCaxProps) => {
-    const {t} = useTranslation();
+    const { t } = useTranslation();
     const [email, setEmail] = useState<string | null>("");
     const [role, setRole] = useState<string | null>("");
     const [personalNote, setPersonalNote] = useState<string | null>("");
@@ -104,6 +109,13 @@ export const ResponsibilitiesCax = ({
         removeFromInviteList(userUiId)
     }
 
+    const backClick = () => {
+        addCurrentStep(currentActiveStep-1)
+    }
+
+    const nextClick = () => {
+        addCurrentStep(currentActiveStep + 1)
+    }
 
     const sendInvites = () => {
         const realm = UserService.realm;
@@ -135,6 +147,7 @@ export const ResponsibilitiesCax = ({
 
 
     return (
+        <>
         <div className="mx-auto col-9 container-registration">
             <div className="head-section">
                 <div className="mx-auto step-highlight d-flex align-items-center justify-content-center">
@@ -241,6 +254,13 @@ export const ResponsibilitiesCax = ({
                 </Row>
             </div>
         </div>
+        <FooterButton 
+         labelBack={t('button.back')}
+         labelNext={t('button.next')}
+        handleBackClick={() => backClick()}
+        handleNextClick={() => nextClick()}
+     />
+     </>
     )
 }
 
@@ -254,12 +274,16 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 
         dispatch(removeFromInviteList(userUiId));
     },
+    addCurrentStep: (step: number) => {
+        dispatch(addCurrentStep(step));
+    }
 });
 
 
 export default withRouter(connect(
     (state: IState) => ({
         userInviteList: state.user.userInviteList,
+        currentActiveStep: state.user.currentStep,
     }),
     mapDispatchToProps
 )(ResponsibilitiesCax));

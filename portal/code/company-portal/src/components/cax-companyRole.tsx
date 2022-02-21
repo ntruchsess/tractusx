@@ -16,14 +16,33 @@ import {useState} from "react";
 import { Row } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
 import { useTranslation } from 'react-i18next';
+import FooterButton from "./footerButton";
+import {connect} from 'react-redux';
+import {IState} from "../types/store/redux.store.types";
+import {addCurrentStep} from "../actions/user.action";
+import { withRouter } from 'react-router-dom';
+import {Dispatch} from 'redux';
 
-export const CompanyRoleCax = () => {
+
+interface CompanyRoleProps {
+  currentActiveStep: number;
+  addCurrentStep: (step: number) => void;
+}
+
+export const CompanyRoleCax = ({currentActiveStep, addCurrentStep}: CompanyRoleProps) => {
 
   const { t } = useTranslation();
   const [companyRoleChecked, setcompanyRoleChecked] =  useState(new Map());
 
   // const companyRoleChecked =  new Map();
 
+  const backClick = () => {
+    addCurrentStep(currentActiveStep-1)
+}
+
+const nextClick = () => {
+  addCurrentStep(currentActiveStep+1)
+}
 
     const handleCheck = (e) => {
       console.log(e);
@@ -41,6 +60,7 @@ export const CompanyRoleCax = () => {
       }
     
     return (
+      <>
         <div className="mx-auto col-9 container-registration">
         <div className="head-section">
           <div className="mx-auto step-highlight d-flex align-items-center justify-content-center">
@@ -267,7 +287,27 @@ export const CompanyRoleCax = () => {
           </div>
         </div>
       </div>
+       <FooterButton 
+        labelBack={t('button.back')}
+        labelNext={t('button.confirm')}
+       handleBackClick={() => backClick()}
+       handleNextClick={() => nextClick()}
+    />
+    </>
     );
 }
 
-export default (CompanyRoleCax);
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  addCurrentStep: (step: number) => {
+      dispatch(addCurrentStep(step));
+  },
+});
+
+
+export default withRouter(connect(
+  (state: IState) => ({
+      currentActiveStep: state.user.currentStep,
+  }),
+  mapDispatchToProps
+)(CompanyRoleCax));

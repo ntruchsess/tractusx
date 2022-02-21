@@ -1,5 +1,10 @@
 {
     "translation": {
+        "button":{
+            "next": "Next",
+            "confirm": "Confirm",
+            "submit": "Submit",
+            "back":"Back"        },
         "header":{
             "logout": "Logout",
             "help": "Help"

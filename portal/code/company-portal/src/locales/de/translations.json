@@ -2,6 +2,12 @@
    
 {
     "translation": {
+        "button":{
+            "next": "Weiter",
+            "confirm": "Bestätigen",
+            "submit": "Senden",
+            "back": "zurück"
+        },
         "header":{
             "logout": "Ausloggen",
             "help": "Hilfe"

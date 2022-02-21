@@ -3,9 +3,19 @@ import React from "react";
 import Dropzone from 'react-dropzone-uploader'
 import 'react-dropzone-uploader/dist/styles.css'
 import { useTranslation } from 'react-i18next';
+import FooterButton from "./footerButton";
+import {connect} from 'react-redux';
+import {IState} from "../types/store/redux.store.types";
+import {addCurrentStep} from "../actions/user.action";
+import { withRouter } from 'react-router-dom';
+import {Dispatch} from 'redux';
 
+interface DragDropProps {
+  currentActiveStep: number;
+  addCurrentStep: (step: number) => void;
+}
 
-const DragDrop = () => {
+export const DragDrop = ({currentActiveStep, addCurrentStep}: DragDropProps) => {
   const { t } = useTranslation();
 
     // Payload data and url to upload files
@@ -20,8 +30,16 @@ const DragDrop = () => {
         allFiles.forEach(f => f.remove())
     }
 
-    return (
+  const backClick = () => {
+    addCurrentStep(currentActiveStep-1)
+  }
 
+  const nextClick = () => {
+    addCurrentStep(currentActiveStep+1)
+  }
+
+    return (
+      <>
       <div className="mx-auto col-9 container-registration">
         <div className="head-section">
           <div className="mx-auto step-highlight d-flex align-items-center justify-content-center">
@@ -43,7 +61,26 @@ const DragDrop = () => {
         />
         </div>
         </div>
+         <FooterButton 
+         labelBack={t('button.back')}
+         labelNext={t('button.next')}
+         handleBackClick={() => backClick()}
+         handleNextClick={() => nextClick()}
+      />
+      </>
     );
 };
 
-export default DragDrop;
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  addCurrentStep: (step: number) => {
+      dispatch(addCurrentStep(step));
+  },
+});
+
+
+export default withRouter(connect(
+  (state: IState) => ({
+      currentActiveStep: state.user.currentStep,
+  }),
+  mapDispatchToProps
+)(DragDrop));

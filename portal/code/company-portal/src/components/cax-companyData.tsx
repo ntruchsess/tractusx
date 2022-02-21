@@ -19,9 +19,19 @@ import DatePicker from "react-datepicker";
 import SearchInput from 'react-search-input';
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
+import FooterButton from './footerButton';
+import {connect} from 'react-redux';
+import {IState} from "../types/store/redux.store.types";
+import {addCurrentStep} from "../actions/user.action";
+import { withRouter } from 'react-router-dom';
+import {Dispatch} from 'redux';
 
+interface CompanyDataProps {
+    currentActiveStep: number;
+    addCurrentStep: (step: number) => void;
+}
 
-export const CompanyDataCax = () => {
+export const CompanyDataCax = ({currentActiveStep, addCurrentStep}: CompanyDataProps) => {
 
     const { t } = useTranslation();
     const [search, setsearch] =  useState([]);
@@ -49,8 +59,17 @@ export const CompanyDataCax = () => {
         setcountry(companyDetails?.[0]?.addresses?.[0]?.countryCode);
     }
 
+    const backClick = () => {
+        addCurrentStep(currentActiveStep-1)
+    }
+
+    const nextClick = () => {
+        addCurrentStep(currentActiveStep+1)
+    }
+
 
         return (
+            <>
             <div className='mx-auto col-9 container-registration'>
                 <div className='head-section'>
                     <div className='mx-auto step-highlight d-flex align-items-center justify-content-center'>1</div>
@@ -163,8 +182,29 @@ export const CompanyDataCax = () => {
                     </Row>
 
                 </div>
-            </div>
-            
+            </div> 
+            <FooterButton 
+               labelBack={t('button.back')}
+               labelNext={t('button.confirm')}
+               handleBackClick={() => backClick()}
+               handleNextClick={() => nextClick()}
+            />
+            </>
+           
         )
 }
-export default (CompanyDataCax);
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+    addCurrentStep: (step: number) => {
+        dispatch(addCurrentStep(step));
+    },
+  });
+
+
+export default withRouter(connect(
+    (state: IState) => ({
+        currentActiveStep: state.user.currentStep,
+    }),
+    mapDispatchToProps
+  )(CompanyDataCax));
+
