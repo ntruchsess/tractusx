@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace CatenaX.NetworkServices.Keycloak.Authentication
 {
-    public class ClaimRequestPathRequirenment : IAuthorizationRequirement
+    public class ClaimRequestPathRequirement : IAuthorizationRequirement
     {
         private readonly string _claim;
         private readonly string _parameter;
-        public ClaimRequestPathRequirenment(string claim, string parameter)
+        public ClaimRequestPathRequirement(string claim, string parameter)
         {
             _claim = claim;
             _parameter = parameter;
@@ -26,7 +26,7 @@ namespace CatenaX.NetworkServices.Keycloak.Authentication
         }
     }
 
-    public class ClaimRequestPathHandler : AuthorizationHandler<ClaimRequestPathRequirenment>
+    public class ClaimRequestPathHandler : AuthorizationHandler<ClaimRequestPathRequirement>
     {
         private IHttpContextAccessor _contextAccessor;
 
@@ -34,7 +34,7 @@ namespace CatenaX.NetworkServices.Keycloak.Authentication
         {
             _contextAccessor = contextAccessor;
         }
-        protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, ClaimRequestPathRequirenment requirement)
+        protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, ClaimRequestPathRequirement requirement)
         {
             if (requirement.IsSuccess(_contextAccessor.HttpContext.Request.RouteValues, context.User.Claims))
             {

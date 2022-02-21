@@ -56,7 +56,7 @@ namespace CatenaX.NetworkServices.Registration.Service
                     .AddAuthorization(option => {
                         option.AddPolicy("RealmEqualsTenant", policy =>
                         {
-                            policy.AddRequirements(new ClaimRequestPathRequirenment("tenant","realm"));
+                            policy.AddRequirements(new ClaimRequestPathRequirement("tenant","realm"));
                         });
                     })
                     .AddTransient<IHttpContextAccessor,HttpContextAccessor>();
