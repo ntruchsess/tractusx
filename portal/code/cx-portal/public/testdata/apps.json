@@ -1,0 +1,51 @@
+[
+    {
+        "name": "BPDM Services",
+        "id": 993,
+        "rating": 4.3,
+        "price": "$2,200",
+        "rel": "12/05/2021"
+    },
+    {
+        "name": "Circular Economy",
+        "id": 1995,
+        "price": "$10,800",
+        "rel": "12/05/1995"
+    },
+    {
+        "name": "SAP - Material Traceability",
+        "id": 2000,
+        "price": "$8,000",
+        "rel": "10/31/2000"
+    },
+    {
+        "name": "k.a.p.u.t.t. - Material Traceability",
+        "id": 2002,
+        "price": "$8,000",
+        "rel": "10/31/2000"
+    },
+    {
+        "name": "Part Chain",
+        "id": 2003,
+        "price": "$9,500",
+        "rel": "07/22/2003"
+    },
+    {
+        "name": "Killer App",
+        "id": 2099,
+        "price": "$99,500",
+        "rel": "07/22/2003"
+    },
+    {
+        "name": "App2Go",
+        "id": 2091,
+        "price": "$510",
+        "rel": "07/22/2003"
+    },
+    {
+        "name": "Component Performance Monitor",
+        "id": 1997,
+        "price": "$14,000",
+        "rel": "09/01/1997"
+    }
+]
