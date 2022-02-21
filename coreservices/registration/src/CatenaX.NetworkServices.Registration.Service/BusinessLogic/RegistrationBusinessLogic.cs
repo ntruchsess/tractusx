@@ -2,6 +2,7 @@
 using CatenaX.NetworkServices.Mailing.SendMail;
 using CatenaX.NetworkServices.Mockups;
 using CatenaX.NetworkServices.Provisioning.Library;
+using CatenaX.NetworkServices.Provisioning.Library.Models;
 using CatenaX.NetworkServices.Registration.Service.BPN;
 using CatenaX.NetworkServices.Registration.Service.BPN.Model;
 using CatenaX.NetworkServices.Registration.Service.Custodian;
@@ -36,27 +37,31 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
             _provisioningManager = provisioningManager;
         }
 
-        public async Task CreateUsersAsync(List<UserCreationInfo> userList, string realm, string token, Dictionary<string, string> userInfo)
+        public async Task<bool> CreateUsersAsync(List<UserCreationInfo> usersToCreate, string tenant, string organisation, string createdByEmail, string createdByName)
         {
-            var client = new KeycloakClient(_configuration.GetValue<string>("KeyCloakConnectionString"), () => token);
+            var idpName = tenant;
+            var organisationName = organisation;
             var clientId = _configuration.GetValue<string>("KeyCloakClientID");
             var pwd = new Password();
-            foreach (UserCreationInfo user in userList)
+            foreach (UserCreationInfo user in usersToCreate)
             {
                 var password = pwd.Next();
-                var userToCreate = new User
-                {
-                    UserName = user.eMail,
+                var centralUserId = await _provisioningManager.CreateSharedUserLinkedToCentralAsync(idpName, new UserProfile {
+                    UserName = user.userName ?? user.eMail,
                     FirstName = user.firstName,
                     LastName = user.lastName,
-                    Credentials = new List<Credentials>() { new Credentials { Type = "Password", Value = password } },
-                    Enabled = true
+                    Email = user.eMail,
+                    Password = password
+                }, organisationName).ConfigureAwait(false);
+
+                if (centralUserId == null) return false;
+
+                var clientRoleNames = new Dictionary<string, IEnumerable<string>>
+                {
+                    { clientId, new []{user.Role}}
                 };
 
-                var userId = await client.CreateAndRetrieveUserIdAsync(realm, userToCreate).ConfigureAwait(false);
-                var roles = new [] {await client.GetRoleByNameAsync(realm, clientId, user.Role).ConfigureAwait(false)};
-
-                await client.AddClientRoleMappingsToUserAsync(realm, userId, clientId, roles).ConfigureAwait(false);
+                if (!await _provisioningManager.AssignClientRolesToCentralUserAsync(centralUserId, clientRoleNames).ConfigureAwait(false)) return false;
 
                 var inviteTemplateName = "invite";
                 if (!string.IsNullOrWhiteSpace(user.Message))
@@ -67,17 +72,18 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
                 var mailParameters = new Dictionary<string, string>
                 {
                     { "password", password },
-                    { "companyname", realm },
+                    { "companyname", organisationName },
                     { "message", user.Message },
-                    { "eMailPreferredUsernameCreatedBy", userInfo["preferred_username"] },
-                    { "nameCreatedBy", userInfo.GetValueOrDefault("name") ?? userInfo["preferred_username"]},
-                    { "url", $"{_configuration.GetValue<string>("BasePortalAddress")}/?company={realm}"},
+                    { "eMailPreferredUsernameCreatedBy", createdByEmail },
+                    { "nameCreatedBy", createdByName ?? createdByEmail},
+                    { "url", $"{_configuration.GetValue<string>("BasePortalAddress")}"},
                     { "username", user.eMail},
                     
                 };
 
                 await _mailingService.SendMails(user.eMail, mailParameters, new List<string> { inviteTemplateName, "password" }).ConfigureAwait(false);
             }
+            return true;
         }
 
         public Task<List<string>> GetAvailableUserRoleAsync() =>

@@ -35,16 +35,32 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
             new OkObjectResult(await _registrationBusinessLogic.GetCompanyByIdentifierAsync(bpn).ConfigureAwait(false));
 
         [HttpPost]
-        [Obsolete] // as discussed this requires refactoring to comply with new setup. To access Name, FirstName and/or LastName retrieve the User-object from Keycloak using claim 'sub' from token as userid.
-        [Authorize(Policy="RealmEqualsTenant")]
-        [Authorize(Roles="invite_users")]
+        // [Obsolete] as discussed this requires refactoring to comply with new setup. To access Name, FirstName and/or LastName retrieve the User-object from Keycloak using claim 'sub' from token as userid.
+        //[Authorize(Policy="RealmEqualsTenant")]
+        [Authorize(Roles="invite_user")]
         [Route("company/{realm}/users")]
-        public async Task<IActionResult> CreateUsersAsync([FromRoute] string realm, [FromHeader] string authorization, [FromBody] List<UserCreationInfo> userToCreate)
+        public async Task<IActionResult> CreateUsersAsync([FromBody] List<UserCreationInfo> usersToCreate)
         {
-            await _registrationBusinessLogic.CreateUsersAsync(userToCreate, realm, authorization.Split(" ")[1], new Dictionary<string, string> {
-                ["preferred_username"]=User.Claims.SingleOrDefault( x => x.Type=="preferred_username").Value as string
-            }).ConfigureAwait(false);
-            return new OkResult();
+            try
+            {
+                var tenant = User.Claims.SingleOrDefault( x => x.Type=="tenant").Value as string;
+                var organisation = User.Claims.SingleOrDefault( x => x.Type=="organisation").Value as string;
+                var createdByEmail = User.Claims.SingleOrDefault( x => x.Type=="preferred_username").Value as string;
+                var createdByName = User.Claims.SingleOrDefault( x => x.Type=="name").Value as string;
+                if (await _registrationBusinessLogic.CreateUsersAsync(usersToCreate, tenant, organisation, createdByEmail, createdByName).ConfigureAwait(false))
+                {
+                    return new OkResult();
+                }
+                _logger.LogError("unsuccessful");
+                return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.ToString());
+                return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+
+            }
+
         }
 
         [HttpPost]
@@ -119,7 +135,7 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
             new OkObjectResult((await _registrationBusinessLogic.GetAvailableUserRoleAsync().ConfigureAwait(false)).ToList());
 
         [HttpGet] // remove or refactor, specifying the realm is pointless as we access the central realm here
-        [Authorize(Policy="RealmEqualsTenant")] // mandatory roles?
+        //[Authorize(Policy="RealmEqualsTenant")] // mandatory roles?
         [Route("company/{realm}/clients/{clientId}/rolesComposite")]
         [ProducesResponseType(typeof(List<string>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetClientRolesComposite([FromRoute] string clientId) =>

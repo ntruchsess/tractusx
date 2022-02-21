@@ -2,6 +2,8 @@
 {
     public class UserCreationInfo
     {
+        public string userName { get; set; }
+
         public string eMail { get; set; }
 
         public string firstName { get; set; }
