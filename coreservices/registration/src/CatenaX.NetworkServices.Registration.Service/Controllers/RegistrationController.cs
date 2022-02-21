@@ -70,21 +70,21 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
         [Route("company/{realm}/companyRoles")]
         [ProducesResponseType(typeof(List<CompanyRole>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetCompanyRolesAsync() =>
-            new OkObjectResult(await _registrationBusinessLogic.GetCompanyRolesAsync().ConfigureAwait(false));
+            new OkObjectResult((await _registrationBusinessLogic.GetCompanyRolesAsync().ConfigureAwait(false)).ToList());
 
         [HttpGet]
         [Authorize(Policy="RealmEqualsTenant")] // mandatory roles?
         [Route("company/{realm}/consentsFoCompanyRole/{roleId}")]
         [ProducesResponseType(typeof(List<ConsentForCompanyRole>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetCompanyRolesAsync(int roleId) =>
-            new OkObjectResult(await _registrationBusinessLogic.GetConsentForCompanyRoleAsync(roleId).ConfigureAwait(false));
+            new OkObjectResult((await _registrationBusinessLogic.GetConsentForCompanyRoleAsync(roleId).ConfigureAwait(false)).ToList());
 
         [HttpGet]
         [Authorize(Policy="RealmEqualsTenant")] // mandatory roles?
         [Route("company/{realm}/signedConsentsByCompanyId/{companyId}")]
         [ProducesResponseType(typeof(List<SignedConsent>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> SignedConsentsByCompanyIdAsync(string companyId) =>
-            new OkObjectResult(await _registrationBusinessLogic.SignedConsentsByCompanyIdAsync(companyId).ConfigureAwait(false));
+            new OkObjectResult((await _registrationBusinessLogic.SignedConsentsByCompanyIdAsync(companyId).ConfigureAwait(false)).ToList());
 
         [HttpPut]
         [Authorize(Policy="RealmEqualsTenant")] // mandatory roles?
@@ -116,22 +116,25 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
         [Route("company/{realm}/userRoles")]
         [ProducesResponseType(typeof(List<string>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetUserRolesAsync() =>
-            new OkObjectResult(await _registrationBusinessLogic.GetAvailableUserRoleAsync().ConfigureAwait(false));
+            new OkObjectResult((await _registrationBusinessLogic.GetAvailableUserRoleAsync().ConfigureAwait(false)).ToList());
 
         [HttpGet] // remove or refactor, specifying the realm is pointless as we access the central realm here
         [Authorize(Policy="RealmEqualsTenant")] // mandatory roles?
         [Route("company/{realm}/clients/{clientId}/rolesComposite")]
         [ProducesResponseType(typeof(List<string>), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> GetClientRolesComposite([FromRoute] string realm,[FromRoute] string clientId, [FromHeader] string authorization) =>
-            new OkObjectResult(await _registrationBusinessLogic.GetClientRolesCompositeAsync(authorization.Split(" ")[1],realm,clientId).ConfigureAwait(false));
+        public async Task<IActionResult> GetClientRolesComposite([FromRoute] string clientId) =>
+            new OkObjectResult((await _registrationBusinessLogic.GetClientRolesCompositeAsync(clientId).ConfigureAwait(false)).ToList());
 
         [Obsolete] // remove, Roles should be taken in the FE, directly from the token, specifying the realm is pointless as we access the central realm here
         [HttpGet]
         [Authorize(Policy="RealmEqualsTenant")] // mandatory roles?
         [Route("company/{realm}/clients/{clientId}/userRoleMappingsComposite")]
         [ProducesResponseType(typeof(List<string>), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> GetUserClientRoleMappingsCompositeAsync([FromRoute] string realm, [FromRoute] string clientId, [FromHeader] string authorization) =>
-            new OkObjectResult(await _registrationBusinessLogic.GetUserClientRoleMappingsCompositeAsync(authorization.Split(" ")[1],realm,User.Claims.SingleOrDefault(x => x.Type=="sub").Value,clientId).ConfigureAwait(false));
+        public async Task<IActionResult> GetUserClientRoleMappingsCompositeAsync([FromRoute] string clientId) =>
+            new OkObjectResult((await _registrationBusinessLogic.GetUserClientRoleMappingsCompositeAsync(
+                    User.Claims.SingleOrDefault(x => x.Type=="sub").Value,
+                    clientId
+                ).ConfigureAwait(false)).ToList());
 
         [Obsolete] // remove, users are not assigned to groups any more
         [HttpGet]
@@ -139,7 +142,7 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
         [Route("company/{realm}/groups")]
         [ProducesResponseType(typeof(List<string>), (int)HttpStatusCode.OK)]
         public Task<IActionResult> GetGroups() =>
-            Task.FromResult(new OkObjectResult(Enumerable.Empty<string>()) as IActionResult);
+            Task.FromResult(new OkObjectResult(new List<string>()) as IActionResult);
         
         [Obsolete] // remove, users are not assigned to groups any more
         [HttpGet]
@@ -147,6 +150,6 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
         [Route("company/{realm}/userGroups")]
         [ProducesResponseType(typeof(List<string>), (int)HttpStatusCode.OK)]
         public Task<IActionResult> GetUserGroupsAsync() =>
-            Task.FromResult(new OkObjectResult(Enumerable.Empty<string>()) as IActionResult);
+            Task.FromResult(new OkObjectResult(new List<string>()) as IActionResult);
     }
 }
