@@ -77,10 +77,7 @@ public class TripleStorePersistence implements PersistenceLayer {
          } );
       }
       int totalSemanticModelCount = getTotalItemsCount( namespaceFilter, nameFilter, nameType, status );
-      int totalPages = totalSemanticModelCount / pageSize;
-      if ( totalPages == 0 ) {
-         totalPages = 1;
-      }
+      int totalPages =  getTotalPages(totalSemanticModelCount, pageSize );
       SemanticModelList modelList = new SemanticModelList();
       List<SemanticModel> semanticModels = aspectModels.get();
       modelList.setCurrentPage( page );
@@ -89,6 +86,13 @@ public class TripleStorePersistence implements PersistenceLayer {
       modelList.setTotalItems( totalSemanticModelCount );
       modelList.setItems( aspectModels.get() );
       return modelList;
+   }
+
+   private static int getTotalPages(int totalItemsCount, int pageSize){
+      if(totalItemsCount == 0 || pageSize == 0){
+         return 0;
+      }
+      return (int) Math.ceil( ((double) totalItemsCount) / (double) pageSize);
    }
 
    @Override
