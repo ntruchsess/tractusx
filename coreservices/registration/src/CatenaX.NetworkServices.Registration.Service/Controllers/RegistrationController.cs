@@ -28,22 +28,21 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
         }
 
         [HttpGet]
-        [Authorize(Policy="RealmEqualsTenant")] // mandatory roles?
-        [Route("company/{realm}/{bpn}")]
+        [Authorize(Roles="add_company_data")]
+        [Authorize(Policy="CheckTenant")]
+        [Route("company/{tenant}/{bpn}")]
         [ProducesResponseType(typeof(Company), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetOneObjectAsync([FromRoute] string bpn) =>
             new OkObjectResult(await _registrationBusinessLogic.GetCompanyByIdentifierAsync(bpn).ConfigureAwait(false));
 
         [HttpPost]
-        // [Obsolete] as discussed this requires refactoring to comply with new setup. To access Name, FirstName and/or LastName retrieve the User-object from Keycloak using claim 'sub' from token as userid.
-        //[Authorize(Policy="RealmEqualsTenant")]
+        [Authorize(Policy="CheckTenant")]
         [Authorize(Roles="invite_user")]
-        [Route("company/{realm}/users")]
-        public async Task<IActionResult> CreateUsersAsync([FromBody] List<UserCreationInfo> usersToCreate)
+        [Route("company/{tenant}/users")]
+        public async Task<IActionResult> CreateUsersAsync([FromRoute] string tenant, [FromBody] List<UserCreationInfo> usersToCreate)
         {
             try
             {
-                var tenant = User.Claims.SingleOrDefault( x => x.Type=="tenant").Value as string;
                 var organisation = User.Claims.SingleOrDefault( x => x.Type=="organisation").Value as string;
                 var createdByEmail = User.Claims.SingleOrDefault( x => x.Type=="preferred_username").Value as string;
                 var createdByName = User.Claims.SingleOrDefault( x => x.Type=="name").Value as string;
@@ -60,12 +59,12 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
                 return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
 
             }
-
         }
 
         [HttpPost]
-        [Authorize(Policy="RealmEqualsTenant")] // mandatory roles?
-        [Route("company/{realm}/custodianWallet")]
+        [Authorize(Roles="submit_registration")]
+        [Authorize(Policy="CheckTenant")]
+        [Route("company/{tenant}/custodianWallet")]
         public async Task<IActionResult> CreateWallet([FromBody] WalletInformation walletToCreate)
         {
             await _registrationBusinessLogic.CreateCustodianWalletAsync(walletToCreate).ConfigureAwait(false);
@@ -73,8 +72,9 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
         }
 
         [HttpPut]
-        [Authorize(Policy="RealmEqualsTenant")] // mandatory roles?
-        [Route("company/{realm}/companyRoles")]
+        [Authorize(Roles="invite_user")]
+        [Authorize(Policy="CheckTenant")]
+        [Route("company/{tenant}/companyRoles")]
         public async Task<IActionResult> SetCompanyRolesAsync([FromBody] CompanyToRoles rolesToSet)
         {
             await _registrationBusinessLogic.SetCompanyRolesAsync(rolesToSet).ConfigureAwait(false);
@@ -82,29 +82,33 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
         }
 
         [HttpGet]
-        [Authorize(Policy="RealmEqualsTenant")] // mandatory roles?
-        [Route("company/{realm}/companyRoles")]
+        [Authorize(Roles="view_registration")]
+        [Authorize(Policy="CheckTenant")]
+        [Route("company/{tenant}/companyRoles")]
         [ProducesResponseType(typeof(List<CompanyRole>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetCompanyRolesAsync() =>
             new OkObjectResult((await _registrationBusinessLogic.GetCompanyRolesAsync().ConfigureAwait(false)).ToList());
 
         [HttpGet]
-        [Authorize(Policy="RealmEqualsTenant")] // mandatory roles?
-        [Route("company/{realm}/consentsFoCompanyRole/{roleId}")]
+        [Authorize(Roles="sign_consent")]
+        [Authorize(Policy="CheckTenant")]
+        [Route("company/{tenant}/consentsFoCompanyRole/{roleId}")]
         [ProducesResponseType(typeof(List<ConsentForCompanyRole>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetCompanyRolesAsync(int roleId) =>
             new OkObjectResult((await _registrationBusinessLogic.GetConsentForCompanyRoleAsync(roleId).ConfigureAwait(false)).ToList());
 
         [HttpGet]
-        [Authorize(Policy="RealmEqualsTenant")] // mandatory roles?
-        [Route("company/{realm}/signedConsentsByCompanyId/{companyId}")]
+        [Authorize(Roles="sign_consent")]
+        [Authorize(Policy="CheckTenant")]
+        [Route("company/{tenant}/signedConsentsByCompanyId/{companyId}")]
         [ProducesResponseType(typeof(List<SignedConsent>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> SignedConsentsByCompanyIdAsync(string companyId) =>
             new OkObjectResult((await _registrationBusinessLogic.SignedConsentsByCompanyIdAsync(companyId).ConfigureAwait(false)).ToList());
 
         [HttpPut]
-        [Authorize(Policy="RealmEqualsTenant")] // mandatory roles?
-        [Route("company/{realm}/signConsent")]
+        [Authorize(Roles="sign_consent")]
+        [Authorize(Policy="CheckTenant")]
+        [Route("company/{tenant}/signConsent")]
         public async Task<IActionResult> SignConsentAsync([FromBody] SignConsentRequest signConsentRequest)
         {
             await _registrationBusinessLogic.SignConsentAsync(signConsentRequest).ConfigureAwait(false);
@@ -112,8 +116,9 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
         }
 
         [HttpPut]
-        [Authorize(Policy="RealmEqualsTenant")] // mandatory roles?
-        [Route("company/{realm}/idp")]
+        [Authorize(Roles="invite_user")]
+        [Authorize(Policy="CheckTenant")]
+        [Route("company/{tenant}/idp")]
         public async Task<IActionResult> SetIdpAsync([FromBody] SetIdp idpToSet)
         {
             await _registrationBusinessLogic.SetIdpAsync(idpToSet).ConfigureAwait(false);
@@ -122,50 +127,16 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
 
         [Obsolete] // as the process has changed this is a noop now.
         [HttpPut]
-        [Authorize(Policy="RealmEqualsTenant")] // mandatory roles?
-        [Route("company/{realm}/finishRegistration")]
+        [Authorize(Roles="submit_registration")]
+        [Authorize(Policy="CheckTenant")]
+        [Route("company/{tenant}/finishRegistration")]
         public Task<IActionResult> FinishRegistrationAsync() => Task.FromResult(new OkResult() as IActionResult);
 
-        [Obsolete] // afaik this has been replaced by the call to GetClientRolesComposite
-        [HttpGet]
-        [Authorize(Policy="RealmEqualsTenant")] // mandatory roles?
-        [Route("company/{realm}/userRoles")]
-        [ProducesResponseType(typeof(List<string>), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> GetUserRolesAsync() =>
-            new OkObjectResult((await _registrationBusinessLogic.GetAvailableUserRoleAsync().ConfigureAwait(false)).ToList());
-
         [HttpGet] // remove or refactor, specifying the realm is pointless as we access the central realm here
-        //[Authorize(Policy="RealmEqualsTenant")] // mandatory roles?
-        [Route("company/{realm}/clients/{clientId}/rolesComposite")]
+        [Authorize(Roles="view_registration")]
+        [Route("company/{tenant}/clients/{clientId}/rolesComposite")]
         [ProducesResponseType(typeof(List<string>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetClientRolesComposite([FromRoute] string clientId) =>
             new OkObjectResult((await _registrationBusinessLogic.GetClientRolesCompositeAsync(clientId).ConfigureAwait(false)).ToList());
-
-        [Obsolete] // remove, Roles should be taken in the FE, directly from the token, specifying the realm is pointless as we access the central realm here
-        [HttpGet]
-        [Authorize(Policy="RealmEqualsTenant")] // mandatory roles?
-        [Route("company/{realm}/clients/{clientId}/userRoleMappingsComposite")]
-        [ProducesResponseType(typeof(List<string>), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> GetUserClientRoleMappingsCompositeAsync([FromRoute] string clientId) =>
-            new OkObjectResult((await _registrationBusinessLogic.GetUserClientRoleMappingsCompositeAsync(
-                    User.Claims.SingleOrDefault(x => x.Type=="sub").Value,
-                    clientId
-                ).ConfigureAwait(false)).ToList());
-
-        [Obsolete] // remove, users are not assigned to groups any more
-        [HttpGet]
-        [Authorize(Policy="RealmEqualsTenant")] // mandatory roles?
-        [Route("company/{realm}/groups")]
-        [ProducesResponseType(typeof(List<string>), (int)HttpStatusCode.OK)]
-        public Task<IActionResult> GetGroups() =>
-            Task.FromResult(new OkObjectResult(new List<string>()) as IActionResult);
-        
-        [Obsolete] // remove, users are not assigned to groups any more
-        [HttpGet]
-        [Authorize(Policy="RealmEqualsTenant")] // mandatory roles?
-        [Route("company/{realm}/userGroups")]
-        [ProducesResponseType(typeof(List<string>), (int)HttpStatusCode.OK)]
-        public Task<IActionResult> GetUserGroupsAsync() =>
-            Task.FromResult(new OkObjectResult(new List<string>()) as IActionResult);
     }
 }
