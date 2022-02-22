@@ -34,11 +34,10 @@ private onChange(ev,option){
 private onSubmitClick(){
     if(identitydata){
     var OneID = UserService.oneid;
-    var realm = UserService.realm;
     const token = UserService.getToken();
     const url = process.env.REACT_APP_ONBOARDING_URL;
     const endpoint = process.env.REACT_APP_ONBOARDING_ENDPOINT;    
-    const u= `${url}/${endpoint}/${realm}/idp`;
+    const u= `${url}/${endpoint}/idp`;
     const data = {
       'companyId': OneID,
       'idp': identitydata

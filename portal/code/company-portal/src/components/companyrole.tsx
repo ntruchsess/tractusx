@@ -39,11 +39,10 @@ export default class Companyrole extends React.Component {
 
   private onSubmitClick(){
     var OneID = UserService.oneid;
-    var realm = UserService.realm;
     const token = UserService.getToken();
     const url = process.env.REACT_APP_ONBOARDING_URL;
     const endpoint = process.env.REACT_APP_ONBOARDING_ENDPOINT;    
-    const u= `${url}/${endpoint}/${realm}/companyRoles`;
+    const u= `${url}/${endpoint}/companyRoles`;
     const data = {
       'companyId': OneID,
       'roles': selectedValue

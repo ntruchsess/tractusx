@@ -84,11 +84,10 @@ export default class Responsibilities extends React.Component {
   }
 
   private sendInvites() {
-    const realm = UserService.realm;
     const token = UserService.getToken();
     const url = process.env.REACT_APP_ONBOARDING_URL;
     const endpoint = process.env.REACT_APP_ONBOARDING_ENDPOINT;
-    const u = `${url}/${endpoint}/${realm}/users`;
+    const u = `${url}/${endpoint}/users`;
     const data = this.newarray.map(({ id, ...rest }) => ({ ...rest }));
     if (data.length > 0) {
       fetch(u, {
