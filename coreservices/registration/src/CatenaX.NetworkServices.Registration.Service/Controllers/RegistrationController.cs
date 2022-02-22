@@ -162,10 +162,10 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
             {
                 _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
                 var response = await _httpClient.GetAsync($"{realm}/protocol/openid-connect/userinfo");
-                //if (!response.IsSuccessStatusCode)
-                //{
-                //    return new StatusCodeResult((int)HttpStatusCode.Forbidden);
-                //}
+                if (!response.IsSuccessStatusCode)
+                {
+                    return new StatusCodeResult((int)HttpStatusCode.Forbidden);
+                }
                 return await action(
                     deserialize
                         ? JsonConvert.DeserializeObject<Dictionary<string, string>>(await response.Content.ReadAsStringAsync())

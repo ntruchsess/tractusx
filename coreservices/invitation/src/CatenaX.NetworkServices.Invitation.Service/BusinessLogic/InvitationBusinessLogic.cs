@@ -1,90 +1,55 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-
-using CatenaX.NetworkServices.Invitation.Identity;
-using CatenaX.NetworkServices.Invitation.Identity.Model;
-using CatenaX.NetworkServices.Invitation.Library;
-using CatenaX.NetworkServices.Invitation.Service.DataAccess;
-using CatenaX.NetworkServices.Mailing.SendMail;
-using CatenaX.NetworkServices.Mockups;
-
 using Microsoft.Extensions.Configuration;
+
+using PasswordGenerator;
+
+using CatenaX.NetworkServices.Mailing.SendMail;
+using CatenaX.NetworkServices.Provisioning.Library;
+using CatenaX.NetworkServices.Provisioning.Library.Models;
 
 namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
 {
     public class InvitationBusinessLogic : IInvitationBusinessLogic
     {
-        private readonly IIdentityManager _identityManager;
+        private readonly IProvisioningManager _provisioningManager;
         private readonly IMailingService _mailingService;
         private readonly IConfiguration _configuration;
-        //private readonly IDataAccess _dataAccess;
 
-        public InvitationBusinessLogic(IIdentityManager identityManager, IMailingService mailingService, IConfiguration configuration)
+        public InvitationBusinessLogic(IProvisioningManager provisioningManager, IMailingService mailingService, IConfiguration configuration)
         {
-            _identityManager = identityManager;
+            _provisioningManager = provisioningManager;
             _mailingService = mailingService;
             _configuration = configuration;
         }
 
-        public async Task ExecuteInvitation(string identifier)
+        public async Task<bool> ExecuteInvitation(InvitationData invitationData)
         {
-        //    var result = await _dataAccess.GetData(int.Parse(identifier));
+            var idpName = await _provisioningManager.SetupSharedIdpAsync(invitationData.organisationName).ConfigureAwait(false);
+            if (idpName == null) return false;
 
-            //Create Realm and Admin User
+            var password = new Password().Next();
+            var centralUserId = await _provisioningManager.CreateSharedUserLinkedToCentralAsync(idpName, new UserProfile {
+                    UserName = invitationData.userName ?? invitationData.email,
+                    FirstName = invitationData.firstName,
+                    LastName = invitationData.lastName,
+                    Email = invitationData.email,
+                    Password = password
+                }, invitationData.organisationName).ConfigureAwait(false);
 
-            //Create Additional Users
-        }
+            if (centralUserId == null) return false;
 
-        public async Task StartInvitation(InvitationData InvitationData)
-        {
-            //Get Data From Member
-            var query = new QueryCompany();
-
-            var company = query.Query(InvitationData.OneId);
-
-            var realmName = company.name1.Replace(' ','-');
-
-            var newRealm = new CreateRealm
-            {
-                Name = realmName
-            };
-
-            await _identityManager.CreateRealm(newRealm);
-
-
-
-            foreach (string group in UserRoles.Roles)
-            {
-                var newGroup = new CreateGroup {
-                    Name = group
-                };
-                await _identityManager.CreateGroup(realmName, newGroup);
-            }
-
-            var newUser = new CreateUser
-            {
-                UserName = InvitationData.EMail,
-                Email = InvitationData.EMail,
-                Groups = new List<string> { "Invitation" }
-            };
-
-            var password = await _identityManager.CreateUser(realmName, newUser);
-
-            await _identityManager.AssignRolesToUser(realmName, InvitationData.EMail, "realm-management", new List<string> { "manage-users" });
-
-            await _identityManager.CreateClient(realmName, $"client-{realmName.ToLower()}");
+            if (!await _provisioningManager.AssignInvitedUserInitialRoles(centralUserId).ConfigureAwait(false)) return false;
 
             var mailParameters = new Dictionary<string, string>
             {
                 { "password", password },
-                { "companyname", realmName },
-                { "url", $"{_configuration.GetValue<string>("BasePortalAddress")}/?company={realmName}&user={InvitationData.EMail}&oneId={InvitationData.OneId}"  }
+                { "companyname", invitationData.organisationName },
+                { "url", $"{_configuration.GetValue<string>("BasePortalAddress")}/?company={idpName}&user={invitationData.userName}"  }
             };
 
-            await _mailingService.SendMails(InvitationData.EMail, mailParameters, new List<string> { "invite", "password"} );
+            await _mailingService.SendMails(invitationData.email, mailParameters, new List<string> { "invite", "password"} );
+            return true;
         }
     }
-
 }

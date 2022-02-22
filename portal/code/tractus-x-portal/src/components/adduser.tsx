@@ -18,7 +18,6 @@ import { PrimaryButton, Dropdown, IDropdownOption, TextField, SearchBox } from '
 import UserService from '../helpers/UserService';
 import User from '../data/user';
 import { observable } from 'mobx';
-import { compare } from '../helpers/utils';
 
 @observer
 export default class AddUser extends React.Component {

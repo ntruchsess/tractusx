@@ -25,7 +25,10 @@ import 'react-toastify/dist/ReactToastify.css';
 export default class Registrationoneid extends React.Component {
 
   @observable private email: string = "";
-  @observable private oneId: string = "CAXLZJVJEBYWYYZZ";
+  @observable private oneId: string = "";
+  @observable private firstname: string = "";
+  @observable private lastname: string = "";
+  @observable private companyname: string = "";
 
   private registrationButtonClick() {
     console.log("register");
@@ -34,12 +37,15 @@ export default class Registrationoneid extends React.Component {
 
     var data =
     {
-      "oneId": this.oneId,
-      "eMail": this.email
+     "oneId": this.oneId,
+      "eMail": this.email,
+      "firstname": this.firstname,
+      "lastname": this.lastname,
+      "companyname": this.companyname
     }
 
-    if (this.email === "" || this.oneId === "") {
-      toast.error('Email or OneId empty.');
+    if (this.email === "" || this.oneId === "" || this.firstname === "" || this.lastname === "" || this.companyname === "") {
+      toast.error('Mandatory fields not filled. Please fill out all fields.');
       return;
     }
 
@@ -85,7 +91,10 @@ export default class Registrationoneid extends React.Component {
             <div className='mr40 ml40 aic'>
               <TextField placeholder='Enter  Email - Address' className='w100pc br4 h40' value={this.email} onChange={(ev, val) => this.email = val} />
               <TextField placeholder='One ID' className='w100pc br4 h40 mt10' value={this.oneId} onChange={(ev, val) => this.oneId = val} />
-              <PrimaryButton className='w100pc br4 pr10 h40 mt20' text='REGISTER' onClick={() => this.registrationButtonClick()} />
+              <TextField placeholder='First Name' className='w100pc br4 h40 mt10' value={this.firstname} onChange={(ev, val) => this.firstname = val} />
+              <TextField placeholder='Last Name' className='w100pc br4 h40 mt10' value={this.lastname} onChange={(ev, val) => this.lastname = val} />
+              <TextField placeholder='Company Name' className='w100pc br4 h40 mt10' value={this.companyname} onChange={(ev, val) => this.companyname = val} />
+              <PrimaryButton className='w100pc br4 pr10 h40 mt20' text='INVITE' onClick={() => this.registrationButtonClick()} />
             </div>
             <div className='m40 df fdc'>
               <div className='df jcc'>

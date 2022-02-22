@@ -16,7 +16,7 @@ import * as React from 'react';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
 import UserService from '../helpers/UserService';
-import { Icon, Pivot, PivotItem, IconButton, IContextualMenuProps, IContextualMenuListProps, IRenderFunction, ContextualMenuItemType, ActionButton } from '@fluentui/react';
+import { Icon, Pivot, PivotItem, IconButton, IContextualMenuProps, IContextualMenuListProps, IRenderFunction, ActionButton } from '@fluentui/react';
 import { AppState } from '../stores/appstate';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import Logo from './logo';
@@ -48,27 +48,7 @@ class Header extends React.Component<IProp> {
     this.name = UserService.getName();
     this.initials = UserService.getInitials();
     this.company = UserService.getCompany();
-    AppState.state.isAdmin = true;
-
-    //Removed beacuse of login loop
-    // if (adalContext.getDomain(adalContext.getUsername()) === 'Daimler') { // Hack for MS Graph
-    //   AppState.state.isAdmin = true;
-    // } else if (AppState.state.isAdmin === undefined) {
-    //   AppState.state.isAdmin = false;
-    //   try {
-    //     const groups = await adalContext.getGroups();
-    //     if (groups) {
-    //       for (const g of groups.value) {
-    //         const group = g as string;
-    //         if (group === 'ec5a8b75-4839-4ff1-b50d-f8159653d9f0' || group === '463512e5-968f-4b2d-8283-737be4a67182') {
-    //           AppState.state.isAdmin = true;
-    //         }
-    //       }
-    //     }
-    //   } catch { }
-    // }
-
-    this.isAdmin = AppState.state.isAdmin;
+    this.isAdmin = AppState.state.isAdmin = UserService.isAdmin();
   }
 
   private pivotClick(item: PivotItem): void {
@@ -85,9 +65,7 @@ class Header extends React.Component<IProp> {
     console.log(token);
   }
   private logoutClick() {
-    const token = UserService.getCachedToken();
-    console.log(token);
-    UserService.logOut();
+    UserService.doLogout();
   }
 
   private menuProps: IContextualMenuProps = {
@@ -102,7 +80,7 @@ class Header extends React.Component<IProp> {
               {this.isAdmin && <span className='ml5 fs14'>(Admin)</span>}
             </div>
           </div>
-          {menuListProps.items.map((it) => <ActionButton className='fgwhite ml10' key={it.key}>{it.text}</ActionButton>)}
+          {menuListProps.items.map((it) => <ActionButton className='fgwhite ml10' key={it.key} onClick={this.logoutClick}>{it.text}</ActionButton>)}
           {/* {defaultRender(menuListProps)} */}
         </div>
       );
@@ -138,7 +116,7 @@ class Header extends React.Component<IProp> {
 
   public render() {
     const href = window.location.href;
-    const path = href.substr(href.lastIndexOf('/') + 1);
+    const path = href.substring(href.lastIndexOf('/') + 1);
     let key = String(keys.indexOf(path));
     if (href.includes('semanticmodel')) key = '4'; //just hack - nav code here needs to be cleaned up!
     if (href.includes('digitaltwin')) key = '3'; //just hack - nav code here needs to be cleaned up!
@@ -158,7 +136,7 @@ class Header extends React.Component<IProp> {
           })}
           {/* <PivotItem key='search' className='ml20 mr20' headerText='' itemIcon='search' /> */}
         </Pivot>}
-        {/* { this.isAdmin &&  <div className='cpointer' onClick={() => this.onBoardingClick()}>Invite Business Partner</div> } */}
+        { this.isAdmin &&  <div className='cpointer' onClick={() => this.onBoardingClick()}>Invite Business Partner</div> }
         <div className='flex1' />
         <div className='df aic'>
           <div className='df flex1 fdr jcfe mr20'><div className='cpointer fgblue' onClick={()=> this.props.history.push('/home/help')}>Help</div></div>
