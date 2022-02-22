@@ -12,5 +12,6 @@ namespace CatenaX.NetworkServices.Provisioning.Library
         Task<bool> AssignClientRolesToCentralUserAsync(string centralUserId, IDictionary<string,IEnumerable<string>> clientRoleNames);
         Task<IEnumerable<string>> GetClientRolesCompositeAsync(string clientId);
         Task<IEnumerable<string>> GetUserClientRoleMappingsCompositeAsync(string userId, string clientId);
+        public Task<string> GetOrganisationFromCentralIdentityProviderMapperAsync(string alias);
     }
 }

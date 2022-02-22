@@ -106,6 +106,14 @@ namespace CatenaX.NetworkServices.Provisioning.Library
             });
         }
 
+        public async Task<string> GetOrganisationFromCentralIdentityProviderMapperAsync(string alias)
+        {
+            var mapperName = _Settings.MappedCompanyAttribute + "-mapper";
+            var mapper = (await _CentralIdp.GetIdentityProviderMappersAsync(_Settings.CentralRealm, alias).ConfigureAwait(false))
+                .SingleOrDefault( x => x.Name.Equals(mapperName));
+            return mapper == null ? null : mapper.Config["attribute.value"] as string;
+        }
+
         private IdentityProvider CloneIdentityProvider(IdentityProvider identityProvider) =>
             JsonSerializer.Deserialize<IdentityProvider>(JsonSerializer.Serialize(identityProvider));
     }
