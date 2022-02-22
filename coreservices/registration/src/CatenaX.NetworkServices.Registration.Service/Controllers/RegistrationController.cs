@@ -42,15 +42,14 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
         {
             try
             {
-                var organisation = User.Claims.SingleOrDefault( x => x.Type=="organisation").Value as string;
                 var createdByEmail = User.Claims.SingleOrDefault( x => x.Type=="preferred_username").Value as string;
                 var createdByName = User.Claims.SingleOrDefault( x => x.Type=="name").Value as string;
-                if (await _registrationBusinessLogic.CreateUsersAsync(usersToCreate, tenant, organisation, createdByEmail, createdByName).ConfigureAwait(false))
+                var createdUsers = await _registrationBusinessLogic.CreateUsersAsync(usersToCreate, tenant, createdByEmail, createdByName).ConfigureAwait(false);
                 {
-                    return new OkResult();
+                    return Ok(createdUsers);
                 }
-                _logger.LogError("unsuccessful");
-                return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+                //_logger.LogError("unsuccessful");
+                //return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
             }
             catch (Exception e)
             {
