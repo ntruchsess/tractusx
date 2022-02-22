@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { InfoBox } from '../Functional/InfoBox'
-import { UserMenu } from '../Menu/UserMenu'
+import { InfoBox } from '../../functional/InfoBox'
+import { UserMenu } from '../../frame/UserMenu/UserMenu'
 import './UserInfo.css'
 
 interface UserInfoProps {

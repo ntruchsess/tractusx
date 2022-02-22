@@ -1,5 +1,5 @@
 import UserService from '../../../../services/UserService'
-import { Menu } from '../basic/Menu'
+import { Menu } from '../../basic/Menu/Menu'
 import './UserMenu.css'
 
 export const UserMenu = () => (
