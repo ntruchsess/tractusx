@@ -12,6 +12,7 @@ using CatenaX.NetworkServices.Registration.Service.RegistrationAccess;
 using Keycloak.Net;
 using Keycloak.Net.Models.Users;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using PasswordGenerator;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -20,16 +21,16 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
 {
     public class RegistrationBusinessLogic : IRegistrationBusinessLogic
     {
-        private readonly IConfiguration _configuration;
+        private readonly RegistrationSettings _settings;
         private readonly IRegistrationDBAccess _dbAccess;
         private readonly IMailingService _mailingService;
         private readonly IBPNAccess _bpnAccess;
         private readonly ICustodianService _custodianService;
         private readonly IProvisioningManager _provisioningManager;
 
-        public RegistrationBusinessLogic(IConfiguration configuration, IRegistrationDBAccess registrationDBAccess, IMailingService mailingService, IBPNAccess bpnAccess, ICustodianService custodianService, IProvisioningManager provisioningManager)
+        public RegistrationBusinessLogic(IOptions<RegistrationSettings> settings, IRegistrationDBAccess registrationDBAccess, IMailingService mailingService, IBPNAccess bpnAccess, ICustodianService custodianService, IProvisioningManager provisioningManager)
         {
-            _configuration = configuration;
+            _settings = settings.Value;
             _dbAccess = registrationDBAccess;
             _mailingService = mailingService;
             _bpnAccess = bpnAccess;
@@ -41,7 +42,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
         {
             var idpName = tenant;
             var organisationName = organisation;
-            var clientId = _configuration.GetValue<string>("KeyCloakClientID");
+            var clientId = _settings.KeyCloakClientID;
             var pwd = new Password();
             foreach (UserCreationInfo user in usersToCreate)
             {
@@ -76,7 +77,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
                     { "message", user.Message },
                     { "eMailPreferredUsernameCreatedBy", createdByEmail },
                     { "nameCreatedBy", createdByName ?? createdByEmail},
-                    { "url", $"{_configuration.GetValue<string>("BasePortalAddress")}"},
+                    { "url", $"{_settings.BasePortalAddress}"},
                     { "username", user.eMail},
                     
                 };
@@ -89,11 +90,8 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
         public Task<List<string>> GetAvailableUserRoleAsync() =>
             Task.FromResult(UserRoles.Roles);
 
-        public Task<IEnumerable<string>> GetClientRolesCompositeAsync(string clientId) =>
-            _provisioningManager.GetClientRolesCompositeAsync(clientId);
-
-        public Task<IEnumerable<string>> GetUserClientRoleMappingsCompositeAsync(string userId, string clientId) =>
-            _provisioningManager.GetUserClientRoleMappingsCompositeAsync(userId,clientId);
+        public Task<IEnumerable<string>> GetClientRolesCompositeAsync() =>
+            _provisioningManager.GetClientRolesCompositeAsync(_settings.KeyCloakClientID);
 
         public Task<List<FetchBusinessPartnerDto>> GetCompanyByIdentifierAsync(string companyIdentifier) =>
             _bpnAccess.FetchBusinessPartner(companyIdentifier);
