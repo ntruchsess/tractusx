@@ -41,10 +41,10 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
             _logger = logger;
         }
 
-        public async Task<IEnumerable<string>> CreateUsersAsync(List<UserCreationInfo> usersToCreate, string tenant, string organisation, string createdByEmail, string createdByName)
+        public async Task<IEnumerable<string>> CreateUsersAsync(List<UserCreationInfo> usersToCreate, string tenant, string createdByEmail, string createdByName)
         {
             var idpName = tenant;
-            var organisationName = organisation;
+            var organisationName = await _provisioningManager.GetOrganisationFromCentralIdentityProviderMapperAsync(idpName).ConfigureAwait(false);
             var clientId = _configuration.GetValue<string>("KeyCloakClientID");
             var pwd = new Password();
             List<string> userList = new List<string>();
