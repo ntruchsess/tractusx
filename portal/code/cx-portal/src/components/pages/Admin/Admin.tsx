@@ -4,5 +4,5 @@ export default function Admin() {
       <h2>Administration</h2>
       <p>content of the admin area</p>
     </main>
-  );
+  )
 }

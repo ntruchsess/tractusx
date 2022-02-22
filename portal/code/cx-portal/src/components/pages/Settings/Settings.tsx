@@ -4,5 +4,5 @@ export default function Settings() {
       <h2>Settings</h2>
       <p>language switch, etc...</p>
     </main>
-  );
+  )
 }

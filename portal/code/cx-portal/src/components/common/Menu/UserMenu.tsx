@@ -1,6 +1,6 @@
-import UserService from "../../../services/UserService";
-import { Menu } from "./Menu";
-import "./UserMenu.css";
+import UserService from '../../../services/UserService'
+import { Menu } from './Menu'
+import './UserMenu.css'
 
 export const UserMenu = () => (
   <div className="UserMenu">
@@ -17,18 +17,18 @@ export const UserMenu = () => (
       items={
         UserService.isAdmin()
           ? [
-              { url: "/authinfo", label: "Auth Info" },
-              { url: "/settings", label: "Settings" },
-              { url: "/admin", label: "Administration" },
-              { url: "/developer", label: "Developer" },
-              { url: "/logout", label: "Sign Out" },
+              { url: '/authinfo', label: 'Auth Info' },
+              { url: '/settings', label: 'Settings' },
+              { url: '/admin', label: 'Administration' },
+              { url: '/developer', label: 'Developer' },
+              { url: '/logout', label: 'Sign Out' },
             ]
           : [
-              { url: "/authinfo", label: "Auth Info" },
-              { url: "/settings", label: "Settings" },
-              { url: "/logout", label: "Sign Out" },
+              { url: '/authinfo', label: 'Auth Info' },
+              { url: '/settings', label: 'Settings' },
+              { url: '/logout', label: 'Sign Out' },
             ]
       }
     />
   </div>
-);
+)

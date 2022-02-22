@@ -1,14 +1,14 @@
-import { useParams, useNavigate } from "react-router-dom";
-import { getApp, deleteApp } from "../../../services/AppService";
+import { useParams, useNavigate } from 'react-router-dom'
+import { getApp, deleteApp } from '../../../services/AppService'
 
-import "./AppstoreAppDetail.css";
+import './AppstoreAppDetail.css'
 
 export default function AppstoreAppDetail() {
-  const navigate = useNavigate();
-  const params = useParams();
+  const navigate = useNavigate()
+  const params = useParams()
   //TODO:
   //switch to redux
-  const app = getApp(parseInt(params.appId || "0", 10));
+  const app = getApp(parseInt(params.appId || '0', 10))
 
   return (
     <div className="appstore_app">
@@ -23,13 +23,13 @@ export default function AppstoreAppDetail() {
       <p>
         <button
           onClick={() => {
-            deleteApp(app?.id || 0);
-            navigate("/appstore");
+            deleteApp(app?.id || 0)
+            navigate('/appstore')
           }}
         >
           buy
         </button>
       </p>
     </div>
-  );
+  )
 }

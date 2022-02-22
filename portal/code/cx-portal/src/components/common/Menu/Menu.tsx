@@ -1,13 +1,13 @@
-import { NavLink } from "react-router-dom";
-import "./Menu.css";
+import { NavLink } from 'react-router-dom'
+import './Menu.css'
 
 interface MenuItem {
-  url: string;
-  label: string;
+  url: string
+  label: string
 }
 
 interface MenuProps {
-  items: MenuItem[];
+  items: MenuItem[]
 }
 
 export const Menu = ({ items }: MenuProps) => (
@@ -18,4 +18,4 @@ export const Menu = ({ items }: MenuProps) => (
       </NavLink>
     ))}
   </nav>
-);
+)

@@ -4,5 +4,5 @@ export default function Connector() {
       <h2>The Connector</h2>
       <p>content of the connector</p>
     </main>
-  );
+  )
 }

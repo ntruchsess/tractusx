@@ -1,7 +1,7 @@
-import { NavLink } from "react-router-dom";
-import { UserInfo } from "../UserInfo/UserInfo";
-import { Logo } from "../Logo/Logo";
-import "./Header.css";
+import { NavLink } from 'react-router-dom'
+import { UserInfo } from '../UserInfo/UserInfo'
+import { Logo } from '../Logo/Logo'
+import './Header.css'
 
 export const Header = () => (
   <header>
@@ -14,4 +14,4 @@ export const Header = () => (
     </nav>
     <UserInfo />
   </header>
-);
+)

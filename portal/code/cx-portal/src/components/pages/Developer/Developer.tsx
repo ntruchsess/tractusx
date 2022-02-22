@@ -1,4 +1,4 @@
-import "./Developer.css";
+import './Developer.css'
 
 export default function Developer() {
   return (
@@ -6,5 +6,5 @@ export default function Developer() {
       <h2>Developer</h2>
       <a href="/storybook">Storybook</a>
     </main>
-  );
+  )
 }

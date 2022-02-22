@@ -1,19 +1,19 @@
-import App from "./App";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Dashboard from "./pages/Dashboard/Dashboard";
-import Appstore from "./pages/Appstore/Appstore";
-import DataCatalog from "./pages/DataCatalog/DataCatalog";
-import AppstoreAppDetail from "./pages/Appstore/AppstoreAppDetail";
-import Admin from "./pages/Admin/Admin";
-import Authinfo from "./pages/Authinfo/Authinfo";
-import Applications from "./pages/Applications/Applications";
-import DigitalTwins from "./pages/DigitalTwins/DigitalTwins";
-import SemanticHub from "./pages/SemanticHub/SemanticHub";
-import Connector from "./pages/Connector/Connector";
-import DeveloperHub from "./pages/DeveloperHub/DeveloperHub";
-import Logout from "./pages/Logout/Logout";
-import Settings from "./pages/Settings/Settings";
-import Developer from "./pages/Developer/Developer";
+import App from './App'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Dashboard from './pages/Dashboard/Dashboard'
+import Appstore from './pages/Appstore/Appstore'
+import DataCatalog from './pages/DataCatalog/DataCatalog'
+import AppstoreAppDetail from './pages/Appstore/AppstoreAppDetail'
+import Admin from './pages/Admin/Admin'
+import Authinfo from './pages/Authinfo/Authinfo'
+import Applications from './pages/Applications/Applications'
+import DigitalTwins from './pages/DigitalTwins/DigitalTwins'
+import SemanticHub from './pages/SemanticHub/SemanticHub'
+import Connector from './pages/Connector/Connector'
+import DeveloperHub from './pages/DeveloperHub/DeveloperHub'
+import Logout from './pages/Logout/Logout'
+import Settings from './pages/Settings/Settings'
+import Developer from './pages/Developer/Developer'
 
 export default function Router() {
   return (
@@ -54,5 +54,5 @@ export default function Router() {
         </Route>
       </Routes>
     </BrowserRouter>
-  );
+  )
 }

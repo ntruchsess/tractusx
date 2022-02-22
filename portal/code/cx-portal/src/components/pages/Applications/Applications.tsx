@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
-import "./Applications.css";
+import { NavLink } from 'react-router-dom'
+import './Applications.css'
 
 export default function Applications() {
   return (
@@ -12,5 +12,5 @@ export default function Applications() {
         <NavLink to="/connector">Connector</NavLink>
       </nav>
     </main>
-  );
+  )
 }

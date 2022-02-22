@@ -1,23 +1,23 @@
-import { useState, useEffect } from "react";
-import { useSearchParams, Outlet } from "react-router-dom";
-import { AppstoreApp } from "./AppstoreApp";
-import { getApps } from "../../../services/AppService";
-import "./Appstore.css";
+import { useState, useEffect } from 'react'
+import { useSearchParams, Outlet } from 'react-router-dom'
+import { AppstoreApp } from './AppstoreApp'
+import { getApps } from '../../../services/AppService'
+import './Appstore.css'
 
 type ErrorType = {
-  message?: string;
-};
+  message?: string
+}
 
 type ItemType = {
-  id: number;
-  name: string;
-  price: string;
-};
+  id: number
+  name: string
+  price: string
+}
 
 export default function Appstore() {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const filter = new RegExp(searchParams.get("filter") || "", "i");
-  const items = getApps();
+  const [searchParams, setSearchParams] = useSearchParams()
+  const filter = new RegExp(searchParams.get('filter') || '', 'i')
+  const items = getApps()
   /*
   const [error, setError] = useState<ErrorType>({});
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
@@ -50,7 +50,7 @@ export default function Appstore() {
       <main className="Appstore">
         <input
           autoFocus={true}
-          value={searchParams.get("filter") || ""}
+          value={searchParams.get('filter') || ''}
           onChange={(event) =>
             setSearchParams({ filter: event.target.value }, { replace: true })
           }
@@ -64,6 +64,6 @@ export default function Appstore() {
         </nav>
         <Outlet />
       </main>
-    );
+    )
   }
 }
