@@ -15,7 +15,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
         Task<IEnumerable<string>> GetClientRolesCompositeAsync(string clientId);
         Task<IEnumerable<string>> GetUserClientRoleMappingsCompositeAsync(string userId, string clientId);
         Task<IEnumerable<CompanyRole>> GetCompanyRolesAsync();
-        Task<bool> CreateUsersAsync(List<UserCreationInfo> userList, string tenant, string organisation, string createdByEmail, string createdByName);
+        Task<IEnumerable<string>> CreateUsersAsync(List<UserCreationInfo> userList, string tenant, string organisation, string createdByEmail, string createdByName);
         Task SetCompanyRolesAsync(CompanyToRoles rolesToSet);
         Task<IEnumerable<ConsentForCompanyRole>> GetConsentForCompanyRoleAsync(int roleId);
         Task SignConsentAsync(SignConsentRequest signedConsent);

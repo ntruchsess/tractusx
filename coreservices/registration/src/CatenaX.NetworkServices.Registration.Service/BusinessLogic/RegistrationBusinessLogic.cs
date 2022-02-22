@@ -12,7 +12,9 @@ using CatenaX.NetworkServices.Registration.Service.RegistrationAccess;
 using Keycloak.Net;
 using Keycloak.Net.Models.Users;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using PasswordGenerator;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -26,8 +28,9 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
         private readonly IBPNAccess _bpnAccess;
         private readonly ICustodianService _custodianService;
         private readonly IProvisioningManager _provisioningManager;
+        private readonly ILogger<RegistrationBusinessLogic> _logger;
 
-        public RegistrationBusinessLogic(IConfiguration configuration, IRegistrationDBAccess registrationDBAccess, IMailingService mailingService, IBPNAccess bpnAccess, ICustodianService custodianService, IProvisioningManager provisioningManager)
+        public RegistrationBusinessLogic(IConfiguration configuration, IRegistrationDBAccess registrationDBAccess, IMailingService mailingService, IBPNAccess bpnAccess, ICustodianService custodianService, IProvisioningManager provisioningManager, ILogger<RegistrationBusinessLogic> logger)
         {
             _configuration = configuration;
             _dbAccess = registrationDBAccess;
@@ -35,55 +38,66 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
             _bpnAccess = bpnAccess;
             _custodianService = custodianService;
             _provisioningManager = provisioningManager;
+            _logger = logger;
         }
 
-        public async Task<bool> CreateUsersAsync(List<UserCreationInfo> usersToCreate, string tenant, string organisation, string createdByEmail, string createdByName)
+        public async Task<IEnumerable<string>> CreateUsersAsync(List<UserCreationInfo> usersToCreate, string tenant, string organisation, string createdByEmail, string createdByName)
         {
             var idpName = tenant;
             var organisationName = organisation;
             var clientId = _configuration.GetValue<string>("KeyCloakClientID");
             var pwd = new Password();
+            List<string> userList = new List<string>();
             foreach (UserCreationInfo user in usersToCreate)
             {
-                var password = pwd.Next();
-                var centralUserId = await _provisioningManager.CreateSharedUserLinkedToCentralAsync(idpName, new UserProfile {
-                    UserName = user.userName ?? user.eMail,
-                    FirstName = user.firstName,
-                    LastName = user.lastName,
-                    Email = user.eMail,
-                    Password = password
-                }, organisationName).ConfigureAwait(false);
-
-                if (centralUserId == null) return false;
-
-                var clientRoleNames = new Dictionary<string, IEnumerable<string>>
+                try
                 {
-                    { clientId, new []{user.Role}}
-                };
+                    var password = pwd.Next();
+                    var centralUserId = await _provisioningManager.CreateSharedUserLinkedToCentralAsync(idpName, new UserProfile {
+                        UserName = user.userName ?? user.eMail,
+                        FirstName = user.firstName,
+                        LastName = user.lastName,
+                        Email = user.eMail,
+                        Password = password
+                    }, organisationName).ConfigureAwait(false);
 
-                if (!await _provisioningManager.AssignClientRolesToCentralUserAsync(centralUserId, clientRoleNames).ConfigureAwait(false)) return false;
+                    if (centralUserId == null) continue;
 
-                var inviteTemplateName = "invite";
-                if (!string.IsNullOrWhiteSpace(user.Message))
-                { 
-                    inviteTemplateName = "inviteWithMessage";
-                }
+                    var clientRoleNames = new Dictionary<string, IEnumerable<string>>
+                    {
+                        { clientId, new []{user.Role}}
+                    };
 
-                var mailParameters = new Dictionary<string, string>
-                {
-                    { "password", password },
-                    { "companyname", organisationName },
-                    { "message", user.Message },
-                    { "eMailPreferredUsernameCreatedBy", createdByEmail },
-                    { "nameCreatedBy", createdByName ?? createdByEmail},
-                    { "url", $"{_configuration.GetValue<string>("BasePortalAddress")}"},
-                    { "username", user.eMail},
+                    if (!await _provisioningManager.AssignClientRolesToCentralUserAsync(centralUserId, clientRoleNames).ConfigureAwait(false)) continue;
+
+                    var inviteTemplateName = "invite";
+                    if (!string.IsNullOrWhiteSpace(user.Message))
+                    { 
+                        inviteTemplateName = "inviteWithMessage";
+                    }
+
+                    var mailParameters = new Dictionary<string, string>
+                    {
+                        { "password", password },
+                        { "companyname", organisationName },
+                        { "message", user.Message },
+                        { "eMailPreferredUsernameCreatedBy", createdByEmail },
+                        { "nameCreatedBy", createdByName ?? createdByEmail},
+                        { "url", $"{_configuration.GetValue<string>("BasePortalAddress")}"},
+                        { "username", user.eMail},
                     
-                };
+                    };
 
-                await _mailingService.SendMails(user.eMail, mailParameters, new List<string> { inviteTemplateName, "password" }).ConfigureAwait(false);
+                    await _mailingService.SendMails(user.eMail, mailParameters, new List<string> { inviteTemplateName, "password" }).ConfigureAwait(false);
+
+                    userList.Add(user.eMail);
+                }
+                catch (Exception e)
+                {
+                _logger.LogError(e, "Error while creating user");
+                }
             }
-            return true;
+            return userList;
         }
 
         public Task<List<string>> GetAvailableUserRoleAsync() =>
