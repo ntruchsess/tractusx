@@ -1,51 +1,65 @@
 [
-    {
-        "name": "BPDM Services",
-        "id": 993,
-        "rating": 4.3,
-        "price": "$2,200",
-        "rel": "12/05/2021"
-    },
-    {
-        "name": "Circular Economy",
-        "id": 1995,
-        "price": "$10,800",
-        "rel": "12/05/1995"
-    },
-    {
-        "name": "SAP - Material Traceability",
-        "id": 2000,
-        "price": "$8,000",
-        "rel": "10/31/2000"
-    },
-    {
-        "name": "k.a.p.u.t.t. - Material Traceability",
-        "id": 2002,
-        "price": "$8,000",
-        "rel": "10/31/2000"
-    },
-    {
-        "name": "Part Chain",
-        "id": 2003,
-        "price": "$9,500",
-        "rel": "07/22/2003"
-    },
-    {
-        "name": "Killer App",
-        "id": 2099,
-        "price": "$99,500",
-        "rel": "07/22/2003"
-    },
-    {
-        "name": "App2Go",
-        "id": 2091,
-        "price": "$510",
-        "rel": "07/22/2003"
-    },
-    {
-        "name": "Component Performance Monitor",
-        "id": 1997,
-        "price": "$14,000",
-        "rel": "09/01/1997"
-    }
+  {
+    "id": "1001",
+    "name": "Amazing Material Traceability",
+    "vendor": "Catena-X",
+    "version": "0.1.0-beta",
+    "description": "i18n.app.1001.description",
+    "license": "Catena-X Unbelievable License",
+    "rating": 4.7
+  },
+  {
+    "id": "1002",
+    "name": "Circular Economy",
+    "vendor": "The Circular Company",
+    "version": "3.2.11",
+    "description": "i18n.app.1002.description",
+    "license": "Apache License",
+    "rating": 4.4
+  },
+  {
+    "id": "1003",
+    "name": "XKCD Data",
+    "vendor": "XKCD",
+    "version": "0.8.15",
+    "description": "i18n.app.1003.description",
+    "license": "MIT",
+    "rating": 3.9
+  },
+  {
+    "id": "1004",
+    "name": "Business Chinese Translator",
+    "vendor": "Translinguando",
+    "version": "0.1.2",
+    "description": "i18n.app.1004.description",
+    "license": "Apache License",
+    "rating": 4.2
+  },
+  {
+    "id": "1005",
+    "name": "The app with the longest name",
+    "vendor": "Some company with a really long name",
+    "version": "5.8.0",
+    "description": "i18n.app.1005.description",
+    "license": "some license name",
+    "rating": 4.6
+  },
+  {
+    "id": "1006",
+    "name": "Our Incredible Data",
+    "vendor": "BMW",
+    "version": "2.333.6715",
+    "description": "i18n.app.1006.description",
+    "license": "BMW Catena-X License",
+    "rating": 4.5
+  },
+  {
+    "id": "1007",
+    "name": "Last app on this list",
+    "vendor": "It wasn't me",
+    "version": "8",
+    "description": "i18n.app.1006.description",
+    "license": "okay",
+    "rating": 4.9
+  }
 ]

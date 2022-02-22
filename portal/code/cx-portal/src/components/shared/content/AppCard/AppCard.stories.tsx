@@ -1,10 +1,11 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { MemoryRouter } from 'react-router-dom'
-import { AppstoreApp } from './AppstoreApp'
+import { testAppData } from '../../../../test/data/AppData'
+import { AppCard } from './AppCard'
 
 export default {
-  title: 'Catena-X/AppstoreApp',
-  component: AppstoreApp,
+  title: 'Catena-X/AppCard',
+  component: AppCard,
   parameters: {
     layout: 'fullscreen',
   },
@@ -16,18 +17,13 @@ export default {
     ),
   ],
   styles: ['./components/App.css'],
-} as ComponentMeta<typeof AppstoreApp>
+} as ComponentMeta<typeof AppCard>
 
-const Template: ComponentStory<typeof AppstoreApp> = (args) => (
-  <AppstoreApp {...args} />
+const Template: ComponentStory<typeof AppCard> = (args) => (
+  <AppCard {...args} />
 )
 
 export const Standard = Template.bind({})
 Standard.args = {
-  app: {
-    name: 'Circular Economy',
-    id: 1995,
-    price: '$10,800',
-    rel: '12/05/1995',
-  },
+  app: testAppData[0],
 }

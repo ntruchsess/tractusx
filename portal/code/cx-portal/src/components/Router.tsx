@@ -1,9 +1,8 @@
-import App from './App'
+import Main from './Main'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Dashboard from './pages/Dashboard/Dashboard'
-import Appstore from './pages/Appstore/Appstore'
+import Appstore from './pages/Appstore/MockAppstoreSync'
 import DataCatalog from './pages/DataCatalog/DataCatalog'
-import AppstoreAppDetail from './pages/Appstore/AppstoreAppDetail'
 import Admin from './pages/Admin/Admin'
 import Authinfo from './pages/Authinfo/Authinfo'
 import Applications from './pages/Applications/Applications'
@@ -14,12 +13,13 @@ import DeveloperHub from './pages/DeveloperHub/DeveloperHub'
 import Logout from './pages/Logout/Logout'
 import Settings from './pages/Settings/Settings'
 import Developer from './pages/Developer/Developer'
+import AppDetail from './shared/content/AppDetail/AppDetail'
 
 export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />}>
+        <Route path="/" element={<Main />}>
           <Route path="/" element={<Dashboard />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="appstore" element={<Appstore />}>
@@ -31,7 +31,7 @@ export default function Router() {
                 </main>
               }
             />
-            <Route path=":appId" element={<AppstoreAppDetail />} />
+            <Route path=":appId" element={<AppDetail />} />
           </Route>
           <Route path="/catalog" element={<DataCatalog />} />
           <Route path="/applications" element={<Applications />} />
