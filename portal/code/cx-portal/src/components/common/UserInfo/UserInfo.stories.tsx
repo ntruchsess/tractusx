@@ -1,22 +1,28 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { MemoryRouter } from 'react-router-dom';
-import { UserInfo } from './UserInfo'
+import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { MemoryRouter } from "react-router-dom";
+import { UserInfo } from "./UserInfo";
 
 export default {
-  title: 'Catena-X/UserInfo',
+  title: "Catena-X/UserInfo",
   component: UserInfo,
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
-  decorators: [Story => (<MemoryRouter><Story /></MemoryRouter>)],
-  styles: [
-    './components/App.css'
+  decorators: [
+    (Story) => (
+      <MemoryRouter>
+        <Story />
+      </MemoryRouter>
+    ),
   ],
-} as ComponentMeta<typeof UserInfo>
+  styles: ["./components/App.css"],
+} as ComponentMeta<typeof UserInfo>;
 
-const Template: ComponentStory<typeof UserInfo> = args => <UserInfo {...args} />
+const Template: ComponentStory<typeof UserInfo> = (args) => (
+  <UserInfo {...args} />
+);
 
 export const Standard = Template.bind({});
 Standard.args = {
-  isAdmin: false
+  isAdmin: false,
 };

@@ -1,5 +1,3 @@
-import { NavLink } from "react-router-dom";
-import "../pages.css";
 import "./Developer.css";
 
 export default function Developer() {

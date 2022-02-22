@@ -12,5 +12,5 @@ test("renders the header", () => {
       </MemoryRouter>
     </Provider>
   );
-  expect(container.querySelector('header')).toBeInTheDocument();
+  expect(container.querySelector("header")).toBeInTheDocument();
 });

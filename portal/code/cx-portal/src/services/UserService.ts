@@ -15,7 +15,7 @@ const kcConfig = {
   clientId: CX_CLIENT,
   "ssl-required": "external",
   "public-client": true,
-}
+};
 
 const _kc = new (Keycloak as any)(kcConfig);
 

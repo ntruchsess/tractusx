@@ -24,9 +24,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "pretty": "prettier --write \"./src/**/*.{ts,tsx,js,jsx,json}\"",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "dist": "npm run build && rm -rf build/storybook && cp -R storybook-static build/storybook && mkdir -p dist && cd build && 7z u ../dist/build.zip .",
+    "dist": "yarn run build && rm -rf build/storybook && yarn build-storybook && cp -R storybook-static build/storybook && mkdir -p dist && cd build && 7z u ../dist/build.zip .",
     "deploy": "export CX_ENV=${CX_ENV:-dev003} && az webapp deployment source config-zip --resource-group catenax-${CX_ENV}-rg --name catenax-${CX_ENV}-new-portal --src ./dist/build.zip"
   },
   "eslintConfig": {

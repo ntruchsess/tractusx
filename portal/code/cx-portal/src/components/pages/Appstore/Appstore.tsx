@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useSearchParams, Outlet } from "react-router-dom";
 import { AppstoreApp } from "./AppstoreApp";
-import './Appstore.css'
 import { getApps } from "../../../services/AppService";
+import "./Appstore.css";
 
 type ErrorType = {
   message?: string;
@@ -45,7 +45,7 @@ export default function Appstore() {
     return <div>Loading...</div>;
   } else
   */
-   {
+  {
     return (
       <main className="Appstore">
         <input
@@ -57,7 +57,7 @@ export default function Appstore() {
         />
         <nav>
           {items
-            .filter(item => filter.test(item.name))
+            .filter((item) => filter.test(item.name))
             .map((app) => (
               <AppstoreApp key={app.id} app={app} />
             ))}

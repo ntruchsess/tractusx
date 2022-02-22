@@ -3,17 +3,9 @@ import { UserInfo } from "../UserInfo/UserInfo";
 import { Logo } from "../Logo/Logo";
 import "./Header.css";
 
-type User = {
-  name: string;
-};
-
-interface HeaderProps {
-  user?: User;
-}
-
-export const Header = ({ user }: HeaderProps) => (
+export const Header = () => (
   <header>
-    <Logo/>
+    <Logo />
     <nav>
       <NavLink to="/">Dashboard</NavLink>
       <NavLink to="/appstore">App Store</NavLink>

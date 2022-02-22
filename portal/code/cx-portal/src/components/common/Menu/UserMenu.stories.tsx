@@ -1,19 +1,23 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { MemoryRouter } from 'react-router-dom';
-import { UserMenu } from './UserMenu'
+import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { MemoryRouter } from "react-router-dom";
+import { UserMenu } from "./UserMenu";
 
 export default {
-  title: 'Catena-X/UserMenu',
+  title: "Catena-X/UserMenu",
   component: UserMenu,
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
-  decorators: [Story => (<MemoryRouter><Story /></MemoryRouter>)],
-  styles: [
-    './components/App.css'
+  decorators: [
+    (Story) => (
+      <MemoryRouter>
+        <Story />
+      </MemoryRouter>
+    ),
   ],
-} as ComponentMeta<typeof UserMenu>
+  styles: ["./components/App.css"],
+} as ComponentMeta<typeof UserMenu>;
 
-const Template: ComponentStory<typeof UserMenu> = () => <UserMenu />
+const Template: ComponentStory<typeof UserMenu> = () => <UserMenu />;
 
 export const Standard = Template.bind({});
