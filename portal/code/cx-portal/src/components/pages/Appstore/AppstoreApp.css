@@ -10,7 +10,7 @@ nav > a {
     box-shadow: 0 1px 4px 0 rgb(0 0 0 / 20%);
     border-radius: 4px;
     margin: 5px;
-    padding: 10px;
+    padding: 20px;
     width: 170px;
     height: 120px;
     z-index: 1;
@@ -37,6 +37,7 @@ nav > a {
 .rating {
     position: absolute;
     bottom: 0px;
+    right: 12px;
     font-size: 14px;
     font-weight: bold;
     z-index: 1;
