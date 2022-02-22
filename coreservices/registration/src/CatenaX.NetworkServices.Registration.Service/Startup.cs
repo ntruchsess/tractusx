@@ -66,7 +66,9 @@ namespace CatenaX.NetworkServices.Registration.Service
                 c.SwaggerDoc(VERSION, new OpenApiInfo { Title = TAG, Version = VERSION });
             });
 
-            services.AddTransient<IRegistrationBusinessLogic, RegistrationBusinessLogic>();
+            services.AddTransient<IRegistrationBusinessLogic, RegistrationBusinessLogic>()
+                    .ConfigureRegistrationSettings(Configuration.GetSection("Registration"));
+
             services.AddTransient<IRegistrationDBAccess, RegistrationDBAccess>();
 
             services.AddCustodianService(Configuration.GetSection("Custodian"));
@@ -102,12 +104,6 @@ namespace CatenaX.NetworkServices.Registration.Service
 
             services.AddTransient<IProvisioningManager, ProvisioningManager>()
                     .ConfigureProvisioningSettings(Configuration.GetSection("Provisioning"));
-
-            // this HttpClient for keycloak should now be obsolete (are there other uses than the (now removed) ValidateToken within the controller?)
-            services.AddHttpClient("keycloak", c =>
-            {
-                c.BaseAddress = new Uri($"{ Configuration.GetValue<string>("KeyCloakConnectionString")}/auth/realms/");
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

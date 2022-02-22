@@ -29,8 +29,7 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
 
         [HttpGet]
         [Authorize(Roles="add_company_data")]
-        [Authorize(Policy="CheckTenant")]
-        [Route("company/{tenant}/{bpn}")]
+        [Route("company/{bpn}")]
         [ProducesResponseType(typeof(Company), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetOneObjectAsync([FromRoute] string bpn) =>
             new OkObjectResult(await _registrationBusinessLogic.GetCompanyByIdentifierAsync(bpn).ConfigureAwait(false));
@@ -62,8 +61,7 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
 
         [HttpPost]
         [Authorize(Roles="submit_registration")]
-        [Authorize(Policy="CheckTenant")]
-        [Route("company/{tenant}/custodianWallet")]
+        [Route("company/custodianWallet")]
         public async Task<IActionResult> CreateWallet([FromBody] WalletInformation walletToCreate)
         {
             await _registrationBusinessLogic.CreateCustodianWalletAsync(walletToCreate).ConfigureAwait(false);
@@ -72,8 +70,7 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
 
         [HttpPut]
         [Authorize(Roles="invite_user")]
-        [Authorize(Policy="CheckTenant")]
-        [Route("company/{tenant}/companyRoles")]
+        [Route("company/companyRoles")]
         public async Task<IActionResult> SetCompanyRolesAsync([FromBody] CompanyToRoles rolesToSet)
         {
             await _registrationBusinessLogic.SetCompanyRolesAsync(rolesToSet).ConfigureAwait(false);
@@ -82,32 +79,28 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
 
         [HttpGet]
         [Authorize(Roles="view_registration")]
-        [Authorize(Policy="CheckTenant")]
-        [Route("company/{tenant}/companyRoles")]
+        [Route("company/companyRoles")]
         [ProducesResponseType(typeof(List<CompanyRole>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetCompanyRolesAsync() =>
             new OkObjectResult((await _registrationBusinessLogic.GetCompanyRolesAsync().ConfigureAwait(false)).ToList());
 
         [HttpGet]
         [Authorize(Roles="sign_consent")]
-        [Authorize(Policy="CheckTenant")]
-        [Route("company/{tenant}/consentsFoCompanyRole/{roleId}")]
+        [Route("company/consentsForCompanyRole/{roleId}")]
         [ProducesResponseType(typeof(List<ConsentForCompanyRole>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetCompanyRolesAsync(int roleId) =>
             new OkObjectResult((await _registrationBusinessLogic.GetConsentForCompanyRoleAsync(roleId).ConfigureAwait(false)).ToList());
 
         [HttpGet]
         [Authorize(Roles="sign_consent")]
-        [Authorize(Policy="CheckTenant")]
-        [Route("company/{tenant}/signedConsentsByCompanyId/{companyId}")]
+        [Route("company/signedConsentsByCompanyId/{companyId}")]
         [ProducesResponseType(typeof(List<SignedConsent>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> SignedConsentsByCompanyIdAsync(string companyId) =>
             new OkObjectResult((await _registrationBusinessLogic.SignedConsentsByCompanyIdAsync(companyId).ConfigureAwait(false)).ToList());
 
         [HttpPut]
         [Authorize(Roles="sign_consent")]
-        [Authorize(Policy="CheckTenant")]
-        [Route("company/{tenant}/signConsent")]
+        [Route("company/signConsent")]
         public async Task<IActionResult> SignConsentAsync([FromBody] SignConsentRequest signConsentRequest)
         {
             await _registrationBusinessLogic.SignConsentAsync(signConsentRequest).ConfigureAwait(false);
@@ -116,8 +109,7 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
 
         [HttpPut]
         [Authorize(Roles="invite_user")]
-        [Authorize(Policy="CheckTenant")]
-        [Route("company/{tenant}/idp")]
+        [Route("company/idp")]
         public async Task<IActionResult> SetIdpAsync([FromBody] SetIdp idpToSet)
         {
             await _registrationBusinessLogic.SetIdpAsync(idpToSet).ConfigureAwait(false);
@@ -127,15 +119,14 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
         [Obsolete] // as the process has changed this is a noop now.
         [HttpPut]
         [Authorize(Roles="submit_registration")]
-        [Authorize(Policy="CheckTenant")]
-        [Route("company/{tenant}/finishRegistration")]
+        [Route("company/finishRegistration")]
         public Task<IActionResult> FinishRegistrationAsync() => Task.FromResult(new OkResult() as IActionResult);
 
-        [HttpGet] // remove or refactor, specifying the realm is pointless as we access the central realm here
+        [HttpGet]
         [Authorize(Roles="view_registration")]
-        [Route("company/{tenant}/clients/{clientId}/rolesComposite")]
+        [Route("rolesComposite")]
         [ProducesResponseType(typeof(List<string>), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> GetClientRolesComposite([FromRoute] string clientId) =>
-            new OkObjectResult((await _registrationBusinessLogic.GetClientRolesCompositeAsync(clientId).ConfigureAwait(false)).ToList());
+        public async Task<IActionResult> GetClientRolesComposite() =>
+            new OkObjectResult((await _registrationBusinessLogic.GetClientRolesCompositeAsync().ConfigureAwait(false)).ToList());
     }
 }

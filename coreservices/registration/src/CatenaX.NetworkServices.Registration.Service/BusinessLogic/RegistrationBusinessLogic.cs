@@ -13,6 +13,7 @@ using Keycloak.Net;
 using Keycloak.Net.Models.Users;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using PasswordGenerator;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
 {
     public class RegistrationBusinessLogic : IRegistrationBusinessLogic
     {
-        private readonly IConfiguration _configuration;
+        private readonly RegistrationSettings _settings;
         private readonly IRegistrationDBAccess _dbAccess;
         private readonly IMailingService _mailingService;
         private readonly IBPNAccess _bpnAccess;
@@ -30,9 +31,9 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
         private readonly IProvisioningManager _provisioningManager;
         private readonly ILogger<RegistrationBusinessLogic> _logger;
 
-        public RegistrationBusinessLogic(IConfiguration configuration, IRegistrationDBAccess registrationDBAccess, IMailingService mailingService, IBPNAccess bpnAccess, ICustodianService custodianService, IProvisioningManager provisioningManager, ILogger<RegistrationBusinessLogic> logger)
+        public RegistrationBusinessLogic(IOptions<RegistrationSettings> settings, IRegistrationDBAccess registrationDBAccess, IMailingService mailingService, IBPNAccess bpnAccess, ICustodianService custodianService, IProvisioningManager provisioningManager, ILogger<RegistrationBusinessLogic> logger)
         {
-            _configuration = configuration;
+            _settings = settings.Value;
             _dbAccess = registrationDBAccess;
             _mailingService = mailingService;
             _bpnAccess = bpnAccess;
@@ -45,7 +46,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
         {
             var idpName = tenant;
             var organisationName = await _provisioningManager.GetOrganisationFromCentralIdentityProviderMapperAsync(idpName).ConfigureAwait(false);
-            var clientId = _configuration.GetValue<string>("KeyCloakClientID");
+            var clientId = _settings.KeyCloakClientID;
             var pwd = new Password();
             List<string> userList = new List<string>();
             foreach (UserCreationInfo user in usersToCreate)
@@ -83,7 +84,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
                         { "message", user.Message },
                         { "eMailPreferredUsernameCreatedBy", createdByEmail },
                         { "nameCreatedBy", createdByName ?? createdByEmail},
-                        { "url", $"{_configuration.GetValue<string>("BasePortalAddress")}"},
+                        { "url", $"{_settings.BasePortalAddress}"},
                         { "username", user.eMail},
                     
                     };
@@ -94,7 +95,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
                 }
                 catch (Exception e)
                 {
-                _logger.LogError(e, "Error while creating user");
+                    _logger.LogError(e, "Error while creating user");
                 }
             }
             return userList;
@@ -103,11 +104,8 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
         public Task<List<string>> GetAvailableUserRoleAsync() =>
             Task.FromResult(UserRoles.Roles);
 
-        public Task<IEnumerable<string>> GetClientRolesCompositeAsync(string clientId) =>
-            _provisioningManager.GetClientRolesCompositeAsync(clientId);
-
-        public Task<IEnumerable<string>> GetUserClientRoleMappingsCompositeAsync(string userId, string clientId) =>
-            _provisioningManager.GetUserClientRoleMappingsCompositeAsync(userId,clientId);
+        public Task<IEnumerable<string>> GetClientRolesCompositeAsync() =>
+            _provisioningManager.GetClientRolesCompositeAsync(_settings.KeyCloakClientID);
 
         public Task<List<FetchBusinessPartnerDto>> GetCompanyByIdentifierAsync(string companyIdentifier) =>
             _bpnAccess.FetchBusinessPartner(companyIdentifier);

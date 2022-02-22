@@ -12,8 +12,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
     {
         Task<List<FetchBusinessPartnerDto>> GetCompanyByIdentifierAsync(string companyIdentifier);
         Task<List<string>> GetAvailableUserRoleAsync();
-        Task<IEnumerable<string>> GetClientRolesCompositeAsync(string clientId);
-        Task<IEnumerable<string>> GetUserClientRoleMappingsCompositeAsync(string userId, string clientId);
+        Task<IEnumerable<string>> GetClientRolesCompositeAsync();
         Task<IEnumerable<CompanyRole>> GetCompanyRolesAsync();
         Task<IEnumerable<string>> CreateUsersAsync(List<UserCreationInfo> userList, string tenant, string createdByEmail, string createdByName);
         Task SetCompanyRolesAsync(CompanyToRoles rolesToSet);
