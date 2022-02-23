@@ -19,49 +19,47 @@ import { PrimaryButton, TextField } from '@fluentui/react';
 import { ToastContainer, toast } from 'react-toastify';
 import Logo from './logo';
 import 'react-toastify/dist/ReactToastify.css';
-// import 'react-toastify/dist/ReactToastify.minimal.css';
+import UserService from "../helpers/UserService";
 
 @observer
 export default class Registrationoneid extends React.Component {
 
+
+
   @observable private email: string = "";
-  @observable private oneId: string = "";
   @observable private firstname: string = "";
   @observable private lastname: string = "";
   @observable private companyname: string = "";
 
   private registrationButtonClick() {
-    console.log("register");
-
-    var u = 'https://catenax-dev003-app-invitation-service.azurewebsites.net/api/invitation'
+    console.log('Roles:',UserService.getRoles());
+    var u = 'http://localhost:5000/api/invitation'
 
     var data =
     {
-     "oneId": this.oneId,
-      "eMail": this.email,
-      "firstname": this.firstname,
-      "lastname": this.lastname,
-      "companyname": this.companyname
+      "userName": this.email,
+      "firstName": this.firstname,
+      "lastName": this.lastname,
+      "email": this.email,
+      "organisationName": this.companyname
     }
 
-    if (this.email === "" || this.oneId === "" || this.firstname === "" || this.lastname === "" || this.companyname === "") {
+    if (this.email === "" || this.firstname === "" || this.lastname === "" || this.companyname === "") {
       toast.error('Mandatory fields not filled. Please fill out all fields.');
       return;
     }
 
 
-    console.log(data);
-
-    fetch(u, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+    fetch(u, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization':`Bearer ${UserService.getToken()}` }, body: JSON.stringify(data) })
       .then((response) => {
         if (response.ok) {
-          toast.success('Onboarding for company id: ' + this.oneId + ' started.');
+          toast.success(`Onboarding for company ${this.companyname} started`);
         }
         else throw Error();
       }
 
       ).catch((error) => {
-        toast.error('Onboarding for company id: ' + this.oneId + ' failed. Company is already registered.')
+        toast.error(`Onboarding for company ${this.companyname} failed`)
       });
 
   }
@@ -72,34 +70,22 @@ export default class Registrationoneid extends React.Component {
 
       <div className='w100pc h100pc df fdc bge1 bgregisterimage ds'>
         <Logo />
-        <div className='df mt100'>
-          <div className='ml40 flex1 df jcc'>
-            <div className='df fdc'>
-              <span className='fs55 bold fg191 lh67'>Welcome</span>
-              <span className='fs55 bold fg191 lh67'>to Catena-X</span>
-              <span className='fs24 bold fg191 lh29'>Automotive Network</span>
-              <span><p className='fs14 fw600 fg191 lh20 mt30'>If you have problems, please <br></br>contact our support.</p></span>
-              <span className='h40 aic df pt24'><p className='fs18 bold fg191 lh40'>HELP? CONTACT US.</p></span>
-              <span className='h20 aic df pt24'><p className='fs18 bold fg191 lh40'>MEMBER? LOGIN.</p></span>
-            </div>
-          </div>
+        <div className='df margin-auto mw800'>
+
           <div className='df fdc flex1 aic'>
             <div className="bgwhite w70pc br7 bsdatacatalog">
             <div className='m40 aic'>
-              <span className='fs20 bold mt20'>Register to Catena-X</span>
+              <span className='fs20 bold mt20'>Invite a Business Partner</span>
             </div>
             <div className='mr40 ml40 aic'>
               <TextField placeholder='Enter  Email - Address' className='w100pc br4 h40' value={this.email} onChange={(ev, val) => this.email = val} />
-              <TextField placeholder='One ID' className='w100pc br4 h40 mt10' value={this.oneId} onChange={(ev, val) => this.oneId = val} />
               <TextField placeholder='First Name' className='w100pc br4 h40 mt10' value={this.firstname} onChange={(ev, val) => this.firstname = val} />
               <TextField placeholder='Last Name' className='w100pc br4 h40 mt10' value={this.lastname} onChange={(ev, val) => this.lastname = val} />
               <TextField placeholder='Company Name' className='w100pc br4 h40 mt10' value={this.companyname} onChange={(ev, val) => this.companyname = val} />
               <PrimaryButton className='w100pc br4 pr10 h40 mt20' text='INVITE' onClick={() => this.registrationButtonClick()} />
             </div>
             <div className='m40 df fdc'>
-              <div className='df jcc'>
-                <img src='/logo_gaiaX.png' alt='logo' />
-              </div>
+
             </div>
             <div className='ml40'>
               </div>
