@@ -115,8 +115,11 @@ namespace CatenaX.NetworkServices.Registration.Service
             }
             if (Configuration.GetValue<bool?>("SwaggerEnabled") != null && Configuration.GetValue<bool>("SwaggerEnabled"))
             {
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint(string.Format("/swagger/{0}/swagger.json",VERSION), string.Format("{0} {1}",TAG,VERSION)));
+                app.UseSwagger( c => c.RouteTemplate = "/api/registration/swagger/{documentName}/swagger.{json|yaml}");
+                app.UseSwaggerUI(c => {
+                    c.SwaggerEndpoint(string.Format("/api/registration/swagger/{0}/swagger.json",VERSION), string.Format("{0} {1}",TAG,VERSION));
+                    c.RoutePrefix = "api/registration/swagger";
+                });
             }
 
             //app.UseHttpsRedirection();
