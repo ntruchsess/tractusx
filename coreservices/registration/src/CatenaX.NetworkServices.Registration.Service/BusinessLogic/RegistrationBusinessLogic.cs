@@ -101,9 +101,6 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
             return userList;
         }
 
-        public Task<List<string>> GetAvailableUserRoleAsync() =>
-            Task.FromResult(UserRoles.Roles);
-
         public Task<IEnumerable<string>> GetClientRolesCompositeAsync() =>
             _provisioningManager.GetClientRolesCompositeAsync(_settings.KeyCloakClientID);
 
