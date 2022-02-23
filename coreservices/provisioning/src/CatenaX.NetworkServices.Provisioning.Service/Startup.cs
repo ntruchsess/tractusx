@@ -50,8 +50,14 @@ namespace CatenaX.NetworkServices.Provisioning.Service
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint(string.Format("/swagger/{0}/swagger.json",VERSION), string.Format("{0} {1}",TAG,VERSION)));
+            }
+            if (Configuration.GetValue<bool?>("SwaggerEnabled") != null && Configuration.GetValue<bool>("SwaggerEnabled"))
+            {
+                app.UseSwagger( c => c.RouteTemplate = "/api/provisioning/swagger/{documentName}/swagger.{json|yaml}");
+                app.UseSwaggerUI(c => {
+                    c.SwaggerEndpoint(string.Format("/api/provisioning/swagger/{0}/swagger.json",VERSION), string.Format("{0} {1}",TAG,VERSION));
+                    c.RoutePrefix = "api/provisioning/swagger";
+                });
             }
 
             //app.UseHttpsRedirection();
