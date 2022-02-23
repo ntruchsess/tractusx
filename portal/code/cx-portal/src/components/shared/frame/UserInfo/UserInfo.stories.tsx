@@ -3,7 +3,7 @@ import { MemoryRouter } from 'react-router-dom'
 import { UserInfo } from './UserInfo'
 
 export default {
-  title: 'Catena-X/UserInfo',
+  title: 'frame/UserInfo',
   component: UserInfo,
   parameters: {
     layout: 'fullscreen',

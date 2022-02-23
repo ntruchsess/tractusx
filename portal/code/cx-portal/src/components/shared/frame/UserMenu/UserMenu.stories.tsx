@@ -3,7 +3,7 @@ import { MemoryRouter } from 'react-router-dom'
 import { UserMenu } from './UserMenu'
 
 export default {
-  title: 'Catena-X/UserMenu',
+  title: 'frame/UserMenu',
   component: UserMenu,
   parameters: {
     layout: 'fullscreen',

@@ -11,30 +11,30 @@ type ErrorType = {
 export default function Appstore() {
   const [searchParams, setSearchParams] = useSearchParams()
   const filter = new RegExp(searchParams.get('filter') || '', 'i')
-  const [error, setError] = useState<ErrorType>({});
-  const [isLoaded, setIsLoaded] = useState<boolean>(false);
-  const [items, setItems] = useState<App[]>([]);
+  const [error, setError] = useState<ErrorType>({})
+  const [isLoaded, setIsLoaded] = useState<boolean>(false)
+  const [items, setItems] = useState<App[]>([])
   //TODO:
   //switch to redux
   useEffect(() => {
-    fetch("/testdata/apps.json")
+    fetch('/testdata/apps.json')
       .then((res) => res.json())
       .then(
         (result) => {
-          setIsLoaded(true);
-          setItems(result);
+          setIsLoaded(true)
+          setItems(result)
         },
         (error) => {
-          setIsLoaded(true);
-          setError(error);
+          setIsLoaded(true)
+          setError(error)
         }
-      );
-  }, []);
+      )
+  }, [])
 
   if (error.message) {
-    return <div>Error: {error.message}</div>;
+    return <div>Error: {error.message}</div>
   } else if (!isLoaded) {
-    return <div>Loading...</div>;
+    return <div>Loading...</div>
   } else {
     return (
       <main className="Appstore">

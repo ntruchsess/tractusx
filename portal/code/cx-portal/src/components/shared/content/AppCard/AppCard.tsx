@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 import { App } from '../../../../types/AppTypes'
 import './AppCard.css'
 
-export const AppCard = ({app}: any) => {
+export const AppCard = ({ app }: any) => {
   return (
     <NavLink key={app.id} to={`/appstore/${app.id}`} className="AppCard">
       <h3>{app.name}</h3>

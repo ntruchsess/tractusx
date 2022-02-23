@@ -7,7 +7,7 @@ export default function AppDetail() {
   const params = useParams()
   //TODO:
   //switch to redux
-  const app = getApp(params.appId || "0")
+  const app = getApp(params.appId || '0')
 
   return (
     <div className="appstore_app">
@@ -16,11 +16,7 @@ export default function AppDetail() {
       <p className="description">{app.description}</p>
       <p className="vendor">{app.vendor}</p>
       <p>
-        <button
-          onClick={() => {}}
-        >
-          buy
-        </button>
+        <button onClick={() => {}}>buy</button>
       </p>
     </div>
   )

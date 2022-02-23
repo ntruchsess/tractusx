@@ -3,7 +3,7 @@ import { MemoryRouter } from 'react-router-dom'
 import { Logo } from './Logo'
 
 export default {
-  title: 'Catena-X/Logo',
+  title: 'frame/Logo',
   component: Logo,
   parameters: {
     layout: 'fullscreen',

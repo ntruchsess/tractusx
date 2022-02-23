@@ -4,7 +4,7 @@ import { Header } from './Header'
 import { MemoryRouter } from 'react-router-dom'
 
 export default {
-  title: 'Catena-X/Header',
+  title: 'frame/Header',
   component: Header,
   parameters: {
     layout: 'fullscreen',

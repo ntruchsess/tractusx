@@ -4,7 +4,7 @@ import { testAppData } from '../../../../test/data/AppData'
 import { AppCard } from './AppCard'
 
 export default {
-  title: 'Catena-X/AppCard',
+  title: 'content/AppCard',
   component: AppCard,
   parameters: {
     layout: 'fullscreen',
@@ -19,9 +19,7 @@ export default {
   styles: ['./components/App.css'],
 } as ComponentMeta<typeof AppCard>
 
-const Template: ComponentStory<typeof AppCard> = (args) => (
-  <AppCard {...args} />
-)
+const Template: ComponentStory<typeof AppCard> = (args) => <AppCard {...args} />
 
 export const Standard = Template.bind({})
 Standard.args = {
