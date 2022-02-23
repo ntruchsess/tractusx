@@ -20,6 +20,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import Logo from './logo';
 import 'react-toastify/dist/ReactToastify.css';
 import UserService from "../helpers/UserService";
+import { Spinner, SpinnerSize } from '@fluentui/react';
 
 @observer
 export default class Registrationoneid extends React.Component {
@@ -30,10 +31,12 @@ export default class Registrationoneid extends React.Component {
   @observable private firstname: string = "";
   @observable private lastname: string = "";
   @observable private companyname: string = "";
+  @observable private loading: boolean = false;
 
   private registrationButtonClick() {
-    console.log('Roles:',UserService.getRoles());
-    var u = 'http://localhost:5000/api/invitation'
+
+    this.loading = true;
+    var u = `${process.env.REACT_APP_INVITE_ENDPOINT}/api/invitation`
 
     var data =
     {
@@ -60,7 +63,9 @@ export default class Registrationoneid extends React.Component {
 
       ).catch((error) => {
         toast.error(`Onboarding for company ${this.companyname} failed`)
-      });
+      }).finally(()=>{
+        this.loading = false;
+    });
 
   }
 
@@ -82,7 +87,11 @@ export default class Registrationoneid extends React.Component {
               <TextField placeholder='First Name' className='w100pc br4 h40 mt10' value={this.firstname} onChange={(ev, val) => this.firstname = val} />
               <TextField placeholder='Last Name' className='w100pc br4 h40 mt10' value={this.lastname} onChange={(ev, val) => this.lastname = val} />
               <TextField placeholder='Company Name' className='w100pc br4 h40 mt10' value={this.companyname} onChange={(ev, val) => this.companyname = val} />
-              <PrimaryButton className='w100pc br4 pr10 h40 mt20' text='INVITE' onClick={() => this.registrationButtonClick()} />
+              <PrimaryButton className='w100pc br4 pr10 h40 mt20' disabled={this.loading} onClick={() => this.registrationButtonClick()} >
+                {
+                  this.loading ? <><Spinner size={SpinnerSize.medium} className={"mr20"} />SENDING...</> : "INVITE"
+                }
+              </PrimaryButton>
             </div>
             <div className='m40 df fdc'>
 
