@@ -12,43 +12,40 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import * as React from "react";
-import { observer } from "mobx-react";
 import { Container, Row, Col } from "react-bootstrap";
-import Header from "./cax-header";
 import Footer from "./footer";
-import { withTranslation, WithTranslation } from "react-i18next";
+import BulletList from "./bulletList";
+import Header from "./cax-header";
 import Button from "./button";
-import { RouteComponentProps } from "react-router-dom";
-import BulletList from "./bulletList"
+import { useTranslation } from 'react-i18next';
+import { withRouter } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
-@observer
-class Landing extends React.Component<
-  WithTranslation & RouteComponentProps,
-  any
-> {
-  private onClick(): void {
-    this.props.history.push("/registration");
+export const Landing = () => {
+
+  const { t } = useTranslation();
+  let history = useHistory();
+
+  const onClick = () => {
+       history.push("/registration");
   }
-
-  public render() {
     return (
       <Container>
-        <Header href={window.location.href} />
+        <Header />
         <Row>
           <Col>
             <div className="mx-auto col-9 container-body">
-              <h4>{this.props.t("landing.greetingMsg")}</h4>
-              <h6 className="col-8">{this.props.t("landing.heading1")}</h6>
+              <h4>{t("landing.greetingMsg")}</h4>
+              <h6 className="col-8">{t("landing.heading1")}</h6>
               <Row className="content">
                 <Col>
-                <BulletList text={this.props.t("landing.point1")}/>
-                <BulletList text={this.props.t("landing.point2")}/>
-                <BulletList text={this.props.t("landing.point3")}/>
+                <BulletList text={t("landing.point1")}/>
+                <BulletList text={t("landing.point2")}/>
+                <BulletList text={t("landing.point3")}/>
                   <Button
-                    label={this.props.t("landing.buttonText1")}
+                    label={t("landing.buttonText1")}
                     styleClass="button btn-primaryCax"
-                    handleClick={() => this.onClick()}
+                    handleClick={() => onClick()}
                   />
                 </Col>
                 <Col className="d-flex align-items-center justify-content-center">
@@ -58,8 +55,8 @@ class Landing extends React.Component<
             </div>
             <div className="mx-auto col-9 d-flex align-items-center justify-content-center info small-info">
               <span className="">
-                {this.props.t("landing.footerText1")}{" "}
-                <a href="">{this.props.t("landing.footerText2")}</a>.
+                {t("landing.footerText1")}{" "}
+                <a href="">{t("landing.footerText2")}</a>.
               </span>
             </div>
           </Col>
@@ -67,6 +64,5 @@ class Landing extends React.Component<
         <Footer />
       </Container>
     );
-  }
 }
-export default withTranslation()(Landing);
+export default withRouter(Landing);
