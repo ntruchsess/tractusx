@@ -19,8 +19,10 @@ namespace Keycloak.Net
 			return response.IsSuccessStatusCode;
 		}
 
-		private async Task<HttpResponseMessage> InternalCreateUserAsync(string realm, User user) => await GetBaseUrl(realm)
-			.AppendPathSegment($"/admin/realms/{realm}/users")
+		private async Task<HttpResponseMessage> InternalCreateUserAsync(string realm, User user) => await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+			.AppendPathSegment("/admin/realms/")
+			.AppendPathSegment(realm, true)
+			.AppendPathSegment("/users")
 			.PostJsonAsync(user)
 			.ConfigureAwait(false);
 
@@ -47,27 +49,37 @@ namespace Keycloak.Net
 				[nameof(username)] = username
 			};
 
-			return await GetBaseUrl(realm)
-				.AppendPathSegment($"/admin/realms/{realm}/users")
+			return await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+				.AppendPathSegment("/admin/realms/")
+				.AppendPathSegment(realm, true)
+				.AppendPathSegment("/users")
 				.SetQueryParams(queryParams)
 				.GetJsonAsync<IEnumerable<User>>()
 				.ConfigureAwait(false);
 		}
 
-		public async Task<int> GetUsersCountAsync(string realm) => await GetBaseUrl(realm)
-			.AppendPathSegment($"/admin/realms/{realm}/users/count")
+		public async Task<int> GetUsersCountAsync(string realm) => await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+			.AppendPathSegment("/admin/realms/")
+			.AppendPathSegment(realm, true)
+			.AppendPathSegment("/users/count")
 			.GetJsonAsync<int>()
 			.ConfigureAwait(false);
 
-		public async Task<User> GetUserAsync(string realm, string userId) => await GetBaseUrl(realm)
-			.AppendPathSegment($"/admin/realms/{realm}/users/{userId}")
+		public async Task<User> GetUserAsync(string realm, string userId) => await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+			.AppendPathSegment("/admin/realms/")
+			.AppendPathSegment(realm, true)
+			.AppendPathSegment("/users/")
+			.AppendPathSegment(userId, true)
 			.GetJsonAsync<User>()
 			.ConfigureAwait(false);
 
 		public async Task<bool> UpdateUserAsync(string realm, string userId, User user)
 		{
-			var response = await GetBaseUrl(realm)
-				.AppendPathSegment($"/admin/realms/{realm}/users/{userId}")
+			var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+				.AppendPathSegment("/admin/realms/")
+				.AppendPathSegment(realm, true)
+				.AppendPathSegment("/users/")
+				.AppendPathSegment(userId, true)
 				.PutJsonAsync(user)
 				.ConfigureAwait(false);
 			return response.IsSuccessStatusCode;
@@ -75,8 +87,11 @@ namespace Keycloak.Net
 
 		public async Task<bool> DeleteUserAsync(string realm, string userId)
 		{
-			var response = await GetBaseUrl(realm)
-				.AppendPathSegment($"/admin/realms/{realm}/users/{userId}")
+			var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+				.AppendPathSegment("/admin/realms/")
+				.AppendPathSegment(realm, true)
+				.AppendPathSegment("/users/")
+				.AppendPathSegment(userId, true)
 				.DeleteAsync()
 				.ConfigureAwait(false);
 			return response.IsSuccessStatusCode;
@@ -85,16 +100,25 @@ namespace Keycloak.Net
 		[Obsolete("Not working yet")]
 		public async Task<string> GetUserConsentsAsync(string realm, string userId)
 		{
-			return await GetBaseUrl(realm)
-				.AppendPathSegment($"/admin/realms/{realm}/users/{userId}/consents")
+			return await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+				.AppendPathSegment("/admin/realms/")
+				.AppendPathSegment(realm, true)
+				.AppendPathSegment("/users/")
+				.AppendPathSegment(userId, true)
+				.AppendPathSegment("/consents")
 				.GetStringAsync()
 				.ConfigureAwait(false);
 		}
 
 		public async Task<bool> RevokeUserConsentAndOfflineTokensAsync(string realm, string userId, string clientId)
 		{
-			var response = await GetBaseUrl(realm)
-				.AppendPathSegment($"/admin/realms/{realm}/users/{userId}/consents/{clientId}")
+			var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+				.AppendPathSegment("/admin/realms/")
+				.AppendPathSegment(realm, true)
+				.AppendPathSegment("/users/")
+				.AppendPathSegment(userId, true)
+				.AppendPathSegment("/consents/")
+				.AppendPathSegment(clientId, true)
 				.DeleteAsync()
 				.ConfigureAwait(false);
 			return response.IsSuccessStatusCode;
@@ -102,8 +126,12 @@ namespace Keycloak.Net
 
 		public async Task<bool> DisableUserCredentialsAsync(string realm, string userId, IEnumerable<string> credentialTypes)
 		{
-			var response = await GetBaseUrl(realm)
-				.AppendPathSegment($"/admin/realms/{realm}/users/{userId}/disable-credential-types")
+			var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+				.AppendPathSegment("/admin/realms/")
+				.AppendPathSegment(realm, true)
+				.AppendPathSegment("/users/")
+				.AppendPathSegment(userId, true)
+				.AppendPathSegment("/disable-credential-types")
 				.PutJsonAsync(credentialTypes)
 				.ConfigureAwait(false);
 			return response.IsSuccessStatusCode;
@@ -118,23 +146,36 @@ namespace Keycloak.Net
 				["redirect_uri"] = redirectUri
 			};
 
-			var response = await GetBaseUrl(realm)
-				.AppendPathSegment($"/admin/realms/{realm}/users/{userId}/execute-actions-email")
+			var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+				.AppendPathSegment("/admin/realms/")
+				.AppendPathSegment(realm, true)
+				.AppendPathSegment("/users/")
+				.AppendPathSegment(userId, true)
+				.AppendPathSegment("/execute-actions-email")
 				.SetQueryParams(queryParams)
 				.PutJsonAsync(requiredActions)
 				.ConfigureAwait(false);
 			return response.IsSuccessStatusCode;
 		}
 
-		public async Task<IEnumerable<FederatedIdentity>> GetUserSocialLoginsAsync(string realm, string userId) => await GetBaseUrl(realm)
-			.AppendPathSegment($"/admin/realms/{realm}/users/{userId}/federated-identity")
+		public async Task<IEnumerable<FederatedIdentity>> GetUserSocialLoginsAsync(string realm, string userId) => await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+			.AppendPathSegment("/admin/realms/")
+			.AppendPathSegment(realm, true)
+			.AppendPathSegment("/users/")
+			.AppendPathSegment(userId, true)
+			.AppendPathSegment("/federated-identity")
 			.GetJsonAsync<IEnumerable<FederatedIdentity>>()
 			.ConfigureAwait(false);
 
 		public async Task<bool> AddUserSocialLoginProviderAsync(string realm, string userId, string provider, FederatedIdentity federatedIdentity)
 		{
-			var response = await GetBaseUrl(realm)
-				.AppendPathSegment($"/admin/realms/{realm}/users/{userId}/federated-identity/{provider}")
+			var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+				.AppendPathSegment("/admin/realms/")
+				.AppendPathSegment(realm, true)
+				.AppendPathSegment("/users/")
+				.AppendPathSegment(userId, true)
+				.AppendPathSegment("/federated-identity/")
+				.AppendPathSegment(provider, true)
 				.PostJsonAsync(federatedIdentity)
 				.ConfigureAwait(false);
 			return response.IsSuccessStatusCode;
@@ -142,22 +183,35 @@ namespace Keycloak.Net
 
 		public async Task<bool> RemoveUserSocialLoginProviderAsync(string realm, string userId, string provider)
 		{
-			var response = await GetBaseUrl(realm)
-				.AppendPathSegment($"/admin/realms/{realm}/users/{userId}/federated-identity/{provider}")
+			var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+				.AppendPathSegment("/admin/realms/")
+				.AppendPathSegment(realm, true)
+				.AppendPathSegment("/users/")
+				.AppendPathSegment(userId, true)
+				.AppendPathSegment("/federated-identity/")
+				.AppendPathSegment(provider, true)
 				.DeleteAsync()
 				.ConfigureAwait(false);
 			return response.IsSuccessStatusCode;
 		}
 
-		public async Task<IEnumerable<Group>> GetUserGroupsAsync(string realm, string userId) => await GetBaseUrl(realm)
-			.AppendPathSegment($"/admin/realms/{realm}/users/{userId}/groups")
+		public async Task<IEnumerable<Group>> GetUserGroupsAsync(string realm, string userId) => await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+			.AppendPathSegment("/admin/realms/")
+			.AppendPathSegment(realm, true)
+			.AppendPathSegment("/users/")
+			.AppendPathSegment(userId, true)
+			.AppendPathSegment("/groups")
 			.GetJsonAsync<IEnumerable<Group>>()
 			.ConfigureAwait(false);
 
 		public async Task<int> GetUserGroupsCountAsync(string realm, string userId)
 		{
-			var result = await GetBaseUrl(realm)
-				.AppendPathSegment($"/admin/realms/{realm}/users/{userId}/groups/count")
+			var result = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+				.AppendPathSegment("/admin/realms/")
+				.AppendPathSegment(realm, true)
+				.AppendPathSegment("/users/")
+				.AppendPathSegment(userId, true)
+				.AppendPathSegment("/groups/count")
 				.GetJsonAsync()
 				.ConfigureAwait(false);
 			return Convert.ToInt32(DynamicExtensions.GetFirstPropertyValue(result));
@@ -165,8 +219,13 @@ namespace Keycloak.Net
 
 		public async Task<bool> UpdateUserGroupAsync(string realm, string userId, string groupId, Group group)
 		{
-			var response = await GetBaseUrl(realm)
-				.AppendPathSegment($"/admin/realms/{realm}/users/{userId}/groups/{groupId}")
+			var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+				.AppendPathSegment("/admin/realms/")
+				.AppendPathSegment(realm, true)
+				.AppendPathSegment("/users/")
+				.AppendPathSegment(userId, true)
+				.AppendPathSegment("/groups/")
+				.AppendPathSegment(groupId, true)
 				.PutJsonAsync(group)
 				.ConfigureAwait(false);
 			return response.IsSuccessStatusCode;
@@ -174,38 +233,60 @@ namespace Keycloak.Net
 
 		public async Task<bool> DeleteUserGroupAsync(string realm, string userId, string groupId)
 		{
-			var response = await GetBaseUrl(realm)
-				.AppendPathSegment($"/admin/realms/{realm}/users/{userId}/groups/{groupId}")
+			var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+				.AppendPathSegment("/admin/realms/")
+				.AppendPathSegment(realm, true)
+				.AppendPathSegment("/users/")
+				.AppendPathSegment(userId, true)
+				.AppendPathSegment("/groups/")
+				.AppendPathSegment(groupId, true)
 				.DeleteAsync()
 				.ConfigureAwait(false);
 			return response.IsSuccessStatusCode;
 		}
 
-		public async Task<IDictionary<string, object>> ImpersonateUserAsync(string realm, string userId) => await GetBaseUrl(realm)
-			.AppendPathSegment($"/admin/realms/{realm}/users/{userId}/impersonation")
+		public async Task<IDictionary<string, object>> ImpersonateUserAsync(string realm, string userId) => await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+			.AppendPathSegment("/admin/realms/")
+			.AppendPathSegment(realm, true)
+			.AppendPathSegment("/users/")
+			.AppendPathSegment(userId, true)
+			.AppendPathSegment("/impersonation")
 			.PostAsync(new StringContent(""))
 			.ReceiveJson<IDictionary<string, object>>()
 			.ConfigureAwait(false);
 
 		public async Task<bool> RemoveUserSessionsAsync(string realm, string userId)
 		{
-			var response = await GetBaseUrl(realm)
-				.AppendPathSegment($"/admin/realms/{realm}/users/{userId}/logout")
+			var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+				.AppendPathSegment("/admin/realms/")
+				.AppendPathSegment(realm, true)
+				.AppendPathSegment("/users/")
+				.AppendPathSegment(userId, true)
+				.AppendPathSegment("/logout")
 				.PostAsync(new StringContent(""))
 				.ConfigureAwait(false);
 			return response.IsSuccessStatusCode;
 		}
 
 		[Obsolete("Not working yet")]
-		public async Task<IEnumerable<UserSession>> GetUserOfflineSessionsAsync(string realm, string userId, string clientId) => await GetBaseUrl(realm)
-			.AppendPathSegment($"/admin/realms/{realm}/users/{userId}/offline-sessions/{clientId}")
+		public async Task<IEnumerable<UserSession>> GetUserOfflineSessionsAsync(string realm, string userId, string clientId) => await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+			.AppendPathSegment("/admin/realms/")
+			.AppendPathSegment(realm, true)
+			.AppendPathSegment("/users/")
+			.AppendPathSegment(userId, true)
+			.AppendPathSegment("/offline-sessions/")
+			.AppendPathSegment(clientId, true)
 			.GetJsonAsync<IEnumerable<UserSession>>()
 			.ConfigureAwait(false);
 
 		public async Task<bool> RemoveUserTotpAsync(string realm, string userId)
 		{
-			var response = await GetBaseUrl(realm)
-				.AppendPathSegment($"/admin/realms/{realm}/users/{userId}/remove-totp")
+			var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+				.AppendPathSegment("/admin/realms/")
+				.AppendPathSegment(realm, true)
+				.AppendPathSegment("/users/")
+				.AppendPathSegment(userId, true)
+				.AppendPathSegment("/remove-totp")
 				.PutAsync(new StringContent(""))
 				.ConfigureAwait(false);
 			return response.IsSuccessStatusCode;
@@ -213,8 +294,12 @@ namespace Keycloak.Net
 
 		public async Task<bool> ResetUserPasswordAsync(string realm, string userId, Credentials credentials)
 		{
-			var response = await GetBaseUrl(realm)
-				.AppendPathSegment($"/admin/realms/{realm}/users/{userId}/reset-password")
+			var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+				.AppendPathSegment("/admin/realms/")
+				.AppendPathSegment(realm, true)
+				.AppendPathSegment("/users/")
+				.AppendPathSegment(userId, true)
+				.AppendPathSegment("/reset-password")
 				.PutJsonAsync(credentials)
 				.ConfigureAwait(false);
 			return response.IsSuccessStatusCode;
@@ -233,8 +318,12 @@ namespace Keycloak.Net
                 Value = password,
                 Temporary = temporary
             };
-            var response = await GetBaseUrl(realm)
-                .AppendPathSegment($"/admin/realms/{realm}/users/{userId}/reset-password")
+            var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+                .AppendPathSegment("/admin/realms/")
+				.AppendPathSegment(realm, true)
+				.AppendPathSegment("/users/")
+				.AppendPathSegment(userId, true)
+				.AppendPathSegment("/reset-password")
                 .PutJsonAsync(credentials)
                 .ConfigureAwait(false);
             return response;
@@ -263,16 +352,24 @@ namespace Keycloak.Net
                 queryParams.Add("redirect_uri", redirectUri);
             }
 
-			var response = await GetBaseUrl(realm)
-				.AppendPathSegment($"/admin/realms/{realm}/users/{userId}/send-verify-email")
+			var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+				.AppendPathSegment("/admin/realms/")
+				.AppendPathSegment(realm, true)
+				.AppendPathSegment("/users/")
+				.AppendPathSegment(userId, true)
+				.AppendPathSegment("/send-verify-email")
 				.SetQueryParams(queryParams)
 				.PutJsonAsync(null)
 				.ConfigureAwait(false);
 			return response.IsSuccessStatusCode;
 		}
 
-		public async Task<IEnumerable<UserSession>> GetUserSessionsAsync(string realm, string userId) => await GetBaseUrl(realm)
-			.AppendPathSegment($"/admin/realms/{realm}/users/{userId}/sessions")
+		public async Task<IEnumerable<UserSession>> GetUserSessionsAsync(string realm, string userId) => await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+			.AppendPathSegment("/admin/realms/")
+			.AppendPathSegment(realm, true)
+			.AppendPathSegment("/users/")
+			.AppendPathSegment(userId, true)
+			.AppendPathSegment("/sessions")
 			.GetJsonAsync<IEnumerable<UserSession>>()
 			.ConfigureAwait(false);
 	}

@@ -10,6 +10,8 @@ namespace Keycloak.Net.Models.RealmsAdmin
         [JsonProperty("realm")]
         // ReSharper disable once InconsistentNaming
         public string _Realm { get; set; }
+        [JsonProperty("displayName")]
+        public string DisplayName { get; set; }
         [JsonProperty("notBefore")]
         public int? NotBefore { get; set; }
         [JsonProperty("revokeRefreshToken")]

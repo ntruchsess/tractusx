@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Flurl;
@@ -28,9 +28,7 @@ namespace Keycloak.Net.Common.Extensions
             return accessToken;
         }
 
-        private static string GetAccessToken(string url, string realm, string userName, string password) => GetAccessTokenAsync(url, realm, userName, password).GetAwaiter().GetResult();
-
-        private static async Task<string> GetAccessTokenAsync(string url, string realm, string clientSecret)
+        private static async Task<string> GetAccessTokenWithClientIdAsync(string url, string realm, string clientSecret, string clientId)
         {
             var result = await url
                 .AppendPathSegment($"/auth/realms/{realm}/protocol/openid-connect/token")
@@ -39,7 +37,7 @@ namespace Keycloak.Net.Common.Extensions
                 {
                     new KeyValuePair<string, string>("grant_type", "client_credentials"),
                     new KeyValuePair<string, string>("client_secret", clientSecret),
-                    new KeyValuePair<string, string>("client_id", "admin-cli")
+                    new KeyValuePair<string, string>("client_id", clientId ?? "admin-cli")
                 })
                 .ReceiveJson().ConfigureAwait(false);
 
@@ -49,23 +47,21 @@ namespace Keycloak.Net.Common.Extensions
             return accessToken;
         }
 
-        private static string GetAccessToken(string url, string realm, string clientSecret) => GetAccessTokenAsync(url, realm, clientSecret).GetAwaiter().GetResult();
-
-        public static IFlurlRequest WithAuthentication(this IFlurlRequest request, Func<string> getToken, string url, string realm, string userName, string password, string clientSecret)
+        public static async Task<IFlurlRequest> WithAuthenticationAsync(this IFlurlRequest request, Func<Task<string>> getTokenAsync, string url, string realm, string userName, string password, string clientSecret, string clientId)
         {
             string token = null;
 
-            if (getToken != null)
+            if (getTokenAsync != null)
             {
-                token = getToken();
+                token = await getTokenAsync().ConfigureAwait(false);
             }
             else if (clientSecret != null)
             {
-                token = GetAccessToken(url, realm, clientSecret);
+                token = await GetAccessTokenWithClientIdAsync(url, realm, clientSecret, clientId).ConfigureAwait(false);
             }
             else
             {
-                token = GetAccessToken(url, realm, userName, password);
+                token = await GetAccessTokenAsync(url, realm, userName, password).ConfigureAwait(false);
             }
 
             return request.WithOAuthBearerToken(token);

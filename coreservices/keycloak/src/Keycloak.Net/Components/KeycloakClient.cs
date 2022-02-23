@@ -9,8 +9,10 @@ namespace Keycloak.Net
     {
         public async Task<bool> CreateComponentAsync(string realm, Component componentRepresentation)
         {
-            var response = await GetBaseUrl(realm)
-                .AppendPathSegment($"/admin/realms/{realm}/components")
+            var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+                .AppendPathSegment("/admin/realms/")
+                .AppendPathSegment(realm, true)
+                .AppendPathSegment("/components")
                 .PostJsonAsync(componentRepresentation)
                 .ConfigureAwait(false);
             return response.IsSuccessStatusCode;
@@ -25,8 +27,10 @@ namespace Keycloak.Net
                 [nameof(type)] = type
             };
 
-            return await GetBaseUrl(realm)
-                .AppendPathSegment($"/admin/realms/{realm}/components")
+            return await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+                .AppendPathSegment("/admin/realms/")
+                .AppendPathSegment(realm, true)
+                .AppendPathSegment("/components")
                 .SetQueryParams(queryParams)
                 .GetJsonAsync<IEnumerable<Component>>()
                 .ConfigureAwait(false);
@@ -34,16 +38,22 @@ namespace Keycloak.Net
 
         public async Task<Component> GetComponentAsync(string realm, string componentId)
         {
-            return await GetBaseUrl(realm)
-                .AppendPathSegment($"/admin/realms/{realm}/components/{componentId}")
+            return await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+                .AppendPathSegment("/admin/realms/")
+                .AppendPathSegment(realm, true)
+                .AppendPathSegment("/components/")
+                .AppendPathSegment(componentId, true)
                 .GetJsonAsync<Component>()
                 .ConfigureAwait(false);
         }
 
         public async Task<bool> UpdateComponentAsync(string realm, string componentId, Component componentRepresentation)
         {
-            var response = await GetBaseUrl(realm)
-                .AppendPathSegment($"/admin/realms/{realm}/components/{componentId}")
+            var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+                .AppendPathSegment("/admin/realms/")
+                .AppendPathSegment(realm, true)
+                .AppendPathSegment("/components/")
+                .AppendPathSegment(componentId, true)
                 .PutJsonAsync(componentRepresentation)
                 .ConfigureAwait(false);
             return response.IsSuccessStatusCode;
@@ -51,8 +61,11 @@ namespace Keycloak.Net
 
         public async Task<bool> DeleteComponentAsync(string realm, string componentId)
         {
-            var response = await GetBaseUrl(realm)
-                .AppendPathSegment($"/admin/realms/{realm}/components/{componentId}")
+            var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+                .AppendPathSegment("/admin/realms/")
+                .AppendPathSegment(realm, true)
+                .AppendPathSegment("/components/")
+                .AppendPathSegment(componentId, true)
                 .DeleteAsync()
                 .ConfigureAwait(false);
             return response.IsSuccessStatusCode;
@@ -65,8 +78,12 @@ namespace Keycloak.Net
                 [nameof(type)] = type
             };
 
-            var result = await GetBaseUrl(realm)
-                .AppendPathSegment($"/admin/realms/{realm}/components/{componentId}/sub-component-types")
+            var result = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+                .AppendPathSegment("/admin/realms/")
+                .AppendPathSegment(realm, true)
+                .AppendPathSegment("/components/")
+                .AppendPathSegment(componentId, true)
+                .AppendPathSegment("/sub-component-types")
                 .SetQueryParams(queryParams)
                 .GetJsonAsync<IEnumerable<ComponentType>>()
                 .ConfigureAwait(false);

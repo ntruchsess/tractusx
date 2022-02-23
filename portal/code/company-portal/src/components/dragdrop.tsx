@@ -1,121 +1,86 @@
-import { render } from "@testing-library/react";
-import { observer } from "mobx-react";
-import { observable } from "mobx";
-import React, { Component, useCallback } from "react";
-import Dropzone from "react-dropzone";
-import { withTranslation, WithTranslation } from 'react-i18next';
-import { toJS } from "mobx";
+// components/simple-dropzone.component.js
+import React from "react";
+import Dropzone from 'react-dropzone-uploader'
+import 'react-dropzone-uploader/dist/styles.css'
+import { useTranslation } from 'react-i18next';
+import FooterButton from "./footerButton";
+import {connect} from 'react-redux';
+import {IState} from "../types/store/redux.store.types";
+import {addCurrentStep} from "../actions/user.action";
+import { withRouter } from 'react-router-dom';
+import {Dispatch} from 'redux';
 
-class File {
-  name: string;
-  size: string;
-  type: string;
-  path: string;
+interface DragDropProps {
+  currentActiveStep: number;
+  addCurrentStep: (step: number) => void;
 }
-@observer
-class DragDropUploadFiles extends React.Component<WithTranslation> {
-  
-  selectedFiles: File[] = observable.array();
-  @observable currentFile: File[];
-  @observable progress = 0;
-  @observable message = "";
-  @observable fileInfos: File[] = [];
 
+export const DragDrop = ({currentActiveStep, addCurrentStep}: DragDropProps) => {
+  const { t } = useTranslation();
 
-  onDrop(files: any[]) { 
-    if (files.length > 0) {
-      console.log(files);
-      console.log(typeof files);
-      this.selectedFiles.push(...files);
+    // Payload data and url to upload files
+    const getUploadParams = ({ meta }) => { return { url: 'https://httpbin.org/post' } }
+
+    // Return the current status of files being uploaded
+    const handleChangeStatus = ({ meta, file }, status) => { console.log(status, meta, file) }
+
+    // Return array of uploaded files after submit button is clicked
+    const handleSubmit = (files, allFiles) => {
+        console.log(files.map(f => f.meta))
+        allFiles.forEach(f => f.remove())
     }
-    this.selectedFiles = toJS(this.selectedFiles);
-    console.log(this.selectedFiles);
+
+  const backClick = () => {
+    addCurrentStep(currentActiveStep-1)
   }
 
-  upload() {}
-  render() {
+  const nextClick = () => {
+    addCurrentStep(currentActiveStep+1)
+  }
+
     return (
+      <>
       <div className="mx-auto col-9 container-registration">
         <div className="head-section">
           <div className="mx-auto step-highlight d-flex align-items-center justify-content-center">
             4
           </div>
           <h4 className="mx-auto d-flex align-items-center justify-content-center">
-          {this.props.t('documentUpload.title')}
+          {t('documentUpload.title')}
           </h4>
           <div className="mx-auto text-center col-9">
-          {this.props.t('documentUpload.subTitle')}
+          {t('documentUpload.subTitle')}
           </div>
         </div>
         <div className="companydata-form mx-auto col-9">
-          <div>
-            {this.currentFile && (
-              <div className="progress mb-3">
-                <div
-                  className="progress-bar progress-bar-info progress-bar-striped"
-                  role="progressbar"
-                  aria-valuenow={this.progress}
-                  aria-valuemin={0}
-                  aria-valuemax={100}
-                  style={{ width: this.progress + "%" }}
-                >
-                  {this.progress}%
-                </div>
-              </div>
-            )}
-
-            <Dropzone onDrop={(e) => this.onDrop(e)} multiple={true}>
-              {({ getRootProps, getInputProps }) => (
-                <section>
-                  <div {...getRootProps({ className: "dropzone" })}>
-                    <input {...getInputProps()} />
-                    <span>
-                    {this.props.t('documentUpload.dragDropMessage')}
-                    </span>
-                  </div>
-
-                  {this.selectedFiles &&
-                  Array.isArray(this.selectedFiles) &&
-                  this.selectedFiles.length ? (
-                    <div className="selected-file">
-                      {this.selectedFiles.map((file) => file.name).join(", ")}
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                  <div className="selected-file-wrapper">
-                    <button
-                      className="btn btn-success"
-                      disabled={!this.selectedFiles}
-                      onClick={this.upload}
-                    >
-                    {this.props.t('documentUpload.upload')}
-                    </button>
-                  </div>
-                </section>
-              )}
-            </Dropzone>
-
-            <div className="alert alert-light" role="alert">
-              {this.message}
-            </div>
-
-            {this.fileInfos.length > 0 && (
-              <div className="card">
-                <div className="card-header">List of Files</div>
-                <ul className="list-group list-group-flush">
-                  {this.fileInfos.map((file, index) => (
-                    <li className="list-group-item" key={index}>
-                      <a href={file.path}>{file.name}</a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
+        <Dropzone
+            getUploadParams={getUploadParams}
+            onChangeStatus={handleChangeStatus}
+            onSubmit={handleSubmit}
+            accept="image/*,audio/*,video/*"
+        />
         </div>
-      </div>
+        </div>
+         <FooterButton 
+         labelBack={t('button.back')}
+         labelNext={t('button.next')}
+         handleBackClick={() => backClick()}
+         handleNextClick={() => nextClick()}
+      />
+      </>
     );
-  }
-}
-export default withTranslation()(DragDropUploadFiles);
+};
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  addCurrentStep: (step: number) => {
+      dispatch(addCurrentStep(step));
+  },
+});
+
+
+export default withRouter(connect(
+  (state: IState) => ({
+      currentActiveStep: state.user.currentStep,
+  }),
+  mapDispatchToProps
+)(DragDrop));

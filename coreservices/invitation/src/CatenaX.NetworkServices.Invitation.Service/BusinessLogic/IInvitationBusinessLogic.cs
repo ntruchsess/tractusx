@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-using CatenaX.NetworkServices.Invitation.Library;
+﻿using System.Threading.Tasks;
 
 namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
 {
     public interface IInvitationBusinessLogic
     {
-        Task ExecuteInvitation(string identifier);
-
-        Task StartInvitation(InvitationData InvitationData);
+        Task<bool> ExecuteInvitation(InvitationData invitationData);
     }
 }

@@ -1,19 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
-using CatenaX.NetworkServices.Invitation.Library;
-using CatenaX.NetworkServices.Invitation.Service.BusinessLogic;
-
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+
+using CatenaX.NetworkServices.Invitation.Service.BusinessLogic;
 
 namespace CatenaX.NetworkServices.Invitation.Service.Controllers
 {
     [ApiController]
-    [Route("api/invitation")]
     public class InvitationController : ControllerBase
     {
 
@@ -26,28 +23,19 @@ namespace CatenaX.NetworkServices.Invitation.Service.Controllers
             _logic = logic;
         }
 
-        [HttpPut]
-        [Route("execute/{identifier}")]
-        public async Task<IActionResult> ExecuteInvitation(string identifier)
-        {
-            try
-            {
-                await _logic.ExecuteInvitation(identifier);
-                return new OkResult();
-            } catch(Exception e)
-            {
-                _logger.LogError(e.ToString());
-                return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
-            }
-        }
-
         [HttpPost]
+        [Authorize(Roles="invite_new_partner")]
+        [Route("api/invitation")]
         public async Task<IActionResult> ExecuteInvitation([FromBody] InvitationData InvitationData)
         {
             try
             {
-                await _logic.StartInvitation(InvitationData);
-                return new OkResult();
+                if (await _logic.ExecuteInvitation(InvitationData).ConfigureAwait(false))
+                {
+                    return new OkResult();
+                }
+                _logger.LogError("unsuccessful");
+                return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
             }
             catch (Exception e)
             {

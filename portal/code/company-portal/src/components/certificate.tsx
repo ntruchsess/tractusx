@@ -13,13 +13,10 @@
 // limitations under the License.
 
 import * as React from 'react';
-import { observer } from 'mobx-react';
 import DragDrop from './dragdrop';
 
-@observer
-export default class Certificate extends React.Component {
+  export const Certificate = () => {
 
-  public render() {
     return (
         <div className='mb10'>
         <input className='collapse-open' type='checkbox' id='collapse-6' />
@@ -37,5 +34,7 @@ export default class Certificate extends React.Component {
         </div>
       </div>
  
-    )} 
+    )
 }
+
+export default Certificate

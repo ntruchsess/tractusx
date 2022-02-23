@@ -26,5 +26,7 @@ namespace Keycloak.Net.Models.RealmsAdmin
         public string ReplyToDisplayName { get; set; }
         [JsonProperty("envelopeFrom")]
         public string EnvelopeFrom { get; set; }
+        [JsonProperty("port")]
+        public string Port { get; set; }
     }
 }

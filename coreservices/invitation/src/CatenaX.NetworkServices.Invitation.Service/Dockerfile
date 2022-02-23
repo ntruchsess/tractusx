@@ -8,11 +8,12 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
 COPY ["invitation/src/CatenaX.NetworkServices.Invitation.Service/CatenaX.NetworkServices.Invitation.Service.csproj", "invitation/src/CatenaX.NetworkServices.Invitation.Service/"]
+COPY ["provisioning/src/CatenaX.NetworkServices.Provisioning.Library/CatenaX.NetworkServices.Provisioning.Library.csproj", "provisioning/src/CatenaX.NetworkServices.Provisioning.Library/"]
 COPY ["mailing/src/CatenaX.NetworkServices.Mailing.Template/CatenaX.NetworkServices.Mailing.Template.csproj", "mailing/src/CatenaX.NetworkServices.Mailing.Template/"]
 COPY ["mailing/src/CatenaX.NetworkServices.Mailing.SendMail/CatenaX.NetworkServices.Mailing.SendMail.csproj", "mailing/src/CatenaX.NetworkServices.Mailing.SendMail/"]
-COPY ["invitation/src/CatenaX.NetworkServices.Invitation.Identity/CatenaX.NetworkServices.Invitation.Identity.csproj", "invitation/src/CatenaX.NetworkServices.Invitation.Identity/"]
-COPY ["mockup/src/CatenaX.NetworkServices.Mockups/CatenaX.NetworkServices.Mockups.csproj", "mockup/src/CatenaX.NetworkServices.Mockups/"]
-COPY ["invitation/src/CatenaX.NetworkServices.Invitation.Library/CatenaX.NetworkServices.Invitation.Library.csproj", "invitation/src/CatenaX.NetworkServices.Invitation.Library/"]
+COPY ["keycloak/src/Keycloak.Net/Keycloak.Net.csproj", "keycloak/src/Keycloak.Net/"]
+COPY ["keycloak/src/CatenaX.NetworkServices.Keycloak.Authentication/CatenaX.NetworkServices.Keycloak.Authentication.csproj", "keycloak/src/CatenaX.NetworkServices.Keycloak.Authentication/"]
+COPY ["keycloak/src/CatenaX.NetworkServices.Keycloak.Factory/CatenaX.NetworkServices.Keycloak.Factory.csproj", "keycloak/src/CatenaX.NetworkServices.Keycloak.Factory/"]
 RUN dotnet restore "invitation/src/CatenaX.NetworkServices.Invitation.Service/CatenaX.NetworkServices.Invitation.Service.csproj"
 COPY . .
 WORKDIR "/src/invitation/src/CatenaX.NetworkServices.Invitation.Service"

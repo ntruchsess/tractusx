@@ -12,13 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import * as React from 'react';
-import { observer } from 'mobx-react';
 import { Row, Navbar, Nav, Container } from 'react-bootstrap';
 
-@observer
-export default class Footer extends React.Component {
-    public render() {
+export const Footer = () => {
         return (
             <Row>
                 <div className='footer-container flex-column d-flex align-items-center justify-content-center'>
@@ -44,5 +40,5 @@ export default class Footer extends React.Component {
                 </div>
             </Row>
         );
-    }
 }
+export default Footer;
