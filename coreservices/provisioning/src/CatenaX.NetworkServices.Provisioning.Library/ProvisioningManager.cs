@@ -99,8 +99,5 @@ namespace CatenaX.NetworkServices.Provisioning.Library
 
         public async Task<IEnumerable<string>> GetClientRolesCompositeAsync(string clientId) =>
             (await _CentralIdp.GetRolesAsync(_Settings.CentralRealm, clientId).ConfigureAwait(false)).Where(r => r.Composite == true).Select(g => g.Name);
-
-        public async Task<IEnumerable<string>> GetUserClientRoleMappingsCompositeAsync(string userId, string clientId) =>
-            (await _CentralIdp.GetClientRoleMappingsForUserAsync(_Settings.CentralRealm, userId, clientId).ConfigureAwait(false)).Where(r => r.Composite == true).Select(g => g.Name);
     }
 }
