@@ -29,7 +29,7 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
 
         [HttpGet]
         [Authorize(Roles="add_company_data")]
-        [Route("{bpn}")]
+        [Route("company/{bpn}")]
         [ProducesResponseType(typeof(Company), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetOneObjectAsync([FromRoute] string bpn) =>
             new OkObjectResult(await _registrationBusinessLogic.GetCompanyByIdentifierAsync(bpn).ConfigureAwait(false));
@@ -37,7 +37,7 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
         [HttpPost]
         [Authorize(Policy="CheckTenant")]
         [Authorize(Roles="invite_user")]
-        [Route("{tenant}/users")]
+        [Route("tenant/{tenant}/users")]
         public async Task<IActionResult> CreateUsersAsync([FromRoute] string tenant, [FromBody] List<UserCreationInfo> usersToCreate)
         {
             try

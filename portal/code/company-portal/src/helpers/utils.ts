@@ -21,7 +21,7 @@ const endpoint = process.env.REACT_APP_ONBOARDING_ENDPOINT;
 export function getCompanyDetails(oneId: String): Promise<FetchBusinessPartnerDto[]> {
   console.log('API called getCompanyDetails');
   const token = UserService.getToken();
-  const u = `${url}/${endpoint}/${oneId}`;
+  const u = `${url}/${endpoint}/company/${oneId}`;
   let myResponseData: FetchBusinessPartnerDto[] = [];
   const promise = new Promise<FetchBusinessPartnerDto[]>((resolve, reject) => {
     fetch(u, { method: 'GET', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } })
@@ -110,6 +110,7 @@ export function getConsentForCompanyRoles(roleId: Number): Promise<ConsentForCom
   return promise;
 }
 
+// endpoint has been removed in the course of CPLP-327 - refactoring of registration backend - obsolete due to rolesComposite endpoint
 export function getUserRoles(): Promise<UserRole[]> {
   const token = UserService.getToken();
   const u = `${url}/${endpoint}/userRoles`;
