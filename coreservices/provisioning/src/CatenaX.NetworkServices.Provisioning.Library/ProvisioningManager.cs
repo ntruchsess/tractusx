@@ -47,6 +47,33 @@ namespace CatenaX.NetworkServices.Provisioning.Library
             return idpName;
         }
 
+        public async Task<string> SetupOwnIdpAsync(string organisationName, string clientId, string metadataUrl, string clientAuthMethod, string clientSecret)
+        {
+            var idpName = await GetNextCentralIdentityProviderNameAsync().ConfigureAwait(false);
+
+            if (! await CreateCentralIdentityProviderAsync(idpName, organisationName).ConfigureAwait(false)) return null;
+
+            var identityProvider = await SetIdentityProviderMetadataFromUrlAsync(await GetCentralIdentityProviderAsync(idpName).ConfigureAwait(false), metadataUrl).ConfigureAwait(false);
+
+            if (identityProvider == null) return null;
+
+            identityProvider.Config.ClientId = clientId;
+            identityProvider.Config.ClientAuthMethod = clientAuthMethod;
+            identityProvider.Config.ClientSecret = clientSecret;
+
+            if (! await UpdateCentralIdentityProviderAsync(idpName, identityProvider).ConfigureAwait(false)) return null;
+
+            if (! await CreateCentralIdentityProviderTenantMapperAsync(idpName).ConfigureAwait(false)) return null;
+
+            if (! await CreateCentralIdentityProviderOrganisationMapperAsync(idpName, organisationName).ConfigureAwait(false)) return null;
+
+            if (! await CreateCentralIdentityProviderUsernameMapperAsync(idpName).ConfigureAwait(false)) return null;
+
+            if (! await EnableCentralIdentityProviderAsync(idpName).ConfigureAwait(false)) return null;
+
+            return idpName;
+        }
+
         public async Task<string> CreateSharedUserLinkedToCentralAsync(string idpName, UserProfile userProfile, string organisationName)
         {
             var userIdShared = await CreateSharedRealmUserAsync(idpName, userProfile).ConfigureAwait(false);

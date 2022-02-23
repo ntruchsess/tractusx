@@ -13,5 +13,6 @@ namespace CatenaX.NetworkServices.Provisioning.Library
         Task<IEnumerable<string>> GetClientRolesCompositeAsync(string clientId);
         Task<IEnumerable<string>> GetUserClientRoleMappingsCompositeAsync(string userId, string clientId);
         public Task<string> GetOrganisationFromCentralIdentityProviderMapperAsync(string alias);
+        Task<string> SetupOwnIdpAsync(string organisationName, string clientId, string metadataUrl, string clientAuthMethod, string clientSecret);
     }
 }

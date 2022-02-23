@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Keycloak.Net.Models.IdentityProviders;
-using CatenaX.NetworkServices.Provisioning.Library.Models;
+using Keycloak.Net.Models.OpenIDConfiguration;
 
 namespace CatenaX.NetworkServices.Provisioning.Library
 {
@@ -32,15 +32,60 @@ namespace CatenaX.NetworkServices.Provisioning.Library
             return _CentralIdp.CreateIdentityProviderAsync(_Settings.CentralRealm, newIdp);
         }
 
-        private async Task<bool> UpdateCentralIdentityProviderUrlsAsync(string alias, OpenIDConfig config)
+        private async Task<bool> UpdateCentralIdentityProviderUrlsAsync(string alias, OpenIDConfiguration config)
         {
             var identityProvider = await _CentralIdp.GetIdentityProviderAsync(_Settings.CentralRealm, alias).ConfigureAwait(false);
-            identityProvider.Config.AuthorizationUrl = config.AuthorizationEndpoint;
-            identityProvider.Config.TokenUrl = config.TokenEndpoint;
-            identityProvider.Config.LogoutUrl = config.EndSessionEndpoint;
-            identityProvider.Config.JwksUrl = config.JwksUri;
+            identityProvider.Config.AuthorizationUrl = config.AuthorizationEndpoint.ToString();
+            identityProvider.Config.TokenUrl = config.TokenEndpoint.ToString();
+            identityProvider.Config.LogoutUrl = config.EndSessionEndpoint.ToString();
+            identityProvider.Config.JwksUrl = config.JwksUri.ToString();
             return await _CentralIdp.UpdateIdentityProviderAsync(_Settings.CentralRealm, alias, identityProvider).ConfigureAwait(false);
         }
+
+        private async Task<IdentityProvider> SetIdentityProviderMetadataFromUrlAsync(IdentityProvider identityProvider, string url)
+        {
+            var metadata = await _CentralIdp.ImportIdentityProviderFromUrlAsync(_Settings.CentralRealm, url).ConfigureAwait(false);
+            if (metadata == null || metadata.Count() == 0) return null;
+            var changed = CloneIdentityProvider(identityProvider);
+            changed.Config ??= new Config();
+            foreach(var (key, value) in metadata)
+            {
+                switch(key)
+                {
+                    case "userInfoUrl":
+                        changed.Config.UserInfoUrl = value as string;
+                        break;
+                    case "validateSignature":
+                        changed.Config.ValidateSignature = value as string;
+                        break;
+                    case "tokenUrl":
+                        changed.Config.TokenUrl = value as string;
+                        break;
+                    case "authorizationUrl":
+                        changed.Config.AuthorizationUrl = value as string;
+                        break;
+                    case "jwksUrl":
+                        changed.Config.JwksUrl = value as string;
+                        break;
+                    case "logoutUrl":
+                        changed.Config.LogoutUrl = value as string;
+                        break;
+                    case "issuer":
+                        changed.Config.Issuer = value as string;
+                        break;
+                    case "useJwksUrl":
+                        changed.Config.UseJwksUrl = value as string;
+                        break;
+                }
+            }
+            return changed;
+        }
+
+        public Task<IdentityProvider> GetCentralIdentityProviderAsync(string alias) =>
+            _CentralIdp.GetIdentityProviderAsync(_Settings.CentralRealm, alias);
+
+        public Task<bool> UpdateCentralIdentityProviderAsync(string alias, IdentityProvider identityProvider) =>
+            _CentralIdp.UpdateIdentityProviderAsync(_Settings.CentralRealm, alias, identityProvider);
 
         private async Task<bool> EnableCentralIdentityProviderAsync(string alias)
         {
