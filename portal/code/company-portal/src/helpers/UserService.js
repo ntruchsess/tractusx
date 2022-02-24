@@ -69,6 +69,8 @@ const updateToken = (successCallback) =>
 
 const getUsername = () => _kc.tokenParsed?.preferred_username;
 
+const getTenant = () => _kc.tokenParsed?.tenant;
+
 const getInitials = () => _kc.tokenParsed?.preferred_username.split(/[.@]/).reduce((a,b) => a+b[0],'').substring(0,2).toUpperCase();
 
 const getDomain = () => realm;//_kc.tokenParsed?.split('/').pop();
@@ -89,7 +91,8 @@ const UserService = {
   getDomain,
   hasRole,
   realm,
-  clientId
+  clientId,
+  getTenant
 };
 
 export default UserService;

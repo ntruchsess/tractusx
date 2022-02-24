@@ -1,9 +1,8 @@
 ﻿using CatenaX.NetworkServices.Cosent.Library.Data;
-using CatenaX.NetworkServices.Invitation.Identity;
-using CatenaX.NetworkServices.Invitation.Identity.Identity;
-using CatenaX.NetworkServices.Invitation.Identity.Model;
 using CatenaX.NetworkServices.Mailing.SendMail;
 using CatenaX.NetworkServices.Mockups;
+using CatenaX.NetworkServices.Provisioning.Library;
+using CatenaX.NetworkServices.Provisioning.Library.Models;
 using CatenaX.NetworkServices.Registration.Service.BPN;
 using CatenaX.NetworkServices.Registration.Service.BPN.Model;
 using CatenaX.NetworkServices.Registration.Service.Custodian;
@@ -11,158 +10,122 @@ using CatenaX.NetworkServices.Registration.Service.Model;
 using CatenaX.NetworkServices.Registration.Service.RegistrationAccess;
 
 using Keycloak.Net;
-using Keycloak.Net.Models.Roles;
 using Keycloak.Net.Models.Users;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using PasswordGenerator;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
 {
     public class RegistrationBusinessLogic : IRegistrationBusinessLogic
     {
-        private readonly IConfiguration _configuration;
+        private readonly RegistrationSettings _settings;
         private readonly IRegistrationDBAccess _dbAccess;
         private readonly IMailingService _mailingService;
         private readonly IBPNAccess _bpnAccess;
         private readonly ICustodianService _custodianService;
+        private readonly IProvisioningManager _provisioningManager;
+        private readonly ILogger<RegistrationBusinessLogic> _logger;
 
-        public RegistrationBusinessLogic(IConfiguration configuration, IRegistrationDBAccess registrationDBAccess, IMailingService mailingService, IBPNAccess bpnAccess, ICustodianService custodianService)
+        public RegistrationBusinessLogic(IOptions<RegistrationSettings> settings, IRegistrationDBAccess registrationDBAccess, IMailingService mailingService, IBPNAccess bpnAccess, ICustodianService custodianService, IProvisioningManager provisioningManager, ILogger<RegistrationBusinessLogic> logger)
         {
-            _configuration = configuration;
+            _settings = settings.Value;
             _dbAccess = registrationDBAccess;
             _mailingService = mailingService;
             _bpnAccess = bpnAccess;
             _custodianService = custodianService;
+            _provisioningManager = provisioningManager;
+            _logger = logger;
         }
 
-        public async Task CreateUsersAsync(List<UserCreationInfo> userList, string realm, string token, Dictionary<string, string> userInfo)
+        public async Task<IEnumerable<string>> CreateUsersAsync(List<UserCreationInfo> usersToCreate, string tenant, string createdByEmail, string createdByName)
         {
-            var client = new KeycloakClient(_configuration.GetValue<string>("KeyCloakConnectionString"), () => token);
-            var clientId = _configuration.GetValue<string>("KeyCloakClientID");
+            var idpName = tenant;
+            var organisationName = await _provisioningManager.GetOrganisationFromCentralIdentityProviderMapperAsync(idpName).ConfigureAwait(false);
+            var clientId = _settings.KeyCloakClientID;
             var pwd = new Password();
-            foreach (UserCreationInfo user in userList)
+            List<string> userList = new List<string>();
+            foreach (UserCreationInfo user in usersToCreate)
             {
-                var password = pwd.Next();
-                var userToCreate = new User
+                try
                 {
-                    UserName = user.eMail,
-                    Credentials = new List<Credentials>() { new Credentials { Type = "Password", Value = password } },
-                    Enabled = true
-                };
+                    var password = pwd.Next();
+                    var centralUserId = await _provisioningManager.CreateSharedUserLinkedToCentralAsync(idpName, new UserProfile {
+                        UserName = user.userName ?? user.eMail,
+                        FirstName = user.firstName,
+                        LastName = user.lastName,
+                        Email = user.eMail,
+                        Password = password
+                    }, organisationName).ConfigureAwait(false);
 
-                var userId = await client.CreateAndRetrieveUserIdAsync(realm, userToCreate).ConfigureAwait(false);
-                var roles = new [] {await client.GetRoleByNameAsync(realm, clientId, user.Role).ConfigureAwait(false)};
+                    if (centralUserId == null) continue;
 
-                await client.AddClientRoleMappingsToUserAsync(realm, userId, clientId, roles).ConfigureAwait(false);
+                    var clientRoleNames = new Dictionary<string, IEnumerable<string>>
+                    {
+                        { clientId, new []{user.Role}}
+                    };
 
-                var inviteTemplateName = "invite";
-                if (!string.IsNullOrWhiteSpace(user.Message))
-                { 
-                    inviteTemplateName = "inviteWithMessage";
-                }
+                    if (!await _provisioningManager.AssignClientRolesToCentralUserAsync(centralUserId, clientRoleNames).ConfigureAwait(false)) continue;
 
-                var mailParameters = new Dictionary<string, string>
-                {
-                    { "password", password },
-                    { "companyname", realm },
-                    { "message", user.Message },
-                    { "eMailPreferredUsernameCreatedBy", userInfo["preferred_username"] },
-                    { "nameCreatedBy", userInfo.GetValueOrDefault("name") ?? userInfo["preferred_username"]},
-                    { "url", $"{_configuration.GetValue<string>("BasePortalAddress")}/?company={realm}"},
-                    { "username", user.eMail},
+                    var inviteTemplateName = "invite";
+                    if (!string.IsNullOrWhiteSpace(user.Message))
+                    { 
+                        inviteTemplateName = "inviteWithMessage";
+                    }
+
+                    var mailParameters = new Dictionary<string, string>
+                    {
+                        { "password", password },
+                        { "companyname", organisationName },
+                        { "message", user.Message },
+                        { "eMailPreferredUsernameCreatedBy", createdByEmail },
+                        { "nameCreatedBy", createdByName ?? createdByEmail},
+                        { "url", $"{_settings.BasePortalAddress}"},
+                        { "username", user.eMail},
                     
-                };
+                    };
 
-                await _mailingService.SendMails(user.eMail, mailParameters, new List<string> { inviteTemplateName, "password" }).ConfigureAwait(false);
+                    await _mailingService.SendMails(user.eMail, mailParameters, new List<string> { inviteTemplateName, "password" }).ConfigureAwait(false);
+
+                    userList.Add(user.eMail);
+                }
+                catch (Exception e)
+                {
+                    _logger.LogError(e, "Error while creating user");
+                }
             }
+            return userList;
         }
 
-        public async Task FinishRegistrationAsync(string token, string realm)
-        {
-            var manager = new KeycloakIdentityManager(new KeycloakClient(_configuration.GetValue<string>("KeyCloakConnectionString"), () => token),"");
-            var group = new CreateGroup { Name = "Registration" };
-            await manager.CreateGroup(realm, group);
-        }
+        public Task<IEnumerable<string>> GetClientRolesCompositeAsync() =>
+            _provisioningManager.GetClientRolesCompositeAsync(_settings.KeyCloakClientID);
 
-        public Task<List<string>> GetAvailableUserRoleAsync()
-        {
-            return Task.FromResult(UserRoles.Roles);
-        }
+        public Task<List<FetchBusinessPartnerDto>> GetCompanyByIdentifierAsync(string companyIdentifier) =>
+            _bpnAccess.FetchBusinessPartner(companyIdentifier);
 
-        public async Task<List<string>> GetClientRolesCompositeAsync(string token, string realm, string clientId)
-        {
-            var client = new KeycloakClient(_configuration.GetValue<string>("KeyCloakConnectionString"), () => token);
-            var clientRoles = await client.GetRolesAsync(realm, clientId);
+        public Task<IEnumerable<CompanyRole>> GetCompanyRolesAsync() =>
+            _dbAccess.GetAllCompanyRoles();
 
-            return clientRoles.Where(r => r.Composite == true).Select(g => g.Name).ToList();
-        }
+        public Task<IEnumerable<ConsentForCompanyRole>> GetConsentForCompanyRoleAsync(int roleId) =>
+            _dbAccess.GetConsentForCompanyRole(roleId);
 
-        public async Task<List<string>> GetUserClientRoleMappingsCompositeAsync(string token, string realm, string userId, string clientId)
-        {
-            var client = new KeycloakClient(_configuration.GetValue<string>("KeyCloakConnectionString"), () => token);
-            var clientRoleMappingsComposite = await client.GetClientRoleMappingsForUserAsync(realm, userId, clientId);
+        public Task SetCompanyRolesAsync(CompanyToRoles rolesToSet) =>
+            _dbAccess.SetCompanyRoles(rolesToSet);
 
-            return clientRoleMappingsComposite.Where(r => r.Composite == true).Select(g => g.Name).ToList();
-        }
+        public Task SetIdpAsync(SetIdp idpToSet) =>
+            _dbAccess.SetIdp(idpToSet);
 
-        public async Task<List<string>> GetGroupsAsync(string token, string realm)
-        {
-            var client = new KeycloakClient(_configuration.GetValue<string>("KeyCloakConnectionString"), () => token);
-            var userGroups = await client.GetGroupHierarchyAsync(realm);
+        public Task SignConsentAsync(SignConsentRequest signedConsent) =>
+            _dbAccess.SignConsent(signedConsent);
 
-            return userGroups.Select(g => g.Name).ToList();
-        }
+        public Task<IEnumerable<SignedConsent>> SignedConsentsByCompanyIdAsync(string companyId) =>
+            _dbAccess.SignedConsentsByCompanyId(companyId);
 
-        public async Task<List<string>> GetUserGroupsAsync(string token, string realm, string userId)
-        {
-            var client = new KeycloakClient(_configuration.GetValue<string>("KeyCloakConnectionString"), () => token);
-            var userGroups = await client.GetUserGroupsAsync(realm, userId);
-
-            return userGroups.Select(g => g.Name).ToList();
-        }
-
-        public async Task<List<FetchBusinessPartnerDto>> GetCompanyByIdentifierAsync(string companyIdentifier)
-        {
-            return await _bpnAccess.FetchBusinessPartner(companyIdentifier);
-        }
-
-        public async Task<List<CompanyRole>> GetCompanyRolesAsync()
-        {
-            var result = await _dbAccess.GetAllCompanyRoles();
-            return result.ToList();
-        }
-
-        public async Task<List<ConsentForCompanyRole>> GetConsentForCompanyRoleAsync(int roleId)
-        {
-            return (await _dbAccess.GetConsentForCompanyRole(roleId)).ToList();
-        }
-
-        public async Task SetCompanyRolesAsync(CompanyToRoles rolesToSet)
-        {
-            await _dbAccess.SetCompanyRoles(rolesToSet);
-        }
-
-        public async Task SetIdpAsync(SetIdp idpToSet)
-        {
-            await _dbAccess.SetIdp(idpToSet);
-        }
-
-        public async Task SignConsentAsync(SignConsentRequest signedConsent )
-        {
-            await _dbAccess.SignConsent(signedConsent);
-        }
-
-        public async Task<List<SignedConsent>> SignedConsentsByCompanyIdAsync(string companyId)
-        {
-           return (await _dbAccess.SignedConsentsByCompanyId(companyId)).ToList();
-        }
-
-        public async Task CreateCustodianWalletAsync(WalletInformation information)
-        {
-            await _custodianService.CreateWallet(information.bpn, information.name);
-        }
+        public Task CreateCustodianWalletAsync(WalletInformation information) =>
+            _custodianService.CreateWallet(information.bpn, information.name);
     }
 }

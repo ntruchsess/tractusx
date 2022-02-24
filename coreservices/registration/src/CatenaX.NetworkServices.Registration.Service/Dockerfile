@@ -8,7 +8,14 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
 COPY ["registration/src/CatenaX.NetworkServices.Registration.Service/CatenaX.NetworkServices.Registration.Service.csproj", "registration/src/CatenaX.NetworkServices.Registration.Service/"]
-RUN dotnet restore "registration/src/CatenaX.NetworkServices.Registration.Service/CatenaX.NetworkServices.Registration.Service.csproj"
+COPY ["consent/src/CatenaX.NetworkServices.Consent.Library.Data/CatenaX.NetworkServices.Consent.Library.Data.csproj", "consent/src/CatenaX.NetworkServices.Consent.Library.Data/"]
+COPY ["keycloak/src/CatenaX.NetworkServices.Keycloak.Authentication/CatenaX.NetworkServices.Keycloak.Authentication.csproj", "keycloak/src/CatenaX.NetworkServices.Keycloak.Authentication/"]
+COPY ["keycloak/src/CatenaX.NetworkServices.Keycloak.Factory/CatenaX.NetworkServices.Keycloak.Factory.csproj", "keycloak/src/CatenaX.NetworkServices.Keycloak.Factory/"]
+COPY ["keycloak/src/Keycloak.Net/Keycloak.Net.csproj", "keycloak/src/Keycloak.Net/"]
+COPY ["mailing/src/CatenaX.NetworkServices.Mailing.SendMail/CatenaX.NetworkServices.Mailing.SendMail.csproj", "mailing/src/CatenaX.NetworkServices.Mailing.SendMail/"]
+COPY ["mailing/src/CatenaX.NetworkServices.Mailing.Template/CatenaX.NetworkServices.Mailing.Template.csproj", "mailing/src/CatenaX.NetworkServices.Mailing.Template/"]
+COPY ["mockup/src/CatenaX.NetworkServices.Mockups/CatenaX.NetworkServices.Mockups.csproj", "mockup/src/CatenaX.NetworkServices.Mockups/"]
+COPY ["provisioning/src/CatenaX.NetworkServices.Provisioning.Library/CatenaX.NetworkServices.Provisioning.Library.csproj", "provisioning/src/CatenaX.NetworkServices.Provisioning.Library/"]
 COPY . .
 WORKDIR "/src/registration/src/CatenaX.NetworkServices.Registration.Service"
 RUN dotnet build "CatenaX.NetworkServices.Registration.Service.csproj" -c Release -o /app/build
