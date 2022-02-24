@@ -66,15 +66,15 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
             return Ok();
         }
 
-        [Route("company/{realm}/documents")]
+        [HttpPost]
+        [Route("documents")]
         [Authorize(Roles = "invite_user")]
-        public async Task<IActionResult> CreateDocument([FromForm(Name = "document")] IFormFile document, [FromHeader] string authorization)
+        public async Task<IActionResult> CreateDocument([FromForm(Name = "document")] IFormFile document)
         {
-            var createdByEmail = User.Claims.SingleOrDefault(x => x.Type == "preferred_username").Value as string;
-            await _registrationBusinessLogic.CreateDocument(document, createdByEmail);
+            var username = User.Claims.SingleOrDefault(x => x.Type == "sub").Value as string;
+            await _registrationBusinessLogic.CreateDocument(document, username);
             return new OkResult();
         }
-
 
         [HttpPut]
         [Authorize(Roles="invite_user")]
