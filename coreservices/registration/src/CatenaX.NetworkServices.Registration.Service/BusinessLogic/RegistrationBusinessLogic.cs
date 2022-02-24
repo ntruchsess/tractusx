@@ -182,9 +182,9 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
                 document.CopyTo(ms);
                 var fileBytes = ms.ToArray();
                 documentContent = Convert.ToBase64String(fileBytes);
-                using (SHA256 mySHA256 = SHA256.Create())
+                using (SHA256 hashSHA256 = SHA256.Create())
                 {
-                    byte[] hashValue = mySHA256.ComputeHash(Encoding.UTF8.GetBytes(documentContent));
+                    byte[] hashValue = hashSHA256.ComputeHash(Encoding.UTF8.GetBytes(documentContent));
                     hash = Encoding.UTF8.GetString(hashValue); 
                     StringBuilder builder = new StringBuilder();
                     for (int i = 0; i < hashValue.Length; i++)
