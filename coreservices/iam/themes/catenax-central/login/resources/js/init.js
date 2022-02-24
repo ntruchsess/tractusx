@@ -1,3 +1,4 @@
+const ASSET_BASE='https://catenaxdev003util.blob.core.windows.net/util/themes/catenax-central/static';
 window.onload = () => {
     let icon = document.querySelectorAll('link[rel=icon]')[0];
     if (!icon) {
@@ -15,10 +16,10 @@ window.onload = () => {
     data.appendChild(providers);
     document.head.appendChild(data);
     const script = document.createElement('script');
-    script.src = 'https://catenaxdev003util.blob.core.windows.net/util/themes/catenax-central/static/Main.js';
+    script.src = `${ASSET_BASE}/Main.js`;
     document.head.appendChild(script)
     const style = document.createElement('link');
-    style.href = 'https://catenaxdev003util.blob.core.windows.net/util/themes/catenax-central/static/Main.css';
+    style.href = `${ASSET_BASE}/Main.css`;
     style.rel = 'stylesheet';
     document.head.appendChild(style)
 }
