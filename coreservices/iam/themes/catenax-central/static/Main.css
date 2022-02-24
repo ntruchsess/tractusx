@@ -1,0 +1,147 @@
+.b {
+    font-family: "LibreFranklin" !important;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-image: url(https://catenax-dev003-app-onboarding.azurewebsites.net/static/media/bgNew.35528430.svg);
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.bs {
+    box-shadow: 2px 2px 5px #f0f0f0;
+}
+
+.search, ul>li>a {
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.logo {
+    width: 100%;
+    height: 200px;
+    background-image: url(https://catenax-dev003-app-onboarding.azurewebsites.net/logo_cx.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 320px 200px;
+}
+
+.test {
+    color: #444;
+    font-size: 12px;
+    font-weight: bold;
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.search {
+    width: 320px;
+    color: #444;
+    padding: 12px;
+    font-size: 30px;
+    outline: none;
+    text-align: center;
+}
+
+.search::placeholder {
+    color: #ccc;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
+    padding-inline-start: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin: 60px;
+}
+
+
+ul>li>a {
+    display: inline-block;
+    margin: 10px;
+    padding: 30px;
+    width: 160px;
+    height: 80px;
+    font-size: 1px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+ul>li>a:hover {
+    font-size: 20px;
+    color: #444;
+    background-color: #f0f0f0;
+}
+
+
+a { background-image: url(https://catenaxdev003util.blob.core.windows.net/util/themes/catenax-central/static/icon/icon-wrench.svg); background-size: 70px 70px; }
+
+
+a.allsafe-jungfalk { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/neu/allsafe-jungfalk-logo_grey.png) }
+a.csm_apheris_ai { background-image: url(https://catena-x.net/fileadmin/_processed_/a/4/csm_apheris_ai_grey_8827054f6d.png) }
+a.apliko { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/neu/apliko_logo_grey.png); background-size: 200px 35px; }
+a.arena2036 { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/final/grey/arena2036_grau.png) }
+a.arxum { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/neu/arxum_gmbh_grey.png) }
+a.atos { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/neu/atos_information_technology_gmbh_grey_01.png) }
+a.aai { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/neu/automotive_artificial_intelligence__aai__gmbh_grey.png) }
+a.basf { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/final/grey/basf_grau.png) }
+a.bigchain { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/final/grey/bigchain_grau.png) }
+a.bmw, a.bmw_wen_oidc { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/final/grey/bmw_grau.png) }
+a.bosch { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/final/grey/bosch_grau.png) }
+a.brain_of_materials { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/neu/brain_of_materials_ag_grey.png) }
+a.capgemini { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/neu/capgemini_deutschland_gmbh_grey.png) }
+a.cct { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/final/grey/cct_grau.png) }
+a.cdq { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/neu/cdq_ag_grey.png) }
+a.circulor { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/neu/circulor_gmbh_grey.png) }
+a.circunomics { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/neu/circunomics_gmbh_grey.png) }
+a.cx_test_access { background-image: url(https://catenaxdev003util.blob.core.windows.net/util/themes/catenax-central/static/icon/icon-test.svg); background-size: 70px 70px; }
+a.dccs { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/neu/dccs_gmbh_grey.png) }
+a.deloitte { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/neu/deloitte_gmbh_wirtschaftspruefungsgesellschaft_grey.png) }
+a.t-systems { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/final/grey/t-systems_grau.png) }
+a.dlr { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/final/grey/dlr_grau_neu.png) }
+a.draexlmaier { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/neu/draexlmaier_gmbh_grey.png) }
+a.fetchai { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/final/grey/fetchai_grau_2.png) }
+a.fraunhofer { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/final/grey/fraunhofer_grau.png) }
+a.gec { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/neu/gec_logo_grey.png) }
+a.github { background-image: url(https://catenaxdev003util.blob.core.windows.net/util/themes/catenax-central/static/icon/logo-github.svg); background-size: 140px 50px; }
+a.gris { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/final/grey/gris_grau.png) }
+a.hanselmann { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/neu/hanselmann___compagnie_gmbh_grey.jpg) }
+a.henkel { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/final/grey/henkel_grau.png) }
+a.iav { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/neu/iav_gmbh_ingenieursgesellschaft_grey.png); background-size: 80px 80px; }
+a.ili_digital { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/neu/ili.digital_ag_grey_01.png); background-size: 200px 30px; }
+a.ipoint { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/neu/ipoint-systems_gmbh_grey.png) }
+a.itemis { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/neu/itemis_ag_grey.png) }
+a.kaputt { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/final/grey/kaputt_grau.png) }
+a.logsolut { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/neu/logsolut_ag_grey.jpg); background-size: 80px 80px; }
+a.lrp { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/final/grey/lrp_grau.png) }
+a.mercedes_benz { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/final/grey/mercedes_benz_grau.png) }
+a.microsoft, a.microsoft_azure_speedboat_oidc { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/final/grey/microsoft_grau.png); background-size: 168px 36px; }
+a.mipart { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/final/grey/mipart_grau.png) }
+a.owncloud { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/neu/owncloud_gmbh_grey.png) }
+a.sap { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/final/grey/sap_grau.png) }
+a.schaeffler { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/final/grey/schaeffler_grau.png) }
+a.siemens, a.siemensidpauth0 { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/final/grey/siemens_grau.png); background-size: 168px 27px; }
+a.ssc { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/neu/ssc_services_gmbh_grey.png); background-size: 80px 80px; }
+a.supplyon { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/final/grey/supplyon_grau.png) }
+a.thyssenkrupp { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/neu/thyssenkrupp_materials_services_gmbh_grey.png) }
+a.tributech { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/neu/tributech_solutions_gmbh_grey.png) }
+a.trumpf { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/final/grey/trumpf_grau.png) }
+a.up2parts { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/final/grey/up2parts_grau.png) }
+a.valeo { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/neu/valeo_grey.png) }
+a.volkswagen { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/final/grey/volkswagen_ag_grau.png) }
+a.zf { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/final/grey/zf_group_grau.png) }
+a._23_technologies { background-image: url(https://catena-x.net/fileadmin/user_upload/logos/neu/23_technologies_gmbh_grey.png); background-size: 200px 40px; }
