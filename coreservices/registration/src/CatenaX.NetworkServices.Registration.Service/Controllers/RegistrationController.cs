@@ -4,6 +4,7 @@ using CatenaX.NetworkServices.Registration.Service.BusinessLogic;
 using CatenaX.NetworkServices.Registration.Service.Model;
 
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -28,22 +29,22 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles="add_company_data")]
+        [Authorize(Roles = "add_company_data")]
         [Route("company/{bpn}")]
         [ProducesResponseType(typeof(Company), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetOneObjectAsync([FromRoute] string bpn) =>
             Ok(await _registrationBusinessLogic.GetCompanyByIdentifierAsync(bpn).ConfigureAwait(false));
 
         [HttpPost]
-        [Authorize(Policy="CheckTenant")]
-        [Authorize(Roles="invite_user")]
+        [Authorize(Policy = "CheckTenant")]
+        [Authorize(Roles = "invite_user")]
         [Route("tenant/{tenant}/users")]
         public async Task<IActionResult> CreateUsersAsync([FromRoute] string tenant, [FromBody] List<UserCreationInfo> usersToCreate)
         {
             try
             {
-                var createdByEmail = User.Claims.SingleOrDefault( x => x.Type=="preferred_username").Value as string;
-                var createdByName = User.Claims.SingleOrDefault( x => x.Type=="name").Value as string;
+                var createdByEmail = User.Claims.SingleOrDefault(x => x.Type == "preferred_username").Value as string;
+                var createdByName = User.Claims.SingleOrDefault(x => x.Type == "name").Value as string;
                 var createdUsers = await _registrationBusinessLogic.CreateUsersAsync(usersToCreate, tenant, createdByEmail, createdByName).ConfigureAwait(false);
 
                 return Ok(createdUsers);
@@ -57,12 +58,22 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles="submit_registration")]
+        [Authorize(Roles = "submit_registration")]
         [Route("custodianWallet")]
         public async Task<IActionResult> CreateWallet([FromBody] WalletInformation walletToCreate)
         {
             await _registrationBusinessLogic.CreateCustodianWalletAsync(walletToCreate).ConfigureAwait(false);
             return Ok();
+        }
+
+        [HttpPost]
+        [Route("documents")]
+        [Authorize(Roles = "invite_user")]
+        public async Task<IActionResult> CreateDocument([FromForm(Name = "document")] IFormFile document)
+        {
+            var username = User.Claims.SingleOrDefault(x => x.Type == "sub").Value as string;
+            await _registrationBusinessLogic.CreateDocument(document, username);
+            return new OkResult();
         }
 
         [HttpPut]

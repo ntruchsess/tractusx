@@ -86,5 +86,15 @@ namespace CatenaX.NetworkServices.Registration.Service.RegistrationAccess
                 return await _dbConnection.QueryAsync<SignedConsent>(sql);
             }
         }
+
+        public async Task UploadDocument(string name, string document, string hash, string username)
+        {
+            using (_dbConnection)
+            {
+                var parameters = new { documentName = name, document = document, documentHash = hash, documentuser = username, documentuploaddate = DateTime.UtcNow };
+                string sql = "Insert Into public.documents (documentName, document, documentHash, documentuser, documentuploaddate) values(@documentName, @document, @documentHash, @documentuser, @documentuploaddate)";
+                await _dbConnection.ExecuteAsync(sql, parameters);
+            }
+        }
     }
 }
