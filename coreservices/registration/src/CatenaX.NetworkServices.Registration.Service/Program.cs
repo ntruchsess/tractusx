@@ -20,14 +20,22 @@ namespace CatenaX.NetworkServices.Registration.Service
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-            .ConfigureAppConfiguration((hostContext, builder) =>
-            {
-                if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT").Equals("Kubernetes"))
+                .ConfigureAppConfiguration((hostContext, builder) =>
                 {
-                    var provider = new PhysicalFileProvider("/app/secrets");
-                    builder.AddJsonFile(provider, "appsettings.json", optional: false, reloadOnChange: true);
-                }
-            })
+                    if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT").Equals("Kubernetes"))
+                    {
+                        var provider = new PhysicalFileProvider("/app/secrets");
+                        builder.AddJsonFile(provider, "appsettings.json", optional: false, reloadOnChange: false);
+                    }
+                })
+                .ConfigureAppConfiguration(appConfiguration => {
+                    foreach(var source in appConfiguration.Sources) {
+                        var fileSource = source as FileConfigurationSource;
+                        if (fileSource != null) {
+                            fileSource.ReloadOnChange = false;
+                        }
+                    }
+                })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();

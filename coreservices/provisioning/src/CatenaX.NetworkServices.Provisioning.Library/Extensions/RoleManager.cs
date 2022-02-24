@@ -26,7 +26,7 @@ namespace CatenaX.NetworkServices.Provisioning.Library
             }
         }
 
-        private async Task<bool> AssignClientRolesToCentralUserAsync(string centralUserId, IDictionary<string,IEnumerable<string>> clientRoleNames)
+        public async Task<bool> AssignClientRolesToCentralUserAsync(string centralUserId, IDictionary<string,IEnumerable<string>> clientRoleNames)
         {
             return (await Task.WhenAll(clientRoleNames.Select( async x => 
                 {

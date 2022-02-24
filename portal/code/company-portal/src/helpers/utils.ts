@@ -20,9 +20,8 @@ const url = process.env.REACT_APP_ONBOARDING_URL;
 const endpoint = process.env.REACT_APP_ONBOARDING_ENDPOINT;
 export function getCompanyDetails(oneId: String): Promise<FetchBusinessPartnerDto[]> {
   console.log('API called getCompanyDetails');
-  const realm = UserService.realm;
   const token = UserService.getToken();
-  const u = `${url}/${endpoint}/${realm}/${oneId}`;
+  const u = `${url}/${endpoint}/company/${oneId}`;
   let myResponseData: FetchBusinessPartnerDto[] = [];
   const promise = new Promise<FetchBusinessPartnerDto[]>((resolve, reject) => {
     fetch(u, { method: 'GET', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } })
@@ -44,9 +43,8 @@ export function getCompanyDetails(oneId: String): Promise<FetchBusinessPartnerDt
 }
 
 export function submitCustodianWallet (): Promise<CompanyRole[]> {
-  const realm = UserService.realm;
   const token = UserService.getToken();
-  const u = `${url}/${endpoint}/${realm}/companyRoles`;
+  const u = `${url}/${endpoint}/companyRoles`;
   let companyRolesRes: CompanyRole[] = [];
   const promise = new Promise<CompanyRole[]>((resolve, reject) => {
     fetch(u, { method: 'GET', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } })
@@ -68,9 +66,8 @@ export function submitCustodianWallet (): Promise<CompanyRole[]> {
 }
 
 export function getCompanyRoles(): Promise<CompanyRole[]> {
-  const realm = UserService.realm;
   const token = UserService.getToken();
-  const u = `${url}/${endpoint}/${realm}/companyRoles`;
+  const u = `${url}/${endpoint}/companyRoles`;
   let companyRolesRes: CompanyRole[] = [];
   const promise = new Promise<CompanyRole[]>((resolve, reject) => {
     fetch(u, { method: 'GET', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } })
@@ -92,10 +89,8 @@ export function getCompanyRoles(): Promise<CompanyRole[]> {
 }
 
 export function getConsentForCompanyRoles(roleId: Number): Promise<ConsentForCompanyRoles[]> {
-  const realm = UserService.realm;
-  const endpoint = 'api/onboarding/company';
   const token = UserService.getToken();
-  const u = `${url}/${endpoint}/${realm}/consentsFoCompanyRole/${roleId}`;
+  const u = `${url}/${endpoint}/consentsForCompanyRole/${roleId}`;
   let myConsentResponseData: ConsentForCompanyRoles[] = [];
   const promise = new Promise<ConsentForCompanyRoles[]>((resolve, reject) => {
     fetch(u, { method: 'GET', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } })
@@ -115,10 +110,10 @@ export function getConsentForCompanyRoles(roleId: Number): Promise<ConsentForCom
   return promise;
 }
 
+// endpoint has been removed in the course of CPLP-327 - refactoring of registration backend - obsolete due to rolesComposite endpoint
 export function getUserRoles(): Promise<UserRole[]> {
-  const realm = UserService.realm;
   const token = UserService.getToken();
-  const u = `${url}/${endpoint}/${realm}/userRoles`;
+  const u = `${url}/${endpoint}/userRoles`;
   let userRolesRes: UserRole[] = [];
   const promise = new Promise<UserRole[]>((resolve, reject) => {
     fetch(u, { method: 'GET', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } })
@@ -139,6 +134,7 @@ export function getUserRoles(): Promise<UserRole[]> {
   return promise;
 }
 
+// to be removed with CPLP-380
 export function getUserClientRolesComposite(): Promise<string[]> {
   const realm = UserService.realm;
   const clientId = UserService.clientId;
@@ -165,10 +161,8 @@ export function getUserClientRolesComposite(): Promise<string[]> {
 }
 
 export function getClientRolesComposite(): Promise<string[]> {
-  const realm = UserService.realm;
-  const clientId = UserService.clientId;
   const token = UserService.getToken();
-  const u= `${url}/${endpoint}/${realm}/clients/${clientId}/rolesComposite`;
+  const u= `${url}/${endpoint}/rolesComposite`;
   let userRolesRes: string[] = [];
   const promise = new Promise<string[]>((resolve, reject) => {
     fetch(u, { method: 'GET', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } })
