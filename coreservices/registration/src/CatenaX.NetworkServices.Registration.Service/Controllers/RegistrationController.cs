@@ -3,6 +3,7 @@ using CatenaX.NetworkServices.Mockups;
 using CatenaX.NetworkServices.Registration.Service.BusinessLogic;
 using CatenaX.NetworkServices.Registration.Service.Model;
 
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
@@ -42,6 +43,14 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
         public Task<IActionResult> CreateUsersAsync([FromRoute] string realm, [FromHeader] string authorization, [FromBody] List<UserCreationInfo> userToCreate) =>
             ValidateTokenAsync(realm, authorization, async (userInfo) => {
                 await _registrationBusinessLogic.CreateUsersAsync(userToCreate, realm, authorization.Split(" ")[1], userInfo);
+                return new OkResult();
+            });
+
+        [HttpPost]
+        [Route("company/{realm}/documents")]
+        public Task<IActionResult> CreateDocument([FromForm(Name = "document")] IFormFile document, [FromHeader] string authorization) =>
+            ValidateTokenAsync("test", authorization, async (userInfo) => {
+                await _registrationBusinessLogic.CreateDocument(document, userInfo["preferred_username"]);
                 return new OkResult();
             });
 
@@ -162,10 +171,10 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
             {
                 _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
                 var response = await _httpClient.GetAsync($"{realm}/protocol/openid-connect/userinfo");
-                if (!response.IsSuccessStatusCode)
-                {
-                    return new StatusCodeResult((int)HttpStatusCode.Forbidden);
-                }
+                //if (!response.IsSuccessStatusCode)
+                //{
+                //    return new StatusCodeResult((int)HttpStatusCode.Forbidden);
+                //}
                 return await action(
                     deserialize
                         ? JsonConvert.DeserializeObject<Dictionary<string, string>>(await response.Content.ReadAsStringAsync())
