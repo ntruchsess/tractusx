@@ -1,8 +1,16 @@
-.pageBody{
+.wrapper{
     height: 100%;
     width: 100%;
-    background-color: orange;
-    padding-top: 40vh;
+    text-align: center;
+}
+
+.wrapper img{
+    width: 200px;
+    margin: 50px auto 0;
+}
+
+.pageBody{
+    padding-top: 20vh;
 }
 
 .infoContent{
@@ -11,8 +19,19 @@
     max-width: 500px;
     margin: 0 auto;
     background-color: white;
-    padding: 50px;
+    padding:100px 50px;
     border-radius: 25px;
+
+}
+
+.infoBackground{
+    width: 100%;
+    height: auto;
+    padding: 100px 0;
+    background-image: url(assets/catena-background.svg);
+    background-size: cover;
+    background-position-y: center;
+    background-repeat: no-repeat;
 }
 
 .infoContent div{
