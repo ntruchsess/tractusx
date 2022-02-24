@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 using CatenaX.NetworkServices.Invitation.Service.BusinessLogic;
+using System.Linq;
+using System.Collections.Generic;
+using CatenaX.NetworkServices.Provisioning.Library;
 
 namespace CatenaX.NetworkServices.Invitation.Service.Controllers
 {
@@ -41,6 +44,28 @@ namespace CatenaX.NetworkServices.Invitation.Service.Controllers
             {
                 _logger.LogError(e.ToString());
                 return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+            }
+        }
+
+        [HttpPost]
+        [Authorize(Roles="add_user_account")]
+        [Route("api/invitation/tenant/{tenant}/users")]
+        public async Task<IActionResult> ExecuteUserCreation([FromRoute] string tenant, [FromBody] List<UserCreationInfo> usersToCreate)
+        {
+            try
+            {
+                var createdByEmail = User.Claims.SingleOrDefault( x => x.Type=="preferred_username").Value as string;
+                var createdByName = User.Claims.SingleOrDefault( x => x.Type=="name").Value as string;
+                var createdUsers = await _logic.CreateUsersAsync(usersToCreate, tenant, createdByEmail, createdByName).ConfigureAwait(false);
+                {
+                    return Ok(createdUsers);
+                }
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.ToString());
+                return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+
             }
         }
     }

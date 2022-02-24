@@ -7,6 +7,9 @@ using PasswordGenerator;
 using CatenaX.NetworkServices.Mailing.SendMail;
 using CatenaX.NetworkServices.Provisioning.Library;
 using CatenaX.NetworkServices.Provisioning.Library.Models;
+using Microsoft.Extensions.Logging;
+using System;
+using Microsoft.Extensions.Options;
 
 namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
 {
@@ -14,13 +17,19 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
     {
         private readonly IProvisioningManager _provisioningManager;
         private readonly IMailingService _mailingService;
-        private readonly IConfiguration _configuration;
+        private readonly ILogger<InvitationBusinessLogic> _logger;
+        private readonly IOptionsSnapshot<InvitationSettings> _settings;
 
-        public InvitationBusinessLogic(IProvisioningManager provisioningManager, IMailingService mailingService, IConfiguration configuration)
+        public InvitationBusinessLogic(
+            IProvisioningManager provisioningManager,
+            IMailingService mailingService,
+            ILogger<InvitationBusinessLogic> logger,
+            IOptionsSnapshot<InvitationSettings> settings)
         {
             _provisioningManager = provisioningManager;
             _mailingService = mailingService;
-            _configuration = configuration;
+            _logger = logger;
+            _settings = settings;
         }
 
         public async Task<bool> ExecuteInvitation(InvitationData invitationData)
@@ -45,11 +54,70 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
             {
                 { "password", password },
                 { "companyname", invitationData.organisationName },
-                { "url", $"{_configuration.GetValue<string>("BasePortalAddress")}/?company={idpName}&user={invitationData.userName}"  }
+                { "url", $"{_settings.Value.Registration.BasePortalAddress}"},
             };
 
-            await _mailingService.SendMails(invitationData.email, mailParameters, new List<string> { "invite", "password"} );
+            await _mailingService.SendMails(invitationData.email, mailParameters, new List<string> { "RegistrationTemplate", "PasswordForRegistrationTemplate"} );
             return true;
+        }
+
+        public async Task<IEnumerable<string>> CreateUsersAsync(List<UserCreationInfo> usersToCreate, string tenant, string createdByEmail, string createdByName)
+        {
+            var idpName = tenant;
+            var organisationName = await _provisioningManager.GetOrganisationFromCentralIdentityProviderMapperAsync(idpName).ConfigureAwait(false);
+            var clientId = _settings.Value.Portal.KeyCloakClientID;
+            var pwd = new Password();
+            List<string> userList = new List<string>();
+            foreach (UserCreationInfo user in usersToCreate)
+            {
+                try
+                {
+                    var password = pwd.Next();
+                    var centralUserId = await _provisioningManager.CreateSharedUserLinkedToCentralAsync(idpName, new UserProfile {
+                        UserName = user.userName ?? user.eMail,
+                        FirstName = user.firstName,
+                        LastName = user.lastName,
+                        Email = user.eMail,
+                        Password = password
+                    }, organisationName).ConfigureAwait(false);
+
+                    if (centralUserId == null) continue;
+
+                    var clientRoleNames = new Dictionary<string, IEnumerable<string>>
+                    {
+                        { clientId, new []{user.Role}}
+                    };
+
+                    if (!await _provisioningManager.AssignClientRolesToCentralUserAsync(centralUserId, clientRoleNames).ConfigureAwait(false)) continue;
+
+                    var inviteTemplateName = "PortalTemplate";
+                    if (!string.IsNullOrWhiteSpace(user.Message))
+                    { 
+                        inviteTemplateName = "PortalTemplateWithMessage";
+                    }
+
+                    var mailParameters = new Dictionary<string, string>
+                    {
+                        { "password", password },
+                        { "companyname", organisationName },
+                        { "message", user.Message },
+                        { "eMailPreferredUsernameCreatedBy", createdByEmail },
+                        { "nameCreatedBy", createdByName ?? createdByEmail},
+                        { "url", $"{_settings.Value.Portal.BasePortalAddress}"},
+                        { "username", user.eMail},
+                    
+                    };
+
+                    await _mailingService.SendMails(user.eMail, mailParameters, new List<string> { inviteTemplateName, "PasswordForPortalTemplate" }).ConfigureAwait(false);
+
+                    userList.Add(user.eMail);
+                }
+                catch (Exception e)
+                {
+                    _logger.LogError(e, "Error while creating user");
+                }
+            }
+            return userList;
         }
     }
 }
