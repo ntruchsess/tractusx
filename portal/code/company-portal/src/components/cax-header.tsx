@@ -16,7 +16,7 @@ import * as React from 'react';
 import i18n from '../i18n';
 import { Row, Col } from 'react-bootstrap';
 import UserService from '../helpers/UserService';
-import { getUserClientRolesComposite } from '../helpers/utils';
+import { getClientRolesComposite } from '../helpers/utils';
 import { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
@@ -28,14 +28,16 @@ export const Header = () => {
 
     const username =  UserService.getUsername();
     const initials =  UserService.getInitials();
+    const tokenRoles =  UserService.getRoles();
     const [userRoles, setuserRoles] =  useState([]);
     const [language, setlanguage] =  useState(i18n.language);
 
     useEffect(() => {
         // declare the data fetching function
         const fetchData = async () => {
-          const data = await getUserClientRolesComposite();
-          setuserRoles(data);
+          const data = await getClientRolesComposite();
+          const filterComposite = tokenRoles.filter((value: string) => data.includes(value));
+          setuserRoles(filterComposite);
         }
       
         // call the function
