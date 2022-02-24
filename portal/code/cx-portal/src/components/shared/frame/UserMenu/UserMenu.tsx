@@ -6,7 +6,7 @@ export const UserMenu = () => (
   <div className="UserMenu">
     <div className="Info">
       <span className="Name">{UserService.getName()}</span>
-      <span className="Company">({UserService.getCompany()})</span>
+      <span className="Company">{UserService.getCompany()}</span>
       <span className="Email">
         <a href={`mailto:${UserService.getEmail()}`}>
           {UserService.getEmail()}
