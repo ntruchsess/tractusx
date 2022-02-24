@@ -56,7 +56,7 @@ const getUsername = () => _kc.tokenParsed?.preferred_username;
 
 const getName = () => _kc.tokenParsed?.name;
 
-const getInitials = () => _kc.tokenParsed?.name.split(/[ -_.@]/).reduce((a,b) => a+b[0],'').substring(0,2).toUpperCase();
+const getInitials = () => _kc.tokenParsed?.name?.split(/[ -_.@]/).reduce((a,b) => a+b[0],'').substring(0,2).toUpperCase();
 
 const getDomain = () => CX_REALM;
 

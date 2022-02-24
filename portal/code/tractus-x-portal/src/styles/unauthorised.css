@@ -1,0 +1,35 @@
+.pageBody{
+    height: 100%;
+    width: 100%;
+    background-color: orange;
+    padding-top: 40vh;
+}
+
+.infoContent{
+    display: flex;
+    flex: 1;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 50px;
+    border-radius: 25px;
+}
+
+.infoContent div{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.infoContent h1{
+    font-size: 24px;
+    font-weight: bolder;
+    margin-bottom: 20px;
+}
+
+.infoContent span{
+    font-size: 20px;
+    font-weight: bolder;
+}
+
