@@ -6,7 +6,7 @@ For the registration app, following emails are considered
 
 - E-Mail Frame Template
 - E-Mail Invite for Registration
-- E-Mail Invite additional Users
+- E-Mail Invite additional Reg. Users
 - E-Mail Submitted Registration & Next Steps
 - E-Mail Welcome to Catena-X - Join the Network
 - E-Mail Passwort Reset
