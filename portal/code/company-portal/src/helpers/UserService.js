@@ -7,7 +7,7 @@ if (!realm) {
   realm = localStorage.getItem('company');
 }
 if (!realm) {
-  realm = 'master';
+  realm = 'CX-Central';
 }
 localStorage.setItem('company', realm);
 
