@@ -28,6 +28,8 @@ import Emailregister from './components/emailregister';
 import { AppState } from './stores/appstate';
 import Login from './components/login';
 import Authinfo from './components/authinfo';
+import UnauthorisedPage from "./components/unauthorised";
+import ProtectedRoute from "./helpers/authorisation/ProtectedRoute";
 const history = createBrowserHistory();
 
 @observer
@@ -56,10 +58,11 @@ export default class App extends React.Component {
           <Route path='/verifyoneid' component={(props) => <VerifyCompany {...props} />} />
           <Route path='/dataupload' render={() => <DataUpload />} />
           <Route path='/dataupload2' render={() => <DataUpload2 />} />
-          <Route path='/invite' component={(props) => <Registrationoneid {...props} />} />
+          <ProtectedRoute path='/invite' rolesAllowedForTheRoute={["invite_new_partner"]} component={(props) => <Registrationoneid {...props}  />} />
           <Route path='/emailregister' component={(props) => <Emailregister {...props} />} />
           <Route path='/login' component={(props) => <Login {...props} />} />
           <Route path="/authinfo" component={(props) => <Authinfo />} />
+          <Route path="/403" component={()=> <UnauthorisedPage />} />
         </Switch>
       </Router>
     );
