@@ -50,7 +50,7 @@ namespace CatenaX.NetworkServices.Invitation.Service.Controllers
         [HttpPost]
         [Authorize(Roles="add_user_account")]
         [Route("api/invitation/tenant/{tenant}/users")]
-        public async Task<IActionResult> ExecuteUserCreation([FromRoute] string tenant, [FromBody] List<UserCreationInfo> usersToCreate)
+        public async Task<IActionResult> ExecuteUserCreation([FromRoute] string tenant, [FromBody] IEnumerable<UserCreationInfo> usersToCreate)
         {
             try
             {
