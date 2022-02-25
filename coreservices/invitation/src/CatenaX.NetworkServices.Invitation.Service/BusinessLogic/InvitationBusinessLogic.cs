@@ -18,7 +18,7 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
         private readonly IProvisioningManager _provisioningManager;
         private readonly IMailingService _mailingService;
         private readonly ILogger<InvitationBusinessLogic> _logger;
-        private readonly IOptions<InvitationSettings> _settings;
+        private readonly InvitationSettings _settings;
 
         public InvitationBusinessLogic(
             IProvisioningManager provisioningManager,
@@ -29,7 +29,7 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
             _provisioningManager = provisioningManager;
             _mailingService = mailingService;
             _logger = logger;
-            _settings = settings;
+            _settings = settings.Value;
         }
 
         public async Task<bool> ExecuteInvitation(InvitationData invitationData)
@@ -54,7 +54,7 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
             {
                 { "password", password },
                 { "companyname", invitationData.organisationName },
-                { "url", $"{_settings.Value.RegistrationBasePortalAddress}"},
+                { "url", $"{_settings.RegistrationBasePortalAddress}"},
             };
 
             await _mailingService.SendMails(invitationData.email, mailParameters, new List<string> { "RegistrationTemplate", "PasswordForRegistrationTemplate"} );
@@ -65,7 +65,7 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
         {
             var idpName = tenant;
             var organisationName = await _provisioningManager.GetOrganisationFromCentralIdentityProviderMapperAsync(idpName).ConfigureAwait(false);
-            var clientId = _settings.Value.Portal.KeyCloakClientID;
+            var clientId = _settings.Portal.KeyCloakClientID;
             var pwd = new Password();
             List<string> userList = new List<string>();
             foreach (UserCreationInfo user in usersToCreate)
@@ -102,7 +102,7 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
                         { "companyname", organisationName },
                         { "message", user.Message },
                         { "nameCreatedBy", createdByName},
-                        { "url", $"{_settings.Value.Portal.BasePortalAddress}"},
+                        { "url", $"{_settings.Portal.BasePortalAddress}"},
                         { "username", user.eMail},
                     
                     };
