@@ -134,32 +134,6 @@ export function getUserRoles(): Promise<UserRole[]> {
   return promise;
 }
 
-// to be removed with CPLP-380
-export function getUserClientRolesComposite(): Promise<string[]> {
-  const realm = UserService.realm;
-  const clientId = UserService.clientId;
-  const token = UserService.getToken();
-  const u= `${url}/${endpoint}/${realm}/clients/${clientId}/userRoleMappingsComposite`;
-  let userRolesRes: string[] = [];
-  const promise = new Promise<string[]>((resolve, reject) => {
-    fetch(u, { method: 'GET', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } })
-    .then((val) => val.json().then((data) => {
-      if (val.ok) {
-        Object.assign(userRolesRes,data)
-        resolve(userRolesRes);
-      } else {
-        reject(val.statusText);
-      }
-    })).catch((error) => {
-        alert(error);
-        console.log(error, error.message, error.status);
-        reject(error.message);
-      });
-  });
-
-  return promise;
-}
-
 export function getClientRolesComposite(): Promise<string[]> {
   const token = UserService.getToken();
   const u= `${url}/${endpoint}/rolesComposite`;
