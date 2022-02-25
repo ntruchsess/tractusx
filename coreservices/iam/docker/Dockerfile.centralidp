@@ -2,5 +2,8 @@ FROM jboss/keycloak:latest
 
 USER jboss
 
+COPY ["themes", "opt/jboss/keycloak/themes"]
+
 RUN sed -i -e 's/<web-context>auth<\/web-context>/<web-context>iamcentralidp\/auth<\/web-context>/' $JBOSS_HOME/standalone/configuration/standalone.xml
 RUN sed -i -e 's/<web-context>auth<\/web-context>/<web-context>iamcentralidp\/auth<\/web-context>/' $JBOSS_HOME/standalone/configuration/standalone-ha.xml
+
