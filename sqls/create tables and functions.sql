@@ -42,6 +42,16 @@ company_id varchar(100),
   primary key (company_id, role_id, consens_id)
 );
 
+DROP TABLE IF EXISTS public.documents;
+CREATE TABLE public.documents (
+    id  SERIAL  PRIMARY KEY,
+    documentName varchar NOT NULL,
+    document varchar NOT NULL,
+    documentHash varchar NOT NULL,
+    documentUser varchar NOT NULL,
+    documentUploadDate date NOT NULL
+);
+
 DROP FUNCTION IF EXISTS public.get_company_role();
 CREATE FUNCTION public.get_company_role() RETURNS TABLE(role_id int,role_title varchar(40), consens_id int, consens_title varchar(40), link varchar(100))
 AS $$

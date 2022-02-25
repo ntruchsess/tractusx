@@ -11,12 +11,19 @@ using CatenaX.NetworkServices.Registration.Service.RegistrationAccess;
 
 using Keycloak.Net;
 using Keycloak.Net.Models.Users;
+
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using PasswordGenerator;
+
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
@@ -101,9 +108,6 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
             return userList;
         }
 
-        public Task<List<string>> GetAvailableUserRoleAsync() =>
-            Task.FromResult(UserRoles.Roles);
-
         public Task<IEnumerable<string>> GetClientRolesCompositeAsync() =>
             _provisioningManager.GetClientRolesCompositeAsync(_settings.KeyCloakClientID);
 
@@ -128,6 +132,30 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
         public Task<IEnumerable<SignedConsent>> SignedConsentsByCompanyIdAsync(string companyId) =>
             _dbAccess.SignedConsentsByCompanyId(companyId);
 
+        public async Task CreateDocument(IFormFile document, string userName)
+        {
+            var name = document.FileName;
+            var documentContent = "";
+            var hash = "";
+            using (var ms = new MemoryStream())
+            {
+                document.CopyTo(ms);
+                var fileBytes = ms.ToArray();
+                documentContent = Convert.ToBase64String(fileBytes);
+                using (SHA256 hashSHA256 = SHA256.Create())
+                {
+                    byte[] hashValue = hashSHA256.ComputeHash(Encoding.UTF8.GetBytes(documentContent));
+                    hash = Encoding.UTF8.GetString(hashValue); 
+                    StringBuilder builder = new StringBuilder();
+                    for (int i = 0; i < hashValue.Length; i++)
+                    {
+                        builder.Append(hashValue[i].ToString("x2"));
+                    }
+                    hash = builder.ToString();
+                }
+            }
+            await _dbAccess.UploadDocument(name,documentContent,hash,userName);
+        }
         public Task CreateCustodianWalletAsync(WalletInformation information) =>
             _custodianService.CreateWallet(information.bpn, information.name);
     }

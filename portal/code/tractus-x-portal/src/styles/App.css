@@ -1048,3 +1048,8 @@ mat-form-field .mat-input-placeholder {
 .profile_icon:hover{
  background-color: white;
 }
+
+
+.margin-auto{
+  margin: auto;
+}
