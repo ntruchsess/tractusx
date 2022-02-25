@@ -49,7 +49,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
             _logger = logger;
         }
 
-        public async Task<IEnumerable<string>> CreateUsersAsync(List<UserCreationInfo> usersToCreate, string tenant, string createdByEmail, string createdByName)
+        public async Task<IEnumerable<string>> CreateUsersAsync(List<UserCreationInfo> usersToCreate, string tenant, string createdByName)
         {
             var idpName = tenant;
             var organisationName = await _provisioningManager.GetOrganisationFromCentralIdentityProviderMapperAsync(idpName).ConfigureAwait(false);
@@ -89,8 +89,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
                         { "password", password },
                         { "companyname", organisationName },
                         { "message", user.Message },
-                        { "eMailPreferredUsernameCreatedBy", createdByEmail },
-                        { "nameCreatedBy", createdByName ?? createdByEmail},
+                        { "nameCreatedBy", createdByName},
                         { "url", $"{_settings.BasePortalAddress}"},
                         { "username", user.eMail},
                     

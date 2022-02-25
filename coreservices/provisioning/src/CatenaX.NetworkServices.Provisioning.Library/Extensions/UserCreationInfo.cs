@@ -1,4 +1,4 @@
-﻿namespace CatenaX.NetworkServices.Registration.Service.Model
+﻿namespace CatenaX.NetworkServices.Provisioning.Library
 {
     public class UserCreationInfo
     {
