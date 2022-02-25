@@ -34,6 +34,7 @@ public interface ShellRepository extends PagingAndSortingRepository<Shell, UUID>
     @Query("select s.id, s.created_date from shell s where s.id_external = :idExternal")
     Optional<ShellMinimal> findMinimalRepresentationByIdExternal(String idExternal);
 
-    @Query("select distinct s.id_external from shell s where s.id in (select distinct si.fk_shell_id from shell_identifier si where CONCAT(si.key, ':', si.value) in (:keyValueCombinations))")
+    @Query("select distinct s.id_external from shell s where s.id in (select distinct si.fk_shell_id from shell_identifier si where CONCAT(si.namespace, ':', si.identifier) in (:keyValueCombinations))")
     List<String> findExternalShellIdsByIdentifiers(@Param("keyValueCombinations") Set<String> keyValueCombinations);
+
 }

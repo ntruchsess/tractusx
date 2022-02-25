@@ -176,9 +176,9 @@ spec:
           - name: IDSADAPTER_PORTALURL
             value: https://${CATENA_PORTAL_URL}
           - name: IDSADAPTER_SERVICEURL
-            value: https://${CATENA_SERVICE_URL}/semantics/api/v1
+            value: https://${CATENA_SERVICE_URL}/semantics
           - name: IDSADAPTER_ADAPTERURL
-            value: https://${CATENA_SERVICE_URL}/adapter/api/v1
+            value: https://${CATENA_SERVICE_URL}/adapter
           - name: IDSADAPTER_CONNECTORURL
             value: https://${CATENA_SERVICE_URL}/connectorprovider
           - name: IDSADAPTER_CONNECTORUSER
@@ -201,7 +201,7 @@ spec:
   type: ClusterIP
   ports:
   - port: 8080
-    targetPort: 4242
+    targetPort: 4243
   selector:
     app: adapter
 ---
