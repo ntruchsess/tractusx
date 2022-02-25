@@ -1,0 +1,26 @@
+header {
+  font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header > nav {
+  padding: 10px;
+}
+
+header > nav > a {
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+header > nav > a.active {
+  background-color: #def;
+}
+
+header > nav > a:hover {
+  background-color: #eee;
+}
