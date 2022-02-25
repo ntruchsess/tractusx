@@ -7,7 +7,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "clean": "rm -rf ./build ./dist",
+    "clean": "rm -rf ./build ./dist ./storybook-static ./public/storybook",
     "pretty": "prettier --write \"./src/**/*.{ts,tsx,js,jsx,json}\"",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
