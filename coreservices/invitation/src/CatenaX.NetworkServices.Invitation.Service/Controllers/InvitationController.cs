@@ -56,9 +56,9 @@ namespace CatenaX.NetworkServices.Invitation.Service.Controllers
             {
                 var createdByName = User.Claims.SingleOrDefault( x => x.Type=="name").Value as string;
                 var createdUsers = await _logic.CreateUsersAsync(usersToCreate, tenant, createdByName).ConfigureAwait(false);
-                {
-                    return Ok(createdUsers);
-                }
+                
+                return Ok(createdUsers);
+                
             }
             catch (Exception e)
             {
