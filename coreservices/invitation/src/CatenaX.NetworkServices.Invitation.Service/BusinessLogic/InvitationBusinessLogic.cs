@@ -18,13 +18,13 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
         private readonly IProvisioningManager _provisioningManager;
         private readonly IMailingService _mailingService;
         private readonly ILogger<InvitationBusinessLogic> _logger;
-        private readonly IOptionsSnapshot<InvitationSettings> _settings;
+        private readonly IOptions<InvitationSettings> _settings;
 
         public InvitationBusinessLogic(
             IProvisioningManager provisioningManager,
             IMailingService mailingService,
             ILogger<InvitationBusinessLogic> logger,
-            IOptionsSnapshot<InvitationSettings> settings)
+            IOptions<InvitationSettings> settings)
         {
             _provisioningManager = provisioningManager;
             _mailingService = mailingService;
