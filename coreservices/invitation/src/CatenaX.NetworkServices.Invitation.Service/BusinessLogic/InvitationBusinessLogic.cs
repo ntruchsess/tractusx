@@ -54,14 +54,14 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
             {
                 { "password", password },
                 { "companyname", invitationData.organisationName },
-                { "url", $"{_settings.Value.Registration.BasePortalAddress}"},
+                { "url", $"{_settings.Value.RegistrationBasePortalAddress}"},
             };
 
             await _mailingService.SendMails(invitationData.email, mailParameters, new List<string> { "RegistrationTemplate", "PasswordForRegistrationTemplate"} );
             return true;
         }
 
-        public async Task<IEnumerable<string>> CreateUsersAsync(List<UserCreationInfo> usersToCreate, string tenant, string createdByEmail, string createdByName)
+        public async Task<IEnumerable<string>> CreateUsersAsync(IEnumerable<UserCreationInfo> usersToCreate, string tenant, string createdByEmail, string createdByName)
         {
             var idpName = tenant;
             var organisationName = await _provisioningManager.GetOrganisationFromCentralIdentityProviderMapperAsync(idpName).ConfigureAwait(false);

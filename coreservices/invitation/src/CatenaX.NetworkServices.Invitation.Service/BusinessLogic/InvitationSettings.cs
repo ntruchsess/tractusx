@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -6,8 +6,8 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
 {
     public class InvitationSettings
     {
+        public string RegistrationBasePortalAddress { get; set; }
         public InvitationSetting Portal { get; set; }
-        public InvitationSetting Registration { get; set; }
     }
 
     public class InvitationSetting
