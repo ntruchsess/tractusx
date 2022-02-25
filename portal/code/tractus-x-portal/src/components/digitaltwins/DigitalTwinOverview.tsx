@@ -101,7 +101,7 @@ function DigitalTwinOverview(){
             <div className="df fwrap mt20">
               {data.items.map(twin => (
                 <Link key={twin.identification} className="m5 p20 bgpanel flex40 br4 bsdatacatalog tdn" to={{
-                  pathname: `/home/digitaltwin/${twin.identification}`
+                  pathname: `/home/digitaltwin/${encodeURIComponent(twin.identification)}`
                 }}>
                   <h2 className='fs24 fg191 bold mb20'>{twin.idShort}</h2>
                   {twin.submodelDescriptors && <DescriptionList title="Submodel count:" description={twin.submodelDescriptors.length}/>}
