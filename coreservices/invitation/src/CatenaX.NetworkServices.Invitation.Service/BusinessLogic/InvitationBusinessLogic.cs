@@ -61,7 +61,7 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
             return true;
         }
 
-        public async Task<IEnumerable<string>> CreateUsersAsync(IEnumerable<UserCreationInfo> usersToCreate, string tenant, string createdByEmail, string createdByName)
+        public async Task<IEnumerable<string>> CreateUsersAsync(IEnumerable<UserCreationInfo> usersToCreate, string tenant, string createdByName)
         {
             var idpName = tenant;
             var organisationName = await _provisioningManager.GetOrganisationFromCentralIdentityProviderMapperAsync(idpName).ConfigureAwait(false);
@@ -101,8 +101,7 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
                         { "password", password },
                         { "companyname", organisationName },
                         { "message", user.Message },
-                        { "eMailPreferredUsernameCreatedBy", createdByEmail },
-                        { "nameCreatedBy", createdByName ?? createdByEmail},
+                        { "nameCreatedBy", createdByName},
                         { "url", $"{_settings.Value.Portal.BasePortalAddress}"},
                         { "username", user.eMail},
                     

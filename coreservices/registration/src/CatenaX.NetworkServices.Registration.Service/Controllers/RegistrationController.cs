@@ -44,9 +44,8 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
         {
             try
             {
-                var createdByEmail = User.Claims.SingleOrDefault(x => x.Type == "preferred_username").Value as string;
                 var createdByName = User.Claims.SingleOrDefault(x => x.Type == "name").Value as string;
-                var createdUsers = await _registrationBusinessLogic.CreateUsersAsync(usersToCreate, tenant, createdByEmail, createdByName).ConfigureAwait(false);
+                var createdUsers = await _registrationBusinessLogic.CreateUsersAsync(usersToCreate, tenant, createdByName).ConfigureAwait(false);
 
                 return Ok(createdUsers);
             }
