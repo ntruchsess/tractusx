@@ -1,10 +1,11 @@
 import produce from 'immer';
 import {handleActions} from 'redux-actions';
 import userActions, {addToInviteListAction, addCurrentStepAction, removeFromInviteListAction} from '../actions/user.action';
+import { CompanyDetailsData } from '../data/companyDetails';
 import {IUserData} from "../types/user/user.types";
 
 // empty userInvite list
-export const initialState = {userInviteList: [], currentStep: 1};
+export const initialState = {userInviteList: [], currentStep: 1, companyData: new CompanyDetailsData()};
 
 export default handleActions<IUserData, any>(
     {

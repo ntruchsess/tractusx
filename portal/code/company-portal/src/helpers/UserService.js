@@ -16,7 +16,7 @@ let clientId = searchParamsClientId.get('clientId');
 if (!clientId) {
   clientId = localStorage.getItem('clientId');
 }
-if (!clientId || clientId == 'null') {
+if (!clientId || clientId === 'null') {
   clientId = 'catenax-registration';
 }
 localStorage.setItem('clientId', clientId);
