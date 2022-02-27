@@ -1,19 +1,21 @@
 import Main from './Main'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Dashboard from './pages/Dashboard/Dashboard'
-import Appstore from './pages/Appstore/MockAppstoreSync'
-import DataCatalog from './pages/DataCatalog/DataCatalog'
 import Admin from './pages/Admin/Admin'
-import Authinfo from './pages/Authinfo/Authinfo'
 import Applications from './pages/Applications/Applications'
-import DigitalTwins from './pages/DigitalTwins/DigitalTwins'
-import SemanticHub from './pages/SemanticHub/SemanticHub'
+import Appstore from './pages/Appstore/Appstore'
+import AppstoreDetail from './pages/Appstore/AppstoreDetail/AppstoreDetail'
+import Authinfo from './pages/Authinfo/Authinfo'
 import Connector from './pages/Connector/Connector'
-import DeveloperHub from './pages/DeveloperHub/DeveloperHub'
-import Logout from './pages/Logout/Logout'
-import Settings from './pages/Settings/Settings'
+import DataCatalog from './pages/DataCatalog/DataCatalog'
 import Developer from './pages/Developer/Developer'
-import AppDetail from './shared/content/AppDetail/AppDetail'
+import DeveloperHub from './pages/DeveloperHub/DeveloperHub'
+import DigitalTwins from './pages/DigitalTwins/DigitalTwins'
+import Logout from './pages/Logout/Logout'
+import SemanticHub from './pages/SemanticHub/SemanticHub'
+import Settings from './pages/Settings/Settings'
+import TestAPI from './pages/TestAPI/TestAPI'
+import Translator from './pages/Translator/Translator'
 
 export default function Router() {
   return (
@@ -26,12 +28,12 @@ export default function Router() {
             <Route
               index
               element={
-                <main>
+                <div>
                   <p>Select an app</p>
-                </main>
+                </div>
               }
             />
-            <Route path=":appId" element={<AppDetail />} />
+            <Route path=":appId" element={<AppstoreDetail />} />
           </Route>
           <Route path="/catalog" element={<DataCatalog />} />
           <Route path="/applications" element={<Applications />} />
@@ -43,6 +45,8 @@ export default function Router() {
           <Route path="/admin" element={<Admin />} />
           <Route path="/developer" element={<Developer />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/testapi" element={<TestAPI />} />
+          <Route path="/translator" element={<Translator />} />
           <Route
             path="*"
             element={

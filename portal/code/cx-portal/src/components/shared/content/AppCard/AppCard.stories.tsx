@@ -1,6 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { MemoryRouter } from 'react-router-dom'
-import { testAppData } from '../../../../test/data/AppData'
 import { AppCard } from './AppCard'
 
 export default {
@@ -23,5 +22,13 @@ const Template: ComponentStory<typeof AppCard> = (args) => <AppCard {...args} />
 
 export const Standard = Template.bind({})
 Standard.args = {
-  app: testAppData[0],
+  app: {
+    id: '1001',
+    name: 'Amazing Material Traceability',
+    vendor: 'Catena-X',
+    version: '0.1.0-beta',
+    description: 'i18n.app.1001.description',
+    license: 'Catena-X Unbelievable License',
+    rating: 4.7,
+  },
 }
