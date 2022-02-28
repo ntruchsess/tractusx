@@ -14,7 +14,7 @@ const keycloakConfig = {
 
 const KC = new (Keycloak as any)(keycloakConfig)
 
-const initKeycloak = (onAuthenticatedCallback: Function) => {
+const init = (onAuthenticatedCallback: Function) => {
   KC.init({
     onLoad: 'login-required',
     silentCheckSsoRedirectUri:
@@ -68,7 +68,7 @@ const UserService = {
   getCompany,
   getRoles,
   hasRole,
-  initKeycloak,
+  init,
   isAdmin,
   isLoggedIn,
   updateToken,
