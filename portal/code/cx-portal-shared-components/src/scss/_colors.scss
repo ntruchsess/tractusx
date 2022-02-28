@@ -1,0 +1,19 @@
+$colors: (
+  brand-01: #ffa600,
+  brand-02: #b3cb2d,
+  primary: #0f71cb,
+  primary-hover: #0d55af,
+  primary-active: #074985,
+  secondary: #eaf1fe,
+  secondary-hover: #d4e3fe,
+  danger: #d91e18,
+  danger-hover: #e5231d,
+  black: #000000,
+  white: #ffffff,
+  gray: #8e8e8e,
+  gray-disabled: #eaeaea,
+);
+
+@function color($key) {
+  @return map-get($colors, $key);
+}

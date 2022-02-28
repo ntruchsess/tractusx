@@ -1,0 +1,49 @@
+@import '../../../scss/main';
+
+@mixin button-variant($background-color, $color) {
+  background-color: $background-color;
+  color: $color;
+}
+
+$button-border-radius: to-rem(16px);
+
+.button {
+  @include typography(body-02);
+
+  color: color(white);
+  background-color: color(primary);
+  border: none;
+  border-radius: $button-border-radius;
+  padding: spacing(5) spacing(6);
+  cursor: pointer;
+
+  &:disabled {
+    @include button-variant(color(gray-disabled), color(gray));
+    cursor: default;
+  }
+
+  &:hover,
+  &:active {
+    @include button-variant(color(primary-hover), color(white));
+  }
+
+  &:focus {
+    @include button-variant(color(primary-hover), color(white));
+    box-shadow: 0px 0px 0px 3px rgba(color(primary), 0.4);
+  }
+
+  &.button-secondary {
+    @include button-variant(color(secondary), color(primary));
+
+    &:disabled {
+      @include button-variant(color(gray-disabled), color(gray));
+      cursor: default;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      @include button-variant(color(secondary-hover), color(primary-active));
+    }
+  }
+}

@@ -1,0 +1,20 @@
+$spacings: (
+  0: 0,
+  1: to-rem(2px),
+  2: to-rem(4px),
+  3: to-rem(8px),
+  4: to-rem(12px),
+  5: to-rem(16px),
+  6: to-rem(24px),
+  7: to-rem(32px),
+  8: to-rem(40px),
+  9: to-rem(48px),
+  10: to-rem(64px),
+  11: to-rem(80px),
+  12: to-rem(96px),
+  13: to-rem(160px),
+);
+
+@function spacing($key) {
+  @return map-get($spacings, $key);
+}

@@ -1,0 +1,59 @@
+$font-sizes: (
+  h1: to-rem(72px),
+  h2: to-rem(56px),
+  h3: to-rem(36px),
+  h4: to-rem(24px),
+  h5: to-rem(18px),
+  body-01: to-rem(18px),
+  body-02: to-rem(16px),
+  body-03: to-rem(14px),
+);
+
+@function font-size($key) {
+  @return map-get($font-sizes, $key);
+}
+
+$line-heights: (
+  h1: to-rem(88px),
+  h2: to-rem(68px),
+  h3: to-rem(44px),
+  h4: to-rem(36px),
+  h5: to-rem(28px),
+  body-01: to-rem(28px),
+  body-02: to-rem(24px),
+  body-03: to-rem(20px),
+);
+
+@function line-height($key) {
+  @return map-get($line-heights, $key) / font-size($key);
+}
+
+$fallback-font-families: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  Helvetica, Arial, sans-serif;
+
+$font-families: (
+  light: 'LibreFranklin-Light',
+  medium: 'LibreFranklin-Medium',
+  semi-bold: 'LibreFranklin-SemiBold',
+);
+
+@function font-family($key) {
+  @return map-get($font-families, $key), $fallback-font-families;
+}
+
+$font-families-map: (
+  h1: font-family(semi-bold),
+  h2: font-family(medium),
+  h3: font-family(medium),
+  h4: font-family(semi-bold),
+  h5: font-family(semi-bold),
+  body-01: font-family(light),
+  body-02: font-family(light),
+  body-03: font-family(light),
+);
+
+@mixin typography($key) {
+  font-family: map-get($font-families-map, $key);
+  font-size: font-size($key);
+  line-height: line-height($key);
+}
