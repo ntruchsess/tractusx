@@ -49,6 +49,9 @@ namespace CatenaX.NetworkServices.Invitation.Service
                     .ConfigureKeycloakSettingsMap(Configuration.GetSection("Keycloak"))
                     .ConfigureProvisioningSettings(Configuration.GetSection("Provisioning"))
                     .Configure<JwtBearerOptions>(options => Configuration.Bind("JwtBearerOptions",options));
+            
+            services.AddTransient<IInvitationBusinessLogic, InvitationBusinessLogic>()
+                    .ConfigureInvitationSettings(Configuration.GetSection("Invitation"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
