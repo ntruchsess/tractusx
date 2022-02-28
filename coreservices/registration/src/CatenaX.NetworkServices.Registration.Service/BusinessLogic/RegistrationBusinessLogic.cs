@@ -110,8 +110,8 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
         public Task<IEnumerable<string>> GetClientRolesCompositeAsync() =>
             _provisioningManager.GetClientRolesCompositeAsync(_settings.KeyCloakClientID);
 
-        public Task<List<FetchBusinessPartnerDto>> GetCompanyByIdentifierAsync(string companyIdentifier) =>
-            _bpnAccess.FetchBusinessPartner(companyIdentifier);
+        public Task<List<FetchBusinessPartnerDto>> GetCompanyByIdentifierAsync(string companyIdentifier, string token) =>
+            _bpnAccess.FetchBusinessPartner(companyIdentifier, token);
 
         public Task<IEnumerable<CompanyRole>> GetCompanyRolesAsync() =>
             _dbAccess.GetAllCompanyRoles();
