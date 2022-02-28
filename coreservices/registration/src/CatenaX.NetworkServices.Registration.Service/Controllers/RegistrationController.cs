@@ -5,6 +5,7 @@ using CatenaX.NetworkServices.Registration.Service.BusinessLogic;
 using CatenaX.NetworkServices.Registration.Service.Model;
 
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -33,8 +34,8 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
         [Authorize(Roles = "add_company_data")]
         [Route("company/{bpn}")]
         [ProducesResponseType(typeof(Company), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> GetOneObjectAsync([FromRoute] string bpn) =>
-            Ok(await _registrationBusinessLogic.GetCompanyByIdentifierAsync(bpn).ConfigureAwait(false));
+        public async Task<IActionResult> GetOneObjectAsync([FromRoute] string bpn, [FromHeader] string authorization) =>
+            Ok(await _registrationBusinessLogic.GetCompanyByIdentifierAsync(bpn, authorization.Split(" ")[1]).ConfigureAwait(false));
 
         [HttpPost]
         [Authorize(Policy = "CheckTenant")]
