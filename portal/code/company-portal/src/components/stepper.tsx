@@ -18,7 +18,7 @@ import React, {FC} from 'react';
 import {connect} from 'react-redux';
 import {IState} from "../types/store/redux.store.types";
 import { useTranslation } from 'react-i18next';
-
+import { AiOutlineCheck } from 'react-icons/ai'
 
 interface StepperProps {
     currentActiveStep: number;
@@ -32,7 +32,15 @@ export const Stepper: FC<StepperProps> = ({currentActiveStep}) => {
               <Row className="stepper-wrapper row-cols-5">
                 <div className="stepper-item completed col">
                   <Row className="stepper-row">
-                    <div className="step-counter col-3">1</div>
+                    <div className={
+                        currentActiveStep >= 1
+                          ? "step-counter step-active col-3"
+                          : "step-counter col-3"
+                      }>{
+                        currentActiveStep > 1
+                          ? <span className="step-tick">&#10003;</span>
+                          : 1 
+                      }</div>
                     <div className="step-name col-9">
                       {t("registration.companyData")}
                     </div>
@@ -49,7 +57,15 @@ export const Stepper: FC<StepperProps> = ({currentActiveStep}) => {
                 </div>
                 <div className="stepper-item completed col">
                   <Row className="stepper-row">
-                    <div className="step-counter col-3">2</div>
+                    <div className={
+                        currentActiveStep >= 2
+                          ? "step-counter step-active col-3"
+                          : "step-counter col-3"
+                      }>{
+                        currentActiveStep > 2
+                          ? <span className="step-tick">&#10003;</span>
+                          : 2 
+                      }</div>
                     <div className="step-name col-9">
                       {t("registration.responsAdmin")}
                     </div>
@@ -66,7 +82,15 @@ export const Stepper: FC<StepperProps> = ({currentActiveStep}) => {
                 </div>
                 <div className="stepper-item active col">
                   <Row className="stepper-row">
-                    <div className="step-counter col-3">3</div>
+                    <div className={
+                        currentActiveStep >= 3
+                          ? "step-counter step-active col-3"
+                          : "step-counter col-3"
+                      }>{
+                        currentActiveStep > 3
+                          ? <span className="step-tick">&#10003;</span>
+                          : 3 
+                      }</div>
                     <div className="step-name col-9">
                       {t("registration.companyRole")}
                     </div>
@@ -83,7 +107,15 @@ export const Stepper: FC<StepperProps> = ({currentActiveStep}) => {
                 </div>
                 <div className="stepper-item col">
                   <Row className="stepper-row">
-                    <div className="step-counter col-3">4</div>
+                    <div className={
+                        currentActiveStep >= 4
+                          ? "step-counter step-active col-3"
+                          : "step-counter col-3"
+                      }>{
+                        currentActiveStep > 4
+                          ? <span className="step-tick">&#10003;</span>
+                          : 4 
+                      }</div>
                     <div className="step-name col-9">
                       {t("registration.uploadDocument")}
                     </div>
@@ -100,7 +132,15 @@ export const Stepper: FC<StepperProps> = ({currentActiveStep}) => {
                 </div>
                 <div className="stepper-item col">
                   <Row className="stepper-row">
-                    <div className="step-counter col-3">5</div>
+                    <div className={
+                        currentActiveStep >= 5
+                          ? "step-counter step-active col-3"
+                          : "step-counter col-3"
+                      }>{
+                        currentActiveStep > 5
+                          ? <span className="step-tick">&#10003;</span>
+                          : 5 
+                      }</div>
                     <div className="step-name col-9">
                       {t("registration.verifyEntries")}
                     </div>
