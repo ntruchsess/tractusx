@@ -3,15 +3,15 @@ import { useDropzone } from 'react-dropzone'
 
 export default function Dropzone() {
   const onDrop = useCallback((acceptedFiles) => {
-    acceptedFiles.forEach((file: any) => {
+    acceptedFiles.forEach((file: File) => {
       const reader = new FileReader()
       reader.onabort = () => console.log('file reading was aborted')
       reader.onerror = () => console.log('file reading has failed')
       reader.onload = () => {
-        const binaryStr = reader.result
-        console.log(binaryStr)
+        const text = reader.result
+        console.log(text)
       }
-      reader.readAsArrayBuffer(file)
+      reader.readAsText(file, 'utf-8')
     })
   }, [])
   const { getRootProps, getInputProps } = useDropzone({ onDrop })
