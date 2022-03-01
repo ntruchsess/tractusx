@@ -36,7 +36,6 @@ export default class Registrationoneid extends React.Component {
   private registrationButtonClick() {
 
     this.loading = true;
-    var u = `${process.env.REACT_APP_INVITE_ENDPOINT}/api/invitation`
 
     var data =
     {
@@ -54,7 +53,7 @@ export default class Registrationoneid extends React.Component {
     }
 
 
-    fetch(u, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization':`Bearer ${UserService.getToken()}` }, body: JSON.stringify(data) })
+    fetch(`${process.env.REACT_APP_INVITE_ENDPOINT}`, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization':`Bearer ${UserService.getToken()}` }, body: JSON.stringify(data) })
       .then((response) => {
         if (response.ok) {
           toast.success(`Onboarding for company ${this.companyname} started`);
