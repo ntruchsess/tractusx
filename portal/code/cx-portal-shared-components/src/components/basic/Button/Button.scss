@@ -1,49 +1,88 @@
 @import '../../../scss/main';
 
-@mixin button-variant($background-color, $color) {
-  background-color: $background-color;
-  color: $color;
-}
-
+$button-spacing-x: to-rem(28px);
+$button-spacing-y: to-rem(16px);
+$button-spacing-x-medium: to-rem(24px);
+$button-spacing-y-medium: to-rem(14px);
+$button-spacing-x-small: to-rem(18px);
+$button-spacing-y-small: to-rem(10px);
 $button-border-radius: to-rem(16px);
+$button-border-width: to-rem(2px);
 
 .button {
   @include typography(body-02);
+  @include button-color-variant(
+    $background-color: color(primary),
+    $color: color(white),
+    $hover-background-color: color(primary-hover)
+  );
 
-  color: color(white);
-  background-color: color(primary);
   border: none;
   border-radius: $button-border-radius;
-  padding: spacing(5) spacing(6);
+  display: inline-block;
+  padding: $button-spacing-y $button-spacing-x;
+  text-decoration: none;
   cursor: pointer;
 
-  &:disabled {
-    @include button-variant(color(gray-disabled), color(gray));
-    cursor: default;
-  }
-
-  &:hover,
-  &:active {
-    @include button-variant(color(primary-hover), color(white));
-  }
-
   &:focus {
-    @include button-variant(color(primary-hover), color(white));
+    outline: none;
     box-shadow: 0px 0px 0px 3px rgba(color(primary), 0.4);
   }
 
+  &:disabled,
+  &.button-disabled {
+    cursor: default;
+    pointer-events: none;
+  }
+
   &.button-secondary {
-    @include button-variant(color(secondary), color(primary));
+    @include button-color-variant(
+      $background-color: color(secondary),
+      $color: color(primary),
+      $hover-background-color: color(secondary-hover),
+      $hover-color: color(primary-active)
+    );
+  }
 
-    &:disabled {
-      @include button-variant(color(gray-disabled), color(gray));
-      cursor: default;
+  &.button-outlined {
+    @include button-color-variant(
+      $background-color: transparent,
+      $color: color(primary),
+      $border-width: $button-border-width,
+      $border-color: color(primary),
+      $hover-color: color(primary-hover),
+      $disabled-background-color: transparent
+    );
+
+    padding: #{$button-spacing-y - $button-border-width} #{$button-spacing-x - $button-border-width};
+  }
+
+  &.button-text {
+    @include button-color-variant(
+      $background-color: transparent,
+      $color: color(primary),
+      $hover-background-color: color(secondary-hover),
+      $hover-color: color(primary-active),
+      $disabled-background-color: transparent
+    );
+  }
+
+  &.button-medium {
+    padding: $button-spacing-y-medium $button-spacing-x-medium;
+
+    &.button-outlined {
+      padding: #{$button-spacing-y-medium - $button-border-width} #{$button-spacing-x-medium -
+        $button-border-width};
     }
+  }
 
-    &:hover,
-    &:active,
-    &:focus {
-      @include button-variant(color(secondary-hover), color(primary-active));
+  &.button-small {
+    @include typography(body-03);
+    padding: $button-spacing-y-small $button-spacing-x-small;
+
+    &.button-outlined {
+      padding: #{$button-spacing-y-small - $button-border-width} #{$button-spacing-x-small -
+        $button-border-width};
     }
   }
 }

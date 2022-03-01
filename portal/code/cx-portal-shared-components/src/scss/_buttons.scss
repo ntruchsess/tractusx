@@ -1,0 +1,33 @@
+@mixin button-color-variant(
+  $background-color,
+  $color,
+  $border-width: null,
+  $border-color: null,
+  $hover-background-color: null,
+  $hover-color: null,
+  $disabled-background-color: color(gray-disabled),
+  $disabled-color: color(gray)
+) {
+  background-color: $background-color;
+  color: $color;
+  border-width: $border-width;
+  border-color: $border-color;
+
+  @if $hover-background-color or $hover-color {
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $hover-background-color;
+      color: $hover-color;
+    }
+  }
+
+  @if $disabled-background-color or $disabled-color {
+    &:disabled,
+    &.button-disabled {
+      background-color: $disabled-background-color;
+      color: $disabled-color;
+      border-color: $disabled-color;
+    }
+  }
+}

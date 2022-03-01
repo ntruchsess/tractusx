@@ -8,7 +8,7 @@ export default {
   argTypes: {
     children: {
       name: 'label'
-    },
+    }
   },
 };
 
@@ -18,5 +18,6 @@ export const BaseButton = Template.bind({});
 BaseButton.args = {
   style: 'primary',
   size: 'large',
-  children: 'Button'
+  disabled: false,
+  children: 'Button',
 };
