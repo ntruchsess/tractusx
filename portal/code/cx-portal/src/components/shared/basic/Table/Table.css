@@ -1,21 +1,22 @@
 table {
-    border-spacing: 6px;
+  border-spacing: 6px;
 }
 
-th, td {
-    margin: 8px;
-    padding: 6px 20px 6px 20px;
-    border-right: 1px solid lightgray;
-    border-bottom: 1px solid lightgray;
-    border-radius: 15px;
+th,
+td {
+  margin: 8px;
+  padding: 6px 20px 6px 20px;
+  border-right: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  border-radius: 15px;
 }
 
 th {
-    text-align: left;
-    background-color: #ccc;
+  text-align: left;
+  background-color: #ccc;
 }
 
 td {
-    text-align: left;
-    background-color: white;
+  text-align: left;
+  background-color: white;
 }

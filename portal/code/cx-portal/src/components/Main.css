@@ -1,45 +1,44 @@
 @font-face {
-    font-family: FabricMDL2Icons-0;
-    src: url(https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/10.0.0/css/fabric.min.css);
+  font-family: FabricMDL2Icons-0;
+  src: url(https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/10.0.0/css/fabric.min.css);
 }
 
 @font-face {
-    font-family: "LibreFranklin";
-    src: url("../assets/fonts/LibreFranklin-VariableFont_wght.ttf");
-    font-weight: 300;
+  font-family: 'LibreFranklin';
+  src: url('../assets/fonts/LibreFranklin-VariableFont_wght.ttf');
+  font-weight: 300;
 }
 
 @font-face {
-    font-family: "LibreFranklin-bold";
-    src: url("../assets/fonts/LibreFranklin-VariableFont_wght.ttf");
-    font-weight: 500;
+  font-family: 'LibreFranklin-bold';
+  src: url('../assets/fonts/LibreFranklin-VariableFont_wght.ttf');
+  font-weight: 500;
 }
 
 @font-face {
-    font-family: "Libre Franklin 400";
-    src: url("../assets/fonts/LibreFranklin-VariableFont_wght.ttf");
-    font-weight: 400;
+  font-family: 'Libre Franklin 400';
+  src: url('../assets/fonts/LibreFranklin-VariableFont_wght.ttf');
+  font-weight: 400;
 }
 
 @font-face {
-    font-family: "Libre Franklin 600";
-    src: url("../assets/fonts/LibreFranklin-VariableFont_wght.ttf");
-    font-weight: 600;
+  font-family: 'Libre Franklin 600';
+  src: url('../assets/fonts/LibreFranklin-VariableFont_wght.ttf');
+  font-weight: 600;
 }
 
 body {
-    margin: 0;
-    font-family: "LibreFranklin" !important;
-    color: #000000 !important;
-    font-weight: 300 !important;
+  margin: 0;
+  font-family: 'LibreFranklin' !important;
+  color: #000000 !important;
+  font-weight: 300 !important;
 }
 
 main {
-    padding: 20px;
-    background-color: #f5f5f5;
+  padding: 20px;
 }
 
 a {
-    text-decoration: none;
-    color: darkblue;
+  text-decoration: none;
+  color: darkblue;
 }
