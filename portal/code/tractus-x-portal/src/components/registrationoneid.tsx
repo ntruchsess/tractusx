@@ -35,6 +35,8 @@ export default class Registrationoneid extends React.Component {
 
   private registrationButtonClick() {
 
+    console.log('env url for invite endpoint:',`${process.env.REACT_APP_INVITE_ENDPOINT}`)
+
     this.loading = true;
     var u = `${process.env.REACT_APP_INVITE_ENDPOINT}/api/invitation`
 
@@ -49,6 +51,7 @@ export default class Registrationoneid extends React.Component {
 
     if (this.email === "" || this.firstname === "" || this.lastname === "" || this.companyname === "") {
       toast.error('Mandatory fields not filled. Please fill out all fields.');
+      this.loading = false;
       return;
     }
 
