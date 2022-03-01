@@ -1,23 +1,20 @@
 import { ComponentStory } from '@storybook/react'
 
-import { Button as Component } from './Button'
+import { IconButton as Component } from './IconButton'
+import { Add } from '../Icons'
 
 export default {
   title: 'Buttons',
   component: Component,
-  argTypes: {
-    children: {
-      name: 'label'
-    }
-  },
+  argTypes: {},
 };
 
 const Template: ComponentStory<typeof Component> = (args: any) => <Component {...args} />;
 
-export const Button = Template.bind({});
-Button.args = {
+export const IconButton = Template.bind({});
+IconButton.args = {
   style: 'primary',
-  size: 'large',
+  size: 'medium',
   disabled: false,
-  children: 'Button',
+  children: <Add />,
 };

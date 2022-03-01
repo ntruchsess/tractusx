@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import './Button.scss';
 
-interface ButtonProps {
+export interface ButtonProps {
   children: React.ReactNode;
   style?: 'primary' | 'secondary' | 'outlined' | 'text';
   size?: 'large' | 'medium' | 'small';

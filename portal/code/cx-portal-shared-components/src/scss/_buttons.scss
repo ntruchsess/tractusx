@@ -41,12 +41,20 @@ $button-colors: (
   color: $color;
   border-color: $border-color;
 
+  & > svg {
+    fill: $color;
+  }
+
   @if $hover-background-color or $hover-color {
     &:hover,
     &:active,
     &:focus {
       background-color: $hover-background-color;
       color: $hover-color;
+
+      & > svg {
+        fill: $hover-color;
+      }
     }
   }
 
@@ -58,6 +66,10 @@ $button-colors: (
       border-color: $disabled-color;
       cursor: default;
       pointer-events: none;
+
+      & > svg {
+        fill: $disabled-color;
+      }
     }
   }
 }

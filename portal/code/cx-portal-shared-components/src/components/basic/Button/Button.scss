@@ -27,26 +27,26 @@ $color-variants: primary, secondary, outlined, text;
     box-shadow: 0px 0px 0px 3px rgba(color(primary), 0.4);
   }
 
-  &.button-outlined {
+  &-outlined {
     border-style: solid;
     border-width: $button-border-width;
     padding: #{$button-spacing-y - $button-border-width} #{$button-spacing-x - $button-border-width};
   }
 
-  &.button-medium {
+  &-medium {
     padding: $button-spacing-y-medium $button-spacing-x-medium;
 
-    &.button-outlined {
+    &-outlined {
       padding: #{$button-spacing-y-medium - $button-border-width} #{$button-spacing-x-medium -
         $button-border-width};
     }
   }
 
-  &.button-small {
+  &-small {
     @include typography(body-03);
     padding: $button-spacing-y-small $button-spacing-x-small;
 
-    &.button-outlined {
+    &-outlined {
       padding: #{$button-spacing-y-small - $button-border-width} #{$button-spacing-x-small -
         $button-border-width};
     }
