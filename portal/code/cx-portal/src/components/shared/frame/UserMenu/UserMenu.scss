@@ -1,0 +1,32 @@
+.UserMenu {
+  position: absolute;
+  width: 272px;
+  right: 20px;
+  top: 85px;
+  z-index: 10;
+  background: #F9F9F9;
+  box-shadow: 0px 10px 20px rgba(80, 80, 80, 0.3);
+  border-radius: 16px;
+}
+
+.Info {
+  padding: 10px;
+  text-align: center;
+  & > span {
+    display: block;
+    & > span.Email {
+      color: blue;
+      & > span.Email:hover {
+        color: black;
+      }
+    }
+  }
+}
+
+.Lang {
+  padding: 10px;
+  text-align: center;
+  & > span {
+    display: block;
+  }
+}

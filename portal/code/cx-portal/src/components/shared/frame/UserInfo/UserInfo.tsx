@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { InfoBox } from '../../functional/InfoBox'
 import { UserMenu } from '../../frame/UserMenu/UserMenu'
-import './UserInfo.css'
+import './UserInfo.scss'
 
 interface UserInfoProps {
   isAdmin?: boolean
@@ -16,9 +16,10 @@ export const UserInfo = ({ isAdmin, isMenuOpen }: UserInfoProps) => {
 
   return (
     <div>
-      <button className="UserInfo" onClick={toggleMenuOpen}>
-        {isAdmin ? '👑' : '👤'}
-      </button>
+      <button
+        className={`UserInfo${isAdmin ? ' admin' : ''}`}
+        onClick={toggleMenuOpen}
+      ></button>
       <InfoBox
         show={menuOpen}
         onClickOutside={() => {

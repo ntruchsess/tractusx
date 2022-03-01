@@ -3,7 +3,7 @@ import { UserInfo } from '../UserInfo/UserInfo'
 import { Logo } from '../Logo/Logo'
 import { useTranslation } from 'react-i18next'
 import { Menu } from '../../basic/Menu/Menu'
-import './Header.css'
+import './Header.scss'
 
 interface HeaderProps {
   pages: string[]
