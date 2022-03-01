@@ -9,13 +9,11 @@ $button-spacing-y-small: to-rem(10px);
 $button-border-radius: to-rem(16px);
 $button-border-width: to-rem(2px);
 
+$color-variants: primary, secondary, outlined, text;
+
 .button {
   @include typography(body-02);
-  @include button-color-variant(
-    $background-color: color(primary),
-    $color: color(white),
-    $hover-background-color: color(primary-hover)
-  );
+  @include button-color-variants(button, $color-variants);
 
   border: none;
   border-radius: $button-border-radius;
@@ -29,42 +27,10 @@ $button-border-width: to-rem(2px);
     box-shadow: 0px 0px 0px 3px rgba(color(primary), 0.4);
   }
 
-  &:disabled,
-  &.button-disabled {
-    cursor: default;
-    pointer-events: none;
-  }
-
-  &.button-secondary {
-    @include button-color-variant(
-      $background-color: color(secondary),
-      $color: color(primary),
-      $hover-background-color: color(secondary-hover),
-      $hover-color: color(primary-active)
-    );
-  }
-
   &.button-outlined {
-    @include button-color-variant(
-      $background-color: transparent,
-      $color: color(primary),
-      $border-width: $button-border-width,
-      $border-color: color(primary),
-      $hover-color: color(primary-hover),
-      $disabled-background-color: transparent
-    );
-
+    border-style: solid;
+    border-width: $button-border-width;
     padding: #{$button-spacing-y - $button-border-width} #{$button-spacing-x - $button-border-width};
-  }
-
-  &.button-text {
-    @include button-color-variant(
-      $background-color: transparent,
-      $color: color(primary),
-      $hover-background-color: color(secondary-hover),
-      $hover-color: color(primary-active),
-      $disabled-background-color: transparent
-    );
   }
 
   &.button-medium {
