@@ -9,8 +9,7 @@ interface UserInfoProps {  isAdmin?: boolean
 
 export const UserInfo = ({ isAdmin, isMenuOpen }: UserInfoProps) => {
   const [menuOpen, setMenuOpen] = useState(isMenuOpen)
-  const toggleMenuOpen = () => {
-    if (!menuOpen) setMenuOpen(true)
+  const toggleMenuOpen = () => {    if (!menuOpen) setMenuOpen(true)
   }
 
   return (
