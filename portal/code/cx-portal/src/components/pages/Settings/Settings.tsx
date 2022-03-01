@@ -10,7 +10,7 @@ export default function Settings() {
     .concat(langSupported.filter((l) => l !== i18next.language))
   const [lang, setLang] = useState(langSequence)
   const themeSupported = ['bright', 'dark']
-  const [theme, setTheme] = useState(themeSupported)
+  const [theme, ] = useState(themeSupported)
   const { t } = useTranslation()
 
   const doNextLang = function () {
@@ -37,7 +37,7 @@ export default function Settings() {
               <input
                 type="button"
                 value={t<string>(`content.settings.${lang[0]}`)}
-              ></input>
+              />
             </td>
           </tr>
           <tr onClick={() => doNextTheme()}>
@@ -46,7 +46,7 @@ export default function Settings() {
               <input
                 type="button"
                 value={t<string>(`content.settings.${theme[0]}`)}
-              ></input>
+              />
             </td>
           </tr>
         </tbody>

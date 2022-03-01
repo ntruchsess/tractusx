@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom'
 import { UserInfo } from '../UserInfo/UserInfo'
 import { Logo } from '../Logo/Logo'
 import { useTranslation } from 'react-i18next'
@@ -17,7 +16,7 @@ export const Header = ({ pages }: HeaderProps) => {
       <Menu
         horizontal={true}
         items={pages.map((p) => ({ url: `/${p}`, label: t(`pages.${p}`) }))}
-      ></Menu>
+      />
       <UserInfo />
     </header>
   )

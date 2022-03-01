@@ -6,7 +6,7 @@ interface InfoBoxProps {
   element?: ReactNode
 }
 
-export function InfoBox_alternative({ onClickOutside, show, element }: InfoBoxProps) {
+export default function InfoBox_alternative({ onClickOutside, show, element }: InfoBoxProps) {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {

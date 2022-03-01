@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
 import Dropzone from './Dropzone'
 import './Translator.css'
 
@@ -32,21 +31,21 @@ export default function Translator() {
       <textarea
         value={input}
         onChange={(e) => setInput(e.target.value)}
-      ></textarea>
-      <textarea defaultValue={output}></textarea>
+      />
+      <textarea defaultValue={output} />
       <input type="button" value="translate" onClick={() => doTranslate()} />
       from{' '}
       <input
         placeholder="from"
         value={langFrom}
         onChange={(e) => setLangFrom(e.target.value)}
-      ></input>
+      />
       to{' '}
       <input
         placeholder="to"
         value={langTo}
         onChange={(e) => setLangTo(e.target.value)}
-      ></input>
+      />
     </main>
   )
 }
