@@ -23,7 +23,8 @@ export default function Router() {
       <Routes>
         <Route path="/" element={<Main />}>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/logout" element={<Logout />} />
+          <Route path="logout" element={<Logout />} />
+          <Route path="dashboard" element={<Dashboard />} />
           <Route path="appstore" element={<Appstore />}>
             <Route
               index
@@ -35,18 +36,18 @@ export default function Router() {
             />
             <Route path=":appId" element={<AppstoreDetail />} />
           </Route>
-          <Route path="/catalog" element={<DataCatalog />} />
-          <Route path="/applications" element={<Applications />} />
-          <Route path="/digitaltwins" element={<DigitalTwins />} />
-          <Route path="/semantichub" element={<SemanticHub />} />
-          <Route path="/developerhub" element={<DeveloperHub />} />
-          <Route path="/connector" element={<Connector />} />
-          <Route path="/authinfo" element={<Authinfo />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/developer" element={<Developer />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/testapi" element={<TestAPI />} />
-          <Route path="/translator" element={<Translator />} />
+          <Route path="datacatalog" element={<DataCatalog />} />
+          <Route path="applications" element={<Applications />} />
+          <Route path="digitaltwins" element={<DigitalTwins />} />
+          <Route path="semantichub" element={<SemanticHub />} />
+          <Route path="developerhub" element={<DeveloperHub />} />
+          <Route path="connector" element={<Connector />} />
+          <Route path="authinfo" element={<Authinfo />} />
+          <Route path="admin" element={<Admin />} />
+          <Route path="developer" element={<Developer />} />
+          <Route path="settings" element={<Settings />} />
+          <Route path="testapi" element={<TestAPI />} />
+          <Route path="translator" element={<Translator />} />
           <Route
             path="*"
             element={

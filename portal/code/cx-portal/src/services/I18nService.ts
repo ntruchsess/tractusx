@@ -19,6 +19,7 @@ const init = (onLoadedCallback: Function) => {
     .use(initReactI18next)
     .init({
       resources,
+      fallbackLng: 'en',
       interpolation: {
         escapeValue: false,
       },
