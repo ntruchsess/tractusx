@@ -15,8 +15,7 @@ export const UserInfo = ({ isAdmin, isMenuOpen }: UserInfoProps) => {
 
   return (
     <div>
-      <button className="UserInfo" onClick={toggleMenuOpen}>
-        {isAdmin ? '👑' : '👤'}
+      <button className="UserInfo" onClick={toggleMenuOpen}>        {isAdmin ? '👑' : '👤'}
       </button>
       <InfoBox
         show={menuOpen}
