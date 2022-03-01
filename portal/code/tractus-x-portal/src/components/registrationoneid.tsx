@@ -35,8 +35,6 @@ export default class Registrationoneid extends React.Component {
 
   private registrationButtonClick() {
 
-    console.log('env url for invite endpoint:',`${process.env.REACT_APP_INVITE_ENDPOINT}`)
-
     this.loading = true;
     var u = `${process.env.REACT_APP_INVITE_ENDPOINT}/api/invitation`
 
