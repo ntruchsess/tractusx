@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { InfoBox } from '../../functional/InfoBox'
+import { InfoBox_alternative } from 'components/shared/Functional/InfoBox_alternative';
 import { UserMenu } from '../../frame/UserMenu/UserMenu'
 import './UserInfo.css'
 
@@ -19,7 +19,7 @@ export const UserInfo = ({ isAdmin, isMenuOpen }: UserInfoProps) => {
       <button className="UserInfo" onClick={toggleMenuOpen}>
         {isAdmin ? '👑' : '👤'}
       </button>
-      <InfoBox
+      <InfoBox_alternative
         show={menuOpen}
         onClickOutside={() => {
           setMenuOpen(false)
