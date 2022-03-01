@@ -7,7 +7,16 @@ export default function Main() {
   document.title = useTranslation().t('title')
   return (
     <>
-      <Header />
+      <Header
+        pages={[
+          'dashboard',
+          'appstore',
+          'datacatalog',
+          'digitaltwins',
+          'semantichub',
+          'developerhub',
+        ]}
+      />
       <Outlet />
     </>
   )

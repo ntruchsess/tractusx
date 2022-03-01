@@ -19,6 +19,16 @@ export default {
   styles: ['./components/App.css'],
 } as ComponentMeta<typeof Header>
 
-const Template: ComponentStory<typeof Header> = (args) => <Header />
+const Template: ComponentStory<typeof Header> = (args) => <Header {...args} />
 
 export const Standard = Template.bind({})
+Standard.args = {
+  pages: [
+    'dashboard',
+    'appstore',
+    'datacatalog',
+    'digitaltwins',
+    'semantichub',
+    'developerhub',
+  ],
+}
