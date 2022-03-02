@@ -1,5 +1,6 @@
 ﻿
 using CatenaX.NetworkServices.Registration.Service.BPN.Model;
+using CatenaX.NetworkServices.Registration.Service.CustomException;
 
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,10 @@ namespace CatenaX.NetworkServices.Registration.Service.BPN
             {
                     var body = JsonSerializer.Deserialize<FetchBusinessPartnerDto>(await result.Content.ReadAsStringAsync());
                     response.Add(body);
+            }
+            else
+            {
+                throw new ServiceException($"Access to BPN Failed with Status Code {result.StatusCode}", result.StatusCode);
             }
             
             return response;
