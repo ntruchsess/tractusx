@@ -2,8 +2,8 @@
 
 Frontend web application for Catena-X. Development instances:
 
-- Protoype: https://catenax-dev003-app-portal-2.azurewebsites.net/
-- Storybook: https://catenax-dev003-app-portal-2.azurewebsites.net/storybook/
+- Protoype: https://catenax-dev003-app-portal-3.azurewebsites.net/
+- Storybook: https://catenax-dev003-app-portal-3.azurewebsites.net/storybook/
 
 
 steps

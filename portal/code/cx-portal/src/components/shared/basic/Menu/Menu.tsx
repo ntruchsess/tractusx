@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { MenuItem } from '../../SharedTypes'
-import './Menu.css'
+import './Menu.scss'
 
 interface MenuProps {
   items: MenuItem[]
