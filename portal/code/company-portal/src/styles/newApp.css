@@ -30,6 +30,7 @@ body {
   background-image: url(/src/bgNew.svg);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position-y: 400px;
 }
 
 .logo {
