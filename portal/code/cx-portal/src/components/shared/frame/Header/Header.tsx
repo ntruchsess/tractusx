@@ -16,7 +16,7 @@ export const Header = ({ pages }: HeaderProps) => {
       <Menu
         horizontal={true}
         items={pages.map((p) => ({ url: `/${p}`, label: t(`pages.${p}`) }))}
-      ></Menu>
+      />
       <UserInfo />
     </header>
   )
