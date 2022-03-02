@@ -47,7 +47,7 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
             catch (ServiceException e)
             {
                 var content = new { message = e.Message };
-                return new ContentResult { StatusCode = (int) e.StatusCode, Content = JsonConvert.SerializeObject(content), ContentType = "spplication/json" };
+                return new ContentResult { StatusCode = (int) e.StatusCode, Content = JsonConvert.SerializeObject(content), ContentType = "application/json" };
             }
         }
 
@@ -73,7 +73,7 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
         }
 
         [HttpPost]
-        //[Authorize(Roles = "submit_registration")]
+        [Authorize(Roles = "submit_registration")]
         [Route("custodianWallet")]
         public async Task<IActionResult> CreateWallet([FromBody] WalletInformation walletToCreate)
         {
@@ -86,7 +86,7 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
             catch (ServiceException e)
             {
                 var content = new { message = e.Message };
-                return new ContentResult { StatusCode = (int)e.StatusCode, Content = JsonConvert.SerializeObject(content), ContentType = "spplication/json" };
+                return new ContentResult { StatusCode = (int)e.StatusCode, Content = JsonConvert.SerializeObject(content), ContentType = "application/json" };
             }
         }
 
