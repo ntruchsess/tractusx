@@ -49,8 +49,7 @@ const nextClick = () => {
   const url = process.env.REACT_APP_ONBOARDING_URL;
   const endpoint = process.env.REACT_APP_ONBOARDING_ENDPOINT;
   const token = UserService.getToken();
-  const tenant = UserService.getTenant();
-  const featchUrl = `${url}/${endpoint}/tenant/${tenant}/custodianWallet`;
+  const featchUrl = `${url}/${endpoint}/custodianWallet`;
   const data = {
     bpn : "BPNL890867291",
     name : "German Car Factory"    
