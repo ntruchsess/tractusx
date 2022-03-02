@@ -13,7 +13,7 @@ const Template: ComponentStory<typeof Component> = (args: any) => <Component {..
 
 export const IconButton = Template.bind({});
 IconButton.args = {
-  style: 'primary',
+  variant: 'primary',
   size: 'medium',
   disabled: false,
   children: <Icon name={"add"} color={"#000"} size={25} />,

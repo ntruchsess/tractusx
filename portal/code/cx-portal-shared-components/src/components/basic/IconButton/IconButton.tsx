@@ -7,14 +7,14 @@ interface IconButtonProps extends Omit<ButtonProps, 'size'> {
 }
 
 export const IconButton = ({
-  style = 'primary',
+  variant = 'primary',
   size = 'medium',
   href,
   disabled,
   children,
   ...props
 }: IconButtonProps) => {
-  const className = classnames('icon-button', `icon-button-${style}`, `icon-button-${size}`, {'icon-button-disabled': disabled});
+  const className = classnames('icon-button', `icon-button-${variant}`, `icon-button-${size}`, {'icon-button-disabled': disabled});
 
   return href
   ? (

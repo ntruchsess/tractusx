@@ -3,7 +3,7 @@ import './Button.scss';
 
 export interface ButtonProps {
   children: React.ReactNode;
-  style?: 'primary' | 'secondary' | 'outlined' | 'text';
+  variant?: 'primary' | 'secondary' | 'outlined' | 'text';
   size?: 'large' | 'medium' | 'small';
   href?: string;
   disabled?: boolean;
@@ -11,14 +11,14 @@ export interface ButtonProps {
 }
 
 export const Button = ({
-  style = 'primary',
+  variant = 'primary',
   size = 'large',
   href,
   disabled,
   children,
   ...props
 }: ButtonProps) => {
-  const className = classnames('button', `button-${style}`, `button-${size}`, {'button-disabled': disabled});
+  const className = classnames('button', `button-${variant}`, `button-${size}`, {'button-disabled': disabled});
 
   return href
     ? (
