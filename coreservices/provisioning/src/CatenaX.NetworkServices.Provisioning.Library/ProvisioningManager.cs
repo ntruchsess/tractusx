@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CatenaX.NetworkServices.Keycloak.Factory;
 using CatenaX.NetworkServices.Provisioning.Library.Models;
+using Keycloak.Net.Models.Users;
 
 namespace CatenaX.NetworkServices.Provisioning.Library
 {
@@ -99,5 +100,11 @@ namespace CatenaX.NetworkServices.Provisioning.Library
 
         public async Task<IEnumerable<string>> GetClientRolesCompositeAsync(string clientId) =>
             (await _CentralIdp.GetRolesAsync(_Settings.CentralRealm, clientId).ConfigureAwait(false)).Where(r => r.Composite == true).Select(g => g.Name);
+
+        public async Task<IEnumerable<User>> GetUsersFromSharedAsync(string idpName)
+        {
+            var users = (await _SharedIdp.GetUsersAsync(idpName, briefRepresentation: true).ConfigureAwait(false));
+            return users;
+        }
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using CatenaX.NetworkServices.Provisioning.Library.Models;
+using Keycloak.Net.Models.Users;
 
 namespace CatenaX.NetworkServices.Provisioning.Library
 {
@@ -13,5 +14,6 @@ namespace CatenaX.NetworkServices.Provisioning.Library
         Task<IEnumerable<string>> GetClientRolesCompositeAsync(string clientId);
         Task<string> GetOrganisationFromCentralIdentityProviderMapperAsync(string alias);
         Task<string> SetupOwnIdpAsync(string organisationName, string clientId, string metadataUrl, string clientAuthMethod, string clientSecret);
+        Task<IEnumerable<User>> GetUsersFromSharedAsync(string idpName);
     }
 }
