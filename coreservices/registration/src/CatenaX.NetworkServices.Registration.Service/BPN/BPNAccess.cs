@@ -1,5 +1,6 @@
 ﻿
 using CatenaX.NetworkServices.Registration.Service.BPN.Model;
+using CatenaX.NetworkServices.Registration.Service.CustomException;
 
 using System;
 using System.Collections.Generic;
@@ -24,12 +25,16 @@ namespace CatenaX.NetworkServices.Registration.Service.BPN
         public async Task<List<FetchBusinessPartnerDto>> FetchBusinessPartner(string bpn, string token)
         {
             var response = new List<FetchBusinessPartnerDto>();
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var result = await _httpClient.GetAsync($"api/catena/business-partner/{bpn}");
-            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer",token);
             if (result.IsSuccessStatusCode)
             {
                     var body = JsonSerializer.Deserialize<FetchBusinessPartnerDto>(await result.Content.ReadAsStringAsync());
                     response.Add(body);
+            }
+            else
+            {
+                throw new ServiceException($"Access to BPN Failed with Status Code {result.StatusCode}", result.StatusCode);
             }
             
             return response;

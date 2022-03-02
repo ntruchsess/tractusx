@@ -2,6 +2,7 @@
 using CatenaX.NetworkServices.Mockups;
 using CatenaX.NetworkServices.Provisioning.Library;
 using CatenaX.NetworkServices.Registration.Service.BusinessLogic;
+using CatenaX.NetworkServices.Registration.Service.CustomException;
 using CatenaX.NetworkServices.Registration.Service.Model;
 
 using Microsoft.AspNetCore.Authorization;
@@ -9,6 +10,9 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+
+using Newtonsoft.Json;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,8 +38,18 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
         [Authorize(Roles = "add_company_data")]
         [Route("company/{bpn}")]
         [ProducesResponseType(typeof(Company), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> GetOneObjectAsync([FromRoute] string bpn, [FromHeader] string authorization) =>
-            Ok(await _registrationBusinessLogic.GetCompanyByIdentifierAsync(bpn, authorization.Split(" ")[1]).ConfigureAwait(false));
+        public async Task<IActionResult> GetOneObjectAsync([FromRoute] string bpn, [FromHeader] string authorization)
+        {
+            try
+            {
+                return Ok(await _registrationBusinessLogic.GetCompanyByIdentifierAsync(bpn, authorization.Split(" ")[1]).ConfigureAwait(false));
+            }
+            catch (ServiceException e)
+            {
+                var content = new { message = e.Message };
+                return new ContentResult { StatusCode = (int) e.StatusCode, Content = JsonConvert.SerializeObject(content), ContentType = "application/json" };
+            }
+        }
 
         [HttpPost]
         [Authorize(Policy = "CheckTenant")]
@@ -63,8 +77,17 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
         [Route("custodianWallet")]
         public async Task<IActionResult> CreateWallet([FromBody] WalletInformation walletToCreate)
         {
-            await _registrationBusinessLogic.CreateCustodianWalletAsync(walletToCreate).ConfigureAwait(false);
-            return Ok();
+            try
+            {
+                await _registrationBusinessLogic.CreateCustodianWalletAsync(walletToCreate).ConfigureAwait(false);
+                return Ok();
+
+            }
+            catch (ServiceException e)
+            {
+                var content = new { message = e.Message };
+                return new ContentResult { StatusCode = (int)e.StatusCode, Content = JsonConvert.SerializeObject(content), ContentType = "application/json" };
+            }
         }
 
         [HttpPost]
