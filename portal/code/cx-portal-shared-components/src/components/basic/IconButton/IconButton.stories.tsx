@@ -1,7 +1,7 @@
 import { ComponentStory } from '@storybook/react'
 
 import { IconButton as Component } from './IconButton'
-import { Add } from '../Icons'
+import { Icon } from '../Icons/Icon'
 
 export default {
   title: 'Buttons',
@@ -16,5 +16,5 @@ IconButton.args = {
   style: 'primary',
   size: 'medium',
   disabled: false,
-  children: <Add />,
+  children: <Icon name={"add"} color={"#000"} size={25} />,
 };
