@@ -26,7 +26,7 @@ export default function AppstoreDetail() {
       <p className="description">{app.description}</p>
       <p className="vendor">{app.vendor}</p>
       <p>
-        <button onClick={() => {}}>buy</button>
+        <button>buy</button>
       </p>
     </div>
   )

@@ -18,6 +18,6 @@ export default {
   styles: ['./components/App.css'],
 } as ComponentMeta<typeof LangSwitch>
 
-const Template: ComponentStory<typeof LangSwitch> = (args) => <LangSwitch />
+const Template: ComponentStory<typeof LangSwitch> = () => <LangSwitch />
 
 export const Standard = Template.bind({})

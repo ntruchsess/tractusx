@@ -34,9 +34,7 @@ export const UserMenu = () => {
               ]
         }
       />
-      <div className="Lang">
-        <LangSwitch />
-      </div>
+      <LangSwitch />
     </div>
   )
 }

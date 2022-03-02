@@ -2,9 +2,9 @@ import axios from 'axios'
 import * as actions from './appsAPI'
 
 const appsMW =
-  ({ dispatch }) =>
-  (next) =>
-  async (action) => {
+  ({ dispatch }: any) =>
+  (next: any) =>
+  async (action: any) => {
     if (action.type !== actions.appsCallBegan.type) return next(action)
 
     const { url, method, data, onStart, onSuccess, onError } = action.payload
@@ -22,7 +22,7 @@ const appsMW =
       })
       //dispatch(actions.apiCallSuccess(response.data));
       if (onSuccess) dispatch({ type: onSuccess, payload: response.data })
-    } catch (error) {
+    } catch (error: any) {
       //dispatch(actions.apiCallFailed(error.message));
       if (onError) dispatch({ type: onError, payload: error.message })
     }
