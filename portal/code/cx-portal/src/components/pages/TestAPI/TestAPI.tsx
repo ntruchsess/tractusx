@@ -5,21 +5,21 @@ import './TestAPI.css'
 
 const TestAPI = () => {
   const dispatch = useDispatch()
-  const posts = useSelector((state) => state.posts.list)
+  const posts = useSelector((state: any) => state.posts.list)
 
   useEffect(() => {
     dispatch(api.loadPosts())
   }, [dispatch])
 
   return (
-    <div>
+    <main>
       <h1>TestAPI</h1>
       <ul>
-        {posts.map((post) => (
+        {posts.map((post: any) => (
           <li key={post.id}>{post.title}</li>
         ))}
       </ul>
-    </div>
+    </main>
   )
 }
 
