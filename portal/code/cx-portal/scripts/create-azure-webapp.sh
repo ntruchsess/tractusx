@@ -5,11 +5,11 @@
 #
 export CX_ENV=${CX_ENV:-dev003}
 portal-current-version() {
-    az webapp list --query "[].name" -o table \
-        | grep app-portal- \
-        | cut -d'-' -f5 \
-        | sort -V \
-        | tail -1
+  az webapp list --query "[].name" -o table \
+    | grep app-portal- \
+    | cut -d'-' -f5 \
+    | sort -V \
+    | tail -1
 }
 export CX_PORTAL_CURRENT_VERSION=$(portal-current-version)
 export CX_PORTAL_NEXT_VERSION=${1:-$((CX_PORTAL_CURRENT_VERSION+1))}
