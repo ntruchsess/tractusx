@@ -3,14 +3,13 @@ $button-colors: (
     background-color: color(primary),
     color: color(white),
     hover-background-color: color(primary-hover),
-    disabled-background-color: color(gray-disabled),
+    disabled-background-color: color(disabled-container),
   ),
   secondary: (
     background-color: color(secondary),
     color: color(primary),
     hover-background-color: color(secondary-hover),
-    hover-color: color(primary-active),
-    disabled-background-color: color(gray-disabled),
+    disabled-background-color: color(disabled-container),
   ),
   outlined: (
     background-color: transparent,
@@ -23,7 +22,6 @@ $button-colors: (
     background-color: transparent,
     color: color(primary),
     hover-background-color: color(secondary-hover),
-    hover-color: color(primary-active),
     disabled-background-color: transparent,
   ),
 );
@@ -34,8 +32,8 @@ $button-colors: (
   $border-color: null,
   $hover-background-color: null,
   $hover-color: null,
-  $disabled-background-color: color(gray-disabled),
-  $disabled-color: color(gray)
+  $disabled-background-color: color(disabled-container),
+  $disabled-color: color(disabled-text)
 ) {
   background-color: $background-color;
   color: $color;
@@ -51,6 +49,7 @@ $button-colors: (
     &:focus {
       background-color: $hover-background-color;
       color: $hover-color;
+      border-color: $hover-color;
 
       & > svg {
         fill: $hover-color;
