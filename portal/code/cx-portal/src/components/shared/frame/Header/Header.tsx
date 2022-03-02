@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom'
 import { UserInfo } from '../UserInfo/UserInfo'
 import { Logo } from '../Logo/Logo'
 import { useTranslation } from 'react-i18next'

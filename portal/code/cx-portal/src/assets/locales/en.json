@@ -19,6 +19,9 @@
     "dashboard": {
       "welcome": "Welcome to Catena-X - the automotive network!"
     },
+    "authinfo": {
+      "token": "Current authentication token"
+    },
     "settings": {
       "language": "Language",
       "theme": "Theme",

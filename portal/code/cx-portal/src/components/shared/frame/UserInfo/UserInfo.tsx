@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { InfoBox } from '../../functional/InfoBox'
+import InfoBox from '../../functional/InfoBox'
 import { UserMenu } from '../../frame/UserMenu/UserMenu'
 import './UserInfo.scss'
 

@@ -31,8 +31,7 @@ body {
   margin: 0;
   font-family: 'LibreFranklin', 'Libre Franklin', 'Franklin Gothic Medium',
     'Arial Narrow', Arial, sans-serif !important;
-
-  color: #000000 !important;
+  color: #111111 !important;
   font-weight: 300 !important;
 }
 
@@ -42,5 +41,14 @@ main {
 
 a {
   text-decoration: none;
-  color: darkblue;
+  color: #0f71cb;
+  &:hover {
+    color: #017ab0;
+  }
+  &:active {
+    color: #111111;
+  }
+  &:disabled {
+    color: #adadad;
+  }
 }

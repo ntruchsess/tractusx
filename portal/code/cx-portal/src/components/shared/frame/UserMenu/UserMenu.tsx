@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import UserService from '../../../../services/UserService'
 import { Menu } from '../../basic/Menu/Menu'
+import { LangSwitch } from '../LangSwitch/LangSwitch'
 import './UserMenu.scss'
 
 export const UserMenu = () => {
@@ -33,7 +34,9 @@ export const UserMenu = () => {
               ]
         }
       />
-      <div className="Lang"></div>
+      <div className="Lang">
+        <LangSwitch />
+      </div>
     </div>
   )
 }

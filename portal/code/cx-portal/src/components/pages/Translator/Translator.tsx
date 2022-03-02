@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
 import Dropzone from './Dropzone'
 import './Translator.css'
 

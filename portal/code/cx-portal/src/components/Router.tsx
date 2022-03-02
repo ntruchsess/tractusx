@@ -2,7 +2,6 @@ import Main from './Main'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Dashboard from './pages/Dashboard/Dashboard'
 import Admin from './pages/Admin/Admin'
-import Applications from './pages/Applications/Applications'
 import Appstore from './pages/Appstore/Appstore'
 import AppstoreDetail from './pages/Appstore/AppstoreDetail/AppstoreDetail'
 import Authinfo from './pages/Authinfo/Authinfo'
@@ -37,7 +36,6 @@ export default function Router() {
             <Route path=":appId" element={<AppstoreDetail />} />
           </Route>
           <Route path="datacatalog" element={<DataCatalog />} />
-          <Route path="applications" element={<Applications />} />
           <Route path="digitaltwins" element={<DigitalTwins />} />
           <Route path="semantichub" element={<SemanticHub />} />
           <Route path="developerhub" element={<DeveloperHub />} />
