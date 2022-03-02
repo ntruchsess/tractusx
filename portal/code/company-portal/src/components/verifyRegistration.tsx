@@ -23,6 +23,8 @@ import {addCurrentStep} from "../actions/user.action";
 import { withRouter } from 'react-router-dom';
 import {Dispatch} from 'redux';
 import { FaEdit } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
+import UserService from "../helpers/UserService";
 
 interface VerifyRegistrationProps {
   currentActiveStep: number;
@@ -32,6 +34,7 @@ interface VerifyRegistrationProps {
 export const VerifyRegistration = ({currentActiveStep, addCurrentStep}: VerifyRegistrationProps) => {
 
   const { t } = useTranslation();
+  let history = useHistory();
 
   const editClick = (n) => {
     // setcurrentActiveStep(n);
@@ -43,7 +46,27 @@ export const VerifyRegistration = ({currentActiveStep, addCurrentStep}: VerifyRe
 }
 
 const nextClick = () => {
-  addCurrentStep(currentActiveStep+1)
+  const url = process.env.REACT_APP_ONBOARDING_URL;
+  const endpoint = process.env.REACT_APP_ONBOARDING_ENDPOINT;
+  const token = UserService.getToken();
+  const featchUrl = `${url}/${endpoint}/custodianWallet`;
+  const data = {
+    bpn : "BPNL890867291",
+    name : "German Car Factory"    
+  }
+    fetch(featchUrl, { method: 'POST', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+    .then((response) => {
+      if (response.ok) {
+        history.push("/finish");
+      }
+      else {
+        history.push("/finish");
+      }
+    }
+
+    ).catch((error) => {
+       history.push("/finish");
+    });
 }
 
     

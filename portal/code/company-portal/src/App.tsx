@@ -17,11 +17,13 @@ import {createBrowserHistory} from "history";
 import {Redirect, Route, Router, Switch} from "react-router-dom";
 import "./styles/newApp.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import 'react-toastify/dist/ReactToastify.css';
 import Landing from "./components/landing";
 import RegistrationCax from "./components/cax-registration";
 import Finish from "./components/finish"
 import {Provider} from 'react-redux';
 import store from './stores/store';
+import Authinfo from "./components/authinfo";
 
 const history = createBrowserHistory();
 
@@ -43,6 +45,7 @@ export default class App extends React.Component {
                             path="/finish"
                             component={(props) => <Finish {...props} />}
                         />
+                       <Route path="/authinfo" component={() => <Authinfo />} />
                     </Switch>
                 </Router>
             </Provider>
