@@ -59,10 +59,10 @@ export const CompanyDataCax = ({currentActiveStep, addCurrentStep}: CompanyDataP
         //setcountry(companyDetails?.[0]?.addresses?.[0]?.countryCode);
         setlegalEntity(companyDetails?.[0]?.names?.[0]?.value);
         setregisteredName(companyDetails?.[0]?.names?.[0]?.value);
-        setstreetHouseNumber(companyDetails?.[0]?.addresses?.[0]?.thoroughfares.[0]?.value);
-        setpostalCode(companyDetails?.[0]?.addresses?.[0]?.postCodes.[0]?.value);
-        setcity(companyDetails?.[0]?.addresses?.[0]?.localities.[0]?.value);
-        setcountry(companyDetails?.[0]?.addresses?.[0]?.country?.[0]?.name);
+        setstreetHouseNumber(companyDetails?.[0]?.addresses?.[0]?.thoroughfares[0]?.value);
+        setpostalCode(companyDetails?.[0]?.addresses?.[0]?.postCodes[0]?.value);
+        setcity(companyDetails?.[0]?.addresses?.[0]?.localities[0]?.value);
+        setcountry(companyDetails?.[0]?.addresses?.[0]?.country?.name);
     }
 
     const backClick = () => {
@@ -150,7 +150,7 @@ export const CompanyDataCax = ({currentActiveStep, addCurrentStep}: CompanyDataP
                                 <option value="test2">Test 2</option>
                                 <option value="test3">Test 3</option>
                             </select> */}
-                            <input type="text" value=""/>
+                            <input type="text" value={country}/>
                         </div>
                     </Row>
 
