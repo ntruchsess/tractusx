@@ -15,7 +15,6 @@
 import * as React from "react";
 import {Row} from "react-bootstrap";
 import Button from "./button";
-import UserService from '../helpers/UserService';
 
 export const FooterButton = ({ labelBack, labelNext, handleBackClick, handleNextClick }) => {    
 

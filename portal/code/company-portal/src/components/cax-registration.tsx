@@ -18,21 +18,14 @@ import Header from "./cax-header";
 import ReactTooltip from "react-tooltip";
 import "react-datepicker/dist/react-datepicker.css";
 import CompanyDataCax from "./cax-companyData";
-import Button from "./button";
 import ResponsibilitiesCax from "./cax-responsibilities";
 import DragDropUploadFiles from "./dragdrop";
 import CompanyRoleCax from "./cax-companyRole";
-import {addCurrentStep} from "../actions/user.action";
-import UserService from '../helpers/UserService';
 import {connect} from 'react-redux';
 import {IState} from "../types/store/redux.store.types";
-import {Dispatch} from 'redux';
 import { useTranslation } from 'react-i18next';
-import { useState} from "react";
 import { withRouter } from "react-router-dom";
-import { useHistory } from "react-router-dom";
 import  Stepper  from "./stepper";
-import FooterButton from "./footerButton";
 import  VerifyRegistration  from "./verifyRegistration";
 
 interface RegistrationCaxProps {

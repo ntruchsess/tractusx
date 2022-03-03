@@ -27,7 +27,6 @@ export const Header = () => {
     const { t } = useTranslation();
 
     const username =  UserService.getUsername();
-    const initials =  UserService.getInitials();
     const tokenRoles =  UserService.getRoles();
     const [userRoles, setuserRoles] =  useState([]);
     const [language, setlanguage] =  useState(i18n.language);
@@ -44,7 +43,7 @@ export const Header = () => {
         fetchData()
           // make sure to catch any error
           .catch(console.error);
-      }, [])
+      }, [tokenRoles])
 
         const changeLanguage = lng => {
             setlanguage(lng);
