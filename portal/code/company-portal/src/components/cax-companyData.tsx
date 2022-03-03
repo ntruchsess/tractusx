@@ -51,12 +51,6 @@ export const CompanyDataCax = ({currentActiveStep, addCurrentStep, addCompanyDat
         setsearch(x)
         const companyDetails = await getCompanyDetails(x);
         setbpn(companyDetails?.[0]?.bpn);
-        //setlegalEntity(companyDetails?.[0]?.names.find(x => x.type === 'INTERNATIONAL')?.value);
-        //setregisteredName(companyDetails?.[0]?.names.find(x => x.type === 'REGISTERED')?.value);
-        //setstreetHouseNumber(companyDetails?.[0]?.addresses?.[0]?.thoroughfares.find(x => x.type === 'INDUSTRIAL_ZONE')?.value);
-        //setpostalCode(companyDetails?.[0]?.addresses?.[0]?.postCodes.find(x => x.type === 'REGULAR')?.value);
-        //setcity(companyDetails?.[0]?.addresses?.[0]?.localities.find(x => x.type === 'BLOCK')?.value);
-        //setcountry(companyDetails?.[0]?.addresses?.[0]?.countryCode);
         setlegalEntity(companyDetails?.[0]?.names?.[0]?.value);
         setregisteredName(companyDetails?.[0]?.names?.[0]?.value);
         setstreetHouseNumber(companyDetails?.[0]?.addresses?.[0]?.thoroughfares[0]?.value);
