@@ -96,25 +96,25 @@ const nextClick = () => {
                       <li className="list-group-item-cax">
                         <Row>
                           <span className="col-6">BPN</span>
-                          <span className="col-6">BPNL890867291</span>
+                          <span className="col-6">BPNL000000000001</span>
                         </Row>
                       </li>
                       <li className="list-group-item-cax">
                         <Row>
                           <span className="col-6">Legal Entity Name</span>
-                          <span className="col-6">German Car Factory</span>
+                          <span className="col-6">German Car Company</span>
                         </Row>
                       </li>
                       <li className="list-group-item-cax">
                         <Row>
                           <span className="col-6">Registered Name</span>
-                          <span className="col-6"></span>
+                          <span className="col-6">German Car Company</span>
                         </Row>
                       </li>
                       <li className="list-group-item-cax">
                         <Row>
                           <span className="col-6">Street</span>
-                          <span className="col-6">Munich Street</span>
+                          <span className="col-6">Muenchner Straße 34</span>
                         </Row>
                       </li>
                       <li className="list-group-item-cax">
