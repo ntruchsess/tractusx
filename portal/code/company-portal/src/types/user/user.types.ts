@@ -12,6 +12,7 @@ export interface IUserData {
     userInviteList: IUserItem[];
     currentStep: number;
     companyData: CompanyDetailsData;
+    roleComposite: string[];
 }
 
 

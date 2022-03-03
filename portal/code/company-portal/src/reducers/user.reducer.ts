@@ -1,11 +1,11 @@
 import produce from 'immer';
 import {handleActions} from 'redux-actions';
-import userActions, {addToInviteListAction, addCurrentStepAction, removeFromInviteListAction, addCompanyDataAction} from '../actions/user.action';
+import userActions, {addToInviteListAction, addCurrentStepAction, removeFromInviteListAction, addCompanyDataAction, addrolesCompositeAction} from '../actions/user.action';
 import { CompanyDetailsData } from '../data/companyDetails';
 import {IUserData} from "../types/user/user.types";
 
 // empty userInvite list
-export const initialState = {userInviteList: [], currentStep: 1, companyData: new CompanyDetailsData()};
+export const initialState = {userInviteList: [], currentStep: 1, companyData: new CompanyDetailsData(), roleComposite: []};
 
 export default handleActions<IUserData, any>(
     {
@@ -24,6 +24,10 @@ export default handleActions<IUserData, any>(
 
         [userActions.ADD_COMPANY_DATA]: produce((state: IUserData, action: addCompanyDataAction) => {
             state.companyData = action.payload;
+        }),
+
+        [userActions.ADD_ROLES_COMPOSITE]: produce((state: IUserData, action: addrolesCompositeAction) => {
+            state.roleComposite = action.payload;
         }),
         
     },

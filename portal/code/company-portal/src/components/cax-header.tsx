@@ -22,8 +22,16 @@ import { withRouter } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { DataErrorCodes } from "../helpers/DataError";
 import { ToastContainer, toast } from "react-toastify";
+import { addrolesComposite } from "../actions/user.action";
+import { connect } from "react-redux";
+import { Dispatch } from "redux";
+import { IState } from "../types/store/redux.store.types";
 
-export const Header = () => {
+interface HeaderCaxProps {
+  addrolesComposite: (rolesComposite: string[]) => void;
+}
+
+export const Header = ({ addrolesComposite }: HeaderCaxProps) => {
   const { t } = useTranslation();
 
   const username = UserService.getUsername();
@@ -40,13 +48,13 @@ export const Header = () => {
         data.includes(value)
       );
       setuserRoles(filterComposite);
+      addrolesComposite(data);
     };
 
     // call the function
     fetchData()
       // make sure to catch any error
       .catch((errorCode: number) => {
-        
         let message = DataErrorCodes.includes(errorCode)
           ? t(`ErrorMessage.${errorCode}`)
           : t(`ErrorMessage.default`);
@@ -55,7 +63,7 @@ export const Header = () => {
         toast.error(message);
         //  history.push("/finish");
       });
-  }, [tokenRoles]);
+  }, [tokenRoles, addrolesComposite]);
 
   const changeLanguage = (lng) => {
     setlanguage(lng);
@@ -107,9 +115,22 @@ export const Header = () => {
             <a href="/help">{t("header.help")}</a>
           </div>
         </div>
-        <ToastContainer />
       </Col>
     </Row>
   );
 };
-export default withRouter(Header);
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  addrolesComposite: (rolesComposite: string[]) => {
+    dispatch(addrolesComposite(rolesComposite));
+  },
+});
+
+export default withRouter(
+  connect(
+    (state: IState) => ({
+      roleComposite: state.user.roleComposite,
+    }),
+    mapDispatchToProps
+  )(Header)
+);
