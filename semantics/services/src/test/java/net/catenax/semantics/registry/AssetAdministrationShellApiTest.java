@@ -599,42 +599,70 @@ public class AssetAdministrationShellApiTest {
         @Test
         public void testFindExternalShellIdsBySpecificAssetIdsExpectSuccess() throws Exception {
 
-            // prepare the data set
-            Map<String, String> specificAssetIdsShellId = new HashMap<>();
-            for (int i = 1; i <= 4; i++) {
-                ObjectNode shellPayload = createBaseIdPayload("sampleForQuery", "idShortSampleForQuery");
-                String identifierKey = "findExternalShellIdQueryKey_" + i;
-                String identifierValue = "value_" + i;
-
-                shellPayload.set("specificAssetIds", emptyArrayNode()
-                        .add(specificAssetId(identifierKey, identifierValue)));
-                specificAssetIdsShellId.put(toIdentifierCombination(identifierKey, identifierValue), getId(shellPayload));
-                performShellCreateRequest(toJson(shellPayload));
-            }
-
-            ArrayNode multipleAssetIdParam = emptyArrayNode()
+            ObjectNode commonAssetId = specificAssetId("commonAssetIdKey", "commonAssetIdValue");
+            // first shell
+            ObjectNode firstShellPayload = createBaseIdPayload("sampleForQuery", "idShortSampleForQuery");
+            firstShellPayload.set("specificAssetIds", emptyArrayNode()
                     .add(specificAssetId("findExternalShellIdQueryKey_2", "value_2"))
+                    .add(specificAssetId("findExternalShellIdQueryKey_2_1", "value_2_1"))
+                    .add(commonAssetId));
+            performShellCreateRequest(toJson(firstShellPayload));
+
+            // second shell
+            ObjectNode secondShellPayload = createBaseIdPayload("sampleForQuery", "idShortSampleForQuery");
+            secondShellPayload.set("specificAssetIds", emptyArrayNode()
                     .add(specificAssetId("findExternalShellIdQueryKey_3", "value_3"))
-                    .add(specificAssetId("findExternalShellIdQueryKey_4", "value_4"))
-                    // no entries for the key value combination here exists.
-                    .add(specificAssetId("NoExistingKey", "value_4"))
-                    .add(specificAssetId("findExternalShellIdQueryKey_4", "NotExistingValue"));
+                    .add(specificAssetId("findExternalShellIdQueryKey_3_1", "value_3_1"))
+                    .add(commonAssetId));
+            performShellCreateRequest(toJson(secondShellPayload));
+
+            // Test first shell match with all specific assetIds
+            ArrayNode allSpecificAssetIdsForFirstShell = emptyArrayNode()
+                    .add(specificAssetId("findExternalShellIdQueryKey_2", "value_2"))
+                    .add(specificAssetId("findExternalShellIdQueryKey_2_1", "value_2_1"))
+                    .add(commonAssetId);
 
             mvc.perform(
                             MockMvcRequestBuilders
                                     .get(LOOKUP_SHELL_BASE_PATH)
-                                    .queryParam("assetIds", toJson(multipleAssetIdParam))
+                                    .queryParam("assetIds", toJson(allSpecificAssetIdsForFirstShell))
                                     .accept(MediaType.APPLICATION_JSON)
                     )
                     .andDo(MockMvcResultHandlers.print())
                     .andExpect(status().isOk())
-                    .andExpect(jsonPath("$", hasSize(3)))
+                    .andExpect(jsonPath("$", hasSize(1)))
                     // ensure that only three results match
-                    .andExpect(jsonPath("$", containsInAnyOrder(
-                            specificAssetIdsShellId.get(toIdentifierCombination("findExternalShellIdQueryKey_2", "value_2")),
-                            specificAssetIdsShellId.get(toIdentifierCombination("findExternalShellIdQueryKey_3", "value_3")),
-                            specificAssetIdsShellId.get(toIdentifierCombination("findExternalShellIdQueryKey_4", "value_4"))
-                    )));
+                    .andExpect(jsonPath("$", contains(getId(firstShellPayload))));
+
+            // Test first shell match with single assetId
+            ArrayNode oneAssetIdForFirstShell = emptyArrayNode()
+                    .add(specificAssetId("findExternalShellIdQueryKey_2", "value_2"));
+            mvc.perform(
+                            MockMvcRequestBuilders
+                                    .get(LOOKUP_SHELL_BASE_PATH)
+                                    .queryParam("assetIds", toJson(oneAssetIdForFirstShell))
+                                    .accept(MediaType.APPLICATION_JSON)
+                    )
+                    .andDo(MockMvcResultHandlers.print())
+                    .andExpect(status().isOk())
+                    .andExpect(jsonPath("$", hasSize(1)))
+                    // ensure that only three results match
+                    .andExpect(jsonPath("$", contains(getId(firstShellPayload))));
+
+            // Test first and second shell match with common asssetId
+            ArrayNode commonAssetIdBothShells = emptyArrayNode()
+                    .add(commonAssetId);
+            mvc.perform(
+                            MockMvcRequestBuilders
+                                    .get(LOOKUP_SHELL_BASE_PATH)
+                                    .queryParam("assetIds", toJson(commonAssetIdBothShells))
+                                    .accept(MediaType.APPLICATION_JSON)
+                    )
+                    .andDo(MockMvcResultHandlers.print())
+                    .andExpect(status().isOk())
+                    .andExpect(jsonPath("$", hasSize(2)))
+                    // ensure that only three results match
+                    .andExpect(jsonPath("$", containsInAnyOrder(getId(firstShellPayload), getId(secondShellPayload))));
         }
 
         @Test
@@ -675,10 +703,59 @@ public class AssetAdministrationShellApiTest {
                     .andExpect(status().isOk())
                     .andExpect(jsonPath("$", hasSize(0)));
         }
+    }
 
-        private String toIdentifierCombination(String key, String value) {
-            return key + ":" + value;
+    @Nested
+    @DisplayName("Custom AAS API Tests")
+    class CustomAASApiTest {
+
+        @Test
+        public void testCreateShellInBatchWithOneDuplicateExpectSuccess() throws Exception {
+            ObjectNode shell = createShell(false);
+
+            JsonNode identification = shell.get("identification");
+            ArrayNode batchShellBody = emptyArrayNode().add(shell).add(createShell(false)
+                    // create duplicate
+                    .set("identification", identification));
+
+            mvc.perform(
+                            MockMvcRequestBuilders
+                                    .post(SHELL_BASE_PATH + "/batch")
+                                    .accept(MediaType.APPLICATION_JSON)
+                                    .contentType(MediaType.APPLICATION_JSON)
+                                    .content(toJson(batchShellBody))
+                    )
+                    .andDo(MockMvcResultHandlers.print())
+                    .andExpect(status().isCreated())
+                    .andExpect(jsonPath("$", hasSize(2)))
+                    .andExpect(jsonPath("$[0].message", equalTo("AssetAdministrationShell successfully created.")))
+                    .andExpect(jsonPath("$[0].identification", equalTo(identification.textValue())))
+                    .andExpect(jsonPath("$[0].status", equalTo(200)))
+                    .andExpect(jsonPath("$[1].message", equalTo("An AssetAdministrationShell for the given identification does already exists.")))
+                    .andExpect(jsonPath("$[1].identification", equalTo(identification.textValue())))
+                    .andExpect(jsonPath("$[1].status", equalTo(400)));
         }
+
+        @Test
+        public void testCreateShellInBatchExpectSuccess() throws Exception {
+            ArrayNode batchShellBody = emptyArrayNode().add(createShell(false))
+                                .add(createShell(false))
+                                .add(createShell(false))
+                                .add(createShell(false))
+                                .add(createShell(false));
+
+            mvc.perform(
+                            MockMvcRequestBuilders
+                                    .post(SHELL_BASE_PATH + "/batch")
+                                    .accept(MediaType.APPLICATION_JSON)
+                                    .contentType(MediaType.APPLICATION_JSON)
+                                    .content(toJson(batchShellBody))
+                    )
+                    .andDo(MockMvcResultHandlers.print())
+                    .andExpect(status().isCreated())
+                    .andExpect(jsonPath("$", hasSize(5)));
+        }
+
     }
 
 
