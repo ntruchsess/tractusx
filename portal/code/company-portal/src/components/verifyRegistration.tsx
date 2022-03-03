@@ -51,8 +51,8 @@ const nextClick = () => {
   const token = UserService.getToken();
   const featchUrl = `${url}/${endpoint}/custodianWallet`;
   const data = {
-    bpn : "BPNL890867291",
-    name : "German Car Factory"    
+    bpn : "BPNL000000000001",
+    name : "German Car Company"    
   }
     fetch(featchUrl, { method: 'POST', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
     .then((response) => {
