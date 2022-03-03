@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using CatenaX.NetworkServices.Provisioning.Library;
-using Keycloak.Net.Models.Users;
+using CatenaX.NetworkServices.Provisioning.Library.Models;
 
 namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
 {
@@ -9,6 +9,6 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
     {
         Task<bool> ExecuteInvitation(InvitationData invitationData);
         Task<IEnumerable<string>> CreateUsersAsync(IEnumerable<UserCreationInfo> userList, string tenant, string createdByName);
-        Task<IEnumerable<User>> GetUsersAsync(string tenant);
+        Task<IEnumerable<UserInfo>> GetUsersAsync(string tenant);
     }
 }

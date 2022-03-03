@@ -10,7 +10,6 @@ using CatenaX.NetworkServices.Provisioning.Library.Models;
 using Microsoft.Extensions.Logging;
 using System;
 using Microsoft.Extensions.Options;
-using Keycloak.Net.Models.Users;
 
 namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
 {
@@ -120,7 +119,7 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
             return userList;
         }
 
-        public async Task<IEnumerable<User>> GetUsersAsync(string idpName) =>
+        public async Task<IEnumerable<UserInfo>> GetUsersAsync(string idpName) =>
         await _provisioningManager.GetUsersFromSharedAsync(idpName).ConfigureAwait(false);
     }
 }
