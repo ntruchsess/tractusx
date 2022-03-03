@@ -81,5 +81,26 @@ namespace CatenaX.NetworkServices.Invitation.Service.Controllers
         [Route("api/invitation/client/{clientId}/roles")]
         public async Task<IEnumerable<string>> ReturnRoles([FromRoute] string clientId) =>
             await _logic.GetAppRolesAsync(clientId).ConfigureAwait(false);
+
+        [HttpDelete]
+        [Authorize(Roles="delete_user_account")]
+        [Route("api/invitation/tenant/{tenant}/user/{userId}")]
+        public async Task<IActionResult> ExecuteDeletion([FromRoute] string tenant, [FromRoute] string userId)
+        {
+            try
+            {
+                if (await _logic.DeleteUserAsync(tenant, userId).ConfigureAwait(false))
+                {
+                    return new OkResult();
+                }
+                _logger.LogError("unsuccessful");
+                return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.ToString());
+                return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+            }
+        }
     }
 }

@@ -113,5 +113,16 @@ namespace CatenaX.NetworkServices.Provisioning.Library
                 });
                 return users;
         }
+
+        public async Task<bool> DeleteSharedUserLinkedToCentralAsync(string idpName, string userId)
+        {
+            var userIdShared = await GetProviderIdForCentralUserIdAsync(_Settings.CentralRealm, userId).ConfigureAwait(false);
+            
+            await DeleteSharedRealmUserAsync(idpName, userIdShared).ConfigureAwait(false);
+
+            await DeleteCentralRealmUserAsync(_Settings.CentralRealm, userId).ConfigureAwait(false);
+
+            return true;
+        }
     }
 }

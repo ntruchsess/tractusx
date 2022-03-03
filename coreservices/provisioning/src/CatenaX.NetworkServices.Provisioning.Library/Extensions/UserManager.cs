@@ -63,5 +63,22 @@ namespace CatenaX.NetworkServices.Provisioning.Library
 
         private User CloneUser(User user) =>
             JsonSerializer.Deserialize<User>(JsonSerializer.Serialize(user));
+
+        private async Task<string> GetProviderIdForCentralUserIdAsync(string realm, string userId)
+        {
+            var user = (await _CentralIdp.GetUserSocialLoginsAsync(_Settings.CentralRealm, userId).ConfigureAwait(false))
+                .SingleOrDefault();
+            return user?.UserId;
+        }
+
+        private Task<bool> DeleteSharedRealmUserAsync(string realm, string userId)
+        {
+            return _SharedIdp.DeleteUserAsync(realm, userId);
+        }
+
+        private Task<bool> DeleteCentralRealmUserAsync(string realm, string userId)
+        {
+            return _CentralIdp.DeleteUserAsync(realm, userId);
+        }
     }
 }

@@ -124,5 +124,8 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
 
         public async Task<IEnumerable<string>> GetAppRolesAsync(string clientId) =>
         await _provisioningManager.GetClientRolesCompositeAsync(clientId).ConfigureAwait(false);
+
+        public async Task<bool> DeleteUserAsync(string idpName, string  userId) =>
+        await _provisioningManager.DeleteSharedUserLinkedToCentralAsync(idpName, userId).ConfigureAwait(false);
     }
 }
