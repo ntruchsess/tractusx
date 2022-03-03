@@ -1,3 +1,4 @@
+import { CompanyDetailsData } from "../../data/companyDetails";
 
 export interface IUserItem {
     uiId: string;
@@ -10,6 +11,7 @@ export interface IUserItem {
 export interface IUserData {
     userInviteList: IUserItem[];
     currentStep: number;
+    companyData: CompanyDetailsData;
 }
 
 

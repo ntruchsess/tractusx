@@ -22,18 +22,20 @@ import { useState } from 'react';
 import FooterButton from './footerButton';
 import {connect} from 'react-redux';
 import {IState} from "../types/store/redux.store.types";
-import {addCurrentStep} from "../actions/user.action";
+import {addCurrentStep, addCompanyData} from "../actions/user.action";
 import { withRouter } from 'react-router-dom';
 import {Dispatch} from 'redux';
 import { DataErrorCodes } from "../helpers/DataError";
 import { toast } from "react-toastify";
+import { CompanyDetailsData } from '../data/companyDetails';
 
 interface CompanyDataProps {
     currentActiveStep: number;
     addCurrentStep: (step: number) => void;
+    addCompanyData: (companydata: CompanyDetailsData) => void;
 }
 
-export const CompanyDataCax = ({currentActiveStep, addCurrentStep}: CompanyDataProps) => {
+export const CompanyDataCax = ({currentActiveStep, addCurrentStep, addCompanyData}: CompanyDataProps) => {
 
     const { t } = useTranslation();
     const [search, setsearch] =  useState([]);
@@ -44,7 +46,6 @@ export const CompanyDataCax = ({currentActiveStep, addCurrentStep}: CompanyDataP
     const [postalCode, setpostalCode] = useState("");
     const [city, setcity] = useState("");
     const [country, setcountry] = useState("");
-    const [companyDetails, setcompanyDetails] = useState([])
 
 
     
@@ -52,7 +53,6 @@ export const CompanyDataCax = ({currentActiveStep, addCurrentStep}: CompanyDataP
         setsearch(x);
         const fetchData = async () => {
         const companyDetails = await getCompanyDetails(x);
-        setcompanyDetails(companyDetails);
         setbpn(companyDetails?.[0]?.bpn);
         setlegalEntity(companyDetails?.[0]?.names?.[0]?.value);
         setregisteredName(companyDetails?.[0]?.names?.[0]?.value);
@@ -77,11 +77,21 @@ export const CompanyDataCax = ({currentActiveStep, addCurrentStep}: CompanyDataP
     }
 
     const backClick = () => {
-        addCurrentStep(currentActiveStep-1)
+        addCurrentStep(currentActiveStep-1);
     }
 
     const nextClick = () => {
-        addCurrentStep(currentActiveStep+1)
+        addCurrentStep(currentActiveStep+1);
+        let companydata = { 
+            bpn : bpn,
+            legalEntity: legalEntity,
+            registrationName: registeredName,
+            address: streetHouseNumber,
+            postalCode: postalCode,
+            city: city,
+            country: country 
+        }
+        addCompanyData(companydata);
     }
 
 
@@ -215,6 +225,9 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
     addCurrentStep: (step: number) => {
         dispatch(addCurrentStep(step));
     },
+    addCompanyData: (companyData: CompanyDetailsData) => {
+        dispatch(addCompanyData(companyData));
+    }
   });
 
 

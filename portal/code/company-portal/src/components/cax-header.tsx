@@ -55,7 +55,7 @@ export const Header = () => {
         toast.error(message);
         //  history.push("/finish");
       });
-  }, []);
+  }, [tokenRoles]);
 
   const changeLanguage = (lng) => {
     setlanguage(lng);

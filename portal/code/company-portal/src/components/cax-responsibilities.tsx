@@ -15,28 +15,22 @@
 import * as React from "react";
 import { Row } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
-import { withTranslation, WithTranslation } from "react-i18next";
 import { AiOutlineUser, AiOutlineDelete } from "react-icons/ai";
 import Button from "./button";
 import { getClientRolesComposite, submitSendInvites } from "../helpers/utils";
 import { AiOutlineExclamationCircle } from "react-icons/ai";
-import UserService from "../helpers/UserService";
 import { ToastContainer, toast } from "react-toastify";
 import { connect } from "react-redux";
-import { IUserItem, IUserResponsibilities } from "../types/user/user.types";
+import { IUserItem } from "../types/user/user.types";
 import { IState } from "../types/store/redux.store.types";
 import { Dispatch } from "redux";
-import {
-  addToInviteList,
-  removeFromInviteList,
-  addCurrentStep,
-} from "../actions/user.action";
+import { addToInviteList, removeFromInviteList, addCurrentStep } from "../actions/user.action";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { withRouter } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import FooterButton from "./footerButton";
-import { DataError, DataErrorCodes } from "../helpers/DataError";
+import { DataErrorCodes } from "../helpers/DataError";
 interface ResponsibilitiesCaxProps {
   addToInviteList: (userItem: IUserItem) => void;
   removeFromInviteList: (userItem: string) => void;
@@ -79,7 +73,7 @@ export const ResponsibilitiesCax = ({
           : t(`ErrorMessage.default`);
         toast.error(message);
       });
-  }, []);
+  });
 
   const onRoleChange = (e) => {
     setRole(e.target.value);
@@ -145,33 +139,6 @@ export const ResponsibilitiesCax = ({
     toast.error("Email or User Role empty.");
   }
 }
-
-  //   const tenant = UserService.getTenant();
-  //   const token = UserService.getToken();
-  //   const url = process.env.REACT_APP_ONBOARDING_URL;
-  //   const endpoint = process.env.REACT_APP_ONBOARDING_ENDPOINT;
-  //   const u = `${url}/${endpoint}/tenant/${tenant}/users`;
-  //   if (userInviteList.length > 0) {
-  //     fetch(u, {
-  //       method: "POST",
-  //       headers: {
-  //         Authorization: `Bearer ${token}`,
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(userInviteList),
-  //     })
-  //       .then((response) => {
-  //         if (response.ok) {
-  //           toast.success("Sent Invite");
-  //         } else throw Error();
-  //       })
-  //       .catch((error) => {
-  //         toast.error("Unable to sent invite");
-  //       });
-  //   } else {
-  //     toast.error("Email or User Role empty.");
-  //   }
-  // };
 
   return (
     <>

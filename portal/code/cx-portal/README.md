@@ -17,3 +17,19 @@ steps
     # check UI components http://localhost:6006/
     yarn storybook
 
+    # unit tests
+    yarn test
+
+    # linter
+    yarn lint --fix
+
+    # formatter
+    yarn pretty
+
+
+known TODO's
+
+    - convert Javascript files to TypeScript
+    - define types that are given as any
+    - write missing tests
+    - some files are formatted differently by prettier and eslint --fix

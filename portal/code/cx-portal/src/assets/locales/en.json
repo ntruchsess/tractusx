@@ -2,7 +2,7 @@
   "title": "Catena-X Portal",
   "pages": {
     "dashboard": "Dashboard",
-    "appstore": "App Store",
+    "appstore": "Appstore",
     "datacatalog": "Data Catalog",
     "applications": "Applications",
     "semantichub": "Semantic Hub",
@@ -12,7 +12,7 @@
     "authinfo": "About me",
     "settings": "Settings",
     "admin": "Administration",
-    "developer": "Devlopment",
+    "developer": "Development",
     "logout": "Sign Out"
   },
   "content": {

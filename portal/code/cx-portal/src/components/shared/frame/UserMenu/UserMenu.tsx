@@ -21,17 +21,17 @@ export const UserMenu = () => {
         items={
           UserService.isAdmin()
             ? [
-                { url: '/authinfo', label: t('pages.authinfo') },
-                { url: '/settings', label: t('pages.settings') },
-                { url: '/admin', label: t('pages.admin') },
-                { url: '/developer', label: t('pages.developer') },
-                { url: '/logout', label: t('pages.logout') },
-              ]
+              { url: '/authinfo', label: t('pages.authinfo') },
+              { url: '/settings', label: t('pages.settings') },
+              { url: '/admin', label: t('pages.admin') },
+              { url: '/developer', label: t('pages.developer') },
+              { url: '/logout', label: t('pages.logout') },
+            ]
             : [
-                { url: '/authinfo', label: t('pages.authinfo') },
-                { url: '/settings', label: t('pages.settings') },
-                { url: '/logout', label: t('pages.logout') },
-              ]
+              { url: '/authinfo', label: t('pages.authinfo') },
+              { url: '/settings', label: t('pages.settings') },
+              { url: '/logout', label: t('pages.logout') },
+            ]
         }
       />
       <LangSwitch />
