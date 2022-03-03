@@ -24,8 +24,7 @@ import {Dispatch} from 'redux';
 import { FaEdit } from "react-icons/fa";
 import { CompanyDetailsData } from "../data/companyDetails";
 import { useHistory } from "react-router-dom";
-import UserService from "../helpers/UserService";
-import { DataError, DataErrorCodes } from "../helpers/DataError";
+import { DataErrorCodes } from "../helpers/DataError";
 import {ToastContainer, toast} from "react-toastify";
 import { submitCustodianWallet } from "../helpers/utils";
 

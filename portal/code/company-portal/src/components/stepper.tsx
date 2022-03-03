@@ -18,8 +18,6 @@ import React, {FC} from 'react';
 import {connect} from 'react-redux';
 import {IState} from "../types/store/redux.store.types";
 import { useTranslation } from 'react-i18next';
-import { AiOutlineCheck } from 'react-icons/ai'
-
 interface StepperProps {
     currentActiveStep: number;
 }
