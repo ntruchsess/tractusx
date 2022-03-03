@@ -4,7 +4,7 @@ import Dashboard from './pages/Dashboard/Dashboard'
 import Admin from './pages/Admin/Admin'
 import Appstore from './pages/Appstore/Appstore'
 import AppstoreDetail from './pages/Appstore/AppstoreDetail/AppstoreDetail'
-import Authinfo from './pages/Authinfo/Authinfo'
+import MyAccount from './pages/MyAccount/MyAccount'
 import Connector from './pages/Connector/Connector'
 import DataCatalog from './pages/DataCatalog/DataCatalog'
 import Developer from './pages/Developer/Developer'
@@ -15,45 +15,46 @@ import SemanticHub from './pages/SemanticHub/SemanticHub'
 import Settings from './pages/Settings/Settings'
 import TestAPI from './pages/TestAPI/TestAPI'
 import Translator from './pages/Translator/Translator'
+import { PAGES } from '../types/MainTypes'
+import NotFound from './pages/NotFound/NotFound'
+import AccessService from '../services/AccessService'
+
+const plainRoutes: { [page: string]: JSX.Element } = {
+  [PAGES.ROOT]: <Dashboard />,
+  [PAGES.DASHBOARD]: <Dashboard />,
+  [PAGES.DATACATALOG]: <DataCatalog />,
+  [PAGES.DIGITALTWIN]: <DigitalTwins />,
+  [PAGES.SEMANTICHUB]: <SemanticHub />,
+  [PAGES.DEVELOPERHUB]: <DeveloperHub />,
+  [PAGES.CONNECTOR]: <Connector />,
+  [PAGES.ACCOUNT]: <MyAccount />,
+  [PAGES.ADMINISTRATION]: <Admin />,
+  [PAGES.DEVELOPER]: <Developer />,
+  [PAGES.SETTINGS]: <Settings />,
+  [PAGES.TESTAPI]: <TestAPI />,
+  [PAGES.TRANSLATOR]: <Translator />,
+  [PAGES.LOGOUT]: <Logout />,
+}
 
 export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Main />}>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="logout" element={<Logout />} />
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="appstore" element={<Appstore />}>
-            <Route
-              index
-              element={
-                <div>
-                  <p>Select an app</p>
-                </div>
-              }
-            />
-            <Route path=":appId" element={<AppstoreDetail />} />
-          </Route>
-          <Route path="datacatalog" element={<DataCatalog />} />
-          <Route path="digitaltwins" element={<DigitalTwins />} />
-          <Route path="semantichub" element={<SemanticHub />} />
-          <Route path="developerhub" element={<DeveloperHub />} />
-          <Route path="connector" element={<Connector />} />
-          <Route path="authinfo" element={<Authinfo />} />
-          <Route path="admin" element={<Admin />} />
-          <Route path="developer" element={<Developer />} />
-          <Route path="settings" element={<Settings />} />
-          <Route path="testapi" element={<TestAPI />} />
-          <Route path="translator" element={<Translator />} />
-          <Route
-            path="*"
-            element={
-              <main>
-                <p>page not implemented</p>
-              </main>
-            }
-          />
+          {Object.entries(plainRoutes)
+            .filter(([page]) => AccessService.hasAccess(page))
+            .map(([page, jsx], i) => (
+              <Route key={i} path={page} element={jsx} />
+            ))}
+          {AccessService.hasAccess(PAGES.APPSTORE) ? (
+            <Route path={PAGES.APPSTORE} element={<Appstore />}>
+              <Route index element={<p>Select an app</p>} />
+              <Route path=":appId" element={<AppstoreDetail />} />
+            </Route>
+          ) : (
+            <></>
+          )}
+          <Route path="*" element={NotFound()} />
         </Route>
       </Routes>
     </BrowserRouter>
