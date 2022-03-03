@@ -1,22 +1,31 @@
-import Main from './Main'
+import React, { useEffect } from 'react'
+import Main from 'components/Main'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Dashboard from './pages/Dashboard/Dashboard'
-import Admin from './pages/Admin/Admin'
-import Appstore from './pages/Appstore/Appstore'
-import AppstoreDetail from './pages/Appstore/AppstoreDetail/AppstoreDetail'
-import Authinfo from './pages/Authinfo/Authinfo'
-import Connector from './pages/Connector/Connector'
-import DataCatalog from './pages/DataCatalog/DataCatalog'
-import Developer from './pages/Developer/Developer'
-import DeveloperHub from './pages/DeveloperHub/DeveloperHub'
-import DigitalTwins from './pages/DigitalTwins/DigitalTwins'
-import Logout from './pages/Logout/Logout'
-import SemanticHub from './pages/SemanticHub/SemanticHub'
-import Settings from './pages/Settings/Settings'
-import TestAPI from './pages/TestAPI/TestAPI'
-import Translator from './pages/Translator/Translator'
+import Dashboard from 'components/pages/Dashboard/Dashboard'
+import Admin from 'components/pages/Admin/Admin'
+import Appstore from 'components/pages/Appstore/Appstore'
+import AppstoreDetail from 'components/pages/Appstore/AppstoreDetail/AppstoreDetail'
+import Authinfo from 'components/pages/Authinfo/Authinfo'
+import Connector from 'components/pages/Connector/Connector'
+import DataCatalog from 'components/pages/DataCatalog/DataCatalog'
+import Developer from 'components/pages/Developer/Developer'
+import DeveloperHub from 'components/pages/DeveloperHub/DeveloperHub'
+import DigitalTwins from 'components/pages/DigitalTwins/DigitalTwins'
+import Logout from 'components/pages/Logout/Logout'
+import SemanticHub from 'components/pages/SemanticHub/SemanticHub'
+import Settings from 'components/pages/Settings/Settings'
+import TestAPI from 'components/pages/TestAPI/TestAPI'
+import Translator from 'components/pages/Translator/Translator'
+import UserService from 'services/UserService'
 
-export default function Router() {
+const Router = () => {
+  useEffect(() => {
+    // Before loading component, check login flow
+    UserService.init(() => {
+      console.log('authenticated')
+    })
+  }, [])
+
   return (
     <BrowserRouter>
       <Routes>
@@ -59,3 +68,5 @@ export default function Router() {
     </BrowserRouter>
   )
 }
+
+export default Router

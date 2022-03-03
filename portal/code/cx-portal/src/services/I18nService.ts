@@ -13,7 +13,7 @@ const resources = {
   },
 }
 
-const init = (onLoadedCallback: Function) => {
+const init = (): void => {
   i18n
     .use(LanguageDetector)
     .use(initReactI18next)
@@ -24,7 +24,7 @@ const init = (onLoadedCallback: Function) => {
         escapeValue: false,
       },
     })
-  onLoadedCallback()
+    .catch((e) => console.error('Translation library init got error:', e))
 }
 
 const I18nService = {

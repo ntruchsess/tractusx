@@ -1,20 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { store } from './state/store'
-import Router from './components/Router'
-import UserService from './services/UserService'
-import I18nService from './services/I18nService'
+import { store } from 'state/store'
+import Router from 'components/Router'
+import I18nService from 'services/I18nService'
 
-I18nService.init(() =>
-  UserService.init(() =>
-    ReactDOM.render(
-      <React.StrictMode>
-        <Provider store={store}>
-          <Router />
-        </Provider>
-      </React.StrictMode>,
-      document.getElementById('app')
-    )
-  )
+//initialise translation library
+I18nService.init()
+
+//https://github.com/yannickcr/eslint-plugin-react/blob/d9531c3bc539e292eb297a04c7b9312e8b63a223/docs/rules/no-render-return-value.md
+ReactDOM.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <Router />
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById('app')
 )
