@@ -34,7 +34,7 @@ export function encodeID(id: string){
 
 function handleRequest(res: Response){
   if(res.status >= 400) {
-    throw res;
+    throw new Error(`${res.statusText}: Server responds with ${res.status} error!`);
   }
   return res.json();
 }

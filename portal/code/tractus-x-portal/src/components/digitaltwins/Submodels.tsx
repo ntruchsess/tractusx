@@ -13,7 +13,7 @@ function Submodels(props){
             <dd className='fs14 fg5a dib'>
               <Link
                 to={{
-                  pathname: `/home/semanticmodel/${submodel.semanticId.value[0]}`,
+                  pathname: `/home/semanticmodel/${encodeURIComponent(submodel.semanticId.value[0])}`,
                   state: submodel.semanticId.value[0]
                 }}
               >
