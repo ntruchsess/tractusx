@@ -25,6 +25,8 @@ import {IState} from "../types/store/redux.store.types";
 import {addCurrentStep} from "../actions/user.action";
 import { withRouter } from 'react-router-dom';
 import {Dispatch} from 'redux';
+import { DataErrorCodes } from "../helpers/DataError";
+import { toast } from "react-toastify";
 
 interface CompanyDataProps {
     currentActiveStep: number;
@@ -46,23 +48,32 @@ export const CompanyDataCax = ({currentActiveStep, addCurrentStep}: CompanyDataP
 
 
     
-      const onSeachChange = async (x) => {
-        setsearch(x)
+      const onSeachChange = (x: any) => {
+        setsearch(x);
+        const fetchData = async () => {
         const companyDetails = await getCompanyDetails(x);
         setcompanyDetails(companyDetails);
         setbpn(companyDetails?.[0]?.bpn);
-        //setlegalEntity(companyDetails?.[0]?.names.find(x => x.type === 'INTERNATIONAL')?.value);
-        //setregisteredName(companyDetails?.[0]?.names.find(x => x.type === 'REGISTERED')?.value);
-        //setstreetHouseNumber(companyDetails?.[0]?.addresses?.[0]?.thoroughfares.find(x => x.type === 'INDUSTRIAL_ZONE')?.value);
-        //setpostalCode(companyDetails?.[0]?.addresses?.[0]?.postCodes.find(x => x.type === 'REGULAR')?.value);
-        //setcity(companyDetails?.[0]?.addresses?.[0]?.localities.find(x => x.type === 'BLOCK')?.value);
-        //setcountry(companyDetails?.[0]?.addresses?.[0]?.countryCode);
         setlegalEntity(companyDetails?.[0]?.names?.[0]?.value);
         setregisteredName(companyDetails?.[0]?.names?.[0]?.value);
         setstreetHouseNumber(companyDetails?.[0]?.addresses?.[0]?.thoroughfares[0]?.value);
         setpostalCode(companyDetails?.[0]?.addresses?.[0]?.postCodes[0]?.value);
         setcity(companyDetails?.[0]?.addresses?.[0]?.localities[0]?.value);
         setcountry(companyDetails?.[0]?.addresses?.[0]?.country?.name);
+        }
+            // call the function
+        fetchData()
+            // make sure to catch any error
+        .catch((errorCode: number) => {
+        
+        let message = DataErrorCodes.includes(errorCode)
+            ? t(`ErrorMessage.${errorCode}`)
+            : t(`ErrorMessage.default`);
+        //   alert(message)
+
+        toast.error(message);
+        //  history.push("/finish");
+        });
     }
 
     const backClick = () => {
