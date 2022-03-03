@@ -117,11 +117,11 @@ export const ResponsibilitiesCax = ({
     }
 
     const sendInvites = () => {
-        const realm = UserService.realm;
+        const tenant = UserService.getTenant();
         const token = UserService.getToken();
         const url = process.env.REACT_APP_ONBOARDING_URL;
         const endpoint = process.env.REACT_APP_ONBOARDING_ENDPOINT;
-        const u = `${url}/${endpoint}/${realm}/users`;
+        const u = `${url}/${endpoint}/tenant/${tenant}/users`;
         if (userInviteList.length > 0) {
             fetch(u, {
                 method: "POST",

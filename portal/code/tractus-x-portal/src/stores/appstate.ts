@@ -296,7 +296,7 @@ const Y = {
   usage: '',
   purchase: 'OPEN APP',
   details: 'SEE DETAILS',
-  companyName: 'Siemens', url: 'https://castidev-catenaxindustrialdat-castidev.eu1.mindsphere.io/',background: ''
+  companyName: 'Siemens', url: 'https://castidev-catenaxidl-castiop.eu1.mindsphere.io/',background: ''
 }
 
 export class AppState {

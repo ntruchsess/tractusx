@@ -1,0 +1,37 @@
+{
+  "title": "Catena-X Portal",
+  "pages": {
+    "dashboard": "Dashboard",
+    "appstore": "App Store",
+    "datacatalog": "Data Catalog",
+    "applications": "Applications",
+    "semantichub": "Semantic Hub",
+    "digitaltwins": "Digital Twins",
+    "developerhub": "Developer Hub",
+    "connector": "Connector",
+    "authinfo": "About me",
+    "settings": "Settings",
+    "admin": "Administration",
+    "developer": "Devlopment",
+    "logout": "Sign Out"
+  },
+  "content": {
+    "dashboard": {
+      "welcome": "Welcome to Catena-X - the automotive network!"
+    },
+    "authinfo": {
+      "token": "Current authentication token"
+    },
+    "settings": {
+      "language": "Language",
+      "theme": "Theme",
+      "de": "German",
+      "en": "English",
+      "bright": "Bright",
+      "dark": "Dark",
+      "message": {
+        "onlybright": "Sorry, but currently we only support bright mode :/"
+      }
+    }
+  }
+}
