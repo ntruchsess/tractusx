@@ -2,15 +2,22 @@ import { render } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import { MemoryRouter } from 'react-router-dom'
 import { store } from '../state/store'
-import App from './Main'
+import Main from './Main'
+import I18nService from '../services/I18nService'
 
-test('renders the header', () => {
-  const { container } = render(
-    <Provider store={store}>
-      <MemoryRouter>
-        <App />
-      </MemoryRouter>
-    </Provider>
-  )
-  expect(container.querySelector('header')).toBeInTheDocument()
+describe('testSuite', () => {
+  beforeEach(() => {
+    I18nService.init()
+  })
+
+  it('renders the header', () => {
+    const { container } = render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <Main />
+        </MemoryRouter>
+      </Provider>
+    )
+    expect(container.querySelector('header')).toBeInTheDocument()
+  })
 })

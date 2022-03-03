@@ -1,11 +1,13 @@
 import './Table.css'
 
+// simple table - just an example
+
 export const Table = ({ data }: any) => (
   <table>
     {data.columns ? (
       <thead>
-        {data.columns.map((c: string) => (
-          <th>{c}</th>
+        {data.columns.map((col: string) => (
+          <th key={`c${col}`}>{col}</th>
         ))}
       </thead>
     ) : (
@@ -13,10 +15,10 @@ export const Table = ({ data }: any) => (
     )}
     {data.rows ? (
       <tbody>
-        {data.rows.map((r: []) => (
-          <tr>
-            {r.map((c) => (
-              <td>{c}</td>
+        {data.rows.map((row: [], r: number) => (
+          <tr key={`r${r}`}>
+            {row.map((col, c: number) => (
+              <td key={`r${r}c${c}`}>{col}</td>
             ))}
           </tr>
         ))}

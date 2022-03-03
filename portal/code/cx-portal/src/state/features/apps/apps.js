@@ -8,7 +8,7 @@ const appsSlice = createSlice({
     loading: false,
   },
   reducers: {
-    appsRequested: (apps, action) => {
+    appsRequested: (apps) => {
       apps.loading = true
     },
 
@@ -17,7 +17,7 @@ const appsSlice = createSlice({
       apps.loading = false
     },
 
-    appsRequestFailed: (apps, action) => {
+    appsRequestFailed: (apps) => {
       apps.loading = false
     },
   },

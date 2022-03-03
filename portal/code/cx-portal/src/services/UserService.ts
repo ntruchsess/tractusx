@@ -14,7 +14,7 @@ const keycloakConfig = {
 
 const KC = new (Keycloak as any)(keycloakConfig)
 
-const init = (onAuthenticatedCallback: Function) => {
+const init = (/*onAuthenticatedCallback: Function*/) => {
   KC.init({
     onLoad: 'login-required',
     silentCheckSsoRedirectUri:
@@ -22,7 +22,7 @@ const init = (onAuthenticatedCallback: Function) => {
     pkceMethod: 'S256',
   }).then((authenticated: boolean) => {
     if (authenticated) {
-      onAuthenticatedCallback()
+      //onAuthenticatedCallback()
     } else {
       doLogin()
     }
@@ -37,8 +37,7 @@ const getToken = () => KC.token
 
 const getParsedToken = () => KC.tokenParsed
 
-const updateToken = (successCallback: Function) =>
-  KC.updateToken(5).then(successCallback).catch(doLogin)
+const updateToken = () => KC.updateToken(5).catch(doLogin)
 
 const getUsername = () => KC.tokenParsed.preferred_username
 

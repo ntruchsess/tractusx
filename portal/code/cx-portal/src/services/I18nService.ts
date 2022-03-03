@@ -1,19 +1,21 @@
 import i18n, { changeLanguage } from 'i18next'
 import { initReactI18next, useTranslation } from 'react-i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
-import en from '../assets/locales/en.json'
 import de from '../assets/locales/de.json'
+import en from '../assets/locales/en.json'
 
 const resources = {
-  en: {
-    translation: en,
-  },
   de: {
     translation: de,
   },
+  en: {
+    translation: en,
+  },
 }
 
-const init = (onLoadedCallback: Function) => {
+const supportedLangages = Object.keys(resources).sort()
+
+const init = (/*onLoadedCallback: Function*/) => {
   i18n
     .use(LanguageDetector)
     .use(initReactI18next)
@@ -24,13 +26,14 @@ const init = (onLoadedCallback: Function) => {
         escapeValue: false,
       },
     })
-  onLoadedCallback()
+  //onLoadedCallback()
 }
 
 const I18nService = {
   init,
   changeLanguage,
   useTranslation,
+  supportedLangages,
 }
 
 export default I18nService
