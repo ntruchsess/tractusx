@@ -19,7 +19,7 @@ export default function Dropzone() {
   return (
     <div {...getRootProps()}>
       <input {...getInputProps()} />
-      <p>Drag 'n' drop some files here, or click to select files</p>
+      <p>Drop some files here, or click to select files</p>
     </div>
   )
 }

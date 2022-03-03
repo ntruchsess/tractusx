@@ -1,7 +1,9 @@
 import { useEffect, useRef, ReactNode } from 'react'
 
+type EventHandler = (...args: any[]) => any
+
 interface InfoBoxProps {
-  onClickOutside?: Function
+  onClickOutside?: EventHandler
   show?: boolean
   element?: ReactNode
 }
@@ -15,7 +17,7 @@ export default function InfoBox({
 
   useEffect(() => {
     const handleClickOutside = (event: TouchEvent | MouseEvent): void => {
-      let target = event.target as HTMLDivElement
+      const target = event.target as HTMLDivElement
       if (ref.current && !ref.current.contains(target)) {
         onClickOutside && onClickOutside()
       }
