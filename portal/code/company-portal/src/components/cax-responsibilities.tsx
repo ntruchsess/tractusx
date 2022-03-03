@@ -15,15 +15,13 @@
 import * as React from "react";
 import { Row } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
-import { withTranslation, WithTranslation } from "react-i18next";
 import { AiOutlineUser, AiOutlineDelete } from "react-icons/ai";
 import Button from "./button";
 import { getClientRolesComposite, submitSendInvites } from "../helpers/utils";
 import { AiOutlineExclamationCircle } from "react-icons/ai";
-import UserService from "../helpers/UserService";
 import { ToastContainer, toast } from "react-toastify";
 import { connect } from "react-redux";
-import { IUserItem, IUserResponsibilities } from "../types/user/user.types";
+import { IUserItem } from "../types/user/user.types";
 import { IState } from "../types/store/redux.store.types";
 import { Dispatch } from "redux";
 import {
@@ -36,7 +34,7 @@ import { useTranslation } from "react-i18next";
 import { withRouter } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import FooterButton from "./footerButton";
-import { DataError, DataErrorCodes } from "../helpers/DataError";
+import { DataErrorCodes } from "../helpers/DataError";
 interface ResponsibilitiesCaxProps {
   addToInviteList: (userItem: IUserItem) => void;
   removeFromInviteList: (userItem: string) => void;
