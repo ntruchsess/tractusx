@@ -81,6 +81,12 @@ export class Address
     public postalDeliveryPoints: Postaldeliverypoint[];
     public type: string;
     public versions: Version[];
+    public country: Country;
+}
+
+export class Country{
+    public technicalKey: string;
+    public name: string;
 }
 
 export class Careof
