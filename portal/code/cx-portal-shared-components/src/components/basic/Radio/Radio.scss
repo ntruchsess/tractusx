@@ -1,66 +1,66 @@
-@import '../../../scss/main';
+// @import '../../../scss/main';
 
-$radio-button-margin: to-rem(12px);
-$radio-button-width: to-rem(20px);
-$radio-button-height: to-rem(20px);
+// $radio-button-margin: to-rem(12px);
+// $radio-button-width: to-rem(20px);
+// $radio-button-height: to-rem(20px);
 
-.button-radio {
-  @include typography(body-02);
-  cursor: pointer;
+// .button-radio {
+//   @include typography(body-02);
+//   cursor: pointer;
 
-  span {
-    display: inline-flex;
-    align-items: center;
+//   span {
+//     display: inline-flex;
+//     align-items: center;
 
-    &::before {
-      content: '';
-      display: inline-block;
-      width: $radio-button-width;
-      height: $radio-button-height;
-      border: 2px solid color(gray);
-      border-radius: 50%;
-      margin: $radio-button-margin;
-    }
-  }
+//     &::before {
+//       content: '';
+//       display: inline-block;
+//       width: $radio-button-width;
+//       height: $radio-button-height;
+//       border: 2px solid color(gray);
+//       border-radius: 50%;
+//       margin: $radio-button-margin;
+//     }
+//   }
 
-  input {
-    position: absolute;
-    z-index: -1;
-    opacity: 0;
+//   input {
+//     position: absolute;
+//     z-index: -1;
+//     opacity: 0;
 
-    &:not(:checked) {
-      + span:hover::before {
-        box-shadow: 0 0 0 10px rgba(color(gray), 0.1);
-        background-color: rgba(color(gray), 0.1);
-      }
-      &:disabled + span::before {
-        border: 2px solid color(gray-disabled);
-      }
-      &:focus + span::before {
-        box-shadow: rgba(color(gray), 0.2);
-        background-color: rgba(color(gray), 0.2);
-        border: 2px solid color(gray);
-      }
-    }
+//     &:not(:checked) {
+//       + span:hover::before {
+//         box-shadow: 0 0 0 10px rgba(color(gray), 0.1);
+//         background-color: rgba(color(gray), 0.1);
+//       }
+//       &:disabled + span::before {
+//         border: 2px solid color(gray-disabled);
+//       }
+//       &:focus + span::before {
+//         box-shadow: rgba(color(gray), 0.2);
+//         background-color: rgba(color(gray), 0.2);
+//         border: 2px solid color(gray);
+//       }
+//     }
 
-    &:checked {
-      + span::before {
-        border: 2px solid color(primary);
-        box-shadow: inset 0 0 0 3px color(white);
-        background-color: color(primary);
-      }
-      + span:hover::before {
-        box-shadow: 0 0 0 10px color(secondary),
-          inset 0 0 0 3px color(secondary);
-      }
-      &:disabled + span::before {
-        border-color: color(gray-disabled);
-        background-color: color(gray-disabled);
-      }
-      &:focus + span::before {
-        box-shadow: 0 0 0 10px color(secondary-hover),
-          inset 0 0 0 3px color(secondary-hover);
-      }
-    }
-  }
-}
+//     &:checked {
+//       + span::before {
+//         border: 2px solid color(primary);
+//         box-shadow: inset 0 0 0 3px color(white);
+//         background-color: color(primary);
+//       }
+//       + span:hover::before {
+//         box-shadow: 0 0 0 10px color(secondary),
+//           inset 0 0 0 3px color(secondary);
+//       }
+//       &:disabled + span::before {
+//         border-color: color(gray-disabled);
+//         background-color: color(gray-disabled);
+//       }
+//       &:focus + span::before {
+//         box-shadow: 0 0 0 10px color(secondary-hover),
+//           inset 0 0 0 3px color(secondary-hover);
+//       }
+//     }
+//   }
+// }
