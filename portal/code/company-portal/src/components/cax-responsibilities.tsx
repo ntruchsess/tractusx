@@ -287,6 +287,7 @@ export default withRouter(
     (state: IState) => ({
       userInviteList: state.user.userInviteList,
       currentActiveStep: state.user.currentStep,
+      roleComposite: state.user.roleComposite,
     }),
     mapDispatchToProps
   )(ResponsibilitiesCax)
