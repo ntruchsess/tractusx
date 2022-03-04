@@ -1,3 +1,10 @@
+
+export interface GeographicCoordinate {
+  longitude: number
+  latitude: number
+  altitude?: number
+}
+
 export enum PAGES {
   ROOT = '',
   DASHBOARD = 'dashboard',

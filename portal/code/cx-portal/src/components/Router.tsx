@@ -22,8 +22,8 @@ import AccessService from '../services/AccessService'
 import UserService from 'services/UserService'
 import { useDispatch } from 'react-redux'
 import { setLoggedUser } from 'state/features/user/userSlice'
-import { IUser } from 'types/UserTypes'
-
+import { IUser } from 'types/user/UserTypes'
+import BpnLookup from 'components/pages/BpnLookup/BpnLookup'
 
 
 const plainRoutes: { [page: string]: JSX.Element } = {
@@ -72,6 +72,7 @@ export default function Router() {
           ) : (
             <></>
           )}
+          <Route path="/bpn" element={<BpnLookup />} />
           <Route path="*" element={NotFound()} />
         </Route>
       </Routes>
