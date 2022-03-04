@@ -17,14 +17,20 @@ import Settings from 'components/pages/Settings/Settings'
 import TestAPI from 'components/pages/TestAPI/TestAPI'
 import Translator from 'components/pages/Translator/Translator'
 import UserService from 'services/UserService'
+import { useDispatch } from 'react-redux'
+import { setLoggedUser } from 'state/features/user/userSlice'
+import { IUser } from 'types/UserTypes'
 
 const Router = () => {
+  const dispatch = useDispatch()
+
   useEffect(() => {
     // Before loading component, check login flow
-    UserService.init(() => {
-      console.log('authenticated')
+    UserService.init((loggedUser: IUser) => {
+      // Login flow successful. Set data to Redux
+      dispatch(setLoggedUser(loggedUser))
     })
-  }, [])
+  }, [dispatch])
 
   return (
     <BrowserRouter>

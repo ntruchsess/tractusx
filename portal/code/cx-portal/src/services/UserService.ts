@@ -1,8 +1,5 @@
 import Keycloak from 'keycloak-js'
-
-const CX_ROLES = {
-  ADMIN: 'CX Admin',
-}
+import { CX_ROLES, IUser } from 'types/UserTypes'
 
 const keycloakConfig = {
   url: process.env.REACT_APP_BASE_CENTRAL_IDP,
@@ -14,7 +11,7 @@ const keycloakConfig = {
 
 const KC = new (Keycloak as any)(keycloakConfig)
 
-const init = (onAuthenticatedCallback: () => any) => {
+const init = (onAuthenticatedCallback: (loggedUser: IUser) => any) => {
   KC.init({
     onLoad: 'login-required',
     silentCheckSsoRedirectUri:
@@ -22,7 +19,19 @@ const init = (onAuthenticatedCallback: () => any) => {
     pkceMethod: 'S256',
   }).then((authenticated: boolean) => {
     if (authenticated) {
-      onAuthenticatedCallback()
+      // User authenticated successfully
+      // Prepare user data to store it in Redux
+      const loggedUser: IUser = {
+        userName: getUsername(),
+        name: getName(),
+        email: getEmail(),
+        company: getCompany(),
+        roles: getRoles(),
+        isAdmin: isAdmin(),
+        token: getToken(),
+        parsedToken: getParsedToken(),
+      }
+      onAuthenticatedCallback(loggedUser)
     } else {
       doLogin()
     }
