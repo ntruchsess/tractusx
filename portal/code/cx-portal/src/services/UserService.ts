@@ -1,5 +1,6 @@
 import Keycloak from 'keycloak-js'
-import { CX_ROLES, IUser } from 'types/UserTypes'
+import { IUser } from 'types/UserTypes'
+import {ROLES} from 'types/MainTypes'
 
 const keycloakConfig = {
   url: process.env.REACT_APP_BASE_CENTRAL_IDP,
@@ -61,7 +62,7 @@ const getRoles = () =>
 
 const hasRole = (role: string) => getRoles()?.includes(role)
 
-const isAdmin = () => hasRole(CX_ROLES.ADMIN)
+const isAdmin = () => hasRole(ROLES.CX_ADMIN)
 
 const isLoggedIn = () => !!KC.token
 

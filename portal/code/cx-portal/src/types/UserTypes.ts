@@ -1,6 +1,3 @@
-export const CX_ROLES = {
-  ADMIN: 'CX Admin',
-}
 
 export interface IUser {
   userName: string
