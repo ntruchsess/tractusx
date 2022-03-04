@@ -83,7 +83,7 @@ namespace CatenaX.NetworkServices.Invitation.Service.Controllers
             await _logic.GetAppRolesAsync(clientId).ConfigureAwait(false);
 
         [HttpDelete]
-        [Authorize(Roles="delete_user_account")]
+        [Authorize(Policy = "OnlyDeleteOwnUser")]
         [Route("api/invitation/tenant/{tenant}/user/{userId}")]
         public async Task<IActionResult> ExecuteDeletion([FromRoute] string tenant, [FromRoute] string userId)
         {

@@ -12,6 +12,9 @@ using CatenaX.NetworkServices.Mailing.SendMail;
 using CatenaX.NetworkServices.Mailing.Template;
 using CatenaX.NetworkServices.Provisioning.Library;
 using CatenaX.NetworkServices.Invitation.Service.BusinessLogic;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace CatenaX.NetworkServices.Invitation.Service
 {
@@ -52,6 +55,15 @@ namespace CatenaX.NetworkServices.Invitation.Service
             
             services.AddTransient<IInvitationBusinessLogic, InvitationBusinessLogic>()
                     .ConfigureInvitationSettings(Configuration.GetSection("Invitation"));
+
+            services.AddTransient<IAuthorizationHandler,ClaimRequestPathHandler>()
+                    .AddAuthorization(option => {
+                        option.AddPolicy("OnlyDeleteOwnUser", policy =>
+                        {
+                            policy.AddRequirements(new ClaimRequestPathRequirement("sub","userId"));
+                        });
+                    })
+                    .AddTransient<IHttpContextAccessor,HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,6 +85,8 @@ namespace CatenaX.NetworkServices.Invitation.Service
             //app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
             app.UseAuthentication();
             app.UseAuthorization();
