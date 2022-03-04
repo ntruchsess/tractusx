@@ -31,7 +31,7 @@
       "message": "Der Inhalt wurde nicht gefunden. Dies kann verschiedene Ursachen haben - entweder",
       "reason": {
         "nopermission": "Sie haben keine Berechtigung diesen Inhalt zu sehen oder",
-        "notexisting": "die Seite existiert im Catena-X portal nicht oder",
+        "notexisting": "die Seite existiert im Catena-X Portal nicht oder",
         "notimplemented": "sie wurde noch nicht implementiert."
       },
       "further": "Wenn Sie denken, dass hier etwas sein sollte kontaktieren Sie bitte Ihren Administrator."
