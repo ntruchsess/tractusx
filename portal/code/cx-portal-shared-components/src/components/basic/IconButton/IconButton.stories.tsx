@@ -1,20 +1,26 @@
 import { ComponentStory } from '@storybook/react'
 
-import { IconButton as Component } from './IconButton'
-import { Icon } from '../Icons/Icon'
+import { IconButton as Component } from '.'
+import AddIcon from '@mui/icons-material/Add'
 
 export default {
   title: 'Buttons',
   component: Component,
-  argTypes: {},
-};
+  argTypes: {
+    onClick: {
+      action: 'onClick',
+    },
+  },
+}
 
-const Template: ComponentStory<typeof Component> = (args: any) => <Component {...args} />;
+const Template: ComponentStory<typeof Component> = (args: any) => (
+  <Component {...args} />
+)
 
-export const IconButton = Template.bind({});
-IconButton.args = {
-  variant: 'primary',
-  size: 'medium',
-  disabled: false,
-  children: <Icon name={"add"} color={"#000"} size={25} />,
-};
+export const MuiIconButton = Template.bind({})
+MuiIconButton.args = {
+  // color: 'primary',
+  // size: 'large',
+  // disabled: true,
+  children: <AddIcon />,
+}

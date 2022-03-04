@@ -1,10 +1,14 @@
 import { createTheme } from '@mui/material/styles'
 
 const palette = {
+  common: {
+    white: '#fff',
+    black: '#000',
+  },
   primary: {
     main: '#0f71cb',
     dark: '#0d55af',
-    shadow: 'rgba(13, 85, 175, 0.4)',
+    shadow: 'rgba(15, 113, 203, 0.4)',
   },
   secondary: {
     main: '#eaf1fe',
@@ -14,32 +18,27 @@ const palette = {
     disabled: '#ADADAD',
     disabledBackground: '#EAEAEA',
   },
-  ui: {
-    white: {
-      main: '#fff',
-    },
-    black: {
-      main: '#000',
-    },
-  },
 }
+
+const getFontFamily = (name: string): string =>
+  [
+    `"${name}"`,
+    '-apple-system',
+    'BlinkMacSystemFont',
+    '"Segoe UI"',
+    'Roboto',
+    '"Helvetica Neue"',
+    'Arial',
+    'sans-serif',
+    '"Apple Color Emoji"',
+    '"Segoe UI Emoji"',
+    '"Segoe UI Symbol"',
+  ].join(',')
 
 export const theme = createTheme({
   palette,
   typography: {
-    fontFamily: [
-      'LibreFranklin-Light',
-      '-apple-system',
-      'BlinkMacSystemFont',
-      '"Segoe UI"',
-      'Roboto',
-      '"Helvetica Neue"',
-      'Arial',
-      'sans-serif',
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
-    ].join(','),
+    fontFamily: getFontFamily('LibreFranklin-Regular'),
     button: {
       fontSize: 16,
       lineHeight: 1.5,
@@ -51,6 +50,16 @@ export const theme = createTheme({
       defaultProps: {
         disableRipple: true,
       },
+      styleOverrides: {
+        root: {
+          ':focus': {
+            boxShadow: `0px 0px 0px 3px ${palette.primary.shadow}`,
+          },
+          ':active': {
+            boxShadow: `0px 0px 0px 3px ${palette.primary.shadow}`,
+          },
+        },
+      },
     },
     MuiButton: {
       styleOverrides: {
@@ -61,12 +70,6 @@ export const theme = createTheme({
           padding: '16px 28px',
           ':hover': {
             boxShadow: 'none',
-          },
-          ':focus': {
-            boxShadow: `0px 0px 0px 3px ${palette.primary.shadow}`,
-          },
-          ':active': {
-            boxShadow: `0px 0px 0px 3px ${palette.primary.shadow}`,
           },
         },
         sizeMedium: {
@@ -103,6 +106,49 @@ export const theme = createTheme({
           },
         },
       },
+    },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          color: palette.primary.main,
+          padding: 6,
+          ':hover': {
+            backgroundColor: palette.secondary.dark,
+            color: palette.primary.dark,
+          },
+        },
+      },
+      variants: [
+        {
+          props: {
+            color: 'primary',
+          },
+          style: {
+            backgroundColor: palette.primary.main,
+            color: palette.common.white,
+            ':hover': {
+              backgroundColor: palette.primary.dark,
+              color: palette.common.white,
+            },
+          },
+        },
+        {
+          props: {
+            color: 'secondary',
+          },
+          style: {
+            backgroundColor: palette.secondary.main,
+          },
+        },
+        {
+          props: {
+            size: 'small',
+          },
+          style: {
+            padding: 2,
+          },
+        },
+      ],
     },
   },
 })

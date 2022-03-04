@@ -1,6 +1,5 @@
 import React from 'react'
-import { SharedThemeProvider } from '../src/components/SharedThemeProvider'
-import '../src/index.scss'
+import { SharedThemeProvider } from '../src/components/basic/SharedThemeProvider'
 
 export const decorators = [
   (Story) => (

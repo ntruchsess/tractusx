@@ -1,5 +1,0 @@
-@function to-rem($size) {
-  $value: $size / ($size * 0 + 1); // Strips 'px' from input
-
-  @return ($value / 16) * 1rem;
-}

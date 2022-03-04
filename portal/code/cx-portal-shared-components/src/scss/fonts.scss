@@ -28,6 +28,11 @@
 );
 
 @include use-font(
+  'LibreFranklin-Regular',
+  '../assets/fonts/static/LibreFranklin-Regular'
+);
+
+@include use-font(
   'LibreFranklin-Light',
   '../assets/fonts/static/LibreFranklin-Light'
 );

@@ -1,23 +1,28 @@
 import { ComponentStory } from '@storybook/react'
 
-import { Button as Component } from './Button'
+import { Button as Component } from '.'
 
 export default {
   title: 'Buttons',
   component: Component,
   argTypes: {
     children: {
-      name: 'label'
-    }
+      name: 'label',
+    },
+    onClick: {
+      action: 'onClick',
+    },
   },
-};
+}
 
-const Template: ComponentStory<typeof Component> = (args: any) => <Component {...args} />;
+const Template: ComponentStory<typeof Component> = (args: any) => (
+  <Component {...args} />
+)
 
-export const Button = Template.bind({});
-Button.args = {
-  variant: 'primary',
+export const MuiButton = Template.bind({})
+MuiButton.args = {
+  color: 'primary',
   size: 'large',
-  disabled: false,
+  disabled: true,
   children: 'Button',
-};
+}
