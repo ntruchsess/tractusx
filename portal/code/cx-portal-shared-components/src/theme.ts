@@ -15,8 +15,31 @@ const palette = {
     dark: '#d4e3fe',
   },
   action: {
+    active: '#939393',
     disabled: '#ADADAD',
     disabledBackground: '#EAEAEA',
+  },
+  icon: {
+    icon01: '#939393',
+    icon02: '#B6B6B6',
+    icon03: '#333333',
+  },
+  border: {
+    border01: '#DCDCDC',
+    border02: '#B6B6B6',
+    border03: '#989898',
+  },
+  background: {
+    background01: '#F9F9F9',
+    background02: '#F3F3F3',
+    background03: '#E9E9E9',
+    background04: '#F4FBFD',
+    background05: '#F5F9EE',
+    background06: '#FFF7EC',
+    background07: '#F5F5F5',
+    background08: '#FFF6FF',
+    background09: '#EDF0F4',
+    background10: '#303030F2',
   },
 }
 
@@ -149,6 +172,28 @@ export const theme = createTheme({
           },
         },
       ],
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          borderRadius: 16,
+          backgroundColor: palette.background.background01,
+          padding: '4px 24px',
+          '.MuiOutlinedInput-notchedOutline': {
+            borderColor: palette.border.border01,
+          },
+          ':hover': {
+            '.MuiOutlinedInput-notchedOutline': {
+              borderColor: palette.primary.shadow,
+            },
+          },
+          '&.Mui-focused': {
+            '.MuiOutlinedInput-notchedOutline': {
+              borderColor: palette.primary.shadow,
+            },
+          },
+        },
+      },
     },
   },
 })
