@@ -1,4 +1,4 @@
-.Menu > a {
+.NavMenu > a {
   text-decoration: none;
   font-style: normal;
   font-weight: 500;
@@ -6,7 +6,7 @@
   line-height: 20px;
 }
 
-.Menu.vertical {
+.NavMenu.vertical {
   width: 256px;
   padding: 0 8px;
   background-color: white;
@@ -23,7 +23,7 @@
   }
 }
 
-.Menu.horizontal {
+.NavMenu.horizontal {
   display: flex;
   & > a {
     color: #888;

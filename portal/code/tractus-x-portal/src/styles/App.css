@@ -1053,3 +1053,8 @@ mat-form-field .mat-input-placeholder {
 .margin-auto{
   margin: auto;
 }
+
+.appstore-siemens-logo{
+  height: auto !important;
+  max-width: 70px;
+}

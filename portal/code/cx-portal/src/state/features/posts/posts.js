@@ -8,7 +8,7 @@ const postsSlice = createSlice({
     loading: false,
   },
   reducers: {
-    postsRequested: (posts, action) => {
+    postsRequested: (posts) => {
       posts.loading = true
     },
 
@@ -17,7 +17,7 @@ const postsSlice = createSlice({
       posts.loading = false
     },
 
-    postsRequestFailed: (posts, action) => {
+    postsRequestFailed: (posts) => {
       posts.loading = false
     },
   },

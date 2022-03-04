@@ -15,7 +15,6 @@
 import * as React from "react";
 import {Row} from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
-import {withTranslation, WithTranslation} from "react-i18next";
 import {AiOutlineUser, AiOutlineDelete} from "react-icons/ai";
 import Button from "./button";
 import {getClientRolesComposite} from "../helpers/utils";
@@ -23,7 +22,7 @@ import {AiOutlineExclamationCircle} from "react-icons/ai";
 import UserService from '../helpers/UserService';
 import {ToastContainer, toast} from "react-toastify";
 import {connect} from 'react-redux';
-import {IUserItem, IUserResponsibilities} from "../types/user/user.types";
+import {IUserItem} from "../types/user/user.types";
 import {IState} from "../types/store/redux.store.types";
 import {Dispatch} from 'redux';
 import {addToInviteList, removeFromInviteList, addCurrentStep} from "../actions/user.action";

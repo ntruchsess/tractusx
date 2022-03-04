@@ -46,8 +46,7 @@ const getToken = () => KC.token
 
 const getParsedToken = () => KC.tokenParsed
 
-const updateToken = (successCallback: () => any) =>
-  KC.updateToken(5).then(successCallback).catch(doLogin)
+const updateToken = () => KC.updateToken(5).catch(doLogin)
 
 const getUsername = () => KC.tokenParsed.preferred_username
 

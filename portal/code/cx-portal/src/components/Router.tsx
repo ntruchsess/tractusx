@@ -5,7 +5,7 @@ import Dashboard from 'components/pages/Dashboard/Dashboard'
 import Admin from 'components/pages/Admin/Admin'
 import Appstore from 'components/pages/Appstore/Appstore'
 import AppstoreDetail from 'components/pages/Appstore/AppstoreDetail/AppstoreDetail'
-import Authinfo from 'components/pages/Authinfo/Authinfo'
+import MyAccount from './pages/MyAccount/MyAccount'
 import Connector from 'components/pages/Connector/Connector'
 import DataCatalog from 'components/pages/DataCatalog/DataCatalog'
 import Developer from 'components/pages/Developer/Developer'
@@ -16,13 +16,36 @@ import SemanticHub from 'components/pages/SemanticHub/SemanticHub'
 import Settings from 'components/pages/Settings/Settings'
 import TestAPI from 'components/pages/TestAPI/TestAPI'
 import Translator from 'components/pages/Translator/Translator'
+import { PAGES } from '../types/MainTypes'
+import NotFound from './pages/NotFound/NotFound'
+import AccessService from '../services/AccessService'
 import UserService from 'services/UserService'
 import { useDispatch } from 'react-redux'
 import { setLoggedUser } from 'state/features/user/userSlice'
 import { IUser } from 'types/UserTypes'
 
-const Router = () => {
+
+
+const plainRoutes: { [page: string]: JSX.Element } = {
+  [PAGES.ROOT]: <Dashboard />,
+  [PAGES.DASHBOARD]: <Dashboard />,
+  [PAGES.DATACATALOG]: <DataCatalog />,
+  [PAGES.DIGITALTWIN]: <DigitalTwins />,
+  [PAGES.SEMANTICHUB]: <SemanticHub />,
+  [PAGES.DEVELOPERHUB]: <DeveloperHub />,
+  [PAGES.CONNECTOR]: <Connector />,
+  [PAGES.ACCOUNT]: <MyAccount />,
+  [PAGES.ADMINISTRATION]: <Admin />,
+  [PAGES.DEVELOPER]: <Developer />,
+  [PAGES.SETTINGS]: <Settings />,
+  [PAGES.TESTAPI]: <TestAPI />,
+  [PAGES.TRANSLATOR]: <Translator />,
+  [PAGES.LOGOUT]: <Logout />,
+}
+
+export default function Router() {
   const dispatch = useDispatch()
+
 
   useEffect(() => {
     // Before loading component, check login flow
@@ -36,43 +59,22 @@ const Router = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Main />}>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="logout" element={<Logout />} />
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="appstore" element={<Appstore />}>
-            <Route
-              index
-              element={
-                <div>
-                  <p>Select an app</p>
-                </div>
-              }
-            />
-            <Route path=":appId" element={<AppstoreDetail />} />
-          </Route>
-          <Route path="datacatalog" element={<DataCatalog />} />
-          <Route path="digitaltwins" element={<DigitalTwins />} />
-          <Route path="semantichub" element={<SemanticHub />} />
-          <Route path="developerhub" element={<DeveloperHub />} />
-          <Route path="connector" element={<Connector />} />
-          <Route path="authinfo" element={<Authinfo />} />
-          <Route path="admin" element={<Admin />} />
-          <Route path="developer" element={<Developer />} />
-          <Route path="settings" element={<Settings />} />
-          <Route path="testapi" element={<TestAPI />} />
-          <Route path="translator" element={<Translator />} />
-          <Route
-            path="*"
-            element={
-              <main>
-                <p>page not implemented</p>
-              </main>
-            }
-          />
+          {Object.entries(plainRoutes)
+            .filter(([page]) => AccessService.hasAccess(page))
+            .map(([page, jsx], i) => (
+              <Route key={i} path={page} element={jsx} />
+            ))}
+          {AccessService.hasAccess(PAGES.APPSTORE) ? (
+            <Route path={PAGES.APPSTORE} element={<Appstore />}>
+              <Route index element={<p>Select an app</p>} />
+              <Route path=":appId" element={<AppstoreDetail />} />
+            </Route>
+          ) : (
+            <></>
+          )}
+          <Route path="*" element={NotFound()} />
         </Route>
       </Routes>
     </BrowserRouter>
   )
 }
-
-export default Router

@@ -6,21 +6,35 @@
     "datacatalog": "Datenkatalog",
     "applications": "Anwendungen",
     "semantichub": "Semantic Hub",
-    "digitaltwins": "Digitaler Zwilling",
+    "digitaltwin": "Digitaler Zwilling",
     "developerhub": "Entwickler Hub",
     "connector": "Konnektor",
-    "authinfo": "Über mich",
+    "account": "Mein Account",
+    "notifications": "Benachrichtigungen",
+    "organization": "Organisation",
+    "partnernetwork": "Partner Netzwerk",
+    "usermanagement": "Benutzerverwaltung",
     "settings": "Einstellungen",
     "admin": "Verwaltung",
     "developer": "Entwicklung",
-    "logout": "Abmelden"
+    "logout": "Abmelden",
+    "notfound": "Seite nicht gefunden"
   },
   "content": {
     "dashboard": {
       "welcome": "Willkommen bei Catena-X - das automotive Netzwerk!"
     },
-    "authinfo": {
+    "account": {
       "token": "Aktuelles Authentisierungstoken"
+    },
+    "notfound": {
+      "message": "Der Inhalt wurde nicht gefunden. Dies kann verschiedene Ursachen haben - entweder",
+      "reason": {
+        "nopermission": "Sie haben keine Berechtigung diesen Inhalt zu sehen oder",
+        "notexisting": "die Seite existiert im Catena-X Portal nicht oder",
+        "notimplemented": "sie wurde noch nicht implementiert."
+      },
+      "further": "Wenn Sie denken, dass hier etwas sein sollte kontaktieren Sie bitte Ihren Administrator."
     },
     "settings": {
       "language": "Sprache",
