@@ -114,7 +114,7 @@ namespace CatenaX.NetworkServices.Provisioning.Library
                 return users;
         }
 
-        public async Task<bool> DeleteSharedUserLinkedToCentralAsync(string idpName, string userId)
+        public async Task<bool> DeleteSharedAndCentralUserAsync(string idpName, string userId)
         {
             var userIdShared = await GetProviderIdForCentralUserIdAsync(_Settings.CentralRealm, userId).ConfigureAwait(false);
             

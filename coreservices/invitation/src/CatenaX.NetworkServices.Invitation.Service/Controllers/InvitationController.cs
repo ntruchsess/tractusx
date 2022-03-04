@@ -85,7 +85,7 @@ namespace CatenaX.NetworkServices.Invitation.Service.Controllers
         [HttpDelete]
         [Authorize(Policy = "OnlyDeleteOwnUser")]
         [Route("api/invitation/tenant/{tenant}/user/{userId}")]
-        public async Task<IActionResult> ExecuteDeletion([FromRoute] string tenant, [FromRoute] string userId)
+        public async Task<IActionResult> ExecuteOwnUserDeletion([FromRoute] string tenant, [FromRoute] string userId)
         {
             try
             {
@@ -100,6 +100,26 @@ namespace CatenaX.NetworkServices.Invitation.Service.Controllers
             {
                 _logger.LogError(e.ToString());
                 return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+            }
+        }
+
+        [HttpDelete]
+        [Authorize(Roles="delete_user_account")]
+        [Route("api/invitation/tenant/{tenant}/users")]
+        public async Task<IActionResult> ExecuteUserDeletion([FromRoute] string tenant, [FromBody] IEnumerable<UserDeletionInfo> usersToDelete)
+        {
+            try
+            {
+                var deletedUsers = await _logic.DeleteUsersAsync(usersToDelete, tenant).ConfigureAwait(false);
+                
+                return Ok(deletedUsers);
+                
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.ToString());
+                return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+
             }
         }
     }
