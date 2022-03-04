@@ -105,11 +105,12 @@ namespace CatenaX.NetworkServices.Provisioning.Library
             var users = (await _SharedIdp.GetUsersAsync(idpName, briefRepresentation: true).ConfigureAwait(false))
                 .Select( o => new UserInfo
                 {
-                    UserName = o.UserName,
-                    FirstName = o.FirstName,
-                    LastName = o.LastName,
-                    Email = o.Email,
-                    Enabled = o.Enabled
+                    userId = o.Id,
+                    userName = o.UserName,
+                    firstName = o.FirstName,
+                    lastName = o.LastName,
+                    eMail = o.Email,
+                    enabled = o.Enabled
                 });
                 return users;
         }

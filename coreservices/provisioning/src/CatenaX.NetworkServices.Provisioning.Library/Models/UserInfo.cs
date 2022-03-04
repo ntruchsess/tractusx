@@ -6,15 +6,17 @@ namespace CatenaX.NetworkServices.Provisioning.Library.Models
 {
     public class UserInfo
     {
+        [JsonProperty("Id")]
+        public string userId { get; set; }
         [JsonProperty("username")]
-        public string UserName { get; set; }
+        public string userName { get; set; }
         [JsonProperty("enabled")]
-        public bool? Enabled { get; set; }
+        public bool? enabled { get; set; }
         [JsonProperty("firstName")]
-        public string FirstName { get; set; }
+        public string firstName { get; set; }
         [JsonProperty("lastName")]
-        public string LastName { get; set; }
+        public string lastName { get; set; }
         [JsonProperty("email")]
-        public string Email { get; set; }
+        public string eMail { get; set; }
     }
 }
