@@ -195,5 +195,15 @@ export const theme = createTheme({
         },
       },
     },
+    MuiFilledInput: {
+      styleOverrides: {
+        root: {
+          borderRadius: '6px 6px 0 0',
+          '.MuiFilledInput-input': {
+            padding: '16px',
+          },
+        },
+      },
+    },
   },
 })
