@@ -130,8 +130,8 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
             var idpName = tenant;
             try
             {
-            var userName = await _provisioningManager.GetProviderUserNameForCentralUserIdAsync(userId);
-            await _provisioningManager.DeleteSharedAndCentralUserAsync(idpName, userName).ConfigureAwait(false);
+                var userName = await _provisioningManager.GetProviderUserNameForCentralUserIdAsync(userId);
+                if (!await _provisioningManager.DeleteSharedAndCentralUserAsync(idpName, userName).ConfigureAwait(false)) return false;
             }
             catch (Exception e)
             {
@@ -149,9 +149,10 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
                 try
                 {
                     var userName = user.userName;
-                    var result = await _provisioningManager.DeleteSharedAndCentralUserAsync(idpName, userName).ConfigureAwait(false);
-                    userList.Add(user.userName);
-                    // add to userList if result true
+                    if (await _provisioningManager.DeleteSharedAndCentralUserAsync(idpName, userName).ConfigureAwait(false))
+                    {
+                        userList.Add(user.userName);
+                    }
                 }
                 catch (Exception e)
                 {
