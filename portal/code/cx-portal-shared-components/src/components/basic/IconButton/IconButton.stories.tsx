@@ -17,10 +17,10 @@ const Template: ComponentStory<typeof Component> = (args: any) => (
   <Component {...args} />
 )
 
-export const MuiIconButton = Template.bind({})
-MuiIconButton.args = {
-  // color: 'primary',
-  // size: 'large',
-  // disabled: true,
+export const IconButton = Template.bind({})
+IconButton.args = {
+  color: 'primary',
+  size: 'medium',
+  disabled: false,
   children: <AddIcon />,
 }

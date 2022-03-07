@@ -26,14 +26,23 @@ declare module '@mui/material/styles' {
     background10: string
   }
 
+  interface TypeTextField {
+    placeholderText: string
+    helperText: string
+    background: string
+    backgroundHover: string
+  }
+
   interface Palette {
     icon: TypeIcons
     border: TypeBorders
     background: TypeBackground
+    textField: TypeTextField
   }
   interface PaletteOptions {
     icon?: Partial<TypeIcons>
     border?: Partial<TypeBorders>
     background?: Partial<TypeBackground>
+    textField?: Partial<TypeTextField>
   }
 }
