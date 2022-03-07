@@ -24,7 +24,9 @@ import {Dispatch} from 'redux';
 import { FaEdit } from "react-icons/fa";
 import { CompanyDetailsData } from "../data/companyDetails";
 import { useHistory } from "react-router-dom";
-import UserService from "../helpers/UserService";
+import { DataErrorCodes } from "../helpers/DataError";
+import {ToastContainer, toast} from "react-toastify";
+import { submitCustodianWallet } from "../helpers/utils";
 
 interface VerifyRegistrationProps {
   currentActiveStep: number;
@@ -47,27 +49,22 @@ export const VerifyRegistration = ({currentActiveStep, addCurrentStep, companyDe
 }
 
 const nextClick = () => {
-  const url = process.env.REACT_APP_ONBOARDING_URL;
-  const endpoint = process.env.REACT_APP_ONBOARDING_ENDPOINT;
-  const token = UserService.getToken();
-  const featchUrl = `${url}/${endpoint}/custodianWallet`;
   const data = {
     bpn : "BPNL000000000001",
     name : "German Car Company"    
   }
-    fetch(featchUrl, { method: 'POST', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
-    .then((response) => {
-      if (response.ok) {
-        history.push("/finish");
+  const fetchData = async () => {
+    const custodianWallet = await submitCustodianWallet(data);
+            toast.success(custodianWallet);
+            history.push("/finish");
       }
-      else {
-        history.push("/finish");
-      }
-    }
-
-    ).catch((error) => {
-       history.push("/finish");
-    });
+      fetchData()
+      .catch((errorCode: number) => {
+        let message = DataErrorCodes.includes(errorCode)
+          ? t(`ErrorMessage.${errorCode}`)
+          : t(`ErrorMessage.default`);  
+        toast.error(message);
+      });
 }
 
     
@@ -192,7 +189,9 @@ const nextClick = () => {
                       </ul>
                   </Row>
                 </div>
+                <ToastContainer/>
               </div>
+              
        <FooterButton 
        labelBack={t('button.back')}
        labelNext={t('button.submit')}

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { CompanyRole, ConsentForCompanyRoles, UserRole } from "../data/companyDetails";
+import { CompanyRole, ConsentForCompanyRoles } from "../data/companyDetails";
 import { FetchBusinessPartnerDto } from "../data/companyDetailsById"
 import UserService from '../helpers/UserService';
 
@@ -25,46 +25,78 @@ export function getCompanyDetails(oneId: String): Promise<FetchBusinessPartnerDt
   let myResponseData: FetchBusinessPartnerDto[] = [];
   const promise = new Promise<FetchBusinessPartnerDto[]>((resolve, reject) => {
     fetch(u, { method: 'GET', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } })
-      .then((val) => val.json().then((data) => {
-        if (val.ok) {
-          Object.assign(myResponseData, data)
-          resolve(myResponseData);
-        } else {
-          reject(val.statusText);
-        }
-      })).catch((error) => {
-        alert(error);
+    .then((res) => res.text().then((data) => {
+      if (res.ok) {
+        Object.assign(myResponseData,data ? JSON.parse(data) : {})
+        resolve(myResponseData);
+      } else {
+        reject(res.status);
+      }
+    })).catch((error) => {
+        // alert(error);
         console.log(error, error.message, error.status);
-        reject(error.message);
-      });
-  });
+        reject(error.status);
+      }); 
+
+    });
 
   return promise;
 }
-
-export function submitCustodianWallet (): Promise<CompanyRole[]> {
+export function submitSendInvites(userInviteList: any): Promise<any>{
+  const tenant = UserService.getTenant();
+  const token = UserService.getToken();
+  const u = `${url}/${endpoint}/tenant/${tenant}/users`;
+  const promise = new Promise<any>((resolve, reject) => {
+    fetch(u, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userInviteList),
+    })
+    .then((res) => res.text().then((data) => {
+      if (res.ok) {
+        resolve('Sent Invite');
+      } else {
+        reject(res.status);
+      }
+      }))
+      .catch((error) => {
+        // alert(error);
+        console.log(error, error.message, error.status);
+        reject(error.status);
+      }); 
+    });
+    return promise;
+};
+export function submitCustodianWallet (custodianWallet): Promise<any> {
   const token = UserService.getToken();
   const u = `${url}/${endpoint}/companyRoles`;
-  let companyRolesRes: CompanyRole[] = [];
-  const promise = new Promise<CompanyRole[]>((resolve, reject) => {
-    fetch(u, { method: 'GET', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } })
-      .then((val) => val.json().then((data) => {
-        if (val.ok) {
-          Object.assign(companyRolesRes, data)
-          resolve(companyRolesRes);
-        } else {
-          reject(val.statusText);
-        }
-      })).catch((error) => {
-        alert(error);
+  const promise = new Promise<any>((resolve, reject) => {
+    fetch(u, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(custodianWallet),
+    })
+    .then((res) => res.text().then((data) => {
+      if (res.ok) {
+        resolve('Sent Invite');
+      } else {
+        reject(res.status);
+      }
+      }))
+      .catch((error) => {
+        // alert(error);
         console.log(error, error.message, error.status);
-        reject(error.message);
-      });
-  });
-
-  return promise;
+        reject(error.status);
+      }); 
+    });
+    return promise;
 }
-
 export function getCompanyRoles(): Promise<CompanyRole[]> {
   const token = UserService.getToken();
   const u = `${url}/${endpoint}/companyRoles`;
@@ -87,7 +119,6 @@ export function getCompanyRoles(): Promise<CompanyRole[]> {
 
   return promise;
 }
-
 export function getConsentForCompanyRoles(roleId: Number): Promise<ConsentForCompanyRoles[]> {
   const token = UserService.getToken();
   const u = `${url}/${endpoint}/consentsForCompanyRole/${roleId}`;
@@ -109,48 +140,23 @@ export function getConsentForCompanyRoles(roleId: Number): Promise<ConsentForCom
   });
   return promise;
 }
-
-// endpoint has been removed in the course of CPLP-327 - refactoring of registration backend - obsolete due to rolesComposite endpoint
-export function getUserRoles(): Promise<UserRole[]> {
-  const token = UserService.getToken();
-  const u = `${url}/${endpoint}/userRoles`;
-  let userRolesRes: UserRole[] = [];
-  const promise = new Promise<UserRole[]>((resolve, reject) => {
-    fetch(u, { method: 'GET', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } })
-      .then((val) => val.json().then((data) => {
-        if (val.ok) {
-          Object.assign(userRolesRes, data)
-          resolve(userRolesRes);
-        } else {
-          reject(val.statusText);
-        }
-      })).catch((error) => {
-        alert(error);
-        console.log(error, error.message, error.status);
-        reject(error.message);
-      });
-  });
-
-  return promise;
-}
-
 export function getClientRolesComposite(): Promise<string[]> {
   const token = UserService.getToken();
   const u= `${url}/${endpoint}/rolesComposite`;
   let userRolesRes: string[] = [];
   const promise = new Promise<string[]>((resolve, reject) => {
     fetch(u, { method: 'GET', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } })
-    .then((val) => val.json().then((data) => {
-      if (val.ok) {
-        Object.assign(userRolesRes,data)
+    .then((res) => res.text().then((data) => {
+      if (res.ok) {
+        Object.assign(userRolesRes,data ? JSON.parse(data) : {})
         resolve(userRolesRes);
       } else {
-        reject(val.statusText);
+        reject(res.status);
       }
     })).catch((error) => {
-        alert(error);
+        // alert(error);
         console.log(error, error.message, error.status);
-        reject(error.message);
+        reject(error.status);
       });
   });
 

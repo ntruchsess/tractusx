@@ -18,8 +18,6 @@ import React, {FC} from 'react';
 import {connect} from 'react-redux';
 import {IState} from "../types/store/redux.store.types";
 import { useTranslation } from 'react-i18next';
-import { AiOutlineCheck } from 'react-icons/ai'
-
 interface StepperProps {
     currentActiveStep: number;
 }
@@ -38,7 +36,7 @@ export const Stepper: FC<StepperProps> = ({currentActiveStep}) => {
                           : "step-counter col-3"
                       }>{
                         currentActiveStep > 1
-                          ? <span className="step-tick">&#10003;</span>
+                          ? <span className="step-tick"><img src="./tick.svg" alt="tick" /></span>
                           : 1 
                       }</div>
                     <div className="step-name col-9">

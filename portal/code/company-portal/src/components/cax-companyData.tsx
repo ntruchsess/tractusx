@@ -25,6 +25,8 @@ import {IState} from "../types/store/redux.store.types";
 import {addCurrentStep, addCompanyData} from "../actions/user.action";
 import { withRouter } from 'react-router-dom';
 import {Dispatch} from 'redux';
+import { DataErrorCodes } from "../helpers/DataError";
+import { toast } from "react-toastify";
 import { CompanyDetailsData } from '../data/companyDetails';
 
 interface CompanyDataProps {
@@ -47,8 +49,9 @@ export const CompanyDataCax = ({currentActiveStep, addCurrentStep, addCompanyDat
 
 
     
-      const onSeachChange = async (x) => {
-        setsearch(x)
+      const onSeachChange = (x: any) => {
+        setsearch(x);
+        const fetchData = async () => {
         const companyDetails = await getCompanyDetails(x);
         setbpn(companyDetails?.[0]?.bpn);
         setlegalEntity(companyDetails?.[0]?.names?.[0]?.value);
@@ -57,6 +60,20 @@ export const CompanyDataCax = ({currentActiveStep, addCurrentStep, addCompanyDat
         setpostalCode(companyDetails?.[0]?.addresses?.[0]?.postCodes[0]?.value);
         setcity(companyDetails?.[0]?.addresses?.[0]?.localities[0]?.value);
         setcountry(companyDetails?.[0]?.addresses?.[0]?.country?.name);
+        }
+            // call the function
+        fetchData()
+            // make sure to catch any error
+        .catch((errorCode: number) => {
+        
+        let message = DataErrorCodes.includes(errorCode)
+            ? t(`ErrorMessage.${errorCode}`)
+            : t(`ErrorMessage.default`);
+        //   alert(message)
+
+        toast.error(message);
+        //  history.push("/finish");
+        });
     }
 
     const backClick = () => {

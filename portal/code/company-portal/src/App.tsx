@@ -24,6 +24,8 @@ import Finish from "./components/finish"
 import {Provider} from 'react-redux';
 import store from './stores/store';
 import Authinfo from "./components/authinfo";
+import ProtectedRoute from "./helpers/authorisation/ProtectedRoute";
+import UnauthorisedPage from "./components/unauthorised";
 
 const history = createBrowserHistory();
 
@@ -36,16 +38,11 @@ export default class App extends React.Component {
                 <Router history={history}>
                     <Switch>
                         <Redirect path="/" exact to="/landing"/>
-                        <Route path="/landing" render={(props) => <Landing {...props} />}/>
-                        <Route
-                            path="/registration"
-                            render={(props) => <RegistrationCax />}
-                        />
-                        <Route
-                            path="/finish"
-                            component={(props) => <Finish {...props} />}
-                        />
-                       <Route path="/authinfo" component={() => <Authinfo />} />
+                        <ProtectedRoute path='/landing' rolesAllowedForTheRoute={["view_registration"]} component={(props) => <Landing {...props}  />} />
+                        <ProtectedRoute path='/registration' rolesAllowedForTheRoute={["view_registration"]} component={(props) => <RegistrationCax {...props}  />} />
+                        <ProtectedRoute path='/finish' rolesAllowedForTheRoute={["view_registration"]} component={(props) => <Finish {...props}  />} />
+                        <Route path="/authinfo" component={() => <Authinfo />} />
+                        <Route path="/403" component={()=> <UnauthorisedPage />} />
                     </Switch>
                 </Router>
             </Provider>
