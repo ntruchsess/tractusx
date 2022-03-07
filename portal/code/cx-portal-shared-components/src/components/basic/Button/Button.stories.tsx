@@ -19,10 +19,10 @@ const Template: ComponentStory<typeof Component> = (args: any) => (
   <Component {...args} />
 )
 
-export const MuiButton = Template.bind({})
-MuiButton.args = {
+export const Button = Template.bind({})
+Button.args = {
   color: 'primary',
   size: 'large',
-  disabled: true,
+  disabled: false,
   children: 'Button',
 }

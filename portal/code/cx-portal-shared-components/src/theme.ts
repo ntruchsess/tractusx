@@ -93,12 +93,15 @@ export const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: 16,
+          borderRadius: 50,
           boxShadow: 'none',
           fontSize: 16,
           padding: '16px 28px',
           ':hover': {
             boxShadow: 'none',
+          },
+          ':active': {
+            boxShadow: `0px 0px 0px 3px ${palette.primary.shadow}`,
           },
         },
         sizeMedium: {
@@ -135,6 +138,19 @@ export const theme = createTheme({
           },
         },
       },
+      variants: [
+        {
+          props: {
+            color: 'secondary',
+          },
+          style: {
+            color: palette.primary.main,
+            ':hover': {
+              color: palette.primary.dark,
+            },
+          },
+        },
+      ],
     },
     MuiIconButton: {
       styleOverrides: {
