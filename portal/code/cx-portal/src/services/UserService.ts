@@ -1,8 +1,6 @@
 import Keycloak from 'keycloak-js'
-
-const CX_ROLES = {
-  ADMIN: 'CX Admin',
-}
+import { IUser } from 'types/UserTypes'
+import {ROLES} from 'types/MainTypes'
 
 const keycloakConfig = {
   url: process.env.REACT_APP_BASE_CENTRAL_IDP,
@@ -14,7 +12,7 @@ const keycloakConfig = {
 
 const KC = new (Keycloak as any)(keycloakConfig)
 
-const initKeycloak = (onAuthenticatedCallback: Function) => {
+const init = (onAuthenticatedCallback: (loggedUser: IUser) => any) => {
   KC.init({
     onLoad: 'login-required',
     silentCheckSsoRedirectUri:
@@ -22,7 +20,19 @@ const initKeycloak = (onAuthenticatedCallback: Function) => {
     pkceMethod: 'S256',
   }).then((authenticated: boolean) => {
     if (authenticated) {
-      onAuthenticatedCallback()
+      // User authenticated successfully
+      // Prepare user data to store it in Redux
+      const loggedUser: IUser = {
+        userName: getUsername(),
+        name: getName(),
+        email: getEmail(),
+        company: getCompany(),
+        roles: getRoles(),
+        isAdmin: isAdmin(),
+        token: getToken(),
+        parsedToken: getParsedToken(),
+      }
+      onAuthenticatedCallback(loggedUser)
     } else {
       doLogin()
     }
@@ -37,8 +47,7 @@ const getToken = () => KC.token
 
 const getParsedToken = () => KC.tokenParsed
 
-const updateToken = (successCallback: Function) =>
-  KC.updateToken(5).then(successCallback).catch(doLogin)
+const updateToken = () => KC.updateToken(5).catch(doLogin)
 
 const getUsername = () => KC.tokenParsed.preferred_username
 
@@ -53,7 +62,7 @@ const getRoles = () =>
 
 const hasRole = (role: string) => getRoles()?.includes(role)
 
-const isAdmin = () => hasRole(CX_ROLES.ADMIN)
+const isAdmin = () => hasRole(ROLES.CX_ADMIN)
 
 const isLoggedIn = () => !!KC.token
 
@@ -68,7 +77,7 @@ const UserService = {
   getCompany,
   getRoles,
   hasRole,
-  initKeycloak,
+  init,
   isAdmin,
   isLoggedIn,
   updateToken,

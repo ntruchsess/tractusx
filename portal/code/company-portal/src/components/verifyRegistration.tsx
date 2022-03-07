@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {useState} from "react";
 import { Row } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
 import { useTranslation } from 'react-i18next';
@@ -23,15 +22,22 @@ import {addCurrentStep} from "../actions/user.action";
 import { withRouter } from 'react-router-dom';
 import {Dispatch} from 'redux';
 import { FaEdit } from "react-icons/fa";
+import { CompanyDetailsData } from "../data/companyDetails";
+import { useHistory } from "react-router-dom";
+import { DataErrorCodes } from "../helpers/DataError";
+import {ToastContainer, toast} from "react-toastify";
+import { submitCustodianWallet } from "../helpers/utils";
 
 interface VerifyRegistrationProps {
   currentActiveStep: number;
   addCurrentStep: (step: number) => void;
+  companyDetailsData: CompanyDetailsData
 }
 
-export const VerifyRegistration = ({currentActiveStep, addCurrentStep}: VerifyRegistrationProps) => {
+export const VerifyRegistration = ({currentActiveStep, addCurrentStep, companyDetailsData}: VerifyRegistrationProps) => {
 
   const { t } = useTranslation();
+  let history = useHistory();
 
   const editClick = (n) => {
     // setcurrentActiveStep(n);
@@ -43,7 +49,22 @@ export const VerifyRegistration = ({currentActiveStep, addCurrentStep}: VerifyRe
 }
 
 const nextClick = () => {
-  addCurrentStep(currentActiveStep+1)
+  const data = {
+    bpn : "BPNL000000000001",
+    name : "German Car Company"    
+  }
+  const fetchData = async () => {
+    const custodianWallet = await submitCustodianWallet(data);
+            toast.success(custodianWallet);
+            history.push("/finish");
+      }
+      fetchData()
+      .catch((errorCode: number) => {
+        let message = DataErrorCodes.includes(errorCode)
+          ? t(`ErrorMessage.${errorCode}`)
+          : t(`ErrorMessage.default`);  
+        toast.error(message);
+      });
 }
 
     
@@ -55,10 +76,10 @@ const nextClick = () => {
                     5
                   </div>
                   <h4 className="mx-auto d-flex align-items-center justify-content-center">
-                  Verify your registration data
+                  {t("verifyRegistration.title")}
                   </h4>
                   <div className="mx-auto text-center col-9">
-                  Lorem ipsum sapientem ne neque dolor erat,eros solet invidunt duo Quisque aliquid leo. Pretium patrioque sociis eu nihil Cum enim ad.
+                  {t("verifyRegistration.subtitle")}
                   </div>
                 </div>
                 <div className="companydata-form mx-auto col-9">
@@ -66,61 +87,61 @@ const nextClick = () => {
                     <ul className="list-group-cax px-2">
                       <li className="list-group-item-cax list-header">
                         <Row>
-                          <span className="col-11">Company Data</span>
+                          <span className="col-11">{t("verifyRegistration.heading1")}</span>
                           <span className="col-1" onClick={()=>editClick(1)}><FaEdit className="editIcon"/></span>
                         </Row>
                       </li>
                       <li className="list-group-item-cax">
                         <Row>
-                          <span className="col-6">BPN</span>
-                          <span className="col-6">BPNL890867291</span>
+                          <span className="col-6">{t("verifyRegistration.bpn")}</span>
+                          <span className="col-6">{companyDetailsData?.bpn}</span>
                         </Row>
                       </li>
                       <li className="list-group-item-cax">
                         <Row>
-                          <span className="col-6">Legal Entity Name</span>
-                          <span className="col-6">German Car Factory</span>
+                          <span className="col-6">{t("verifyRegistration.legalEntity")}</span>
+                          <span className="col-6">{companyDetailsData?.legalEntity}</span>
                         </Row>
                       </li>
                       <li className="list-group-item-cax">
                         <Row>
-                          <span className="col-6">Registered Name</span>
+                          <span className="col-6">{t("verifyRegistration.registeredName")}</span>
+                          <span className="col-6">{companyDetailsData?.registrationName}</span>
+                        </Row>
+                      </li>
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-6">{t("verifyRegistration.street")}</span>
+                          <span className="col-6">{companyDetailsData?.address}</span>
+                        </Row>
+                      </li>
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-6">{t("verifyRegistration.city")}</span>
+                          <span className="col-6">{companyDetailsData?.city}</span>
+                        </Row>
+                      </li>
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-6">{t("verifyRegistration.country")}</span>
+                          <span className="col-6">{companyDetailsData?.country}</span>
+                        </Row>
+                      </li>
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-6">{t("verifyRegistration.stateOfActivity")}</span>
                           <span className="col-6"></span>
                         </Row>
                       </li>
                       <li className="list-group-item-cax">
                         <Row>
-                          <span className="col-6">Street</span>
-                          <span className="col-6">Munich Street</span>
-                        </Row>
-                      </li>
-                      <li className="list-group-item-cax">
-                        <Row>
-                          <span className="col-6">PLZ / City</span>
-                          <span className="col-6">80807 Munich</span>
-                        </Row>
-                      </li>
-                      <li className="list-group-item-cax">
-                        <Row>
-                          <span className="col-6">Country</span>
-                          <span className="col-6">Germany</span>
-                        </Row>
-                      </li>
-                      <li className="list-group-item-cax">
-                        <Row>
-                          <span className="col-6">State of activity</span>
+                          <span className="col-6">{t("verifyRegistration.validFrom")}</span>
                           <span className="col-6"></span>
                         </Row>
                       </li>
                       <li className="list-group-item-cax">
                         <Row>
-                          <span className="col-6">Valid from</span>
-                          <span className="col-6"></span>
-                        </Row>
-                      </li>
-                      <li className="list-group-item-cax">
-                        <Row>
-                          <span className="col-6">Valid till</span>
+                          <span className="col-6">{t("verifyRegistration.validUntil")}</span>
                           <span className="col-6"></span>
                         </Row>
                       </li>
@@ -168,7 +189,9 @@ const nextClick = () => {
                       </ul>
                   </Row>
                 </div>
+                <ToastContainer/>
               </div>
+              
        <FooterButton 
        labelBack={t('button.back')}
        labelNext={t('button.submit')}
@@ -190,6 +213,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 export default withRouter(connect(
   (state: IState) => ({
       currentActiveStep: state.user.currentStep,
+      companyDetailsData: state.user.companyData
   }),
   mapDispatchToProps
 )(VerifyRegistration));

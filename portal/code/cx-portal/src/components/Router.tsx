@@ -1,60 +1,78 @@
-import Main from './Main'
+import React, { useEffect } from 'react'
+import Main from 'components/Main'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Dashboard from './pages/Dashboard/Dashboard'
-import Admin from './pages/Admin/Admin'
-import Applications from './pages/Applications/Applications'
-import Appstore from './pages/Appstore/Appstore'
-import AppstoreDetail from './pages/Appstore/AppstoreDetail/AppstoreDetail'
-import Authinfo from './pages/Authinfo/Authinfo'
-import Connector from './pages/Connector/Connector'
-import DataCatalog from './pages/DataCatalog/DataCatalog'
-import Developer from './pages/Developer/Developer'
-import DeveloperHub from './pages/DeveloperHub/DeveloperHub'
-import DigitalTwins from './pages/DigitalTwins/DigitalTwins'
-import Logout from './pages/Logout/Logout'
-import SemanticHub from './pages/SemanticHub/SemanticHub'
-import Settings from './pages/Settings/Settings'
-import TestAPI from './pages/TestAPI/TestAPI'
-import Translator from './pages/Translator/Translator'
+import Dashboard from 'components/pages/Dashboard/Dashboard'
+import Admin from 'components/pages/Admin/Admin'
+import Appstore from 'components/pages/Appstore/Appstore'
+import AppstoreDetail from 'components/pages/Appstore/AppstoreDetail/AppstoreDetail'
+import MyAccount from './pages/MyAccount/MyAccount'
+import Connector from 'components/pages/Connector/Connector'
+import DataCatalog from 'components/pages/DataCatalog/DataCatalog'
+import Developer from 'components/pages/Developer/Developer'
+import DeveloperHub from 'components/pages/DeveloperHub/DeveloperHub'
+import DigitalTwins from 'components/pages/DigitalTwins/DigitalTwins'
+import Logout from 'components/pages/Logout/Logout'
+import SemanticHub from 'components/pages/SemanticHub/SemanticHub'
+import Settings from 'components/pages/Settings/Settings'
+import TestAPI from 'components/pages/TestAPI/TestAPI'
+import Translator from 'components/pages/Translator/Translator'
+import { PAGES } from '../types/MainTypes'
+import NotFound from './pages/NotFound/NotFound'
+import AccessService from '../services/AccessService'
+import UserService from 'services/UserService'
+import { useDispatch } from 'react-redux'
+import { setLoggedUser } from 'state/features/user/userSlice'
+import { IUser } from 'types/UserTypes'
+
+
+
+const plainRoutes: { [page: string]: JSX.Element } = {
+  [PAGES.ROOT]: <Dashboard />,
+  [PAGES.DASHBOARD]: <Dashboard />,
+  [PAGES.DATACATALOG]: <DataCatalog />,
+  [PAGES.DIGITALTWIN]: <DigitalTwins />,
+  [PAGES.SEMANTICHUB]: <SemanticHub />,
+  [PAGES.DEVELOPERHUB]: <DeveloperHub />,
+  [PAGES.CONNECTOR]: <Connector />,
+  [PAGES.ACCOUNT]: <MyAccount />,
+  [PAGES.ADMINISTRATION]: <Admin />,
+  [PAGES.DEVELOPER]: <Developer />,
+  [PAGES.SETTINGS]: <Settings />,
+  [PAGES.TESTAPI]: <TestAPI />,
+  [PAGES.TRANSLATOR]: <Translator />,
+  [PAGES.LOGOUT]: <Logout />,
+}
 
 export default function Router() {
+  const dispatch = useDispatch()
+
+
+  useEffect(() => {
+    // Before loading component, check login flow
+    UserService.init((loggedUser: IUser) => {
+      // Login flow successful. Set data to Redux
+      dispatch(setLoggedUser(loggedUser))
+    })
+  }, [dispatch])
+
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Main />}>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/logout" element={<Logout />} />
-          <Route path="appstore" element={<Appstore />}>
-            <Route
-              index
-              element={
-                <div>
-                  <p>Select an app</p>
-                </div>
-              }
-            />
-            <Route path=":appId" element={<AppstoreDetail />} />
-          </Route>
-          <Route path="/catalog" element={<DataCatalog />} />
-          <Route path="/applications" element={<Applications />} />
-          <Route path="/digitaltwins" element={<DigitalTwins />} />
-          <Route path="/semantichub" element={<SemanticHub />} />
-          <Route path="/developerhub" element={<DeveloperHub />} />
-          <Route path="/connector" element={<Connector />} />
-          <Route path="/authinfo" element={<Authinfo />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/developer" element={<Developer />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/testapi" element={<TestAPI />} />
-          <Route path="/translator" element={<Translator />} />
-          <Route
-            path="*"
-            element={
-              <main>
-                <p>page not implemented</p>
-              </main>
-            }
-          />
+          {Object.entries(plainRoutes)
+            .filter(([page]) => AccessService.hasAccess(page))
+            .map(([page, jsx], i) => (
+              <Route key={i} path={page} element={jsx} />
+            ))}
+          {AccessService.hasAccess(PAGES.APPSTORE) ? (
+            <Route path={PAGES.APPSTORE} element={<Appstore />}>
+              <Route index element={<p>Select an app</p>} />
+              <Route path=":appId" element={<AppstoreDetail />} />
+            </Route>
+          ) : (
+            <></>
+          )}
+          <Route path="*" element={NotFound()} />
         </Route>
       </Routes>
     </BrowserRouter>

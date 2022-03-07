@@ -22,16 +22,20 @@ import { useState } from 'react';
 import FooterButton from './footerButton';
 import {connect} from 'react-redux';
 import {IState} from "../types/store/redux.store.types";
-import {addCurrentStep} from "../actions/user.action";
+import {addCurrentStep, addCompanyData} from "../actions/user.action";
 import { withRouter } from 'react-router-dom';
 import {Dispatch} from 'redux';
+import { DataErrorCodes } from "../helpers/DataError";
+import { toast } from "react-toastify";
+import { CompanyDetailsData } from '../data/companyDetails';
 
 interface CompanyDataProps {
     currentActiveStep: number;
     addCurrentStep: (step: number) => void;
+    addCompanyData: (companydata: CompanyDetailsData) => void;
 }
 
-export const CompanyDataCax = ({currentActiveStep, addCurrentStep}: CompanyDataProps) => {
+export const CompanyDataCax = ({currentActiveStep, addCurrentStep, addCompanyData}: CompanyDataProps) => {
 
     const { t } = useTranslation();
     const [search, setsearch] =  useState([]);
@@ -42,29 +46,52 @@ export const CompanyDataCax = ({currentActiveStep, addCurrentStep}: CompanyDataP
     const [postalCode, setpostalCode] = useState("");
     const [city, setcity] = useState("");
     const [country, setcountry] = useState("");
-    const [companyDetails, setcompanyDetails] = useState([])
 
 
     
-      const onSeachChange = async (x) => {
-        setsearch(x)
+      const onSeachChange = (x: any) => {
+        setsearch(x);
+        const fetchData = async () => {
         const companyDetails = await getCompanyDetails(x);
-        setcompanyDetails(companyDetails);
         setbpn(companyDetails?.[0]?.bpn);
-        setlegalEntity(companyDetails?.[0]?.names.find(x => x.type === 'INTERNATIONAL')?.value);
-        setregisteredName(companyDetails?.[0]?.names.find(x => x.type === 'REGISTERED')?.value);
-        setstreetHouseNumber(companyDetails?.[0]?.addresses?.[0]?.thoroughfares.find(x => x.type === 'INDUSTRIAL_ZONE')?.value);
-        setpostalCode(companyDetails?.[0]?.addresses?.[0]?.postCodes.find(x => x.type === 'REGULAR')?.value);
-        setcity(companyDetails?.[0]?.addresses?.[0]?.localities.find(x => x.type === 'BLOCK')?.value);
-        setcountry(companyDetails?.[0]?.addresses?.[0]?.countryCode);
+        setlegalEntity(companyDetails?.[0]?.names?.[0]?.value);
+        setregisteredName(companyDetails?.[0]?.names?.[0]?.value);
+        setstreetHouseNumber(companyDetails?.[0]?.addresses?.[0]?.thoroughfares[0]?.value);
+        setpostalCode(companyDetails?.[0]?.addresses?.[0]?.postCodes[0]?.value);
+        setcity(companyDetails?.[0]?.addresses?.[0]?.localities[0]?.value);
+        setcountry(companyDetails?.[0]?.addresses?.[0]?.country?.name);
+        }
+            // call the function
+        fetchData()
+            // make sure to catch any error
+        .catch((errorCode: number) => {
+        
+        let message = DataErrorCodes.includes(errorCode)
+            ? t(`ErrorMessage.${errorCode}`)
+            : t(`ErrorMessage.default`);
+        //   alert(message)
+
+        toast.error(message);
+        //  history.push("/finish");
+        });
     }
 
     const backClick = () => {
-        addCurrentStep(currentActiveStep-1)
+        addCurrentStep(currentActiveStep-1);
     }
 
     const nextClick = () => {
-        addCurrentStep(currentActiveStep+1)
+        addCurrentStep(currentActiveStep+1);
+        let companydata = { 
+            bpn : bpn,
+            legalEntity: legalEntity,
+            registrationName: registeredName,
+            address: streetHouseNumber,
+            postalCode: postalCode,
+            city: city,
+            country: country 
+        }
+        addCompanyData(companydata);
     }
 
 
@@ -144,7 +171,7 @@ export const CompanyDataCax = ({currentActiveStep, addCurrentStep}: CompanyDataP
                                 <option value="test2">Test 2</option>
                                 <option value="test3">Test 3</option>
                             </select> */}
-                            <input type="text" value=""/>
+                            <input type="text" value={country}/>
                         </div>
                     </Row>
 
@@ -198,6 +225,9 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
     addCurrentStep: (step: number) => {
         dispatch(addCurrentStep(step));
     },
+    addCompanyData: (companyData: CompanyDetailsData) => {
+        dispatch(addCompanyData(companyData));
+    }
   });
 
 

@@ -1,17 +1,12 @@
-import { NavLink } from 'react-router-dom'
 import { UserInfo } from '../UserInfo/UserInfo'
 import { Logo } from '../Logo/Logo'
-import './Header.css'
+import { NavMenu } from '../NavMenu/NavMenu'
+import './Header.scss'
 
-export const Header = () => (
+export const Header = ({ pages }: { pages: string[] }) => (
   <header>
     <Logo />
-    <nav>
-      <NavLink to="/">Dashboard</NavLink>
-      <NavLink to="/appstore">App Store</NavLink>
-      <NavLink to="/catalog">Data Catalog</NavLink>
-      <NavLink to="/applications">Applications</NavLink>
-    </nav>
+    <NavMenu horizontal={true} pages={pages} />
     <UserInfo />
   </header>
 )

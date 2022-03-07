@@ -1,4 +1,5 @@
 ﻿using CatenaX.NetworkServices.Registration.Service.Custodian.Models;
+using CatenaX.NetworkServices.Registration.Service.CustomException;
 
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -42,7 +43,7 @@ namespace CatenaX.NetworkServices.Registration.Service.Custodian
             if (!result.IsSuccessStatusCode)
             {
                 _logger.LogError($"Error on creating Wallet HTTP Response Code {result.StatusCode}");
-                throw new Exception("Wallet cannot be created");
+                throw new ServiceException($"Access to Custodian Failed with Status Code {result.StatusCode}", result.StatusCode);
             }
         }
 

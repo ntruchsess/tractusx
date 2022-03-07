@@ -1,8 +1,0 @@
-main.Applications a {
-    display: block;
-    line-height: 40px;
-}
-
-main.Applications a:hover {
-    background-color: white;
-}

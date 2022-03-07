@@ -1,6 +1,4 @@
 import { NavLink } from 'react-router-dom'
-import { App } from '../../../../types/AppTypes'
-
 import './AppCardNew.css'
 
 export const AppCardNew = ({ app }: any) => {

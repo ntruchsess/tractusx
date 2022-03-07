@@ -69,6 +69,25 @@
             "subTitle": "Bitte laden Sie Ihren rechtsgültigen Handelsregisterauszug hoch.",
             "dragDropMessage": "Ziehen Sie Dateien hierher und legen Sie sie dort ab, oder klicken Sie, um Dateien auszuwählen",
             "upload": "Hochladen"
+        },
+        "Responsibility": {
+            "responsAndAdmin": "Responsibility & admin account",
+            "subTitle": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts."
+        },
+        "verifyRegistration": {
+            "title": "Verify your registration data",
+            "subtitle": "Lorem ipsum sapientem ne neque dolor erat,eros solet invidunt duo Quisque aliquid leo. Pretium patrioque sociis eu nihil Cum enim ad.",
+            "heading1": "Company Data",
+            "bpn": "BPN",
+            "legalEntity": "Rechtsträger",
+            "registeredName": "Eingetragener Unternehmensname",
+            "street": "Straße",
+            "city": "Stadt",
+            "country": "Land",
+            "businessStatus": "Geschäftsstatus",
+            "stateOfActivity": "State of activity /operation",
+            "validFrom": "Gültig ab",
+            "validUntil": "Gültig bis"         
         }
 
     }
