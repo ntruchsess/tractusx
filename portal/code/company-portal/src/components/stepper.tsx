@@ -36,7 +36,7 @@ export const Stepper: FC<StepperProps> = ({currentActiveStep}) => {
                           : "step-counter col-3"
                       }>{
                         currentActiveStep > 1
-                          ? <span className="step-tick">&#10003;</span>
+                          ? <span className="step-tick"><img src="./tick.svg" alt="tick" /></span>
                           : 1 
                       }</div>
                     <div className="step-name col-9">
