@@ -1,32 +1,26 @@
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
-import { api } from 'state/api'
-import { IBpdmResponse } from 'types/bpdm/BpdmTypes'
+import { useSelector, useDispatch } from 'react-redux'
+import {fetchBusinessPartners, selectBpdms} from 'state/features/bpdm/bpdmSlice'
 
 
-// TODO: Temporary component. Will change in upcoming commits
+// Temporary component. Will change in upcoming commits
 const BpnLookup = () => {
+  const dispatch = useDispatch();
   const token = useSelector((state: any) => state.user.token)
-  const [bpnList, setBpnList] = useState<IBpdmResponse | any>();
+  const {bpdmResponse,loading} = useSelector(selectBpdms)
 
 
   useEffect(() => {
     if(token) {
-      console.log('store token:',token);
-      // Not direct call of instance, call getInstance func to keep Singleton in place
-      const bpdmApi = api.BpdmApi.getInstance(token)
-      bpdmApi.getAllBusinessPartner().then((bpdmList) => {
-        console.log('bpdmList:', bpdmList)
-        setBpnList(bpdmList)
-      })
+      dispatch(fetchBusinessPartners(token))
     }
-  }, [token])
+  }, [token, dispatch])
 
   return (
     <main className="Appstore">
       <ul>
       {
-        bpnList?.content?.map((bpn:any,index:number)=>{
+        bpdmResponse  && bpdmResponse?.content?.map((bpn:any,index:number)=>{
           return <li key={index}>{bpn.bpn}</li>
         })
       }
