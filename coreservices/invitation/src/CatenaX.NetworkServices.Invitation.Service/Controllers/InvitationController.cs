@@ -83,13 +83,13 @@ namespace CatenaX.NetworkServices.Invitation.Service.Controllers
             await _logic.GetAppRolesAsync(clientId).ConfigureAwait(false);
 
         [HttpDelete]
-        [Authorize(Policy = "OnlyDeleteOwnUser")]
-        [Route("api/invitation/tenant/{tenant}/user/{userId}")]
-        public async Task<IActionResult> ExecuteOwnUserDeletion([FromRoute] string tenant, [FromRoute] string userId)
+        [Route("api/invitation/tenant/{tenant}/ownUser")]
+        public async Task<IActionResult> ExecuteOwnUserDeletion([FromRoute] string tenant)
         {
             try
             {
-                if (await _logic.DeleteUserAsync(tenant, userId).ConfigureAwait(false))
+                var userName = User.Claims.SingleOrDefault( x => x.Type=="sub").Value as string;
+                if (await _logic.DeleteUserAsync(tenant, userName).ConfigureAwait(false))
                 {
                     return new OkResult();
                 }
