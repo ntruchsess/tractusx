@@ -75,5 +75,11 @@ namespace CatenaX.NetworkServices.Invitation.Service.Controllers
         [Route("api/invitation/tenant/{tenant}/users")]
         public async Task<IEnumerable<UserInfo>> ReturnUsers([FromRoute] string tenant) =>
             await _logic.GetUsersAsync(tenant).ConfigureAwait(false);
+
+        [HttpGet]
+        [Authorize(Roles="view_client_roles")]
+        [Route("api/invitation/client/{clientId}/roles")]
+        public async Task<IEnumerable<string>> ReturnRoles([FromRoute] string clientId) =>
+            await _logic.GetAppRolesAsync(clientId).ConfigureAwait(false);
     }
 }
