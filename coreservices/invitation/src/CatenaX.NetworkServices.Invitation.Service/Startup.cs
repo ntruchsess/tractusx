@@ -55,15 +55,6 @@ namespace CatenaX.NetworkServices.Invitation.Service
             
             services.AddTransient<IInvitationBusinessLogic, InvitationBusinessLogic>()
                     .ConfigureInvitationSettings(Configuration.GetSection("Invitation"));
-
-            services.AddTransient<IAuthorizationHandler,ClaimRequestPathHandler>()
-                    .AddAuthorization(option => {
-                        option.AddPolicy("OnlyDeleteOwnUser", policy =>
-                        {
-                            policy.AddRequirements(new ClaimRequestPathRequirement("sub","userId"));
-                        });
-                    })
-                    .AddTransient<IHttpContextAccessor,HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
