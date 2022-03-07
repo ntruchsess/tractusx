@@ -8,14 +8,13 @@ interface AllAvatarProps extends Omit<AvatarProps, 'ImageComponent'> {
   isNotificationAlert?: boolean
 }
 
-export const userAvatar = ({
+export const UserAvatar = ({
   userImage = '',
   altText = 'CatenaX logo',
   notificationCount = 0,
   isNotificationAlert = false,
   ...props
 }: AllAvatarProps) => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const theme = useTheme()
   const notificationColor = isNotificationAlert
     ? theme.palette.danger.dangerBadge

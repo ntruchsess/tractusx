@@ -1,6 +1,6 @@
 import { ComponentStory } from '@storybook/react'
 
-import { userAvatar as Component } from '.'
+import { UserAvatar as Component } from '.'
 
 export default {
   title: 'Avatar',
