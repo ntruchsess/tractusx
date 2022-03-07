@@ -15,7 +15,7 @@ export const LangSwitch = () => {
   }
   return (
     <div className="LangSwitch">
-      {I18nService.supportedLangages.map((lang) => (
+      {I18nService.supportedLanguages.map((lang) => (
         <span key={lang}>
           <input
             type="radio"
