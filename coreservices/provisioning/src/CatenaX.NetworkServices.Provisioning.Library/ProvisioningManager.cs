@@ -116,5 +116,24 @@ namespace CatenaX.NetworkServices.Provisioning.Library
                 });
                 return users;
         }
+
+        public async Task<string> GetProviderUserNameForCentralUserIdAsync(string userId)
+        {
+            var user = (await _CentralIdp.GetUserSocialLoginsAsync(_Settings.CentralRealm, userId).ConfigureAwait(false))
+                .SingleOrDefault();
+            return user?.UserName;
+        }
+
+        public async Task<bool> DeleteSharedAndCentralUserAsync(string idpName, string userName)
+        {
+            var userIdShared = await GetSharedUserProviderIdAsync(idpName, userName).ConfigureAwait(false);
+            var userIdCentral = await GetCentralUserIdForSharedUserName(idpName, userName).ConfigureAwait(false);
+
+            if (! await DeleteSharedRealmUserAsync(idpName, userIdShared).ConfigureAwait(false)) return false;
+
+            if (! await DeleteCentralRealmUserAsync(_Settings.CentralRealm, userIdCentral).ConfigureAwait(false)) return false;
+
+            return true;
+        }
     }
 }

@@ -81,5 +81,46 @@ namespace CatenaX.NetworkServices.Invitation.Service.Controllers
         [Route("api/invitation/client/{clientId}/roles")]
         public async Task<IEnumerable<string>> ReturnRoles([FromRoute] string clientId) =>
             await _logic.GetAppRolesAsync(clientId).ConfigureAwait(false);
+
+        [HttpDelete]
+        [Route("api/invitation/tenant/{tenant}/ownUser")]
+        public async Task<IActionResult> ExecuteOwnUserDeletion([FromRoute] string tenant)
+        {
+            try
+            {
+                var userName = User.Claims.SingleOrDefault( x => x.Type=="sub").Value as string;
+                if (await _logic.DeleteUserAsync(tenant, userName).ConfigureAwait(false))
+                {
+                    return new OkResult();
+                }
+                _logger.LogError("unsuccessful");
+                return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.ToString());
+                return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+            }
+        }
+
+        [HttpDelete]
+        [Authorize(Roles="delete_user_account")]
+        [Route("api/invitation/tenant/{tenant}/users")]
+        public async Task<IActionResult> ExecuteUserDeletion([FromRoute] string tenant, [FromBody] IEnumerable<UserDeletionInfo> usersToDelete)
+        {
+            try
+            {
+                var deletedUsers = await _logic.DeleteUsersAsync(usersToDelete, tenant).ConfigureAwait(false);
+                
+                return Ok(deletedUsers);
+                
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.ToString());
+                return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+
+            }
+        }
     }
 }

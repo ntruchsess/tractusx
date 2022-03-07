@@ -124,5 +124,42 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
 
         public async Task<IEnumerable<string>> GetAppRolesAsync(string clientId) =>
             await _provisioningManager.GetClientRolesAsync(clientId).ConfigureAwait(false);
+
+        public async Task<bool> DeleteUserAsync(string tenant, string userId)
+        {
+            var idpName = tenant;
+            try
+            {
+                var userName = await _provisioningManager.GetProviderUserNameForCentralUserIdAsync(userId);
+                if (!await _provisioningManager.DeleteSharedAndCentralUserAsync(idpName, userName).ConfigureAwait(false)) return false;
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, "Error while deleting user");
+            }
+            return true;
+        }
+
+        public async Task<IEnumerable<string>> DeleteUsersAsync(IEnumerable<UserDeletionInfo> usersToDelete, string tenant)
+        {
+            var idpName = tenant;
+            List<string> userList = new List<string>();
+            foreach (UserDeletionInfo user in usersToDelete)
+            {
+                try
+                {
+                    var userName = user.userName;
+                    if (await _provisioningManager.DeleteSharedAndCentralUserAsync(idpName, userName).ConfigureAwait(false))
+                    {
+                        userList.Add(user.userName);
+                    }
+                }
+                catch (Exception e)
+                {
+                    _logger.LogError(e, "Error while deleting user");
+                }
+            }
+            return userList;
+        }
     }
 }
