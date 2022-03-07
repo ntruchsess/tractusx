@@ -2,13 +2,13 @@ import { combineReducers } from 'redux'
 import appsSlice from 'state/features/apps/apps'
 import postsSlice from 'state/features/posts/posts'
 import userSlice from 'state/features/user/userSlice'
-import bpdmSlice from 'state/features/bpdm/bpdmSlice'
+import partnerNetworkSlice from 'state/features/partnerNetwork/partnerNetworkSlice'
 
 const rootReducer = combineReducers({
   apps: appsSlice.reducer,
   posts: postsSlice.reducer,
   user: userSlice,
-  bpdm: bpdmSlice.reducer
+  partnerNetwork: partnerNetworkSlice.reducer
 })
 
 export default rootReducer

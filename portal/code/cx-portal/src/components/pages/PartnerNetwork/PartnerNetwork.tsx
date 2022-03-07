@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import {fetchBusinessPartners, selectBpdms} from 'state/features/bpdm/bpdmSlice'
+import {fetchBusinessPartners, selectorPartnerNetwork} from 'state/features/partnerNetwork/partnerNetworkSlice'
 
 
 // Temporary component. Will change in upcoming commits
-const BpnLookup = () => {
+const PartnerNetwork = () => {
   const dispatch = useDispatch();
   const token = useSelector((state: any) => state.user.token)
-  const {bpdmResponse,loading} = useSelector(selectBpdms)
+  const {businessPartners,loading} = useSelector(selectorPartnerNetwork)
 
 
   useEffect(() => {
     if(token) {
-      dispatch(fetchBusinessPartners(token))
+      dispatch(fetchBusinessPartners())
     }
   }, [token, dispatch])
 
@@ -20,7 +20,7 @@ const BpnLookup = () => {
     <main className="Appstore">
       <ul>
       {
-        bpdmResponse  && bpdmResponse?.content?.map((bpn:any,index:number)=>{
+        businessPartners  && businessPartners?.content?.map((bpn:any,index:number)=>{
           return <li key={index}>{bpn.bpn}</li>
         })
       }
@@ -30,4 +30,4 @@ const BpnLookup = () => {
   )
 }
 
-export default BpnLookup
+export default PartnerNetwork

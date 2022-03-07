@@ -2,8 +2,8 @@ import {HttpClient} from 'utils/HttpClient'
 import {IBpdmResponse} from 'types/bpdm/BpdmTypes'
 
 // Instance of BPDM API endpoint
-export class BpdmApi extends HttpClient {
-  private static classInstance?: BpdmApi
+export class PartnerNetworkApi extends HttpClient {
+  private static classInstance?: PartnerNetworkApi
 
   // TODO: Token needs to read from Redux store
   public constructor(token: string) {
@@ -13,7 +13,7 @@ export class BpdmApi extends HttpClient {
   // To avoid create an instance everytime, pointed to Singleton of static value
   public static getInstance(token: string) {
     if (!this.classInstance) {
-      this.classInstance = new BpdmApi(token)
+      this.classInstance = new PartnerNetworkApi(token)
     }
 
     return this.classInstance

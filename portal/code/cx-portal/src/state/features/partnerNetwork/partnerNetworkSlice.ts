@@ -1,15 +1,16 @@
 import { createSlice, createSelector, createAsyncThunk } from '@reduxjs/toolkit'
 import { api } from 'state/api'
 import { IBpdmResponse } from 'types/bpdm/BpdmTypes'
+import {store} from 'state/store'
 
 export const fetchBusinessPartners = createAsyncThunk(
-  "bpdm/fetchBusinessPartners", async (token:string) => {
+  "partnerNetwork/fetchBusinessPartners", async () => {
     try {
       // Call axios instance to get values
-      const bpdmApi = api.BpdmApi.getInstance(token)
-
-      console.log('api calls to :',bpdmApi)
-      return await bpdmApi.getAllBusinessPartner()
+      if(store.getState().user?.token){
+        const partnerNetworkApi = api.PartnerNetworkApi.getInstance(store.getState().user?.token)
+        return await partnerNetworkApi.getAllBusinessPartner()
+      }
     } catch (error: any) {
       // TODO: Proper error handling for Thunk errors
       console.error('api call error:',error)
@@ -17,10 +18,10 @@ export const fetchBusinessPartners = createAsyncThunk(
   });
 
 
-const bpdmSlice = createSlice({
-  name: "bpdm",
+const partnerNetworkSlice = createSlice({
+  name: "partnerNetwork",
   initialState: {
-    bpdmResponse: {} as IBpdmResponse,
+    businessPartners: {} as IBpdmResponse,
     loading: false,
     error: "",
   },
@@ -28,12 +29,12 @@ const bpdmSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchBusinessPartners.pending, (state) => {
 
-      state.bpdmResponse = {} as IBpdmResponse
+      state.businessPartners = {} as IBpdmResponse
       state.loading = true
     });
     builder.addCase(
       fetchBusinessPartners.fulfilled, (state, { payload }) => {
-        state.bpdmResponse = payload as IBpdmResponse
+        state.businessPartners = payload as IBpdmResponse
         state.loading = false
       });
     builder.addCase(
@@ -44,11 +45,11 @@ const bpdmSlice = createSlice({
   }
 });
 
-export const selectBpdms = createSelector(
+export const selectorPartnerNetwork = createSelector(
   (state:any) => ({
-    bpdmResponse: state.bpdm.bpdmResponse,
-    loading: state.bpdm.loading,
+    businessPartners: state.partnerNetwork.businessPartners,
+    loading: state.partnerNetwork.loading,
   }), (state) =>  state
 );
 
-export default bpdmSlice
+export default partnerNetworkSlice
