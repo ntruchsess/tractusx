@@ -1,23 +1,36 @@
+import { Box } from '@mui/material'
 interface LogoProps {
-  type: 'standard' | 'short' | 'text'
+  variant: 'standard' | 'short' | 'text'
+  altText: string
 }
 
-export const Logo = ({ type = 'standard', ...props }: LogoProps) => {
-  let image, altText
+export const Logo = ({
+  variant = 'standard',
+  altText = 'CatenaX logo',
+  ...props
+}: LogoProps) => {
+  let image
 
-  switch (type) {
+  switch (variant) {
     case 'short':
       image = '/cx-logo-short.svg'
-      altText = 'CatenaX short logo'
       break
     case 'text':
       image = '/cx-logo-text.svg'
-      altText = 'CatenaX logo with text'
       break
     default:
       image = '/cx-logo.svg'
-      altText = 'CatenaX logo'
   }
 
-  return <img className="logo-image" src={image} alt={altText} {...props} />
+  return (
+    <Box
+      component="img"
+      sx={{
+        maxWidth: '100%',
+      }}
+      src={image}
+      alt={altText}
+      {...props}
+    />
+  )
 }

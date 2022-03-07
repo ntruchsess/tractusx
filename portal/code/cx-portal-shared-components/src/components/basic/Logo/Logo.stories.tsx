@@ -13,5 +13,6 @@ const Template: ComponentStory<typeof Component> = (args: any) => (
 
 export const Logo = Template.bind({})
 Logo.args = {
-  type: 'short',
+  variant: 'short',
+  altText: 'Logo CatenaX',
 }
