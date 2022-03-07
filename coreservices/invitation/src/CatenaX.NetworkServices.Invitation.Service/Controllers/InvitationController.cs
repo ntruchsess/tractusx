@@ -10,6 +10,8 @@ using CatenaX.NetworkServices.Invitation.Service.BusinessLogic;
 using System.Linq;
 using System.Collections.Generic;
 using CatenaX.NetworkServices.Provisioning.Library;
+using Keycloak.Net.Models.Users;
+using CatenaX.NetworkServices.Provisioning.Library.Models;
 
 namespace CatenaX.NetworkServices.Invitation.Service.Controllers
 {
@@ -67,5 +69,11 @@ namespace CatenaX.NetworkServices.Invitation.Service.Controllers
 
             }
         }
+
+        [HttpGet]
+        [Authorize(Roles="view_user_management")]
+        [Route("api/invitation/tenant/{tenant}/users")]
+        public async Task<IEnumerable<UserInfo>> ReturnUsers([FromRoute] string tenant) =>
+            await _logic.GetUsersAsync(tenant).ConfigureAwait(false);
     }
 }

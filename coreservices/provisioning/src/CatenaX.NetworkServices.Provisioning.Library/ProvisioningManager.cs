@@ -99,5 +99,19 @@ namespace CatenaX.NetworkServices.Provisioning.Library
 
         public async Task<IEnumerable<string>> GetClientRolesCompositeAsync(string clientId) =>
             (await _CentralIdp.GetRolesAsync(_Settings.CentralRealm, clientId).ConfigureAwait(false)).Where(r => r.Composite == true).Select(g => g.Name);
+
+        public async Task<IEnumerable<UserInfo>> GetUsersFromSharedAsync(string idpName)
+        {
+            var users = (await _SharedIdp.GetUsersAsync(idpName, briefRepresentation: true).ConfigureAwait(false))
+                .Select( o => new UserInfo
+                {
+                    userName = o.UserName,
+                    firstName = o.FirstName,
+                    lastName = o.LastName,
+                    eMail = o.Email,
+                    enabled = o.Enabled
+                });
+                return users;
+        }
     }
 }
