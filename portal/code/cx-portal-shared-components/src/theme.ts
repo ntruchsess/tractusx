@@ -14,10 +14,19 @@ const palette = {
     main: '#eaf1fe',
     dark: '#d4e3fe',
   },
+  brand: {
+    brand01: '#FFA600',
+    brand02: '#B3CB2D',
+  },
   action: {
     active: '#939393',
     disabled: '#ADADAD',
     disabledBackground: '#EAEAEA',
+  },
+  danger: {
+    danger: '#D91E18',
+    dangerHover: '#E5231D',
+    dangerBadge: '#FB6540',
   },
   icon: {
     icon01: '#939393',
@@ -238,6 +247,14 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           fontFamily: getFontFamily('LibreFranklin-SemiBold'),
+        },
+      },
+    },
+    MuiBadge: {
+      styleOverrides: {
+        root: {
+          fontFamily: getFontFamily('LibreFranklin-SemiBold'),
+          color: palette.common.white,
         },
       },
     },

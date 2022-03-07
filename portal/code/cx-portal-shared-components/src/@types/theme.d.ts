@@ -7,6 +7,16 @@ declare module '@mui/material/styles' {
     icon03: string
   }
 
+  interface TypeBrand {
+    brand01: string
+    brand02: string
+  }
+  interface TypeDanger {
+    danger: string
+    dangerHover: string
+    dangerBadge: string
+  }
+
   interface TypeBorders {
     border01: string
     border02: string
@@ -38,6 +48,8 @@ declare module '@mui/material/styles' {
     border: TypeBorders
     background: TypeBackground
     textField: TypeTextField
+    brand: TypeBrand
+    danger: TypeDanger
   }
   interface PaletteOptions {
     icon?: Partial<TypeIcons>
