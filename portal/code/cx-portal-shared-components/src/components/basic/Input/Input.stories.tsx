@@ -3,7 +3,7 @@ import { ComponentStory } from '@storybook/react'
 import { Input as Component } from '.'
 
 export default {
-  title: 'Input',
+  title: 'Form',
   component: Component,
   argTypes: {
     onClick: {
@@ -16,8 +16,8 @@ const Template: ComponentStory<typeof Component> = (args: any) => (
   <Component {...args} />
 )
 
-export const MuiInput = Template.bind({})
-MuiInput.args = {
+export const Input = Template.bind({})
+Input.args = {
   disabled: false,
   error: false,
 }

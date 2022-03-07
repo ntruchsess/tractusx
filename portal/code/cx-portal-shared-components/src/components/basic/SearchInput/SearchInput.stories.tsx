@@ -3,7 +3,7 @@ import { ComponentStory } from '@storybook/react'
 import { SearchInput as Component } from '.'
 
 export default {
-  title: 'Search',
+  title: 'Form',
   component: Component,
   argTypes: {},
 }

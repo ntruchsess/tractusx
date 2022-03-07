@@ -41,6 +41,12 @@ const palette = {
     background09: '#EDF0F4',
     background10: '#303030F2',
   },
+  textField: {
+    placeholderText: '#8D8D8D',
+    helperText: '#717171',
+    background: '#F7F7F7',
+    backgroundHover: '#ECECEC',
+  },
 }
 
 const getFontFamily = (name: string): string =>
@@ -198,10 +204,24 @@ export const theme = createTheme({
     MuiFilledInput: {
       styleOverrides: {
         root: {
+          backgroundColor: palette.textField.background,
           borderRadius: '6px 6px 0 0',
           '.MuiFilledInput-input': {
             padding: '16px',
           },
+          '&.Mui-focused': {
+            backgroundColor: palette.textField.backgroundHover,
+          },
+          '&.Mui-disabled': {
+            backgroundColor: palette.textField.background,
+          },
+        },
+      },
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          fontFamily: getFontFamily('LibreFranklin-SemiBold'),
         },
       },
     },

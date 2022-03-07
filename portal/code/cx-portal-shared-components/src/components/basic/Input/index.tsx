@@ -35,7 +35,6 @@ export const Input = ({
             position: 'relative',
             transform: 'none',
             fontSize: 14,
-            fontWeight: 'bold',
           }}
         >
           {label}

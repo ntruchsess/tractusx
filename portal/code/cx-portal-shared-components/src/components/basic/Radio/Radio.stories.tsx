@@ -16,7 +16,7 @@ const Template: ComponentStory<typeof Component> = (args: any) => (
   <Component {...args} />
 )
 
-export const MuiRadio = Template.bind({})
-MuiRadio.args = {
+export const Radio = Template.bind({})
+Radio.args = {
   disabled: true,
 }

@@ -16,7 +16,7 @@ const Template: ComponentStory<typeof Component> = (args: any) => (
   <Component {...args} />
 )
 
-export const MuiCheckbox = Template.bind({})
-MuiCheckbox.args = {
+export const Checkbox = Template.bind({})
+Checkbox.args = {
   disabled: true,
 }
