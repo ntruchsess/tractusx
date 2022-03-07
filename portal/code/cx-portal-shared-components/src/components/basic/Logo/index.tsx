@@ -1,4 +1,8 @@
 import { Box } from '@mui/material'
+import CXLogo from '../../../assets/logo/cx-logo.svg'
+import CXLogoShort from '../../../assets/logo/cx-logo-short.svg'
+import CXLogoText from '../../../assets/logo/cx-logo-text.svg'
+
 interface LogoProps {
   variant: 'standard' | 'short' | 'text'
   altText: string
@@ -13,13 +17,13 @@ export const Logo = ({
 
   switch (variant) {
     case 'short':
-      image = '/cx-logo-short.svg'
+      image = CXLogoShort
       break
     case 'text':
-      image = '/cx-logo-text.svg'
+      image = CXLogoText
       break
     default:
-      image = '/cx-logo.svg'
+      image = CXLogo
   }
 
   return (
