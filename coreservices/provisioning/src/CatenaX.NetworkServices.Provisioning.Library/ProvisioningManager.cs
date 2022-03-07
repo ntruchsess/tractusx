@@ -114,13 +114,15 @@ namespace CatenaX.NetworkServices.Provisioning.Library
                 return users;
         }
 
-        public async Task<bool> DeleteSharedAndCentralUserAsync(string idpName, string userId)
+        public async Task<bool> DeleteSharedAndCentralUserAsync(string idpName, string userName)
         {
-            var userIdShared = await GetProviderIdForCentralUserIdAsync(_Settings.CentralRealm, userId).ConfigureAwait(false);
-            
+            var userIdCentral = await GetCentralUserIdForSharedUserName(idpName, userName).ConfigureAwait(false);
+            var userIdShared = await GetSharedUserProviderIdAsync(idpName, userName).ConfigureAwait(false);
+
+            //if statement: what happens if delete methods fail?
             await DeleteSharedRealmUserAsync(idpName, userIdShared).ConfigureAwait(false);
 
-            await DeleteCentralRealmUserAsync(_Settings.CentralRealm, userId).ConfigureAwait(false);
+            await DeleteCentralRealmUserAsync(_Settings.CentralRealm, userIdCentral).ConfigureAwait(false);
 
             return true;
         }

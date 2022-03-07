@@ -136,9 +136,10 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
             {
                 try
                 {
-                    var userId = user.userId;
-                    await _provisioningManager.DeleteSharedAndCentralUserAsync(idpName, userId).ConfigureAwait(false);
+                    var userName = user.userName;
+                    var result = await _provisioningManager.DeleteSharedAndCentralUserAsync(idpName, userName).ConfigureAwait(false);
                     userList.Add(user.userName);
+                    // add to userList if result true
                 }
                 catch (Exception e)
                 {
