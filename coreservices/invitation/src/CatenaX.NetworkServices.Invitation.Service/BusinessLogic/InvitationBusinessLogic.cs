@@ -120,6 +120,6 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
         }
 
         public async Task<IEnumerable<UserInfo>> GetUsersAsync(string idpName) =>
-        await _provisioningManager.GetUsersFromSharedAsync(idpName).ConfigureAwait(false);
+            await _provisioningManager.GetUsersFromSharedAsync(idpName).ConfigureAwait(false);
     }
 }

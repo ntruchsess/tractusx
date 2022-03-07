@@ -105,7 +105,6 @@ namespace CatenaX.NetworkServices.Provisioning.Library
             var users = (await _SharedIdp.GetUsersAsync(idpName, briefRepresentation: true).ConfigureAwait(false))
                 .Select( o => new UserInfo
                 {
-                    userId = o.Id,
                     userName = o.UserName,
                     firstName = o.FirstName,
                     lastName = o.LastName,
