@@ -1,15 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 using PasswordGenerator;
 
 using CatenaX.NetworkServices.Mailing.SendMail;
 using CatenaX.NetworkServices.Provisioning.Library;
 using CatenaX.NetworkServices.Provisioning.Library.Models;
-using Microsoft.Extensions.Logging;
-using System;
-using Microsoft.Extensions.Options;
 
 namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
 {
@@ -113,10 +114,42 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
                 }
                 catch (Exception e)
                 {
-                    _logger.LogError(e, "Error while creating user");
+                    _logger.LogError(e, $"Error while creating user {user.userName ?? user.eMail}");
                 }
             }
             return userList;
         }
+
+        public async Task<IEnumerable<UserInfo>> GetUsersAsync(string idpName) =>
+            await _provisioningManager.GetUsersFromSharedAsync(idpName).ConfigureAwait(false);
+
+        public async Task<IEnumerable<string>> GetAppRolesAsync(string clientId) =>
+            await _provisioningManager.GetClientRolesAsync(clientId).ConfigureAwait(false);
+
+        public async Task<bool> DeleteUserAsync(string tenant, string userId)
+        {
+            try
+            {
+                var userIdShared = await _provisioningManager.GetProviderUserIdForCentralUserIdAsync(userId);
+                return await _provisioningManager.DeleteSharedAndCentralUserAsync(tenant, userIdShared).ConfigureAwait(false);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, "Error while deleting user");
+                return false;
+            }
+        }
+
+        public async Task<IEnumerable<string>> DeleteUsersAsync(UserDeletionInfo usersToDelete, string tenant) =>
+            (await Task.WhenAll(usersToDelete.userIds.Select(async userId => { 
+                try {
+                    return await _provisioningManager.DeleteSharedAndCentralUserAsync(tenant, userId).ConfigureAwait(false) ? userId : null;
+                }
+                catch (Exception e)
+                {
+                    _logger.LogError(e, $"Error while deleting user {userId}");
+                    return null;
+                }
+            }))).Where(userName => userName != null);
     }
 }

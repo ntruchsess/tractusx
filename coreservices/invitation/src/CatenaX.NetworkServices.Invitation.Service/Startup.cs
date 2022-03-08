@@ -12,6 +12,9 @@ using CatenaX.NetworkServices.Mailing.SendMail;
 using CatenaX.NetworkServices.Mailing.Template;
 using CatenaX.NetworkServices.Provisioning.Library;
 using CatenaX.NetworkServices.Invitation.Service.BusinessLogic;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace CatenaX.NetworkServices.Invitation.Service
 {
@@ -73,6 +76,8 @@ namespace CatenaX.NetworkServices.Invitation.Service
             //app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
             app.UseAuthentication();
             app.UseAuthorization();

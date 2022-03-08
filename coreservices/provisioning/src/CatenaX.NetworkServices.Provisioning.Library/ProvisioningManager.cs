@@ -97,7 +97,46 @@ namespace CatenaX.NetworkServices.Provisioning.Library
         public Task<bool> AssignInvitedUserInitialRoles(string centralUserId) =>
             AssignClientRolesToCentralUserAsync(centralUserId,_Settings.InvitedUserInitialRoles);
 
-        public async Task<IEnumerable<string>> GetClientRolesCompositeAsync(string clientId) =>
-            (await _CentralIdp.GetRolesAsync(_Settings.CentralRealm, clientId).ConfigureAwait(false)).Where(r => r.Composite == true).Select(g => g.Name);
+        public async Task<IEnumerable<string>> GetClientRolesAsync(string clientId)
+        {
+            var idOfClient = await GetIdOfClientFromClientIDAsync(clientId).ConfigureAwait(false);
+            return (await _CentralIdp.GetRolesAsync(_Settings.CentralRealm, idOfClient).ConfigureAwait(false))
+                .Select(g => g.Name);
+        }
+
+        public async Task<IEnumerable<string>> GetClientRolesCompositeAsync(string clientId)
+        {
+            var idOfClient = await GetIdOfClientFromClientIDAsync(clientId).ConfigureAwait(false);
+            return (await _CentralIdp.GetRolesAsync(_Settings.CentralRealm, idOfClient).ConfigureAwait(false))
+                .Where(r => r.Composite == true)
+                .Select(g => g.Name);
+        }
+
+        public async Task<IEnumerable<UserInfo>> GetUsersFromSharedAsync(string idpName) =>
+            (await _SharedIdp.GetUsersAsync(idpName, briefRepresentation: true).ConfigureAwait(false))
+                .Select( o => new UserInfo
+                {
+                    userId = o.Id,
+                    userName = o.UserName,
+                    firstName = o.FirstName,
+                    lastName = o.LastName,
+                    eMail = o.Email,
+                    enabled = o.Enabled
+                });
+
+        public async Task<string> GetProviderUserIdForCentralUserIdAsync(string userId) =>
+            (await _CentralIdp.GetUserSocialLoginsAsync(_Settings.CentralRealm, userId).ConfigureAwait(false))
+                .SingleOrDefault()?.UserId;
+
+        public async Task<bool> DeleteSharedAndCentralUserAsync(string idpName, string userIdShared)
+        {
+            var userIdCentral = await GetCentralUserIdForProviderIdAsync(idpName, userIdShared).ConfigureAwait(false);
+
+            if (! await DeleteSharedRealmUserAsync(idpName, userIdShared).ConfigureAwait(false)) return false;
+
+            if (! await DeleteCentralRealmUserAsync(_Settings.CentralRealm, userIdCentral).ConfigureAwait(false)) return false;
+
+            return true;
+        }
     }
 }
