@@ -17,142 +17,47 @@ import "react-datepicker/dist/react-datepicker.css";
 import React, {FC} from 'react';
 import {connect} from 'react-redux';
 import {IState} from "../types/store/redux.store.types";
-import { useTranslation } from 'react-i18next';
+import { stepNames } from "../helpers/steps"
 interface StepperProps {
     currentActiveStep: number;
 }
 
 export const Stepper: FC<StepperProps> = ({currentActiveStep}) => {
-    const { t } = useTranslation();
-    console.log(currentActiveStep)
     return (
         <div className="mx-auto col-11 reg-steps">
               <Row className="stepper-wrapper row-cols-5">
-                <div className="stepper-item completed col">
+             {
+               Object.entries(stepNames).map(element => {
+                let stepNumber = +element[0];
+                let stepName = element[1];
+               return ( 
+               <div className="stepper-item col">
                   <Row className="stepper-row">
                     <div className={
-                        currentActiveStep >= 1
+                        currentActiveStep >= stepNumber
                           ? "step-counter step-active col-3"
                           : "step-counter col-3"
                       }>{
-                        currentActiveStep > 1
+                        currentActiveStep > stepNumber
                           ? <span className="step-tick"><img src="./tick.svg" alt="tick" /></span>
-                          : 1 
+                          : stepNumber
                       }</div>
                     <div className="step-name col-9">
-                      {t("registration.companyData")}
+                       { stepName }
                     </div>
                   </Row>
                   <Row>
                     <div
                       className={
-                        currentActiveStep === 1
+                        currentActiveStep === stepNumber
                           ? "step-border col-10 mx-auto"
                           : ""
                       }
                     ></div>
                   </Row>
-                </div>
-                <div className="stepper-item completed col">
-                  <Row className="stepper-row">
-                    <div className={
-                        currentActiveStep >= 2
-                          ? "step-counter step-active col-3"
-                          : "step-counter col-3"
-                      }>{
-                        currentActiveStep > 2
-                          ? <span className="step-tick">&#10003;</span>
-                          : 2 
-                      }</div>
-                    <div className="step-name col-9">
-                      {t("registration.responsAdmin")}
-                    </div>
-                  </Row>
-                  <Row>
-                    <div
-                      className={
-                        currentActiveStep === 2
-                          ? "step-border col-10 mx-auto"
-                          : ""
-                      }
-                    ></div>
-                  </Row>
-                </div>
-                <div className="stepper-item active col">
-                  <Row className="stepper-row">
-                    <div className={
-                        currentActiveStep >= 3
-                          ? "step-counter step-active col-3"
-                          : "step-counter col-3"
-                      }>{
-                        currentActiveStep > 3
-                          ? <span className="step-tick">&#10003;</span>
-                          : 3 
-                      }</div>
-                    <div className="step-name col-9">
-                      {t("registration.companyRole")}
-                    </div>
-                  </Row>
-                  <Row>
-                    <div
-                      className={
-                        currentActiveStep === 3
-                          ? "step-border col-10 mx-auto"
-                          : ""
-                      }
-                    ></div>
-                  </Row>
-                </div>
-                <div className="stepper-item col">
-                  <Row className="stepper-row">
-                    <div className={
-                        currentActiveStep >= 4
-                          ? "step-counter step-active col-3"
-                          : "step-counter col-3"
-                      }>{
-                        currentActiveStep > 4
-                          ? <span className="step-tick">&#10003;</span>
-                          : 4 
-                      }</div>
-                    <div className="step-name col-9">
-                      {t("registration.uploadDocument")}
-                    </div>
-                  </Row>
-                  <Row>
-                    <div
-                      className={
-                        currentActiveStep === 4
-                          ? "step-border col-10 mx-auto"
-                          : ""
-                      }
-                    ></div>
-                  </Row>
-                </div>
-                <div className="stepper-item col">
-                  <Row className="stepper-row">
-                    <div className={
-                        currentActiveStep >= 5
-                          ? "step-counter step-active col-3"
-                          : "step-counter col-3"
-                      }>{
-                        currentActiveStep > 5
-                          ? <span className="step-tick">&#10003;</span>
-                          : 5 
-                      }</div>
-                    <div className="step-name col-9">
-                      {t("registration.verifyEntries")}
-                    </div>
-                  </Row>
-                  <Row>
-                    <div
-                      className={
-                        currentActiveStep === 5
-                          ? "step-border col-10 mx-auto"
-                          : ""
-                      }
-                    ></div>
-                  </Row>
-                </div>
+                </div> 
+                );
+               })}                   
               </Row>
             </div>
     )
