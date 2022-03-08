@@ -1,5 +1,5 @@
 // components/simple-dropzone.component.js
-import React from "react";
+import {useEffect} from "react";
 import Dropzone from 'react-dropzone-uploader'
 import 'react-dropzone-uploader/dist/styles.css'
 import { useTranslation } from 'react-i18next';
@@ -9,6 +9,7 @@ import {IState} from "../types/store/redux.store.types";
 import {addCurrentStep} from "../actions/user.action";
 import { withRouter } from 'react-router-dom';
 import {Dispatch} from 'redux';
+import { uploadDocument } from "../helpers/utils";
 
 interface DragDropProps {
   currentActiveStep: number;
@@ -18,6 +19,10 @@ interface DragDropProps {
 export const DragDrop = ({currentActiveStep, addCurrentStep}: DragDropProps) => {
   const { t } = useTranslation();
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
     // Payload data and url to upload files
     const getUploadParams = ({ meta }) => { return { url: 'https://httpbin.org/post' } }
 
@@ -25,9 +30,11 @@ export const DragDrop = ({currentActiveStep, addCurrentStep}: DragDropProps) => 
     const handleChangeStatus = ({ meta, file }, status) => { console.log(status, meta, file) }
 
     // Return array of uploaded files after submit button is clicked
-    const handleSubmit = (files, allFiles) => {
+    const handleSubmit = async (files, allFiles) => {
         console.log(files.map(f => f.meta))
-        allFiles.forEach(f => f.remove())
+        let res = await uploadDocument(files);
+        console.log(res);
+        // allFiles.forEach(f => f.remove())
     }
 
   const backClick = () => {
