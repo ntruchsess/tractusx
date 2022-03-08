@@ -92,12 +92,24 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
 
         [HttpPost]
         [Route("documents")]
-        [Authorize(Roles = "invite_user")]
+        [Authorize(Roles = "upload_documents")]
         public async Task<IActionResult> CreateDocument([FromForm(Name = "document")] IFormFile document)
         {
-            var username = User.Claims.SingleOrDefault(x => x.Type == "sub").Value as string;
+            try
+            {
+                var username = User.Claims.SingleOrDefault(x => x.Type == "name").Value as string;
+            if (string.IsNullOrEmpty(document.FileName))
+            {
+                return BadRequest();
+            }
             await _registrationBusinessLogic.CreateDocument(document, username);
-            return new OkResult();
+            return Ok();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.ToString());
+                return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+            }
         }
 
         [HttpPut]
