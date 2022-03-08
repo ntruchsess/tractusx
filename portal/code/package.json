@@ -1,7 +1,0 @@
-{
-  "private": "true",
-  "workspaces": [
-    "cx-portal",
-    "cx-portal-shared-components"
-  ]
-}

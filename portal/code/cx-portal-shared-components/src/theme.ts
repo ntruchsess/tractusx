@@ -1,5 +1,10 @@
 import { createTheme } from '@mui/material/styles'
 
+// Needs to use like this to overwrite data grid styles
+// https://mui.com/components/data-grid/getting-started/#typescript
+// eslint-disable-next-line
+import type {} from '@mui/x-data-grid/themeAugmentation'
+
 const palette = {
   common: {
     white: '#fff',
@@ -256,6 +261,26 @@ export const theme = createTheme({
           fontFamily: getFontFamily('LibreFranklin-SemiBold'),
           color: palette.common.white,
         },
+      },
+    },
+    MuiDataGrid: {
+      styleOverrides: {
+        root: {
+          borderRadius: 25
+        },
+        columnHeaders:{
+          backgroundColor: `${palette.background.background03}`,
+          fontFamily: getFontFamily('LibreFranklin-SemiBold'),
+        },
+        columnSeparator:{
+          display:'none'
+        },
+        main:{
+          borderRadius: 25
+        },
+        cell:{
+          padding:"20px 5px"
+        }
       },
     },
   },
