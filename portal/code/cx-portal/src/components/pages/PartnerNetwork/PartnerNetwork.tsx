@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import {fetchBusinessPartners, selectorPartnerNetwork} from 'state/features/partnerNetwork/partnerNetworkSlice'
 
@@ -20,7 +20,7 @@ const PartnerNetwork = () => {
     <main className="Appstore">
       <ul>
       {
-        businessPartners  && businessPartners?.content?.map((bpn:any,index:number)=>{
+        businessPartners?.content?.map((bpn:any,index:number)=>{
           return <li key={index}>{bpn.bpn}</li>
         })
       }

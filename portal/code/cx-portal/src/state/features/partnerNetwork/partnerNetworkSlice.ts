@@ -1,7 +1,7 @@
-import { createSlice, createSelector, createAsyncThunk } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { api } from 'state/api'
-import { IBpdmResponse } from 'types/bpdm/BpdmTypes'
-import {store} from 'state/store'
+import { BusinessPartnerResponse, PartnerNetworkInitialState } from 'types/partnerNetwork/PartnerNetworkTypes'
+import { RootState, store } from 'state/store'
 
 export const fetchBusinessPartners = createAsyncThunk(
   "partnerNetwork/fetchBusinessPartners", async () => {
@@ -16,25 +16,24 @@ export const fetchBusinessPartners = createAsyncThunk(
       console.error('api call error:',error)
     }
   });
-
+const initialState: PartnerNetworkInitialState = {
+  businessPartners: {} as BusinessPartnerResponse,
+  loading: false,
+  error: "",
+}
 
 const partnerNetworkSlice = createSlice({
   name: "partnerNetwork",
-  initialState: {
-    businessPartners: {} as IBpdmResponse,
-    loading: false,
-    error: "",
-  },
+  initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchBusinessPartners.pending, (state) => {
-
-      state.businessPartners = {} as IBpdmResponse
+      state.businessPartners = {} as BusinessPartnerResponse
       state.loading = true
     });
     builder.addCase(
       fetchBusinessPartners.fulfilled, (state, { payload }) => {
-        state.businessPartners = payload as IBpdmResponse
+        state.businessPartners = payload as BusinessPartnerResponse
         state.loading = false
       });
     builder.addCase(
@@ -45,11 +44,5 @@ const partnerNetworkSlice = createSlice({
   }
 });
 
-export const selectorPartnerNetwork = createSelector(
-  (state:any) => ({
-    businessPartners: state.partnerNetwork.businessPartners,
-    loading: state.partnerNetwork.loading,
-  }), (state) =>  state
-);
-
+export const selectorPartnerNetwork = (state: RootState):PartnerNetworkInitialState => state.partnerNetwork
 export default partnerNetworkSlice

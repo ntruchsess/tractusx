@@ -105,7 +105,7 @@ interface BpdmBusinessStatus{
 //endregion
 
 
-export interface Bpdm{
+export interface BusinessPartner{
   bpn: string // Unique identifier
   identifiers: Array<BpdmTypeUUIDKeyPair>
   names: Array<BpdmTypeLanguagePair>
@@ -120,10 +120,16 @@ export interface Bpdm{
 }
 
 
-export interface IBpdmResponse {
+export interface BusinessPartnerResponse {
   totalElements: number
   totalPages: number
   page: number
   contentSize: number
-  content: Array<Bpdm>
+  content: Array<BusinessPartner>
+}
+
+export interface PartnerNetworkInitialState {
+  businessPartners: BusinessPartnerResponse
+  loading: boolean
+  error: string
 }

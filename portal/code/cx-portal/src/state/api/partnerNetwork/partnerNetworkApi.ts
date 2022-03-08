@@ -1,5 +1,5 @@
 import {HttpClient} from 'utils/HttpClient'
-import {IBpdmResponse} from 'types/bpdm/BpdmTypes'
+import {BusinessPartnerResponse} from 'types/partnerNetwork/PartnerNetworkTypes'
 
 // Instance of BPDM API endpoint
 export class PartnerNetworkApi extends HttpClient {
@@ -20,6 +20,6 @@ export class PartnerNetworkApi extends HttpClient {
   }
 
   // Temporary api call to test out authorization of BPDM endpoint
-  public getAllBusinessPartner = () => this.instance.get<IBpdmResponse>('/catena/business-partner?page=0&size=100')
+  public getAllBusinessPartner = () => this.instance.get<BusinessPartnerResponse>('/catena/business-partner?page=0&size=100')
 
 }
