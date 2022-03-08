@@ -10,7 +10,7 @@ interface AllAvatarProps extends Omit<AvatarProps, 'ImageComponent'> {
 
 export const UserAvatar = ({
   userImage = '',
-  altText = 'CatenaX logo',
+  altText = 'User avatar',
   notificationCount = 0,
   isNotificationAlert = false,
   ...props
