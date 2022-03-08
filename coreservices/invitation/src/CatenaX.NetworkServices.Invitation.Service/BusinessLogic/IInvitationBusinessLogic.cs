@@ -12,6 +12,6 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
         Task<IEnumerable<UserInfo>> GetUsersAsync(string tenant);
         Task<IEnumerable<string>> GetAppRolesAsync(string clientId);
         Task<bool> DeleteUserAsync(string tenant, string userName);
-        Task<IEnumerable<string>> DeleteUsersAsync(IEnumerable<UserDeletionInfo> userList, string tenant);
+        Task<IEnumerable<string>> DeleteUsersAsync(UserDeletionInfo userList, string tenant);
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using Newtonsoft.Json;
 
 namespace CatenaX.NetworkServices.Provisioning.Library.Models

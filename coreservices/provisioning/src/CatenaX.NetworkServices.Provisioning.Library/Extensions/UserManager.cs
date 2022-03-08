@@ -40,19 +40,15 @@ namespace CatenaX.NetworkServices.Provisioning.Library
                 UserName = sharedUserName
             });
 
-        private async Task<string> GetCentralUserIdForProviderIdAsync(string idpName, string providerUserId)
-        {
-            var user = (await _CentralIdp.GetUsersAsync(_Settings.CentralRealm, username: idpName + "." + providerUserId, max: 1, briefRepresentation: true).ConfigureAwait(false))
-                .SingleOrDefault();
-            return user==null ? null : user.Id;
-        }
+        private async Task<string> GetCentralUserIdForProviderIdAsync(string idpName, string providerUserId) =>
+            (await _CentralIdp.GetUsersAsync(_Settings.CentralRealm, username: idpName + "." + providerUserId, max: 1, briefRepresentation: true).ConfigureAwait(false))
+                .SingleOrDefault()
+                ?.Id;
 
-        private async Task<string> GetSharedUserProviderIdAsync(string idpName, string userName)
-        {
-            var user = (await _SharedIdp.GetUsersAsync(idpName, username: userName, max: 1, briefRepresentation: true).ConfigureAwait(false))
-                .SingleOrDefault();
-            return user==null ? null : user.Id;
-        }
+        private async Task<string> GetSharedUserProviderIdAsync(string idpName, string userName) =>
+            (await _SharedIdp.GetUsersAsync(idpName, username: userName, max: 1, briefRepresentation: true).ConfigureAwait(false))
+                .SingleOrDefault()
+                ?.Id;
 
         private async Task<string> GetCentralUserIdForSharedUserName(string idpName, string userName)
         {
@@ -64,14 +60,10 @@ namespace CatenaX.NetworkServices.Provisioning.Library
         private User CloneUser(User user) =>
             JsonSerializer.Deserialize<User>(JsonSerializer.Serialize(user));
 
-        private Task<bool> DeleteSharedRealmUserAsync(string realm, string userId)
-        {
-            return _SharedIdp.DeleteUserAsync(realm, userId);
-        }
+        private Task<bool> DeleteSharedRealmUserAsync(string realm, string userId) =>
+            _SharedIdp.DeleteUserAsync(realm, userId);
 
-        private Task<bool> DeleteCentralRealmUserAsync(string realm, string userId)
-        {
-            return _CentralIdp.DeleteUserAsync(realm, userId);
-        }
+        private Task<bool> DeleteCentralRealmUserAsync(string realm, string userId) =>
+            _CentralIdp.DeleteUserAsync(realm, userId);
     }
 }

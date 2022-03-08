@@ -112,9 +112,8 @@ namespace CatenaX.NetworkServices.Provisioning.Library
                 .Select(g => g.Name);
         }
 
-        public async Task<IEnumerable<UserInfo>> GetUsersFromSharedAsync(string idpName)
-        {
-            var users = (await _SharedIdp.GetUsersAsync(idpName, briefRepresentation: true).ConfigureAwait(false))
+        public async Task<IEnumerable<UserInfo>> GetUsersFromSharedAsync(string idpName) =>
+            (await _SharedIdp.GetUsersAsync(idpName, briefRepresentation: true).ConfigureAwait(false))
                 .Select( o => new UserInfo
                 {
                     userName = o.UserName,
@@ -123,15 +122,10 @@ namespace CatenaX.NetworkServices.Provisioning.Library
                     eMail = o.Email,
                     enabled = o.Enabled
                 });
-                return users;
-        }
 
-        public async Task<string> GetProviderUserNameForCentralUserIdAsync(string userId)
-        {
-            var user = (await _CentralIdp.GetUserSocialLoginsAsync(_Settings.CentralRealm, userId).ConfigureAwait(false))
-                .SingleOrDefault();
-            return user?.UserName;
-        }
+        public async Task<string> GetProviderUserNameForCentralUserIdAsync(string userId) =>
+            (await _CentralIdp.GetUserSocialLoginsAsync(_Settings.CentralRealm, userId).ConfigureAwait(false))
+                .SingleOrDefault()?.UserName;
 
         public async Task<bool> DeleteSharedAndCentralUserAsync(string idpName, string userName)
         {
