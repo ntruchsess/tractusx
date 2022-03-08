@@ -45,18 +45,6 @@ namespace CatenaX.NetworkServices.Provisioning.Library
                 .SingleOrDefault()
                 ?.Id;
 
-        private async Task<string> GetSharedUserProviderIdAsync(string idpName, string userName) =>
-            (await _SharedIdp.GetUsersAsync(idpName, username: userName, max: 1, briefRepresentation: true).ConfigureAwait(false))
-                .SingleOrDefault()
-                ?.Id;
-
-        private async Task<string> GetCentralUserIdForSharedUserName(string idpName, string userName)
-        {
-            var sharedUserId = await GetSharedUserProviderIdAsync(idpName, userName).ConfigureAwait(false);
-            if (sharedUserId == null) return null;
-            return await GetCentralUserIdForProviderIdAsync(idpName, sharedUserId);
-        }
-
         private User CloneUser(User user) =>
             JsonSerializer.Deserialize<User>(JsonSerializer.Serialize(user));
 

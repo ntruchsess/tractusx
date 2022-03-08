@@ -128,9 +128,8 @@ namespace CatenaX.NetworkServices.Provisioning.Library
             (await _CentralIdp.GetUserSocialLoginsAsync(_Settings.CentralRealm, userId).ConfigureAwait(false))
                 .SingleOrDefault()?.UserId;
 
-        public async Task<bool> DeleteSharedAndCentralUserAsync(string idpName, string userId)
+        public async Task<bool> DeleteSharedAndCentralUserAsync(string idpName, string userIdShared)
         {
-            var userIdShared = userId;
             var userIdCentral = await GetCentralUserIdForProviderIdAsync(idpName, userIdShared).ConfigureAwait(false);
 
             if (! await DeleteSharedRealmUserAsync(idpName, userIdShared).ConfigureAwait(false)) return false;
