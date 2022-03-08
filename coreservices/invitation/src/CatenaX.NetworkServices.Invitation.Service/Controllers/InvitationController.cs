@@ -10,7 +10,6 @@ using CatenaX.NetworkServices.Invitation.Service.BusinessLogic;
 using System.Linq;
 using System.Collections.Generic;
 using CatenaX.NetworkServices.Provisioning.Library;
-using Keycloak.Net.Models.Users;
 using CatenaX.NetworkServices.Provisioning.Library.Models;
 
 namespace CatenaX.NetworkServices.Invitation.Service.Controllers
@@ -106,20 +105,16 @@ namespace CatenaX.NetworkServices.Invitation.Service.Controllers
         [HttpDelete]
         [Authorize(Roles="delete_user_account")]
         [Route("api/invitation/tenant/{tenant}/users")]
-        public async Task<IActionResult> ExecuteUserDeletion([FromRoute] string tenant, [FromBody] IEnumerable<UserDeletionInfo> usersToDelete)
+        public async Task<IActionResult> ExecuteUserDeletion([FromRoute] string tenant, [FromBody] UserDeletionInfo usersToDelete)
         {
             try
             {
-                var deletedUsers = await _logic.DeleteUsersAsync(usersToDelete, tenant).ConfigureAwait(false);
-                
-                return Ok(deletedUsers);
-                
+                return Ok(await _logic.DeleteUsersAsync(usersToDelete, tenant).ConfigureAwait(false));
             }
             catch (Exception e)
             {
                 _logger.LogError(e.ToString());
                 return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
-
             }
         }
     }

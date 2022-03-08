@@ -1,7 +1,8 @@
-﻿namespace CatenaX.NetworkServices.Provisioning.Library
+﻿using System.Collections.Generic;
+namespace CatenaX.NetworkServices.Provisioning.Library
 {
     public class UserDeletionInfo
     {
-        public string userName { get; set; }
+        public IEnumerable<string> userNames { get; set; }
     }
 }
