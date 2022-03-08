@@ -17,6 +17,7 @@
     <ProjectReference Include="..\..\..\mailing\src\CatenaX.NetworkServices.Mailing.Template\CatenaX.NetworkServices.Mailing.Template.csproj" />
     <ProjectReference Include="..\..\..\keycloak\src\CatenaX.NetworkServices.Keycloak.Authentication\CatenaX.NetworkServices.Keycloak.Authentication.csproj" />
     <ProjectReference Include="..\..\..\provisioning\src\CatenaX.NetworkServices.Provisioning.Library\CatenaX.NetworkServices.Provisioning.Library.csproj" />
+    <ProjectReference Include="..\..\..\keycloak\src\CatenaX.NetworkServices.Keycloak.DBAccess\CatenaX.NetworkServices.Keycloak.DBAccess.csproj" />
   </ItemGroup>
 
 </Project>

@@ -63,6 +63,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatenaX.NetworkServices.Pro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatenaX.NetworkServices.Provisioning.Service", "provisioning\src\CatenaX.NetworkServices.Provisioning.Service\CatenaX.NetworkServices.Provisioning.Service.csproj", "{AFB6DF80-7E9B-4E85-82DF-74686C904ABE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatenaX.NetworkServices.Keycloak.DBAccess", "keycloak\src\CatenaX.NetworkServices.Keycloak.DBAccess\CatenaX.NetworkServices.Keycloak.DBAccess.csproj", "{345AB1AF-8E2E-4669-B468-4F191554E340}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -145,6 +147,10 @@ Global
 		{AFB6DF80-7E9B-4E85-82DF-74686C904ABE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFB6DF80-7E9B-4E85-82DF-74686C904ABE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFB6DF80-7E9B-4E85-82DF-74686C904ABE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{345AB1AF-8E2E-4669-B468-4F191554E340}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{345AB1AF-8E2E-4669-B468-4F191554E340}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{345AB1AF-8E2E-4669-B468-4F191554E340}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{345AB1AF-8E2E-4669-B468-4F191554E340}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -178,6 +184,7 @@ Global
 		{FE4A5E1E-2CB8-4149-9D22-C8C8D7FF5708} = {361B4010-82C0-11EC-8131-8BF7616386B6}
 		{655B039F-508A-430D-A942-960DDFED465B} = {41E2D910-2D1D-11EC-A4AF-635467519A0C}
 		{AFB6DF80-7E9B-4E85-82DF-74686C904ABE} = {41E2D910-2D1D-11EC-A4AF-635467519A0C}
+		{345AB1AF-8E2E-4669-B468-4F191554E340} = {361B4010-82C0-11EC-8131-8BF7616386B6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {23E9EF5A-FB26-4AAC-952E-0695A1245B8E}
