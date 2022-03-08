@@ -3,6 +3,6 @@ namespace CatenaX.NetworkServices.Provisioning.Library
 {
     public class UserDeletionInfo
     {
-        public IEnumerable<string> userNames { get; set; }
+        public IEnumerable<string> userIds { get; set; }
     }
 }

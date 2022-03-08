@@ -116,6 +116,7 @@ namespace CatenaX.NetworkServices.Provisioning.Library
             (await _SharedIdp.GetUsersAsync(idpName, briefRepresentation: true).ConfigureAwait(false))
                 .Select( o => new UserInfo
                 {
+                    userId = o.Id,
                     userName = o.UserName,
                     firstName = o.FirstName,
                     lastName = o.LastName,
@@ -123,14 +124,14 @@ namespace CatenaX.NetworkServices.Provisioning.Library
                     enabled = o.Enabled
                 });
 
-        public async Task<string> GetProviderUserNameForCentralUserIdAsync(string userId) =>
+        public async Task<string> GetProviderUserIdForCentralUserIdAsync(string userId) =>
             (await _CentralIdp.GetUserSocialLoginsAsync(_Settings.CentralRealm, userId).ConfigureAwait(false))
-                .SingleOrDefault()?.UserName;
+                .SingleOrDefault()?.UserId;
 
-        public async Task<bool> DeleteSharedAndCentralUserAsync(string idpName, string userName)
+        public async Task<bool> DeleteSharedAndCentralUserAsync(string idpName, string userId)
         {
-            var userIdShared = await GetSharedUserProviderIdAsync(idpName, userName).ConfigureAwait(false);
-            var userIdCentral = await GetCentralUserIdForSharedUserName(idpName, userName).ConfigureAwait(false);
+            var userIdShared = userId;
+            var userIdCentral = await GetCentralUserIdForProviderIdAsync(idpName, userIdShared).ConfigureAwait(false);
 
             if (! await DeleteSharedRealmUserAsync(idpName, userIdShared).ConfigureAwait(false)) return false;
 

@@ -4,6 +4,8 @@ namespace CatenaX.NetworkServices.Provisioning.Library.Models
 {
     public class UserInfo
     {
+        [JsonProperty("id")]
+        public string userId { get; set; }
         [JsonProperty("username")]
         public string userName { get; set; }
         [JsonProperty("enabled")]

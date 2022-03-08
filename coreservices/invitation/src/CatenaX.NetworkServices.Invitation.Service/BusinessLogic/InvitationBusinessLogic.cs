@@ -130,8 +130,8 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
         {
             try
             {
-                var userName = await _provisioningManager.GetProviderUserNameForCentralUserIdAsync(userId);
-                return await _provisioningManager.DeleteSharedAndCentralUserAsync(tenant, userName).ConfigureAwait(false);
+                var userIdShared = await _provisioningManager.GetProviderUserIdForCentralUserIdAsync(userId);
+                return await _provisioningManager.DeleteSharedAndCentralUserAsync(tenant, userIdShared).ConfigureAwait(false);
             }
             catch (Exception e)
             {
@@ -141,13 +141,13 @@ namespace CatenaX.NetworkServices.Invitation.Service.BusinessLogic
         }
 
         public async Task<IEnumerable<string>> DeleteUsersAsync(UserDeletionInfo usersToDelete, string tenant) =>
-            (await Task.WhenAll(usersToDelete.userNames.Select(async userName => { 
+            (await Task.WhenAll(usersToDelete.userIds.Select(async userId => { 
                 try {
-                    return await _provisioningManager.DeleteSharedAndCentralUserAsync(tenant, userName).ConfigureAwait(false) ? userName : null;
+                    return await _provisioningManager.DeleteSharedAndCentralUserAsync(tenant, userId).ConfigureAwait(false) ? userId : null;
                 }
                 catch (Exception e)
                 {
-                    _logger.LogError(e, $"Error while deleting user {userName}");
+                    _logger.LogError(e, $"Error while deleting user {userId}");
                     return null;
                 }
             }))).Where(userName => userName != null);
