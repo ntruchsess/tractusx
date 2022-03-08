@@ -61,6 +61,7 @@ export const ResponsibilitiesCax = ({
   });
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     const fetchData = async () => {
       const dataRoles = await getClientRolesComposite();
 
