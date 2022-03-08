@@ -99,14 +99,14 @@ namespace CatenaX.NetworkServices.Provisioning.Library
 
         public async Task<IEnumerable<string>> GetClientRolesAsync(string clientId)
         {
-            var idOfClient = await GetIdOfClientFromClientID(clientId).ConfigureAwait(false);
+            var idOfClient = await GetIdOfClientFromClientIDAsync(clientId).ConfigureAwait(false);
             return (await _CentralIdp.GetRolesAsync(_Settings.CentralRealm, idOfClient).ConfigureAwait(false))
                 .Select(g => g.Name);
         }
 
         public async Task<IEnumerable<string>> GetClientRolesCompositeAsync(string clientId)
         {
-            var idOfClient = await GetIdOfClientFromClientID(clientId).ConfigureAwait(false);
+            var idOfClient = await GetIdOfClientFromClientIDAsync(clientId).ConfigureAwait(false);
             return (await _CentralIdp.GetRolesAsync(_Settings.CentralRealm, idOfClient).ConfigureAwait(false))
                 .Where(r => r.Composite == true)
                 .Select(g => g.Name);

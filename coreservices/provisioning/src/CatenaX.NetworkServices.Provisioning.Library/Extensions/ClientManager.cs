@@ -24,7 +24,7 @@ namespace CatenaX.NetworkServices.Provisioning.Library
         private Client CloneClient(Client client) =>
             JsonSerializer.Deserialize<Client>(JsonSerializer.Serialize(client));
 
-        private async Task<string> GetIdOfClientFromClientID(string clientId) =>
+        private async Task<string> GetIdOfClientFromClientIDAsync(string clientId) =>
             (await GetCentralClientViewableAsync(clientId).ConfigureAwait(false))
                 .Id;
    }
