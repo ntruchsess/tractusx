@@ -97,11 +97,20 @@ namespace CatenaX.NetworkServices.Provisioning.Library
         public Task<bool> AssignInvitedUserInitialRoles(string centralUserId) =>
             AssignClientRolesToCentralUserAsync(centralUserId,_Settings.InvitedUserInitialRoles);
 
-        public async Task<IEnumerable<string>> GetClientRolesAsync(string clientId) =>
-            (await _CentralIdp.GetRolesAsync(_Settings.CentralRealm, clientId).ConfigureAwait(false)).Select(g => g.Name);
+        public async Task<IEnumerable<string>> GetClientRolesAsync(string clientId)
+        {
+            var idOfClient = await GetIdOfClientFromClientID(clientId).ConfigureAwait(false);
+            return (await _CentralIdp.GetRolesAsync(_Settings.CentralRealm, idOfClient).ConfigureAwait(false))
+                .Select(g => g.Name);
+        }
 
-        public async Task<IEnumerable<string>> GetClientRolesCompositeAsync(string clientId) =>
-            (await _CentralIdp.GetRolesAsync(_Settings.CentralRealm, clientId).ConfigureAwait(false)).Where(r => r.Composite == true).Select(g => g.Name);
+        public async Task<IEnumerable<string>> GetClientRolesCompositeAsync(string clientId)
+        {
+            var idOfClient = await GetIdOfClientFromClientID(clientId).ConfigureAwait(false);
+            return (await _CentralIdp.GetRolesAsync(_Settings.CentralRealm, idOfClient).ConfigureAwait(false))
+                .Where(r => r.Composite == true)
+                .Select(g => g.Name);
+        }
 
         public async Task<IEnumerable<UserInfo>> GetUsersFromSharedAsync(string idpName)
         {
