@@ -23,9 +23,6 @@ export const DragDrop = ({currentActiveStep, addCurrentStep}: DragDropProps) => 
     window.scrollTo(0, 0)
   }, [])
 
-    // Payload data and url to upload files
-    const getUploadParams = ({ meta }) => { return { url: 'https://httpbin.org/post' } }
-
     // Return the current status of files being uploaded
     const handleChangeStatus = ({ meta, file }, status) => { console.log(status, meta, file) }
 
@@ -61,7 +58,6 @@ export const DragDrop = ({currentActiveStep, addCurrentStep}: DragDropProps) => 
         </div>
         <div className="companydata-form mx-auto col-9">
         <Dropzone
-            getUploadParams={getUploadParams}
             onChangeStatus={handleChangeStatus}
             onSubmit={handleSubmit}
             accept="image/*,audio/*,video/*"
