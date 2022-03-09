@@ -43,4 +43,5 @@ export enum ROLES {
   SEMANTICHUB_ADDMODEL = 'semantic_addmodel',
   DEVELOPER = 'catenax_developer',
   PORTAL_DEVELOPER = 'portal_developer',
+  PARTNER_NETWORK_DEVELOPER = 'partner_network_developer'
 }
