@@ -10,6 +10,7 @@ using CatenaX.NetworkServices.Invitation.Service.BusinessLogic;
 using System.Linq;
 using System.Collections.Generic;
 using CatenaX.NetworkServices.Provisioning.Library;
+using CatenaX.NetworkServices.Provisioning.Library.Models;
 
 namespace CatenaX.NetworkServices.Invitation.Service.Controllers
 {
@@ -65,6 +66,55 @@ namespace CatenaX.NetworkServices.Invitation.Service.Controllers
                 _logger.LogError(e.ToString());
                 return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
 
+            }
+        }
+
+        [HttpGet]
+        [Authorize(Roles="view_user_management")]
+        [Route("api/invitation/tenant/{tenant}/users")]
+        public async Task<IEnumerable<UserInfo>> ReturnUsers([FromRoute] string tenant) =>
+            await _logic.GetUsersAsync(tenant).ConfigureAwait(false);
+
+        [HttpGet]
+        [Authorize(Roles="view_client_roles")]
+        [Route("api/invitation/client/{clientId}/roles")]
+        public async Task<IEnumerable<string>> ReturnRoles([FromRoute] string clientId) =>
+            await _logic.GetAppRolesAsync(clientId).ConfigureAwait(false);
+
+        [HttpDelete]
+        [Route("api/invitation/tenant/{tenant}/ownUser")]
+        public async Task<IActionResult> ExecuteOwnUserDeletion([FromRoute] string tenant)
+        {
+            try
+            {
+                var userName = User.Claims.SingleOrDefault( x => x.Type=="sub").Value as string;
+                if (await _logic.DeleteUserAsync(tenant, userName).ConfigureAwait(false))
+                {
+                    return new OkResult();
+                }
+                _logger.LogError("unsuccessful");
+                return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.ToString());
+                return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+            }
+        }
+
+        [HttpDelete]
+        [Authorize(Roles="delete_user_account")]
+        [Route("api/invitation/tenant/{tenant}/users")]
+        public async Task<IActionResult> ExecuteUserDeletion([FromRoute] string tenant, [FromBody] UserDeletionInfo usersToDelete)
+        {
+            try
+            {
+                return Ok(await _logic.DeleteUsersAsync(usersToDelete, tenant).ConfigureAwait(false));
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.ToString());
+                return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
             }
         }
     }

@@ -4,7 +4,7 @@ export interface IUserItem {
     uiId: string;
     email: string;
     role: string;
-    personalNote: string;
+    message: string;
 }
 
 

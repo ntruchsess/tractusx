@@ -53,7 +53,7 @@ export const ResponsibilitiesCax = ({
   const { t } = useTranslation();
   const [email, setEmail] = useState<string | null>("");
   const [role, setRole] = useState<string | null>("");
-  const [personalNote, setPersonalNote] = useState<string | null>("");
+  const [message, setMessage] = useState<string | null>("");
   const [availableUserRoles, setavailableUserRoles] = useState([]);
   const [error, setError] = useState<{ email: string; role: string }>({
     email: "",
@@ -91,12 +91,12 @@ export const ResponsibilitiesCax = ({
         uiId: uuidv4(),
         email: email,
         role: role,
-        personalNote: personalNote,
+        message: message,
       };
 
       addToInviteList(data);
       setEmail("");
-      setPersonalNote("");
+      setMessage("");
       if (availableUserRoles && availableUserRoles.length > 0)
         setRole(availableUserRoles[0]);
     }
@@ -229,8 +229,8 @@ export const ResponsibilitiesCax = ({
               <label> Personal note</label>
               <textarea
                 name="message"
-                value={personalNote}
-                onChange={(e) => setPersonalNote(e.target.value)}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
               />
               <div className="company-hint">
                 Optional message in the invitation e-mail. Lorem Ipsum

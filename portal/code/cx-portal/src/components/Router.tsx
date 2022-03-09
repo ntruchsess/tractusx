@@ -22,8 +22,8 @@ import AccessService from '../services/AccessService'
 import UserService from 'services/UserService'
 import { useDispatch } from 'react-redux'
 import { setLoggedUser } from 'state/features/user/userSlice'
-import { IUser } from 'types/UserTypes'
-
+import { IUser } from 'types/user/UserTypes'
+import PartnerNetwork from 'components/pages/PartnerNetwork/PartnerNetwork'
 
 
 const plainRoutes: { [page: string]: JSX.Element } = {
@@ -41,6 +41,7 @@ const plainRoutes: { [page: string]: JSX.Element } = {
   [PAGES.TESTAPI]: <TestAPI />,
   [PAGES.TRANSLATOR]: <Translator />,
   [PAGES.LOGOUT]: <Logout />,
+  [PAGES.PARTNER_NETWORK]: <PartnerNetwork />
 }
 
 export default function Router() {
