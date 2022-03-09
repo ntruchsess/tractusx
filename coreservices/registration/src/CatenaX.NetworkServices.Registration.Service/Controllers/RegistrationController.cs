@@ -68,7 +68,6 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
             {
                 _logger.LogError(e.ToString());
                 return StatusCode((int)HttpStatusCode.InternalServerError);
-
             }
         }
 
@@ -81,7 +80,6 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
             {
                 await _registrationBusinessLogic.CreateCustodianWalletAsync(walletToCreate).ConfigureAwait(false);
                 return Ok();
-
             }
             catch (ServiceException e)
             {
@@ -97,12 +95,12 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
         {
             try
             {
-                var username = User.Claims.SingleOrDefault(x => x.Type == "sub").Value as string;
                 if (string.IsNullOrEmpty(document.FileName))
                 {
                     return BadRequest();
                 }
-                await _registrationBusinessLogic.CreateDocument(document, username);
+                var userId = User.Claims.SingleOrDefault(x => x.Type == "sub").Value as string;
+                await _registrationBusinessLogic.CreateDocument(document, userId);
                 return Ok();
             }
             catch (Exception e)
