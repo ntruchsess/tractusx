@@ -15,9 +15,9 @@ interface InputProps extends Omit<TextFieldProps, 'variant'> {
 
 export const Input = ({
   variant = 'filled',
-  label = 'Label demo',
-  placeholder = 'Input demo',
-  helperText = 'Some text',
+  label,
+  placeholder,
+  helperText,
   error = false,
   ...props
 }: InputProps) => {
@@ -30,15 +30,7 @@ export const Input = ({
         error={error}
         variant="filled"
       >
-        <InputLabel
-          sx={{
-            position: 'relative',
-            transform: 'none',
-            fontSize: 14,
-          }}
-        >
-          {label}
-        </InputLabel>
+        <InputLabel>{label}</InputLabel>
         <TextField
           variant={variant}
           placeholder={placeholder}
@@ -56,14 +48,9 @@ export const Input = ({
           }
           {...props}
         />
-        <FormHelperText
-          sx={{
-            marginLeft: 0,
-            fontSize: 12,
-          }}
-        >
-          {error ? helperText : ''}
-        </FormHelperText>
+        {error && (
+          <FormHelperText sx={{ marginLeft: 0 }}>{helperText}</FormHelperText>
+        )}
       </FormControl>
     </Box>
   )

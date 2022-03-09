@@ -249,6 +249,17 @@ export const theme = createTheme({
           fontFamily: getFontFamily('LibreFranklin-SemiBold'),
         },
       },
+      variants: [
+        {
+          props: {
+            variant: 'filled',
+          },
+          style: {
+            transform: 'none',
+            position: 'relative',
+          },
+        },
+      ],
     },
     MuiBadge: {
       styleOverrides: {
