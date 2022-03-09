@@ -19,9 +19,6 @@ interface DragDropProps {
 export const DragDrop = ({currentActiveStep, addCurrentStep}: DragDropProps) => {
   const { t } = useTranslation();
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
 
     // Return the current status of files being uploaded
     const handleChangeStatus = ({ meta, file }, status) => { console.log(status, meta, file) }

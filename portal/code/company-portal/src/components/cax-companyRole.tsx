@@ -33,9 +33,6 @@ export const CompanyRoleCax = ({currentActiveStep, addCurrentStep}: CompanyRoleP
 
   const { t } = useTranslation();
   const [companyRoleChecked, setcompanyRoleChecked] =  useState(new Map());
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
 
   // const companyRoleChecked =  new Map();
 
