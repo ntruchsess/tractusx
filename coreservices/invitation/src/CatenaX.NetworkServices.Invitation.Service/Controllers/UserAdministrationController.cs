@@ -26,6 +26,7 @@ namespace CatenaX.NetworkServices.Invitation.Service.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles="view_user_management")]
         [Route("api/invitation/tenant/{tenant}/joinedusers")]
         public Task<IEnumerable<JoinedUserInfo>> QueryJoinedUsers(
                 [FromRoute] string tenant,
