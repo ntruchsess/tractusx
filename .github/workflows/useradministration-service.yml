@@ -1,4 +1,4 @@
-name: Invitation-Service
+name: UserAdministration-Service
 
 on: 
   push:
@@ -6,7 +6,7 @@ on:
     - main
     - feature/CAX-portal
     paths:
-      - 'coreservices/invitation/src/**'
+      - 'coreservices/useradministration/src/**'
   workflow_dispatch:
 
 jobs:
@@ -52,13 +52,13 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ./.github/workflows/composite/coreservicescicd
         with:
-          srcFolder: 'coreservices/invitation/src/CatenaX.NetworkServices.Invitation.Service'
-          imageName: 'invitationservice'
+          srcFolder: 'coreservices/useradministration/src/CatenaX.NetworkServices.UserAdministration.Service'
+          imageName: 'useradministrationservice'
           acrName: 'catenaxacr'
           environment: ${{needs.environment.outputs.workspace}}
           AZURE_REGISTRY_PASSWORD: ${{secrets.AZURE_REGISTRY_PASSWORD}}
           AZURE_REGISTRY_USERNAME: ${{secrets.AZURE_REGISTRY_USERNAME}}
           AZURE_CREDENTIALS: ${{secrets.AZURE_CREDENTIALS}}
-          helmDeploymentName: 'invitation'
-          serviceConfig: ${{secrets.INVITATION_SERVICE_SECRETS}}
+          helmDeploymentName: 'useradministration'
+          serviceConfig: ${{secrets.USERADMINISTRATION_SERVICE_SECRETS}}
           CLUSTER_ISSUER: service
