@@ -1,4 +1,4 @@
-
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31717.71
@@ -7,15 +7,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "consent", "consent", "{5BA5
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "membershipcompany", "membershipcompany", "{06B37DE0-6F10-4D40-97E8-184BA9F6AEA9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "invitation", "invitation", "{7A5F84BE-3B45-483A-8EF1-4E1E94F144DC}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "useradministration", "useradministration", "{7A5F84BE-3B45-483A-8EF1-4E1E94F144DC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.MembershipCompany.Service", "membershipcompany\src\CatenaX.NetworkServices.MembershipCompany.Service\CatenaX.NetworkServices.MembershipCompany.Service.csproj", "{14346800-3A31-4463-91A2-42DCA1E4BFC4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C34FEF41-7935-481B-BD92-BB2A99199BE3}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{39439739-E456-45CC-B18C-439276232B20}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "onboarding", "onboarding", "{D87E8526-3926-4762-9987-AE7F44EB4906}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Mailing.Template", "mailing\src\CatenaX.NetworkServices.Mailing.Template\CatenaX.NetworkServices.Mailing.Template.csproj", "{97FE948B-D083-4BE2-9E5A-2AA0A0D7B44D}"
 EndProject
@@ -23,11 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mailing", "mailing", "{F5E5
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Mailing.SendMail", "mailing\src\CatenaX.NetworkServices.Mailing.SendMail\CatenaX.NetworkServices.Mailing.SendMail.csproj", "{59FC0798-2A3B-4EAA-B4F2-43B1DAB259DB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Invitation.Identity", "invitation\src\CatenaX.NetworkServices.Invitation.Identity\CatenaX.NetworkServices.Invitation.Identity.csproj", "{1D6136F2-7946-47DE-95D8-05D021DBA3B4}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Invitation.Library", "invitation\src\CatenaX.NetworkServices.Invitation.Library\CatenaX.NetworkServices.Invitation.Library.csproj", "{91955C31-F283-4963-A626-9743BC32AD86}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Invitation.Service", "invitation\src\CatenaX.NetworkServices.Invitation.Service\CatenaX.NetworkServices.Invitation.Service.csproj", "{A1088127-BA35-4B52-9F5A-F5B8FE9DAF18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Invitation.Service", "useradministration\src\CatenaX.NetworkServices.Invitation.Service\CatenaX.NetworkServices.Invitation.Service.csproj", "{A1088127-BA35-4B52-9F5A-F5B8FE9DAF18}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mockup", "mockup", "{3911B636-69F0-4B46-944D-499B75A2CB0A}"
 EndProject
@@ -44,8 +36,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Provisioning.Mail", "provisioning\src\CatenaX.NetworkServices.Provisioning.Mail\CatenaX.NetworkServices.Provisioning.Mail.csproj", "{C30D1EC2-2AA6-4802-8988-7972F22BF90F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Provisioning.Utils", "provisioning\src\CatenaX.NetworkServices.Provisioning.Utils\CatenaX.NetworkServices.Provisioning.Utils.csproj", "{1E68BC44-0476-43A8-8504-B55B83DACF6F}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Invitation.Service.Tests", "invitation\test\CatenaX.NetworkServices.Onboarding.Service.Tests\CatenaX.NetworkServices.Invitation.Service.Tests.csproj", "{056CB762-5B05-4510-882C-79133193D0EF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "registration", "registration", "{1A8ADE3E-393B-43D6-BE93-9CDB765CB86E}"
 EndProject
@@ -83,14 +73,6 @@ Global
 		{59FC0798-2A3B-4EAA-B4F2-43B1DAB259DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59FC0798-2A3B-4EAA-B4F2-43B1DAB259DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59FC0798-2A3B-4EAA-B4F2-43B1DAB259DB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1D6136F2-7946-47DE-95D8-05D021DBA3B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1D6136F2-7946-47DE-95D8-05D021DBA3B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1D6136F2-7946-47DE-95D8-05D021DBA3B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1D6136F2-7946-47DE-95D8-05D021DBA3B4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{91955C31-F283-4963-A626-9743BC32AD86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{91955C31-F283-4963-A626-9743BC32AD86}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{91955C31-F283-4963-A626-9743BC32AD86}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{91955C31-F283-4963-A626-9743BC32AD86}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A1088127-BA35-4B52-9F5A-F5B8FE9DAF18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A1088127-BA35-4B52-9F5A-F5B8FE9DAF18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1088127-BA35-4B52-9F5A-F5B8FE9DAF18}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -119,10 +101,6 @@ Global
 		{1E68BC44-0476-43A8-8504-B55B83DACF6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E68BC44-0476-43A8-8504-B55B83DACF6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E68BC44-0476-43A8-8504-B55B83DACF6F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{056CB762-5B05-4510-882C-79133193D0EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{056CB762-5B05-4510-882C-79133193D0EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{056CB762-5B05-4510-882C-79133193D0EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{056CB762-5B05-4510-882C-79133193D0EF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B472A6B7-8B43-4BDB-98C5-AD76C9D05297}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B472A6B7-8B43-4BDB-98C5-AD76C9D05297}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B472A6B7-8B43-4BDB-98C5-AD76C9D05297}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -161,12 +139,9 @@ Global
 		{06B37DE0-6F10-4D40-97E8-184BA9F6AEA9} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
 		{7A5F84BE-3B45-483A-8EF1-4E1E94F144DC} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
 		{14346800-3A31-4463-91A2-42DCA1E4BFC4} = {06B37DE0-6F10-4D40-97E8-184BA9F6AEA9}
-		{D87E8526-3926-4762-9987-AE7F44EB4906} = {39439739-E456-45CC-B18C-439276232B20}
 		{97FE948B-D083-4BE2-9E5A-2AA0A0D7B44D} = {F5E59460-211B-11EC-B6E9-75CD881C6D34}
 		{F5E59460-211B-11EC-B6E9-75CD881C6D34} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
 		{59FC0798-2A3B-4EAA-B4F2-43B1DAB259DB} = {F5E59460-211B-11EC-B6E9-75CD881C6D34}
-		{1D6136F2-7946-47DE-95D8-05D021DBA3B4} = {7A5F84BE-3B45-483A-8EF1-4E1E94F144DC}
-		{91955C31-F283-4963-A626-9743BC32AD86} = {7A5F84BE-3B45-483A-8EF1-4E1E94F144DC}
 		{A1088127-BA35-4B52-9F5A-F5B8FE9DAF18} = {7A5F84BE-3B45-483A-8EF1-4E1E94F144DC}
 		{3911B636-69F0-4B46-944D-499B75A2CB0A} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
 		{FC99059C-95DF-4CBC-9B09-7F4C738E7F2F} = {3911B636-69F0-4B46-944D-499B75A2CB0A}
@@ -176,7 +151,6 @@ Global
 		{41E2D910-2D1D-11EC-A4AF-635467519A0C} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
 		{C30D1EC2-2AA6-4802-8988-7972F22BF90F} = {41E2D910-2D1D-11EC-A4AF-635467519A0C}
 		{1E68BC44-0476-43A8-8504-B55B83DACF6F} = {41E2D910-2D1D-11EC-A4AF-635467519A0C}
-		{056CB762-5B05-4510-882C-79133193D0EF} = {D87E8526-3926-4762-9987-AE7F44EB4906}
 		{1A8ADE3E-393B-43D6-BE93-9CDB765CB86E} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
 		{B472A6B7-8B43-4BDB-98C5-AD76C9D05297} = {1A8ADE3E-393B-43D6-BE93-9CDB765CB86E}
 		{2CEDAD69-E09D-48CA-838B-65D93C26C938} = {361B4010-82C0-11EC-8131-8BF7616386B6}
