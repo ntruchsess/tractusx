@@ -60,7 +60,7 @@ namespace CatenaX.NetworkServices.Invitation.Service
                     .ConfigureInvitationSettings(Configuration.GetSection("Invitation"));
 
             services.AddTransient<IKeycloakDBAccess, KeycloakDBAccess>()
-                    .AddTransient<IDbConnection>(conn => new NpgsqlConnection(Configuration.GetValue<string>("CentralIdpPostgresConnectionString")));
+                    .AddTransient<IDbConnection>(conn => new NpgsqlConnection(Configuration.GetValue<string>("CentralIdpDatabaseConnectionString")));
 
             services.AddTransient<IUserAdministrationBusinessLogic, UserAdministrationBusinessLogic>();
         }
