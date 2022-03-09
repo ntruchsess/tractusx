@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using CatenaX.NetworkServices.Provisioning.Library;
 using CatenaX.NetworkServices.Provisioning.Library.Models;
+using CatenaX.NetworkServices.UserAdministration.Service.Models;
 
 namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
 {
@@ -9,7 +10,7 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
     {
         Task<bool> ExecuteInvitation(InvitationData invitationData);
         Task<IEnumerable<string>> CreateUsersAsync(IEnumerable<UserCreationInfo> userList, string tenant, string createdByName);
-        Task<IEnumerable<UserInfo>> GetUsersAsync(string tenant,
+        Task<IEnumerable<JoinedUserInfo>> GetUsersAsync(string tenant,
                                                                   string userId = null,
                                                                   string providerUserId = null,
                                                                   string userName = null,

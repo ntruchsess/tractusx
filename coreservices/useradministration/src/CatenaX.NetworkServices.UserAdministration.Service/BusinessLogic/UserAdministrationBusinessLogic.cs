@@ -11,6 +11,8 @@ using PasswordGenerator;
 using CatenaX.NetworkServices.Mailing.SendMail;
 using CatenaX.NetworkServices.Provisioning.Library;
 using CatenaX.NetworkServices.Provisioning.Library.Models;
+using CatenaX.NetworkServices.Keycloak.DBAccess;
+using CatenaX.NetworkServices.UserAdministration.Service.Models;
 
 namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
 {
@@ -123,7 +125,7 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
             return userList;
         }
 
-        public async Task<IEnumerable<UserInfo>> GetUsersAsync(string tenant,
+        public async Task<IEnumerable<JoinedUserInfo>> GetUsersAsync(string tenant,
                                                                                string userId = null,
                                                                                string providerUserId = null,
                                                                                string userName = null,

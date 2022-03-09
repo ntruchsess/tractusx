@@ -12,7 +12,7 @@ using CatenaX.NetworkServices.Keycloak.Factory;
 using CatenaX.NetworkServices.Mailing.SendMail;
 using CatenaX.NetworkServices.Mailing.Template;
 using CatenaX.NetworkServices.Provisioning.Library;
-using CatenaX.NetworkServices.UserAdministration.BusinessLogic;
+using CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic;
 using System.IdentityModel.Tokens.Jwt;
 
 using Npgsql;

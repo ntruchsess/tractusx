@@ -2,7 +2,7 @@
 namespace CatenaX.NetworkServices.UserAdministration.Service.Models
 
 {
-    public class UserInfo
+    public class JoinedUserInfo
     {
         public string userId { get; set; }
         public string providerUserId { get; set; }
