@@ -7,14 +7,17 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using CatenaX.NetworkServices.Keycloak.Authentication;
+using CatenaX.NetworkServices.Keycloak.DBAccess;
 using CatenaX.NetworkServices.Keycloak.Factory;
 using CatenaX.NetworkServices.Mailing.SendMail;
 using CatenaX.NetworkServices.Mailing.Template;
 using CatenaX.NetworkServices.Provisioning.Library;
 using CatenaX.NetworkServices.Invitation.Service.BusinessLogic;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using System.IdentityModel.Tokens.Jwt;
+
+using Npgsql;
+
+using System.Data;
 
 namespace CatenaX.NetworkServices.Invitation.Service
 {
@@ -55,6 +58,11 @@ namespace CatenaX.NetworkServices.Invitation.Service
             
             services.AddTransient<IInvitationBusinessLogic, InvitationBusinessLogic>()
                     .ConfigureInvitationSettings(Configuration.GetSection("Invitation"));
+
+            services.AddTransient<IKeycloakDBAccess, KeycloakDBAccess>()
+                    .AddTransient<IDbConnection>(conn => new NpgsqlConnection(Configuration.GetValue<string>("CentralIdpDatabaseConnectionString")));
+
+            services.AddTransient<IUserAdministrationBusinessLogic, UserAdministrationBusinessLogic>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
