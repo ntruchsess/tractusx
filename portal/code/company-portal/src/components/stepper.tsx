@@ -14,7 +14,7 @@
 
 import {  Row } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
-import React, {FC} from 'react';
+import React, {FC, useEffect} from 'react';
 import {connect} from 'react-redux';
 import {IState} from "../types/store/redux.store.types";
 import { stepNames } from "../helpers/steps"
@@ -23,6 +23,11 @@ interface StepperProps {
 }
 
 export const Stepper: FC<StepperProps> = ({currentActiveStep}) => {
+
+    useEffect(()=>{
+        window.scrollTo(0, 0)
+    },[currentActiveStep])
+
     return (
         <div className="mx-auto col-11 reg-steps">
               <Row className="stepper-wrapper row-cols-5">

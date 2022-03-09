@@ -40,9 +40,6 @@ export const VerifyRegistration = ({currentActiveStep, addCurrentStep, companyDe
   const { t } = useTranslation();
   let history = useHistory();
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
 
   const editClick = (n) => {
     // setcurrentActiveStep(n);

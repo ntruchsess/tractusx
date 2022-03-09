@@ -47,9 +47,6 @@ export const CompanyDataCax = ({currentActiveStep, addCurrentStep, addCompanyDat
     const [city, setcity] = useState("");
     const [country, setcountry] = useState("");
 
-    useEffect(() => {
-        window.scrollTo(0, 0)
-      }, [])
     
       const onSeachChange = (x: any) => {
         setsearch(x);
