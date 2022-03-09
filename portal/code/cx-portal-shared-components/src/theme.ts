@@ -1,6 +1,31 @@
 import { createTheme } from '@mui/material/styles'
+import createPalette from '@mui/material/styles/createPalette'
+import createTypography from '@mui/material/styles/createTypography'
 
-const palette = {
+const getFontFamily = (name: string): string =>
+  [
+    `"${name}"`,
+    '-apple-system',
+    'BlinkMacSystemFont',
+    '"Segoe UI"',
+    'Roboto',
+    '"Helvetica Neue"',
+    'Arial',
+    'sans-serif',
+    '"Apple Color Emoji"',
+    '"Segoe UI Emoji"',
+    '"Segoe UI Symbol"',
+  ].join(',')
+
+const breakpoints = {
+  xs: 0,
+  sm: 375,
+  md: 627,
+  lg: 1056,
+  xl: 1312,
+}
+
+const palette = createPalette({
   common: {
     white: '#fff',
     black: '#000',
@@ -8,11 +33,13 @@ const palette = {
   primary: {
     main: '#0f71cb',
     dark: '#0d55af',
+    contrastText: '#fff',
     shadow: 'rgba(15, 113, 203, 0.4)',
   },
   secondary: {
     main: '#eaf1fe',
     dark: '#d4e3fe',
+    contrastText: '#0f71cb',
   },
   brand: {
     brand01: '#FFA600',
@@ -56,32 +83,156 @@ const palette = {
     background: '#F7F7F7',
     backgroundHover: '#ECECEC',
   },
-}
+  text: {
+    primary: '#111111',
+    secondary: '#252525',
+    tertiary: '#888888',
+    quaternary: '#A2A2A2',
+  },
+  accent: {
+    accent01: '#4D73D5',
+    accent02: '#F2F3FB',
+    accent03: '#676BC6',
+    accent04: '#E1F1FF',
+    accent05: '#FFEBCC',
+    accent06: '#5E3416',
+    accent07: '#88982D',
+    accent08: '#F0F5D5',
+    accent09: '#FDB943',
+    accent10: '#428C5B',
+    accent11: '#337B89',
+    accent12: '#2B4078',
+  },
+})
 
-const getFontFamily = (name: string): string =>
-  [
-    `"${name}"`,
-    '-apple-system',
-    'BlinkMacSystemFont',
-    '"Segoe UI"',
-    'Roboto',
-    '"Helvetica Neue"',
-    'Arial',
-    'sans-serif',
-    '"Apple Color Emoji"',
-    '"Segoe UI Emoji"',
-    '"Segoe UI Symbol"',
-  ].join(',')
+const typography = createTypography(palette, {
+  fontFamily: getFontFamily('LibreFranklin-Regular'),
+  htmlFontSize: 16,
+  allVariants: {
+    color: palette.text.primary,
+  },
+  h1: {
+    fontFamily: getFontFamily('LibreFranklin-SemiBold'),
+    fontSize: 72,
+    lineHeight: 88 / 72,
+    letterSpacing: 0,
+  },
+  h2: {
+    fontFamily: getFontFamily('LibreFranklin-Medium'),
+    fontSize: 56,
+    lineHeight: 68 / 56,
+    letterSpacing: 0,
+  },
+  h3: {
+    fontFamily: getFontFamily('LibreFranklin-Medium'),
+    fontSize: 36,
+    lineHeight: 44 / 36,
+    letterSpacing: 0,
+  },
+  h4: {
+    fontFamily: getFontFamily('LibreFranklin-Medium'),
+    fontSize: 24,
+    lineHeight: 36 / 24,
+    letterSpacing: 0,
+  },
+  h5: {
+    fontFamily: getFontFamily('LibreFranklin-SemiBold'),
+    fontSize: 18,
+    lineHeight: 28 / 18,
+    letterSpacing: 0,
+  },
+  body1: {
+    fontFamily: getFontFamily('LibreFranklin-Light'),
+    fontSize: 18,
+    lineHeight: 28 / 18,
+    letterSpacing: 0,
+  },
+  body2: {
+    fontFamily: getFontFamily('LibreFranklin-Light'),
+    fontSize: 16,
+    lineHeight: 24 / 16,
+    letterSpacing: 0,
+  },
+  body3: {
+    fontFamily: getFontFamily('LibreFranklin-Light'),
+    fontSize: 14,
+    lineHeight: 20 / 14,
+    letterSpacing: 0,
+  },
+  label1: {
+    fontFamily: getFontFamily('LibreFranklin-Medium'),
+    fontSize: 18,
+    lineHeight: 28 / 18,
+    letterSpacing: 0,
+  },
+  label2: {
+    fontFamily: getFontFamily('LibreFranklin-Medium'),
+    fontSize: 16,
+    lineHeight: 24 / 16,
+    letterSpacing: 0,
+  },
+  label3: {
+    fontFamily: getFontFamily('LibreFranklin-Medium'),
+    fontSize: 14,
+    lineHeight: 20 / 14,
+    letterSpacing: 0,
+  },
+  label4: {
+    fontFamily: getFontFamily('LibreFranklin-Medium'),
+    fontSize: 12,
+    lineHeight: 16 / 12,
+    letterSpacing: 0,
+  },
+  label5: {
+    fontFamily: getFontFamily('LibreFranklin-SemiBold'),
+    fontSize: 11,
+    lineHeight: 16 / 11,
+    letterSpacing: 0,
+    color: palette.text.secondary,
+  },
+  caption1: {
+    fontFamily: getFontFamily('LibreFranklin-Regular'),
+    fontSize: 18,
+    lineHeight: 28 / 18,
+    letterSpacing: 0,
+    color: palette.text.tertiary,
+  },
+  caption2: {
+    fontFamily: getFontFamily('LibreFranklin-Regular'),
+    fontSize: 16,
+    lineHeight: 24 / 16,
+    letterSpacing: 0,
+    color: palette.text.tertiary,
+  },
+  caption3: {
+    fontFamily: getFontFamily('LibreFranklin-Regular'),
+    fontSize: 14,
+    lineHeight: 20 / 14,
+    letterSpacing: 0,
+    color: palette.text.tertiary,
+  },
+  helper: {
+    fontFamily: getFontFamily('LibreFranklin-Regular'),
+    fontSize: 12,
+    lineHeight: 16 / 12,
+    letterSpacing: 0,
+    color: palette.text.tertiary,
+  },
+  button: {
+    fontSize: 16,
+    lineHeight: 24 / 16,
+    textTransform: 'none',
+  },
+})
 
 export const theme = createTheme({
+  breakpoints: {
+    values: breakpoints,
+  },
   palette,
-  typography: {
-    fontFamily: getFontFamily('LibreFranklin-Regular'),
-    button: {
-      fontSize: 16,
-      lineHeight: 1.5,
-      textTransform: 'none',
-    },
+  typography,
+  shape: {
+    borderRadius: 4,
   },
   components: {
     MuiButtonBase: {
@@ -104,12 +255,12 @@ export const theme = createTheme({
         root: {
           borderRadius: 50,
           boxShadow: 'none',
-          fontSize: 16,
+          fontSize: typography.body1.fontSize,
           padding: '16px 28px',
           ':hover': {
             boxShadow: 'none',
           },
-          ':active': {
+          ':active, :focus': {
             boxShadow: `0px 0px 0px 3px ${palette.primary.shadow}`,
           },
         },
@@ -117,7 +268,7 @@ export const theme = createTheme({
           padding: '14px 24px',
         },
         sizeSmall: {
-          fontSize: 14,
+          fontSize: typography.body2.fontSize,
           padding: '10px 18px',
         },
         outlined: {
@@ -153,7 +304,6 @@ export const theme = createTheme({
             color: 'secondary',
           },
           style: {
-            color: palette.primary.main,
             ':hover': {
               color: palette.primary.dark,
             },
@@ -231,6 +381,7 @@ export const theme = createTheme({
         root: {
           backgroundColor: palette.textField.background,
           borderRadius: '6px 6px 0 0',
+          fontSize: typography.body2.fontSize,
           '.MuiFilledInput-input': {
             padding: '16px',
           },
@@ -246,7 +397,8 @@ export const theme = createTheme({
     MuiInputLabel: {
       styleOverrides: {
         root: {
-          fontFamily: getFontFamily('LibreFranklin-SemiBold'),
+          fontFamily: typography.label3.fontFamily,
+          fontSize: typography.label3.fontSize,
         },
       },
       variants: [
@@ -264,7 +416,6 @@ export const theme = createTheme({
     MuiBadge: {
       styleOverrides: {
         root: {
-          fontFamily: getFontFamily('LibreFranklin-SemiBold'),
           color: palette.common.white,
         },
       },

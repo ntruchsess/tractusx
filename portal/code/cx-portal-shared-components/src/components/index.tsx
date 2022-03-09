@@ -6,3 +6,7 @@ export { Logo } from './basic/Logo'
 export { Radio } from './basic/Radio'
 export { SearchInput } from './basic/SearchInput'
 export { SharedThemeProvider } from './basic/SharedThemeProvider'
+export { Typography } from './basic/Typography'
+export { UserAvatar } from './basic/UserAvatar'
+
+export { AppCards } from './content/AppCards'
