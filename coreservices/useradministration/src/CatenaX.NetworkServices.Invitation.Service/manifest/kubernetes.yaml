@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: invitation-service
+  name: useradministration-service
   labels:
-    app: invitation-service
+    app: useradministration-service
 spec:
   revisionHistoryLimit: 0
   replicas: 1
   selector:
     matchLabels:
-      app: invitation-service
+      app: useradministration-service
   template:
     metadata:
       labels:
-        app: invitation-service
+        app: useradministration-service
       annotations:
         buildID: ""
     spec:
       containers:
-        - name: invitation-service
+        - name: useradministration-service
           image: "test:stable"
           imagePullPolicy: Always
           ports:

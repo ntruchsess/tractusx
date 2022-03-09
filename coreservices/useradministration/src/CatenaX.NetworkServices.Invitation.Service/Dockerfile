@@ -7,22 +7,22 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
-COPY ["invitation/src/CatenaX.NetworkServices.Invitation.Service/CatenaX.NetworkServices.Invitation.Service.csproj", "invitation/src/CatenaX.NetworkServices.Invitation.Service/"]
+COPY ["useradministration/src/CatenaX.NetworkServices.UserAdministration.Service/CatenaX.NetworkServices.UserAdministration.Service.csproj", "useradministration/src/CatenaX.NetworkServices.UserAdministration.Service/"]
 COPY ["provisioning/src/CatenaX.NetworkServices.Provisioning.Library/CatenaX.NetworkServices.Provisioning.Library.csproj", "provisioning/src/CatenaX.NetworkServices.Provisioning.Library/"]
 COPY ["mailing/src/CatenaX.NetworkServices.Mailing.Template/CatenaX.NetworkServices.Mailing.Template.csproj", "mailing/src/CatenaX.NetworkServices.Mailing.Template/"]
 COPY ["mailing/src/CatenaX.NetworkServices.Mailing.SendMail/CatenaX.NetworkServices.Mailing.SendMail.csproj", "mailing/src/CatenaX.NetworkServices.Mailing.SendMail/"]
 COPY ["keycloak/src/Keycloak.Net/Keycloak.Net.csproj", "keycloak/src/Keycloak.Net/"]
 COPY ["keycloak/src/CatenaX.NetworkServices.Keycloak.Authentication/CatenaX.NetworkServices.Keycloak.Authentication.csproj", "keycloak/src/CatenaX.NetworkServices.Keycloak.Authentication/"]
 COPY ["keycloak/src/CatenaX.NetworkServices.Keycloak.Factory/CatenaX.NetworkServices.Keycloak.Factory.csproj", "keycloak/src/CatenaX.NetworkServices.Keycloak.Factory/"]
-RUN dotnet restore "invitation/src/CatenaX.NetworkServices.Invitation.Service/CatenaX.NetworkServices.Invitation.Service.csproj"
+RUN dotnet restore "useradministration/src/CatenaX.NetworkServices.UserAdministration.Service/CatenaX.NetworkServices.UserAdministration.Service.csproj"
 COPY . .
-WORKDIR "/src/invitation/src/CatenaX.NetworkServices.Invitation.Service"
-RUN dotnet build "CatenaX.NetworkServices.Invitation.Service.csproj" -c Release -o /app/build
+WORKDIR "/src/useradministration/src/CatenaX.NetworkServices.UserAdministration.Service"
+RUN dotnet build "CatenaX.NetworkServices.UserAdministration.Service.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "CatenaX.NetworkServices.Invitation.Service.csproj" -c Release -o /app/publish
+RUN dotnet publish "CatenaX.NetworkServices.UserAdministration.Service.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "CatenaX.NetworkServices.Invitation.Service.dll"]
+ENTRYPOINT ["dotnet", "CatenaX.NetworkServices.UserAdministration.Service.dll"]

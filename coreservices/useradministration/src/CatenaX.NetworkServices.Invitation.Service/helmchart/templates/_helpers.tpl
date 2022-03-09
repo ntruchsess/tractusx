@@ -1,10 +1,10 @@
 
-{{- define "invitation-service.name" -}}
+{{- define "useradministration-service.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
 
-{{- define "invitation-service.fullname" -}}
+{{- define "useradministration-service.fullname" -}}
 {{- if .Values.fullnameOverride -}}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" -}}
 {{- else -}}
@@ -18,6 +18,6 @@
 {{- end -}}
 
 
-{{- define "invitation-service.chart" -}}
+{{- define "useradministration-service.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}

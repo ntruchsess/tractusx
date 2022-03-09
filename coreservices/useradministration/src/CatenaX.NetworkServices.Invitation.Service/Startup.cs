@@ -12,14 +12,14 @@ using CatenaX.NetworkServices.Keycloak.Factory;
 using CatenaX.NetworkServices.Mailing.SendMail;
 using CatenaX.NetworkServices.Mailing.Template;
 using CatenaX.NetworkServices.Provisioning.Library;
-using CatenaX.NetworkServices.Invitation.Service.BusinessLogic;
+using CatenaX.NetworkServices.UserAdministration.BusinessLogic;
 using System.IdentityModel.Tokens.Jwt;
 
 using Npgsql;
 
 using System.Data;
 
-namespace CatenaX.NetworkServices.Invitation.Service
+namespace CatenaX.NetworkServices.UserAdministration.Service
 {
     public class Startup
     {
@@ -43,7 +43,7 @@ namespace CatenaX.NetworkServices.Invitation.Service
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(options => Configuration.Bind("JwtBearerOptions",options));
             services.AddSwaggerGen(c => c.SwaggerDoc(VERSION, new OpenApiInfo { Title = TAG, Version = VERSION }))
-                    .AddTransient<IInvitationBusinessLogic,InvitationBusinessLogic>()
+                    .AddTransient<IUserAdministrationBusinessLogic,UserAdministrationBusinessLogic>()
                     .AddTransient<IMailingService, MailingService>()
                     .AddTransient<ISendMail, SendMail>()
                     .AddTransient<ITemplateManager, TemplateManager>()
@@ -56,8 +56,8 @@ namespace CatenaX.NetworkServices.Invitation.Service
                     .ConfigureProvisioningSettings(Configuration.GetSection("Provisioning"))
                     .Configure<JwtBearerOptions>(options => Configuration.Bind("JwtBearerOptions",options));
             
-            services.AddTransient<IInvitationBusinessLogic, InvitationBusinessLogic>()
-                    .ConfigureInvitationSettings(Configuration.GetSection("Invitation"));
+            services.AddTransient<IUserAdministrationBusinessLogic, UserAdministrationBusinessLogic>()
+                    .ConfigureUserAdministrationSettings(Configuration.GetSection("Invitation"));
 
             services.AddTransient<IKeycloakDBAccess, KeycloakDBAccess>()
                     .AddTransient<IDbConnection>(conn => new NpgsqlConnection(Configuration.GetValue<string>("CentralIdpDatabaseConnectionString")));
@@ -74,10 +74,10 @@ namespace CatenaX.NetworkServices.Invitation.Service
             }
             if (Configuration.GetValue<bool?>("SwaggerEnabled") != null && Configuration.GetValue<bool>("SwaggerEnabled"))
             {
-                app.UseSwagger( c => c.RouteTemplate = "/api/invitation/swagger/{documentName}/swagger.{json|yaml}");
+                app.UseSwagger( c => c.RouteTemplate = "/api/useradministration/swagger/{documentName}/swagger.{json|yaml}");
                 app.UseSwaggerUI(c => {
-                    c.SwaggerEndpoint(string.Format("/api/invitation/swagger/{0}/swagger.json",VERSION), string.Format("{0} {1}",TAG,VERSION));
-                    c.RoutePrefix = "api/invitation/swagger";
+                    c.SwaggerEndpoint(string.Format("/api/useradministration/swagger/{0}/swagger.json",VERSION), string.Format("{0} {1}",TAG,VERSION));
+                    c.RoutePrefix = "api/useradministration/swagger";
                 });
             }
 

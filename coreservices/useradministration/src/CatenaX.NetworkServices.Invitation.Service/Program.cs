@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 
-namespace CatenaX.NetworkServices.Invitation.Service
+namespace CatenaX.NetworkServices.UserAdministration.Service
 {
     public class Program
     {

@@ -1,8 +1,8 @@
 
-namespace CatenaX.NetworkServices.Invitation.Service.Models
+namespace CatenaX.NetworkServices.UserAdministration.Service.Models
 
 {
-    public class JoinedUserInfo
+    public class UserInfo
     {
         public string userId { get; set; }
         public string providerUserId { get; set; }

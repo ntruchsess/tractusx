@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "invitation-service.fullname" . }}
+  name: {{ template "useradministration-service.fullname" . }}
   labels:
-    app: {{ template "invitation-service.name" . }}
-    chart: {{ template "invitation-service.chart" . }}
+    app: {{ template "useradministration-service.name" . }}
+    chart: {{ template "useradministration-service.chart" . }}
     draft: {{ .Values.draft | default "draft-app" }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -13,12 +13,12 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ template "invitation-service.name" . }}
+      app: {{ template "useradministration-service.name" . }}
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ template "invitation-service.name" . }}
+        app: {{ template "useradministration-service.name" . }}
         draft: {{ .Values.draft | default "draft-app" }}
         release: {{ .Release.Name }}
       annotations:
