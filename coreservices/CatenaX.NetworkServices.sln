@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mailing", "mailing", "{F5E5
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Mailing.SendMail", "mailing\src\CatenaX.NetworkServices.Mailing.SendMail\CatenaX.NetworkServices.Mailing.SendMail.csproj", "{59FC0798-2A3B-4EAA-B4F2-43B1DAB259DB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.UserAdministration.Service", "useradministration\src\CatenaX.NetworkServices.Invitation.Service\CatenaX.NetworkServices.UserAdministration.Service.csproj", "{A1088127-BA35-4B52-9F5A-F5B8FE9DAF18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.UserAdministration.Service", "useradministration\src\CatenaX.NetworkServices.UserAdministration.Service\CatenaX.NetworkServices.UserAdministration.Service.csproj", "{A1088127-BA35-4B52-9F5A-F5B8FE9DAF18}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mockup", "mockup", "{3911B636-69F0-4B46-944D-499B75A2CB0A}"
 EndProject
