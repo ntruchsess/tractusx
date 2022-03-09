@@ -24,6 +24,7 @@ using Npgsql;
 
 using System;
 using System.Data;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace CatenaX.NetworkServices.Registration.Service
 {
@@ -48,6 +49,8 @@ namespace CatenaX.NetworkServices.Registration.Service
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(options => Configuration.Bind("JwtBearerOptions",options));
+
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
             services.AddTransient<IClaimsTransformation, KeycloakClaimsTransformation>()
                     .Configure<JwtBearerOptions>(options => Configuration.Bind("JwtBearerOptions",options));

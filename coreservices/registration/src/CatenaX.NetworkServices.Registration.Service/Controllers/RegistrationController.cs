@@ -47,7 +47,7 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
             catch (ServiceException e)
             {
                 var content = new { message = e.Message };
-                return new ContentResult { StatusCode = (int) e.StatusCode, Content = JsonConvert.SerializeObject(content), ContentType = "application/json" };
+                return new ContentResult { StatusCode = (int)e.StatusCode, Content = JsonConvert.SerializeObject(content), ContentType = "application/json" };
             }
         }
 
@@ -68,7 +68,6 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
             {
                 _logger.LogError(e.ToString());
                 return StatusCode((int)HttpStatusCode.InternalServerError);
-
             }
         }
 
@@ -81,7 +80,6 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
             {
                 await _registrationBusinessLogic.CreateCustodianWalletAsync(walletToCreate).ConfigureAwait(false);
                 return Ok();
-
             }
             catch (ServiceException e)
             {
@@ -92,16 +90,28 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
 
         [HttpPost]
         [Route("documents")]
-        [Authorize(Roles = "invite_user")]
+        [Authorize(Roles = "upload_documents")]
         public async Task<IActionResult> CreateDocument([FromForm(Name = "document")] IFormFile document)
         {
-            var username = User.Claims.SingleOrDefault(x => x.Type == "sub").Value as string;
-            await _registrationBusinessLogic.CreateDocument(document, username);
-            return new OkResult();
+            try
+            {
+                if (string.IsNullOrEmpty(document.FileName))
+                {
+                    return BadRequest();
+                }
+                var userId = User.Claims.SingleOrDefault(x => x.Type == "sub").Value as string;
+                await _registrationBusinessLogic.CreateDocument(document, userId);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.ToString());
+                return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+            }
         }
 
         [HttpPut]
-        [Authorize(Roles="invite_user")]
+        [Authorize(Roles = "invite_user")]
         [Route("companyRoles")]
         public async Task<IActionResult> SetCompanyRolesAsync([FromBody] CompanyToRoles rolesToSet)
         {
@@ -110,28 +120,28 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles="view_registration")]
+        [Authorize(Roles = "view_registration")]
         [Route("companyRoles")]
         [ProducesResponseType(typeof(List<CompanyRole>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetCompanyRolesAsync() =>
             Ok((await _registrationBusinessLogic.GetCompanyRolesAsync().ConfigureAwait(false)).ToList());
 
         [HttpGet]
-        [Authorize(Roles="sign_consent")]
+        [Authorize(Roles = "sign_consent")]
         [Route("consentsForCompanyRole/{roleId}")]
         [ProducesResponseType(typeof(List<ConsentForCompanyRole>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetCompanyRolesAsync(int roleId) =>
             Ok((await _registrationBusinessLogic.GetConsentForCompanyRoleAsync(roleId).ConfigureAwait(false)).ToList());
 
         [HttpGet]
-        [Authorize(Roles="sign_consent")]
+        [Authorize(Roles = "sign_consent")]
         [Route("signedConsentsByCompanyId/{companyId}")]
         [ProducesResponseType(typeof(List<SignedConsent>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> SignedConsentsByCompanyIdAsync(string companyId) =>
             Ok((await _registrationBusinessLogic.SignedConsentsByCompanyIdAsync(companyId).ConfigureAwait(false)).ToList());
 
         [HttpPut]
-        [Authorize(Roles="sign_consent")]
+        [Authorize(Roles = "sign_consent")]
         [Route("signConsent")]
         public async Task<IActionResult> SignConsentAsync([FromBody] SignConsentRequest signConsentRequest)
         {
@@ -140,7 +150,7 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
         }
 
         [HttpPut]
-        [Authorize(Roles="invite_user")]
+        [Authorize(Roles = "invite_user")]
         [Route("idp")]
         public async Task<IActionResult> SetIdpAsync([FromBody] SetIdp idpToSet)
         {
@@ -149,7 +159,7 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles="view_registration")]
+        [Authorize(Roles = "view_registration")]
         [Route("rolesComposite")]
         [ProducesResponseType(typeof(List<string>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetClientRolesComposite() =>
