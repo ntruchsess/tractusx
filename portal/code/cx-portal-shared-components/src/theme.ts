@@ -269,5 +269,39 @@ export const theme = createTheme({
         },
       },
     },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          borderRadius: '20px',
+          '&.MuiPopover-paper': {
+            left: '220px'
+          }
+        },
+      },
+    },
+    MuiList: {
+      styleOverrides: {
+        root: {
+          backgroundColor: palette.textField.background,
+          minWidth: '220px',
+          padding: '16px 0',
+        },
+      },
+    },
+    MuiMenuItem: {
+      styleOverrides: {
+        root: {
+          fontFamily: getFontFamily('LibreFranklin-SemiBold'),
+          fontSize: '14px',
+          borderRadius: '12px',
+          padding: '16px',
+          margin: '0 8px',
+          ':hover': {
+            backgroundColor: palette.secondary.main,
+            color: palette.primary.dark,
+          },
+        },
+      },
+    },
   },
 })
