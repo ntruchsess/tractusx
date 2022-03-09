@@ -47,7 +47,7 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
             catch (ServiceException e)
             {
                 var content = new { message = e.Message };
-                return new ContentResult { StatusCode = (int) e.StatusCode, Content = JsonConvert.SerializeObject(content), ContentType = "application/json" };
+                return new ContentResult { StatusCode = (int)e.StatusCode, Content = JsonConvert.SerializeObject(content), ContentType = "application/json" };
             }
         }
 
@@ -97,13 +97,13 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
         {
             try
             {
-                var username = User.Claims.SingleOrDefault(x => x.Type == "name").Value as string;
-            if (string.IsNullOrEmpty(document.FileName))
-            {
-                return BadRequest();
-            }
-            await _registrationBusinessLogic.CreateDocument(document, username);
-            return Ok();
+                var username = User.Claims.SingleOrDefault(x => x.Type == "sub").Value as string;
+                if (string.IsNullOrEmpty(document.FileName))
+                {
+                    return BadRequest();
+                }
+                await _registrationBusinessLogic.CreateDocument(document, username);
+                return Ok();
             }
             catch (Exception e)
             {
@@ -113,7 +113,7 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
         }
 
         [HttpPut]
-        [Authorize(Roles="invite_user")]
+        [Authorize(Roles = "invite_user")]
         [Route("companyRoles")]
         public async Task<IActionResult> SetCompanyRolesAsync([FromBody] CompanyToRoles rolesToSet)
         {
@@ -122,28 +122,28 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles="view_registration")]
+        [Authorize(Roles = "view_registration")]
         [Route("companyRoles")]
         [ProducesResponseType(typeof(List<CompanyRole>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetCompanyRolesAsync() =>
             Ok((await _registrationBusinessLogic.GetCompanyRolesAsync().ConfigureAwait(false)).ToList());
 
         [HttpGet]
-        [Authorize(Roles="sign_consent")]
+        [Authorize(Roles = "sign_consent")]
         [Route("consentsForCompanyRole/{roleId}")]
         [ProducesResponseType(typeof(List<ConsentForCompanyRole>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetCompanyRolesAsync(int roleId) =>
             Ok((await _registrationBusinessLogic.GetConsentForCompanyRoleAsync(roleId).ConfigureAwait(false)).ToList());
 
         [HttpGet]
-        [Authorize(Roles="sign_consent")]
+        [Authorize(Roles = "sign_consent")]
         [Route("signedConsentsByCompanyId/{companyId}")]
         [ProducesResponseType(typeof(List<SignedConsent>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> SignedConsentsByCompanyIdAsync(string companyId) =>
             Ok((await _registrationBusinessLogic.SignedConsentsByCompanyIdAsync(companyId).ConfigureAwait(false)).ToList());
 
         [HttpPut]
-        [Authorize(Roles="sign_consent")]
+        [Authorize(Roles = "sign_consent")]
         [Route("signConsent")]
         public async Task<IActionResult> SignConsentAsync([FromBody] SignConsentRequest signConsentRequest)
         {
@@ -152,7 +152,7 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
         }
 
         [HttpPut]
-        [Authorize(Roles="invite_user")]
+        [Authorize(Roles = "invite_user")]
         [Route("idp")]
         public async Task<IActionResult> SetIdpAsync([FromBody] SetIdp idpToSet)
         {
@@ -161,7 +161,7 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles="view_registration")]
+        [Authorize(Roles = "view_registration")]
         [Route("rolesComposite")]
         [ProducesResponseType(typeof(List<string>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetClientRolesComposite() =>
