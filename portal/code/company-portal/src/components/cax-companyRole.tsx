@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import { Row } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
 import { useTranslation } from 'react-i18next';
@@ -33,6 +33,9 @@ export const CompanyRoleCax = ({currentActiveStep, addCurrentStep}: CompanyRoleP
 
   const { t } = useTranslation();
   const [companyRoleChecked, setcompanyRoleChecked] =  useState(new Map());
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   // const companyRoleChecked =  new Map();
 

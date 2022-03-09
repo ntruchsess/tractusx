@@ -61,6 +61,7 @@ export const ResponsibilitiesCax = ({
   });
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     const fetchData = async () => {
       const dataRoles = await getClientRolesComposite();
 
@@ -118,11 +119,6 @@ export const ResponsibilitiesCax = ({
   };
 
   const nextClick = () => {
-    addCurrentStep(currentActiveStep + 1);
-  };
-
-  const sendInvites = () => {
-
     if (userInviteList.length > 0) {
       const fetchData = async () => {
     const dataRoles = await submitSendInvites(userInviteList);
@@ -142,7 +138,9 @@ export const ResponsibilitiesCax = ({
   } else {
     toast.error("Email or User Role empty.");
   }
-}
+    addCurrentStep(currentActiveStep + 1);
+  };
+
 
   return (
     <>
@@ -249,14 +247,7 @@ export const ResponsibilitiesCax = ({
                 icon={true}
               />
             </div>
-            <div>
-              <Button
-                styleClass="button btn-primaryCax"
-                label="Send Invite"
-                handleClick={() => sendInvites()}
-              />
               <ToastContainer />
-            </div>
           </Row>
         </div>
       </div>
