@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
@@ -11,8 +10,6 @@ using PasswordGenerator;
 using CatenaX.NetworkServices.Mailing.SendMail;
 using CatenaX.NetworkServices.Provisioning.Library;
 using CatenaX.NetworkServices.Provisioning.Library.Models;
-using CatenaX.NetworkServices.Keycloak.DBAccess;
-using CatenaX.NetworkServices.UserAdministration.Service.Models;
 
 namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
 {
@@ -22,20 +19,17 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
         private readonly IMailingService _mailingService;
         private readonly ILogger<UserAdministrationBusinessLogic> _logger;
         private readonly UserAdministrationSettings _settings;
-        private readonly IKeycloakDBAccess _KeycloakDBAccess;
 
         public UserAdministrationBusinessLogic(
             IProvisioningManager provisioningManager,
             IMailingService mailingService,
             ILogger<UserAdministrationBusinessLogic> logger,
-            IOptions<UserAdministrationSettings> settings,
-            IKeycloakDBAccess keycloakDBAccess)
+            IOptions<UserAdministrationSettings> settings)
         {
             _provisioningManager = provisioningManager;
             _mailingService = mailingService;
             _logger = logger;
             _settings = settings.Value;
-            _KeycloakDBAccess = keycloakDBAccess;
         }
 
         public async Task<bool> ExecuteInvitation(InvitationData invitationData)
@@ -125,31 +119,26 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
             return userList;
         }
 
-        public async Task<IEnumerable<JoinedUserInfo>> GetUsersAsync(string tenant,
-                                                                               string userId = null,
-                                                                               string providerUserId = null,
-                                                                               string userName = null,
-                                                                               string firstName = null,
-                                                                               string lastName = null,
-                                                                               string email = null) =>
-            (await _KeycloakDBAccess.GetUserJoinedFederatedIdentity(tenant,
-                                                                    userId,
-                                                                    providerUserId,
-                                                                    userName,
-                                                                    firstName,
-                                                                    lastName,
-                                                                    email).ConfigureAwait(false))
-                .Select( r => new JoinedUserInfo {
-                    userId = r.id,
-                    providerUserId = r.federated_user_id,
-                    userName = r.federated_username,
-                    firstName = r.first_name,
-                    lastName = r.last_name,
-                    email = r.email
-                });
+        public Task<IEnumerable<JoinedUserInfo>> GetUsersAsync(
+            string tenant,
+            string userId = null,
+            string providerUserId = null,
+            string userName = null,
+            string firstName = null,
+            string lastName = null,
+            string email = null
+        ) => _provisioningManager.GetJoinedUsersAsync(
+                tenant,
+                userId,
+                providerUserId,
+                userName,
+                firstName,
+                lastName,
+                email
+            );
 
-        public async Task<IEnumerable<string>> GetAppRolesAsync(string clientId) =>
-            await _provisioningManager.GetClientRolesAsync(clientId).ConfigureAwait(false);
+        public Task<IEnumerable<string>> GetAppRolesAsync(string clientId) =>
+            _provisioningManager.GetClientRolesAsync(clientId);
 
         public async Task<bool> DeleteUserAsync(string tenant, string userId)
         {

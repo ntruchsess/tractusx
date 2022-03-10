@@ -3,6 +3,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\keycloak\src\Keycloak.Net\Keycloak.Net.csproj" />
     <ProjectReference Include="..\..\..\keycloak\src\CatenaX.NetworkServices.Keycloak.Factory\CatenaX.NetworkServices.Keycloak.Factory.csproj" />
+    <ProjectReference Include="..\..\..\keycloak\src\CatenaX.NetworkServices.Keycloak.DBAccess\CatenaX.NetworkServices.Keycloak.DBAccess.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
