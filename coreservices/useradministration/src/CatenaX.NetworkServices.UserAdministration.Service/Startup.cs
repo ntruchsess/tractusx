@@ -15,10 +15,6 @@ using CatenaX.NetworkServices.Provisioning.Library;
 using CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic;
 using System.IdentityModel.Tokens.Jwt;
 
-using Npgsql;
-
-using System.Data;
-
 namespace CatenaX.NetworkServices.UserAdministration.Service
 {
     public class Startup
@@ -42,27 +38,29 @@ namespace CatenaX.NetworkServices.UserAdministration.Service
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(options => Configuration.Bind("JwtBearerOptions",options));
-            services.AddSwaggerGen(c => c.SwaggerDoc(VERSION, new OpenApiInfo { Title = TAG, Version = VERSION }))
-                    .AddTransient<IUserAdministrationBusinessLogic,UserAdministrationBusinessLogic>()
-                    .AddTransient<IMailingService, MailingService>()
+            services.AddSwaggerGen(c => c.SwaggerDoc(VERSION, new OpenApiInfo { Title = TAG, Version = VERSION }));
+
+            services.AddTransient<IMailingService, MailingService>()
                     .AddTransient<ISendMail, SendMail>()
-                    .AddTransient<ITemplateManager, TemplateManager>()
-                    .ConfigureTemplateSettings(Configuration.GetSection(TemplateSettings.Position))
-                    .ConfigureMailSettings(Configuration.GetSection(MailSettings.Position))
-                    .AddTransient<IClaimsTransformation, KeycloakClaimsTransformation>()
-                    .AddTransient<IKeycloakFactory, KeycloakFactory>()
-                    .AddTransient<IProvisioningManager, ProvisioningManager>()
-                    .ConfigureKeycloakSettingsMap(Configuration.GetSection("Keycloak"))
-                    .ConfigureProvisioningSettings(Configuration.GetSection("Provisioning"))
+                    .ConfigureMailSettings(Configuration.GetSection(MailSettings.Position));
+
+            services.AddTransient<ITemplateManager, TemplateManager>()
+                    .ConfigureTemplateSettings(Configuration.GetSection(TemplateSettings.Position));
+
+            services.AddTransient<IClaimsTransformation, KeycloakClaimsTransformation>()
                     .Configure<JwtBearerOptions>(options => Configuration.Bind("JwtBearerOptions",options));
-            
+                    
+            services.AddTransient<IKeycloakFactory, KeycloakFactory>()
+                    .ConfigureKeycloakSettingsMap(Configuration.GetSection("Keycloak"));
+
+            services.AddTransient<IProvisioningManager, ProvisioningManager>()
+                    .ConfigureProvisioningSettings(Configuration.GetSection("Provisioning"));
+                    
             services.AddTransient<IUserAdministrationBusinessLogic, UserAdministrationBusinessLogic>()
                     .ConfigureUserAdministrationSettings(Configuration.GetSection("Invitation"));
 
-            services.AddTransient<IKeycloakDBAccess, KeycloakDBAccess>()
-                    .AddTransient<IDbConnection>(conn => new NpgsqlConnection(Configuration.GetValue<string>("CentralIdpDatabaseConnectionString")));
-
-            services.AddTransient<IUserAdministrationBusinessLogic, UserAdministrationBusinessLogic>();
+            services.AddTransient<IKeycloakDBAccessFactory, KeycloakDBAccessFactory>()
+                    .ConfigureKeycloakDBAccessSettings(Configuration.GetSection("KeycloakDBAccess"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

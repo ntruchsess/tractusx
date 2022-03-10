@@ -11,7 +11,6 @@ using System.Linq;
 using System.Collections.Generic;
 using CatenaX.NetworkServices.Provisioning.Library;
 using CatenaX.NetworkServices.Provisioning.Library.Models;
-using CatenaX.NetworkServices.UserAdministration.Service.Models;
 
 namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
 {
@@ -80,14 +79,14 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
                 [FromQuery] string userName = null,
                 [FromQuery] string firstName = null,
                 [FromQuery] string lastName = null,
-                [FromQuery] string email = null) =>
-            _logic.GetUsersAsync(tenant, userId, providerUserId, userName, firstName, lastName, email);
+                [FromQuery] string email = null
+            ) => _logic.GetUsersAsync(tenant, userId, providerUserId, userName, firstName, lastName, email);
 
         [HttpGet]
         [Authorize(Roles="view_client_roles")]
         [Route("api/administration/client/{clientId}/roles")]
-        public async Task<IEnumerable<string>> ReturnRoles([FromRoute] string clientId) =>
-            await _logic.GetAppRolesAsync(clientId).ConfigureAwait(false);
+        public Task<IEnumerable<string>> ReturnRoles([FromRoute] string clientId) =>
+            _logic.GetAppRolesAsync(clientId);
 
         [HttpDelete]
         [Route("api/administration/tenant/{tenant}/ownUser")]
