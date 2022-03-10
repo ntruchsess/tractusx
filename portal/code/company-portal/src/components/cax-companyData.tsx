@@ -18,7 +18,7 @@ import { AiOutlineQuestionCircle, AiOutlineCalendar } from 'react-icons/ai'
 import DatePicker from "react-datepicker";
 import SearchInput from 'react-search-input';
 import { useTranslation } from 'react-i18next';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import FooterButton from './footerButton';
 import {connect} from 'react-redux';
 import {IState} from "../types/store/redux.store.types";
@@ -46,7 +46,6 @@ export const CompanyDataCax = ({currentActiveStep, addCurrentStep, addCompanyDat
     const [postalCode, setpostalCode] = useState("");
     const [city, setcity] = useState("");
     const [country, setcountry] = useState("");
-
 
     
       const onSeachChange = (x: any) => {

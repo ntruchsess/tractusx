@@ -1,5 +1,5 @@
 import Keycloak from 'keycloak-js'
-import { IUser } from 'types/UserTypes'
+import { IUser } from 'types/user/UserTypes'
 import {ROLES} from 'types/MainTypes'
 
 const keycloakConfig = {

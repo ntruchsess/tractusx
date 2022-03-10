@@ -18,6 +18,9 @@ const Template: ComponentStory<typeof Component> = (args: any) => (
 
 export const Input = Template.bind({})
 Input.args = {
+  label: 'Label',
+  placeholder: 'Placeholder',
+  helperText: 'Helper',
   disabled: false,
   error: false,
 }

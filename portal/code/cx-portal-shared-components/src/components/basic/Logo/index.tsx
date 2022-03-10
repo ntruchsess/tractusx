@@ -10,7 +10,7 @@ interface LogoProps {
 
 export const Logo = ({
   variant = 'standard',
-  altText = 'CatenaX logo',
+  altText = 'Catena-X logo',
   ...props
 }: LogoProps) => {
   let image

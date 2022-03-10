@@ -27,6 +27,7 @@ import { useHistory } from "react-router-dom";
 import { DataErrorCodes } from "../helpers/DataError";
 import {ToastContainer, toast} from "react-toastify";
 import { submitCustodianWallet } from "../helpers/utils";
+import { useEffect } from "react";
 
 interface VerifyRegistrationProps {
   currentActiveStep: number;
@@ -39,6 +40,7 @@ export const VerifyRegistration = ({currentActiveStep, addCurrentStep, companyDe
   const { t } = useTranslation();
   let history = useHistory();
 
+
   const editClick = (n) => {
     // setcurrentActiveStep(n);
   }
@@ -50,8 +52,8 @@ export const VerifyRegistration = ({currentActiveStep, addCurrentStep, companyDe
 
 const nextClick = () => {
   const data = {
-    bpn : "BPNL000000000001",
-    name : "German Car Company"    
+    bpn : companyDetailsData?.bpn || "",
+    name : companyDetailsData?.registrationName || ""    
   }
   const fetchData = async () => {
     const custodianWallet = await submitCustodianWallet(data);
