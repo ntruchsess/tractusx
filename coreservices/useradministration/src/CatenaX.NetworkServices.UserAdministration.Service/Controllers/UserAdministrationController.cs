@@ -50,6 +50,7 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
         }
 
         [HttpPost]
+        [Authorize(Policy = "CheckTenant")]
         [Authorize(Roles="add_user_account")]
         [Route("tenant/{tenant}/users")]
         public async Task<IActionResult> ExecuteUserCreation([FromRoute] string tenant, [FromBody] IEnumerable<UserCreationInfo> usersToCreate)
@@ -71,6 +72,7 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
         }
 
         [HttpGet]
+        [Authorize(Policy = "CheckTenant")]
         [Authorize(Roles="view_user_management")]
         [Route("tenant/{tenant}/users")]
         public Task<IEnumerable<JoinedUserInfo>> QueryJoinedUsers(
@@ -90,6 +92,7 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
             _logic.GetAppRolesAsync(clientId);
 
         [HttpDelete]
+        [Authorize(Policy = "CheckTenant")]
         [Route("tenant/{tenant}/ownUser")]
         public async Task<IActionResult> ExecuteOwnUserDeletion([FromRoute] string tenant)
         {
@@ -111,6 +114,7 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
         }
 
         [HttpDelete]
+        [Authorize(Policy = "CheckTenant")]
         [Authorize(Roles="delete_user_account")]
         [Route("tenant/{tenant}/users")]
         public async Task<IActionResult> ExecuteUserDeletion([FromRoute] string tenant, [FromBody] UserDeletionInfo usersToDelete)
