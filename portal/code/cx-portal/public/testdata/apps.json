@@ -1,65 +1,42 @@
 [
   {
-    "id": "1001",
-    "name": "Amazing Material Traceability",
-    "vendor": "Catena-X",
-    "version": "0.1.0-beta",
-    "description": "i18n.app.1001.description",
-    "license": "Catena-X Unbelievable License",
-    "rating": 4.7
+    "id": "876de3be-3e96-4897-a8fa-7c26cbbcf3b8",
+    "title": "Part Chain",
+    "subtitle": "Catena-X",
+    "description": "CX App Part Chain Details",
+    "price": "free of charge",
+    "rating": 4.1
   },
   {
-    "id": "1002",
-    "name": "Circular Economy",
-    "vendor": "The Circular Company",
-    "version": "3.2.11",
-    "description": "i18n.app.1002.description",
-    "license": "Apache License",
-    "rating": 4.4
+    "id": "c7b217c5-1002-46bc-bcd2-57df0e9e46d6",
+    "title": "Dismantler App",
+    "subtitle": "SAP",
+    "description": "SAP App Dismantler App Details",
+    "price": "free of charge",
+    "rating": 4.1
   },
   {
-    "id": "1003",
-    "name": "XKCD Data",
-    "vendor": "XKCD",
-    "version": "0.8.15",
-    "description": "i18n.app.1003.description",
-    "license": "MIT",
-    "rating": 3.9
+    "id": "2ae9b45c-8d0b-48da-8a46-5d8f03de0ecc",
+    "title": "CE Marketplace",
+    "subtitle": "SAP",
+    "description": "SAP App CE Marketplace Details",
+    "price": "free of charge",
+    "rating": 4.1
   },
   {
-    "id": "1004",
-    "name": "Business Chinese Translator",
-    "vendor": "Translinguando",
-    "version": "0.1.2",
-    "description": "i18n.app.1004.description",
-    "license": "Apache License",
-    "rating": 4.2
+    "id": "7da9ce41-689f-4ac8-9065-244c75c71f57",
+    "title": "Material Traceability",
+    "subtitle": "Catena-X",
+    "description": "SAP App Material Traceability Details",
+    "price": "free of charge",
+    "rating": 4.1
   },
   {
-    "id": "1005",
-    "name": "The app with the longest name",
-    "vendor": "Some company with a really long name",
-    "version": "5.8.0",
-    "description": "i18n.app.1005.description",
-    "license": "some license name",
-    "rating": 4.6
+    "id": "1a4ac107-2b6e-4190-89df-4b8442b12f04",
+    "title": "Component Performance",
+    "subtitle": "Catena-X",
+    "description": "BMW App Component Performance Monitor Details",
+    "price": "free of charge",
+    "rating": 4.1
   },
-  {
-    "id": "1006",
-    "name": "Our Incredible Data",
-    "vendor": "BMW",
-    "version": "2.333.6715",
-    "description": "i18n.app.1006.description",
-    "license": "BMW Catena-X License",
-    "rating": 4.5
-  },
-  {
-    "id": "1007",
-    "name": "Last app on this list",
-    "vendor": "It wasn't me",
-    "version": "8",
-    "description": "i18n.app.1006.description",
-    "license": "okay",
-    "rating": 4.9
-  }
-]
+  
