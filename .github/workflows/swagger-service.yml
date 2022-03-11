@@ -119,6 +119,7 @@ jobs:
           DB_HOST: catenax${{needs.environment.outputs.workspace}}database.postgres.database.azure.com
           DB_PORT: 5432
           DB_NAME: portal
+          DB_SCHEMA: public
         run: |
           envsubst < application.yml > application.yml.tmp
           rm application.yml
@@ -128,11 +129,6 @@ jobs:
         working-directory: ./data/portal-td-stub
         run: |
           mvn clean package -DskipTests
-
-      - name: Login to Azure
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
         
       - name: Login to ACR
         uses: azure/docker-login@v1
