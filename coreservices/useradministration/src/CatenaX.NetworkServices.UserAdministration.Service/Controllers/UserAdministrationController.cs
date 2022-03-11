@@ -15,6 +15,7 @@ using CatenaX.NetworkServices.Provisioning.Library.Models;
 namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
 {
     [ApiController]
+    [Route("api/useradministration")]
     public class UserAdministrationController : ControllerBase
     {
 
@@ -29,7 +30,7 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
 
         [HttpPost]
         [Authorize(Roles="invite_new_partner")]
-        [Route("api/invitation")]
+        [Route("invitation")]
         public async Task<IActionResult> ExecuteInvitation([FromBody] InvitationData InvitationData)
         {
             try
@@ -50,7 +51,7 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
 
         [HttpPost]
         [Authorize(Roles="add_user_account")]
-        [Route("api/administration/tenant/{tenant}/users")]
+        [Route("tenant/{tenant}/users")]
         public async Task<IActionResult> ExecuteUserCreation([FromRoute] string tenant, [FromBody] IEnumerable<UserCreationInfo> usersToCreate)
         {
             try
@@ -71,7 +72,7 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
 
         [HttpGet]
         [Authorize(Roles="view_user_management")]
-        [Route("api/administration/tenant/{tenant}/users")]
+        [Route("tenant/{tenant}/users")]
         public Task<IEnumerable<JoinedUserInfo>> QueryJoinedUsers(
                 [FromRoute] string tenant,
                 [FromQuery] string userId = null,
@@ -84,12 +85,12 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
 
         [HttpGet]
         [Authorize(Roles="view_client_roles")]
-        [Route("api/administration/client/{clientId}/roles")]
+        [Route("client/{clientId}/roles")]
         public Task<IEnumerable<string>> ReturnRoles([FromRoute] string clientId) =>
             _logic.GetAppRolesAsync(clientId);
 
         [HttpDelete]
-        [Route("api/administration/tenant/{tenant}/ownUser")]
+        [Route("tenant/{tenant}/ownUser")]
         public async Task<IActionResult> ExecuteOwnUserDeletion([FromRoute] string tenant)
         {
             try
@@ -111,7 +112,7 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
 
         [HttpDelete]
         [Authorize(Roles="delete_user_account")]
-        [Route("api/administration/tenant/{tenant}/users")]
+        [Route("tenant/{tenant}/users")]
         public async Task<IActionResult> ExecuteUserDeletion([FromRoute] string tenant, [FromBody] UserDeletionInfo usersToDelete)
         {
             try
