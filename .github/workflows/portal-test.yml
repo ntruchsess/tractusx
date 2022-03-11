@@ -165,10 +165,10 @@ jobs:
       working-directory: ./portal/code/cx-portal
       run: yarn test
 
-    - name: Build a distribution zip file
-      working-directory: ./portal/code/cx-portal
-      run: yarn dist
-
-    - name: Deploy the Portal
-      working-directory: ./portal/code/cx-portal
-      run: yarn deploy
+#    - name: Build distribution zip file
+#      working-directory: ./portal/code/cx-portal
+#      run: yarn dist
+#
+#    - name: Deploy the Portal
+#      working-directory: ./portal/code/cx-portal
+#      run: yarn deploy
