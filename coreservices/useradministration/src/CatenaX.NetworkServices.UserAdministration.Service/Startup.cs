@@ -14,6 +14,8 @@ using CatenaX.NetworkServices.Mailing.Template;
 using CatenaX.NetworkServices.Provisioning.Library;
 using CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic;
 using System.IdentityModel.Tokens.Jwt;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CatenaX.NetworkServices.UserAdministration.Service
 {
@@ -38,6 +40,18 @@ namespace CatenaX.NetworkServices.UserAdministration.Service
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(options => Configuration.Bind("JwtBearerOptions",options));
+
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+
+            services.AddTransient<IAuthorizationHandler,ClaimRequestPathHandler>()
+                    .AddAuthorization(option => {
+                        option.AddPolicy("CheckTenant", policy =>
+                        {
+                            policy.AddRequirements(new ClaimRequestPathRequirement("tenant","tenant"));
+                        });
+                    })
+                    .AddTransient<IHttpContextAccessor,HttpContextAccessor>();
+
             services.AddSwaggerGen(c => c.SwaggerDoc(VERSION, new OpenApiInfo { Title = TAG, Version = VERSION }));
 
             services.AddTransient<IMailingService, MailingService>()
@@ -82,8 +96,6 @@ namespace CatenaX.NetworkServices.UserAdministration.Service
             //app.UseHttpsRedirection();
 
             app.UseRouting();
-
-            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
             app.UseAuthentication();
             app.UseAuthorization();
