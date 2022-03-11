@@ -41,7 +41,7 @@ namespace CatenaX.NetworkServices.UserAdministration.Service
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(options => Configuration.Bind("JwtBearerOptions",options));
 
-
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
             services.AddTransient<IAuthorizationHandler,ClaimRequestPathHandler>()
                     .AddAuthorization(option => {
