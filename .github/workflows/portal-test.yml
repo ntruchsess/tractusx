@@ -159,15 +159,16 @@ jobs:
 
     - name: Install dependecies
       working-directory: ./portal/code/cx-portal
-      run: |
-        yarn
+      run: yarn
 
     - name: Unit Tests
       working-directory: ./portal/code/cx-portal
-      run: |
-        yarn test
+      run: yarn test
+
+    - name: Build a distribution zip file
+      working-directory: ./portal/code/cx-portal
+      run: yarn dist
 
     - name: Deploy the Portal
       working-directory: ./portal/code/cx-portal
-      run: |
-        yarn deploy
+      run: yarn deploy
