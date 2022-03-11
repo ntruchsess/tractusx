@@ -1,5 +1,6 @@
 import {HttpClient} from 'utils/HttpClient'
-import {BusinessPartnerResponse} from 'types/partnerNetwork/PartnerNetworkTypes'
+import { SearchParams, BusinessPartnerResponse, BusinessPartner } from 'types/partnerNetwork/PartnerNetworkTypes'
+import qs, {ParsedUrlQueryInput} from 'querystring'
 
 // Instance of BPDM API endpoint
 export class PartnerNetworkApi extends HttpClient {
@@ -19,7 +20,14 @@ export class PartnerNetworkApi extends HttpClient {
     return this.classInstance
   }
 
-  // Temporary api call to test out authorization of BPDM endpoint
-  public getAllBusinessPartner = () => this.instance.get<BusinessPartnerResponse>('/catena/business-partner?page=0&size=100')
+  public getAllBusinessPartner = (filters: SearchParams) => {
+    const params =  qs.stringify(filters)
+    return this.instance.get<BusinessPartnerResponse>(`/catena/business-partner?${params}`)
+  }
+
+  public getBusinessPartnerByBpn = (bpn:string) => {
+    return this.instance.get<BusinessPartner>(`/catena/business-partner/${bpn}?idType=BPN`)
+  }
+
 
 }
