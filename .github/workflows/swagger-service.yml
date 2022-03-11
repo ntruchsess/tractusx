@@ -120,9 +120,9 @@ jobs:
           DB_PORT: 5432
           DB_NAME: portal
         run: |
-          envsubst < application.properties > application.properties.tmp
-          rm application.properties
-          mv application.properties.tmp application.properties
+          envsubst < application.yml > application.yml.tmp
+          rm application.yml
+          mv application.yml.tmp application.yml
      
       - name: Build with Maven
         working-directory: ./data/portal-td-stub
