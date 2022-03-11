@@ -1,21 +1,14 @@
-import { DataGrid } from '@mui/x-data-grid'
-import { TableProps } from '../../../@types/tableTypes'
+import { DataGrid, DataGridProps } from '@mui/x-data-grid'
+
 
 export const Table = ({
                         columns,
                         rows,
                         autoHeight = true,
-                        headerHeight = 76,
-                        rowHeight = 76,
-                        hideFooter = true,
-                        disableColumnFilter = true,
-                        disableColumnMenu = true,
-                        disableColumnSelector = true,
-                        disableDensitySelector = true,
-                        disableSelectionOnClick = true,
-                        loading = false,
+                        headerHeight = 76,  // Default header height from base design
+                        rowHeight = 76,      // Default row height from base design
                         ...props
-                      }: TableProps) => {
+                      }: DataGridProps) => {
 
   return (
 
@@ -25,13 +18,6 @@ export const Table = ({
       autoHeight,
       headerHeight,
       rowHeight,
-      hideFooter,
-      loading,
-      disableColumnFilter,
-      disableColumnMenu,
-      disableColumnSelector,
-      disableDensitySelector,
-      disableSelectionOnClick,
     }} {...props} />
 
   )

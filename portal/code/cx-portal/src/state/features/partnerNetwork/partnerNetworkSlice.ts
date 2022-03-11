@@ -1,40 +1,13 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { api } from 'state/api'
+import { createSlice } from '@reduxjs/toolkit'
 import {
   BusinessPartner,
   BusinessPartnerResponse,
   PartnerNetworkDataGrid,
-  PartnerNetworkInitialState,
-  SearchParams
+  PartnerNetworkInitialState
 } from 'types/partnerNetwork/PartnerNetworkTypes'
-import { RootState, store } from 'state/store'
-
-export const fetchBusinessPartners = createAsyncThunk(
-  'partnerNetwork/fetchBusinessPartners', async (params: SearchParams) => {
-    try {
-      // Call axios instance to get values
-      if (store.getState().user?.token) {
-        const partnerNetworkApi = api.PartnerNetworkApi.getInstance(store.getState().user?.token)
-        return await partnerNetworkApi.getAllBusinessPartner(params)
-      }
-    } catch (error: any) {
-      console.error('api call error:', error)
-    }
-  })
-
-export const getOneBusinessPartner = createAsyncThunk(
-  'partnerNetwork/getOneBusinessPartner', async (bpn: string) => {
-    try {
-      // Call axios instance to get values
-      if (store.getState().user?.token) {
-        const partnerNetworkApi = api.PartnerNetworkApi.getInstance(store.getState().user?.token)
-        return await partnerNetworkApi.getBusinessPartnerByBpn(bpn)
-      }
-    } catch (error: any) {
-      console.error('api call error:', error)
-      throw Error('getOneBusinessPartner api call error')
-    }
-  })
+import { RootState } from 'state/store'
+import { getOneBusinessPartner, fetchBusinessPartners } from 'state/features/partnerNetwork/partnerNetworkActions'
+import {mapSingleBusinessPartnerToDataGrid, mapBusinessPartnerToDataGrid} from 'utils/dataMapper'
 
 const initialState: PartnerNetworkInitialState = {
   businessPartners: {} as BusinessPartnerResponse,
@@ -63,36 +36,21 @@ const partnerNetworkSlice = createSlice({
       state.loading = true
     })
     builder.addCase(getOneBusinessPartner.fulfilled,(state, {payload})=>{
-      const mappedList = [] as Array<PartnerNetworkDataGrid>
+
       const bp = payload as BusinessPartner
-
-        const bpAddress = bp?.addresses[0]
-        const taxObject = bp?.identifiers.filter((identifier)=>
-          identifier.type.technicalKey === "EU_VAT_ID_DE")
-        mappedList.push({
-          id: bp?.bpn,
-          name: bp?.names.filter((name)=>
-            name.type.technicalKey === "INTERNATIONAL" || name.type.technicalKey === "LOCAL")[0].value,
-          country: bpAddress?.country.name,
-          street: bpAddress?.thoroughfares[0].value,
-          zipCode: bpAddress?.postCodes[0].value,
-          city: bpAddress?.localities[0].value,
-          taxId: taxObject?.length > 0 ? taxObject[0].value : ""
-        })
-
+      const mappedList = [mapSingleBusinessPartnerToDataGrid(bp)] as Array<PartnerNetworkDataGrid>
       state.mappedPartnerList = mappedList
       state.businessPartners = {
         content:[bp],
-        contentSize:1,
-        totalElements: 1,
-        totalPages:1,
-        page: 1,
+        contentSize:mappedList.length,
+        totalElements: mappedList.length,
+        totalPages:1, // One business partner or null can be possible values here. Page is always default 1
+        page: 1, // One business partner or null can be possible values here. Page is always default 1
       } as BusinessPartnerResponse
 
       state.loading = false
     })
     builder.addCase(getOneBusinessPartner.rejected,(state,action)=>{
-      console.log('rejected getOneBusinessPartner',action)
       state.businessPartners = {} as BusinessPartnerResponse
       state.mappedPartnerList = []
       state.loading = false
@@ -105,25 +63,9 @@ const partnerNetworkSlice = createSlice({
     })
     builder.addCase(
       fetchBusinessPartners.fulfilled, (state, { payload }) => {
-        const mappedList = [] as Array<PartnerNetworkDataGrid>
         const payloadList = payload as BusinessPartnerResponse
-        payloadList?.content?.map((bp : BusinessPartner) => {
-          const bpAddress = bp.addresses[0]
-          const taxObject = bp.identifiers.filter((identifier)=>
-            identifier.type.technicalKey === "EU_VAT_ID_DE")
-          mappedList.push({
-            id: bp.bpn,
-            name: bp.names.filter((name)=>
-              name.type.technicalKey === "INTERNATIONAL" || name.type.technicalKey === "LOCAL")[0].value,
-            country: bpAddress.country.name,
-            street: bpAddress.thoroughfares[0].value,
-            zipCode: bpAddress.postCodes[0].value,
-            city: bpAddress.localities[0].value,
-            taxId: taxObject.length > 0 ? taxObject[0].value : ""
-          })
-        })
 
-        state.mappedPartnerList = mappedList
+        state.mappedPartnerList = mapBusinessPartnerToDataGrid(payloadList) as Array<PartnerNetworkDataGrid>
         state.businessPartners = payloadList
 
         state.loading = false

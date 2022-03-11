@@ -1,13 +1,8 @@
 import { useState, useEffect, ChangeEvent } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import {
-  fetchBusinessPartners,
-  getOneBusinessPartner,
-  selectorPartnerNetwork,
-} from 'state/features/partnerNetwork/partnerNetworkSlice'
-import { Table, SharedThemeProvider,  Input } from 'cx-portal-shared-components/dist/index'
-import {Button} from 'cx-portal-shared-components'
-import 'cx-portal-shared-components/dist/index.css'
+import { selectorPartnerNetwork } from 'state/features/partnerNetwork/partnerNetworkSlice'
+import { fetchBusinessPartners, getOneBusinessPartner } from 'state/features/partnerNetwork/partnerNetworkActions'
+import { Table, SharedThemeProvider, Input, Button } from 'cx-portal-shared-components'
 import 'components/pages/PartnerNetwork/PartnerNetwork.css'
 
 const PartnerNetwork = () => {
@@ -19,7 +14,7 @@ const PartnerNetwork = () => {
 
   useEffect(() => {
     if (token) {
-      dispatch(fetchBusinessPartners({size: 100}))
+      dispatch(fetchBusinessPartners({ size: 100 }))
     }
   }, [token, dispatch])
 
@@ -36,14 +31,14 @@ const PartnerNetwork = () => {
   const onSearchClick = () => {
     // There is two different endpoint for BPN search and for the field search
     // Detect which api call to make a request
-    if(bpnValue !== "")
+    if (bpnValue !== '')
       dispatch(getOneBusinessPartner(bpnValue))
     else
-      dispatch(fetchBusinessPartners({size: 100, name: companyName}))
+      dispatch(fetchBusinessPartners({ size: 100, name: companyName }))
 
     // Reset state for next search
-    setBpnValue("")
-    setCompanyName("")
+    setBpnValue('')
+    setCompanyName('')
   }
 
   return (
@@ -72,9 +67,6 @@ const PartnerNetwork = () => {
         <Table rows={mappedPartnerList}
                columns={columns}
                {...{
-                 autoHeight: true,
-                 headerHeight: 76,
-                 rowHeight: 76,
                  hideFooter: true,
                  disableColumnFilter: true,
                  disableColumnMenu: true,
