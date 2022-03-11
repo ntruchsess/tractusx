@@ -27,6 +27,9 @@ on:
       # this workflow file
       - '.github/workflows/swagger-service.yml'
     
+env:
+  prefix: catenax
+
 jobs:
   ########################################
   # First job to determine the environment
