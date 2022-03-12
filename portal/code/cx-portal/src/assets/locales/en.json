@@ -70,12 +70,6 @@
         "notimplemented": "hasn't been implemented yet."
       },
       "further": "If you think there should be content please contact your administrator."
-    },
-    "settings": {
-      "language": "Language",
-      "theme": "Theme",
-      "de": "German",
-      "en": "English"
     }
   }
 }

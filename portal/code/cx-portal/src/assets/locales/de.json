@@ -60,7 +60,7 @@
       "token": "Aktuelles Authentisierungstoken"
     },
     "logout": {
-      "message": "Wir meldnen Sie nun ab... Wir freuen uns Sie bald wieder hier zu sehen!"
+      "message": "Wir melden Sie nun ab... Wir freuen uns Sie bald wieder hier zu sehen!"
     },
     "notfound": {
       "message": "Der Inhalt wurde nicht gefunden. Dies kann verschiedene Ursachen haben - entweder",
@@ -70,12 +70,6 @@
         "notimplemented": "sie wurde noch nicht implementiert."
       },
       "further": "Wenn Sie denken, dass hier etwas sein sollte kontaktieren Sie bitte Ihren Administrator."
-    },
-    "settings": {
-      "language": "Sprache",
-      "theme": "Thema",
-      "de": "Deutsch",
-      "en": "Englisch"
     }
   }
 }

@@ -3,7 +3,6 @@ import Appstore from 'components/pages/Appstore'
 import Connector from 'components/pages/Connector'
 import Dashboard from 'components/pages/Dashboard'
 import DataCatalog from 'components/pages/DataCatalog'
-import Developer from 'components/pages/Developer'
 import DeveloperHub from 'components/pages/DeveloperHub'
 import DigitalTwins from 'components/pages/DigitalTwins'
 import Logout from 'components/pages/Logout'
@@ -12,8 +11,6 @@ import NotificationCenter from 'components/pages/NotificationCenter'
 import Organization from 'components/pages/Organization'
 import PartnerNetwork from 'components/pages/PartnerNetwork'
 import SemanticHub from 'components/pages/SemanticHub'
-import Settings from 'components/pages/Settings'
-import TestAPI from 'components/pages/TestAPI'
 import Translator from 'components/pages/Translator'
 import UserManagement from 'components/pages/UserManagement'
 import { IPage, PAGES, ROLES } from 'types/MainTypes'
@@ -92,17 +89,6 @@ const ALL_PAGES: IPage[] = [
     element: <UserManagement />,
   },
   { name: PAGES.ADMINISTRATION, role: ROLES.CX_ADMIN, element: <Admin /> },
-  {
-    name: PAGES.DEVELOPER,
-    role: ROLES.FE_DEVELOPER,
-    element: <Developer />,
-  },
-  {
-    name: PAGES.SETTINGS,
-    role: ROLES.FE_DEVELOPER,
-    element: <Settings />,
-  },
-  { name: PAGES.TESTAPI, role: ROLES.FE_DEVELOPER, element: <TestAPI /> },
   {
     name: PAGES.TRANSLATOR,
     role: ROLES.FE_DEVELOPER,
