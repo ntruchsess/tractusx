@@ -1,10 +1,9 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Outlet, useSearchParams } from 'react-router-dom'
-import { api } from '../../../state/api'
-import { App } from '../../../types/AppTypes'
-import { AppCard } from '../../shared/content/AppCard/AppCard'
-import './Appstore.css'
+import { api } from 'state/api'
+import { App } from 'types/AppTypes'
+import { AppCards, SearchInput } from 'cx-portal-shared-components'
 
 const Appstore = () => {
   const dispatch = useDispatch()
@@ -18,7 +17,8 @@ const Appstore = () => {
 
   return (
     <main className="Appstore">
-      <input
+      <SearchInput
+        margin="normal"
         autoFocus={true}
         value={searchParams.get('filter') || ''}
         onChange={(event) =>
@@ -26,11 +26,22 @@ const Appstore = () => {
         }
       />
       <nav>
-        {apps
-          .filter((app: App) => filter.test(app.name))
-          .map((app: App) => (
-            <AppCard key={app.id} app={app} />
-          ))}
+        <AppCards
+          items={apps
+            .filter(
+              (app: App) => filter.test(app.title) || filter.test(app.title)
+            )
+            .map((app: App) => {
+              const item: any = { ...app }
+              item.image = {
+                src: 'https://images.unsplash.com/photo-1517153295259-74eb0b416cee?auto=format&fit=crop&w=640&q=420',
+                alt: 'Catena-X AppCard',
+              }
+              return item
+            })}
+          variant="minimal"
+          buttonText="Details"
+        />
       </nav>
       <Outlet />
     </main>

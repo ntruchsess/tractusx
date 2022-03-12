@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
   apps: appsSlice.reducer,
   posts: postsSlice.reducer,
   user: userSlice,
-  partnerNetwork: partnerNetworkSlice.reducer
+  partnerNetwork: partnerNetworkSlice.reducer,
 })
 
 export default rootReducer

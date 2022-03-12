@@ -1,15 +1,16 @@
+import { useSelector } from 'react-redux'
 import AccessService from '../../../../services/AccessService'
-import UserService from '../../../../services/UserService'
-import { LangSwitch } from '../LangSwitch/LangSwitch'
-import { NavMenu } from '../NavMenu/NavMenu'
+import { LangSwitch } from '../LangSwitch'
+import { NavMenu } from '../NavMenu'
 import './UserMenu.scss'
 
 export const UserMenu = () => {
+  const user = useSelector((state: any) => state.user)
   return (
     <div className="UserMenu">
       <div className="Info">
-        <span className="Name">{UserService.getName()}</span>
-        <span className="Company">{UserService.getCompany()}</span>
+        <span className="Name">{user.name}</span>
+        <span className="Company">{user.company}</span>
       </div>
       <NavMenu pages={AccessService.userMenu()} />
       <LangSwitch />

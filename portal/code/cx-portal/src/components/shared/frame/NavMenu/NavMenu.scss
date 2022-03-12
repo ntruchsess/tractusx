@@ -2,13 +2,9 @@
   text-decoration: none;
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
 }
 
-.NavMenu.vertical {
-  width: 256px;
-  padding: 0 8px;
+.NavMenu.vertical.fancy {
   background-color: white;
   & > a {
     display: block;
@@ -23,7 +19,7 @@
   }
 }
 
-.NavMenu.horizontal {
+.NavMenu.horizontal.fancy {
   display: flex;
   & > a {
     color: #888;
@@ -37,5 +33,18 @@
       color: black;
       border-bottom: 2px solid black;
     }
+  }
+}
+
+.NavMenu.fancy {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.NavMenu.plain {
+  & > a {
+    padding: 0;
+    margin: 8px;
+    text-decoration: underline;
   }
 }

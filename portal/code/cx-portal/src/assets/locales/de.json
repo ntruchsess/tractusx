@@ -5,7 +5,7 @@
     "appstore": "App Store",
     "datacatalog": "Datenkatalog",
     "applications": "Anwendungen",
-    "semantichub": "Semantic Hub",
+    "semantichub": "Semantischer Hub",
     "digitaltwin": "Digitaler Zwilling",
     "developerhub": "Entwickler Hub",
     "connector": "Konnektor",
@@ -17,6 +17,14 @@
     "settings": "Einstellungen",
     "admin": "Verwaltung",
     "developer": "Entwicklung",
+    "invite": "Einladung",
+    "help": "Hilfe",
+    "contact": "Kontakt",
+    "imprint": "Impressum",
+    "privacy": "Privatsphäre",
+    "terms": "Nutzungsbedingungen",
+    "cookiepolicy": "Cookie Richtline",
+    "3rdpartylicenses": "Third Party Lizenzen",
     "logout": "Abmelden",
     "notfound": "Seite nicht gefunden"
   },
@@ -24,8 +32,35 @@
     "dashboard": {
       "welcome": "Willkommen bei Catena-X - das automotive Netzwerk!"
     },
+    "semantichub": {
+      "message": "Inhalte vom Semantischen Hub"
+    },
+    "digitaltwin": {
+      "message": "Inhalte vom Digitalen Zwilling"
+    },
+    "datacatalog": {
+      "message": "Inhalte vom Datenkatalog"
+    },
+    "devloperhub": {
+      "message": "Inhalte vom Entwickler Hub"
+    },
+    "connector": {
+      "message": "Inhalte vom Konnektor"
+    },
+    "partnernetwork": {
+      "message": "Inhalte vom Partner Netzwerk"
+    },
+    "invite": {
+      "message": "Inhalte der Einladung"
+    },
+    "usermanagement": {
+      "message": "Inhalte der Benutzerverwaltung"
+    },
     "account": {
       "token": "Aktuelles Authentisierungstoken"
+    },
+    "logout": {
+      "message": "Wir meldnen Sie nun ab... Wir freuen uns Sie bald wieder hier zu sehen!"
     },
     "notfound": {
       "message": "Der Inhalt wurde nicht gefunden. Dies kann verschiedene Ursachen haben - entweder",
@@ -40,12 +75,7 @@
       "language": "Sprache",
       "theme": "Thema",
       "de": "Deutsch",
-      "en": "Englisch",
-      "bright": "Hell",
-      "dark": "Dunkel",
-      "message": {
-        "onlybright": "Momentan unterstützen wir leider nur einen hellen Modus :/"
-      }
+      "en": "Englisch"
     }
   }
 }

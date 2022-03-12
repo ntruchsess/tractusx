@@ -1,17 +1,16 @@
-import {GeographicCoordinate} from 'types/MainTypes'
+import { GeographicCoordinate } from 'types/MainTypes'
 
 //region Common Key Value pairs type
-interface BpdmTypeNameObject{
+interface BpdmTypeNameObject {
   name: string
   url?: string
 }
 
-interface BpdmTypeCommonKeyValuePair extends BpdmTypeNameObject{
+interface BpdmTypeCommonKeyValuePair extends BpdmTypeNameObject {
   technicalKey: string
 }
 
-
-interface BpdmTypeUUIDKeyPair{
+interface BpdmTypeUUIDKeyPair {
   uuid: string
   value: string
   type: BpdmTypeCommonKeyValuePair
@@ -19,31 +18,30 @@ interface BpdmTypeUUIDKeyPair{
   status?: BpdmTypeCommonKeyValuePair
 }
 
-interface BpdmTypeLanguagePair extends BpdmTypeUUIDKeyPair{
+interface BpdmTypeLanguagePair extends BpdmTypeUUIDKeyPair {
   language: BpdmTypeCommonKeyValuePair
 }
 
 //endregion
 
-
 //region Bpdm Address Types
-interface BpdmAddressVersion{
+interface BpdmAddressVersion {
   characterSet: BpdmTypeCommonKeyValuePair
   language: BpdmTypeCommonKeyValuePair
 }
 
-interface BpdmTypeWithShortName extends BpdmTypeLanguagePair{
+interface BpdmTypeWithShortName extends BpdmTypeLanguagePair {
   shortName: string
   fipsCode?: string
 }
 
-interface BpdmTypeThoroughfare extends BpdmTypeWithShortName{
+interface BpdmTypeThoroughfare extends BpdmTypeWithShortName {
   name?: string
   number?: string // Consider as street number and can be string
   direction?: string
 }
 
-interface BpdmAddresses{
+interface BpdmAddresses {
   uuid: string
   version: BpdmAddressVersion
   careOf: string
@@ -60,9 +58,8 @@ interface BpdmAddresses{
 }
 //endregion
 
-
 //region Bpdm Bank Account Type
-interface BpdmTypeBankAccount{
+interface BpdmTypeBankAccount {
   uuid: string
   trustScores: Array<number>
   currency: BpdmTypeCommonKeyValuePair
@@ -73,9 +70,8 @@ interface BpdmTypeBankAccount{
 }
 //endregion
 
-
 //region Other Bpdm Types
-interface BpdmTypeRelation{
+interface BpdmTypeRelation {
   uuid: string
   relationClass: BpdmTypeCommonKeyValuePair
   type: BpdmTypeCommonKeyValuePair
@@ -85,17 +81,17 @@ interface BpdmTypeRelation{
   endedAt?: Date
 }
 
-interface BpdmProfileClassification extends BpdmTypeUUIDKeyPair{
+interface BpdmProfileClassification extends BpdmTypeUUIDKeyPair {
   code?: string
 }
 
-interface BpdmLegalFormObject extends BpdmTypeCommonKeyValuePair{
+interface BpdmLegalFormObject extends BpdmTypeCommonKeyValuePair {
   mainAbbreviation: string
   language: BpdmTypeCommonKeyValuePair
   categories: Array<BpdmTypeNameObject>
 }
 
-interface BpdmBusinessStatus{
+interface BpdmBusinessStatus {
   uuid: string
   officialDenotation: string
   validFrom: Date
@@ -104,8 +100,7 @@ interface BpdmBusinessStatus{
 }
 //endregion
 
-
-export interface BusinessPartner{
+export interface BusinessPartner {
   bpn: string // Unique identifier
   identifiers: Array<BpdmTypeUUIDKeyPair>
   names: Array<BpdmTypeLanguagePair>
@@ -118,7 +113,6 @@ export interface BusinessPartner{
   roles: Array<BpdmTypeCommonKeyValuePair>
   relations: Array<BpdmTypeRelation>
 }
-
 
 export interface BusinessPartnerResponse {
   totalElements: number

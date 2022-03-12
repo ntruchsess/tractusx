@@ -1,9 +1,8 @@
 export type App = {
   id: string
-  name: string
-  vendor: string
-  version: string
-  license: string
+  title: string
+  subtitle: string
   description: string
+  price: string
   rating?: number
 }

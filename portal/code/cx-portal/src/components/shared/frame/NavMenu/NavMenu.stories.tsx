@@ -1,10 +1,11 @@
+import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { NavMenu } from '.'
 import { MemoryRouter } from 'react-router-dom'
-import { Logo } from '.'
 
 export default {
-  title: 'frame/Logo',
-  component: Logo,
+  title: 'frame/NavMenu',
+  component: NavMenu,
   parameters: {
     layout: 'fullscreen',
   },
@@ -16,8 +17,13 @@ export default {
     ),
   ],
   styles: ['./components/App.css'],
-} as ComponentMeta<typeof Logo>
+} as ComponentMeta<typeof NavMenu>
 
-const Template: ComponentStory<typeof Logo> = () => <Logo />
+const Template: ComponentStory<typeof NavMenu> = (args) => <NavMenu {...args} />
 
 export const Standard = Template.bind({})
+Standard.args = {
+  horizontal: true,
+  plain: false,
+  pages: ['apple', 'orange', 'banana', 'melon', 'peach'],
+}

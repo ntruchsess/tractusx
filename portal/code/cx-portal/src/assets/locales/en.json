@@ -17,6 +17,14 @@
     "settings": "Settings",
     "admin": "Administration",
     "developer": "Development",
+    "invite": "Invitation",
+    "help": "Help",
+    "contact": "Contact",
+    "imprint": "Imprint",
+    "privacy": "Privacy",
+    "terms": "Terms of Service",
+    "cookiepolicy": "Cookie Policy",
+    "3rdpartylicenses": "Third Party Licenses",
     "logout": "Sign Out",
     "notfound": "Page not found"
   },
@@ -24,8 +32,35 @@
     "dashboard": {
       "welcome": "Welcome to Catena-X - the automotive network!"
     },
+    "semantichub": {
+      "message": "Contents of Semantic Hub"
+    },
+    "digitaltwin": {
+      "message": "Contents of Digital Twin"
+    },
+    "datacatalog": {
+      "message": "Contents of Data Catalog"
+    },
+    "devloperhub": {
+      "message": "Contents of Developer Hub"
+    },
+    "connector": {
+      "message": "Contents of Connector"
+    },
+    "partnernetwork": {
+      "message": "Contents of Partner Network"
+    },
+    "invite": {
+      "message": "Contents of Invite Business Partner"
+    },
+    "usermanagement": {
+      "message": "Contents of User Management"
+    },
     "account": {
       "token": "Current authentication token"
+    },
+    "logout": {
+      "message": "We are logging you out now... Hope to see you again soon!"
     },
     "notfound": {
       "message": "The content could not be found. This can happen because of various reasons - either",
@@ -34,18 +69,13 @@
         "notexisting": "the page doesn't exist in the Catena-X portal or",
         "notimplemented": "hasn't been implemented yet."
       },
-      "further": "If you think there should be content please contactz your administrator."
+      "further": "If you think there should be content please contact your administrator."
     },
     "settings": {
       "language": "Language",
       "theme": "Theme",
       "de": "German",
-      "en": "English",
-      "bright": "Bright",
-      "dark": "Dark",
-      "message": {
-        "onlybright": "Sorry, but currently we only support bright mode :/"
-      }
+      "en": "English"
     }
   }
 }

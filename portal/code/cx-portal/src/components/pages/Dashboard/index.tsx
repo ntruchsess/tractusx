@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import './Dashboard.css'
+import './Dashboard.scss'
 
 export default function Dashboard() {
   const { t } = useTranslation()

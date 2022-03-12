@@ -29,7 +29,9 @@ steps
 
 known TODO's
 
+    - set up a uniform redux store pattern
+    - proper error handling
+    - write missing unit tests
     - convert Javascript files to TypeScript
     - define types that are given as any
-    - write missing tests
     - some files are formatted differently by prettier and eslint --fix

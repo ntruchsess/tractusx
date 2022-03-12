@@ -5,7 +5,7 @@ export default function DataCatalog() {
   return (
     <main>
       <h2>{t('pages.datacatalog')}</h2>
-      <p>content of the data catalog</p>
+      <p>{t('content.datacatalog.message')}</p>
     </main>
   )
 }

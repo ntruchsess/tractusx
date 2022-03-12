@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { MemoryRouter } from 'react-router-dom'
-import { LangSwitch } from './LangSwitch'
+import { LangSwitch } from '.'
 
 export default {
   title: 'frame/LangSwitch',

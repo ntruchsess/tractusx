@@ -1,17 +1,18 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import {fetchBusinessPartners, selectorPartnerNetwork} from 'state/features/partnerNetwork/partnerNetworkSlice'
-
+import {
+  fetchBusinessPartners,
+  selectorPartnerNetwork,
+} from 'state/features/partnerNetwork/partnerNetworkSlice'
 
 // Temporary component. Will change in upcoming commits
 const PartnerNetwork = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const token = useSelector((state: any) => state.user.token)
-  const {businessPartners,loading} = useSelector(selectorPartnerNetwork)
-
+  const { businessPartners /*,loading*/ } = useSelector(selectorPartnerNetwork)
 
   useEffect(() => {
-    if(token) {
+    if (token) {
       dispatch(fetchBusinessPartners())
     }
   }, [token, dispatch])
@@ -19,13 +20,10 @@ const PartnerNetwork = () => {
   return (
     <main className="Appstore">
       <ul>
-      {
-        businessPartners?.content?.map((bpn:any,index:number)=>{
+        {businessPartners?.content?.map((bpn: any, index: number) => {
           return <li key={index}>{bpn.bpn}</li>
-        })
-      }
+        })}
       </ul>
-
     </main>
   )
 }

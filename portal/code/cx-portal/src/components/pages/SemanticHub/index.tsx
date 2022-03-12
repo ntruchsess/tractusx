@@ -5,7 +5,7 @@ export default function SemanticHub() {
   return (
     <main>
       <h2>{t('pages.semantichub')}</h2>
-      <p>content of the semantic hub</p>
+      <p>{t('content.semantichub.message')}</p>
     </main>
   )
 }

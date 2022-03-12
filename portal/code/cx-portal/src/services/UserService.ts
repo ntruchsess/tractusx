@@ -1,6 +1,7 @@
 import Keycloak from 'keycloak-js'
 import { IUser } from 'types/user/UserTypes'
-import {ROLES} from 'types/MainTypes'
+import { ROLES } from 'types/MainTypes'
+import AccessService from './AccessService'
 
 const keycloakConfig = {
   url: process.env.REACT_APP_BASE_CENTRAL_IDP,
@@ -20,6 +21,7 @@ const init = (onAuthenticatedCallback: (loggedUser: IUser) => any) => {
     pkceMethod: 'S256',
   }).then((authenticated: boolean) => {
     if (authenticated) {
+      AccessService.init()
       // User authenticated successfully
       // Prepare user data to store it in Redux
       const loggedUser: IUser = {
@@ -32,11 +34,24 @@ const init = (onAuthenticatedCallback: (loggedUser: IUser) => any) => {
         token: getToken(),
         parsedToken: getParsedToken(),
       }
+      console.log(getRoles())
       onAuthenticatedCallback(loggedUser)
     } else {
       doLogin()
     }
   })
+}
+
+KC.onTokenExpired = () => {
+  KC.updateToken(50)
+    .then((refreshed: boolean) => {
+      //TODO: also update token in redux store
+      console.log(`refreshed ${refreshed}, ${new Date()}`)
+      console.log(getRoles())
+    })
+    .catch(() => {
+      console.error(`refresh failed, ${new Date()}`)
+    })
 }
 
 const doLogin = KC.login

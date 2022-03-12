@@ -1,10 +1,11 @@
+import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { Footer } from '.'
 import { MemoryRouter } from 'react-router-dom'
-import { Logo } from '.'
 
 export default {
-  title: 'frame/Logo',
-  component: Logo,
+  title: 'frame/Footer',
+  component: Footer,
   parameters: {
     layout: 'fullscreen',
   },
@@ -16,8 +17,18 @@ export default {
     ),
   ],
   styles: ['./components/App.css'],
-} as ComponentMeta<typeof Logo>
+} as ComponentMeta<typeof Footer>
 
-const Template: ComponentStory<typeof Logo> = () => <Logo />
+const Template: ComponentStory<typeof Footer> = (args) => <Footer {...args} />
 
 export const Standard = Template.bind({})
+Standard.args = {
+  pages: [
+    'dashboard',
+    'appstore',
+    'datacatalog',
+    'digitaltwins',
+    'semantichub',
+    'developerhub',
+  ],
+}
