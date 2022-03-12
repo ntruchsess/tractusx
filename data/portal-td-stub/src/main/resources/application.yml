@@ -25,14 +25,16 @@ spring:
       ddl-auto: none
       naming:
         physical-strategy: net.catenax.portal.db.naming.CustomPhysicalNamingStrategy
-    properties:      hibernate:
+    properties:
+      hibernate:
         jdbc:
           lob:
             non_contextual_creation: true
-  datasource:    continue-on-error: true
+  datasource:
+    continue-on-error: true
     initialization-mode: always
     platform: postgres
-    url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}
+    url: jdbc:postgresql://${DB_HOST_FQDN}:${DB_PORT}/${DB_NAME}?user=${DB_USER}@${DB_HOST}&password=${DB_PWD}&sslmode=require    
     username: ${DB_USER}
     password: ${DB_PWD}
     

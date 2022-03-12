@@ -116,7 +116,8 @@ jobs:
           SERVICE_PORT: 10000
           DB_USER: ${{ secrets.CATENAX_USER }}@catenax${{needs.environment.outputs.workspace}}database
           DB_PWD: ${{ secrets.CATENAX_PASSWORD }}
-          DB_HOST: catenax${{needs.environment.outputs.workspace}}database.postgres.database.azure.com
+          DB_HOST_FQDN: catenax${{needs.environment.outputs.workspace}}database.postgres.database.azure.com
+          DB_HOST: catenax${{needs.environment.outputs.workspace}}database
           DB_PORT: 5432
           DB_NAME: portal
           DB_SCHEMA: public
