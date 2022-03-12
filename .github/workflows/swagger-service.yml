@@ -145,4 +145,4 @@ jobs:
 
       - name: Deploy swagger service to Azure Container Instances
         run: |
-          az container create --resource-group shared-services-rg --name swaggerservicedev --image catenaxacr.azurecr.io/tractusx/swaggerservice${{needs.environment.outputs.workspace}}:${{ github.run_id }} --restart-policy OnFailure --ports 8080 --dns-name-label swaggerservicedev --registry-password ${{ secrets.AZURE_REGISTRY_PASSWORD }} --registry-username ${{ secrets.AZURE_REGISTRY_USERNAME }} --cpu 2 --memory 3.5
+          az container create --resource-group shared-services-rg --name swaggerservicedev --image catenaxacr.azurecr.io/tractusx/swaggerservice${{needs.environment.outputs.workspace}}:${{ github.run_id }} --restart-policy OnFailure --ports 10000 --dns-name-label swaggerservicedev --registry-password ${{ secrets.AZURE_REGISTRY_PASSWORD }} --registry-username ${{ secrets.AZURE_REGISTRY_USERNAME }} --cpu 2 --memory 3.5
