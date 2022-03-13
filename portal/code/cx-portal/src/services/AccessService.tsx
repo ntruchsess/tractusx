@@ -17,6 +17,7 @@ import { IPage, PAGES, ROLES } from 'types/MainTypes'
 import UserService from './UserService'
 import { Route } from 'react-router-dom'
 import AppstoreDetail from 'components/pages/Appstore/AppstoreDetail'
+import NotFound from 'components/pages/NotFound'
 
 /**
  * ALL_PAGES
@@ -28,8 +29,8 @@ import AppstoreDetail from 'components/pages/Appstore/AppstoreDetail'
  * route? - (optional) a custom router setup for this page. By default it will create a simple route name -> element
  */
 const ALL_PAGES: IPage[] = [
-  { name: PAGES.ROOT, role: ROLES.EVERYONE, element: <Dashboard /> },
-  { name: PAGES.DASHBOARD, role: ROLES.EVERYONE, element: <Dashboard /> },
+  { name: PAGES.ROOT, element: <Dashboard /> },
+  { name: PAGES.DASHBOARD, element: <Dashboard /> },
   {
     name: PAGES.APPSTORE,
     role: ROLES.APPSTORE_VIEW,
@@ -67,10 +68,9 @@ const ALL_PAGES: IPage[] = [
     role: ROLES.CONNECTOR_SETUP,
     element: <Connector />,
   },
-  { name: PAGES.ACCOUNT, role: ROLES.EVERYONE, element: <MyAccount /> },
+  { name: PAGES.ACCOUNT, element: <MyAccount /> },
   {
     name: PAGES.NOTIFICATIONS,
-    role: ROLES.EVERYONE,
     element: <NotificationCenter />,
   },
   {
@@ -94,42 +94,14 @@ const ALL_PAGES: IPage[] = [
     role: ROLES.FE_DEVELOPER,
     element: <Translator />,
   },
-  {
-    name: PAGES.HELP,
-    role: ROLES.EVERYONE,
-    element: <main>not implemented</main>,
-  },
-  {
-    name: PAGES.CONTACT,
-    role: ROLES.EVERYONE,
-    element: <main>not implemented</main>,
-  },
-  {
-    name: PAGES.IMPRINT,
-    role: ROLES.EVERYONE,
-    element: <main>not implemented</main>,
-  },
-  {
-    name: PAGES.PRIVACY,
-    role: ROLES.EVERYONE,
-    element: <main>not implemented</main>,
-  },
-  {
-    name: PAGES.TERMS,
-    role: ROLES.EVERYONE,
-    element: <main>not implemented</main>,
-  },
-  {
-    name: PAGES.COOKIE_POLICY,
-    role: ROLES.EVERYONE,
-    element: <main>not implemented</main>,
-  },
-  {
-    name: PAGES.THIRD_PARTY_LICENSES,
-    role: ROLES.EVERYONE,
-    element: <main>not implemented</main>,
-  },
-  { name: PAGES.LOGOUT, role: ROLES.EVERYONE, element: <Logout /> },
+  { name: PAGES.HELP, element: <NotFound /> },
+  { name: PAGES.CONTACT, element: <NotFound /> },
+  { name: PAGES.IMPRINT, element: <NotFound /> },
+  { name: PAGES.PRIVACY, element: <NotFound /> },
+  { name: PAGES.TERMS, element: <NotFound /> },
+  { name: PAGES.COOKIE_POLICY, element: <NotFound /> },
+  { name: PAGES.THIRD_PARTY_LICENSES, element: <NotFound /> },
+  { name: PAGES.LOGOUT, element: <Logout /> },
 ]
 
 /**
@@ -180,11 +152,15 @@ const footerMenuFull = [
   PAGES.THIRD_PARTY_LICENSES,
 ]
 
-let permittedPages: { [page: string]: IPage }
+let pageMap: { [page: string]: IPage }
 
-const hasAccess = (page: string): boolean =>
-  UserService.hasRole(permittedPages[page]?.role) ||
-  permittedPages[page]?.role === ROLES.EVERYONE
+const hasAccess = (page: string): boolean => {
+  const fullPage = pageMap[page]
+  if (!fullPage) return false // page doesn't exist
+  const role = fullPage.role
+  if (!role) return true // no permission required for this page
+  return UserService.hasRole(role) // check if user has the required permission
+}
 
 const accessToMenu = (menu: string[]) =>
   menu.filter((page: string) => hasAccess(page))
@@ -199,17 +175,15 @@ const permittedRoutes = () =>
   ALL_PAGES.filter((page: IPage) => hasAccess(page.name)).map((p) => p.route)
 
 function init() {
-  permittedPages = ALL_PAGES.reduce(
-    (map: { [page: string]: IPage }, page: IPage) => {
-      map[page.name] = page
-      if (!page.route)
-        page.route = (
-          <Route key={page.name} path={page.name} element={page.element} />
-        )
-      return map
-    },
-    {}
-  )
+  // from the list of pages set up a map for easier access and create default routes
+  pageMap = ALL_PAGES.reduce((map: { [page: string]: IPage }, page: IPage) => {
+    map[page.name] = page
+    if (!page.route)
+      page.route = (
+        <Route key={page.name} path={page.name} element={page.element} />
+      )
+    return map
+  }, {})
 }
 
 const AccessService = {

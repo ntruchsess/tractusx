@@ -2,6 +2,9 @@ import Keycloak from 'keycloak-js'
 import { IUser } from 'types/user/UserTypes'
 import { ROLES } from 'types/MainTypes'
 import AccessService from './AccessService'
+import { store } from 'state/store'
+import { setLoggedUser } from 'state/features/user/userSlice'
+import { error, info } from './LogService'
 
 const keycloakConfig = {
   url: process.env.REACT_APP_BASE_CENTRAL_IDP,
@@ -21,21 +24,9 @@ const init = (onAuthenticatedCallback: (loggedUser: IUser) => any) => {
     pkceMethod: 'S256',
   }).then((authenticated: boolean) => {
     if (authenticated) {
+      info(`${getUsername()} authenticated`)
       AccessService.init()
-      // User authenticated successfully
-      // Prepare user data to store it in Redux
-      const loggedUser: IUser = {
-        userName: getUsername(),
-        name: getName(),
-        email: getEmail(),
-        company: getCompany(),
-        roles: getRoles(),
-        isAdmin: isAdmin(),
-        token: getToken(),
-        parsedToken: getParsedToken(),
-      }
-      console.log(getRoles())
-      onAuthenticatedCallback(loggedUser)
+      onAuthenticatedCallback(getLoggedUser())
     } else {
       doLogin()
     }
@@ -45,12 +36,12 @@ const init = (onAuthenticatedCallback: (loggedUser: IUser) => any) => {
 KC.onTokenExpired = () => {
   KC.updateToken(50)
     .then((refreshed: boolean) => {
-      //TODO: also update token in redux store
-      console.log(`refreshed ${refreshed}, ${new Date()}`)
-      console.log(getRoles())
+      info(`${getUsername()} refreshed ${refreshed}`)
+      //TODO: update token in redux store
+      //store.dispatch(setLoggedUser(getLoggedUser()))
     })
     .catch(() => {
-      console.error(`refresh failed, ${new Date()}`)
+      error(`${getUsername()} refresh failed`)
     })
 }
 
@@ -80,6 +71,17 @@ const hasRole = (role: string) => getRoles()?.includes(role)
 const isAdmin = () => hasRole(ROLES.CX_ADMIN)
 
 const isLoggedIn = () => !!KC.token
+
+const getLoggedUser = () => ({
+  userName: getUsername(),
+  name: getName(),
+  email: getEmail(),
+  company: getCompany(),
+  roles: getRoles(),
+  isAdmin: isAdmin(),
+  token: getToken(),
+  parsedToken: getParsedToken(),
+})
 
 const UserService = {
   doLogin,

@@ -63,7 +63,7 @@ export enum ROLES {
 
 export type IPage = {
   name: string
-  role: string
+  role?: string
   element: JSX.Element
   route?: JSX.Element
 }
