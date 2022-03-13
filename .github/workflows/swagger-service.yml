@@ -112,7 +112,7 @@ jobs:
       - name: Configure application properties
         working-directory: ./data/portal-td-stub/src/main/resources
         env: 
-          SERVER_HOST: swaggerservicedev.germanywestcentral.azurecontainer.io
+          # SERVER_HOST: swaggerservicedev.germanywestcentral.azurecontainer.io
           SERVER_PORT: 8080
           DB_USER: CatenaX@catenax${{needs.environment.outputs.workspace}}database
           DB_PWD: ${{ secrets.CATENAX_PASSWORD }}
