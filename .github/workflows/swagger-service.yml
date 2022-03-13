@@ -125,6 +125,7 @@ jobs:
           envsubst < application.yml > application.yml.tmp
           rm application.yml
           mv application.yml.tmp application.yml
+          cat application.yml
      
       - name: Build with Maven
         working-directory: ./data/portal-td-stub
