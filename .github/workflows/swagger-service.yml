@@ -112,8 +112,8 @@ jobs:
       - name: Configure application properties
         working-directory: ./data/portal-td-stub/src/main/resources
         env: 
-          SERVICE_HOST: tdmgeneratordev.germanywestcentral.azurecontainer.io
-          SERVICE_PORT: 10000
+          SERVER_HOST: swaggerservicedev.germanywestcentral.azurecontainer.io
+          SERVER_PORT: 10000
           DB_USER: CatenaX@catenax${{needs.environment.outputs.workspace}}database
           DB_PWD: XatenaC42
           DB_HOST_FQDN: catenax${{needs.environment.outputs.workspace}}database.postgres.database.azure.com
