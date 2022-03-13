@@ -24,5 +24,6 @@ namespace CatenaX.NetworkServices.Provisioning.Library
             string firstName = null,
             string lastName = null,
             string email = null);
+        Task<string> SetupClientAsync(string redirectUrl);
     }
 }

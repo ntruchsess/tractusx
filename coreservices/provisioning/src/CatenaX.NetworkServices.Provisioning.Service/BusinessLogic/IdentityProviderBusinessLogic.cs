@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
 using CatenaX.NetworkServices.Provisioning.Library;
-using CatenaX.NetworkServices.Provisioning.Library.Models;
+using CatenaX.NetworkServices.Provisioning.Service.Models;
 
 namespace CatenaX.NetworkServices.Provisioning.Service.BusinessLogic
 {

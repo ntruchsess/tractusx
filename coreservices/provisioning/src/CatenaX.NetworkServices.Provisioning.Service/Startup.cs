@@ -34,14 +34,19 @@ namespace CatenaX.NetworkServices.Provisioning.Service
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(options => Configuration.Bind("JwtBearerOptions",options));
-            services.AddSwaggerGen(c => c.SwaggerDoc(VERSION, new OpenApiInfo { Title = TAG, Version = VERSION }))
-                    .AddTransient<IIdentityProviderBusinessLogic,IdentityProviderBusinessLogic>()
-                    .AddTransient<IClaimsTransformation, KeycloakClaimsTransformation>()
+            services.AddTransient<IClaimsTransformation, KeycloakClaimsTransformation>()
+                    .Configure<JwtBearerOptions>(options => Configuration.Bind("JwtBearerOptions",options));
+
+            services.AddSwaggerGen(c => {
+                c.SwaggerDoc(VERSION, new OpenApiInfo { Title = TAG, Version = VERSION });
+            });
+   
+            services.AddTransient<IIdentityProviderBusinessLogic,IdentityProviderBusinessLogic>()
+                    .AddTransient<IClientBusinessLogic,ClientBusinessLogic>()
                     .AddTransient<IKeycloakFactory, KeycloakFactory>()
                     .AddTransient<IProvisioningManager, ProvisioningManager>()
                     .ConfigureKeycloakSettingsMap(Configuration.GetSection("Keycloak"))
-                    .ConfigureProvisioningSettings(Configuration.GetSection("Provisioning"))
-                    .Configure<JwtBearerOptions>(options => Configuration.Bind("JwtBearerOptions",options));
+                    .ConfigureProvisioningSettings(Configuration.GetSection("Provisioning"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

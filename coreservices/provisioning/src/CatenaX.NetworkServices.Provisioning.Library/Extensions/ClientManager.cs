@@ -1,5 +1,6 @@
 using Keycloak.Net.Models.Clients;
-using System.Collections.Generic;
+using Keycloak.Net.Models.ProtocolMappers;
+
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -19,6 +20,32 @@ namespace CatenaX.NetworkServices.Provisioning.Library
             newClient.RedirectUris = Enumerable.Repeat<string>(config.RedirectUri, 1);
             newClient.Attributes["jwks.url"] = config.JwksUrl;
             return _SharedIdp.CreateClientAsync(realm,newClient);
+        }
+
+        private Task<string> CreateCentralOIDCClientAsync(string clientId, string redirectUri)
+        {
+            var newClient = CloneClient(_Settings.CentralOIDCClient);
+            newClient.ClientId = clientId;
+            newClient.RedirectUris = Enumerable.Repeat<string>(redirectUri, 1);
+            return _CentralIdp.CreateClientAndRetrieveClientIdAsync(_Settings.CentralRealm,newClient);
+        }
+
+        private Task<bool> CreateCentralOIDCClientAudienceMapperAsync(string internalClientId, string clientAudienceId) =>
+            _CentralIdp.CreateClientProtocolMapperAsync(_Settings.CentralRealm, internalClientId, new ProtocolMapper {
+                Name = $"{clientAudienceId}-mapper",
+                Protocol = "openid-connect",
+                _ProtocolMapper = "oidc-audience-mapper",
+                ConsentRequired =  false,
+                Config = new Config {
+                    IncludedClientAudience = clientAudienceId,
+                    IdTokenClaim = "false",
+                    AccessTokenClaim = "true",
+                }
+            });
+
+        private Task<string> GetNextClientIdAsync()
+        {
+            return Task.FromResult("nextClientId"); //TODO implement GetNextClientIdAsync()
         }
 
         private Client CloneClient(Client client) =>

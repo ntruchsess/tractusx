@@ -159,5 +159,13 @@ namespace CatenaX.NetworkServices.Provisioning.Library
                     lastName = x.last_name,
                     email = x.email
                 });
+
+        public async Task<string> SetupClientAsync(string redirectUrl)
+        {
+            var clientId = await GetNextClientIdAsync().ConfigureAwait(false);
+            var internalId = (await CreateCentralOIDCClientAsync(clientId,redirectUrl).ConfigureAwait(false));
+            await CreateCentralOIDCClientAudienceMapperAsync(internalId, clientId).ConfigureAwait(false);
+            return clientId;
+        }
     }
 }
