@@ -8,5 +8,6 @@ export { SearchInput } from './basic/SearchInput'
 export { SharedThemeProvider } from './basic/SharedThemeProvider'
 export { Typography } from './basic/Typography'
 export { UserAvatar } from './basic/UserAvatar'
+export { Table } from './basic/Table'
 
 export { AppCards } from './content/AppCards'
