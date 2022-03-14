@@ -12,6 +12,7 @@ using CatenaX.NetworkServices.Provisioning.Service.Models;
 namespace CatenaX.NetworkServices.Provisioning.Service.Controllers
 {
     [ApiController]
+    [Route("api/provisioning")]
     public class ClientController : ControllerBase
     {
 
@@ -26,7 +27,7 @@ namespace CatenaX.NetworkServices.Provisioning.Service.Controllers
 
         [HttpPost]
         [Authorize(Roles="setup_client")]
-        [Route("api/provisioning/client/setup")]
+        [Route("client/setup")]
         public async Task<IActionResult> CreateClient([FromBody] ClientSetupData clientSetupData)
         {
             try
