@@ -15,6 +15,7 @@ const fetchBusinessPartners = createAsyncThunk(
       }
     } catch (error: any) {
       console.error('api call error:', error)
+      throw Error('fetchBusinessPartners api call error')
     }
   })
 

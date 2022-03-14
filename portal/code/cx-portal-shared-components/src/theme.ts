@@ -21,7 +21,6 @@ const getFontFamily = (name: string): string =>
     '"Segoe UI Symbol"',
   ].join(',')
 
-
 const breakpoints = {
   xs: 0,
   sm: 375,
@@ -428,21 +427,21 @@ export const theme = createTheme({
     MuiDataGrid: {
       styleOverrides: {
         root: {
-          borderRadius: 25
+          borderRadius: 25,
         },
-        columnHeaders:{
+        columnHeaders: {
           backgroundColor: `${palette.background.background03}`,
           fontFamily: getFontFamily('LibreFranklin-SemiBold'),
         },
-        columnSeparator:{
-          display:'none'
+        columnSeparator: {
+          display: 'none',
         },
-        main:{
-          borderRadius: 25
+        main: {
+          borderRadius: 25,
         },
-        cell:{
-          padding:"20px 5px"
-        }
+        cell: {
+          padding: '20px 5px',
+        },
       },
     },
   },
