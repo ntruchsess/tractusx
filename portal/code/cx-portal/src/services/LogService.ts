@@ -1,12 +1,12 @@
 export enum LogLevel {
-    SEVERE = 'SEVERE',
-    ERROR = ' ERROR',
-    WARN  = '  WARN',
-    INFO  = '  INFO',
-    DEBUG = ' DEBUG'
+  SEVERE = 'SEVERE',
+  ERROR = ' ERROR',
+  WARN = '  WARN',
+  INFO = '  INFO',
+  DEBUG = ' DEBUG',
 }
 
-export const logtime = () => new Date().toISOString().substring(11,19)
+export const logtime = () => new Date().toISOString().substring(11, 19)
 
 export const log = (level: LogLevel, message: string) =>
   console.log(`${logtime()} ${level} ${message}`)
@@ -21,8 +21,7 @@ const LogService = {
   log,
   info,
   warn,
-  error
+  error,
 }
-  
+
 export default LogService
-  
