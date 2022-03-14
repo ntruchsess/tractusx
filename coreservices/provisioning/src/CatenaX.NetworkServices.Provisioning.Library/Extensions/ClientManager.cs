@@ -43,10 +43,8 @@ namespace CatenaX.NetworkServices.Provisioning.Library
                 }
             });
 
-        private Task<string> GetNextClientIdAsync()
-        {
-            return Task.FromResult("nextClientId"); //TODO implement GetNextClientIdAsync()
-        }
+        private async Task<string> GetNextClientIdAsync() =>
+            _Settings.ClientPrefix + (await _ProvisioningDBAccess.GetNextClientSequenceAsync().ConfigureAwait(false)).id + "_DummySuffix"; //TODO: implement full client naming scheme
 
         private Client CloneClient(Client client) =>
             JsonSerializer.Deserialize<Client>(JsonSerializer.Serialize(client));

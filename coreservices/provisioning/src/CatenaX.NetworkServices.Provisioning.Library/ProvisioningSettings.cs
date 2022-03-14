@@ -9,6 +9,7 @@ namespace CatenaX.NetworkServices.Provisioning.Library
         public string CentralRealm { get; set; }
         public string CentralRealmId { get; set; }
         public string IdpPrefix { get; set; }
+        public string ClientPrefix { get; set; }
         public string MappedIdpAttribute { get; set; }
         public string MappedCompanyAttribute { get; set; }
         public string UserNameMapperTemplate { get; set; }
