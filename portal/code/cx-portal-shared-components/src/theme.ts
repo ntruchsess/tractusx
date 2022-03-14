@@ -107,10 +107,15 @@ const palette = createPalette({
     accent11: '#337B89',
     accent12: '#2B4078',
   },
+  selected: {
+    hover: 'rgba(15, 113, 203, 0.05)',
+    focus: 'rgba(15, 113, 203, 0.15)',
+    active: 'rgba(15, 113, 203, 0.2)',
+  },
 })
 
 const typography = createTypography(palette, {
-  fontFamily: getFontFamily('LibreFranklin-Regular'),
+  fontFamily: getFontFamily('LibreFranklin'),
   htmlFontSize: 16,
   allVariants: {
     color: palette.text.primary,
@@ -195,28 +200,28 @@ const typography = createTypography(palette, {
     color: palette.text.secondary,
   },
   caption1: {
-    fontFamily: getFontFamily('LibreFranklin-Regular'),
+    fontFamily: getFontFamily('LibreFranklin'),
     fontSize: 18,
     lineHeight: 28 / 18,
     letterSpacing: 0,
     color: palette.text.tertiary,
   },
   caption2: {
-    fontFamily: getFontFamily('LibreFranklin-Regular'),
+    fontFamily: getFontFamily('LibreFranklin'),
     fontSize: 16,
     lineHeight: 24 / 16,
     letterSpacing: 0,
     color: palette.text.tertiary,
   },
   caption3: {
-    fontFamily: getFontFamily('LibreFranklin-Regular'),
+    fontFamily: getFontFamily('LibreFranklin'),
     fontSize: 14,
     lineHeight: 20 / 14,
     letterSpacing: 0,
     color: palette.text.tertiary,
   },
   helper: {
-    fontFamily: getFontFamily('LibreFranklin-Regular'),
+    fontFamily: getFontFamily('LibreFranklin'),
     fontSize: 12,
     lineHeight: 16 / 12,
     letterSpacing: 0,
@@ -272,7 +277,7 @@ export const theme = createTheme({
           padding: '14px 24px',
         },
         sizeSmall: {
-          fontSize: typography.body2.fontSize,
+          fontSize: typography.body3.fontSize,
           padding: '10px 18px',
         },
         outlined: {
@@ -441,6 +446,25 @@ export const theme = createTheme({
         },
         cell: {
           padding: '20px 5px',
+        },
+      },
+    },
+    MuiLink: {
+      styleOverrides: {
+        root: {
+          fontFamily: typography.body1.fontFamily,
+          textDecoration: 'none',
+          ':hover': {
+            color: palette.primary.dark,
+          },
+        },
+      },
+    },
+    MuiList: {
+      styleOverrides: {
+        root: {
+          fontFamily: typography.label3.fontFamily,
+          fontSize: typography.label3.fontSize,
         },
       },
     },
