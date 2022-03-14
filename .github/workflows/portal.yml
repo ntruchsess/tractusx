@@ -43,7 +43,7 @@ on:
   push:
     paths:
       # This is where the terraform related scripts and manifests reside
-      - 'portal/**'
+      - 'portal/code/tractus-x-portal/**'
       # any deployment manifest
       - 'infrastructure/manifests/portal.yaml'
       # this workflow file
