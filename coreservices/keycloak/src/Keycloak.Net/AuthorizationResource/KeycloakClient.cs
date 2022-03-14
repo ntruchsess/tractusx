@@ -9,8 +9,12 @@ namespace Keycloak.Net
     {
         public async Task<bool> CreateResourceAsync(string realm, string resourceServerId, AuthorizationResource resource)
         {
-            var response = await GetBaseUrl(realm)
-                .AppendPathSegment($"/admin/realms/{realm}/clients/{resourceServerId}/authz/resource-server/resource")
+            var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+                .AppendPathSegment("/admin/realms/")
+                .AppendPathSegment(realm, true)
+                .AppendPathSegment("/clients/")
+                .AppendPathSegment(resourceServerId, true)
+                .AppendPathSegment("/authz/resource-server/resource")
                 .PostJsonAsync(resource)
                 .ConfigureAwait(false);
             return response.IsSuccessStatusCode;
@@ -31,22 +35,36 @@ namespace Keycloak.Net
                 [nameof(uri)] = uri
             };
             
-            return await GetBaseUrl(realm)
-                .AppendPathSegment($"/admin/realms/{realm}/clients/{resourceServerId}/authz/resource-server/resource")
+            return await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+                .AppendPathSegment("/admin/realms/")
+                .AppendPathSegment(realm, true)
+                .AppendPathSegment("/clients/")
+                .AppendPathSegment(resourceServerId, true)
+                .AppendPathSegment("/authz/resource-server/resource")
                 .SetQueryParams(queryParams)
                 .GetJsonAsync<IEnumerable<AuthorizationResource>>()
                 .ConfigureAwait(false);
         }
 
-        public async Task<AuthorizationResource> GetResourceAsync(string realm, string resourceServerId, string resourceId) => await GetBaseUrl(realm)
-            .AppendPathSegment($"/admin/realms/{realm}/clients/{resourceServerId}/authz/resource-server/resource/{resourceId}")
+        public async Task<AuthorizationResource> GetResourceAsync(string realm, string resourceServerId, string resourceId) => await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+            .AppendPathSegment("/admin/realms/")
+            .AppendPathSegment(realm, true)
+            .AppendPathSegment("/clients/")
+            .AppendPathSegment(resourceServerId, true)
+            .AppendPathSegment("/authz/resource-server/resource/")
+            .AppendPathSegment(resourceId, true)
             .GetJsonAsync<AuthorizationResource>()
             .ConfigureAwait(false);
 
         public async Task<bool> UpdateResourceAsync(string realm, string resourceServerId, string resourceId, AuthorizationResource resource)
         {
-            var response = await GetBaseUrl(realm)
-                .AppendPathSegment($"/admin/realms/{realm}/clients/{resourceServerId}/authz/resource-server/resource/{resourceId}")
+            var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+                .AppendPathSegment("/admin/realms/")
+                .AppendPathSegment(realm, true)
+                .AppendPathSegment("/clients/")
+                .AppendPathSegment(resourceServerId, true)
+                .AppendPathSegment("/authz/resource-server/resource/")
+                .AppendPathSegment(resourceId, true)
                 .PutJsonAsync(resource)
                 .ConfigureAwait(false);
             return response.IsSuccessStatusCode;
@@ -54,8 +72,13 @@ namespace Keycloak.Net
 
         public async Task<bool> DeleteResourceAsync(string realm, string resourceServerId, string resourceId)
         {
-            var response = await GetBaseUrl(realm)
-                .AppendPathSegment($"/admin/realms/{realm}/clients/{resourceServerId}/authz/resource-server/resource/{resourceId}")
+            var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
+                .AppendPathSegment("/admin/realms/")
+                .AppendPathSegment(realm, true)
+                .AppendPathSegment("/clients/")
+                .AppendPathSegment(resourceServerId, true)
+                .AppendPathSegment("/authz/resource-server/resource/")
+                .AppendPathSegment(resourceId, true)
                 .DeleteAsync()
                 .ConfigureAwait(false);
             return response.IsSuccessStatusCode;

@@ -1,0 +1,54 @@
+@font-face {
+  font-family: FabricMDL2Icons-0;
+  src: url(https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/10.0.0/css/fabric.min.css);
+}
+
+@font-face {
+  font-family: 'LibreFranklin';
+  src: url('../assets/fonts/LibreFranklin-VariableFont_wght.ttf');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'LibreFranklin-bold';
+  src: url('../assets/fonts/LibreFranklin-VariableFont_wght.ttf');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Libre Franklin 400';
+  src: url('../assets/fonts/LibreFranklin-VariableFont_wght.ttf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Libre Franklin 600';
+  src: url('../assets/fonts/LibreFranklin-VariableFont_wght.ttf');
+  font-weight: 600;
+}
+
+body {
+  margin: 0;
+  font-family: 'LibreFranklin', 'Libre Franklin', 'Franklin Gothic Medium',
+    'Arial Narrow', Arial, sans-serif !important;
+  color: #111111 !important;
+  font-weight: 300 !important;
+}
+
+main {
+  padding: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #0f71cb;
+  &:hover {
+    color: #017ab0;
+  }
+  &:active {
+    color: #111111;
+  }
+  &:disabled {
+    color: #adadad;
+  }
+}

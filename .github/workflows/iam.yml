@@ -23,14 +23,15 @@ on:
       - 'infrastructure/manifests/iamsharedidp-ingress.yaml'
       # KeyCloak Docker files
       - 'coreservices/iam/docker/**'
+      - 'coreservices/iam/themes/**'
     branches:
       # Integration environment
       - main
       # DevOps and IAM team integration branch
-      - feature/CAX-12-devops      
-      # Onboarding Dev Space
-      - feature/CAX-9-onboarding
-      - feature/CAX-9-onboarding@deploy
+      - feature/CAX-12-devops
+      # Onboarding and Portal Dev Space
+      - feature/CAX-portal
+  workflow_dispatch:
 
 jobs:
   ########################################
@@ -59,7 +60,7 @@ jobs:
           elif [[ "${{github.repository}}" == catenax/tractusx ]]; then
               if [[ "${{github.ref}}" == refs/heads/main ]]; then
                 echo "Determined INTEGRATION"
-                echo "::set-output name=workspace::int"             
+                echo "::set-output name=workspace::int"
               else
                 echo "Unsupported Branch on CATENAX. Leaving Workspace empty."
               fi
@@ -132,9 +133,9 @@ jobs:
           username: ${{secrets.AZURE_REGISTRY_USERNAME}}
           password: ${{secrets.AZURE_REGISTRY_PASSWORD}}
       - run: |      
-          docker build -f ./coreservices/iam/docker/Dockerfile.centralidp -t ${{env.CONTAINER_IMAGE_CENTRALIDP}} ./coreservices/iam/docker
+          docker build -f ./coreservices/iam/docker/Dockerfile.centralidp -t ${{env.CONTAINER_IMAGE_CENTRALIDP}} ./coreservices/iam/
           docker push ${{env.CONTAINER_IMAGE_CENTRALIDP}}
-          docker build -f ./coreservices/iam/docker/Dockerfile.sharedidp -t ${{env.CONTAINER_IMAGE_SHAREDIDP}} ./coreservices/iam/docker
+          docker build -f ./coreservices/iam/docker/Dockerfile.sharedidp -t ${{env.CONTAINER_IMAGE_SHAREDIDP}} ./coreservices/iam/
           docker push ${{env.CONTAINER_IMAGE_SHAREDIDP}}
 
       # Login to K8

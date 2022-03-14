@@ -26,7 +26,7 @@ export default class Dashboard extends React.Component {
     return (
       <div className='w100pc h100pc df fdc'>
         {AppState.state.isAdmin && <div className='ml50 mr50 mt50 bgwhite w100-100 df fdc'>
-          <img src='../catenabackgroundcut.png' />
+          <img src='../catenabackgroundcut.png' alt='Catena-X'/>
           <span className='fs20 bold ml50 mt0'>Welcome to Catena-X</span>
           <span className='fs20 bold ml50'>Lets get started!</span>
           <span className='fs14 ml50 mt30'>Please finish the following tasks to actively participate in the Catena-X Automotive Network.</span>

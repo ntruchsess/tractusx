@@ -69,7 +69,7 @@ class AppCard extends React.Component<IProp> {
   public render() {
     const a = this.props.app;
     let icon: string = 'Catena-X.png';
-    if (a.companyName === 'BMW' || a.companyName === 'SAP') {
+    if (a.companyName === 'BMW' || a.companyName === 'SAP' || a.companyName === 'Siemens') {
       icon = a.companyName + '.png';
     }
 
@@ -84,7 +84,7 @@ class AppCard extends React.Component<IProp> {
         <div className={appCardClass} onClick={() => this.cardClick()}>
           <div className='w100pc df'>
             <div className='mt10 ml15'>
-              <img height='20' src={`../${icon}`} />
+              <img height='20' className={this.props.app.companyName === 'Siemens' ? "appstore-siemens-logo" : ""} src={`../${icon}`} />
             </div>
             <div className='flex1'/>
               <IconButton className='mt5' iconProps={{ iconName: 'infoSolid', className: 'fs20' }} title='Show app description'

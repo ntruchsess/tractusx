@@ -1,0 +1,70 @@
+nav > a {
+  padding: 0;
+}
+
+.AppCard {
+  display: inline-block;
+  position: relative;
+  background-color: white;
+  color: black;
+  border: 0px solid lightgray;
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 20%);
+  border-radius: 4px;
+  margin: 5px;
+  padding: 10px;
+  width: 170px;
+  height: 120px;
+  z-index: 1;
+}
+
+.AppCard:hover {
+  background-color: #eee;
+}
+
+.AppCard > p {
+  margin: 6px 0 6px 0;
+}
+
+.AppCard > h3 {
+  padding-top: 28px;
+  margin: 0;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.AppCard {
+  background-image: url('../../../../../public/cx-logo-text.svg');
+  background-repeat: no-repeat;
+  background-size: 64px 20px;
+  background-position: 10px 10px;
+}
+
+.vendor {
+  font-size: 12px;
+  color: #444;
+}
+
+.vendor::before {
+  content: 'by ';
+  color: #aaa;
+  margin-right: 2px;
+}
+
+.rating {
+  position: absolute;
+  bottom: 0px;
+  right: 12px;
+  font-size: 14px;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.rating::before {
+  content: '⭐';
+  margin-right: 6px;
+}
+
+.rating::after {
+  color: #ccc;
+  content: ' / 5';
+}

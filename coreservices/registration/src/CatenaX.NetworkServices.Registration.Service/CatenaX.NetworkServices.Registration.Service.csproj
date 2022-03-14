@@ -8,19 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Dapper" Version="2.0.90" />
-    <PackageReference Include="Keycloak.Net" Version="1.0.18" />
-	<PackageReference Include="Npgsql" Version="5.0.10" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.2.3" />
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.2.3" />
+    <PackageReference Include="PasswordGenerator" Version="2.1.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\consent\src\CatenaX.NetworkServices.Cosent.Library.Data\CatenaX.NetworkServices.Cosent.Library.Data.csproj" />
-    <ProjectReference Include="..\..\..\invitation\src\CatenaX.NetworkServices.Invitation.Identity\CatenaX.NetworkServices.Invitation.Identity.csproj" />
+    <ProjectReference Include="..\..\..\consent\src\CatenaX.NetworkServices.Consent.Library.Data\CatenaX.NetworkServices.Consent.Library.Data.csproj" />
     <ProjectReference Include="..\..\..\mailing\src\CatenaX.NetworkServices.Mailing.SendMail\CatenaX.NetworkServices.Mailing.SendMail.csproj" />
     <ProjectReference Include="..\..\..\mockup\src\CatenaX.NetworkServices.Mockups\CatenaX.NetworkServices.Mockups.csproj" />
+    <ProjectReference Include="..\..\..\keycloak\src\CatenaX.NetworkServices.Keycloak.Authentication\CatenaX.NetworkServices.Keycloak.Authentication.csproj" />
+    <ProjectReference Include="..\..\..\provisioning\src\CatenaX.NetworkServices.Provisioning.Library\CatenaX.NetworkServices.Provisioning.Library.csproj" />
   </ItemGroup>
 
 

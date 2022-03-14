@@ -1,10 +1,11 @@
-﻿using System;
+using System;
 using Flurl;
 using Flurl.Http;
 using Flurl.Http.Configuration;
 using Keycloak.Net.Common.Extensions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using System.Threading.Tasks;
 
 namespace Keycloak.Net
 {
@@ -20,15 +21,16 @@ namespace Keycloak.Net
         private readonly string _userName;
         private readonly string _password;
         private readonly string _clientSecret;
-        private readonly Func<string> _getToken;
+        private readonly Func<Task<string>> _getTokenAsync;
         private readonly string _authRealm;
+        private readonly string _clientId;
 
         private KeycloakClient(string url)
         {
             _url = url;
         }
 
-        public KeycloakClient(string url, string userName, string password, string authRealm = null)
+        public KeycloakClient(string url, string userName, string password, string authRealm)
             : this(url)
         {
             _userName = userName;
@@ -36,18 +38,33 @@ namespace Keycloak.Net
             _authRealm = authRealm;
         }
 
-        public KeycloakClient(string url, string clientSecret, string authRealm = null)
+        private KeycloakClient(string url, string userName, string password, string authRealm, string clientId, string clientSecret)
             : this(url)
         {
+            _userName = userName;
+            _password = password;
             _clientSecret = clientSecret;
+            _clientId = clientId;
             _authRealm = authRealm;
         }
 
         public KeycloakClient(string url, Func<string> getToken, string authRealm = null)
             : this(url)
         {
-            _getToken = getToken;
+            _getTokenAsync = () => Task.FromResult(getToken());
             _authRealm = authRealm;
+        }
+
+        public KeycloakClient(string url, Func<Task<string>> getTokenAsync, string authRealm = null)
+            : this(url)
+        {
+            _getTokenAsync = getTokenAsync;
+            _authRealm = authRealm;
+        }
+
+        public static KeycloakClient CreateWithClientId(string url, string clientId, string clientSecret, string authRealm = null)
+        {
+            return new KeycloakClient(url, userName: null, password: null, authRealm, clientId, clientSecret);
         }
 
         public void SetSerializer(ISerializer serializer)
@@ -55,9 +72,9 @@ namespace Keycloak.Net
             _serializer = serializer ?? throw new ArgumentNullException(nameof(serializer));
         }
 
-        private IFlurlRequest GetBaseUrl(string targetRealm) => new Url(_url)
+        private Task<IFlurlRequest> GetBaseUrlAsync(string targetRealm) => new Url(_url)
             .AppendPathSegment("/auth")
             .ConfigureRequest(settings => settings.JsonSerializer = _serializer)
-            .WithAuthentication(_getToken, _url, _authRealm ?? targetRealm, _userName, _password, _clientSecret);
+            .WithAuthenticationAsync(_getTokenAsync, _url, _authRealm ?? targetRealm, _userName, _password, _clientSecret, _clientId);
     }
 }

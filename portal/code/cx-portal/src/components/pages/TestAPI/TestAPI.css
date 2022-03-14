@@ -1,0 +1,8 @@
+main.Developer a {
+  display: block;
+  line-height: 40px;
+}
+
+main.Developer a:hover {
+  background-color: white;
+}

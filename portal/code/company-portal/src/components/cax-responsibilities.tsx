@@ -13,158 +13,169 @@
 // limitations under the License.
 
 import * as React from "react";
-import { observer } from "mobx-react";
-import { observable } from "mobx";
 import { Row } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
-import { withTranslation, WithTranslation } from "react-i18next";
 import { AiOutlineUser, AiOutlineDelete } from "react-icons/ai";
 import Button from "./button";
-import { getClientRolesComposite } from "../helpers/utils";
+import { getClientRolesComposite, submitSendInvites } from "../helpers/utils";
 import { AiOutlineExclamationCircle } from "react-icons/ai";
-import { User } from "../data/companyDetails";
-import UserService from '../helpers/UserService';
 import { ToastContainer, toast } from "react-toastify";
-
-
-interface IUserResponsibilities {
-  id: number;
-  eMail: string;
-  role: string;
-  message: string;
+import { connect } from "react-redux";
+import { IUserItem } from "../types/user/user.types";
+import { IState } from "../types/store/redux.store.types";
+import { Dispatch } from "redux";
+import {
+  addToInviteList,
+  removeFromInviteList,
+  addCurrentStep,
+} from "../actions/user.action";
+import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { withRouter } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
+import FooterButton from "./footerButton";
+import { DataErrorCodes } from "../helpers/DataError";
+interface ResponsibilitiesCaxProps {
+  addToInviteList: (userItem: IUserItem) => void;
+  removeFromInviteList: (userItem: string) => void;
+  userInviteList: IUserItem[];
+  currentActiveStep: number;
+  addCurrentStep: (step: number) => void;
 }
-@observer
-class ResponsibilitiesCax extends React.Component<WithTranslation> {
 
-  @observable private user: User = { email: "", role: "", message: "" };
-  @observable private newarray: IUserResponsibilities[] = [];
-  @observable private error: User = { email: "", role: "", message: "" };
-  @observable private availableUserRoles: string[];
+export const ResponsibilitiesCax = ({
+  userInviteList,
+  currentActiveStep,
+  addToInviteList,
+  addCurrentStep,
+  removeFromInviteList,
+}: ResponsibilitiesCaxProps) => {
+  const { t } = useTranslation();
+  const [email, setEmail] = useState<string | null>("");
+  const [role, setRole] = useState<string | null>("");
+  const [message, setMessage] = useState<string | null>("");
+  const [availableUserRoles, setavailableUserRoles] = useState([]);
+  const [error, setError] = useState<{ email: string; role: string }>({
+    email: "",
+    role: "",
+  });
 
-  async componentDidMount() {
-    const onboarding = window.localStorage.getItem("onboarding");
-    console.log("responsibilities", onboarding);
-    try {
-      this.availableUserRoles = await getClientRolesComposite();
-    } catch {
-    }
-  }
+  useEffect(() => {
 
-  updateProperty(key, value) {
-    this.user[key] = value;
-  }
+    const fetchData = async () => {
+      const dataRoles = await getClientRolesComposite();
 
-  onChange(event) {
-    this.user.role = event.target.value
-    this.updateProperty(event.target.name, event.target.value);
-    this.error[event.target.name] = "";
-    console.log(this.user);
-  }
+      setavailableUserRoles(dataRoles);
+      if (dataRoles && dataRoles.length > 0) setRole(dataRoles[0]);
+    };
 
-  onFocus(event) {
-    this.error[event.target.name] = "";
-  }
+    // call the function
+    fetchData()
+      // make sure to catch any error
+      .catch((errorCode: number) => {
+        let message = DataErrorCodes.includes(errorCode)
+          ? t(`ErrorMessage.${errorCode}`)
+          : t(`ErrorMessage.default`);
+        toast.error(message);
+      });
+  }, []);
 
-  validateUser() {
-    if (this.user.email === "") {
-      this.error.email = "Email is required";
-    }
+  const onRoleChange = (e) => {
+    setRole(e.target.value);
+  };
 
-    if (this.user.role === "") {
-      this.error.role = "Role is required";
-    }
-
-    const errorValue = Object.values(this.error).find((x) => x !== "");
-    return !errorValue;
-  }
-
-  private handleClick() {
-    // this.validateUser()
-    if (this.validateUser()) {
+  const handleClick = () => {
+    verifyEntry();
+    if (email !== "") {
       const data = {
-        id: Math.floor(Math.random() * 100),
-        eMail: this.user.email,
-        role: this.user.role,
-        message: this.user.message,
+        uiId: uuidv4(),
+        email: email,
+        role: role,
+        message: message,
       };
-      this.newarray.push(data);
-      this.user.email = "";
-      this.user.role = "";
-      this.user.message = "";
-      this.error.email = "";
-      this.error.role = "";
+
+      addToInviteList(data);
+      setEmail("");
+      setMessage("");
+      if (availableUserRoles && availableUserRoles.length > 0)
+        setRole(availableUserRoles[0]);
     }
-  }
+  };
 
-  private removeUser(id: number) {
-    this.newarray = this.newarray.filter((x) => x.id !== id);
-  }
-
-  private sendInvites() {
-    const realm = UserService.realm;
-    const token = UserService.getToken();
-    const url = process.env.REACT_APP_ONBOARDING_URL;
-    const endpoint = process.env.REACT_APP_ONBOARDING_ENDPOINT;
-    const u = `${url}/${endpoint}/${realm}/users`;
-    const data = this.newarray.map(({ id, ...rest }) => ({ ...rest }));
-    console.log(data);
-    if (data.length > 0) {
-      fetch(u, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-        .then((response) => {
-          if (response.ok) {
-            toast.success("Sent Invite");
-          } else throw Error();
-        })
-        .catch((error) => {
-          toast.error("Unable to sent invite");
-        });
-    } else {
-      toast.error("Email or User Role empty.");
+  const verifyEntry = () => {
+    if (email === "")
+      setError({ email: "Email is required", role: error.role });
+    else {
+      setError({ email: "", role: error.role });
     }
-  }
+  };
 
-  public render() {
-    return (
+  const removeUser = (userUiId) => {
+    removeFromInviteList(userUiId);
+  };
+
+  const backClick = () => {
+    addCurrentStep(currentActiveStep - 1);
+  };
+
+  const nextClick = () => {
+    if (userInviteList.length > 0) {
+      const fetchData = async () => {
+    const dataRoles = await submitSendInvites(userInviteList);
+            toast.success(dataRoles);
+      }
+      fetchData()
+      .catch((errorCode: number) => {
+      
+        let message = DataErrorCodes.includes(errorCode)
+          ? t(`ErrorMessage.${errorCode}`)
+          : t(`ErrorMessage.default`);
+        //   alert(message)
+  
+        toast.error(message);
+        //  history.push("/finish");
+      });
+  } else {
+    toast.error("Email or User Role empty.");
+  }
+    addCurrentStep(currentActiveStep + 1);
+  };
+
+
+  return (
+    <>
       <div className="mx-auto col-9 container-registration">
         <div className="head-section">
           <div className="mx-auto step-highlight d-flex align-items-center justify-content-center">
             2
           </div>
           <h4 className="mx-auto d-flex align-items-center justify-content-center">
-            Responsibility & admin account
+            {t("Responsibility.responsAndAdmin")}
           </h4>
           <div className="mx-auto text-center col-9">
-            Far far away, behind the word mountains, far from the countries
-            Vokalia and Consonantia, there live the blind texts.
+            {t("Responsibility.subTitle")}
           </div>
         </div>
         <div className="companydata-form">
-          {this.newarray.length > 0 ? (
+          {userInviteList && (
             <Row className="mx-auto col-9 send-invite">
               <h5>Users selected to invite</h5>
               <Row>
                 <ul className="list-group-cax px-2">
-                  {this.newarray.map((d) => {
+                  {userInviteList.map((d) => {
                     return (
-                      <li key={d.id} className="list-group-item-cax">
+                      <li className="list-group-item-cax">
                         <Row>
                           <span className="col-1">
                             <AiOutlineUser />
                           </span>
-                          <span className="col-6">{d.eMail}</span>
+                          <span className="col-6">{d.email}</span>
                           <span className="badge-cax  bg-list-group-cax col-4">
                             {d.role}
                           </span>
                           <span className="col-1 list-group-item-delete">
                             <AiOutlineDelete
-                              onClick={() => this.removeUser(d.id)}
+                              onClick={() => removeUser(d.uiId)}
                             />
                           </span>
                         </Row>
@@ -174,8 +185,6 @@ class ResponsibilitiesCax extends React.Component<WithTranslation> {
                 </ul>
               </Row>
             </Row>
-          ) : (
-            ""
           )}
 
           <Row className="mx-auto col-9">
@@ -186,7 +195,7 @@ class ResponsibilitiesCax extends React.Component<WithTranslation> {
           <Row className="mx-auto col-9">
             <div
               className={
-                this.error.email !== ""
+                error.email !== ""
                   ? "form-data error calender"
                   : "form-data calender"
               }
@@ -195,24 +204,23 @@ class ResponsibilitiesCax extends React.Component<WithTranslation> {
               <input
                 type="text"
                 name="email"
-                value={this.user.email}
-                onChange={(e) => this.onChange(e)}
-                onFocus={(e) => this.onFocus(e)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <AiOutlineExclamationCircle className="error-icon" />
-              <div className="error-message">{this.error.role}</div>
+              <div className="error-message">{error.email}</div>
             </div>
           </Row>
 
           <Row className="mx-auto col-9">
-            <div className={this.error.role !== "" ? "form-data error" : "form-data"}>
+            <div className="form-data">
               <label> User role </label>
-              <select value={this.user.role} onChange={(e) => this.onChange(e)}>
-                {this.availableUserRoles && this.availableUserRoles.map((role, index) => (
-                  <option value={role}>{role}</option>
-                ))}
+              <select value={role} onChange={(e) => onRoleChange(e)}>
+                {availableUserRoles &&
+                  availableUserRoles.map((role, index) => (
+                    <option value={role}>{role}</option>
+                  ))}
               </select>
-              <div className="error-message">{this.error.email}</div>
             </div>
           </Row>
 
@@ -221,8 +229,8 @@ class ResponsibilitiesCax extends React.Component<WithTranslation> {
               <label> Personal note</label>
               <textarea
                 name="message"
-                value={this.user.message}
-                onChange={(e) => this.onChange(e)}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
               />
               <div className="company-hint">
                 Optional message in the invitation e-mail. Lorem Ipsum
@@ -235,23 +243,43 @@ class ResponsibilitiesCax extends React.Component<WithTranslation> {
               <Button
                 styleClass="button btn-primaryCax"
                 label="Add User"
-                handleClick={() => this.handleClick()}
+                handleClick={() => handleClick()}
                 icon={true}
               />
             </div>
-            <div>
-            <Button
-                styleClass="button btn-primaryCax"
-                label="Send Invite"
-                handleClick={() => this.sendInvites()}
-              />
               <ToastContainer />
-            </div>
           </Row>
         </div>
       </div>
-    );
-  }
-}
+      <FooterButton
+        labelBack={t("button.back")}
+        labelNext={t("button.next")}
+        handleBackClick={() => backClick()}
+        handleNextClick={() => nextClick()}
+      />
+    </>
+  );
+};
 
-export default withTranslation()(ResponsibilitiesCax);
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  addToInviteList: (userItem: IUserItem) => {
+    dispatch(addToInviteList(userItem));
+  },
+  removeFromInviteList: (userUiId: string) => {
+    dispatch(removeFromInviteList(userUiId));
+  },
+  addCurrentStep: (step: number) => {
+    dispatch(addCurrentStep(step));
+  },
+});
+
+export default withRouter(
+  connect(
+    (state: IState) => ({
+      userInviteList: state.user.userInviteList,
+      currentActiveStep: state.user.currentStep,
+      roleComposite: state.user.roleComposite,
+    }),
+    mapDispatchToProps
+  )(ResponsibilitiesCax)
+);

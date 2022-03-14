@@ -12,85 +12,126 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import * as React from 'react';
-import i18n from '../i18n';
-import { observer } from 'mobx-react';
-import { observable } from 'mobx';
-import { Row, Col } from 'react-bootstrap';
-import UserService from '../helpers/UserService';
-import { RouteComponentProps, withRouter } from 'react-router-dom';
-import { getUserClientRolesComposite } from '../helpers/utils';
+import * as React from "react";
+import i18n from "../i18n";
+import { Row, Col } from "react-bootstrap";
+import UserService from "../helpers/UserService";
+import { getClientRolesComposite } from "../helpers/utils";
+import { useState, useEffect } from "react";
+import { withRouter } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { DataErrorCodes } from "../helpers/DataError";
+import { ToastContainer, toast } from "react-toastify";
+import { addrolesComposite } from "../actions/user.action";
+import { connect } from "react-redux";
+import { Dispatch } from "redux";
+import { IState } from "../types/store/redux.store.types";
 
-interface IProp extends RouteComponentProps {
-    href: string;
-    hidePivot?: boolean;
-    appTitle?: string;
+interface HeaderCaxProps {
+  addrolesComposite: (rolesComposite: string[]) => void;
 }
 
-@observer
-class Header extends React.Component<IProp> {
-    @observable username = '';
-    @observable initials = '';
-    @observable userRoles = [];
-    @observable language = i18n.language;
+export const Header = ({ addrolesComposite }: HeaderCaxProps) => {
+  const { t } = useTranslation();
 
-    public async componentDidMount() {
-        this.username = UserService.getUsername();
-        this.initials = UserService.getInitials();
-        this.userRoles = await getUserClientRolesComposite();
-    }
+  const username = UserService.getUsername();
+  const initials = UserService.getInitials();
+  const tokenRoles = UserService.getRoles();
+  const [userRoles, setuserRoles] = useState([]);
+  const [language, setlanguage] = useState(i18n.language);
 
-    private userClick() {
-        //const token = adalContext.getCachedToken();
-        const token = UserService.getToken();
-        console.log(token);
-    }
+  useEffect(() => {
+    // declare the data fetching function
+    const fetchData = async () => {
+      const data = await getClientRolesComposite();
+      const filterComposite = tokenRoles.filter((value: string) =>
+        data.includes(value)
+      );
+      setuserRoles(filterComposite);
+      addrolesComposite(data);
+    };
 
-    private logoutClick() {
-        const token = UserService.getCachedToken();
-        console.log(token);
-        UserService.logOut();
-    }
+    // call the function
+    fetchData()
+      // make sure to catch any error
+      .catch((errorCode: number) => {
+        let message = DataErrorCodes.includes(errorCode)
+          ? t(`ErrorMessage.${errorCode}`)
+          : t(`ErrorMessage.default`);
+        //   alert(message)
 
+        toast.error(message);
+        //  history.push("/finish");
+      });
+  }, [tokenRoles, addrolesComposite]);
 
+  const changeLanguage = (lng) => {
+    setlanguage(lng);
+    i18n.changeLanguage(lng);
+  };
 
-    public render() {
+  return (
+    <Row className="header-container">
+      <Col>
+        <div className="logo">
+          <img src="/logo_cx.svg" alt="logo" />
+        </div>
+      </Col>
+      <Col>
+        <div className="d-flex flex-row-reverse profile">
+          <div className="profile-lang">
+            <span
+              className={language === "en" ? "lang-sel" : ""}
+              onClick={() => changeLanguage("en")}
+            >
+              {" "}
+              EN{" "}
+            </span>
+          </div>
+          <div className="profile-lang">
+            <span
+              className={language === "de" ? "lang-sel" : ""}
+              onClick={() => changeLanguage("de")}
+            >
+              {" "}
+              DE
+            </span>
+          </div>
+          <div className="profile-link partion"></div>
+          <div className="profile-link user">
+            <input id="myid" type="checkbox" />
+            <label htmlFor="myid" className="user-icon"></label>
+            <span className="tooltiptext">
+              {" "}
+              <div> {username}</div>
+              <div> {UserService.getDomain()}</div>
+              <div>({userRoles.join(", ")})</div>
+              <div className="logout" onClick={() => UserService.doLogout()}>
+                {t("header.logout")}
+              </div>
+            </span>
+          </div>
+          <div className="profile-link">
+            <a href="/help">{t("header.help")}</a>
+          </div>
+        </div>
+        <ToastContainer />
+      </Col>
+    </Row>
+  );
+};
 
-        const changeLanguage = lng => {
-            this.language = lng;
-            i18n.changeLanguage(lng);
-        };
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  addrolesComposite: (rolesComposite: string[]) => {
+    dispatch(addrolesComposite(rolesComposite));
+  },
+});
 
-        return (
-
-            <Row className='header-container' >
-                <Col>
-                    <div className='logo'>
-                        <img src='/logo_cx.svg' alt='logo' />
-                    </div>
-                </Col>
-                <Col>
-                    <div className='d-flex flex-row-reverse profile'>
-                        <div className='profile-lang'><span className={this.language === 'en' ? 'lang-sel' : ''} onClick={() => changeLanguage('en')} > EN </span></div>
-                        <div className='profile-lang'><span className={this.language === 'de' ? 'lang-sel' : ''} onClick={() => changeLanguage('de')} > DE</span></div>
-                        <div className='profile-link partion'></div>
-                        <div className='profile-link user'>
-                            <input id="myid" type="checkbox" />
-                            <label htmlFor="myid" className='user-icon'></label>
-                            <span className="tooltiptext"> <div> {this.username}</div>
-                                < div > {UserService.getDomain()}</div>
-                                <div>({this.userRoles.join(", ")})</div>
-                                <div className='logout' onClick={() => this.logoutClick()}>Logout</div>
-                            </span>
-                        </div>
-                        {/* <div className='profile-link user'><span className='user-icon'></span>
-                            <span className="tooltiptext">Tooltip text</span>
-                        </div> */}
-                        <div className='profile-link'><a href='/help'>Help</a></div>
-                    </div>
-                </Col >
-            </Row >
-        );
-    }
-}
-export default withRouter(Header);
+export default withRouter(
+  connect(
+    (state: IState) => ({
+      roleComposite: state.user.roleComposite,
+    }),
+    mapDispatchToProps
+  )(Header)
+);

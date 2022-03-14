@@ -13,68 +13,49 @@
 // limitations under the License.
 
 import * as React from "react";
-import { initializeIcons, loadTheme } from "@fluentui/react";
-import { createBrowserHistory } from "history";
-import { observer } from "mobx-react";
-import { Redirect, Route, Router, Switch } from "react-router-dom";
+import {useEffect} from "react";
+import {createBrowserHistory} from "history";
+import {Redirect, Route, Router, Switch, useLocation} from "react-router-dom";
 import "./styles/newApp.css";
-import Home from "./components/home";
-import Registrationoneid from "./components/registrationoneid";
-import Registration from "./components/registration";
-import Authinfo from "./components/authinfo";
-import { AppState } from "./stores/appstate";
-import Login from "./components/login";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import 'react-toastify/dist/ReactToastify.css';
 import Landing from "./components/landing";
 import RegistrationCax from "./components/cax-registration";
 import Finish from "./components/finish"
+import {Provider} from 'react-redux';
+import store from './stores/store';
+import Authinfo from "./components/authinfo";
+import ProtectedRoute from "./helpers/authorisation/ProtectedRoute";
+import UnauthorisedPage from "./components/unauthorised";
+
 const history = createBrowserHistory();
 
-@observer
-export default class App extends React.Component {
-  private static first = true;
-  constructor(props: any) {
-    super(props);
-    if (App.first) {
-      initializeIcons();
-      loadTheme({
-        palette: { themePrimary: "#BAC938", themeDarkAlt: "#E6AA1E" },
-      });
-    }
 
-    AppState.state = new AppState();
+const App = () => {
+    let location = useLocation();
 
-    App.first = false;
-  }
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [location])
 
-  public render() {
-    const ProtectedHome = Home;
+
     return (
-      <Router history={history}>
-        <Switch>
-          <Redirect path="/" exact to="/landing" />
-          <Route path="/landing" render={(props) => <Landing {...props} />} />
-          <Route
-            path="/registration"
-            render={(props) => <RegistrationCax {...props} />}
-          />
-          <Route path="/home" render={(props) => <ProtectedHome />} />
-          <Route
-            path="/registrationoneid"
-            component={(props) => <Registrationoneid {...props} />}
-          />
-          <Route
-            path="/register"
-            component={(props) => <Registration {...props} />}
-          />
-           <Route
-            path="/finish"
-            component={(props) => <Finish {...props} />}
-          />
-          <Route path="/login" component={(props) => <Login {...props} />} />
-          <Route path="/authinfo" component={(props) => <Authinfo />} />
-        </Switch>
-      </Router>
+        <Provider store={store}>
+            <Router history={history}>
+                <Switch>
+                    <Redirect path="/" exact to="/landing"/>
+                    <ProtectedRoute path='/landing' rolesAllowedForTheRoute={["view_registration"]}
+                                    component={(props) => <Landing {...props}  />}/>
+                    <ProtectedRoute path='/registration' rolesAllowedForTheRoute={["view_registration"]}
+                                    component={(props) => <RegistrationCax {...props}  />}/>
+                    <ProtectedRoute path='/finish' rolesAllowedForTheRoute={["view_registration"]}
+                                    component={(props) => <Finish {...props}  />}/>
+                    <Route path="/authinfo" component={() => <Authinfo/>}/>
+                    <Route path="/403" component={() => <UnauthorisedPage/>}/>
+                </Switch>
+            </Router>
+        </Provider>
     );
-  }
 }
+
+export default App

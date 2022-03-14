@@ -1,0 +1,45 @@
+server:
+  address: ${SERVER_HOST}
+  port: ${SERVER_PORT}
+  servlet:
+    contextPath: /
+    
+springfox:
+  documentation:
+    open-api:
+      v3:
+        path: /api-docs
+    swagger:
+      use-model-v3: true
+        
+spring:
+  logging:
+    level.root: DEBUG
+  jackson:
+    date-format: net.catenax.portal.RFC3339DateFormat
+    serialization:
+      write-dates-as-timestamps: false
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: net.catenax.portal.db.naming.CustomPhysicalNamingStrategy
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+  datasource:
+    continue-on-error: true
+    initialization-mode: always
+    platform: postgres
+    url: jdbc:postgresql://${DB_HOST_FQDN}:${DB_PORT}/${DB_NAME}?user=${DB_USER}&password=${DB_PWD}&sslmode=require    
+    username: ${DB_USER}
+    password: ${DB_PWD}
+    
+  devtools:
+    restart:
+      enabled: true
+      poll-interval: 2s
+      quiet-period: 1s

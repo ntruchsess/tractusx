@@ -12,45 +12,65 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import * as React from "react";
-import { observer } from "mobx-react";
-import { observable } from "mobx";
+import {useState, useEffect} from "react";
 import { Row } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
-import { withTranslation, WithTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
+import FooterButton from "./footerButton";
+import {connect} from 'react-redux';
+import {IState} from "../types/store/redux.store.types";
+import {addCurrentStep} from "../actions/user.action";
+import { withRouter } from 'react-router-dom';
+import {Dispatch} from 'redux';
 
-@observer
-class CompanyRoleCax extends React.Component<WithTranslation> {
 
-    @observable companyRoleChecked = new Map();
+interface CompanyRoleProps {
+  currentActiveStep: number;
+  addCurrentStep: (step: number) => void;
+}
 
-    private handleCheck(e) {
-        if (
-          e.target.checked === false &&
-          this.companyRoleChecked.has(e.target.name)
-        ) {
-          this.companyRoleChecked.delete(e.target.name);
+export const CompanyRoleCax = ({currentActiveStep, addCurrentStep}: CompanyRoleProps) => {
+
+  const { t } = useTranslation();
+  const [companyRoleChecked, setcompanyRoleChecked] =  useState(new Map());
+
+  // const companyRoleChecked =  new Map();
+
+  const backClick = () => {
+    addCurrentStep(currentActiveStep-1)
+}
+
+const nextClick = () => {
+  addCurrentStep(currentActiveStep+1)
+}
+
+    const handleCheck = (e) => {
+      console.log(e);
+        if (e.target.checked === false && companyRoleChecked.has(e.target.name)) 
+        {
+          let roleCheckedcopy = new Map(companyRoleChecked);
+          roleCheckedcopy.delete(e.target.name);
+            setcompanyRoleChecked(roleCheckedcopy);
         } else {
-          this.companyRoleChecked.set(e.target.name, e.target.checked);
+          setcompanyRoleChecked(new Map(companyRoleChecked.set(e.target.name, e.target.checked)));
         }
     
         console.log(e.target.checked, e.target.name);
-        console.log(this.companyRoleChecked);
+        console.log(companyRoleChecked);
       }
     
-
-  public render() {
     return (
+      <>
         <div className="mx-auto col-9 container-registration">
         <div className="head-section">
           <div className="mx-auto step-highlight d-flex align-items-center justify-content-center">
             3
           </div>
           <h4 className="mx-auto d-flex align-items-center justify-content-center">
-          {this.props.t("registration.title")}
+          {t("companyRole.title")}
           </h4>
           <div className="mx-auto text-center col-9">
-          {this.props.t("registration.subTitle")}
+          {t("companyRole.subTitle")}
           </div>
         </div>
         <div className="companydata-form mx-auto col-9">
@@ -61,7 +81,7 @@ class CompanyRoleCax extends React.Component<WithTranslation> {
                   type="checkbox"
                   name="activeParticipant"
                   className="regular-checkbox"
-                  onChange={(e) => this.handleCheck(e)}
+                  onChange={(e) => handleCheck(e)}
                 />
               </div>
               <div className="col-11">
@@ -70,8 +90,8 @@ class CompanyRoleCax extends React.Component<WithTranslation> {
                 </label>
                 <div
                   className={
-                    !this.companyRoleChecked.has("activeParticipant") ||
-                    !this.companyRoleChecked.get("activeParticipant")
+                    !companyRoleChecked.has("activeParticipant") ||
+                    !companyRoleChecked.get("activeParticipant")
                       ? "companyRoleVisible"
                       : "companyRoleHidden"
                   }
@@ -92,8 +112,8 @@ class CompanyRoleCax extends React.Component<WithTranslation> {
                 </div>
                 <div
                   className={
-                    !this.companyRoleChecked.has("activeParticipant") ||
-                    !this.companyRoleChecked.get("activeParticipant")
+                    !companyRoleChecked.has("activeParticipant") ||
+                    !companyRoleChecked.get("activeParticipant")
                       ? "companyRoleHidden"
                       : "companyRoleVisible companyRoleTnc"
                   }
@@ -136,15 +156,15 @@ class CompanyRoleCax extends React.Component<WithTranslation> {
                   type="checkbox"
                   name="appProvider"
                   className="regular-checkbox"
-                  onChange={(e) => this.handleCheck(e)}
+                  onChange={(e) => handleCheck(e)}
                 />
               </div>
               <div className="col-11">
                 <label>App provider</label>
                 <div
                   className={
-                    !this.companyRoleChecked.has("appProvider") ||
-                    !this.companyRoleChecked.get("appProvider")
+                    !companyRoleChecked.has("appProvider") ||
+                    !companyRoleChecked.get("appProvider")
                       ? "companyRoleVisible"
                       : "companyRoleHidden"
                   }
@@ -162,8 +182,8 @@ class CompanyRoleCax extends React.Component<WithTranslation> {
                 </div>
                 <div
                   className={
-                    !this.companyRoleChecked.has("appProvider") ||
-                    !this.companyRoleChecked.get("appProvider")
+                    !companyRoleChecked.has("appProvider") ||
+                    !companyRoleChecked.get("appProvider")
                       ? "companyRoleHidden"
                       : "companyRoleVisible companyRoleTnc"
                   }
@@ -203,15 +223,15 @@ class CompanyRoleCax extends React.Component<WithTranslation> {
                   type="checkbox"
                   name="operationAndInfra"
                   className="regular-checkbox"
-                  onChange={(e) => this.handleCheck(e)}
+                  onChange={(e) => handleCheck(e)}
                 />
               </div>
               <div className="col-11">
                 <label>Operation and infrastructure provider</label>
                 <div
                   className={
-                    !this.companyRoleChecked.has("operationAndInfra") ||
-                    !this.companyRoleChecked.get("operationAndInfra")
+                    !companyRoleChecked.has("operationAndInfra") ||
+                    !companyRoleChecked.get("operationAndInfra")
                       ? "companyRoleVisible"
                       : "companyRoleHidden"
                   }
@@ -228,8 +248,8 @@ class CompanyRoleCax extends React.Component<WithTranslation> {
                 </div>
                 <div
                   className={
-                    !this.companyRoleChecked.has("operationAndInfra") ||
-                    !this.companyRoleChecked.get("operationAndInfra")
+                    !companyRoleChecked.has("operationAndInfra") ||
+                    !companyRoleChecked.get("operationAndInfra")
                       ? "companyRoleHidden"
                       : "companyRoleVisible companyRoleTnc"
                   }
@@ -267,8 +287,27 @@ class CompanyRoleCax extends React.Component<WithTranslation> {
           </div>
         </div>
       </div>
+       <FooterButton 
+        labelBack={t('button.back')}
+        labelNext={t('button.confirm')}
+       handleBackClick={() => backClick()}
+       handleNextClick={() => nextClick()}
+    />
+    </>
     );
-  }
 }
 
-export default withTranslation()(CompanyRoleCax);
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  addCurrentStep: (step: number) => {
+      dispatch(addCurrentStep(step));
+  },
+});
+
+
+export default withRouter(connect(
+  (state: IState) => ({
+      currentActiveStep: state.user.currentStep,
+  }),
+  mapDispatchToProps
+)(CompanyRoleCax));

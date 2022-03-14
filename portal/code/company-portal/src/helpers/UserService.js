@@ -7,7 +7,7 @@ if (!realm) {
   realm = localStorage.getItem('company');
 }
 if (!realm) {
-  realm = 'master';
+  realm = 'CX-Central';
 }
 localStorage.setItem('company', realm);
 
@@ -16,10 +16,12 @@ let clientId = searchParamsClientId.get('clientId');
 if (!clientId) {
   clientId = localStorage.getItem('clientId');
 }
-if (!clientId || clientId == 'null') {
+if (!clientId || clientId === 'null') {
   clientId = 'catenax-registration';
 }
 localStorage.setItem('clientId', clientId);
+
+const CX_CLIENT = 'catenax-registration';
 
 const _kc = new Keycloak({
   "url": process.env.REACT_APP_KEYCLOAK_URL,
@@ -69,10 +71,13 @@ const updateToken = (successCallback) =>
 
 const getUsername = () => _kc.tokenParsed?.preferred_username;
 
+const getTenant = () => _kc.tokenParsed?.tenant;
+
 const getInitials = () => _kc.tokenParsed?.preferred_username.split(/[.@]/).reduce((a,b) => a+b[0],'').substring(0,2).toUpperCase();
 
 const getDomain = () => realm;//_kc.tokenParsed?.split('/').pop();
 
+const getRoles = () => _kc.tokenParsed?.resource_access[CX_CLIENT]?.roles;
 
 const hasRole = (roles) => roles.some((role) => _kc.hasRealmRole(role));
 
@@ -89,7 +94,9 @@ const UserService = {
   getDomain,
   hasRole,
   realm,
-  clientId
+  clientId,
+  getTenant,
+  getRoles
 };
 
 export default UserService;

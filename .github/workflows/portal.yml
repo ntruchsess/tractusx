@@ -43,7 +43,7 @@ on:
   push:
     paths:
       # This is where the terraform related scripts and manifests reside
-      - 'portal/**'
+      - 'portal/code/tractus-x-portal/**'
       # any deployment manifest
       - 'infrastructure/manifests/portal.yaml'
       # this workflow file
@@ -112,7 +112,6 @@ jobs:
           else
             echo "Unsupported Environment/Repository. Leaving Workspace empty."
           fi
-
   ##########################################
   # Second job does the real container work
   ##########################################
@@ -196,6 +195,9 @@ jobs:
          echo "REACT_APP_PORTAL_URL=https://${{env.CATENA_PORTAL_URL}}/" >>.env
          echo "REACT_APP_SEMANTIC_SERVICE_LAYER_URL=https://${{env.CATENA_SERVICE_URL}}/semantics/" >>.env
          echo "REACT_APP_KEYCLOAK_URL=https://${{env.CATENA_SERVICE_URL}}/iamcentralidp/auth" >> .env
+         echo "REACT_APP_INVITE_ENDPOINT=https://${{env.CATENA_SERVICE_URL}}/api/useradministration/invitation" >>.env
+         echo -n "REACT_APP_CONNECTOR_AUTHENTICATION=" >>.env 
+         echo -n "${{secrets.CATENAX_ADMIN_USER}}:${{secrets.CATENAX_ADMIN_PASSWORD}}" | base64 >> .env
          echo "" >>.env
 
 #echo "REACT_APP_APPLICATION_ID=db41c442-ff3c-49af-8f74-fabc5c39a54e" >>.env

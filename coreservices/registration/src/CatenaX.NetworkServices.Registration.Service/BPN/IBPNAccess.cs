@@ -7,6 +7,6 @@ namespace CatenaX.NetworkServices.Registration.Service.BPN
 {
     public interface IBPNAccess
     {
-        Task<List<FetchBusinessPartnerDto>> FetchBusinessPartner(string bpn);
+        Task<List<FetchBusinessPartnerDto>> FetchBusinessPartner(string bpn, string token);
     }
 }
