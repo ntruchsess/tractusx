@@ -17,6 +17,7 @@
     "all": "yarn clean && yarn pretty && yarn dist && yarn deploy"
   },
   "dependencies": {
+    "@mui/x-data-grid": "^5.6.0",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.1",
     "rollup-plugin-dts": "^4.2.0"
