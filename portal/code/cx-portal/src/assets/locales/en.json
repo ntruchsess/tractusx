@@ -24,7 +24,7 @@
     "privacy": "Privacy",
     "terms": "Terms of Service",
     "cookiepolicy": "Cookie Policy",
-    "3rdpartylicenses": "Third Party Licenses",
+    "thirdpartylicenses": "Third Party Licenses",
     "logout": "Sign Out",
     "notfound": "Page not found"
   },
@@ -55,6 +55,27 @@
     },
     "usermanagement": {
       "message": "Contents of User Management"
+    },
+    "help": {
+      "message": "add content here"
+    },
+    "contact": {
+      "message": "add content here"
+    },
+    "imprint": {
+      "message": "add content here"
+    },
+    "privacy": {
+      "message": "add content here"
+    },
+    "terms": {
+      "message": "add content here"
+    },
+    "cookiepolicy": {
+      "message": "add content here"
+    },
+    "thirdpartylicenses": {
+      "message": "add content here"
     },
     "account": {
       "token": "Current authentication token"

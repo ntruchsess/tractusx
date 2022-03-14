@@ -25,7 +25,7 @@ export enum PAGES {
   PRIVACY = 'privacy',
   TERMS = 'terms',
   COOKIE_POLICY = 'cookiepolicy',
-  THIRD_PARTY_LICENSES = '3rdpartylicenses',
+  THIRD_PARTY_LICENSES = 'thirdpartylicenses',
   SETTINGS = 'settings',
   DEVELOPER = 'developer',
   TESTAPI = 'testapi',

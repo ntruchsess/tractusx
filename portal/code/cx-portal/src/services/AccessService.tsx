@@ -18,6 +18,13 @@ import UserService from './UserService'
 import { Route } from 'react-router-dom'
 import AppstoreDetail from 'components/pages/Appstore/AppstoreDetail'
 import NotFound from 'components/pages/NotFound'
+import Help from 'components/pages/Help'
+import Contact from 'components/pages/Contact'
+import Imprint from 'components/pages/Imprint'
+import Privacy from 'components/pages/Privacy'
+import Terms from 'components/pages/Terms'
+import CookiePolicy from 'components/pages/CookiePolicy'
+import ThirdPartyLicenses from 'components/pages/ThirdPartyLicenses'
 
 /**
  * ALL_PAGES
@@ -94,13 +101,13 @@ const ALL_PAGES: IPage[] = [
     role: ROLES.FE_DEVELOPER,
     element: <Translator />,
   },
-  { name: PAGES.HELP, element: <NotFound /> },
-  { name: PAGES.CONTACT, element: <NotFound /> },
-  { name: PAGES.IMPRINT, element: <NotFound /> },
-  { name: PAGES.PRIVACY, element: <NotFound /> },
-  { name: PAGES.TERMS, element: <NotFound /> },
-  { name: PAGES.COOKIE_POLICY, element: <NotFound /> },
-  { name: PAGES.THIRD_PARTY_LICENSES, element: <NotFound /> },
+  { name: PAGES.HELP, element: <Help /> },
+  { name: PAGES.CONTACT, element: <Contact /> },
+  { name: PAGES.IMPRINT, element: <Imprint /> },
+  { name: PAGES.PRIVACY, element: <Privacy /> },
+  { name: PAGES.TERMS, element: <Terms /> },
+  { name: PAGES.COOKIE_POLICY, element: <CookiePolicy /> },
+  { name: PAGES.THIRD_PARTY_LICENSES, element: <ThirdPartyLicenses /> },
   { name: PAGES.LOGOUT, element: <Logout /> },
 ]
 
