@@ -2,7 +2,7 @@ import { Badge, Avatar, AvatarProps, useTheme } from '@mui/material'
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline'
 
 interface AllAvatarProps extends Omit<AvatarProps, 'ImageComponent'> {
-  altText: string
+  altText?: string
   userImage?: string
   notificationCount?: number
   isNotificationAlert?: boolean
@@ -26,6 +26,7 @@ export const UserAvatar = ({
       sx={{
         backgroundColor: theme.palette.primary.main,
       }}
+      {...props}
     >
       <PersonOutlineIcon />
     </Avatar>

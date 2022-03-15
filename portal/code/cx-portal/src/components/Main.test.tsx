@@ -4,6 +4,7 @@ import { MemoryRouter } from 'react-router-dom'
 import { store } from '../state/store'
 import Main from './Main'
 import I18nService from '../services/I18nService'
+import { SharedThemeProvider } from 'cx-portal-shared-components'
 
 describe('testSuite', () => {
   beforeEach(() => {
@@ -13,9 +14,11 @@ describe('testSuite', () => {
   it('renders the header', () => {
     const { container } = render(
       <Provider store={store}>
-        <MemoryRouter>
-          <Main />
-        </MemoryRouter>
+        <SharedThemeProvider>
+          <MemoryRouter>
+            <Main />
+          </MemoryRouter>
+        </SharedThemeProvider>
       </Provider>
     )
     expect(container.querySelector('header')).toBeInTheDocument()

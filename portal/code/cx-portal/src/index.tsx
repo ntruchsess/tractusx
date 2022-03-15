@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { store } from 'state/store'
 import Router from 'components/Router'
 import I18nService from 'services/I18nService'
+import { SharedThemeProvider } from 'cx-portal-shared-components'
 
 //initialise translation library
 I18nService.init()
@@ -12,7 +13,9 @@ I18nService.init()
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Router />
+      <SharedThemeProvider>
+        <Router />
+      </SharedThemeProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById('app')
