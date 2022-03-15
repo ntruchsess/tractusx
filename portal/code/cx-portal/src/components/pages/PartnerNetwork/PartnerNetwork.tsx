@@ -4,12 +4,13 @@ import { selectorPartnerNetwork } from 'state/features/partnerNetwork/partnerNet
 import { fetchBusinessPartners, getOneBusinessPartner } from 'state/features/partnerNetwork/partnerNetworkActions'
 import { Table, SharedThemeProvider, Input, Button } from 'cx-portal-shared-components'
 import 'components/pages/PartnerNetwork/PartnerNetwork.css'
+import { RootState } from 'state/store'
 
 const PartnerNetwork = () => {
   const dispatch = useDispatch()
   const [bpnValue, setBpnValue] = useState<string>('')
   const [companyName, setCompanyName] = useState<string>('')
-  const token = useSelector((state: any) => state.user.token)
+  const token = useSelector((state: RootState) => state.user.token)
   const { mappedPartnerList, loading, columns } = useSelector(selectorPartnerNetwork)
 
   useEffect(() => {
@@ -46,35 +47,35 @@ const PartnerNetwork = () => {
       <div className='advance-search-fields-container'>
         <div className='identifier-fields-container'>
           <Input label='BPN Number'
-                 variant='filled'
-                 placeholder='Please type BPN number of company'
-                 margin='dense'
-                 onChange={(e) => onBpnFieldChange(e)}
-                 value={bpnValue} />
+            variant='filled'
+            placeholder='Please type BPN number of company'
+            margin='dense'
+            onChange={(e) => onBpnFieldChange(e)}
+            value={bpnValue} />
           <span className='or-span'>OR</span>
           <Input label='Company Name'
-                 variant='filled'
-                 placeholder='Please type company name'
-                 margin='dense'
-                 onChange={(e) => onCompanyNameChange(e)}
-                 value={companyName} />
+            variant='filled'
+            placeholder='Please type company name'
+            margin='dense'
+            onChange={(e) => onCompanyNameChange(e)}
+            value={companyName} />
         </div>
         <div className='search-button'>
-          <Button size='medium' onClick={e => onSearchClick()}>Search</Button>
+          <Button size='medium' onClick={() => onSearchClick()}>Search</Button>
         </div>
       </div>
       <SharedThemeProvider>
         <Table rows={mappedPartnerList}
-               columns={columns}
-               {...{
-                 hideFooter: true,
-                 disableColumnFilter: true,
-                 disableColumnMenu: true,
-                 disableColumnSelector: true,
-                 disableDensitySelector: true,
-                 disableSelectionOnClick: true,
-                 loading,
-               }} />
+          columns={columns}
+          {...{
+            hideFooter: true,
+            disableColumnFilter: true,
+            disableColumnMenu: true,
+            disableColumnSelector: true,
+            disableDensitySelector: true,
+            disableSelectionOnClick: true,
+            loading,
+          }} />
       </SharedThemeProvider>
     </main>
   )

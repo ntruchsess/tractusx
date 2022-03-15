@@ -20,9 +20,6 @@ export enum PAGES {
   PARTNER_NETWORK = 'partnernetwork',
   USER_MANAGEMENT = 'usermanagement',
   ADMINISTRATION = 'admin',
-  DEVELOPER = 'developer',
-  SETTINGS = 'settings',
-  TESTAPI = 'testapi',
   TRANSLATOR = 'translator',
   LOGOUT = 'logout',
 }

@@ -13,7 +13,7 @@ const fetchBusinessPartners = createAsyncThunk(
         const partnerNetworkApi = api.PartnerNetworkApi.getInstance(store.getState().user?.token)
         return await partnerNetworkApi.getAllBusinessPartner(params)
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('api call error:', error)
       throw Error('fetchBusinessPartners api call error')
     }
@@ -27,7 +27,7 @@ const getOneBusinessPartner = createAsyncThunk(
         const partnerNetworkApi = api.PartnerNetworkApi.getInstance(store.getState().user?.token)
         return await partnerNetworkApi.getBusinessPartnerByBpn(bpn)
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('api call error:', error)
       throw Error('getOneBusinessPartner api call error')
     }

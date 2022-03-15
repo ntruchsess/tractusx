@@ -1,9 +1,9 @@
 import { useEffect, useRef, ReactNode } from 'react'
 
-type EventHandler = (...args: any[]) => any
+type MouseEventHandler = (e?: MouseEvent) => void
 
 interface InfoBoxProps {
-  onClickOutside?: EventHandler
+  onClickOutside?: MouseEventHandler
   show?: boolean
   element?: ReactNode
 }

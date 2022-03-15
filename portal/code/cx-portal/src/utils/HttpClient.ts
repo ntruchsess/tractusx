@@ -15,10 +15,10 @@ export abstract class HttpClient {
   protected readonly instance: AxiosInstance
 
   protected constructor(baseURL: string,
-                        headers: AxiosRequestHeaders = {
-                          'Content-Type': 'application/json'
-                        },
-                        timeout: number = Number.parseInt(`${process.env.REACT_APP_API_CALL_TIMEOUT}`)) {
+    headers: AxiosRequestHeaders = {
+      'Content-Type': 'application/json'
+    },
+    timeout: number = Number.parseInt(`${process.env.REACT_APP_API_CALL_TIMEOUT}`)) {
     this.instance = axios.create({
       baseURL,
       headers,

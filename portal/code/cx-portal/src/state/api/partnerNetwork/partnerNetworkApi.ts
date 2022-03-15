@@ -1,6 +1,6 @@
 import {HttpClient} from 'utils/HttpClient'
 import { SearchParams, BusinessPartnerResponse, BusinessPartner } from 'types/partnerNetwork/PartnerNetworkTypes'
-import qs, {ParsedUrlQueryInput} from 'querystring'
+import qs from 'querystring'
 
 // Instance of BPDM API endpoint
 export class PartnerNetworkApi extends HttpClient {

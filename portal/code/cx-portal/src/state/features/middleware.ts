@@ -1,10 +1,12 @@
 import appsMW from './apps/appsMW'
-import postsMW from './posts/postsMW'
 
-const rootMiddleware = (getDefaultMiddleware: any) => [
-  ...getDefaultMiddleware(),
-  appsMW,
-  postsMW,
-]
+const rootMiddleware = (getDefaultMiddleware: any) => {
+  const dm = getDefaultMiddleware()
+  console.log(dm)
+  return [
+    ...dm,
+    appsMW,
+  ]
+}
 
 export default rootMiddleware
