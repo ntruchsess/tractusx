@@ -8,6 +8,7 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
 COPY ["useradministration/src/CatenaX.NetworkServices.UserAdministration.Service/CatenaX.NetworkServices.UserAdministration.Service.csproj", "useradministration/src/CatenaX.NetworkServices.UserAdministration.Service/"]
+COPY ["provisioning/src/CatenaX.NetworkServices.Provisioning.DBAccess/CatenaX.NetworkServices.Provisioning.DBAccess.csproj", "provisioning/src/CatenaX.NetworkServices.Provisioning.DBAccess/"]
 COPY ["provisioning/src/CatenaX.NetworkServices.Provisioning.Library/CatenaX.NetworkServices.Provisioning.Library.csproj", "provisioning/src/CatenaX.NetworkServices.Provisioning.Library/"]
 COPY ["mailing/src/CatenaX.NetworkServices.Mailing.Template/CatenaX.NetworkServices.Mailing.Template.csproj", "mailing/src/CatenaX.NetworkServices.Mailing.Template/"]
 COPY ["mailing/src/CatenaX.NetworkServices.Mailing.SendMail/CatenaX.NetworkServices.Mailing.SendMail.csproj", "mailing/src/CatenaX.NetworkServices.Mailing.SendMail/"]

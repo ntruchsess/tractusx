@@ -8,6 +8,7 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
 COPY ["provisioning/src/CatenaX.NetworkServices.Provisioning.Service/CatenaX.NetworkServices.Provisioning.Service.csproj", "provisioning/src/CatenaX.NetworkServices.Provisioning.Service/"]
+COPY ["provisioning/src/CatenaX.NetworkServices.Provisioning.DBAccess/CatenaX.NetworkServices.Provisioning.DBAccess.csproj", "provisioning/src/CatenaX.NetworkServices.Provisioning.DBAccess/"]
 COPY ["provisioning/src/CatenaX.NetworkServices.Provisioning.Library/CatenaX.NetworkServices.Provisioning.Library.csproj", "provisioning/src/CatenaX.NetworkServices.Provisioning.Library/"]
 COPY ["keycloak/src/Keycloak.Net/Keycloak.Net.csproj", "keycloak/src/Keycloak.Net/"]
 COPY ["keycloak/src/CatenaX.NetworkServices.Keycloak.Authentication/CatenaX.NetworkServices.Keycloak.Authentication.csproj", "keycloak/src/CatenaX.NetworkServices.Keycloak.Authentication/"]
