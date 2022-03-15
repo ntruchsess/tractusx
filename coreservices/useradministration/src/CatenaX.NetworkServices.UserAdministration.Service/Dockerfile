@@ -14,6 +14,7 @@ COPY ["mailing/src/CatenaX.NetworkServices.Mailing.Template/CatenaX.NetworkServi
 COPY ["mailing/src/CatenaX.NetworkServices.Mailing.SendMail/CatenaX.NetworkServices.Mailing.SendMail.csproj", "mailing/src/CatenaX.NetworkServices.Mailing.SendMail/"]
 COPY ["keycloak/src/Keycloak.Net/Keycloak.Net.csproj", "keycloak/src/Keycloak.Net/"]
 COPY ["keycloak/src/CatenaX.NetworkServices.Keycloak.Authentication/CatenaX.NetworkServices.Keycloak.Authentication.csproj", "keycloak/src/CatenaX.NetworkServices.Keycloak.Authentication/"]
+COPY ["keycloak/src/CatenaX.NetworkServices.Keycloak.DBAccess/CatenaX.NetworkServices.Keycloak.DBAccess.csproj", "keycloak/src/CatenaX.NetworkServices.Keycloak.DBAccess/"]
 COPY ["keycloak/src/CatenaX.NetworkServices.Keycloak.Factory/CatenaX.NetworkServices.Keycloak.Factory.csproj", "keycloak/src/CatenaX.NetworkServices.Keycloak.Factory/"]
 RUN dotnet restore "useradministration/src/CatenaX.NetworkServices.UserAdministration.Service/CatenaX.NetworkServices.UserAdministration.Service.csproj"
 COPY . .

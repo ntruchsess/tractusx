@@ -12,6 +12,7 @@ COPY ["provisioning/src/CatenaX.NetworkServices.Provisioning.DBAccess/CatenaX.Ne
 COPY ["provisioning/src/CatenaX.NetworkServices.Provisioning.Library/CatenaX.NetworkServices.Provisioning.Library.csproj", "provisioning/src/CatenaX.NetworkServices.Provisioning.Library/"]
 COPY ["keycloak/src/Keycloak.Net/Keycloak.Net.csproj", "keycloak/src/Keycloak.Net/"]
 COPY ["keycloak/src/CatenaX.NetworkServices.Keycloak.Authentication/CatenaX.NetworkServices.Keycloak.Authentication.csproj", "keycloak/src/CatenaX.NetworkServices.Keycloak.Authentication/"]
+COPY ["keycloak/src/CatenaX.NetworkServices.Keycloak.DBAccess/CatenaX.NetworkServices.Keycloak.DBAccess.csproj", "keycloak/src/CatenaX.NetworkServices.Keycloak.DBAccess/"]
 COPY ["keycloak/src/CatenaX.NetworkServices.Keycloak.Factory/CatenaX.NetworkServices.Keycloak.Factory.csproj", "keycloak/src/CatenaX.NetworkServices.Keycloak.Factory/"]
 RUN dotnet restore "provisioning/src/CatenaX.NetworkServices.Provisioning.Service/CatenaX.NetworkServices.Provisioning.Service.csproj"
 COPY . .
