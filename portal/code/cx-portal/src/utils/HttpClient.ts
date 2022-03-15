@@ -1,11 +1,14 @@
-import axios, { AxiosError, AxiosInstance, AxiosRequestHeaders, AxiosResponse } from 'axios'
-
+import axios, {
+  AxiosError,
+  AxiosInstance,
+  AxiosRequestHeaders,
+  AxiosResponse,
+} from 'axios'
 
 // Tell to typescript, we can use any type of data as response data
 declare module 'axios' {
   // eslint-disable-next-line
-  interface AxiosResponse<T = any> extends Promise<T> {
-  }
+  interface AxiosResponse<T = any> extends Promise<T> {}
 }
 
 // Abstract of axios instance
@@ -14,11 +17,15 @@ declare module 'axios' {
 export abstract class HttpClient {
   protected readonly instance: AxiosInstance
 
-  protected constructor(baseURL: string,
+  protected constructor(
+    baseURL: string,
     headers: AxiosRequestHeaders = {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
-    timeout: number = Number.parseInt(`${process.env.REACT_APP_API_CALL_TIMEOUT}`)) {
+    timeout: number = Number.parseInt(
+      `${process.env.REACT_APP_API_CALL_TIMEOUT}`
+    )
+  ) {
     this.instance = axios.create({
       baseURL,
       headers,
@@ -33,7 +40,10 @@ export abstract class HttpClient {
   // _handleResponse : Successful response from call
   // _handleError: Error case of call
   private _initializeResponseInterceptor = () => {
-    this.instance.interceptors.response.use(this._handleResponse, this._handleError)
+    this.instance.interceptors.response.use(
+      this._handleResponse,
+      this._handleError
+    )
   }
 
   // Pass response object to Promise resolve

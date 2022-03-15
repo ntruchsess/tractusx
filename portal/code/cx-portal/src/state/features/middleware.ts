@@ -1,12 +1,8 @@
 import appsMW from './apps/appsMW'
 
-const rootMiddleware = (getDefaultMiddleware: any) => {
-  const dm = getDefaultMiddleware()
-  console.log(dm)
-  return [
-    ...dm,
-    appsMW,
-  ]
-}
+const rootMiddleware = (getDefaultMiddleware: any) => [
+  ...getDefaultMiddleware(),
+  appsMW,
+]
 
 export default rootMiddleware

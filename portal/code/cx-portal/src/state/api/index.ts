@@ -3,7 +3,7 @@ import { PartnerNetworkApi } from 'state/api/partnerNetwork/partnerNetworkApi'
 
 const api = {
   loadApps: loadApps,
-  PartnerNetworkApi
+  PartnerNetworkApi,
 }
 
 export { api }

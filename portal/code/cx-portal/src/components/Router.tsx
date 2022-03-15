@@ -22,7 +22,6 @@ import { setLoggedUser } from 'state/features/user/userSlice'
 import { IUser } from 'types/user/UserTypes'
 import PartnerNetwork from 'components/pages/PartnerNetwork/PartnerNetwork'
 
-
 const plainRoutes: { [page: string]: JSX.Element } = {
   [PAGES.ROOT]: <Dashboard />,
   [PAGES.DASHBOARD]: <Dashboard />,
@@ -35,12 +34,11 @@ const plainRoutes: { [page: string]: JSX.Element } = {
   [PAGES.ADMINISTRATION]: <Admin />,
   [PAGES.TRANSLATOR]: <Translator />,
   [PAGES.LOGOUT]: <Logout />,
-  [PAGES.PARTNER_NETWORK]: <PartnerNetwork />
+  [PAGES.PARTNER_NETWORK]: <PartnerNetwork />,
 }
 
 export default function Router() {
   const dispatch = useDispatch()
-
 
   useEffect(() => {
     // Before loading component, check login flow

@@ -1,4 +1,3 @@
-
 export interface GeographicCoordinate {
   longitude: number
   latitude: number

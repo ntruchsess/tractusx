@@ -22,7 +22,7 @@ const appsMW =
           })
           //dispatch(actions.apiCallSuccess(response.data));
           if (onSuccess) dispatch({ type: onSuccess, payload: response.data })
-        } catch (error: any) {
+        } catch (error: unknown) {
           //dispatch(actions.apiCallFailed(error.message));
           if (onError) dispatch({ type: onError, payload: error.message })
         }

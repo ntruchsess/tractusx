@@ -6,7 +6,7 @@ import partnerNetworkSlice from 'state/features/partnerNetwork/partnerNetworkSli
 const rootReducer = combineReducers({
   apps: appsSlice.reducer,
   user: userSlice,
-  partnerNetwork: partnerNetworkSlice.reducer
+  partnerNetwork: partnerNetworkSlice.reducer,
 })
 
 export default rootReducer
