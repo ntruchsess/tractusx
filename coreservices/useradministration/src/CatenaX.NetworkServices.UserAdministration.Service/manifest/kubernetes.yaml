@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: useradministration-service
+  labels:
+    app: useradministration-service
+spec:
+  revisionHistoryLimit: 0
+  replicas: 1
+  selector:
+    matchLabels:
+      app: useradministration-service
+  template:
+    metadata:
+      labels:
+        app: useradministration-service
+      annotations:
+        buildID: ""
+    spec:
+      containers:
+        - name: useradministration-service
+          image: "test:stable"
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          env:
+          - name: "ASPNETCORE_ENVIRONMENT"
+            value: "Kubernetes"

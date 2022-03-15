@@ -189,6 +189,7 @@ resource "kubernetes_namespace" "ingress_service_namespace" {
 resource "helm_release" "nginx_ingress_service" {
   name       = "ingress-service"
   chart      = "ingress-nginx"
+  version    = "v4.0.13"
   namespace  = kubernetes_namespace.ingress_service_namespace.metadata[0].name
   repository = "https://kubernetes.github.io/ingress-nginx"
   timeout    = 300
@@ -232,6 +233,7 @@ resource "kubernetes_namespace" "ingress_portal_namespace" {
 resource "helm_release" "nginx_ingress_portal" {
   name       = "ingress-portal"
   chart      = "ingress-nginx"
+  version    = "v4.0.13"
   namespace  = kubernetes_namespace.ingress_portal_namespace.metadata[0].name
   repository = "https://kubernetes.github.io/ingress-nginx"
   timeout    = 300
@@ -394,4 +396,22 @@ resource "azurerm_storage_account" "appstorage" {
   #  default_action             = "Allow"
   #  virtual_network_subnet_ids = [module.aks_vnet.subnet_ids["${var.prefix}-${var.environment}-aks-node-subnet"]]
   #}
+}
+
+resource "azurerm_storage_share" "graphdb" {
+  name                 = "${var.prefix}${var.environment}graphdb"
+  storage_account_name = azurerm_storage_account.appstorage.name
+  quota                = 110
+}
+
+resource "azurerm_storage_share_directory" "graphdb_data" {
+  name                 = "data"
+  share_name           = azurerm_storage_share.graphdb.name
+  storage_account_name = azurerm_storage_account.appstorage.name
+}
+
+resource "azurerm_storage_share_directory" "graphdb_log" {
+  name                 = "log"
+  share_name           = azurerm_storage_share.graphdb.name
+  storage_account_name = azurerm_storage_account.appstorage.name
 }

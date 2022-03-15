@@ -23,6 +23,7 @@ on:
       - 'infrastructure/manifests/iamsharedidp-ingress.yaml'
       # KeyCloak Docker files
       - 'coreservices/iam/docker/**'
+      - 'coreservices/iam/themes/**'
     branches:
       # Integration environment
       - main
@@ -30,6 +31,7 @@ on:
       - feature/CAX-12-devops
       # Onboarding and Portal Dev Space
       - feature/CAX-portal
+  workflow_dispatch:
 
 jobs:
   ########################################

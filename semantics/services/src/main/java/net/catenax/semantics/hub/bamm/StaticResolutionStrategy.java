@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Robert Bosch Manufacturing Solutions GmbH
+ * Copyright (c) 2021-2022 Robert Bosch Manufacturing Solutions GmbH
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ import io.vavr.control.Try;
 
 public class StaticResolutionStrategy extends AbstractResolutionStrategy {
     private int counter;
-    private Try<Model> model;
+    private final Try<Model> model;
 
     public StaticResolutionStrategy(Try<Model> model) {
         this.model = model;

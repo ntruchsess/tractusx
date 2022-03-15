@@ -39,7 +39,7 @@ namespace CatenaX.NetworkServices.Registration.Service.Custodian
             _custodianHttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var requestBody = new { name = name, bpn = bpn };
             var stringContent = new StringContent(JsonSerializer.Serialize(requestBody), Encoding.UTF8, "application/json");
-            var result = await _custodianHttpClient.PostAsync($"/api/company", stringContent);
+            var result = await _custodianHttpClient.PostAsync($"/api/wallets", stringContent);
             if (!result.IsSuccessStatusCode)
             {
                 _logger.LogError($"Error on creating Wallet HTTP Response Code {result.StatusCode}");
@@ -52,7 +52,7 @@ namespace CatenaX.NetworkServices.Registration.Service.Custodian
             var response = new List<GetWallets>();
             var token = await GetToken();
             _custodianHttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            var result = await _custodianHttpClient.GetAsync("/api/company");
+            var result = await _custodianHttpClient.GetAsync("/api/wallets");
             if (result.IsSuccessStatusCode)
             {
                 response.AddRange(JsonSerializer.Deserialize<List<GetWallets>>(await result.Content.ReadAsStringAsync()));

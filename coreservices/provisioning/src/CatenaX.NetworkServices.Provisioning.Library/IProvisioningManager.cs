@@ -14,8 +14,15 @@ namespace CatenaX.NetworkServices.Provisioning.Library
         Task<IEnumerable<string>> GetClientRolesCompositeAsync(string clientId);
         Task<string> GetOrganisationFromCentralIdentityProviderMapperAsync(string alias);
         Task<string> SetupOwnIdpAsync(string organisationName, string clientId, string metadataUrl, string clientAuthMethod, string clientSecret);
-        Task<IEnumerable<UserInfo>> GetUsersFromSharedAsync(string idpName);
         Task<string> GetProviderUserIdForCentralUserIdAsync(string userId);
         Task<bool> DeleteSharedAndCentralUserAsync(string idpName, string userId);
+        Task<IEnumerable<JoinedUserInfo>> GetJoinedUsersAsync(
+            string idpName,
+            string userId = null,
+            string providerUserId = null,
+            string userName = null,
+            string firstName = null,
+            string lastName = null,
+            string email = null);
     }
 }

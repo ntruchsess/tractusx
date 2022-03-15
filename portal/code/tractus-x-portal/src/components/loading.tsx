@@ -21,7 +21,7 @@ export default class Loading extends React.Component {
 
   public render() {
     return (
-      <div className='w100pc h100pc df fdc aic jcc'>
+      <div className='w100pc h100pc df fdc aic jcc' style={{paddingBottom: '56px'}}>
         <Spinner className='scale3' size={SpinnerSize.large} />
       </div>
     );

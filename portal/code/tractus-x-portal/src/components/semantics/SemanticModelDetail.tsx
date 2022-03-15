@@ -16,7 +16,7 @@ import { useEffect, useState } from "react";
 import BackLink from "../navigation/BackLink";
 import { Icon, PrimaryButton, TextField } from "@fluentui/react";
 import Loading from "../loading";
-import { getModelById, getModelDiagram, getDocumentationUrl, getJsonSchemaUrl, getFileUrl, getOpenApiUrl, getExamplePayloadUrl } from "./data";
+import { getModelById, getDocumentationUrl, getJsonSchemaUrl, getFileUrl, getOpenApiUrl, getExamplePayloadUrl, getArtifact, getModelDiagramUrl } from "./data";
 import ErrorMessage from "../ErrorMessage";
 import DeleteModel from "./DeleteModel";
 import './SemanticModelDetail.css';
@@ -36,13 +36,40 @@ const SemanticModelDetail = (props) => {
 
   useEffect(() => {
     getModelById(id)
-      .then(model => setModel(model), error => setError(error.message));
-    setImageUrl(getModelDiagram(id));
-    setDocumentationUrl(getDocumentationUrl(id));
-    setJsonSchemaUrl(getJsonSchemaUrl(id));
-    setExamplePayloadUrl(getExamplePayloadUrl(id));
-    setOpenApiUrl(getOpenApiUrl(id, apiBaseUrl));
-    setFileUrl(getFileUrl(id));
+      .then(
+        model => {
+          setModel(model)
+          getArtifact(id, getModelDiagramUrl(id))
+            .then((blob) => {
+              setImageUrl(URL.createObjectURL(blob))
+            });
+
+          getArtifact(id, getFileUrl(id))
+            .then((responseText: Blob) => {
+              setFileUrl(URL.createObjectURL(responseText))
+            });
+
+          getArtifact(id, getDocumentationUrl(id))
+            .then((responseText: Blob) => {
+              setDocumentationUrl(URL.createObjectURL(responseText))
+            });
+
+          getArtifact(id, getJsonSchemaUrl(id))
+            .then((responseText: Blob) => {
+              setJsonSchemaUrl(URL.createObjectURL(responseText))
+            });
+
+          getArtifact(id, getExamplePayloadUrl(id))
+            .then((responseText: Blob) => {
+              setExamplePayloadUrl(URL.createObjectURL(responseText))
+            });
+
+          getArtifact(id, getOpenApiUrl(id, apiBaseUrl))
+            .then((responseText: Blob) => {
+              setOpenApiUrl(URL.createObjectURL(responseText))
+            });
+        },
+        error => setError(error.message));
   }, [id, apiBaseUrl]);
 
   const diagramOnLoad = () => {
@@ -70,8 +97,8 @@ const SemanticModelDetail = (props) => {
         <p className="fs18">Version: {model.version}</p>
         <p className="fs18">Aspect Model URN: {model.id}</p>
         <p className="fs18 mb20">Release Status: {model.status}</p>
-        <div>
-          <img src={imageUrl} alt={`Model of ${model.name}`} className="w100pc mb30" onLoad={diagramOnLoad}></img>
+        <div className="mb30">
+          <img src={imageUrl} alt={`Model of ${model.name}`} className="w100pc" onLoad={diagramOnLoad}></img>
           {isImageLoading && <Loading />}
         </div>
         <div className="df fwrap">
@@ -100,7 +127,20 @@ const SemanticModelDetail = (props) => {
         </div>
         </div> :
         <div className="df h100pc p44 jcc">
-          {error ? <ErrorMessage error={error}/> : <Loading />}
+          {error ?
+            <>
+              {error.includes('404') ?
+                <div className="df fdc aic">
+                  <h2 className="pb20 fs42">Model not found!</h2>
+                  <p className="mb20">The referenced model is not yet available in the Semantic Hub.</p>
+                  <BackLink history={props.history} />
+                </div>
+                :
+                <ErrorMessage error={error}/>
+              }
+            </>
+            :
+            <Loading />}
         </div>
       }
     </div>
