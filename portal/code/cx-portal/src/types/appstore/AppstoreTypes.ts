@@ -1,10 +1,9 @@
-
 export interface AppstoreImage {
   src: string
   alt?: string
 }
 
-export type MouseEventHandler = (e:MouseEvent) => void;
+export type MouseEventHandler = (e: MouseEvent) => void
 
 export interface AppstoreApp {
   id: string
@@ -14,6 +13,6 @@ export interface AppstoreApp {
   price: string
   rating?: number
   image?: AppstoreImage
-  onButtonClick?: MouseEventHandler,
+  onButtonClick?: MouseEventHandler
   onSecondaryButtonClick?: MouseEventHandler
 }

@@ -2,7 +2,11 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Outlet, useSearchParams } from 'react-router-dom'
 import { api } from 'state/api'
-import { AppCardItems, AppCards, SearchInput } from 'cx-portal-shared-components'
+import {
+  AppCardItems,
+  AppCards,
+  SearchInput,
+} from 'cx-portal-shared-components'
 import { RootState } from 'state/store'
 
 const Appstore = () => {
@@ -29,7 +33,8 @@ const Appstore = () => {
         <AppCards
           items={apps
             .filter(
-              (app: AppCardItems) => filter.test(app.title) || filter.test(app.subtitle)
+              (app: AppCardItems) =>
+                filter.test(app.title) || filter.test(app.subtitle)
             )
             .map((app: AppCardItems) => {
               const item: AppCardItems = { ...app }
