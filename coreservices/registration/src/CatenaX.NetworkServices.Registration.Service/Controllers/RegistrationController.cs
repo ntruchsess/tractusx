@@ -162,7 +162,18 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
         [Authorize(Roles = "view_registration")]
         [Route("rolesComposite")]
         [ProducesResponseType(typeof(List<string>), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> GetClientRolesComposite() =>
-            Ok((await _registrationBusinessLogic.GetClientRolesCompositeAsync().ConfigureAwait(false)).ToList());
+        public async Task<IActionResult> GetClientRolesComposite()
+        {
+            try
+            {
+                var result = await _registrationBusinessLogic.GetClientRolesCompositeAsync().ConfigureAwait(false);
+                return Ok(result.ToList());
+
+            } catch(Exception e)
+            {
+                _logger.LogError(e.ToString());
+                return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+            }
+        }
     }
 }
