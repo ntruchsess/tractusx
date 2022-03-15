@@ -90,13 +90,13 @@ namespace Keycloak.Net
             .GetJsonAsync<IEnumerable<ProtocolMapper>>()
             .ConfigureAwait(false);
 
-        public async Task<bool> CreateClientProtocolMapperAsync(string realm, string clientScopeId, ProtocolMapper protocolMapperRepresentation)
+        public async Task<bool> CreateClientProtocolMapperAsync(string realm, string clientId, ProtocolMapper protocolMapperRepresentation)
         {
             var response = await (await GetBaseUrlAsync(realm).ConfigureAwait(false))
                 .AppendPathSegment("/admin/realms/")
                 .AppendPathSegment(realm, true)
                 .AppendPathSegment("/clients/")
-                .AppendPathSegment(clientScopeId, true)
+                .AppendPathSegment(clientId, true)
                 .AppendPathSegment("/protocol-mappers/models")
                 .PostJsonAsync(protocolMapperRepresentation)
                 .ConfigureAwait(false);
