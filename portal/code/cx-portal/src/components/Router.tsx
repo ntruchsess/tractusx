@@ -8,13 +8,10 @@ import AppstoreDetail from 'components/pages/Appstore/AppstoreDetail/AppstoreDet
 import MyAccount from './pages/MyAccount/MyAccount'
 import Connector from 'components/pages/Connector/Connector'
 import DataCatalog from 'components/pages/DataCatalog/DataCatalog'
-import Developer from 'components/pages/Developer/Developer'
 import DeveloperHub from 'components/pages/DeveloperHub/DeveloperHub'
 import DigitalTwins from 'components/pages/DigitalTwins/DigitalTwins'
 import Logout from 'components/pages/Logout/Logout'
 import SemanticHub from 'components/pages/SemanticHub/SemanticHub'
-import Settings from 'components/pages/Settings/Settings'
-import TestAPI from 'components/pages/TestAPI/TestAPI'
 import Translator from 'components/pages/Translator/Translator'
 import { PAGES } from '../types/MainTypes'
 import NotFound from './pages/NotFound/NotFound'
@@ -24,7 +21,6 @@ import { useDispatch } from 'react-redux'
 import { setLoggedUser } from 'state/features/user/userSlice'
 import { IUser } from 'types/user/UserTypes'
 import PartnerNetwork from 'components/pages/PartnerNetwork/PartnerNetwork'
-
 
 const plainRoutes: { [page: string]: JSX.Element } = {
   [PAGES.ROOT]: <Dashboard />,
@@ -36,17 +32,13 @@ const plainRoutes: { [page: string]: JSX.Element } = {
   [PAGES.CONNECTOR]: <Connector />,
   [PAGES.ACCOUNT]: <MyAccount />,
   [PAGES.ADMINISTRATION]: <Admin />,
-  [PAGES.DEVELOPER]: <Developer />,
-  [PAGES.SETTINGS]: <Settings />,
-  [PAGES.TESTAPI]: <TestAPI />,
   [PAGES.TRANSLATOR]: <Translator />,
   [PAGES.LOGOUT]: <Logout />,
-  [PAGES.PARTNER_NETWORK]: <PartnerNetwork />
+  [PAGES.PARTNER_NETWORK]: <PartnerNetwork />,
 }
 
 export default function Router() {
   const dispatch = useDispatch()
-
 
   useEffect(() => {
     // Before loading component, check login flow
