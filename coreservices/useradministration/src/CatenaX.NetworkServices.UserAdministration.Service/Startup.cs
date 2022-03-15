@@ -1,7 +1,10 @@
+using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -11,11 +14,9 @@ using CatenaX.NetworkServices.Keycloak.DBAccess;
 using CatenaX.NetworkServices.Keycloak.Factory;
 using CatenaX.NetworkServices.Mailing.SendMail;
 using CatenaX.NetworkServices.Mailing.Template;
+using CatenaX.NetworkServices.Provisioning.DBAccess;
 using CatenaX.NetworkServices.Provisioning.Library;
 using CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic;
-using System.IdentityModel.Tokens.Jwt;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Authorization;
 
 namespace CatenaX.NetworkServices.UserAdministration.Service
 {
@@ -75,6 +76,9 @@ namespace CatenaX.NetworkServices.UserAdministration.Service
 
             services.AddTransient<IKeycloakDBAccessFactory, KeycloakDBAccessFactory>()
                     .ConfigureKeycloakDBAccessSettings(Configuration.GetSection("KeycloakDBAccess"));
+
+            services.AddTransient<IProvisioningDBAccessFactory, ProvisioningDBAccessFactory>()
+                    .ConfigureProvisioningDBAccessSettings(Configuration.GetSection("ProvisioningDBAccess"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

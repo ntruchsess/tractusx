@@ -13,29 +13,29 @@ namespace CatenaX.NetworkServices.Provisioning.Service.Controllers
 {
     [ApiController]
     [Route("api/provisioning")]
-    public class IdentityProviderController : ControllerBase
+    public class ClientController : ControllerBase
     {
 
-        private readonly ILogger<IdentityProviderController> _logger;
-        private readonly IIdentityProviderBusinessLogic _logic;
+        private readonly ILogger<ClientController> _logger;
+        private readonly IClientBusinessLogic _logic;
 
-        public IdentityProviderController(ILogger<IdentityProviderController> logger, IIdentityProviderBusinessLogic logic)
+        public ClientController(ILogger<ClientController> logger, IClientBusinessLogic logic)
         {
             _logger = logger;
             _logic = logic;
         }
 
         [HttpPost]
-        [Authorize(Roles="setup_idp")]
-        [Route("identityprovider/setup")]
-        public async Task<IActionResult> CreateIdentityProvider([FromBody] IdentityProviderSetupData identityProviderSetupData)
+        [Authorize(Roles="setup_client")]
+        [Route("client/setup")]
+        public async Task<IActionResult> CreateClient([FromBody] ClientSetupData clientSetupData)
         {
             try
             {
-                var idpName = await _logic.CreateIdentityProvider(identityProviderSetupData).ConfigureAwait(false);
-                if (idpName != null)
+                var clientId = await _logic.CreateClient(clientSetupData).ConfigureAwait(false);
+                if (clientId != null)
                 {
-                    return new OkObjectResult(idpName);
+                    return new OkObjectResult(clientId);
                 }
                 _logger.LogError("unsuccessful");
                 return new StatusCodeResult((int)HttpStatusCode.InternalServerError);

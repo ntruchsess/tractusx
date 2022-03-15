@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace CatenaX.NetworkServices.Provisioning.Service.BusinessLogic
+namespace CatenaX.NetworkServices.Provisioning.Service.Models
 {
     public class IdentityProviderSetupData
     {

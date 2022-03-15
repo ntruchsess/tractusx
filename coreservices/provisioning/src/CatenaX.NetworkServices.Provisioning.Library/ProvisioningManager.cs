@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CatenaX.NetworkServices.Keycloak.Factory;
+using CatenaX.NetworkServices.Provisioning.DBAccess;
 using CatenaX.NetworkServices.Provisioning.Library.Models;
 using CatenaX.NetworkServices.Keycloak.DBAccess;
 
@@ -13,19 +14,31 @@ namespace CatenaX.NetworkServices.Provisioning.Library
     {
         private readonly KeycloakClient _CentralIdp;
         private readonly KeycloakClient _SharedIdp;
-        private readonly IKeycloakDBAccess _DBAccess;
+        private readonly IKeycloakDBAccess _KeycloakDBAccess;
+        private readonly IProvisioningDBAccess _ProvisioningDBAccess;
         private readonly ProvisioningSettings _Settings;
 
-        public ProvisioningManager(IKeycloakFactory factory, IKeycloakDBAccessFactory dBAccessFactory, IOptions<ProvisioningSettings> options)
+        public ProvisioningManager(IKeycloakFactory keycloakFactory, IKeycloakDBAccessFactory keycloakDBAccessFactory, IProvisioningDBAccessFactory provisioningDBAccessFactory, IOptions<ProvisioningSettings> options)
         {
-            _CentralIdp = factory.CreateKeycloakClient("central");
-            _SharedIdp = factory.CreateKeycloakClient("shared");
+            _CentralIdp = keycloakFactory.CreateKeycloakClient("central");
+            _SharedIdp = keycloakFactory.CreateKeycloakClient("shared");
             _Settings = options.Value;
-            _DBAccess = dBAccessFactory?.CreateKeycloakDBAccess();
+            _KeycloakDBAccess = keycloakDBAccessFactory?.CreateKeycloakDBAccess();
+            _ProvisioningDBAccess = provisioningDBAccessFactory?.CreateProvisioningDBAccess();
         }
 
-        public ProvisioningManager(IKeycloakFactory factory, IOptions<ProvisioningSettings> options)
-            : this(factory,null,options)
+        public ProvisioningManager(IKeycloakFactory keycloakFactory, IKeycloakDBAccessFactory keycloakDBAccessFactory, IOptions<ProvisioningSettings> options)
+            : this(keycloakFactory,keycloakDBAccessFactory,null,options)
+        {
+        }
+
+        public ProvisioningManager(IKeycloakFactory keycloakFactory, IProvisioningDBAccessFactory provisioningDBAccessFactory, IOptions<ProvisioningSettings> options)
+            : this(keycloakFactory,null,provisioningDBAccessFactory,options)
+        {
+        }
+
+        public ProvisioningManager(IKeycloakFactory keycloakFactory, IOptions<ProvisioningSettings> options)
+            : this(keycloakFactory,null,null,options)
         {
         }
 
@@ -142,7 +155,7 @@ namespace CatenaX.NetworkServices.Provisioning.Library
                                                                string firstName = null,
                                                                string lastName = null,
                                                                string email = null) =>
-            (await _DBAccess.GetUserJoinedFederatedIdentityAsync(idpName,
+            (await _KeycloakDBAccess.GetUserJoinedFederatedIdentityAsync(idpName,
                                                                  _Settings.CentralRealmId,
                                                                  userId,
                                                                  providerUserId,
@@ -159,5 +172,13 @@ namespace CatenaX.NetworkServices.Provisioning.Library
                     lastName = x.last_name,
                     email = x.email
                 });
+
+        public async Task<string> SetupClientAsync(string redirectUrl)
+        {
+            var clientId = await GetNextClientIdAsync().ConfigureAwait(false);
+            var internalId = (await CreateCentralOIDCClientAsync(clientId,redirectUrl).ConfigureAwait(false));
+            await CreateCentralOIDCClientAudienceMapperAsync(internalId, clientId).ConfigureAwait(false);
+            return clientId;
+        }
     }
 }
