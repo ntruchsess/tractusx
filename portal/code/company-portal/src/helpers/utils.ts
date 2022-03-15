@@ -85,7 +85,7 @@ export function submitCustodianWallet (custodianWallet): Promise<any> {
     })
     .then((res) => res.text().then((data) => {
       if (res.ok) {
-        resolve('Sent Invite');
+        resolve('Data Submitted');
       } else {
         reject(res.status);
       }
