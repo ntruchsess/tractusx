@@ -24,7 +24,7 @@ const appsMW =
           if (onSuccess) dispatch({ type: onSuccess, payload: response.data })
         } catch (error: unknown) {
           //dispatch(actions.apiCallFailed(error.message));
-          if (onError) dispatch({ type: onError, payload: error.message })
+          if (onError) dispatch({ type: onError, payload: error })
         }
       }
 
