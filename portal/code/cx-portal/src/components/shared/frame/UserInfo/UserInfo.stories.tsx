@@ -18,11 +18,11 @@ export default {
   styles: ['./components/App.css'],
 } as ComponentMeta<typeof UserInfo>
 
-const Template: ComponentStory<typeof UserInfo> = (args) => (
-  <UserInfo {...args} />
+const Template: ComponentStory<typeof UserInfo> = () => (
+  <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+    <UserInfo />
+  </div>
 )
 
 export const Standard = Template.bind({})
-Standard.args = {
-  isAdmin: false,
-}
+Standard.args = {}

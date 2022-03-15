@@ -1,15 +1,15 @@
 import Keycloak from 'keycloak-js'
 import { IUser } from 'types/user/UserTypes'
-import {ROLES} from 'types/MainTypes'
+import { ROLES } from 'types/MainTypes'
 
-const keycloakConfig = {
+const keycloakConfig: Keycloak.KeycloakConfig = {
   url: process.env.REACT_APP_BASE_CENTRAL_IDP,
   realm: 'CX-Central',
   clientId: 'catenax-portal',
-  'ssl-required': 'external',
-  'public-client': true,
 }
 
+// TODO: add an ESLint exception until there is a solution
+/* eslint @typescript-eslint/no-explicit-any: "off" */
 const KC = new (Keycloak as any)(keycloakConfig)
 
 const init = (onAuthenticatedCallback: (loggedUser: IUser) => any) => {

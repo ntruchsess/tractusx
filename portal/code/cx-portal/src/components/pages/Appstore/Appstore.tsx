@@ -1,14 +1,14 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Outlet, useSearchParams } from 'react-router-dom'
+import { RootState } from 'state/store'
 import { api } from '../../../state/api'
-import { App } from '../../../types/AppTypes'
-import { AppCard } from '../../shared/content/AppCard/AppCard'
+import { AppstoreApp } from '../../../types/appstore/AppstoreTypes'
 import './Appstore.css'
 
 const Appstore = () => {
   const dispatch = useDispatch()
-  const apps = useSelector((state: any) => state.apps.list)
+  const apps = useSelector((state: RootState) => state.apps.list)
   const [searchParams, setSearchParams] = useSearchParams()
   const filter = new RegExp(searchParams.get('filter') || '', 'i')
 
@@ -27,9 +27,9 @@ const Appstore = () => {
       />
       <nav>
         {apps
-          .filter((app: App) => filter.test(app.name))
-          .map((app: App) => (
-            <AppCard key={app.id} app={app} />
+          .filter((app: AppstoreApp) => filter.test(app.title))
+          .map((app: AppstoreApp) => (
+            <pre key={app.id}>{JSON.stringify(app, null, 2)}</pre>
           ))}
       </nav>
       <Outlet />

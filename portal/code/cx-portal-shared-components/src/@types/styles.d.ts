@@ -66,6 +66,12 @@ declare module '@mui/material/styles' {
     accent12: string
   }
 
+  interface TypeSelected {
+    hover: string
+    focus: string
+    active: string
+  }
+
   interface PaletteColor {
     shadow: string
   }
@@ -83,6 +89,7 @@ declare module '@mui/material/styles' {
     brand: TypeBrand
     danger: TypeDanger
     accent: TypeAccent
+    selected: TypeSelected
   }
   interface PaletteOptions {
     icon?: Partial<TypeIcons>
@@ -93,6 +100,7 @@ declare module '@mui/material/styles' {
     brand?: Partial<TypeBrand>
     danger?: Partial<TypeDanger>
     accent?: Partial<TypeAccent>
+    selected?: Partial<TypeSelected>
   }
 
   interface TypographyVariants {

@@ -75,7 +75,7 @@ export const AppCard = ({
           overflow: 'hidden',
           ...(variant === 'preview' && {
             position: 'absolute',
-            width: '100%',
+            width: 'calc(100% - 2px)',
             zIndex: 100,
             boxShadow: shadows['20'],
           }),

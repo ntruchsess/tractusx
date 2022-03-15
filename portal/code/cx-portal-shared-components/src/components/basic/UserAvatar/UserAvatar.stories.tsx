@@ -3,7 +3,7 @@ import { ComponentStory } from '@storybook/react'
 import { UserAvatar as Component } from '.'
 
 export default {
-  title: 'Avatar',
+  title: 'UserMenu',
   component: Component,
   argTypes: {},
 }

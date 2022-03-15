@@ -73,7 +73,7 @@ export function submitSendInvites(userInviteList: any): Promise<any>{
 };
 export function submitCustodianWallet (custodianWallet): Promise<any> {
   const token = UserService.getToken();
-  const u = `${url}/${endpoint}/companyRoles`;
+  const u = `${url}/${endpoint}/custodianWallet`;
   const promise = new Promise<any>((resolve, reject) => {
     fetch(u, {
       method: "POST",
@@ -85,7 +85,7 @@ export function submitCustodianWallet (custodianWallet): Promise<any> {
     })
     .then((res) => res.text().then((data) => {
       if (res.ok) {
-        resolve('Sent Invite');
+        resolve('Data Submitted');
       } else {
         reject(res.status);
       }
