@@ -16,7 +16,7 @@ export const InviteForm = ({
   state,
   onSubmit,
 }: {
-  state: string,
+  state: string
   onSubmit: (data: InviteFormData) => void
 }) => {
   const { t } = useTranslation()
@@ -84,7 +84,13 @@ export const InviteForm = ({
           onClick={doSubmit}
         >{`${t('content.invite.send')}`}</Button>
       </form>
-      <div className={`InviteFormOverlay ${state}`}>{state==='busy' ? <div className='loader'/> : t(`content.invite.${state}`)}</div>
+      <div className={`InviteFormOverlay ${state}`}>
+        {state === 'busy' ? (
+          <div className="loader" />
+        ) : (
+          t(`content.invite.${state}`)
+        )}
+      </div>
     </>
   )
 }

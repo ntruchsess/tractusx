@@ -1,4 +1,5 @@
-.InviteForm, .InviteFormOverlay {
+.InviteForm,
+.InviteFormOverlay {
   background-color: white;
   width: 440px;
   height: 400px;
@@ -31,20 +32,22 @@
   z-index: 1;
 }
 
-.busy, .success, .failure {
+.busy,
+.success,
+.failure {
   z-index: 3;
 }
 
 .failure {
-  color: red
+  color: red;
 }
 
 .success {
-  color: green
+  color: green;
 }
 
 .loader {
-  position:absolute;
+  position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%) translateY(-50%);
@@ -54,7 +57,7 @@
   border: 24px solid #b3cb2d;
 }
 .loader:after {
-  content: " ";
+  content: ' ';
   display: block;
   width: 72px;
   height: 72px;
@@ -71,4 +74,3 @@
     transform: rotate(360deg);
   }
 }
-

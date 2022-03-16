@@ -6,25 +6,6 @@ import { useState } from 'react'
 import UserService from 'services/UserService'
 import './InviteBusinessPartner.scss'
 
-/*
-curl 'https://catenaxdev003akssrv.germanywestcentral.cloudapp.azure.com/api/useradministration/invitation' \
-  -H 'authority: catenaxdev003akssrv.germanywestcentral.cloudapp.azure.com' \
-  -H 'sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="99", "Google Chrome";v="99"' \
-  -H 'authorization: Bearer xy' \
-  -H 'content-type: application/json' \
-  -H 'sec-ch-ua-mobile: ?0' \
-  -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36' \
-  -H 'sec-ch-ua-platform: "macOS"' \
-  -H 'origin: https://catenaxdev003aksportal.germanywestcentral.cloudapp.azure.com' \
-  -H 'sec-fetch-site: same-site' \
-  -H 'sec-fetch-mode: cors' \
-  -H 'sec-fetch-dest: empty' \
-  -H 'referer: https://catenaxdev003aksportal.germanywestcentral.cloudapp.azure.com/' \
-  -H 'accept-language: en' \
-  --data-raw '{"userName":"roryphant@gmail.com","firstName":"Martin","lastName":"Rohrmeier","email":"roryphant@gmail.com","organisationName":"sdfsdf"}' \
-  --compressed
-*/
-
 export default function InviteBusinessPartner() {
   const [processing, setProcessing] = useState<string>('input')
 
@@ -53,7 +34,9 @@ export default function InviteBusinessPartner() {
         console.log(error)
       })
       .finally(() => {
-        setTimeout(() => { setProcessing('input')}, 5000)
+        setTimeout(() => {
+          setProcessing('input')
+        }, 5000)
       })
   }
 
