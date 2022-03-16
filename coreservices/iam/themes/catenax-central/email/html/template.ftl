@@ -14,9 +14,8 @@
       <p></p>
     </b></font>
     </td></tr></table>
-  </#if>
 
-<font style="font-size:6px;" size="1" color="#000000"><b>
+<font style="font-size:12px;" size="5" color="#000000"><b>
 <#nested "text">
 </b></font>
 
