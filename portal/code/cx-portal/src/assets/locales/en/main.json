@@ -75,7 +75,7 @@
       "message": "add content here"
     },
     "thirdpartylicenses": {
-      "message": "add content here"
+      "message": "The Catena-X Portal is currently using these packages."
     },
     "account": {
       "token": "Current authentication token"
