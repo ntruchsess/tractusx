@@ -4,7 +4,7 @@
         ${msg("passwordResetSubject")?no_esc}
     </#if>
     <#if section = "text">
-        ${msg("passwordResetBodyHtml", linkExpiration, realmName)?no_esc}
+        ${msg("passwordResetBodyHtml",link, linkExpiration, realmName,user.username)}
     </#if>
     <#if section = "linkText">
         ${msg("passwordResetLinkTextHtml")?no_esc}
