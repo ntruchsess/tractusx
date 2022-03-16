@@ -7,6 +7,7 @@
     <table width="100%" bgcolor="#FFFFFF" cellspacing="0" cellpadding="15"><tr><td>
     <font style="font-size:24px;" size="5" color="#000000"><b>
       <#nested "Welcome">
+      </b></font>
       <p></p>
       <table width="100%" bgcolor="#2074d4" cellspacing="0" cellpadding="2"><tr><td>
       <font style="font-size:1px;" size="1" color="#000000"><b>
@@ -15,7 +16,13 @@
     </td></tr></table>
   </#if>
 
+<font style="font-size:6px;" size="1" color="#000000"><b>
 <#nested "text">
+</b></font>
+
+<p></p>
+
+<p></p>
 
 <#if link??>
 <table class="button" bgcolor="#2074d4" cellspacing="2" cellpadding="10"><tr><td>
