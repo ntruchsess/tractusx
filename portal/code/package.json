@@ -3,5 +3,8 @@
   "workspaces": [
     "cx-portal",
     "cx-portal-shared-components"
-  ]
+  ],
+  "scripts": {
+    "licenses": "find node_modules -name package.json -exec jq -r '.|\"\\(.name),\\(.version),\\(.license)\"' {} \\; | sort | uniq > cx-portal/public/third-party-licenses.txt"
+  }
 }
