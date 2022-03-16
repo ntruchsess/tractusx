@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from 'react'
 
 export type TApiResponse = {
   status: number
@@ -11,8 +11,8 @@ export type TApiResponse = {
 /**
  * useApiGet - a simple hook to retrieve static data asynchronously in cases
  * where we don't want to store the result in redux
- * 
- * @param url 
+ *
+ * @param url
  * @returns apiResponse
  */
 

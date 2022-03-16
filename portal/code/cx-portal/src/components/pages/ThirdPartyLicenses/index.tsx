@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next'
 import debounce from 'lodash.debounce'
 import { useApiGet } from 'utils/useApiGet'
 
-
 export default function ThirdPartyLicenses() {
   const { t } = useTranslation()
   const [filterExpr, setFilterExpr] = useState<string>('')
