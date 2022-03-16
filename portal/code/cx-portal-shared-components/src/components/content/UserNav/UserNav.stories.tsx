@@ -14,9 +14,9 @@ const Template: ComponentStory<typeof Component> = (args: any) => (
 export const UserNav = Template.bind({})
 UserNav.args = {
   items: [
-    { link: '/account', title: 'My Account' },
-    { link: '/notification', title: 'Notification Center' },
-    { link: '/organisation', title: 'Organisation' },
-    { link: '/logout', title: 'Logout' },
+    { href: '/account', title: 'My Account' },
+    { href: '/notification', title: 'Notification Center' },
+    { href: '/organisation', title: 'Organisation' },
+    { href: '/logout', title: 'Logout' },
   ],
 }
