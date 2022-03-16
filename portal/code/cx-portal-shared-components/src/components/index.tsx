@@ -14,3 +14,5 @@ export { Table } from './basic/Table'
 export { AppCards } from './content/AppCards'
 export { UserMenu } from './content/UserMenu'
 export { UserNav } from './content/UserNav'
+
+export type { AppCardItems } from './content/AppCards'

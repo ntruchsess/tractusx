@@ -42,10 +42,10 @@ body {
 
 main {
   padding: 20px;
+  min-height: 78vh;
 }
 
 a {
-  text-decoration: none;
   color: #0f71cb;
   &:hover {
     color: #017ab0;

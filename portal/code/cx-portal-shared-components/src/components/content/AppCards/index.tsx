@@ -2,7 +2,7 @@ import { Box, useTheme } from '@mui/material'
 import { AppCard, AppCardProps } from './AppCard'
 import uniqueId from 'lodash/uniqueId'
 
-type AppCardItems = Omit<
+export type AppCardItems = Omit<
   AppCardProps,
   'variant' | 'imageSize' | 'imageShape' | 'buttonText'
 >

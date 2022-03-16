@@ -1,6 +1,8 @@
 import Keycloak from 'keycloak-js'
 import { IUser } from 'types/user/UserTypes'
 import { ROLES } from 'types/MainTypes'
+import AccessService from './AccessService'
+import { error, info } from './LogService'
 
 const keycloakConfig: Keycloak.KeycloakConfig = {
   url: process.env.REACT_APP_BASE_CENTRAL_IDP,
@@ -20,23 +22,25 @@ const init = (onAuthenticatedCallback: (loggedUser: IUser) => any) => {
     pkceMethod: 'S256',
   }).then((authenticated: boolean) => {
     if (authenticated) {
-      // User authenticated successfully
-      // Prepare user data to store it in Redux
-      const loggedUser: IUser = {
-        userName: getUsername(),
-        name: getName(),
-        email: getEmail(),
-        company: getCompany(),
-        roles: getRoles(),
-        isAdmin: isAdmin(),
-        token: getToken(),
-        parsedToken: getParsedToken(),
-      }
-      onAuthenticatedCallback(loggedUser)
+      info(`${getUsername()} authenticated`)
+      AccessService.init()
+      onAuthenticatedCallback(getLoggedUser())
     } else {
       doLogin()
     }
   })
+}
+
+KC.onTokenExpired = () => {
+  KC.updateToken(50)
+    .then((refreshed: boolean) => {
+      info(`${getUsername()} refreshed ${refreshed}`)
+      //TODO: update token in redux store
+      //store.dispatch(setLoggedUser(getLoggedUser()))
+    })
+    .catch(() => {
+      error(`${getUsername()} refresh failed`)
+    })
 }
 
 const doLogin = KC.login
@@ -65,6 +69,17 @@ const hasRole = (role: string) => getRoles()?.includes(role)
 const isAdmin = () => hasRole(ROLES.CX_ADMIN)
 
 const isLoggedIn = () => !!KC.token
+
+const getLoggedUser = () => ({
+  userName: getUsername(),
+  name: getName(),
+  email: getEmail(),
+  company: getCompany(),
+  roles: getRoles(),
+  isAdmin: isAdmin(),
+  token: getToken(),
+  parsedToken: getParsedToken(),
+})
 
 const UserService = {
   doLogin,
