@@ -6,7 +6,7 @@
     <#if realmName??>
     <table width="100%" bgcolor="#FFFFFF" cellspacing="0" cellpadding="15"><tr><td>
     <font style="font-size:24px;" size="5" color="#000000"><b>
-      ${"passwordResetSubject"}
+      ${kcSanitize(msg("passwordResetBodyHtml",link, linkExpiration, realmName, linkExpirationFormatter(linkExpiration)))?no_esc}
       <p></p>
       <table width="100%" bgcolor="#FFFFFF" cellspacing="0" cellpadding="15"><tr><td>
       <font style="font-size:18px;" size="3" color="#000000"><b>
