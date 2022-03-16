@@ -1,5 +1,10 @@
-import {HttpClient} from 'utils/HttpClient'
-import {BusinessPartnerResponse} from 'types/partnerNetwork/PartnerNetworkTypes'
+import { HttpClient } from 'utils/HttpClient'
+import {
+  SearchParams,
+  BusinessPartnerResponse,
+  BusinessPartner,
+} from 'types/partnerNetwork/PartnerNetworkTypes'
+import qs from 'querystring'
 
 // Instance of BPDM API endpoint
 export class PartnerNetworkApi extends HttpClient {
@@ -7,7 +12,9 @@ export class PartnerNetworkApi extends HttpClient {
 
   // TODO: Token needs to read from Redux store
   public constructor(token: string) {
-    super(`${process.env.REACT_APP_BPDM_API_BASE_URL}`,{'Authorization': `Bearer ${token}`})
+    super(`${process.env.REACT_APP_BPDM_API_BASE_URL}`, {
+      Authorization: `Bearer ${token}`,
+    })
   }
 
   // To avoid create an instance everytime, pointed to Singleton of static value
@@ -19,7 +26,16 @@ export class PartnerNetworkApi extends HttpClient {
     return this.classInstance
   }
 
-  // Temporary api call to test out authorization of BPDM endpoint
-  public getAllBusinessPartner = () => this.instance.get<BusinessPartnerResponse>('/catena/business-partner?page=0&size=100')
+  public getAllBusinessPartner = (filters: SearchParams) => {
+    const params = qs.stringify(filters)
+    return this.instance.get<BusinessPartnerResponse>(
+      `/catena/business-partner?${params}`
+    )
+  }
 
+  public getBusinessPartnerByBpn = (bpn: string) => {
+    return this.instance.get<BusinessPartner>(
+      `/catena/business-partner/${bpn}?idType=BPN`
+    )
+  }
 }

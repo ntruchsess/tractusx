@@ -12,18 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { Dropdown, IDropdownOption, IDropdownStyles, Checkbox, PrimaryButton, TextField} from "@fluentui/react";
+import { Dropdown, IDropdownOption, IDropdownStyles, PrimaryButton, TextField} from "@fluentui/react";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import BackLink from "../navigation/BackLink";
 import { addModel, encodeID, Status } from "./data";
 
 export function NewSemanticModel(props) {
   const buttonStyle = {alignSelf: 'flex-end'};
   const buttonStyle2 = { width:200, marginLeft:10};
   const [value, setValue] = useState<string | any>('');
-  const [isPrivate, setIsPrivate] = useState<boolean | any>(false)
   const [status, setStatus] = useState<Status | any>(Status.Draft)
-  const [publisher, setPublisher] = useState<string | any>("Catena-X Consortium")
   const [error, setError] = useState<Error | any>(null);
   const history = useHistory();
 
@@ -32,23 +31,14 @@ export function NewSemanticModel(props) {
     setError('');
   }
 
-  const onPublisherChange = (_, input) => {
-    setPublisher(input);
-  }
-
-  const onCheckboxChange =(_, checked) =>{
-    setIsPrivate(checked);
-    setError('');
-  }
-
   const onStatusDropdownChange = (_, option) => {
     setStatus(Status[option.key]);
   }
 
   const uploadModel = (create: boolean) => {
-    addModel({model: value, private: isPrivate, type: 'BAMM', status:status, publisher:publisher},create)
+    addModel({model: value, type: 'BAMM', status: status},create)
       .then(data => {
-        history.push(`/home/semanticmodel/${encodeID(data.id)}`);
+        history.push(`/home/semanticmodel/${encodeID(data.urn)}`);
       }).catch(errorResponse => {
         let status=errorResponse.status;
         errorResponse.text().then((body) => {
@@ -68,15 +58,20 @@ export function NewSemanticModel(props) {
   const defaultOption=availableOptions.find( option => option.text==status).key;
 
   const dropdownStyles: Partial<IDropdownStyles> = {
-    dropdown: { width: 150, marginRight: 20 },
+    dropdown: { width: 150, marginRight: 20, marginBottom: 20 },
   };
 
   return (
     <div className='df fdc jcc p44'>
+      <BackLink history={props.history} />
       <h1 className="fs20 bold mb20">Create or Modify a Model</h1>
-      <Checkbox label="Model should be private" checked={isPrivate} onChange={onCheckboxChange} />
-      <TextField label="Publisher" value={publisher} onChange={onPublisherChange}/>
-      <Dropdown defaultSelectedKey={defaultOption} placeholder="Status" label="Status" options={availableOptions} styles={dropdownStyles} onChange={onStatusDropdownChange}/>
+      <Dropdown
+        defaultSelectedKey={defaultOption}
+        placeholder="Status"
+        label="Status"
+        options={availableOptions}
+        styles={dropdownStyles}
+        onChange={onStatusDropdownChange} />
       <TextField label="Paste your model definition into the text field." value={value} errorMessage={error} onChange={onInputChange} multiline autoAdjustHeight className="mb20" />
       <div style={buttonStyle}>
       <PrimaryButton style={buttonStyle2} onClick={modifyModel} text="Modify model" className="asfe"/>

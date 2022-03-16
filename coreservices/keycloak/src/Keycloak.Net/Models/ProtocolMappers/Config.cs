@@ -10,15 +10,15 @@ namespace Keycloak.Net.Models.ProtocolMappers
         public string AttributeNameFormat { get; set; }
         [JsonProperty("attributename")]
         public string AttributeName { get; set; }
-        [JsonProperty("userinfotokenclaim")]
+        [JsonProperty("userinfo.token.claim")]
         public string UserInfoTokenClaim { get; set; }
-        [JsonProperty("userattribute")]
+        [JsonProperty("user.attribute")]
         public string UserAttribute { get; set; }
-        [JsonProperty("idtokenclaim")]
+        [JsonProperty("id.token.claim")]
         public string IdTokenClaim { get; set; }
-        [JsonProperty("accesstokenclaim")]
+        [JsonProperty("access.token.claim")]
         public string AccessTokenClaim { get; set; }
-        [JsonProperty("claimname")]
+        [JsonProperty("claim.name")]
         public string ClaimName { get; set; }
         [JsonProperty("jsonTypelabel")]
         public string JsonTypelabel { get; set; }
@@ -34,6 +34,8 @@ namespace Keycloak.Net.Models.ProtocolMappers
         public string UserAttributeRegion { get; set; }
         [JsonProperty("userattributelocality")]
         public string UserAttributeLocality { get; set; }
+        [JsonProperty("included.client.audience")]
+        public string IncludedClientAudience {get; set; }
         [JsonProperty("multivalued")]
         public string Multivalued { get; set; }
     }

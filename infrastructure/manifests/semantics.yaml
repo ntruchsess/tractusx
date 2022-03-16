@@ -30,6 +30,20 @@ spec:
         imagePullPolicy: $IMAGE_PULL_POLICY
         ports:
         env:
+          - name: HUB_TRIPLE_STORE_EMBEDDED_ENABLED
+            value: "false"
+          - name: HUB_TRIPLE_STORE_BASE_URL
+            value: "http://graphdb:3030"
+          - name: HUB_TRIPLE_STORE_QUERY_ENDPOINT
+            value: "/ds/query"
+          - name: HUB_TRIPLE_STORE_UPDATE_ENDPOINT
+            value: "/ds/update"
+          # the fuseki instance does not require authentication yet
+          # this variables need to be provided because they are mandatory in the application
+          - name: HUB_TRIPLE_STORE_USERNAME
+            value: "admin"
+          - name: HUB_TRIPLE_STORE_PASSWORD
+            value: "admin"
           - name: HTTPUSERNAME
             valueFrom:
               secretKeyRef:
@@ -59,6 +73,11 @@ spec:
               secretKeyRef:
                 key: database_password
                 name: semantics-secret
+          - name: IDP_ISSUER_URI
+            valueFrom:
+              secretKeyRef:
+                key: idp_issuer_uri
+                name: semantics-secret
 ---
 apiVersion: v1
 kind: Service
@@ -85,6 +104,7 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/enable-cors: "true"
     nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
+    nginx.ingress.kubernetes.io/x-forwarded-prefix: "/semantics"
 spec:
   ingressClassName: service
   tls:
@@ -156,9 +176,9 @@ spec:
           - name: IDSADAPTER_PORTALURL
             value: https://${CATENA_PORTAL_URL}
           - name: IDSADAPTER_SERVICEURL
-            value: https://${CATENA_SERVICE_URL}/semantics/api/v1
+            value: https://${CATENA_SERVICE_URL}/semantics
           - name: IDSADAPTER_ADAPTERURL
-            value: https://${CATENA_SERVICE_URL}/adapter/api/v1
+            value: https://${CATENA_SERVICE_URL}/adapter
           - name: IDSADAPTER_CONNECTORURL
             value: https://${CATENA_SERVICE_URL}/connectorprovider
           - name: IDSADAPTER_CONNECTORUSER
@@ -171,6 +191,11 @@ spec:
               secretKeyRef:
                 key: connector_password
                 name: semantics-secret
+          - name: IDP_ISSUER_URI
+            valueFrom:
+              secretKeyRef:
+                key: idp_issuer_uri
+                name: semantics-secret
 ---
 apiVersion: v1
 kind: Service
@@ -181,7 +206,7 @@ spec:
   type: ClusterIP
   ports:
   - port: 8080
-    targetPort: 4242
+    targetPort: 4243
   selector:
     app: adapter
 ---
@@ -214,3 +239,62 @@ spec:
             name: adapter
             port:
               number: 8080
+# GRAPHDB
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: graphdb
+  namespace: semantics
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: graphdb
+  template:
+    metadata:
+      labels:
+        app: graphdb
+    spec:
+      containers:
+      - name: graphdb
+        image: $CONTAINER_REGISTRY/semantics/jena-fuseki:4.1.0
+        imagePullPolicy: $IMAGE_PULL_POLICY
+        env:
+          - name: JAVA_OPTIONS 
+            value: "-Xmx1048m -Xms1048m"
+        args: ["--tdb2", "--update", "--loc", "databases/", "/ds"]
+        resources:
+          limits:
+            memory: "1024Gi"
+          requests:
+            memory: "512Mi"
+        volumeMounts:
+        - name: graphdbdata
+          mountPath: /fuseki/databases
+        - name: graphdblog
+          mountPath: /fuseki/logs
+      volumes:
+      - name: graphdbdata
+        azureFile:
+           secretName: graphdb-share-secret
+           shareName: ${GRAPHDB_SHARE_NAME}/data
+           readOnly: false
+      - name: graphdblog
+        azureFile:
+           secretName: graphdb-share-secret
+           shareName: ${GRAPHDB_SHARE_NAME}/log
+           readOnly: false
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: graphdb
+  namespace: semantics
+spec:
+  type: ClusterIP
+  ports:
+  - port: 3030
+    targetPort: 3030
+  selector:
+    app: graphdb

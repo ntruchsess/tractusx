@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CatenaX.NetworkServices.Keycloak.Factory;
+using CatenaX.NetworkServices.Provisioning.DBAccess;
 using CatenaX.NetworkServices.Provisioning.Library.Models;
+using CatenaX.NetworkServices.Keycloak.DBAccess;
 
 namespace CatenaX.NetworkServices.Provisioning.Library
 {
@@ -12,13 +14,32 @@ namespace CatenaX.NetworkServices.Provisioning.Library
     {
         private readonly KeycloakClient _CentralIdp;
         private readonly KeycloakClient _SharedIdp;
+        private readonly IKeycloakDBAccess _KeycloakDBAccess;
+        private readonly IProvisioningDBAccess _ProvisioningDBAccess;
         private readonly ProvisioningSettings _Settings;
 
-        public ProvisioningManager(IKeycloakFactory factory, IOptions<ProvisioningSettings> options)
+        public ProvisioningManager(IKeycloakFactory keycloakFactory, IKeycloakDBAccessFactory keycloakDBAccessFactory, IProvisioningDBAccessFactory provisioningDBAccessFactory, IOptions<ProvisioningSettings> options)
         {
-            _CentralIdp = factory.CreateKeycloakClient("central");
-            _SharedIdp = factory.CreateKeycloakClient("shared");
+            _CentralIdp = keycloakFactory.CreateKeycloakClient("central");
+            _SharedIdp = keycloakFactory.CreateKeycloakClient("shared");
             _Settings = options.Value;
+            _KeycloakDBAccess = keycloakDBAccessFactory?.CreateKeycloakDBAccess();
+            _ProvisioningDBAccess = provisioningDBAccessFactory?.CreateProvisioningDBAccess();
+        }
+
+        public ProvisioningManager(IKeycloakFactory keycloakFactory, IKeycloakDBAccessFactory keycloakDBAccessFactory, IOptions<ProvisioningSettings> options)
+            : this(keycloakFactory,keycloakDBAccessFactory,null,options)
+        {
+        }
+
+        public ProvisioningManager(IKeycloakFactory keycloakFactory, IProvisioningDBAccessFactory provisioningDBAccessFactory, IOptions<ProvisioningSettings> options)
+            : this(keycloakFactory,null,provisioningDBAccessFactory,options)
+        {
+        }
+
+        public ProvisioningManager(IKeycloakFactory keycloakFactory, IOptions<ProvisioningSettings> options)
+            : this(keycloakFactory,null,null,options)
+        {
         }
 
         public async Task<string> SetupSharedIdpAsync(string organisationName)
@@ -112,18 +133,6 @@ namespace CatenaX.NetworkServices.Provisioning.Library
                 .Select(g => g.Name);
         }
 
-        public async Task<IEnumerable<UserInfo>> GetUsersFromSharedAsync(string idpName) =>
-            (await _SharedIdp.GetUsersAsync(idpName, briefRepresentation: true).ConfigureAwait(false))
-                .Select( o => new UserInfo
-                {
-                    userId = o.Id,
-                    userName = o.UserName,
-                    firstName = o.FirstName,
-                    lastName = o.LastName,
-                    eMail = o.Email,
-                    enabled = o.Enabled
-                });
-
         public async Task<string> GetProviderUserIdForCentralUserIdAsync(string userId) =>
             (await _CentralIdp.GetUserSocialLoginsAsync(_Settings.CentralRealm, userId).ConfigureAwait(false))
                 .SingleOrDefault()?.UserId;
@@ -137,6 +146,39 @@ namespace CatenaX.NetworkServices.Provisioning.Library
             if (! await DeleteCentralRealmUserAsync(_Settings.CentralRealm, userIdCentral).ConfigureAwait(false)) return false;
 
             return true;
+        }
+
+        public async Task<IEnumerable<JoinedUserInfo>> GetJoinedUsersAsync(string idpName,
+                                                               string userId = null,
+                                                               string providerUserId = null,
+                                                               string userName = null,
+                                                               string firstName = null,
+                                                               string lastName = null,
+                                                               string email = null) =>
+            (await _KeycloakDBAccess.GetUserJoinedFederatedIdentityAsync(idpName,
+                                                                 _Settings.CentralRealmId,
+                                                                 userId,
+                                                                 providerUserId,
+                                                                 userName,
+                                                                 firstName,
+                                                                 lastName,
+                                                                 email))
+                .Select( x => new JoinedUserInfo {
+                    userId = x.id,
+                    providerUserId = x.federated_user_id,
+                    userName = x.federated_username,
+                    enabled = x.enabled,
+                    firstName = x.first_name,
+                    lastName = x.last_name,
+                    email = x.email
+                });
+
+        public async Task<string> SetupClientAsync(string redirectUrl)
+        {
+            var clientId = await GetNextClientIdAsync().ConfigureAwait(false);
+            var internalId = (await CreateCentralOIDCClientAsync(clientId,redirectUrl).ConfigureAwait(false));
+            await CreateCentralOIDCClientAudienceMapperAsync(internalId, clientId).ConfigureAwait(false);
+            return clientId;
         }
     }
 }

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { promises } from "dns";
+import { IFileWithMeta } from "react-dropzone-uploader";
 import { CompanyRole, ConsentForCompanyRoles } from "../data/companyDetails";
 import { FetchBusinessPartnerDto } from "../data/companyDetailsById"
 import UserService from '../helpers/UserService';
@@ -73,7 +73,7 @@ export function submitSendInvites(userInviteList: any): Promise<any>{
 };
 export function submitCustodianWallet (custodianWallet): Promise<any> {
   const token = UserService.getToken();
-  const u = `${url}/${endpoint}/companyRoles`;
+  const u = `${url}/${endpoint}/custodianWallet`;
   const promise = new Promise<any>((resolve, reject) => {
     fetch(u, {
       method: "POST",
@@ -85,7 +85,7 @@ export function submitCustodianWallet (custodianWallet): Promise<any> {
     })
     .then((res) => res.text().then((data) => {
       if (res.ok) {
-        resolve('Sent Invite');
+        resolve('Data Submitted');
       } else {
         reject(res.status);
       }
@@ -164,12 +164,13 @@ export function getClientRolesComposite(): Promise<string[]> {
   return promise;
 }
 
-export function uploadDocument(files): Promise<any> {
+export function uploadDocument(files:IFileWithMeta): Promise<any> {
 
   const token = UserService.getToken();
   const u = `${url}/${endpoint}/documents`;
+  console.log(typeof(files[0]));
   let formdata = new FormData();
-  formdata.append("document", files[0].meta);
+  formdata.append("document", files[0].file);
   const promise = new Promise<any>((resolve, reject) => {
     fetch(u, {
       method: "POST",

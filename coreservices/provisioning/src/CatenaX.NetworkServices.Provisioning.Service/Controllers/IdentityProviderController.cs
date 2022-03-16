@@ -7,10 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 using CatenaX.NetworkServices.Provisioning.Service.BusinessLogic;
+using CatenaX.NetworkServices.Provisioning.Service.Models;
 
 namespace CatenaX.NetworkServices.Provisioning.Service.Controllers
 {
     [ApiController]
+    [Route("api/provisioning")]
     public class IdentityProviderController : ControllerBase
     {
 
@@ -25,7 +27,7 @@ namespace CatenaX.NetworkServices.Provisioning.Service.Controllers
 
         [HttpPost]
         [Authorize(Roles="setup_idp")]
-        [Route("api/provisioning/identityprovider/setup")]
+        [Route("identityprovider/setup")]
         public async Task<IActionResult> CreateIdentityProvider([FromBody] IdentityProviderSetupData identityProviderSetupData)
         {
             try
