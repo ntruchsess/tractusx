@@ -10,6 +10,7 @@ import i18next, { changeLanguage } from 'i18next'
 import I18nService from 'services/I18nService'
 import AccessService from 'services/AccessService'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 import './UserInfo.scss'
 
 export const UserInfo = () => {
@@ -37,8 +38,9 @@ export const UserInfo = () => {
         onClickAway={onClickAway}
       >
         <UserNav
+          component={Link}
           items={AccessService.userMenu().map((link) => ({
-            link,
+            to: link,
             title: t(`pages.${link}`),
           }))}
         />

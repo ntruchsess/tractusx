@@ -13,12 +13,12 @@ const Template: ComponentStory<typeof Component> = (args: any) => (
   <Component {...args}>
     <UserNav
       items={[
-        { link: '/account', title: 'My Account' },
-        { link: '/notification', title: 'Notification Center' },
-        { link: '/organisation', title: 'Organisation' },
+        { href: '/account', title: 'My Account' },
+        { href: '/notification', title: 'Notification Center' },
+        { href: '/organisation', title: 'Organisation' },
       ]}
     />
-    <UserNav items={[{ link: '/logout', title: 'Logout' }]} />
+    <UserNav items={[{ href: '/logout', title: 'Logout' }]} />
     <LanguageSwitch
       current="de"
       languages={[{ key: 'de' }, { key: 'en' }]}

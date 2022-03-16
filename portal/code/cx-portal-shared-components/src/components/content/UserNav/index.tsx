@@ -1,31 +1,34 @@
 import { Divider, Link, List, ListItem, useTheme } from '@mui/material'
+import uniqueId from 'lodash/uniqueId'
 
-interface UserNavItem {
-  link: string
+type LinkItem = Partial<Record<'href' | 'to', string>>
+
+interface UserNavItem extends LinkItem {
   title: string
   divider?: boolean
 }
 
 interface UserNavProps {
   items: UserNavItem[]
+  component?: React.ElementType
 }
 
-export const UserNav = ({ items }: UserNavProps) => {
+export const UserNav = ({ items, component = Link }: UserNavProps) => {
   const { spacing } = useTheme()
 
   return (
     <>
       <List sx={{ padding: spacing(0, 1) }}>
-        {items?.map(({ link, title, divider }) => (
+        {items?.map(({ title, divider, ...link }) => (
           <ListItem
-            key={link}
+            key={uniqueId('UserNav')}
             sx={{
               display: 'block',
               padding: 0,
             }}
           >
             <Link
-              href={link}
+              component={component}
               sx={{
                 color: 'text.primary',
                 display: 'block',
@@ -37,6 +40,7 @@ export const UserNav = ({ items }: UserNavProps) => {
                   color: 'primary.dark',
                 },
               }}
+              {...link}
             >
               {title}
             </Link>
