@@ -4,9 +4,13 @@
   </head>
     <body text="#000000" bgcolor="#FFFFFF">
     <#if realmName??>
-    <table width="100%" bgcolor="#000000" cellspacing="0" cellpadding="15"><tr><td>
-    <font style="font-size:24px;" size="5" color="#FFFFFF"><b>
-      ${realmName}
+    <table width="100%" bgcolor="#FFFFFF" cellspacing="0" cellpadding="15"><tr><td>
+    <font style="font-size:24px;" size="5" color="#000000"><b>
+      ${"passwordResetSubject"}
+      <p></p>
+      <table width="100%" bgcolor="#FFFFFF" cellspacing="0" cellpadding="15"><tr><td>
+      <font style="font-size:18px;" size="3" color="#000000"><b>
+      <p>"Test"</p>
     </b></font>
     </td></tr></table>
   </#if>
