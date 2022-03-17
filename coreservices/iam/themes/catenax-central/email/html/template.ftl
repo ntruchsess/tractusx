@@ -3,25 +3,27 @@
   <head>
   </head>
     <body text="#000000" bgcolor="#FFFFFF">
-    <#if realmName??>
+    
     <table width="100%" bgcolor="#FFFFFF" cellspacing="0" cellpadding="15"><tr><td>
     <font style="font-size:24px;" size="5" color="#000000"><b>
       <#nested "Welcome">
       </b></font>
-      <p></p>
+      <</br>
       <table width="100%" bgcolor="#2074d4" cellspacing="0" cellpadding="2"><tr><td>
       <font style="font-size:1px;" size="1" color="#000000"><b>
-      <p></p>
+      </br>
     </b></font>
-    </td></tr></table></#if>
+    </td></tr></table>
 
-<font style="font-size:20px;" size="5" color="#000000">
-<#nested "text">
-</font>
+</br>
+</br>
 
-<p></p>
+  <font style="font-size:20px;" size="5" color="#000000">
+  <#nested "text">
+  </font>
 
-<p></p>
+</br>
+</br>
 
 <#if link??>
 <table class="button" bgcolor="#2074d4" cellspacing="2" cellpadding="10"><tr><td>
