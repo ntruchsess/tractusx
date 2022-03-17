@@ -18,6 +18,7 @@
 <font style="font-size:12px;" size="5" color="#000000"><b>
 <#nested "text">
 </b></font>
+</#if>
 
 <p></p>
 
