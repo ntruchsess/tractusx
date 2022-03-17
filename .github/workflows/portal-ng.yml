@@ -170,3 +170,7 @@ jobs:
       run: |
         yarn test
 
+    - name: Unit Tests
+      working-directory: ./portal/code/cx-portal
+      run: |
+        yarn lint
