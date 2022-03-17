@@ -1,0 +1,607 @@
+[
+    {
+        "key": "allsafe-jungfalk",
+        "idp": "allsafe-jungfalk",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/neu/allsafe-jungfalk-logo_grey.png",
+            "dim": [
+                159,
+                49
+            ]
+        }
+    },
+    {
+        "key": "csm_apheris_ai",
+        "idp": "csm_apheris_ai",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/_processed_/a/4/csm_apheris_ai_grey_8827054f6d.png",
+            "dim": [
+                198,
+                75
+            ]
+        }
+    },
+    {
+        "key": "apliko",
+        "idp": "apliko",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/neu/apliko_logo_grey.png",
+            "dim": [
+                233,
+                41
+            ]
+        }
+    },
+    {
+        "key": "arena2036",
+        "idp": "arena2036",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/final/grey/arena2036_grau.png",
+            "dim": [
+                169,
+                22
+            ]
+        }
+    },
+    {
+        "key": "arxum",
+        "idp": "arxum",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/neu/arxum_gmbh_grey.png",
+            "dim": [
+                107,
+                70
+            ]
+        }
+    },
+    {
+        "key": "atos",
+        "idp": "atos",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/neu/atos_information_technology_gmbh_grey_01.png",
+            "dim": [
+                120,
+                40
+            ]
+        }
+    },
+    {
+        "key": "aai",
+        "idp": "aai",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/neu/automotive_artificial_intelligence__aai__gmbh_grey.png",
+            "dim": [
+                250,
+                70
+            ]
+        }
+    },
+    {
+        "key": "basf",
+        "idp": "basf",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/final/grey/basf_grau.png",
+            "dim": [
+                139,
+                71
+            ]
+        }
+    },
+    {
+        "key": "bigchain",
+        "idp": "bigchain",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/final/grey/bigchain_grau.png",
+            "dim": [
+                169,
+                34
+            ]
+        }
+    },
+    {
+        "key": "bmw",
+        "idp": "bmw-wen-oidc",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/final/grey/bmw_grau.png",
+            "dim": [
+                70,
+                70
+            ]
+        }
+    },
+    {
+        "key": "bosch",
+        "idp": "bosch",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/final/grey/bosch_grau.png",
+            "dim": [
+                169,
+                38
+            ]
+        }
+    },
+    {
+        "key": "brain_of_materials",
+        "idp": "brain_of_materials",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/neu/brain_of_materials_ag_grey.png",
+            "dim": [
+                174,
+                70
+            ]
+        }
+    },
+    {
+        "key": "capgemini",
+        "idp": "capgemini",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/neu/capgemini_deutschland_gmbh_grey.png",
+            "dim": [
+                172,
+                70
+            ]
+        }
+    },
+    {
+        "key": "cct",
+        "idp": "cct",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/final/grey/cct_grau.png",
+            "dim": [
+                168,
+                25
+            ]
+        }
+    },
+    {
+        "key": "cdq",
+        "idp": "cdq",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/neu/cdq_ag_grey.png",
+            "dim": [
+                134,
+                70
+            ]
+        }
+    },
+    {
+        "key": "circulor",
+        "idp": "circulor",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/neu/circulor_gmbh_grey.png",
+            "dim": [
+                132,
+                70
+            ]
+        }
+    },
+    {
+        "key": "circunomics",
+        "idp": "circunomics",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/neu/circunomics_gmbh_grey.png",
+            "dim": [
+                142,
+                70
+            ]
+        }
+    },
+    {
+        "key": "cx_test_access",
+        "idp": "cx-test-access",
+        "logo": {
+            "url": "https://catenaxdev003util.blob.core.windows.net/util/themes/catenax-central/static/icon/icon-test.svg",
+            "dim": [
+                70,
+                70
+            ]
+        }
+    },
+    {
+        "key": "dccs",
+        "idp": "dccs",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/neu/dccs_gmbh_grey.png",
+            "dim": [
+                175,
+                70
+            ]
+        }
+    },
+    {
+        "key": "deloitte",
+        "idp": "deloitte",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/neu/deloitte_gmbh_wirtschaftspruefungsgesellschaft_grey.png",
+            "dim": [
+                172,
+                70
+            ]
+        }
+    },
+    {
+        "key": "t-systems",
+        "idp": "t-systems",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/final/grey/t-systems_grau.png",
+            "dim": [
+                70,
+                71
+            ]
+        }
+    },
+    {
+        "key": "dlr",
+        "idp": "dlr",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/final/grey/dlr_grau_neu.png",
+            "dim": [
+                85,
+                71
+            ]
+        }
+    },
+    {
+        "key": "draexlmaier",
+        "idp": "draexlmaier",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/neu/draexlmaier_gmbh_grey.png",
+            "dim": [
+                160,
+                70
+            ]
+        }
+    },
+    {
+        "key": "fetchai",
+        "idp": "fetchai",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/final/grey/fetchai_grau_2.png",
+            "dim": [
+                168,
+                27
+            ]
+        }
+    },
+    {
+        "key": "fraunhofer",
+        "idp": "fraunhofer",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/final/grey/fraunhofer_grau.png",
+            "dim": [
+                168,
+                29
+            ]
+        }
+    },
+    {
+        "key": "gec",
+        "idp": "gec",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/neu/gec_logo_grey.png",
+            "dim": [
+                54,
+                75
+            ]
+        }
+    },
+    {
+        "key": "github",
+        "idp": "github",
+        "logo": {
+            "url": "https://catenaxdev003util.blob.core.windows.net/util/themes/catenax-central/static/icon/logo-github.svg",
+            "dim": [
+                144,
+                70
+            ]
+        }
+    },
+    {
+        "key": "gris",
+        "idp": "gris",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/final/grey/gris_grau.png",
+            "dim": [
+                169,
+                61
+            ]
+        }
+    },
+    {
+        "key": "hanselmann",
+        "idp": "hanselmann",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/neu/hanselmann___compagnie_gmbh_grey.jpg",
+            "dim": [
+                153,
+                70
+            ]
+        }
+    },
+    {
+        "key": "henkel",
+        "idp": "henkel",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/final/grey/henkel_grau.png",
+            "dim": [
+                126,
+                70
+            ]
+        }
+    },
+    {
+        "key": "iav",
+        "idp": "iav",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/neu/iav_gmbh_ingenieursgesellschaft_grey.png",
+            "dim": [
+                70,
+                70
+            ]
+        }
+    },
+    {
+        "key": "ili_digital",
+        "idp": "ili_digital",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/neu/ili.digital_ag_grey_01.png",
+            "dim": [
+                447,
+                67
+            ]
+        }
+    },
+    {
+        "key": "ipoint",
+        "idp": "ipoint",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/neu/ipoint-systems_gmbh_grey.png",
+            "dim": [
+                116,
+                70
+            ]
+        }
+    },
+    {
+        "key": "itemis",
+        "idp": "itemis",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/neu/itemis_ag_grey.png",
+            "dim": [
+                119,
+                34
+            ]
+        }
+    },
+    {
+        "key": "kaputt",
+        "idp": "kaputt",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/final/grey/kaputt_grau.png",
+            "dim": [
+                171,
+                41
+            ]
+        }
+    },
+    {
+        "key": "logsolut",
+        "idp": "logsolut",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/neu/logsolut_ag_grey.jpg",
+            "dim": [
+                70,
+                70
+            ]
+        }
+    },
+    {
+        "key": "lrp",
+        "idp": "lrp",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/final/grey/lrp_grau.png",
+            "dim": [
+                99,
+                70
+            ]
+        }
+    },
+    {
+        "key": "mercedes_benz",
+        "idp": "mercedes_benz",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/final/grey/mercedes_benz_grau.png",
+            "dim": [
+                168,
+                26
+            ]
+        }
+    },
+    {
+        "key": "microsoft",
+        "idp": "microsoft-azure-speedboat-oidc",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/final/grey/microsoft_grau.png",
+            "dim": [
+                168,
+                36
+            ]
+        }
+    },
+    {
+        "key": "mipart",
+        "idp": "mipart",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/final/grey/mipart_grau.png",
+            "dim": [
+                151,
+                71
+            ]
+        }
+    },
+    {
+        "key": "mycompany",
+        "idp": "mycompany",
+        "logo": {
+            "url": "https://catenaxdev003util.blob.core.windows.net/util/themes/catenax-central/static/icon/icon-wrench.svg",
+            "dim": [
+                70,
+                70
+            ]
+        }
+    },
+    {
+        "key": "owncloud",
+        "idp": "owncloud",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/neu/owncloud_gmbh_grey.png",
+            "dim": [
+                134,
+                70
+            ]
+        }
+    },
+    {
+        "key": "sap",
+        "idp": "sap",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/final/grey/sap_grau.png",
+            "dim": [
+                141,
+                70
+            ]
+        }
+    },
+    {
+        "key": "schaeffler",
+        "idp": "schaeffler",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/final/grey/schaeffler_grau.png",
+            "dim": [
+                168,
+                20
+            ]
+        }
+    },
+    {
+        "key": "siemens",
+        "idp": "siemens",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/final/grey/siemens_grau.png",
+            "dim": [
+                168,
+                27
+            ]
+        }
+    },
+    {
+        "key": "ssc",
+        "idp": "ssc",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/neu/ssc_services_gmbh_grey.png",
+            "dim": [
+                70,
+                70
+            ]
+        }
+    },
+    {
+        "key": "supplyon",
+        "idp": "supplyon",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/final/grey/supplyon_grau.png",
+            "dim": [
+                168,
+                64
+            ]
+        }
+    },
+    {
+        "key": "thyssenkrupp",
+        "idp": "thyssenkrupp",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/neu/thyssenkrupp_materials_services_gmbh_grey.png",
+            "dim": [
+                90,
+                70
+            ]
+        }
+    },
+    {
+        "key": "tributech",
+        "idp": "tributech",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/neu/tributech_solutions_gmbh_grey.png",
+            "dim": [
+                132,
+                70
+            ]
+        }
+    },
+    {
+        "key": "trumpf",
+        "idp": "trumpf",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/final/grey/trumpf_grau.png",
+            "dim": [
+                70,
+                70
+            ]
+        }
+    },
+    {
+        "key": "up2parts",
+        "idp": "up2parts",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/final/grey/up2parts_grau.png",
+            "dim": [
+                169,
+                42
+            ]
+        }
+    },
+    {
+        "key": "valeo",
+        "idp": "valeo",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/neu/valeo_grey.png",
+            "dim": [
+                146,
+                70
+            ]
+        }
+    },
+    {
+        "key": "volkswagen",
+        "idp": "volkswagen",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/final/grey/volkswagen_ag_grau.png",
+            "dim": [
+                169,
+                35
+            ]
+        }
+    },
+    {
+        "key": "zf",
+        "idp": "zf",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/final/grey/zf_group_grau.png",
+            "dim": [
+                169,
+                53
+            ]
+        }
+    },
+    {
+        "key": "_23_technologies",
+        "idp": "_23_technologies",
+        "logo": {
+            "url": "https://catena-x.net/fileadmin/user_upload/logos/neu/23_technologies_gmbh_grey.png",
+            "dim": [
+                325,
+                70
+            ]
+        }
+    }
+]
