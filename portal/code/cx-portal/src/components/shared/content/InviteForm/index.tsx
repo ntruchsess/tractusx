@@ -56,11 +56,11 @@ export const InviteForm = ({
 
   const doSubmit = () =>
     onSubmit({
-      userName: inpExpr[0],
-      firstName: inpExpr[2],
-      lastName: inpExpr[3],
-      email: inpExpr[0],
-      organizationName: inpExpr[1],
+      userName: inpExpr[0].trim(),
+      firstName: inpExpr[2].trim(),
+      lastName: inpExpr[3].trim(),
+      email: inpExpr[0].trim(),
+      organizationName: inpExpr[1].trim(),
     })
 
   return (
