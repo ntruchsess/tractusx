@@ -55,6 +55,7 @@ describe('testSuite', () => {
     )
     expect(container.querySelector('header')).toBeInTheDocument()
     expect(container.querySelector('.Dashboard')).toBeInTheDocument()
+    expect(container.querySelector('.Footer')).toBeInTheDocument()
     expect(container.querySelector('.Appstore')).not.toBeInTheDocument()
   })
 })
