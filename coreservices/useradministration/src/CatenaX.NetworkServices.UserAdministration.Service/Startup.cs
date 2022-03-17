@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using CatenaX.NetworkServices.Keycloak.Authentication;
 using CatenaX.NetworkServices.Keycloak.DBAccess;
@@ -84,12 +85,16 @@ namespace CatenaX.NetworkServices.UserAdministration.Service
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 FlurlHttp.ConfigureClient("https://localhost", cli => cli.Settings.HttpClientFactory = new UntrustedCertClientFactory());
+                FlurlHttp.Configure(settings => settings.OnError = (call) => {
+                    logger.LogError($"{call.Request.Method} {call.Request.RequestUri} HTTP/{call.Request.Version}\n{call.Request.Headers}\n{call.RequestBody.ToString()}\n\n{call.Response.ReasonPhrase}\n{call.Response.Content.ReadAsStringAsync().Result}\n");
+                    call.ExceptionHandled = true;
+                });
             }
 
             if (Configuration.GetValue<bool?>("SwaggerEnabled") != null && Configuration.GetValue<bool>("SwaggerEnabled"))
