@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using MimeKit;
 using MailKit.Net.Smtp;
+using MailKit.Net.Proxy;
 
 namespace CatenaX.NetworkServices.Mailing.SendMail
 {
@@ -33,11 +34,15 @@ namespace CatenaX.NetworkServices.Mailing.SendMail
 
         private async Task _send(MimeMessage message)
         {
-            var client = new SmtpClient();
-            await client.ConnectAsync(_MailSettings.SmtpHost, 587);
-            await client.AuthenticateAsync(_MailSettings.SmtpUser, _MailSettings.SmtpPassword);
-            await client.SendAsync(message);
-            await client.DisconnectAsync(true);
+            using (var client = new SmtpClient()) {
+                if (_MailSettings.HttpProxy != null) {
+                    client.ProxyClient = new HttpProxyClient(_MailSettings.HttpProxy, _MailSettings.HttpProxyPort);
+                }
+                await client.ConnectAsync(_MailSettings.SmtpHost, _MailSettings.SmtpPort);
+                await client.AuthenticateAsync(_MailSettings.SmtpUser, _MailSettings.SmtpPassword);
+                await client.SendAsync(message);
+                await client.DisconnectAsync(true);
+            }
         }
     }
 }
