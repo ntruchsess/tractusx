@@ -1,3 +1,4 @@
+using Flurl.Http;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -16,6 +17,7 @@ using CatenaX.NetworkServices.Mailing.SendMail;
 using CatenaX.NetworkServices.Mailing.Template;
 using CatenaX.NetworkServices.Provisioning.DBAccess;
 using CatenaX.NetworkServices.Provisioning.Library;
+using CatenaX.NetworkServices.Provisioning.Library.Utils;
 using CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic;
 
 namespace CatenaX.NetworkServices.UserAdministration.Service
@@ -87,7 +89,9 @@ namespace CatenaX.NetworkServices.UserAdministration.Service
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                FlurlHttp.ConfigureClient("https://localhost", cli => cli.Settings.HttpClientFactory = new UntrustedCertClientFactory());
             }
+
             if (Configuration.GetValue<bool?>("SwaggerEnabled") != null && Configuration.GetValue<bool>("SwaggerEnabled"))
             {
                 app.UseSwagger( c => c.RouteTemplate = "/api/useradministration/swagger/{documentName}/swagger.{json|yaml}");
