@@ -17,7 +17,7 @@
     "settings": "Einstellungen",
     "admin": "Verwaltung",
     "developer": "Entwicklung",
-    "invite": "Einladung",
+    "invite": "Geschäftspartner Einladen",
     "help": "Hilfe",
     "contact": "Kontakt",
     "imprint": "Impressum",
@@ -51,7 +51,10 @@
       "message": "Inhalte vom Partner Netzwerk"
     },
     "invite": {
-      "message": "Inhalte der Einladung"
+      "title": "Laden Sie Geschäftspartner ein",
+      "send": "Einladung absenden",
+      "success": "Einladung erfolgreich",
+      "failure": "Die Verarbeitung Ihrer Anfrage ist fehlgeschlagen"
     },
     "usermanagement": {
       "message": "Inhalte der Benutzerverwaltung"
@@ -91,6 +94,14 @@
         "notimplemented": "sie wurde noch nicht implementiert."
       },
       "further": "Wenn Sie denken, dass hier etwas sein sollte kontaktieren Sie bitte Ihren Administrator."
+    }
+  },
+  "global": {
+    "field": {
+      "first": "Vorname",
+      "last": "Nachname",
+      "email": "Email",
+      "company": "Firmenname"
     }
   }
 }

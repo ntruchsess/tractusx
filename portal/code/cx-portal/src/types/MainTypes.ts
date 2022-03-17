@@ -18,6 +18,7 @@ export enum PAGES {
   ORGANIZATION = 'organization',
   PARTNER_NETWORK = 'partnernetwork',
   USER_MANAGEMENT = 'usermanagement',
+  INVITE = 'invite',
   ADMINISTRATION = 'admin',
   HELP = 'help',
   CONTACT = 'contact',
