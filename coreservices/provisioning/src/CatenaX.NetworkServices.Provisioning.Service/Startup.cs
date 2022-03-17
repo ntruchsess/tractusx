@@ -1,4 +1,3 @@
-using Flurl.Http;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -10,9 +9,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using CatenaX.NetworkServices.Keycloak.Authentication;
 using CatenaX.NetworkServices.Keycloak.Factory;
+using CatenaX.NetworkServices.Keycloak.Factory.Utils;
 using CatenaX.NetworkServices.Provisioning.DBAccess;
 using CatenaX.NetworkServices.Provisioning.Library;
-using CatenaX.NetworkServices.Provisioning.Library.Utils;
 using CatenaX.NetworkServices.Provisioning.Service.BusinessLogic;
 
 namespace CatenaX.NetworkServices.Provisioning.Service
@@ -63,11 +62,8 @@ namespace CatenaX.NetworkServices.Provisioning.Service
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                FlurlHttp.ConfigureClient("https://localhost", cli => cli.Settings.HttpClientFactory = new UntrustedCertClientFactory());
-                FlurlHttp.Configure(settings => settings.OnError = (call) => {
-                    logger.LogError($"{call.Request.Method} {call.Request.RequestUri} HTTP/{call.Request.Version}\n{call.Request.Headers}\n{call.RequestBody.ToString()}\n\n{call.Response.ReasonPhrase}\n{call.Response.Content.ReadAsStringAsync().Result}\n");
-                    call.ExceptionHandled = true;
-                });
+                KeycloakUntrustedCertExceptionHandler.ConfigureExceptions(Configuration.GetSection("Keycloak"));
+                FlurlErrorLogging.ConfigureLogger(logger);
             }
             if (Configuration.GetValue<bool?>("SwaggerEnabled") != null && Configuration.GetValue<bool>("SwaggerEnabled"))
             {
