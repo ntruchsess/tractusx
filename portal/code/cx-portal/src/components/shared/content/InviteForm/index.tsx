@@ -2,22 +2,15 @@ import { Button, Input, Typography } from 'cx-portal-shared-components'
 import debounce from 'lodash.debounce'
 import { useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { InviteData } from 'types/userManagement/UserManagementTypes'
 import './InviteForm.scss'
-
-export type InviteFormData = {
-  userName: string
-  firstName: string
-  lastName: string
-  email: string
-  organizationName: string
-}
 
 export const InviteForm = ({
   state,
   onSubmit,
 }: {
   state: string
-  onSubmit: (data: InviteFormData) => void
+  onSubmit: (data: InviteData) => void
 }) => {
   const { t } = useTranslation()
   const patterns = [

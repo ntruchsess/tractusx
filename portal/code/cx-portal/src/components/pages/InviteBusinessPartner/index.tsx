@@ -1,32 +1,22 @@
-import {
-  InviteForm,
-  InviteFormData,
-} from 'components/shared/content/InviteForm'
+import { InviteForm } from 'components/shared/content/InviteForm'
 import { useState } from 'react'
 import UserService from 'services/UserService'
+import { UserManagementApi } from 'state/api/userManagement/userManagementAPI'
+import { InviteData } from 'types/userManagement/UserManagementTypes'
 import './InviteBusinessPartner.scss'
 
 export default function InviteBusinessPartner() {
   const [processing, setProcessing] = useState<string>('input')
 
-  const doSubmitInvite = (data: InviteFormData) => {
+  const doSubmitInvite = (data: InviteData) => {
     setProcessing('busy')
-    fetch(
-      `${process.env.REACT_APP_BASE_API}/api/useradministration/invitation`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${UserService.getToken()}`,
-        },
-        body: JSON.stringify(data),
-      }
-    )
+
+    new UserManagementApi(UserService.getToken())
+      .inviteBusinessPartner(data)
       .then((response) => {
-        if (response.ok) {
-          setProcessing('success')
-          console.log(`Onboarding for company ${data.organizationName} started`)
-        } else throw Error()
+        setProcessing('success')
+        console.log(`Onboarding for company ${data.organizationName} started`)
+        console.log(response)
       })
       .catch((error: unknown) => {
         setProcessing('failure')
