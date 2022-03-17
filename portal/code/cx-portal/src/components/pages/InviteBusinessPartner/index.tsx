@@ -14,7 +14,7 @@ export default function InviteBusinessPartner() {
 
     new UserAdministrationApi(UserService.getToken())
       .inviteBusinessPartner(data)
-      .then((response) => {
+      .then(() => {
         setProcessing('success')
         info(`onboarding for company ${data.organizationName} started`)
       })
