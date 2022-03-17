@@ -1,0 +1,289 @@
+<html>
+
+<head>
+    <title>Catena-X sign in</title>
+    <script>
+const CX_PROVIDERS=[
+  {
+    "alias": "allsafe-jungfalk",
+    "name": "allsafe-jungfalk",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "csm_apheris_ai",
+    "name": "csm_apheris_ai",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "apliko",
+    "name": "apliko",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "arena2036",
+    "name": "arena2036",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "arxum",
+    "name": "arxum",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "atos",
+    "name": "atos",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "aai",
+    "name": "aai",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "basf",
+    "name": "basf",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "bigchain",
+    "name": "bigchain",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "bmw-wen-oidc",
+    "name": "bmw",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "bosch",
+    "name": "bosch",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "brain_of_materials",
+    "name": "brain_of_materials",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "capgemini",
+    "name": "capgemini",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "cct",
+    "name": "cct",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "cdq",
+    "name": "cdq",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "circulor",
+    "name": "circulor",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "circunomics",
+    "name": "circunomics",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "cx-test-access",
+    "name": "cx_test_access",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "dccs",
+    "name": "dccs",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "deloitte",
+    "name": "deloitte",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "t-systems",
+    "name": "t-systems",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "dlr",
+    "name": "dlr",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "draexlmaier",
+    "name": "draexlmaier",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "fetchai",
+    "name": "fetchai",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "fraunhofer",
+    "name": "fraunhofer",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "gec",
+    "name": "gec",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "github",
+    "name": "github",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "gris",
+    "name": "gris",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "hanselmann",
+    "name": "hanselmann",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "henkel",
+    "name": "henkel",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "iav",
+    "name": "iav",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "ili_digital",
+    "name": "ili.digital",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "ipoint",
+    "name": "ipoint",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "itemis",
+    "name": "itemis",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "kaputt",
+    "name": "kaputt",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "logsolut",
+    "name": "logsolut",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "lrp",
+    "name": "lrp",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "mercedes_benz",
+    "name": "mercedes_benz",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "microsoft-azure-speedboat-oidc",
+    "name": "microsoft",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "mipart",
+    "name": "mipart",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "mycompany",
+    "name": "mycompany",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "owncloud",
+    "name": "owncloud",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "sap",
+    "name": "sap",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "schaeffler",
+    "name": "schaeffler",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "siemens",
+    "name": "siemens",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "ssc",
+    "name": "ssc",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "supplyon",
+    "name": "supplyon",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "thyssenkrupp",
+    "name": "thyssenkrupp",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "tributech",
+    "name": "tributech",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "trumpf",
+    "name": "trumpf",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "up2parts",
+    "name": "up2parts",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "valeo",
+    "name": "valeo",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "volkswagen",
+    "name": "volkswagen",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "zf",
+    "name": "zf",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  },
+  {
+    "alias": "_23_technologies",
+    "name": "_23_technologies",
+    "url": "https://catenaxintakssrv.germanywestcentral.cloudapp.azure.com/iamsharedidp/auth/realms/cx-test-access/protocol/openid-connect/auth?scope=openid&state=mEY7tUdhiE2A-HaXTSnG8iFuLiJBaQ7JGLlILcjvXew.RsSMCYqL-xc.account-console&response_type=code&client_id=cx-test-access-catenax&redirect_uri=https%3A%2F%2Fcatenaxintakssrv.germanywestcentral.cloudapp.azure.com%2Fiamcentralidp%2Fauth%2Frealms%2FCX-Central%2Fbroker%2Fcx-test-access%2Fendpoint&nonce=p7D-fVyjAYiYld5blTPOkA"
+  }
+]
+    </script>
+    <link href="./Main.css" rel="stylesheet"></link>
+</head>
+
+<body><script src="./Main.js"></script></body>
+
+</html>
