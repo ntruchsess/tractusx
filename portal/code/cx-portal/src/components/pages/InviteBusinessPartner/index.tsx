@@ -1,5 +1,6 @@
 import { InviteForm } from 'components/shared/content/InviteForm'
 import { useState } from 'react'
+import { info } from 'services/LogService'
 import UserService from 'services/UserService'
 import { UserAdministrationApi } from 'state/api/userAdministration/userAdministrationAPI'
 import { InviteData } from 'types/userAdministration/UserAdministrationTypes'
@@ -15,13 +16,12 @@ export default function InviteBusinessPartner() {
       .inviteBusinessPartner(data)
       .then((response) => {
         setProcessing('success')
-        console.log(`Onboarding for company ${data.organizationName} started`)
-        console.log(response)
+        info(`onboarding for company ${data.organizationName} started`)
       })
       .catch((error: unknown) => {
         setProcessing('failure')
-        console.log(`Onboarding for company ${data.organizationName} failed`)
-        console.log(error)
+        info(`onboarding for company ${data.organizationName} failed`)
+        info(JSON.stringify(error))
       })
       .finally(() => {
         setTimeout(() => {
