@@ -13,12 +13,11 @@
       <font style="font-size:1px;" size="1" color="#000000"><b>
       <p></p>
     </b></font>
-    </td></tr></table>
+    </td></tr></table></#if>
 
-<font style="font-size:12px;" size="5" color="#000000"><b>
+<font style="font-size:20px;" size="5" color="#000000">
 <#nested "text">
-</b></font>
-</#if>
+</font>
 
 <p></p>
 
