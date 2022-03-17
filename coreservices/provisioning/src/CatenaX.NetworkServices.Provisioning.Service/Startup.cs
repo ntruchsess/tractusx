@@ -1,3 +1,4 @@
+using Flurl.Http;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -10,6 +11,7 @@ using CatenaX.NetworkServices.Keycloak.Authentication;
 using CatenaX.NetworkServices.Keycloak.Factory;
 using CatenaX.NetworkServices.Provisioning.DBAccess;
 using CatenaX.NetworkServices.Provisioning.Library;
+using CatenaX.NetworkServices.Provisioning.Library.Utils;
 using CatenaX.NetworkServices.Provisioning.Service.BusinessLogic;
 
 namespace CatenaX.NetworkServices.Provisioning.Service
@@ -60,6 +62,7 @@ namespace CatenaX.NetworkServices.Provisioning.Service
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                FlurlHttp.ConfigureClient("https://localhost", cli => cli.Settings.HttpClientFactory = new UntrustedCertClientFactory());
             }
             if (Configuration.GetValue<bool?>("SwaggerEnabled") != null && Configuration.GetValue<bool>("SwaggerEnabled"))
             {
