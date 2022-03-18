@@ -5,6 +5,8 @@
     "cx-portal-shared-components"
   ],
   "scripts": {
+    "lint": "eslint cx-portal cx-portal-shared-components",
+    "pretty": "prettier --write \"./cx-portal*/src/**/*.{ts,tsx,js,jsx,json,css,sass,scss,xml,md}\"",
     "licenses": "find node_modules -name package.json -exec jq -r '.|\"\\(.name),\\(.version),\\(.license)\"' {} \\; | sort | uniq > cx-portal/public/third-party-licenses.txt"
   }
 }

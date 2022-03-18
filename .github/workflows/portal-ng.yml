@@ -160,6 +160,16 @@ jobs:
       run: |
         yarn
         
+    - name: Prettier format
+      working-directory: ./portal/code
+      run: |
+        yarn pretty
+  
+    - name: Linter checks
+      working-directory: ./portal/code
+      run: |
+        yarn lint
+  
     - name: Build Shared UI Library
       working-directory: ./portal/code/cx-portal-shared-components
       run: |
@@ -170,7 +180,3 @@ jobs:
       run: |
         yarn test
 
-    - name: Unit Tests
-      working-directory: ./portal/code/cx-portal
-      run: |
-        yarn lint
