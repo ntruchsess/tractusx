@@ -39,6 +39,7 @@ export const UserInfo = () => {
       >
         <UserNav
           component={Link}
+          divider
           items={AccessService.userMenu().map((link) => ({
             to: link,
             title: t(`pages.${link}`),
