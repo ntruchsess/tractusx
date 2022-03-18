@@ -11,6 +11,7 @@ using System.Linq;
 using System.Collections.Generic;
 using CatenaX.NetworkServices.Provisioning.Library;
 using CatenaX.NetworkServices.Provisioning.Library.Models;
+using CatenaX.NetworkServices.Provisioning.DBAccess;
 
 namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
 {
@@ -127,6 +128,34 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
             {
                 _logger.LogError(e.ToString());
                 return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+            }
+        }
+
+        [HttpGet]
+        //[Authorize(Policy = "CheckTenant")]
+        //[Authorize(Roles="view_user_management")]
+        [Route("bpn")]
+        public Task<IEnumerable<Bpn>> GetBpn( string userId, [FromQuery] string bpn = null)
+            => _logic.GetBpnAsync(userId, bpn);
+
+        [HttpPut]
+        //[Authorize(Policy = "CheckTenant")]
+        //[Authorize(Roles="add_user_account")]
+        [Route("bpn/{userId}")]
+        public async Task<IActionResult> AddBpn([FromRoute] string userId)
+        {
+            try
+            {
+                var AddedBpn = await _logic.AddBpnAsync(userId).ConfigureAwait(false);
+                
+                return Ok(AddedBpn);
+                
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.ToString());
+                return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+
             }
         }
     }

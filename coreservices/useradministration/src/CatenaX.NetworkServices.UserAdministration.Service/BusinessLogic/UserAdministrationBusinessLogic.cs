@@ -10,23 +10,27 @@ using PasswordGenerator;
 using CatenaX.NetworkServices.Mailing.SendMail;
 using CatenaX.NetworkServices.Provisioning.Library;
 using CatenaX.NetworkServices.Provisioning.Library.Models;
+using CatenaX.NetworkServices.Provisioning.DBAccess;
 
 namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
 {
     public class UserAdministrationBusinessLogic : IUserAdministrationBusinessLogic
     {
         private readonly IProvisioningManager _provisioningManager;
+        private readonly IProvisioningDBAccess _provisioningDBAccess;
         private readonly IMailingService _mailingService;
         private readonly ILogger<UserAdministrationBusinessLogic> _logger;
         private readonly UserAdministrationSettings _settings;
 
         public UserAdministrationBusinessLogic(
             IProvisioningManager provisioningManager,
+            IProvisioningDBAccessFactory provisioningDBAccessFactory,
             IMailingService mailingService,
             ILogger<UserAdministrationBusinessLogic> logger,
             IOptions<UserAdministrationSettings> settings)
         {
             _provisioningManager = provisioningManager;
+            _provisioningDBAccess = provisioningDBAccessFactory.CreateProvisioningDBAccess();
             _mailingService = mailingService;
             _logger = logger;
             _settings = settings.Value;
@@ -89,6 +93,7 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
                     };
 
                     if (!await _provisioningManager.AssignClientRolesToCentralUserAsync(centralUserId, clientRoleNames).ConfigureAwait(false)) continue;
+                    await _provisioningManager.AddBpnAttributetoUserAsync(centralUserId).ConfigureAwait(false);
 
                     var inviteTemplateName = "PortalTemplate";
                     if (!string.IsNullOrWhiteSpace(user.Message))
@@ -165,5 +170,11 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
                     return null;
                 }
             }))).Where(userName => userName != null);
+
+        public Task<IEnumerable<Bpn>> GetBpnAsync(string userId,string bpn = null)
+            => _provisioningDBAccess.GetBpnForUserAsync(userId, bpn);
+
+        public Task<IEnumerable<Bpn>> AddBpnAsync(string userId)
+            => _provisioningManager.AddBpnAttributetoUserAsync(userId);
     }
 }

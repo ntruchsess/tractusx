@@ -7,6 +7,7 @@ using CatenaX.NetworkServices.Keycloak.Factory;
 using CatenaX.NetworkServices.Provisioning.DBAccess;
 using CatenaX.NetworkServices.Provisioning.Library.Models;
 using CatenaX.NetworkServices.Keycloak.DBAccess;
+using Keycloak.Net.Models.Users;
 
 namespace CatenaX.NetworkServices.Provisioning.Library
 {
@@ -179,6 +180,21 @@ namespace CatenaX.NetworkServices.Provisioning.Library
             var internalId = (await CreateCentralOIDCClientAsync(clientId,redirectUrl).ConfigureAwait(false));
             await CreateCentralOIDCClientAudienceMapperAsync(internalId, clientId).ConfigureAwait(false);
             return clientId;
+        }
+
+        public async Task<IEnumerable<Bpn>> AddBpnAttributetoUserAsync(string userId)
+        {
+            var bpn = await _ProvisioningDBAccess.GetBpnForUserAsync(userId).ConfigureAwait(false);
+            var user = await _CentralIdp.GetUserAsync(_Settings.CentralRealm, userId).ConfigureAwait(false);
+            
+            var bpns = bpn.Select(b => b.bpn);
+            if (user.Attributes.TryGetValue("bpn", out var existingBpns))
+            {
+                bpns = existingBpns.Concat(bpns).Distinct();
+            }
+            user.Attributes["bpn"] = bpns.ToList();
+            await _CentralIdp.UpdateUserAsync(_Settings.CentralRealm, userId, user).ConfigureAwait(false);
+            return bpn;
         }
     }
 }
