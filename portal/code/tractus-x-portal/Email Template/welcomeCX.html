@@ -1,9 +1,30 @@
 <!doctype html>
 <html>
+<head><!-- Yahoo App Android will strip this --></head>
 <head>
     <meta name="viewport" content="width=device-width"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Register to Catena-X Welcome Email</title>
+    <!--[if mso 14]>
+    <style type="text/css">
+        /* Your Outlook-specific CSS goes here. */
+        .body {
+            background-color: #69c05e;
+            width: 100%;
+        }
+    </style>
+    <![endif]-->
+
+    <!--[if mso 16]>
+    <style type="text/css">
+        /* Your Outlook-specific CSS goes here. */
+        .body {
+            background-color: #69c05e;
+            width: 100%;
+        }
+    </style>
+    <![endif]-->
+
     <style>
         /* -------------------------------------
             GLOBAL RESETS
@@ -24,18 +45,19 @@
             -webkit-font-smoothing: antialiased;
             font-size: 14px;
             line-height: 1.4;
-            margin: 0;
             padding: 0;
             -ms-text-size-adjust: 100%;
             -webkit-text-size-adjust: 100%;
+            margin:0;
         }
 
         table {
             border-collapse: separate;
             mso-table-lspace: 0pt;
             mso-table-rspace: 0pt;
-            /*width: 100%;*/
+            border: none;
 
+            border-spacing: 0;
         }
 
         table td {
@@ -48,6 +70,9 @@
         .body {
             background-color: #EDF0F4;
             width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .container {
@@ -91,6 +116,13 @@
         .footer {
             width: 100%;
             background-color: #FFA600;
+            border: none;
+            border-spacing: 0;
+        }
+
+        .footer tr{
+            border: none;
+            border-spacing: 0;
         }
 
         .footer td,
@@ -137,7 +169,9 @@
             margin-left: 5px;
         }
 
-        a {
+
+
+        .quick-help-table a {
             color: #0F71CB;
             text-decoration: underline;
         }
@@ -173,6 +207,39 @@
             }
         }
 
+        @media all {
+            .ExternalClass {
+                width: 100%;
+            }
+
+            .ExternalClass,
+            .ExternalClass p,
+            .ExternalClass span,
+            .ExternalClass font,
+            .ExternalClass td,
+            .ExternalClass div {
+                line-height: 100%;
+            }
+
+            .apple-link a {
+                color: inherit !important;
+                font-family: inherit !important;
+                font-size: inherit !important;
+                font-weight: inherit !important;
+                line-height: inherit !important;
+                text-decoration: none !important;
+            }
+
+            #MessageViewBody a {
+                color: inherit;
+                text-decoration: none;
+                font-size: inherit;
+                font-family: inherit;
+                font-weight: inherit;
+                line-height: inherit;
+            }
+        }
+
 
         .content-body {
             font-size: 14px;
@@ -202,13 +269,17 @@
             color: #191715;
             font-size: 12px;
             font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-            line-height: 0;
         }
 
         .btn {
             box-sizing: border-box;
             /*width: 100%;*/
             margin-top: 35px;
+        }
+
+        .btn a {
+            color: white;
+            text-decoration: none;
         }
 
         .btn > tbody > tr > td {
@@ -282,13 +353,13 @@
     </style>
 </head>
 <body class="">
-<table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body">
+<table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body" align="center">
     <tr>
         <td colspan="3" height="50"></td>
     </tr>
     <tr>
         <td>&nbsp;</td>
-        <td class="container">
+        <td class="container" align="center">
             <div class="content">
 
                 <!-- START CENTERED WHITE CONTAINER -->
@@ -386,6 +457,7 @@
                 </table>
 
                 <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="footer">
+                    <tbody>
                     <tr>
                         <td class="content-block">
                             <h3>Catena-x Automotive Network e.V.i.G. </h3>
@@ -407,11 +479,11 @@
                     <tr>
                         <td class="footer-plain-text">
                         <span class="footer-span">
-                            Vertretungsberechtigter Vorstand: Oliver Ganser (Vorstandsvorsitzender):
+                            Vertretungsberechtigter Vorstand: Oliver Ganser (Vorstandsvorsitzender)
                         </span>
                         </td>
                     </tr>
-
+                    </tbody>
                 </table>
                 <!-- END FOOTER -->
 
