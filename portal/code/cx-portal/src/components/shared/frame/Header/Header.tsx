@@ -5,7 +5,13 @@ import { Navigation } from 'cx-portal-shared-components'
 import './Header.scss'
 import { useTranslation } from 'react-i18next'
 
-export const Header = ({ pages }: { pages: string[] }) => {
+export const Header = ({
+  pages,
+  userPages,
+}: {
+  pages: string[]
+  userPages: string[]
+}) => {
   const { t } = useTranslation()
 
   const menu = pages.map((page) => ({
@@ -17,7 +23,7 @@ export const Header = ({ pages }: { pages: string[] }) => {
     <header>
       <Logo />
       <Navigation items={menu} component={NavLink} />
-      <UserInfo />
+      <UserInfo pages={userPages} />
     </header>
   )
 }

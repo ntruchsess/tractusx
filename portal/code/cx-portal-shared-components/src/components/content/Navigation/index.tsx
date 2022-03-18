@@ -15,7 +15,7 @@ export const Navigation = ({
   unstyled = false,
 }: NavigationProps) => {
   return (
-    <Box component="nav" sx={{ display: 'flex' }}>
+    <Box component="nav" sx={{ display: 'flex', flexWrap: 'wrap' }}>
       {items?.map((link) => {
         const isActive = link.href === active || link.to === active
 
