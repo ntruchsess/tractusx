@@ -9,4 +9,7 @@
     <#if section = "linkText">
         ${msg("passwordResetLinkTextHtml")?no_esc}
     </#if>
+    <#if section = "info">
+        ${msg("passwordResetinfo")?no_esc}
+    </#if>
 </@layout.htmlEmailLayout>
