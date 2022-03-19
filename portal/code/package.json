@@ -7,6 +7,8 @@
   "scripts": {
     "lint": "eslint cx-portal cx-portal-shared-components",
     "pretty": "prettier --write \"./cx-portal*/src/**/*.{ts,tsx,js,jsx,json,css,sass,scss,xml,md}\"",
-    "licenses": "find node_modules -name package.json -exec jq -r '.|\"\\(.name),\\(.version),\\(.license)\"' {} \\; | sort | uniq > cx-portal/public/third-party-licenses.txt"
+    "build:docker": "docker build -t \"catena-x/portal\" --build-arg \"http_proxy=${http_proxy}\"  --build-arg \"https_proxy=${https_proxy}\"  --build-arg \"no_proxy=${no_proxy}\" .",
+    "start:docker": "docker run --rm -d -p 3000:80 --name cx-portal catena-x/portal",
+    "build:licenses": "find node_modules -name package.json -exec jq -r '.|\"\\(.name),\\(.version),\\(.license)\"' {} \\; | sort | uniq > cx-portal/public/third-party-licenses.txt"
   }
 }
