@@ -8,6 +8,7 @@ RUN mkdir -p /app/cx-portal /app/cx-portal-shared-components
 COPY package.json /app/
 COPY yarn.lock /app/
 COPY node_modules /app/node_modules
+COPY scripts /app/scripts
 COPY cx-portal/package.json cx-portal/.env cx-portal/tsconfig* /app/cx-portal/
 COPY cx-portal/src /app/cx-portal/src
 COPY cx-portal/public /app/cx-portal/public
