@@ -112,6 +112,19 @@ const palette = createPalette({
     focus: 'rgba(15, 113, 203, 0.15)',
     active: 'rgba(15, 113, 203, 0.2)',
   },
+  chip: {
+    pendingBackgroundColor:'#FFECBD',
+    pendingTextColor: '#975B27',
+    confirmedBackgroundColor: '#E2F6C7',
+    confirmedTextColor: '#5C8D45',
+    declinedBackgroundColor: '#FEE7E2',
+    declinedTextColor: '#FF532F',
+    labelBackgroundColor: '#FF532F',
+    labelTextColor: '#FEE7E2',
+    main: '#0f71cb',
+    dark: '#0d55af',
+    contrastText: '#fff',
+  }
 })
 
 const typography = createTypography(palette, {
@@ -435,7 +448,7 @@ export const theme = createTheme({
           borderRadius: 25,
         },
         columnHeaders: {
-          backgroundColor: `${palette.background.background03}`,
+          backgroundColor: palette.background.background03,
           fontFamily: getFontFamily('LibreFranklin-SemiBold'),
         },
         columnSeparator: {
@@ -448,6 +461,46 @@ export const theme = createTheme({
           padding: '20px 5px',
         },
       },
+    },
+    MuiChip:{
+      variants: [
+        {
+          props: {
+            color: 'pending',
+          },
+          style: {
+            backgroundColor: "yellow",
+            color: "lightyellow"
+          },
+        },
+        {
+          props: {
+            color: 'confirmed',
+          },
+          style: {
+            backgroundColor: 'green',
+            color: 'lightgreen'
+          },
+        },
+        {
+          props: {
+            color: 'declined',
+          },
+          style: {
+            backgroundColor: 'red',
+            color: 'pink'
+          },
+        },
+        {
+          props: {
+            color: 'label',
+          },
+          style: {
+            backgroundColor: "gray",
+            color: "lightgray"
+          },
+        },
+      ],
     },
     MuiLink: {
       styleOverrides: {
