@@ -94,8 +94,8 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
 
                     if (!await _provisioningManager.AssignClientRolesToCentralUserAsync(centralUserId, clientRoleNames).ConfigureAwait(false)) continue;
 
-                    var bpns = await _provisioningDBAccess.GetBpnForUserAsync(centralUserId).ConfigureAwait(false);
-                    await _provisioningManager.AddBpnAttributetoUserAsync(centralUserId, bpns);
+                    var bpn = await _provisioningDBAccess.GetBpnForUserAsync(centralUserId).ConfigureAwait(false);
+                    if (!await _provisioningManager.AddBpnAttributetoUserAsync(centralUserId, bpn).ConfigureAwait(false)) continue;
 
                     var inviteTemplateName = "PortalTemplate";
                     if (!string.IsNullOrWhiteSpace(user.Message))
