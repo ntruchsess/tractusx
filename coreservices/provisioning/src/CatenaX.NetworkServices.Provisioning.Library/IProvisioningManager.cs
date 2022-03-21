@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using CatenaX.NetworkServices.Provisioning.DBAccess;
 using CatenaX.NetworkServices.Provisioning.Library.Models;
 
 namespace CatenaX.NetworkServices.Provisioning.Library
@@ -26,6 +25,6 @@ namespace CatenaX.NetworkServices.Provisioning.Library
             string lastName = null,
             string email = null);
         Task<string> SetupClientAsync(string redirectUrl);
-        Task<IEnumerable<Bpn>> AddBpnAttributetoUserAsync(string centralUserId);
+        Task<bool> AddBpnAttributetoUserAsync(string centralUserId, IEnumerable<string> bpns);
     }
 }

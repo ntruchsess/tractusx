@@ -118,7 +118,7 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
         [Authorize(Policy = "CheckTenant")]
         [Authorize(Roles="delete_user_account")]
         [Route("tenant/{tenant}/users")]
-        public async Task<IActionResult> ExecuteUserDeletion([FromRoute] string tenant, [FromBody] UserDeletionInfo usersToDelete)
+        public async Task<IActionResult> ExecuteUserDeletion([FromRoute] string tenant, [FromBody] UserIds usersToDelete)
         {
             try
             {
@@ -131,24 +131,32 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
             }
         }
 
-        [HttpGet]
-        //[Authorize(Policy = "CheckTenant")]
-        //[Authorize(Roles="view_user_management")]
-        [Route("bpn")]
-        public Task<IEnumerable<Bpn>> GetBpn( string userId, [FromQuery] string bpn = null)
-            => _logic.GetBpnAsync(userId, bpn);
-
         [HttpPut]
-        //[Authorize(Policy = "CheckTenant")]
-        //[Authorize(Roles="add_user_account")]
-        [Route("bpn/{userId}")]
-        public async Task<IActionResult> AddBpn([FromRoute] string userId)
+        [Authorize(Roles="approve_new_partner")]
+        [Route("company/{companyId}/bpnAtRegistrationApproval")]
+        public async Task<IActionResult> BpnAttributeAddingAtRegistrationApproval([FromRoute] string companyId)
         {
             try
             {
-                var AddedBpn = await _logic.AddBpnAsync(userId).ConfigureAwait(false);
+                return Ok(await _logic.AddBpnAttributeAtRegistrationApprovalAsync(companyId).ConfigureAwait(false));
                 
-                return Ok(AddedBpn);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.ToString());
+                return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+
+            }
+        }
+
+        [HttpPut]
+        [Authorize(Roles="modify_user_account")]
+        [Route("bpn")]
+        public async Task<IActionResult> BpnAttributeAdding( [FromBody] IEnumerable<UserUpdateBpn> usersToAddBpn)
+        {
+            try
+            {
+                return Ok(await _logic.AddBpnAttributeAsync(usersToAddBpn).ConfigureAwait(false));
                 
             }
             catch (Exception e)
