@@ -24,13 +24,13 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
 
         public UserAdministrationBusinessLogic(
             IProvisioningManager provisioningManager,
-            IProvisioningDBAccessFactory provisioningDBAccessFactory,
+            IProvisioningDBAccess provisioningDBAccess,
             IMailingService mailingService,
             ILogger<UserAdministrationBusinessLogic> logger,
             IOptions<UserAdministrationSettings> settings)
         {
             _provisioningManager = provisioningManager;
-            _provisioningDBAccess = provisioningDBAccessFactory.CreateProvisioningDBAccess();
+            _provisioningDBAccess = provisioningDBAccess;
             _mailingService = mailingService;
             _logger = logger;
             _settings = settings.Value;

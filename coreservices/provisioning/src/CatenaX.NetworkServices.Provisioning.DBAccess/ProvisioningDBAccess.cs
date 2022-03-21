@@ -11,7 +11,7 @@ using System.Linq;
 namespace CatenaX.NetworkServices.Provisioning.DBAccess
 
 {
-    public class ProvisioningDBAccess : IProvisioningDBAccess
+    public class ProvisioningDBAccess : IProvisioningDBAccess, IDisposable
     {
         private readonly IDbConnection _dbConnection;
         private readonly string _dbSchema;
