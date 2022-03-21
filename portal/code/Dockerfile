@@ -27,5 +27,5 @@ WORKDIR /app/cx-portal
 RUN yarn build
 
 # Stage 2
-FROM nginx:alpine
+FROM nginxinc/nginx-unprivileged:alpine
 COPY --from=build-step /app/cx-portal/build /usr/share/nginx/html

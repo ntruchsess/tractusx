@@ -29,7 +29,7 @@ cx-docker-publish() {
 }
 
 cx-docker-run() {
-    docker run --rm -d -p 3000:80 --name cx-portal $IMAGE
+    docker run --rm -d -p 3000:8080 --name cx-portal $IMAGE
 }
 
 cx-acr-list() {
