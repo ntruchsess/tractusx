@@ -16,7 +16,7 @@ export const StatusTag = ({
                             variant = 'filled',
                             color = 'pending',
                             onDelete = () => null, // To avoid default delete icon appear
-                            withIcon = true,
+                            withIcon = false,
                             ...props
                           }: StatusChipCustomProps) => {
 
@@ -35,6 +35,17 @@ export const StatusTag = ({
       icon = <EditOutlinedIcon />
   }
 
-  return <MuiChip variant={variant} color={color} icon={withIcon ? icon : undefined} {...props} />
+  // Manual paddingRight overwrite for usage of without label, see custom sx prop
+  // https://github.com/mui/material-ui/issues/29964
+  return <MuiChip
+    variant={variant}
+    color={color}
+    icon={withIcon ? icon : undefined}
+    sx={{
+      '.MuiChip-label': {
+        paddingRight: (props.label === undefined) ? 0 : "12px"
+      },
+    }}
+    {...props}  />
 }
 
