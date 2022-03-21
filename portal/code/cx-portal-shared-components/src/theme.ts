@@ -112,18 +112,21 @@ const palette = createPalette({
     focus: 'rgba(15, 113, 203, 0.15)',
     active: 'rgba(15, 113, 203, 0.2)',
   },
-  chip: {
-    pendingBackgroundColor:'#FFECBD',
-    pendingTextColor: '#975B27',
-    confirmedBackgroundColor: '#E2F6C7',
-    confirmedTextColor: '#5C8D45',
-    declinedBackgroundColor: '#FEE7E2',
-    declinedTextColor: '#FF532F',
-    labelBackgroundColor: '#FF532F',
-    labelTextColor: '#FEE7E2',
-    main: '#0f71cb',
-    dark: '#0d55af',
-    contrastText: '#fff',
+  pending:{
+    main: '#FFECBD',
+    contrastText: '#975B27',
+  },
+  confirmed:{
+    main: '#E2F6C7',
+    contrastText: '#5C8D45',
+  },
+  declined:{
+    main: '#FEE7E2',
+    contrastText: '#FF532F',
+  },
+  label:{
+    main: '#F2F3FB',
+    contrastText: '#676BC6',
   }
 })
 
@@ -463,14 +466,19 @@ export const theme = createTheme({
       },
     },
     MuiChip:{
+      styleOverrides: {
+        root: {
+          borderRadius: 6,
+        },
+      },
       variants: [
         {
           props: {
             color: 'pending',
           },
           style: {
-            backgroundColor: "yellow",
-            color: "lightyellow"
+            backgroundColor: palette.pending.main,
+            color: palette.pending.contrastText
           },
         },
         {
@@ -478,8 +486,8 @@ export const theme = createTheme({
             color: 'confirmed',
           },
           style: {
-            backgroundColor: 'green',
-            color: 'lightgreen'
+            backgroundColor: palette.confirmed.main,
+            color: palette.confirmed.contrastText
           },
         },
         {
@@ -487,8 +495,8 @@ export const theme = createTheme({
             color: 'declined',
           },
           style: {
-            backgroundColor: 'red',
-            color: 'pink'
+            backgroundColor: palette.declined.main,
+            color: palette.declined.contrastText
           },
         },
         {
@@ -496,10 +504,10 @@ export const theme = createTheme({
             color: 'label',
           },
           style: {
-            backgroundColor: "gray",
-            color: "lightgray"
+            backgroundColor: palette.label.main,
+            color: palette.label.contrastText
           },
-        },
+        }
       ],
     },
     MuiLink: {

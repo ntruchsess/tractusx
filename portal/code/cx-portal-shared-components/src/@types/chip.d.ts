@@ -6,8 +6,5 @@ declare module '@mui/material/Chip' {
     confirmed: true
     declined: true
     label: true
-    main: true
-    dark: true
-    contrastText: true
   }
 }
