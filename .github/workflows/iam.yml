@@ -65,9 +65,9 @@ jobs:
                 echo "Unsupported Branch on CATENAX. Leaving Workspace empty."
               fi
           elif [[ "${{github.repository}}" == tractusx-team-portal-onboarding/tractusx ]]; then
-            if [[ "${{github.ref}}" == refs/heads/feature/CAX-portal ]]; then
-                echo "Determined dev003"
-                echo "::set-output name=workspace::dev003"
+            if [[ "${{github.ref}}" == refs/heads/feature/CAX-portal@fix-int-keycloak ]]; then
+                echo "Determined int"
+                echo "::set-output name=workspace::int"
             else 
                 echo "Unsupported Branch on tractusx-team-portal-onboarding. Leaving Workspace empty."
             fi
