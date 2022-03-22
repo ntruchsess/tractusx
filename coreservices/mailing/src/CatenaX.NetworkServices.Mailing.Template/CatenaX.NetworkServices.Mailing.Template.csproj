@@ -15,9 +15,6 @@
     <None Update="EmailTemplates\password.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="EmailTemplates\portal_newuser_password.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="EmailTemplates\portal_newuser_welcome.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -30,10 +27,13 @@
     <None Update="EmailTemplates\staticTemplates\buttonTemplate.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="EmailTemplates\welcome.html">
+    <None Update="EmailTemplates\additional_user_invitation_without_message.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="EmailTemplates\welcomeCX.html">
+    <None Update="EmailTemplates\additional_user_invitation_with_message.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="EmailTemplates\cx_admin_invitation.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
