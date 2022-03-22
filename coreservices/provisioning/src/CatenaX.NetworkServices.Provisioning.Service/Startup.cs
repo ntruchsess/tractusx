@@ -1,3 +1,4 @@
+using System.Net.Http;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -36,7 +37,16 @@ namespace CatenaX.NetworkServices.Provisioning.Service
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(options => Configuration.Bind("JwtBearerOptions",options));
+            }).AddJwtBearer( options => {
+                Configuration.Bind("JwtBearerOptions",options);
+                if (!options.RequireHttpsMetadata)
+                {
+                    options.BackchannelHttpHandler = new HttpClientHandler {
+                        ServerCertificateCustomValidationCallback = (a,b,c,d) => true
+                    };
+                }
+            });
+
             services.AddTransient<IClaimsTransformation, KeycloakClaimsTransformation>()
                     .Configure<JwtBearerOptions>(options => Configuration.Bind("JwtBearerOptions",options));
 
