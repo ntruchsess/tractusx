@@ -11,6 +11,8 @@ export { SharedThemeProvider } from './basic/SharedThemeProvider'
 export { Typography } from './basic/Typography'
 export { UserAvatar } from './basic/UserAvatar'
 export { Table } from './basic/Table'
+export { CustomDropzone } from './basic/Dropzone'
+export { CustomIcon } from './basic/CustomIcons'
 
 export { AppCards } from './content/AppCards'
 export { Navigation } from './content/Navigation'
