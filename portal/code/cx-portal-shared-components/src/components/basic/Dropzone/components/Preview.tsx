@@ -5,18 +5,18 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import RestartAltOutlinedIcon from '@mui/icons-material/RestartAltOutlined';
 import { IPreviewProps } from "react-dropzone-uploader";
 export interface previewProps extends IPreviewProps{
-  errorStatus?: String[]
+  errorStatus: String[],
+  setNewStatusValue: Function
 }
 
-export const Preview = ({ meta, fileWithMeta, canCancel, canRemove, canRestart, errorStatus }: previewProps) => {
-
-  errorStatus = ['error_upload_params', 'exception_upload', 'error_upload', 'aborted', 'ready']
+export const Preview = ({ meta, setNewStatusValue, fileWithMeta, canCancel, canRemove, canRestart, errorStatus }: previewProps) => {
 
   const { name, percent, status } = meta
   const { cancel, remove, restart } = fileWithMeta
   const {spacing, palette} = useTheme()
   const { icon01 } = palette.icon
-  
+  const newStatusValue = setNewStatusValue(status) ?? status
+
   return (
     <Box sx={{
               display: 'flex',  
@@ -24,11 +24,13 @@ export const Preview = ({ meta, fileWithMeta, canCancel, canRemove, canRestart, 
               'progress': {
                 width:' 100%',
                 height: '4px',
-                borderRadius: '40px',
                 backgroundColor: 'textField.backgroundHover',
-                '&::-webkit-progress-value': {
+                '&::-webkit-progress-bar': {
                   borderRadius: '40px',
+                },
+                '&::-webkit-progress-value': {
                   backgroundColor: 'support.success',
+                  borderRadius: '40px',
                 },
                 '&.error::-webkit-progress-value': {
                   backgroundColor: 'danger.danger',
@@ -43,7 +45,7 @@ export const Preview = ({ meta, fileWithMeta, canCancel, canRemove, canRestart, 
           {name}
         </Typography>
         <Typography className={errorStatus.includes(status) ? 'error' : ''} variant="helper" sx={{ display: 'block', '&.error': {color: 'danger.danger'} }}>
-          {status}
+          {newStatusValue}
         </Typography>
          <progress max={100} value={status === 'done' || status === 'headers_received' ? 100 : percent} className={errorStatus.includes(status) ? 'error' : ''} />
       </Box>
@@ -58,8 +60,7 @@ export const Preview = ({ meta, fileWithMeta, canCancel, canRemove, canRestart, 
           <DeleteOutlineIcon sx={{ color: icon01 }} fontSize="small" />
         </Box>
       )}
-      {errorStatus.includes(status) &&
-            canRestart && ( 
+      {errorStatus.includes(status) && canRestart && ( 
         <Box onClick={restart}>
           <DeleteOutlineIcon sx={{ color: icon01 }} fontSize="small" />
         </Box>)

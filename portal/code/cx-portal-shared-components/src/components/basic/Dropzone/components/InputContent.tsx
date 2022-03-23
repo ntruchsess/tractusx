@@ -1,7 +1,6 @@
 import { Box, useTheme } from '@mui/material'
 import { CustomIcon } from '../../CustomIcons'
 import { Typography } from '../../Typography'
-import "react-dropzone-uploader/dist/styles.css";
 
 interface InputContentProps {
   title: string,
@@ -9,7 +8,7 @@ interface InputContentProps {
 }
 
 export const InputContent = ({title,
-  subTitle, ...props}: InputContentProps) => {
+  subTitle}: InputContentProps) => {
   const theme = useTheme()
   const { icon01 } = theme.palette.icon
 
