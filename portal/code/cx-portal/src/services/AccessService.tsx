@@ -24,6 +24,7 @@ import Privacy from 'components/pages/Privacy'
 import Terms from 'components/pages/Terms'
 import CookiePolicy from 'components/pages/CookiePolicy'
 import ThirdPartyLicenses from 'components/pages/ThirdPartyLicenses'
+import InviteBusinessPartner from 'components/pages/InviteBusinessPartner'
 
 /**
  * ALL_PAGES
@@ -94,6 +95,11 @@ const ALL_PAGES: IPage[] = [
     role: ROLES.USERMANAGEMENT_VIEW,
     element: <UserManagement />,
   },
+  {
+    name: PAGES.INVITE,
+    role: ROLES.INVITE_NEW_PARTNER,
+    element: <InviteBusinessPartner />,
+  },
   { name: PAGES.ADMINISTRATION, role: ROLES.CX_ADMIN, element: <Admin /> },
   {
     name: PAGES.TRANSLATOR,
@@ -138,6 +144,7 @@ const userMenuFull = [
   PAGES.ORGANIZATION,
   PAGES.PARTNER_NETWORK,
   PAGES.USER_MANAGEMENT,
+  PAGES.INVITE,
   PAGES.ADMINISTRATION,
   PAGES.LOGOUT,
 ]

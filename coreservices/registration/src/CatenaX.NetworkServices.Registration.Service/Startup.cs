@@ -7,6 +7,7 @@ using CatenaX.NetworkServices.Registration.Service.Custodian;
 using CatenaX.NetworkServices.Registration.Service.RegistrationAccess;
 using CatenaX.NetworkServices.Keycloak.Authentication;
 using CatenaX.NetworkServices.Keycloak.Factory;
+using CatenaX.NetworkServices.Keycloak.Factory.Utils;
 using CatenaX.NetworkServices.Provisioning.Library;
 
 using Microsoft.AspNetCore.Authentication;
@@ -18,6 +19,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
 using Npgsql;
@@ -25,6 +27,7 @@ using Npgsql;
 using System;
 using System.Data;
 using System.IdentityModel.Tokens.Jwt;
+using System.Net.Http;
 
 namespace CatenaX.NetworkServices.Registration.Service
 {
@@ -48,7 +51,15 @@ namespace CatenaX.NetworkServices.Registration.Service
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(options => Configuration.Bind("JwtBearerOptions",options));
+            }).AddJwtBearer( options => {
+                Configuration.Bind("JwtBearerOptions",options);
+                if (!options.RequireHttpsMetadata)
+                {
+                    options.BackchannelHttpHandler = new HttpClientHandler {
+                        ServerCertificateCustomValidationCallback = (a,b,c,d) => true
+                    };
+                }
+            });
 
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
@@ -110,11 +121,13 @@ namespace CatenaX.NetworkServices.Registration.Service
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                KeycloakUntrustedCertExceptionHandler.ConfigureExceptions(Configuration.GetSection("Keycloak"));
+                FlurlErrorLogging.ConfigureLogger(logger);
             }
             if (Configuration.GetValue<bool?>("SwaggerEnabled") != null && Configuration.GetValue<bool>("SwaggerEnabled"))
             {

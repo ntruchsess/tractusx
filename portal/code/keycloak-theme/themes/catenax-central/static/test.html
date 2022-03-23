@@ -1,0 +1,110 @@
+<html>
+
+<head>
+    <title>Catena-X sign in</title>
+    <script>
+const CX_PROVIDERS=[
+    {
+        "name": "Microsoft AAD Speedboat",
+        "alias": "AzureOIDC",
+        "provider": "oidc",
+        "url": "/iamcentralidp/auth/realms/CX-Central/broker/AzureOIDC/login?client_id=catenax-portal&amp;tab_id=ZIv4bOly-gQ&amp;session_code=udloA8jLUE34Jn0oGvgmHOj28I5JI2j-zgPsIg_ngsM"
+    },
+    {
+        "name": "BMW (INT)",
+        "alias": "bmw-wen-oidc",
+        "provider": "oidc",
+        "url": "/iamcentralidp/auth/realms/CX-Central/broker/bmw-wen-oidc/login?client_id=catenax-portal&amp;tab_id=ZIv4bOly-gQ&amp;session_code=udloA8jLUE34Jn0oGvgmHOj28I5JI2j-zgPsIg_ngsM"
+    },
+    {
+        "name": "SAP",
+        "alias": "sap-oidc",
+        "provider": "oidc",
+        "url": "/iamcentralidp/auth/realms/CX-Central/broker/sap-oidc/login?client_id=catenax-portal&amp;tab_id=ZIv4bOly-gQ&amp;session_code=udloA8jLUE34Jn0oGvgmHOj28I5JI2j-zgPsIg_ngsM"
+    },
+    {
+        "name": "Siemens",
+        "alias": "siemensidpauth0",
+        "provider": "oidc",
+        "url": "/iamcentralidp/auth/realms/CX-Central/broker/siemensidpauth0/login?client_id=catenax-portal&amp;tab_id=ZIv4bOly-gQ&amp;session_code=udloA8jLUE34Jn0oGvgmHOj28I5JI2j-zgPsIg_ngsM"
+    },
+    {
+        "name": "CX Test Access",
+        "alias": "cx-test-access",
+        "provider": "keycloak-oidc",
+        "url": "/iamcentralidp/auth/realms/CX-Central/broker/cx-test-access/login?client_id=catenax-portal&amp;tab_id=ZIv4bOly-gQ&amp;session_code=udloA8jLUE34Jn0oGvgmHOj28I5JI2j-zgPsIg_ngsM"
+    },
+    {
+        "name": "idp30",
+        "alias": "idp30",
+        "provider": "keycloak-oidc",
+        "url": "/iamcentralidp/auth/realms/CX-Central/broker/idp30/login?client_id=catenax-portal&amp;tab_id=ZIv4bOly-gQ&amp;session_code=udloA8jLUE34Jn0oGvgmHOj28I5JI2j-zgPsIg_ngsM"
+    },
+    {
+        "name": "idp31",
+        "alias": "idp31",
+        "provider": "keycloak-oidc",
+        "url": "/iamcentralidp/auth/realms/CX-Central/broker/idp31/login?client_id=catenax-portal&amp;tab_id=ZIv4bOly-gQ&amp;session_code=udloA8jLUE34Jn0oGvgmHOj28I5JI2j-zgPsIg_ngsM"
+    },
+    {
+        "name": "idp32",
+        "alias": "idp32",
+        "provider": "keycloak-oidc",
+        "url": "/iamcentralidp/auth/realms/CX-Central/broker/idp32/login?client_id=catenax-portal&amp;tab_id=ZIv4bOly-gQ&amp;session_code=udloA8jLUE34Jn0oGvgmHOj28I5JI2j-zgPsIg_ngsM"
+    },
+    {
+        "name": "idp33",
+        "alias": "idp33",
+        "provider": "keycloak-oidc",
+        "url": "/iamcentralidp/auth/realms/CX-Central/broker/idp33/login?client_id=catenax-portal&amp;tab_id=ZIv4bOly-gQ&amp;session_code=udloA8jLUE34Jn0oGvgmHOj28I5JI2j-zgPsIg_ngsM"
+    },
+    {
+        "name": "OpenResearch",
+        "alias": "idp18",
+        "provider": "keycloak-oidc",
+        "url": "/iamcentralidp/auth/realms/CX-Central/broker/idp18/login?client_id=catenax-portal&amp;tab_id=ZIv4bOly-gQ&amp;session_code=udloA8jLUE34Jn0oGvgmHOj28I5JI2j-zgPsIg_ngsM"
+    },
+    {
+        "name": "idp34",
+        "alias": "idp34",
+        "provider": "keycloak-oidc",
+        "url": "/iamcentralidp/auth/realms/CX-Central/broker/idp34/login?client_id=catenax-portal&amp;tab_id=ZIv4bOly-gQ&amp;session_code=udloA8jLUE34Jn0oGvgmHOj28I5JI2j-zgPsIg_ngsM"
+    },
+    {
+        "name": "EmailTemplateTest-1",
+        "alias": "idp25",
+        "provider": "keycloak-oidc",
+        "url": "/iamcentralidp/auth/realms/CX-Central/broker/idp25/login?client_id=catenax-portal&amp;tab_id=ZIv4bOly-gQ&amp;session_code=udloA8jLUE34Jn0oGvgmHOj28I5JI2j-zgPsIg_ngsM"
+    },
+    {
+        "name": "EmailTemplateTest-1",
+        "alias": "idp26",
+        "provider": "keycloak-oidc",
+        "url": "/iamcentralidp/auth/realms/CX-Central/broker/idp26/login?client_id=catenax-portal&amp;tab_id=ZIv4bOly-gQ&amp;session_code=udloA8jLUE34Jn0oGvgmHOj28I5JI2j-zgPsIg_ngsM"
+    },
+    {
+        "name": "EmailTemplateTest-1",
+        "alias": "idp27",
+        "provider": "keycloak-oidc",
+        "url": "/iamcentralidp/auth/realms/CX-Central/broker/idp27/login?client_id=catenax-portal&amp;tab_id=ZIv4bOly-gQ&amp;session_code=udloA8jLUE34Jn0oGvgmHOj28I5JI2j-zgPsIg_ngsM"
+    },
+    {
+        "name": "sdfsdf",
+        "alias": "idp28",
+        "provider": "keycloak-oidc",
+        "url": "/iamcentralidp/auth/realms/CX-Central/broker/idp28/login?client_id=catenax-portal&amp;tab_id=ZIv4bOly-gQ&amp;session_code=udloA8jLUE34Jn0oGvgmHOj28I5JI2j-zgPsIg_ngsM"
+    },
+    {
+        "name": "TEST",
+        "alias": "idp29",
+        "provider": "keycloak-oidc",
+        "url": "/iamcentralidp/auth/realms/CX-Central/broker/idp29/login?client_id=catenax-portal&amp;tab_id=ZIv4bOly-gQ&amp;session_code=udloA8jLUE34Jn0oGvgmHOj28I5JI2j-zgPsIg_ngsM"
+    }
+]
+    </script>
+    <link href="./Main.css" rel="stylesheet"></link>
+</head>
+
+<body><script src="./Main.js"></script></body>
+
+</html>

@@ -17,7 +17,7 @@
     "settings": "Settings",
     "admin": "Administration",
     "developer": "Development",
-    "invite": "Invitation",
+    "invite": "Invite Business Partner",
     "help": "Help",
     "contact": "Contact",
     "imprint": "Imprint",
@@ -51,7 +51,10 @@
       "message": "Contents of Partner Network"
     },
     "invite": {
-      "message": "Contents of Invite Business Partner"
+      "title": "Invite a new Business Partner",
+      "send": "Send Invite",
+      "success": "Invitation successful",
+      "failure": "Processing your request failed"
     },
     "usermanagement": {
       "message": "Contents of User Management"
@@ -91,6 +94,14 @@
         "notimplemented": "hasn't been implemented yet."
       },
       "further": "If you think there should be content please contact your administrator."
+    }
+  },
+  "global": {
+    "field": {
+      "first": "First Name",
+      "last": "Last Name",
+      "email": "Email",
+      "company": "Company Name"
     }
   }
 }

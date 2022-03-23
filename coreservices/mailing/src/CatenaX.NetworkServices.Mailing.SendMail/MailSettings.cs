@@ -9,6 +9,9 @@ namespace CatenaX.NetworkServices.Mailing.SendMail
         public string SmtpHost { get; set; }
         public string SmtpUser { get; set; }
         public string SmtpPassword { get; set; }
+        public int SmtpPort { get; set; }
+        public string HttpProxy { get; set; }
+        public int HttpProxyPort { get; set; }
     }
     public static class MailSettingsExtention
     {

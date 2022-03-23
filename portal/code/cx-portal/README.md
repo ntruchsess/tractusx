@@ -3,7 +3,7 @@
 Frontend web application for Catena-X. Development instances:
 
 - Protoype: https://catenax-dev003-app-portal-2.azurewebsites.net/
-- Storybook: https://catenax-dev003-app-portal-2.azurewebsites.net/storybook/
+- Storybook: https://catenax-dev003-app-portal-2.azurewebsites.net/_storybook/
 
 
 steps
@@ -20,11 +20,11 @@ steps
     # unit tests
     yarn test
 
-    # linter
-    yarn lint --fix
-
     # formatter
     yarn pretty
+
+    # linter
+    yarn lint --fix
 
 
 known TODO's
