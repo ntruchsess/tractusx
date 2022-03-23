@@ -21,7 +21,7 @@ export const TabPanel = (props: TabPanelProps) => {
     >
       {value === index && (
         <Box sx={{ pt: 2 }}>
-          <Typography>{children}</Typography>
+          <Typography variant={'body2'}>{children}</Typography>
         </Box>
       )}
     </div>
