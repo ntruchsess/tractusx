@@ -90,6 +90,8 @@ namespace CatenaX.NetworkServices.UserAdministration.Service
 
             services.AddTransient<IProvisioningDBAccessFactory, ProvisioningDBAccessFactory>()
                     .ConfigureProvisioningDBAccessSettings(Configuration.GetSection("ProvisioningDBAccess"));
+
+            services.AddTransient<IProvisioningDBAccess>(s => s.GetService<IProvisioningDBAccessFactory>().CreateProvisioningDBAccess());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

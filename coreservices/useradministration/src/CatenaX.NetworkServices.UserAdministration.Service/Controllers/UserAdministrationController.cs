@@ -11,6 +11,7 @@ using System.Linq;
 using System.Collections.Generic;
 using CatenaX.NetworkServices.Provisioning.Library;
 using CatenaX.NetworkServices.Provisioning.Library.Models;
+using CatenaX.NetworkServices.Provisioning.DBAccess;
 
 namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
 {
@@ -117,7 +118,7 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
         [Authorize(Policy = "CheckTenant")]
         [Authorize(Roles="delete_user_account")]
         [Route("tenant/{tenant}/users")]
-        public async Task<IActionResult> ExecuteUserDeletion([FromRoute] string tenant, [FromBody] UserDeletionInfo usersToDelete)
+        public async Task<IActionResult> ExecuteUserDeletion([FromRoute] string tenant, [FromBody] UserIds usersToDelete)
         {
             try
             {
@@ -127,6 +128,42 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
             {
                 _logger.LogError(e.ToString());
                 return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+            }
+        }
+
+        [HttpPut]
+        [Authorize(Roles="approve_new_partner")]
+        [Route("company/{companyId}/bpnAtRegistrationApproval")]
+        public async Task<IActionResult> BpnAttributeAddingAtRegistrationApproval([FromRoute] string companyId)
+        {
+            try
+            {
+                return Ok(await _logic.AddBpnAttributeAtRegistrationApprovalAsync(companyId).ConfigureAwait(false));
+                
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.ToString());
+                return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+
+            }
+        }
+
+        [HttpPut]
+        [Authorize(Roles="modify_user_account")]
+        [Route("bpn")]
+        public async Task<IActionResult> BpnAttributeAdding( [FromBody] IEnumerable<UserUpdateBpn> usersToAddBpn)
+        {
+            try
+            {
+                return Ok(await _logic.AddBpnAttributeAsync(usersToAddBpn).ConfigureAwait(false));
+                
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.ToString());
+                return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+
             }
         }
     }

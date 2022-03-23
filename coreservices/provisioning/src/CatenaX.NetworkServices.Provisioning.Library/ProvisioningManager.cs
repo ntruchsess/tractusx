@@ -18,13 +18,13 @@ namespace CatenaX.NetworkServices.Provisioning.Library
         private readonly IProvisioningDBAccess _ProvisioningDBAccess;
         private readonly ProvisioningSettings _Settings;
 
-        public ProvisioningManager(IKeycloakFactory keycloakFactory, IKeycloakDBAccessFactory keycloakDBAccessFactory, IProvisioningDBAccessFactory provisioningDBAccessFactory, IOptions<ProvisioningSettings> options)
+        public ProvisioningManager(IKeycloakFactory keycloakFactory, IKeycloakDBAccessFactory keycloakDBAccessFactory, IProvisioningDBAccess provisioningDBAccess, IOptions<ProvisioningSettings> options)
         {
             _CentralIdp = keycloakFactory.CreateKeycloakClient("central");
             _SharedIdp = keycloakFactory.CreateKeycloakClient("shared");
             _Settings = options.Value;
             _KeycloakDBAccess = keycloakDBAccessFactory?.CreateKeycloakDBAccess();
-            _ProvisioningDBAccess = provisioningDBAccessFactory?.CreateProvisioningDBAccess();
+            _ProvisioningDBAccess = provisioningDBAccess;
         }
 
         public ProvisioningManager(IKeycloakFactory keycloakFactory, IKeycloakDBAccessFactory keycloakDBAccessFactory, IOptions<ProvisioningSettings> options)
@@ -32,8 +32,8 @@ namespace CatenaX.NetworkServices.Provisioning.Library
         {
         }
 
-        public ProvisioningManager(IKeycloakFactory keycloakFactory, IProvisioningDBAccessFactory provisioningDBAccessFactory, IOptions<ProvisioningSettings> options)
-            : this(keycloakFactory,null,provisioningDBAccessFactory,options)
+        public ProvisioningManager(IKeycloakFactory keycloakFactory, IProvisioningDBAccess provisioningDBAccess, IOptions<ProvisioningSettings> options)
+            : this(keycloakFactory,null,provisioningDBAccess,options)
         {
         }
 
@@ -179,6 +179,22 @@ namespace CatenaX.NetworkServices.Provisioning.Library
             var internalId = (await CreateCentralOIDCClientAsync(clientId,redirectUrl).ConfigureAwait(false));
             await CreateCentralOIDCClientAudienceMapperAsync(internalId, clientId).ConfigureAwait(false);
             return clientId;
+        }
+
+        public async Task<bool> AddBpnAttributetoUserAsync(string userId, IEnumerable<string> bpns)
+        {
+            var user = await _CentralIdp.GetUserAsync(_Settings.CentralRealm, userId).ConfigureAwait(false);
+            if (user.Attributes == null)
+            {
+                user.Attributes = new Dictionary<string, IEnumerable<string>>();
+            }
+            if (user.Attributes.TryGetValue("bpn", out var existingBpns))
+            {
+                bpns = existingBpns.Concat(bpns).Distinct();
+            }
+            user.Attributes["bpn"] = bpns.ToList();
+            if (! await _CentralIdp.UpdateUserAsync(_Settings.CentralRealm, userId, user).ConfigureAwait(false)) return false;
+            return true;
         }
     }
 }
