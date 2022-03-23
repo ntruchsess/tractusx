@@ -5,3 +5,19 @@ export type InviteData = {
   email: string
   organizationName: string
 }
+
+export type TenantUser = {
+  userId: string,
+  providerUserId: string,
+  enabled: boolean,
+  userName: string,
+  firstName: string,
+  lastName: string,
+  email: string
+}
+
+export interface UserAdministrationInitialState {
+  tenantUsers: TenantUser[]
+  loading: boolean
+  error: string
+}
