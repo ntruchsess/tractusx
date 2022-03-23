@@ -468,5 +468,16 @@ export const theme = createTheme({
         },
       },
     },
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          justifyContent: 'start',
+          color: 'text.primary',
+          '&:active, &:focus': {
+            boxShadow: 'none',
+          },
+        },
+      },
+    },
   },
 })

@@ -37,11 +37,13 @@ const Template: ComponentStory<typeof ReactComponent> = () => {
           aria-label="basic tabs usage"
         >
           <Tab
+            sx={{ minWidth: '50%' }}
             label="Single User"
             icon={<PersonOutlinedIcon />}
             iconPosition="start"
           />
           <Tab
+            sx={{ minWidth: '50%' }}
             label="Multiple User"
             icon={<GroupOutlinedIcon />}
             iconPosition="start"
