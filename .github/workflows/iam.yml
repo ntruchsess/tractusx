@@ -149,14 +149,14 @@ jobs:
         id: login
 
       # Deploy central idp service
-      - name: Deploy central idp service on AKS
+      - name: Deploy centralidp service on AKS
         working-directory: ./infrastructure/manifests        
         run: |
           cat iamcentralidp.yaml | envsubst | kubectl apply -f -
           cat iamcentralidp-ingress.yaml | envsubst | kubectl apply -f -         
 
       # Deploy shared idp service
-      - name: Deploy shared idp service on AKS
+      - name: Deploy sharedidp service on AKS
         working-directory: ./infrastructure/manifests        
         run: |
           cat iamsharedidp.yaml | envsubst | kubectl apply -f -
