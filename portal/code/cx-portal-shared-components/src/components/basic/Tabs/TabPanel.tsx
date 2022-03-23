@@ -2,13 +2,13 @@ import React from 'react'
 import { Box } from '@mui/material'
 import { Typography } from '../Typography'
 
-interface ITabPanel {
-  children: string
+interface TabPanelProps {
+  children?: React.ReactNode
   index: number
   value: number
 }
 
-export const TabPanel = (props: ITabPanel): React.ReactElement => {
+export const TabPanel = (props: TabPanelProps) => {
   const { children, value, index, ...other } = props
 
   return (
