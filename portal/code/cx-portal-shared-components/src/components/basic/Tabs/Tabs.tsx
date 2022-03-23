@@ -6,15 +6,5 @@ interface TabsProps extends MuiTabsProps {
 }
 
 export const Tabs = ({ children, ...props }: TabsProps) => {
-  const [value, setValue] = React.useState(0)
-
-  const handleChange = (event: any, newValue: any) => {
-    setValue(newValue)
-  }
-
-  return (
-    <MuiTabs value={value} onChange={handleChange} {...props}>
-      {children}
-    </MuiTabs>
-  )
+  return <MuiTabs {...props}>{children}</MuiTabs>
 }
