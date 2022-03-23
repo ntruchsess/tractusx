@@ -3,19 +3,25 @@ import { CustomIcon } from '../../CustomIcons'
 import { Typography } from '../../Typography'
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import RestartAltOutlinedIcon from '@mui/icons-material/RestartAltOutlined';
-import { IPreviewProps } from "react-dropzone-uploader";
-export interface previewProps extends IPreviewProps{
-  errorStatus: String[],
-  setNewStatusValue: Function
+import { IPreviewProps, StatusValue } from "react-dropzone-uploader";
+
+type statusText = {
+  [k in StatusValue]: string;
 }
 
-export const Preview = ({ meta, setNewStatusValue, fileWithMeta, canCancel, canRemove, canRestart, errorStatus }: previewProps) => {
+export interface previewProps {
+  errorStatus: String[],
+  statusText: Partial<statusText>
+}
+export interface allPreviewProps extends IPreviewProps, previewProps{}
+
+export const Preview = ({ meta, statusText, fileWithMeta, canCancel, canRemove, canRestart, errorStatus }: allPreviewProps) => {
 
   const { name, percent, status } = meta
   const { cancel, remove, restart } = fileWithMeta
   const {spacing, palette} = useTheme()
   const { icon01 } = palette.icon
-  const newStatusValue = setNewStatusValue(status) ?? status
+  const newStatusValue = statusText[status] ?? status
 
   return (
     <Box sx={{

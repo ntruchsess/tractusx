@@ -1,20 +1,19 @@
-import Dropzone, { IDropzoneProps } from "react-dropzone-uploader";
+import ReactDropzone, { IDropzoneProps } from "react-dropzone-uploader";
 import { Box, useTheme } from '@mui/material'
 import { Layout } from './components/Layout'
 import { InputContent } from './components/InputContent'
-import { Preview } from './components/Preview'
-import "react-dropzone-uploader/dist/styles.css";
-interface DropzoneProps extends IDropzoneProps {
+import { Preview, previewProps } from './components/Preview'
+import uniqueId from 'lodash/uniqueId'
+
+interface DropzoneProps extends IDropzoneProps, previewProps {
   fileTypes: string,
   title: string,
   subTitle: string,
   maxFilesCount: number,
-  errorStatus: String[],
-  newStatusValue: Function,
   hideSubmitButton?: boolean
 }
 
-export const CustomDropzone = ({
+export const Dropzone = ({
   title,
   subTitle,
   fileTypes,
@@ -23,13 +22,10 @@ export const CustomDropzone = ({
   onSubmit,
   onChangeStatus,
   hideSubmitButton,
-  newStatusValue,
+  statusText,
   errorStatus,
 }: DropzoneProps) => {
   const { spacing } = useTheme()
-  const CustomInputContent = () => { 
-    return <InputContent title={title} subTitle={subTitle} />
-  }
 
   return (
     <Box sx={{
@@ -47,17 +43,17 @@ export const CustomDropzone = ({
         backgroundColor: 'transparent'
       }
     }}>
-      <Dropzone
+      <ReactDropzone
         LayoutComponent={props => <Layout {...props} hideSubmitButton={hideSubmitButton} />}
-        PreviewComponent={props => <Preview {...props} setNewStatusValue={newStatusValue} errorStatus={errorStatus} />}
+        PreviewComponent={props => <Preview {...props} statusText={statusText} errorStatus={errorStatus} />}
         maxFiles={maxFilesCount}
         submitButtonDisabled={files => files.length > maxFilesCount || files.some(f => ['preparing', 'getting_upload_params', 'uploading'].includes(f.meta.status))}
         accept={fileTypes}
         getUploadParams={getUploadParams}
         onSubmit={onSubmit}
         onChangeStatus={onChangeStatus}
-        inputContent={CustomInputContent}
-        inputWithFilesContent={CustomInputContent}
+        inputContent={<InputContent key={uniqueId('inputContent')} title={title} subTitle={subTitle} />}
+        inputWithFilesContent={<InputContent key={uniqueId('inputWithFilesContent')} title={title} subTitle={subTitle} />}
       />
     </Box>
    

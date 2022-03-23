@@ -1,6 +1,6 @@
 import { ComponentStory } from '@storybook/react'
 
-import { CustomDropzone as Component } from '.'
+import { Dropzone as Component } from '.'
 
 export default {
   title: 'Dropzone',
@@ -35,66 +35,24 @@ Dropzone.args = {
       console.log(`${meta.name}, upload failed...`)
     }
   },
-  newStatusValue: (status: any) => {
-    let newStatusValue
-    switch (status) {
-      case 'rejected_file_type':
-        newStatusValue = 'new rejected_file_type'
-        break
-      case 'rejected_max_files':
-        newStatusValue = 'new rejected_max_files'
-        break
-      case 'preparing':
-        newStatusValue = 'new preparing'
-        break
-      case 'error_file_size':
-        newStatusValue = 'new error_file_size'
-        break
-      case 'error_validation':
-        newStatusValue = 'new error_validation'
-        break
-      case 'ready':
-        newStatusValue = 'new ready'
-        break
-      case 'started':
-        newStatusValue = 'new started'
-        break
-      case 'getting_upload_params':
-        newStatusValue = 'new getting_upload_params'
-        break
-      case 'error_upload_params':
-        newStatusValue = 'new error_upload_params'
-        break
-      case 'uploading':
-        newStatusValue = 'new uploading'
-        break
-      case 'exception_upload':
-        newStatusValue = 'new exception_upload'
-        break
-      case 'aborted':
-        newStatusValue = 'new aborted'
-        break
-      case 'restarted':
-        newStatusValue = 'new restarted'
-        break
-      case 'removed':
-        newStatusValue = 'new removed'
-        break
-      case 'error_upload':
-        newStatusValue = 'new error_upload'
-        break
-      case 'headers_received':
-        newStatusValue = 'new headers_received'
-        break
-      case 'done':
-        newStatusValue = 'new done'
-        break
-      default:
-        newStatusValue = 'new '
-        break
-    }
-
-    return newStatusValue
+  statusText: {
+    rejected_file_type: 'new rejected_file_type',
+    rejected_max_files: 'new rejected_max_files',
+    preparing: 'new preparing',
+    error_file_size: 'new error_file_size',
+    error_validation: 'new error_validation',
+    ready: 'new ready',
+    started: 'new started',
+    getting_upload_params: 'new getting_upload_params',
+    error_upload_params: 'new error_upload_params',
+    uploading: 'new uploading',
+    exception_upload: 'new exception_upload',
+    aborted: 'new aborted',
+    restarted: 'new restarted',
+    removed: 'new removed',
+    error_upload: 'new error_upload',
+    headers_received: 'new headers_received',
+    done: 'new done',
   },
   errorStatus: ['error_upload_params', 'exception_upload', 'error_upload', 'aborted', 'ready']
 }
