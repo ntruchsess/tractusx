@@ -12,11 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { AiOutlineUserAdd } from "react-icons/ai"
-const Button = ({ label, styleClass, handleClick, icon=false }) => (
-  <button className={styleClass} onClick={handleClick}>
-    {(!icon) ? label : <><AiOutlineUserAdd className="button-icon" /> <span>{label}</span></>}
-  </button>
-);
+import { AiOutlineUserAdd } from "react-icons/ai";
+import ReactTooltip from "react-tooltip";
+
+const Button = ({ label, styleClass, handleClick, icon = false, showTooltip = false, tooltipText = '' }) => {
+
+  return (showTooltip) ? (<><ReactTooltip id="tooltipBtn" place="top" effect="solid">
+    {tooltipText}
+  </ReactTooltip><div data-tip data-for="tooltipBtn"><button className={styleClass} onClick={handleClick} color='#939393'  disabled>
+      {(!icon) ? label : <><AiOutlineUserAdd className="button-icon" /> <span>{label}</span></>}
+    </button></div></>) : (<button className={styleClass} onClick={handleClick}>
+      {(!icon) ? label : <><AiOutlineUserAdd className="button-icon" /> <span>{label}</span></>}
+    </button>);
+
+};
 
 export default Button;

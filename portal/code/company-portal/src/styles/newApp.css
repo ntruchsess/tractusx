@@ -498,6 +498,12 @@ textarea {
   background-color: #0f71cb !important;
 }
 
+.btn-disabledCax{
+  color: #ffffff;
+  background-color: #ADADAD !important;
+  cursor: default;
+}
+
 .error label {
   color: #d91e18;
 }

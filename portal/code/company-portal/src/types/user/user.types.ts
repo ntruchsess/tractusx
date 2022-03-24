@@ -13,6 +13,7 @@ export interface IUserData {
     currentStep: number;
     companyData: CompanyDetailsData;
     roleComposite: string[];
+    fileNames: string[];
 }
 
 
