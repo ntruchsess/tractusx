@@ -8,9 +8,7 @@ export default function UserManagement() {
   const { t } = useTranslation()
 
   const dispatch = useDispatch()
-  const { tenantUsers } = useSelector(
-    selectorUserAdministration
-  )
+  const { tenantUsers } = useSelector(selectorUserAdministration)
 
   useEffect(() => {
     dispatch(fetchTenantUsers())

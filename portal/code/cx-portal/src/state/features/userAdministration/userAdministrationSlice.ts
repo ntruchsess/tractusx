@@ -6,7 +6,7 @@ import { fetchTenantUsers } from './userAdministrationActions'
 const initialState: UserAdministrationInitialState = {
   tenantUsers: [],
   loading: true,
-  error: ''
+  error: '',
 }
 
 const userAdministrationSlice = createSlice({
@@ -17,12 +17,15 @@ const userAdministrationSlice = createSlice({
     builder.addCase(fetchTenantUsers.pending, (state) => {
       state.tenantUsers = []
       state.loading = true
+      state.error = ''
     })
     builder.addCase(fetchTenantUsers.fulfilled, (state, { payload }) => {
       state.tenantUsers = payload || []
       state.loading = false
+      state.error = ''
     })
     builder.addCase(fetchTenantUsers.rejected, (state, action) => {
+      state.tenantUsers = []
       state.loading = false
       state.error = action.error.message as string
     })

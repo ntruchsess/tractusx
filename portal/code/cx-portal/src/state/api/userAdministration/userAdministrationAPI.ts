@@ -1,5 +1,8 @@
 import { HttpClient } from 'utils/HttpClient'
-import { TenantUser, InviteData } from 'types/userAdministration/UserAdministrationTypes'
+import {
+  TenantUser,
+  InviteData,
+} from 'types/userAdministration/UserAdministrationTypes'
 
 // Instance of UserAdministration API endpoint
 export class UserAdministrationApi extends HttpClient {
