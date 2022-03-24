@@ -20,7 +20,7 @@ export const InputContent = ({title,
         sx={{ 
               display: 'block', 
               fontFamily: theme.typography.body1.fontFamily,
-              marginTop: '29.5px'
+              marginTop: 4
             }}
         >
         {title}

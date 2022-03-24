@@ -9,8 +9,7 @@ interface DropzoneProps extends IDropzoneProps, previewProps {
   fileTypes: string,
   title: string,
   subTitle: string,
-  maxFilesCount: number,
-  hideSubmitButton?: boolean
+  maxFilesCount: number
 }
 
 export const Dropzone = ({
@@ -21,7 +20,6 @@ export const Dropzone = ({
   getUploadParams,
   onSubmit,
   onChangeStatus,
-  hideSubmitButton,
   statusText,
   errorStatus,
 }: DropzoneProps) => {
@@ -36,7 +34,7 @@ export const Dropzone = ({
         backgroundImage: `url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='40' ry='40' stroke='%23B6B6B6FF' stroke-width='2' stroke-dasharray='16' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e")`,
         padding: spacing(6, 0),
         textAlign: 'center',
-        minHeight: '265px'
+        minHeight: 33
       },
       '.dzu-inputLabelWithFiles': {
         margin: 'auto',
@@ -44,7 +42,7 @@ export const Dropzone = ({
       }
     }}>
       <ReactDropzone
-        LayoutComponent={props => <Layout {...props} hideSubmitButton={hideSubmitButton} />}
+        LayoutComponent={Layout}
         PreviewComponent={props => <Preview {...props} statusText={statusText} errorStatus={errorStatus} />}
         maxFiles={maxFilesCount}
         submitButtonDisabled={files => files.length > maxFilesCount || files.some(f => ['preparing', 'getting_upload_params', 'uploading'].includes(f.meta.status))}

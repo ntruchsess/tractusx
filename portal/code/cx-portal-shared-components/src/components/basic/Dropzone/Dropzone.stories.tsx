@@ -22,7 +22,6 @@ Dropzone.args = {
   subTitle: 'or browse files on your computer.',
   fileTypes: 'image/*,audio/*,video/*',
   maxFilesCount: 3,
-  hideSubmitButton: false,
   getUploadParams: () => ({ url: 'https://httpbin.org/post' }),
   onSubmit: (files, allFiles) => {
     console.log(files.map(f => f.meta))
