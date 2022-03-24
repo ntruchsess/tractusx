@@ -7,16 +7,25 @@ using CatenaX.NetworkServices.Cosent.Library.Data;
 using CatenaX.NetworkServices.Registration.Service.Model;
 
 using Dapper;
+using Microsoft.Extensions.Options;
+using Npgsql;
 
 namespace CatenaX.NetworkServices.Registration.Service.RegistrationAccess
 {
     public class RegistrationDBAccess : IRegistrationDBAccess, IDisposable
     {
         private readonly IDbConnection _dbConnection;
+        private readonly string _dbSchema;
 
-        public RegistrationDBAccess(IDbConnection dbConnection)
+        public RegistrationDBAccess(IOptions<RegistrationDBAccessSettings> settings)
+            : this(new NpgsqlConnection(settings.Value.ConnectionString), settings.Value.DatabaseSchema)
+        {
+        }
+
+        public RegistrationDBAccess(IDbConnection dbConnection, string dbSchema)
         {
             _dbConnection = dbConnection;
+            _dbSchema = dbSchema;
         }
 
         public void Dispose()
