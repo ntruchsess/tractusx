@@ -29,6 +29,9 @@
     "notfound": "Page not found"
   },
   "content": {
+    "admin": {
+      "headertitle": "User Management"
+    },
     "dashboard": {
       "welcome": "Welcome to Catena-X - the automotive network!"
     },
