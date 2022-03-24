@@ -112,22 +112,22 @@ const palette = createPalette({
     focus: 'rgba(15, 113, 203, 0.15)',
     active: 'rgba(15, 113, 203, 0.2)',
   },
-  pending:{
+  pending: {
     main: '#FFECBD',
     contrastText: '#975B27',
   },
-  confirmed:{
+  confirmed: {
     main: '#E2F6C7',
     contrastText: '#5C8D45',
   },
-  declined:{
+  declined: {
     main: '#FEE7E2',
     contrastText: '#FF532F',
   },
-  label:{
+  label: {
     main: '#F2F3FB',
     contrastText: '#676BC6',
-  }
+  },
 })
 
 const typography = createTypography(palette, {
@@ -465,7 +465,7 @@ export const theme = createTheme({
         },
       },
     },
-    MuiChip:{
+    MuiChip: {
       styleOverrides: {
         root: {
           borderRadius: 6,
@@ -478,7 +478,7 @@ export const theme = createTheme({
           },
           style: {
             backgroundColor: palette.pending.main,
-            color: palette.pending.contrastText
+            color: palette.pending.contrastText,
           },
         },
         {
@@ -487,7 +487,7 @@ export const theme = createTheme({
           },
           style: {
             backgroundColor: palette.confirmed.main,
-            color: palette.confirmed.contrastText
+            color: palette.confirmed.contrastText,
           },
         },
         {
@@ -496,7 +496,7 @@ export const theme = createTheme({
           },
           style: {
             backgroundColor: palette.declined.main,
-            color: palette.declined.contrastText
+            color: palette.declined.contrastText,
           },
         },
         {
@@ -505,9 +505,9 @@ export const theme = createTheme({
           },
           style: {
             backgroundColor: palette.label.main,
-            color: palette.label.contrastText
+            color: palette.label.contrastText,
           },
-        }
+        },
       ],
     },
     MuiLink: {

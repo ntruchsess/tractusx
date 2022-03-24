@@ -10,7 +10,7 @@ export { SharedThemeProvider } from './basic/SharedThemeProvider'
 export { Typography } from './basic/Typography'
 export { UserAvatar } from './basic/UserAvatar'
 export { Table, StatusTag } from './basic/Table'
-export {Chip} from './basic/Chip'
+export { Chip } from './basic/Chip'
 
 export { AppCards } from './content/AppCards'
 export { UserMenu } from './content/UserMenu'

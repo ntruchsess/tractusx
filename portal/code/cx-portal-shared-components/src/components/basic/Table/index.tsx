@@ -1,8 +1,6 @@
 import { DataGrid, DataGridProps } from '@mui/x-data-grid'
-import {StatusTag} from './components/StatusTag'
-export {
-  StatusTag
-}
+import { StatusTag } from './components/StatusTag'
+export { StatusTag }
 
 export const Table = ({
   columns,

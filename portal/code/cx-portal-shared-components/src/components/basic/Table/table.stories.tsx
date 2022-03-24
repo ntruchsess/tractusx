@@ -35,9 +35,7 @@ const columns: GridColDef[] = [
     field: 'role',
     headerName: 'Role',
     flex: 1,
-    renderCell: (params: GridRenderCellParams<string>) => (
-      <>{params.value}</>
-    ),
+    renderCell: (params: GridRenderCellParams<string>) => <>{params.value}</>,
   },
 ]
 

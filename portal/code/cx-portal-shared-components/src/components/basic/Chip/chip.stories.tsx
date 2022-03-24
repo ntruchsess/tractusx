@@ -17,10 +17,9 @@ Decline.args = {
   variant: 'filled',
   label: 'decline',
   type: 'decline',
-  onClick: ()=> console.log('Decline clicked'),
-  withIcon: true
+  onClick: () => console.log('Decline clicked'),
+  withIcon: true,
 }
-
 
 export const Confirm = Template.bind({})
 Confirm.args = {
@@ -28,6 +27,6 @@ Confirm.args = {
   variant: 'filled',
   label: 'confirm',
   type: 'confirm',
-  onClick: ()=> console.log('Confirm clicked'),
-  withIcon: true
+  onClick: () => console.log('Confirm clicked'),
+  withIcon: true,
 }
