@@ -90,7 +90,7 @@ namespace CatenaX.NetworkServices.Registration.Service.RegistrationAccess
                 throw new ArgumentNullException(nameof(applicationStatus));
             }
             string sql =
-                    $@"UPDATE {_dbSchema}.company_application
+                    $@"UPDATE {_dbSchema}.company_applications
                     SET status = @applicationStatus::{_dbSchema}.application_status, date_last_changed = now()
                     WHERE applicationid = @applicationId";
             var statusResult = (await _dbConnection.ExecuteAsync(sql, new {
