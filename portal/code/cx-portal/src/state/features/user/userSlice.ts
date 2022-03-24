@@ -6,6 +6,7 @@ const initialState: IUser = {
   name: '',
   email: '',
   company: '',
+  tenant: '',
   roles: [],
   isAdmin: false,
   token: '',

@@ -10,6 +10,7 @@ import AccessService from 'services/AccessService'
 
 const TestUser: IUser = {
   company: 'CX Test Access',
+  tenant: 'cx-test-tenant',
   email: 'gustav.gans@bmw.de',
   isAdmin: true,
   name: 'Test User CX Admin',
