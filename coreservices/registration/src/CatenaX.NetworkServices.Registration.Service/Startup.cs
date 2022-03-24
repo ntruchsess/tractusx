@@ -27,6 +27,7 @@ using Npgsql;
 using System;
 using System.Data;
 using System.IdentityModel.Tokens.Jwt;
+using System.Net.Http;
 
 namespace CatenaX.NetworkServices.Registration.Service
 {
@@ -50,7 +51,15 @@ namespace CatenaX.NetworkServices.Registration.Service
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(options => Configuration.Bind("JwtBearerOptions",options));
+            }).AddJwtBearer( options => {
+                Configuration.Bind("JwtBearerOptions",options);
+                if (!options.RequireHttpsMetadata)
+                {
+                    options.BackchannelHttpHandler = new HttpClientHandler {
+                        ServerCertificateCustomValidationCallback = (a,b,c,d) => true
+                    };
+                }
+            });
 
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
