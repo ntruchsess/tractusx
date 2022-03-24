@@ -28,18 +28,18 @@ namespace CatenaX.NetworkServices.Provisioning.DBAccess
             _dbSchema = dbSchema;
         }
 
-        public async Task<Sequence> GetNextClientSequenceAsync()
+        public Task<Sequence> GetNextClientSequenceAsync()
         {
             string sql =
                 $"INSERT INTO {_dbSchema}.iam_client_sequence VALUES(DEFAULT) RETURNING id";
-            return await _dbConnection.QueryFirstAsync<Sequence>(sql);
+            return _dbConnection.QueryFirstAsync<Sequence>(sql);
         }
 
-        public async Task<Sequence> GetNextIdentityProviderSequenceAsync()
+        public Task<Sequence> GetNextIdentityProviderSequenceAsync()
         {
             string sql =
                 $"INSERT INTO {_dbSchema}.iam_identityprovider_sequence VALUES(DEFAULT) RETURNING id";
-            return await _dbConnection.QueryFirstAsync<Sequence>(sql);
+            return _dbConnection.QueryFirstAsync<Sequence>(sql);
         }
 
         public async Task<IEnumerable<string>> GetBpnForUserAsync(string userId, string bpn = null)
@@ -59,7 +59,7 @@ namespace CatenaX.NetworkServices.Provisioning.DBAccess
             var bpnResult = (await _dbConnection.QueryAsync<string>(sql, new {
                     userId = new Guid(userId),
                     bpn
-                }));
+                }).ConfigureAwait(false));
             if (!bpnResult.Any())
             {
                 throw new InvalidOperationException("BPN not found");
@@ -81,7 +81,7 @@ namespace CatenaX.NetworkServices.Provisioning.DBAccess
             var idpAliasResult = (await _dbConnection.QuerySingleAsync<string>(sql, new {
                     companyId,
                     idpAlias
-                }));
+                }).ConfigureAwait(false));
             if (String.IsNullOrEmpty(idpAliasResult))
             {
                 throw new InvalidOperationException("idpAlias not found");
