@@ -61,16 +61,16 @@ export const Preview = ({ meta, statusText, fileWithMeta, canCancel, canRemove, 
           <RestartAltOutlinedIcon sx={{ color: icon01 }} fontSize="small" />
         </Box>
       )}
+      {errorStatus.includes(status) && canRestart && ( 
+        <Box onClick={restart}>
+          <RestartAltOutlinedIcon sx={{ color: icon01 }} fontSize="small" />
+        </Box>
+      )}
       {status !== 'preparing' && status !== 'getting_upload_params' && status !== 'uploading' && canRemove && (
         <Box onClick={remove}>
           <DeleteOutlineIcon sx={{ color: icon01 }} fontSize="small" />
         </Box>
       )}
-      {errorStatus.includes(status) && canRestart && ( 
-        <Box onClick={restart}>
-          <DeleteOutlineIcon sx={{ color: icon01 }} fontSize="small" />
-        </Box>)
-      }
     </Box>
   )
 }
