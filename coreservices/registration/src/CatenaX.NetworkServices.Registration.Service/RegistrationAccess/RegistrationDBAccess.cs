@@ -22,7 +22,7 @@ namespace CatenaX.NetworkServices.Registration.Service.RegistrationAccess
         {
         }
 
-        public RegistrationDBAccess(IDbConnection dbConnection, string dbSchema)
+        private RegistrationDBAccess(IDbConnection dbConnection, string dbSchema)
         {
             _dbConnection = dbConnection;
             _dbSchema = dbSchema;
