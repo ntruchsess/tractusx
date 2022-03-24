@@ -2,7 +2,6 @@ using CatenaX.NetworkServices.Mailing.SendMail;
 using CatenaX.NetworkServices.Mailing.Template;
 using CatenaX.NetworkServices.Registration.Service.BPN;
 using CatenaX.NetworkServices.Registration.Service.BusinessLogic;
-using CatenaX.NetworkServices.Registration.Service.CDQ;
 using CatenaX.NetworkServices.Registration.Service.Custodian;
 using CatenaX.NetworkServices.Registration.Service.RegistrationAccess;
 using CatenaX.NetworkServices.Keycloak.Authentication;
@@ -93,19 +92,6 @@ namespace CatenaX.NetworkServices.Registration.Service
             {
                 c.BaseAddress = new Uri($"{ Configuration.GetValue<string>("BPN_Address")}");
             });
-            if (Configuration.GetValue<bool?>("CDQ_Enabled") != null && Configuration.GetValue<bool>("CDQ_Enabled"))
-            {
-                services.AddTransient<ICDQAccess, CDQAccess>();
-                services.AddHttpClient("cdq", c =>
-                {
-                    c.DefaultRequestHeaders.Add("X-API-KEY", Configuration.GetValue<string>("CDQ_SubscriptionKey"));
-                    c.BaseAddress = new Uri($"{ Configuration.GetValue<string>("CDQ_Address")}");
-                });
-            }
-            else
-            {
-                services.AddTransient<ICDQAccess, CDQAccessMock>();
-            }
 
             services.AddTransient<IMailingService, MailingService>()
                     .AddTransient<ISendMail, SendMail>()
