@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using CatenaX.NetworkServices.Provisioning.Library;
 using CatenaX.NetworkServices.Provisioning.Library.Models;
+using CatenaX.NetworkServices.UserAdministration.Service.Models;
 
 namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
 {

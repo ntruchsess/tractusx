@@ -6,12 +6,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-using CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic;
 using System.Linq;
 using System.Collections.Generic;
 using CatenaX.NetworkServices.Provisioning.Library;
 using CatenaX.NetworkServices.Provisioning.Library.Models;
-using CatenaX.NetworkServices.Provisioning.DBAccess;
+using CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic;
+using CatenaX.NetworkServices.UserAdministration.Service.Models;
 
 namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
 {
