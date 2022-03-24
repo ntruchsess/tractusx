@@ -11,6 +11,7 @@ using CatenaX.NetworkServices.Mailing.SendMail;
 using CatenaX.NetworkServices.Provisioning.Library;
 using CatenaX.NetworkServices.Provisioning.Library.Models;
 using CatenaX.NetworkServices.Provisioning.DBAccess;
+using CatenaX.NetworkServices.UserAdministration.Service.Models;
 
 namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
 {
