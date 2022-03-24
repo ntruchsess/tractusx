@@ -28,7 +28,7 @@ export const Chip = ({
       break
     case 'confirm':
       icon = <CheckCircleOutlineIcon />
-      hoverBgColor = theme.palette.declined.main
+      hoverBgColor = theme.palette.confirmed.main
       hoverTextColor = theme.palette.confirmed.contrastText
       break
   }
@@ -38,9 +38,10 @@ export const Chip = ({
     color={color}
     icon={withIcon ? icon : undefined}
     sx={{
+      borderRadius: '36px',
       ':hover': {
-        backgroundColor: hoverColor,
-        color:
+        backgroundColor: hoverBgColor,
+        color: hoverTextColor
       },
     }}
     {...props} />

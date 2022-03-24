@@ -13,19 +13,21 @@ const Template: ComponentStory<typeof Component> = (args: any) => (
 
 export const Decline = Template.bind({})
 Decline.args = {
-  color: 'label',
+  color: 'secondary',
   variant: 'filled',
   label: 'decline',
   type: 'decline',
+  onClick: ()=> console.log('Decline clicked'),
   withIcon: true
 }
 
 
 export const Confirm = Template.bind({})
 Confirm.args = {
-  color: 'label',
+  color: 'secondary',
   variant: 'filled',
   label: 'confirm',
   type: 'confirm',
+  onClick: ()=> console.log('Confirm clicked'),
   withIcon: true
 }
