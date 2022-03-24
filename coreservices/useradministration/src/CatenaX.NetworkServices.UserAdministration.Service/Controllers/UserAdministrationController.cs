@@ -38,7 +38,7 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
             {
                 if (await _logic.ExecuteInvitation(InvitationData).ConfigureAwait(false))
                 {
-                    return new OkResult();
+                    return Ok();
                 }
                 _logger.LogError("unsuccessful");
                 return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
@@ -60,9 +60,7 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
             {
                 var createdByName = User.Claims.SingleOrDefault( x => x.Type=="name").Value as string;
                 var createdUsers = await _logic.CreateUsersAsync(usersToCreate, tenant, createdByName).ConfigureAwait(false);
-                
                 return Ok(createdUsers);
-                
             }
             catch (Exception e)
             {
@@ -102,7 +100,7 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
                 var userName = User.Claims.SingleOrDefault( x => x.Type=="sub").Value as string;
                 if (await _logic.DeleteUserAsync(tenant, userName).ConfigureAwait(false))
                 {
-                    return new OkResult();
+                    return Ok();
                 }
                 _logger.LogError("unsuccessful");
                 return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
@@ -139,13 +137,11 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
             try
             {
                 return Ok(await _logic.AddBpnAttributeAtRegistrationApprovalAsync(companyId).ConfigureAwait(false));
-                
             }
             catch (Exception e)
             {
                 _logger.LogError(e.ToString());
                 return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
-
             }
         }
 
@@ -157,13 +153,11 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
             try
             {
                 return Ok(await _logic.AddBpnAttributeAsync(usersToAddBpn).ConfigureAwait(false));
-                
             }
             catch (Exception e)
             {
                 _logger.LogError(e.ToString());
                 return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
-
             }
         }
     }
