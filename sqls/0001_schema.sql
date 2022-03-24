@@ -107,6 +107,7 @@ DROP TABLE public.agreements;
 DROP TABLE public.agreement_assigned_document_templates;
 DROP TABLE public.agreement_assigned_company_roles;
 DROP TABLE public.addresses;
+DROP TYPE public.application_status;
 
 --
 -- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: -
@@ -271,7 +272,7 @@ CREATE TABLE public.company_applications (
     applicationid character varying(255) NOT NULL,
     date_created timestamp without time zone,
     date_last_changed timestamp without time zone,
-    status character varying(255),
+    status public.application_status,
     company_companyid character varying(255) NOT NULL
 );
 
@@ -992,6 +993,14 @@ ALTER TABLE ONLY public.invitations
 
 ALTER TABLE ONLY public.agreement_assigned_company_roles
     ADD CONSTRAINT fktljol11mdo76f4kv7fwqn1qc6 FOREIGN KEY (agreement_id) REFERENCES public.agreements(id);
+
+
+--
+-- Name: use_cases; Type: TYPE; Schema: public; Owner: -
+--
+
+CREATE TYPE public.application_status AS ENUM
+    ('Add Company Data', 'Invite User', 'Select Company Role', 'Upload Documents', 'Verify', 'Submitted');
 
 
 --

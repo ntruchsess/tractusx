@@ -477,9 +477,9 @@ COPY public.app_descriptions (date_created, date_last_changed, description_long,
 --
 
 COPY public.company_applications (applicationid, date_created, date_last_changed, status, company_companyid) FROM stdin;
-4f0146c6-32aa-4bb1-b844-df7e8babdcb6	2022-03-24 18:01:33.403	2022-03-24 18:01:33.403	VERIFY_COMPANY	220330ac-170d-4e22-8d72-9467ed042149
-0195a85f-e465-4571-b980-d1351dd76a9f	2022-03-24 18:01:33.431	2022-03-24 18:01:33.431	VERIFY_COMPANY	bdac6865-2a8d-4bfd-9373-9dfce8190895
-6b2d1263-c073-4a48-bfaf-704dc154ca9a	2022-03-24 18:01:33.439	2022-03-24 18:01:33.439	VERIFY_COMPANY	41fd2ab8-71cd-4546-9bef-a388d91b2542
+4f0146c6-32aa-4bb1-b844-df7e8babdcb6	2022-03-24 18:01:33.403	2022-03-24 18:01:33.403	Add Company Data	220330ac-170d-4e22-8d72-9467ed042149
+0195a85f-e465-4571-b980-d1351dd76a9f	2022-03-24 18:01:33.431	2022-03-24 18:01:33.431	Submitted	bdac6865-2a8d-4bfd-9373-9dfce8190895
+6b2d1263-c073-4a48-bfaf-704dc154ca9a	2022-03-24 18:01:33.439	2022-03-24 18:01:33.439	\N	41fd2ab8-71cd-4546-9bef-a388d91b2542
 \.
 
 
