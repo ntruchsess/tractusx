@@ -1,5 +1,5 @@
 import { ComponentStory } from '@storybook/react'
-import { StatusTag as Component } from './StatusTag'
+import { StatusTag as Component } from '.'
 
 export default {
   title: 'StatusTag',
@@ -11,25 +11,9 @@ const Template: ComponentStory<typeof Component> = (args: any) => (
   <Component {...args} />
 )
 
-export const Default = Template.bind({})
-Default.args = {
+export const StatusTag = Template.bind({})
+StatusTag.args = {
   color: 'label',
   variant: 'filled',
   label: 'label',
-  withIcon: false
-}
-
-export const WithIcon = Template.bind({})
-WithIcon.args = {
-  color: 'label',
-  variant: 'filled',
-  label: 'label',
-  withIcon: true
-}
-
-export const WithoutLabel = Template.bind({})
-WithoutLabel.args = {
-  color: 'label',
-  variant: 'filled',
-  withIcon: true
 }
