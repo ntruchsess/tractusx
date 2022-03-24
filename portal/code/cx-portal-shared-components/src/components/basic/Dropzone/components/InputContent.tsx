@@ -1,5 +1,5 @@
 import { Box, useTheme } from '@mui/material'
-import { CustomIcon } from '../../CustomIcons'
+import { CloudUploadIcon } from '../../CustomIcons/CloudUploadIcon'
 import { Typography } from '../../Typography'
 
 interface InputContentProps {
@@ -14,7 +14,7 @@ export const InputContent = ({title,
 
   return (
     <Box>
-      <CustomIcon name={"cloud-upload"} fillColor={icon01} size={64} />
+      <CloudUploadIcon fillColor={icon01} size={64} />
       <Typography 
         variant="h4" 
         sx={{ 

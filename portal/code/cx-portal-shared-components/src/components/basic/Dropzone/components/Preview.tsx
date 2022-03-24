@@ -1,5 +1,5 @@
 import { Box, useTheme } from '@mui/material'
-import { CustomIcon } from '../../CustomIcons'
+import { FileIcon } from '../../CustomIcons/FileIcon'
 import { Typography } from '../../Typography'
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import RestartAltOutlinedIcon from '@mui/icons-material/RestartAltOutlined';
@@ -44,7 +44,7 @@ export const Preview = ({ meta, statusText, fileWithMeta, canCancel, canRemove, 
               }
             }}
       >
-      <CustomIcon name={"file"} fillColor={icon01} size={80} />
+      <FileIcon fillColor={icon01} size={80} />
 
       <Box sx={{width: '100%', margin: spacing(1, 4)}}>
         <Typography variant="caption2" sx={{ display: 'block', color: 'common.black' }}>
