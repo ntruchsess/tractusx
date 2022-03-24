@@ -1,12 +1,13 @@
+using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Threading.Tasks;
-
+using Microsoft.Extensions.Options;
+using Npgsql;
 using Dapper;
 
 using CatenaX.NetworkServices.Provisioning.DBAccess.Model;
-using System.Collections.Generic;
-using System;
-using System.Linq;
 
 namespace CatenaX.NetworkServices.Provisioning.DBAccess
 
@@ -16,7 +17,12 @@ namespace CatenaX.NetworkServices.Provisioning.DBAccess
         private readonly IDbConnection _dbConnection;
         private readonly string _dbSchema;
 
-        public ProvisioningDBAccess(IDbConnection dbConnection, string dbSchema)
+        public ProvisioningDBAccess(IOptions<ProvisioningDBAccessSettings> settings)
+            : this(new NpgsqlConnection(settings.Value.ConnectionString), settings.Value.DatabaseSchema)
+        {
+        }
+
+        private ProvisioningDBAccess(IDbConnection dbConnection, string dbSchema)
         {
             _dbConnection = dbConnection;
             _dbSchema = dbSchema;

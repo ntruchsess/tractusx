@@ -79,10 +79,8 @@ namespace CatenaX.NetworkServices.UserAdministration.Service
             services.AddTransient<IKeycloakDBAccessFactory, KeycloakDBAccessFactory>()
                     .ConfigureKeycloakDBAccessSettings(Configuration.GetSection("KeycloakDBAccess"));
 
-            services.AddTransient<IProvisioningDBAccessFactory, ProvisioningDBAccessFactory>()
+            services.AddTransient<IProvisioningDBAccess, ProvisioningDBAccess>()
                     .ConfigureProvisioningDBAccessSettings(Configuration.GetSection("ProvisioningDBAccess"));
-
-            services.AddTransient<IProvisioningDBAccess>(s => s.GetService<IProvisioningDBAccessFactory>().CreateProvisioningDBAccess());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

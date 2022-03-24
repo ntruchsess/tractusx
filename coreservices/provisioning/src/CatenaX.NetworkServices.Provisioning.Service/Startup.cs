@@ -51,7 +51,7 @@ namespace CatenaX.NetworkServices.Provisioning.Service
                     .ConfigureKeycloakSettingsMap(Configuration.GetSection("Keycloak"))
                     .ConfigureProvisioningSettings(Configuration.GetSection("Provisioning"));
 
-            services.AddTransient<IProvisioningDBAccessFactory, ProvisioningDBAccessFactory>()
+            services.AddTransient<IProvisioningDBAccess, ProvisioningDBAccess>()
                     .ConfigureProvisioningDBAccessSettings(Configuration.GetSection("ProvisioningDBAccess"));
 
         }
