@@ -1,6 +1,4 @@
 import CustomIcons from './Icons.svg';
-import './Icon.scss';
-
 interface CustomIconProps {
   name: string,
   fillColor?: string,
