@@ -15,5 +15,6 @@ namespace CatenaX.NetworkServices.Registration.Service.RegistrationAccess
         Task<IEnumerable<SignedConsent>> SignedConsentsByCompanyId(string companyId);
         Task SetIdp(SetIdp idpToSet);
         Task UploadDocument(string name,string document, string hash, string username);
+        Task <int> UpdateApplicationStatusAsync(string applicationId, string applicationToUpdate);
     }
 }

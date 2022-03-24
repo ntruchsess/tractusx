@@ -82,5 +82,26 @@ namespace CatenaX.NetworkServices.Registration.Service.RegistrationAccess
             string sql = "Insert Into public.documents (documentName, document, documentHash, documentuser, documentuploaddate) values(@documentName, @document, @documentHash, @documentuser, @documentuploaddate)";
             await _dbConnection.ExecuteAsync(sql, parameters);
         }
+
+        public async Task<int> UpdateApplicationStatusAsync(string applicationId, string applicationStatus)
+        {
+            if (String.IsNullOrEmpty(applicationStatus))
+            {
+                throw new ArgumentNullException(nameof(applicationStatus));
+            }
+            string sql =
+                    $@"UPDATE {_dbSchema}.company_application
+                    SET status = @applicationStatus::{_dbSchema}.application_status, date_last_changed = now()
+                    WHERE applicationid = @applicationId";
+            var statusResult = (await _dbConnection.ExecuteAsync(sql, new {
+                    applicationId,
+                    applicationStatus
+                }));
+            if (statusResult == 0)
+            {
+                throw new InvalidOperationException("Application status not updated");
+            }
+            return statusResult;
+        }
     }
 }
