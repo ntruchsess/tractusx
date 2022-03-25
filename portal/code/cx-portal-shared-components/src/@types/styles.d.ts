@@ -72,6 +72,11 @@ declare module '@mui/material/styles' {
     active: string
   }
 
+  interface TypeChipColor {
+    main: string
+    contrastText: string
+  }
+
   interface PaletteColor {
     shadow: string
   }
@@ -90,6 +95,10 @@ declare module '@mui/material/styles' {
     danger: TypeDanger
     accent: TypeAccent
     selected: TypeSelected
+    pending: TypeChipColor
+    confirmed: TypeChipColor
+    declined: TypeChipColor
+    label: TypeChipColor
   }
   interface PaletteOptions {
     icon?: Partial<TypeIcons>
@@ -101,6 +110,10 @@ declare module '@mui/material/styles' {
     danger?: Partial<TypeDanger>
     accent?: Partial<TypeAccent>
     selected?: Partial<TypeSelected>
+    pending?: Partial<TypeChipColor>
+    confirmed?: Partial<TypeChipColor>
+    declined?: Partial<TypeChipColor>
+    label?: Partial<TypeChipColor>
   }
 
   interface TypographyVariants {
