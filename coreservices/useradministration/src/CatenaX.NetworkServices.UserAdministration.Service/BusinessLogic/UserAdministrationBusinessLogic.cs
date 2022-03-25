@@ -95,8 +95,16 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
 
                     if (!await _provisioningManager.AssignClientRolesToCentralUserAsync(centralUserId, clientRoleNames).ConfigureAwait(false)) continue;
 
-                    var bpn = await _provisioningDBAccess.GetBpnForUserAsync(centralUserId).ConfigureAwait(false);
-                    if (!await _provisioningManager.AddBpnAttributetoUserAsync(centralUserId, bpn).ConfigureAwait(false)) continue;
+                    // TODO: revaluate try...catch as soon as BPN can be found at UserCreation
+                    try
+                    {
+                        var bpn = await _provisioningDBAccess.GetBpnForUserAsync(centralUserId).ConfigureAwait(false);
+                        if (!await _provisioningManager.AddBpnAttributetoUserAsync(centralUserId, bpn).ConfigureAwait(false)) continue;
+                    }
+                    catch (InvalidOperationException e)
+                    {
+                        _logger.LogInformation(e, "BPN not found, will continue without");
+                    }
 
                     var inviteTemplateName = "PortalTemplate";
                     if (!string.IsNullOrWhiteSpace(user.Message))
