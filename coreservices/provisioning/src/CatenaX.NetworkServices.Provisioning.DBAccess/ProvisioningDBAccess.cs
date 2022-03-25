@@ -1,45 +1,49 @@
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Options;
-using Npgsql;
 using Dapper;
 
 using CatenaX.NetworkServices.Provisioning.DBAccess.Model;
+using CatenaX.NetworkServices.Framework.DBAccess;
 
 namespace CatenaX.NetworkServices.Provisioning.DBAccess
 
 {
-    public class ProvisioningDBAccess : IProvisioningDBAccess, IDisposable
+    public class ProvisioningDBAccess : IProvisioningDBAccess
     {
-        private readonly IDbConnection _dbConnection;
+        private readonly IDBConnectionFactory _DBConnection;
         private readonly string _dbSchema;
 
-        public ProvisioningDBAccess(IOptions<ProvisioningDBAccessSettings> settings)
-            : this(new NpgsqlConnection(settings.Value.ConnectionString), settings.Value.DatabaseSchema)
+        public ProvisioningDBAccess(IDBConnectionFactories dbConnectionFactories)
+        : this(dbConnectionFactories.Get("Provisioning"))
         {
         }
 
-        private ProvisioningDBAccess(IDbConnection dbConnection, string dbSchema)
+        public ProvisioningDBAccess(IDBConnectionFactory dbConnectionFactory)
         {
-            _dbConnection = dbConnection;
-            _dbSchema = dbSchema;
+            _DBConnection = dbConnectionFactory;
+            _dbSchema = dbConnectionFactory.Schema();
         }
 
-        public Task<Sequence> GetNextClientSequenceAsync()
+        public async Task<Sequence> GetNextClientSequenceAsync()
         {
             string sql =
                 $"INSERT INTO {_dbSchema}.iam_client_sequence VALUES(DEFAULT) RETURNING id";
-            return _dbConnection.QueryFirstAsync<Sequence>(sql);
+            using (var connection = _DBConnection.Connection())
+            {
+                return await connection.QueryFirstAsync<Sequence>(sql).ConfigureAwait(false);
+            }
         }
 
-        public Task<Sequence> GetNextIdentityProviderSequenceAsync()
+        public async Task<Sequence> GetNextIdentityProviderSequenceAsync()
         {
             string sql =
                 $"INSERT INTO {_dbSchema}.iam_identityprovider_sequence VALUES(DEFAULT) RETURNING id";
-            return _dbConnection.QueryFirstAsync<Sequence>(sql);
+            using (var connection = _DBConnection.Connection())
+            {
+                return await connection.QueryFirstAsync<Sequence>(sql).ConfigureAwait(false);
+            }
         }
 
         public async Task<IEnumerable<string>> GetBpnForUserAsync(string userId, string bpn = null)
@@ -56,15 +60,18 @@ namespace CatenaX.NetworkServices.Provisioning.DBAccess
                     ON u.uuid = i.company_user_uuid
                     WHERE i.iam_userid = @userId" +
                     (bpn == null ? "" : " AND comp.bpn = @bpn");
-            var bpnResult = (await _dbConnection.QueryAsync<string>(sql, new {
-                    userId = new Guid(userId),
-                    bpn
-                }).ConfigureAwait(false));
-            if (!bpnResult.Any())
+            using (var connection = _DBConnection.Connection())
             {
-                throw new InvalidOperationException("BPN not found");
+                var bpnResult = (await connection.QueryAsync<string>(sql, new {
+                        userId = new Guid(userId),
+                        bpn
+                    }).ConfigureAwait(false));
+                if (!bpnResult.Any())
+                {
+                    throw new InvalidOperationException("BPN not found");
+                }
+                return bpnResult;
             }
-            return bpnResult;
         }
 
         public async Task<string> GetIdpAliasFromCompanyIdAsync(string companyId, string idpAlias = null)
@@ -78,20 +85,18 @@ namespace CatenaX.NetworkServices.Provisioning.DBAccess
                     FROM {_dbSchema}.iam_idp_company idp
                     WHERE companyid = @companyId" +
                     (idpAlias == null ? "" : " AND idp_alias = @idpAlias");
-            var idpAliasResult = (await _dbConnection.QuerySingleAsync<string>(sql, new {
-                    companyId,
-                    idpAlias
-                }).ConfigureAwait(false));
-            if (String.IsNullOrEmpty(idpAliasResult))
+            using (var connection = _DBConnection.Connection())
             {
-                throw new InvalidOperationException("idpAlias not found");
+                var idpAliasResult = (await connection.QuerySingleAsync<string>(sql, new {
+                        companyId,
+                        idpAlias
+                    }).ConfigureAwait(false));
+                if (String.IsNullOrEmpty(idpAliasResult))
+                {
+                    throw new InvalidOperationException("idpAlias not found");
+                }
+                return idpAliasResult;
             }
-            return idpAliasResult;
-        }
-
-        public void Dispose()
-        {
-            _dbConnection.Dispose();
         }
     }
 }

@@ -6,8 +6,6 @@ namespace CatenaX.NetworkServices.Provisioning.DBAccess
 {
     public class ProvisioningDBAccessSettings
     {
-        public string ConnectionString { get; set; }
-        public string DatabaseSchema { get; set; }
     }
 
     public static class ProvisioningDBAccessSettingsExtention
