@@ -1,5 +1,8 @@
 import { HttpClient } from 'utils/HttpClient'
-import { InviteData } from 'types/userAdministration/UserAdministrationTypes'
+import {
+  TenantUser,
+  InviteData,
+} from 'types/userAdministration/UserAdministrationTypes'
 
 // Instance of UserAdministration API endpoint
 export class UserAdministrationApi extends HttpClient {
@@ -27,9 +30,15 @@ export class UserAdministrationApi extends HttpClient {
       JSON.stringify(invite),
       {
         headers: {
-          'content-type': 'application/json'
-        }
+          'content-type': 'application/json',
+        },
       }
+    )
+  }
+
+  public getTenantUsers = (tenant: string) => {
+    return this.instance.get<TenantUser[]>(
+      `/api/useradministration/tenant/${tenant}/users`
     )
   }
 }

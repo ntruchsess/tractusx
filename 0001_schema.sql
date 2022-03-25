@@ -16,11 +16,9 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
-ALTER TABLE ONLY public.agreement_assigned_company_roles DROP CONSTRAINT fktljol11mdo76f4kv7fwqn1qc6;
 ALTER TABLE ONLY public.invitations DROP CONSTRAINT fktdlrst4ju9d0wcgkh4w1nnoj3;
 ALTER TABLE ONLY public.app_descriptions DROP CONSTRAINT fkrvrom2pjij9x6stgovhaqkfxf;
 ALTER TABLE ONLY public.app_assigned_use_cases DROP CONSTRAINT fkrqi320sp8lxy7drw6kt4vheka;
-ALTER TABLE ONLY public.agreement_assigned_company_roles DROP CONSTRAINT fkrqh1hby9qcrr3gmy1cvi7nd3h;
 ALTER TABLE ONLY public.documents DROP CONSTRAINT fkqxcgobngn7vk56k8nfkuaysvn;
 ALTER TABLE ONLY public.agreement_assigned_document_templates DROP CONSTRAINT fkqbvrvs5aktrcn4t6565pnj3ur;
 ALTER TABLE ONLY public.consents DROP CONSTRAINT fko39a5cbiv35v59ysgfon5oole;
@@ -28,6 +26,7 @@ ALTER TABLE ONLY public.app_assigned_licenses DROP CONSTRAINT fklmes2xm3i1wotryf
 ALTER TABLE ONLY public.company_user_assigned_app_favourites DROP CONSTRAINT fkleip97mygnbglivrtmkagesjh;
 ALTER TABLE ONLY public.invitations DROP CONSTRAINT fkj9tgenb7p09hr5c24haxjw259;
 ALTER TABLE ONLY public.company_user_assigned_roles DROP CONSTRAINT fkibw1yhel67uhrxfk7mevovq5p;
+ALTER TABLE ONLY public.agreement_assigned_roles DROP CONSTRAINT fkhmxxtv8wflf9348kchdehy9w;
 ALTER TABLE ONLY public.company_user_assigned_app_favourites DROP CONSTRAINT fkgwva553r3xiew3ngbdkvafk85;
 ALTER TABLE ONLY public.agreements DROP CONSTRAINT fkfooy9ydkah696jxh4lq7pn0xe;
 ALTER TABLE ONLY public.consents DROP CONSTRAINT fkf36j22f34lgi2444n4tynxamh;
@@ -52,13 +51,14 @@ ALTER TABLE ONLY public.company_assigned_use_cases DROP CONSTRAINT fk4m5eyaohrl0
 ALTER TABLE ONLY public.company_users DROP CONSTRAINT fk4ku01366dbcqk8h32lh8k5sx1;
 ALTER TABLE ONLY public.app_assigned_company_user_roles DROP CONSTRAINT fk44m022ek8gffepnqlnuxwyxp8;
 ALTER TABLE ONLY public.companies DROP CONSTRAINT fk42bkuo66ym9eqeqiu1fag3552;
+ALTER TABLE ONLY public.agreement_assigned_roles DROP CONSTRAINT fk3t84kbcu9d1w6y5smfmbpw7ly;
 ALTER TABLE ONLY public.addresses DROP CONSTRAINT fk36jg6itw07d2qww62deuyk0kh;
 ALTER TABLE ONLY public.apps DROP CONSTRAINT fk368a9joedhyf43smfx2xc4rgm;
 ALTER TABLE ONLY public.agreements DROP CONSTRAINT fk2n4nnf5bn8i3i9ijrf7kchfvc;
 ALTER TABLE ONLY public.company_assigned_roles DROP CONSTRAINT fk1my2p7jlqrjf0tq1f8rhk0i0a;
 ALTER TABLE ONLY public.use_cases DROP CONSTRAINT use_cases_pkey;
+ALTER TABLE ONLY public.agreement_assigned_roles DROP CONSTRAINT uk_fytnk4ph9g43effwjverbu29w;
 ALTER TABLE ONLY public.agreement_assigned_document_templates DROP CONSTRAINT uk_9ib7xuc1vke96s9rvlyhxbtuc;
-ALTER TABLE ONLY public.agreement_assigned_company_roles DROP CONSTRAINT uk_6df9o1r7dy987w1pt9qnkopcv;
 ALTER TABLE ONLY public.languages DROP CONSTRAINT languages_pkey;
 ALTER TABLE ONLY public.invitations DROP CONSTRAINT invitations_pkey;
 ALTER TABLE ONLY public.identity_providers DROP CONSTRAINT identity_providers_pkey;
@@ -104,9 +104,16 @@ DROP TABLE public.app_assigned_use_cases;
 DROP TABLE public.app_assigned_licenses;
 DROP TABLE public.app_assigned_company_user_roles;
 DROP TABLE public.agreements;
+DROP TABLE public.agreement_assigned_roles;
 DROP TABLE public.agreement_assigned_document_templates;
-DROP TABLE public.agreement_assigned_company_roles;
 DROP TABLE public.addresses;
+DROP SCHEMA public;
+--
+-- Name: public; Type: SCHEMA; Schema: -; Owner: -
+--
+
+CREATE SCHEMA public;
+
 
 --
 -- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: -
@@ -138,22 +145,22 @@ CREATE TABLE public.addresses (
 
 
 --
--- Name: agreement_assigned_company_roles; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.agreement_assigned_company_roles (
-    agreement_id uuid NOT NULL,
-    role_id character varying(255) NOT NULL
-);
-
-
---
 -- Name: agreement_assigned_document_templates; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.agreement_assigned_document_templates (
     agreement_id uuid NOT NULL,
     document_template_id character varying(255) NOT NULL
+);
+
+
+--
+-- Name: agreement_assigned_roles; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.agreement_assigned_roles (
+    agreement_id uuid NOT NULL,
+    role_id character varying(255) NOT NULL
 );
 
 
@@ -651,19 +658,19 @@ ALTER TABLE ONLY public.languages
 
 
 --
--- Name: agreement_assigned_company_roles uk_6df9o1r7dy987w1pt9qnkopcv; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.agreement_assigned_company_roles
-    ADD CONSTRAINT uk_6df9o1r7dy987w1pt9qnkopcv UNIQUE (role_id);
-
-
---
 -- Name: agreement_assigned_document_templates uk_9ib7xuc1vke96s9rvlyhxbtuc; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.agreement_assigned_document_templates
     ADD CONSTRAINT uk_9ib7xuc1vke96s9rvlyhxbtuc UNIQUE (document_template_id);
+
+
+--
+-- Name: agreement_assigned_roles uk_fytnk4ph9g43effwjverbu29w; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.agreement_assigned_roles
+    ADD CONSTRAINT uk_fytnk4ph9g43effwjverbu29w UNIQUE (role_id);
 
 
 --
@@ -704,6 +711,14 @@ ALTER TABLE ONLY public.apps
 
 ALTER TABLE ONLY public.addresses
     ADD CONSTRAINT fk36jg6itw07d2qww62deuyk0kh FOREIGN KEY (country_country_name_en) REFERENCES public.countries(country_name_en);
+
+
+--
+-- Name: agreement_assigned_roles fk3t84kbcu9d1w6y5smfmbpw7ly; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.agreement_assigned_roles
+    ADD CONSTRAINT fk3t84kbcu9d1w6y5smfmbpw7ly FOREIGN KEY (agreement_id) REFERENCES public.agreements(id);
 
 
 --
@@ -899,6 +914,14 @@ ALTER TABLE ONLY public.company_user_assigned_app_favourites
 
 
 --
+-- Name: agreement_assigned_roles fkhmxxtv8wflf9348kchdehy9w; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.agreement_assigned_roles
+    ADD CONSTRAINT fkhmxxtv8wflf9348kchdehy9w FOREIGN KEY (role_id) REFERENCES public.company_roles(company_role_id);
+
+
+--
 -- Name: company_user_assigned_roles fkibw1yhel67uhrxfk7mevovq5p; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -955,14 +978,6 @@ ALTER TABLE ONLY public.documents
 
 
 --
--- Name: agreement_assigned_company_roles fkrqh1hby9qcrr3gmy1cvi7nd3h; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.agreement_assigned_company_roles
-    ADD CONSTRAINT fkrqh1hby9qcrr3gmy1cvi7nd3h FOREIGN KEY (role_id) REFERENCES public.company_roles(company_role_id);
-
-
---
 -- Name: app_assigned_use_cases fkrqi320sp8lxy7drw6kt4vheka; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -984,14 +999,6 @@ ALTER TABLE ONLY public.app_descriptions
 
 ALTER TABLE ONLY public.invitations
     ADD CONSTRAINT fktdlrst4ju9d0wcgkh4w1nnoj3 FOREIGN KEY (application_applicationid) REFERENCES public.company_applications(applicationid);
-
-
---
--- Name: agreement_assigned_company_roles fktljol11mdo76f4kv7fwqn1qc6; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.agreement_assigned_company_roles
-    ADD CONSTRAINT fktljol11mdo76f4kv7fwqn1qc6 FOREIGN KEY (agreement_id) REFERENCES public.agreements(id);
 
 
 --
