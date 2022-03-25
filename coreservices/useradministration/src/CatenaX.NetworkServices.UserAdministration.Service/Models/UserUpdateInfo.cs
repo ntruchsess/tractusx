@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
-namespace CatenaX.NetworkServices.Provisioning.Library
+namespace CatenaX.NetworkServices.UserAdministration.Service.Models
+
 {
-    public class UserDeletionInfo
+    public class UserIds
     {
         public IEnumerable<string> userIds { get; set; }
     }

@@ -6,11 +6,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-using CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic;
 using System.Linq;
 using System.Collections.Generic;
 using CatenaX.NetworkServices.Provisioning.Library;
 using CatenaX.NetworkServices.Provisioning.Library.Models;
+using CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic;
+using CatenaX.NetworkServices.UserAdministration.Service.Models;
 
 namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
 {
@@ -37,7 +38,7 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
             {
                 if (await _logic.ExecuteInvitation(InvitationData).ConfigureAwait(false))
                 {
-                    return new OkResult();
+                    return Ok();
                 }
                 _logger.LogError("unsuccessful");
                 return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
@@ -59,9 +60,7 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
             {
                 var createdByName = User.Claims.SingleOrDefault( x => x.Type=="name").Value as string;
                 var createdUsers = await _logic.CreateUsersAsync(usersToCreate, tenant, createdByName).ConfigureAwait(false);
-                
                 return Ok(createdUsers);
-                
             }
             catch (Exception e)
             {
@@ -101,7 +100,7 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
                 var userName = User.Claims.SingleOrDefault( x => x.Type=="sub").Value as string;
                 if (await _logic.DeleteUserAsync(tenant, userName).ConfigureAwait(false))
                 {
-                    return new OkResult();
+                    return Ok();
                 }
                 _logger.LogError("unsuccessful");
                 return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
@@ -117,11 +116,43 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
         [Authorize(Policy = "CheckTenant")]
         [Authorize(Roles="delete_user_account")]
         [Route("tenant/{tenant}/users")]
-        public async Task<IActionResult> ExecuteUserDeletion([FromRoute] string tenant, [FromBody] UserDeletionInfo usersToDelete)
+        public async Task<IActionResult> ExecuteUserDeletion([FromRoute] string tenant, [FromBody] UserIds usersToDelete)
         {
             try
             {
                 return Ok(await _logic.DeleteUsersAsync(usersToDelete, tenant).ConfigureAwait(false));
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.ToString());
+                return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+            }
+        }
+
+        [HttpPut]
+        [Authorize(Roles="approve_new_partner")]
+        [Route("company/{companyId}/bpnAtRegistrationApproval")]
+        public async Task<IActionResult> BpnAttributeAddingAtRegistrationApproval([FromRoute] string companyId)
+        {
+            try
+            {
+                return Ok(await _logic.AddBpnAttributeAtRegistrationApprovalAsync(companyId).ConfigureAwait(false));
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.ToString());
+                return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+            }
+        }
+
+        [HttpPut]
+        [Authorize(Roles="modify_user_account")]
+        [Route("bpn")]
+        public async Task<IActionResult> BpnAttributeAdding( [FromBody] IEnumerable<UserUpdateBpn> usersToAddBpn)
+        {
+            try
+            {
+                return Ok(await _logic.AddBpnAttributeAsync(usersToAddBpn).ConfigureAwait(false));
             }
             catch (Exception e)
             {
