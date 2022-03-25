@@ -18,17 +18,17 @@ namespace CatenaX.NetworkServices.Provisioning.Library
         private readonly IProvisioningDBAccess _ProvisioningDBAccess;
         private readonly ProvisioningSettings _Settings;
 
-        public ProvisioningManager(IKeycloakFactory keycloakFactory, IKeycloakDBAccessFactory keycloakDBAccessFactory, IProvisioningDBAccess provisioningDBAccess, IOptions<ProvisioningSettings> options)
+        public ProvisioningManager(IKeycloakFactory keycloakFactory, IKeycloakDBAccess keycloakDBAccess, IProvisioningDBAccess provisioningDBAccess, IOptions<ProvisioningSettings> options)
         {
             _CentralIdp = keycloakFactory.CreateKeycloakClient("central");
             _SharedIdp = keycloakFactory.CreateKeycloakClient("shared");
             _Settings = options.Value;
-            _KeycloakDBAccess = keycloakDBAccessFactory?.CreateKeycloakDBAccess();
+            _KeycloakDBAccess = keycloakDBAccess;
             _ProvisioningDBAccess = provisioningDBAccess;
         }
 
-        public ProvisioningManager(IKeycloakFactory keycloakFactory, IKeycloakDBAccessFactory keycloakDBAccessFactory, IOptions<ProvisioningSettings> options)
-            : this(keycloakFactory,keycloakDBAccessFactory,null,options)
+        public ProvisioningManager(IKeycloakFactory keycloakFactory, IKeycloakDBAccess keycloakDBAccess, IOptions<ProvisioningSettings> options)
+            : this(keycloakFactory,keycloakDBAccess,null,options)
         {
         }
 
