@@ -193,8 +193,7 @@ namespace CatenaX.NetworkServices.Provisioning.Library
                 bpns = existingBpns.Concat(bpns).Distinct();
             }
             user.Attributes["bpn"] = bpns.ToList();
-            if (! await _CentralIdp.UpdateUserAsync(_Settings.CentralRealm, userId, user).ConfigureAwait(false)) return false;
-            return true;
+            return await _CentralIdp.UpdateUserAsync(_Settings.CentralRealm, userId, user).ConfigureAwait(false);
         }
     }
 }

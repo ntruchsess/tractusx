@@ -1,12 +1,13 @@
+using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Threading.Tasks;
-
+using Microsoft.Extensions.Options;
+using Npgsql;
 using Dapper;
 
 using CatenaX.NetworkServices.Provisioning.DBAccess.Model;
-using System.Collections.Generic;
-using System;
-using System.Linq;
 
 namespace CatenaX.NetworkServices.Provisioning.DBAccess
 
@@ -16,24 +17,29 @@ namespace CatenaX.NetworkServices.Provisioning.DBAccess
         private readonly IDbConnection _dbConnection;
         private readonly string _dbSchema;
 
-        public ProvisioningDBAccess(IDbConnection dbConnection, string dbSchema)
+        public ProvisioningDBAccess(IOptions<ProvisioningDBAccessSettings> settings)
+            : this(new NpgsqlConnection(settings.Value.ConnectionString), settings.Value.DatabaseSchema)
+        {
+        }
+
+        private ProvisioningDBAccess(IDbConnection dbConnection, string dbSchema)
         {
             _dbConnection = dbConnection;
             _dbSchema = dbSchema;
         }
 
-        public async Task<Sequence> GetNextClientSequenceAsync()
+        public Task<Sequence> GetNextClientSequenceAsync()
         {
             string sql =
                 $"INSERT INTO {_dbSchema}.iam_client_sequence VALUES(DEFAULT) RETURNING id";
-            return await _dbConnection.QueryFirstAsync<Sequence>(sql);
+            return _dbConnection.QueryFirstAsync<Sequence>(sql);
         }
 
-        public async Task<Sequence> GetNextIdentityProviderSequenceAsync()
+        public Task<Sequence> GetNextIdentityProviderSequenceAsync()
         {
             string sql =
                 $"INSERT INTO {_dbSchema}.iam_identityprovider_sequence VALUES(DEFAULT) RETURNING id";
-            return await _dbConnection.QueryFirstAsync<Sequence>(sql);
+            return _dbConnection.QueryFirstAsync<Sequence>(sql);
         }
 
         public async Task<IEnumerable<string>> GetBpnForUserAsync(string userId, string bpn = null)
@@ -53,7 +59,7 @@ namespace CatenaX.NetworkServices.Provisioning.DBAccess
             var bpnResult = (await _dbConnection.QueryAsync<string>(sql, new {
                     userId = new Guid(userId),
                     bpn
-                }));
+                }).ConfigureAwait(false));
             if (!bpnResult.Any())
             {
                 throw new InvalidOperationException("BPN not found");
@@ -75,7 +81,7 @@ namespace CatenaX.NetworkServices.Provisioning.DBAccess
             var idpAliasResult = (await _dbConnection.QuerySingleAsync<string>(sql, new {
                     companyId,
                     idpAlias
-                }));
+                }).ConfigureAwait(false));
             if (String.IsNullOrEmpty(idpAliasResult))
             {
                 throw new InvalidOperationException("idpAlias not found");
