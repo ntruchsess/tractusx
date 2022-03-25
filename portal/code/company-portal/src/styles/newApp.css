@@ -619,3 +619,8 @@ textarea {
   color: #000;
   font-weight: bold;
 }
+
+#tooltipBtn{
+  width: 23em;
+  word-break: break-word;
+}

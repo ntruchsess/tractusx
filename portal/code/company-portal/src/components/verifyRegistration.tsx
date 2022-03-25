@@ -73,13 +73,13 @@ export const VerifyRegistration = ({
   };
   const getTooltip = () => {
     if (!hasCompanyData()) {
-      return "Error 1 msg";
+      return t("ErrorMessage.error1");
     }
     if (!hasRoles()) {
-      return "Error 2 msg";
+      return t("ErrorMessage.error2");
     }
     if (!hasDocuments()) {
-      return "Error 3 msg";
+      return t("ErrorMessage.error3")
     }
     return null;
   };
