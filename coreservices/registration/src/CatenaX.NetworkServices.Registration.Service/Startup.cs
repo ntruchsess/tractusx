@@ -21,10 +21,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
-using Npgsql;
-
 using System;
-using System.Data;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net.Http;
 
@@ -82,8 +79,7 @@ namespace CatenaX.NetworkServices.Registration.Service
             services.AddTransient<IRegistrationBusinessLogic, RegistrationBusinessLogic>()
                     .ConfigureRegistrationSettings(Configuration.GetSection("Registration"));
 
-            services.AddTransient<IRegistrationDBAccess, RegistrationDBAccess>()
-                    .ConfigureRegistrationDBAccessSettings(Configuration.GetSection("RegistrationDBAccess"));
+            services.AddTransient<IRegistrationDBAccess, RegistrationDBAccess>();
 
             services.AddCustodianService(Configuration.GetSection("Custodian"));
 
