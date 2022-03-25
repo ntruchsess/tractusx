@@ -18,7 +18,6 @@ export { Table } from './basic/Table'
 export { Tabs } from './basic/Tabs/Tabs'
 export { Typography } from './basic/Typography'
 export { UserAvatar } from './basic/UserAvatar'
-export { Table } from './basic/Table'
 export { Dropzone } from './basic/Dropzone'
 
 export { AppCards } from './content/AppCards'
