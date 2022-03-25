@@ -1,3 +1,4 @@
+using CatenaX.NetworkServices.Framework.DBAccess;
 using CatenaX.NetworkServices.Mailing.SendMail;
 using CatenaX.NetworkServices.Mailing.Template;
 using CatenaX.NetworkServices.Registration.Service.BPN;
@@ -17,14 +18,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
-using Npgsql;
-
 using System;
-using System.Data;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net.Http;
 
@@ -91,8 +88,6 @@ namespace CatenaX.NetworkServices.Registration.Service
             {
                 c.BaseAddress = new Uri($"{ Configuration.GetValue<string>("BPN_Address")}");
             });
-            
-            services.AddTransient<IDbConnection>(conn => new NpgsqlConnection(Configuration.GetValue<string>("PostgresConnectionString")));
 
             services.AddTransient<IMailingService, MailingService>()
                     .AddTransient<ISendMail, SendMail>()
@@ -105,6 +100,9 @@ namespace CatenaX.NetworkServices.Registration.Service
 
             services.AddTransient<IProvisioningManager, ProvisioningManager>()
                     .ConfigureProvisioningSettings(Configuration.GetSection("Provisioning"));
+
+            services.AddTransient<IDBConnectionFactories, PostgreConnectionFactories>()
+                    .ConfigureDBConnectionSettingsMap(Configuration.GetSection("DatabaseAccess"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

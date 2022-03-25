@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using System.Data;
 using System.Threading.Tasks;
 
 using Dapper;
 
+using CatenaX.NetworkServices.Framework.DBAccess;
 using CatenaX.NetworkServices.Keycloak.DBAccess.Model;
 
 namespace CatenaX.NetworkServices.Keycloak.DBAccess
@@ -11,13 +11,18 @@ namespace CatenaX.NetworkServices.Keycloak.DBAccess
 {
     public class KeycloakDBAccess : IKeycloakDBAccess
     {
-        private readonly IDbConnection _dbConnection;
+        private readonly IDBConnectionFactory _dbConnection;
         private readonly string _dbSchema;
 
-        public KeycloakDBAccess(IDbConnection dbConnection, string dbSchema)
+        public KeycloakDBAccess(IDBConnectionFactories dBConnectionFactories)
+        : this(dBConnectionFactories.Get("Keycloak"))
+        {
+        }
+
+        public KeycloakDBAccess(IDBConnectionFactory dbConnection)
         {
             _dbConnection = dbConnection;
-            _dbSchema = dbSchema;
+            _dbSchema = _dbConnection.Schema();
         }
 
         public async Task<IEnumerable<UserJoinedFederatedIdentity>> GetUserJoinedFederatedIdentityAsync(
@@ -42,9 +47,9 @@ namespace CatenaX.NetworkServices.Keycloak.DBAccess
                 (firstName      == null ? "" : " AND c.first_name = @firstName") +
                 (lastName       == null ? "" : " AND c.last_name = @lastName") + 
                 (email          == null ? "" : " AND c.email = @email");
-            using (_dbConnection)
+            using (var connection = _dbConnection.Connection())
             {
-                return await _dbConnection.QueryAsync<UserJoinedFederatedIdentity>(sql, new {
+                return await connection.QueryAsync<UserJoinedFederatedIdentity>(sql, new {
                         idpName        = idpName,
                         realmId        = realmId,
                         userId         = userId,
@@ -53,7 +58,7 @@ namespace CatenaX.NetworkServices.Keycloak.DBAccess
                         firstName      = firstName,
                         lastName       = lastName,
                         email          = email
-                    });
+                    }).ConfigureAwait(false);
             }
         }
     }
