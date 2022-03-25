@@ -50,7 +50,7 @@ namespace CatenaX.NetworkServices.Mailing.Template
                 .GetCustomAttribute<PathAttribute>().Path;
 
         private static string GetTemplateStringFromPath(string path) =>
-            File.ReadAllText("EmailTemplates/" + path);
+            File.ReadAllText(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "/EmailTemplates/" + path);
 
         private string replaceValues(string template, IDictionary<string,string> parameters)
         {
