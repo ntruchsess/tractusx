@@ -24,8 +24,8 @@ export type SelectedFilter = {
 }
 
 export interface ToolbarProps {
-  title: string
-  numberOfColumns: number
+  title?: string
+  numberOfColumns?: number
   buttonLabel?: string
   onButtonClick?: React.MouseEventHandler
   onSearch?: (value: string) => void
@@ -89,16 +89,18 @@ export const Toolbar = ({
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Typography variant="h5">
             {title}
-            <Box
-              component="span"
-              sx={{
-                typography: 'body1',
-                color: 'text.tertiary',
-                marginLeft: 0.5,
-              }}
-            >
-              ({numberOfColumns})
-            </Box>
+            {numberOfColumns !== void 0 && (
+              <Box
+                component="span"
+                sx={{
+                  typography: 'body1',
+                  color: 'text.tertiary',
+                  marginLeft: 0.5,
+                }}
+              >
+                ({numberOfColumns})
+              </Box>
+            )}
           </Typography>
           {buttonLabel && onButtonClick && (
             <Button size="small" onClick={onButtonClick} sx={{ marginLeft: 3 }}>
@@ -150,10 +152,10 @@ export const Toolbar = ({
                   id={`${name}${value}`}
                   name={name}
                   value={value}
+                  label={label || value}
                   checked={selectedFilter[name]?.includes(value)}
                   onChange={onFilterChange}
                 />
-                <label htmlFor={`${name}${value}`}>{label || value}</label>
               </Box>
             ))}
           </Box>

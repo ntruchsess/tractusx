@@ -67,18 +67,15 @@ const basicArgs = {
 export const Table = Template.bind({})
 Table.args = {
   ...basicArgs,
-  toolbar: {
-    title: 'Basic table',
-    numberOfColumns: rows.length,
-  },
+  title: 'Basic table',
 }
 
 export const TableToolbar = Template.bind({})
 TableToolbar.args = {
   ...basicArgs,
+  title: 'Table with toolbar',
+  numberOfColumns: rows.length,
   toolbar: {
-    title: 'Table with toolbar',
-    numberOfColumns: rows.length,
     buttonLabel: 'Add user',
     onButtonClick: () => console.log('on button click'),
     onSearch: (value) => console.log(`search: "${value}"`),
