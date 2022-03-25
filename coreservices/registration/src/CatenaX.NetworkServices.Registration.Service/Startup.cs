@@ -82,7 +82,8 @@ namespace CatenaX.NetworkServices.Registration.Service
             services.AddTransient<IRegistrationBusinessLogic, RegistrationBusinessLogic>()
                     .ConfigureRegistrationSettings(Configuration.GetSection("Registration"));
 
-            services.AddTransient<IRegistrationDBAccess, RegistrationDBAccess>();
+            services.AddTransient<IRegistrationDBAccess, RegistrationDBAccess>()
+                    .ConfigureRegistrationDBAccessSettings(Configuration.GetSection("RegistrationDBAccess"));
 
             services.AddCustodianService(Configuration.GetSection("Custodian"));
 
@@ -91,8 +92,6 @@ namespace CatenaX.NetworkServices.Registration.Service
             {
                 c.BaseAddress = new Uri($"{ Configuration.GetValue<string>("BPN_Address")}");
             });
-            
-            services.AddTransient<IDbConnection>(conn => new NpgsqlConnection(Configuration.GetValue<string>("PostgresConnectionString")));
 
             services.AddTransient<IMailingService, MailingService>()
                     .AddTransient<ISendMail, SendMail>()
