@@ -59,6 +59,16 @@
     "usermanagement": {
       "message": "Inhalte der Benutzerverwaltung"
     },
+    "addUser": {
+      "headline": "Erstelle einen neuen User",
+      "subheadline": "tbd",
+      "singleUser": "Einzel-Upload",
+      "multipleUser": "Massen-Upload",
+      "multipleUserHeadline": "Mehrere Benutzer per Datei-Upload hinzufügen:",
+      "multipleUserSubheadline": "Bitte verwenden Sie diese Upload-Vorlage, um mehrere Benutzer per Datei hinzuzufügen",
+      "chooseUserRole": "Benutzer-Rolle für den Portalzugriff auswählen",
+      "helperText": "Please enter all required information before proceeding."
+    },
     "help": {
       "message": "Fügen Sie hier Inhalte hinzu"
     },
@@ -98,10 +108,22 @@
   },
   "global": {
     "field": {
-      "first": "Vorname",
+      "first": "Name",
       "last": "Nachname",
-      "email": "Email",
+      "email": "E-mail",
       "company": "Firmenname"
+    },
+    "actions": {
+      "cancel": "Abbrechen",
+      "confirm": "Bestätigen"
+    },
+    "userRoles": {
+      "itAdmin": "IT Admin",
+      "businessAdmin": "Business Admin",
+      "cxUser": "CX User",
+      "dataSpecialist": "Data Specialist",
+      "appDeveloper": "App Developer",
+      "appAdmin": "App Developer"
     }
   }
 }

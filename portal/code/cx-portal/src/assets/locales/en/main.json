@@ -59,6 +59,16 @@
     "usermanagement": {
       "message": "Contents of User Management"
     },
+    "addUser": {
+      "headline": "Add User Account",
+      "subheadline": "tbd",
+      "singleUser": "Single User",
+      "multipleUser": "Multiple User",
+      "multipleUserHeadline": "Add multiple users by file upload:",
+      "multipleUserSubheadline": "Please use this upload template to add multiple users by file",
+      "chooseUserRole": "Select CX Portal User Role",
+      "helperText": "Bitte geben Sie alle erforderlichen Informationen ein, bevor Sie fortfahren."
+    },
     "help": {
       "message": "add content here"
     },
@@ -102,6 +112,18 @@
       "last": "Last Name",
       "email": "Email",
       "company": "Company Name"
+    },
+    "actions": {
+      "cancel": "Cancel",
+      "confirm": "Confirm"
+    },
+    "userRoles": {
+      "itAdmin": "IT Admin",
+      "businessAdmin": "Business Admin",
+      "cxUser": "CX User",
+      "dataSpecialist": "Data Specialist",
+      "appDeveloper": "App Developer",
+      "appAdmin": "App Developer"
     }
   }
 }
