@@ -12,6 +12,6 @@ interface CheckboxProps extends Omit<MuiCheckboxProps, 'size'> {
 
 export const Checkbox = ({ size = 'medium', label, ...props }: CheckboxProps) => {
   return label 
-  ? <FormControlLabel disabled control={<MuiCheckbox size={size} {...props} {...ariaLabel} />} label={label} /> 
+  ? <FormControlLabel control={<MuiCheckbox size={size} {...props} {...ariaLabel} />} label={label} /> 
   : <MuiCheckbox size={size} {...props} {...ariaLabel} />
 }
