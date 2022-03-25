@@ -50,6 +50,17 @@ const ALL_PAGES: IPage[] = [
     ),
   },
   {
+    name: PAGES.APP_MARKETPLACE,
+    role: ROLES.APPSTORE_VIEW,
+    element: <Appstore />,
+    route: (
+      <Route key={PAGES.APPSTORE} path={PAGES.APPSTORE} element={<Appstore />}>
+        <Route index element={<></>} />
+        <Route path=":appId" element={<AppstoreDetail />} />
+      </Route>
+    ),
+  },
+  {
     name: PAGES.DATACATALOG,
     role: ROLES.DATACATALOG_VIEW,
     element: <DataCatalog />,
