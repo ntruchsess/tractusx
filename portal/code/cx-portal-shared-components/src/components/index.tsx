@@ -26,5 +26,6 @@ export { Navigation } from './content/Navigation'
 export { UserMenu } from './content/UserMenu'
 export { UserNav } from './content/UserNav'
 
+export type { TableProps } from './basic/Table'
 export type { AppCardItems } from './content/AppCards'
 export type { NavigationProps } from './content/Navigation'
