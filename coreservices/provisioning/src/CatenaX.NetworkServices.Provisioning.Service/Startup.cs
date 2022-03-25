@@ -65,7 +65,7 @@ namespace CatenaX.NetworkServices.Provisioning.Service
             services.AddTransient<IProvisioningDBAccess, ProvisioningDBAccess>();
 
             services.AddTransient<IDBConnectionFactories, PostgreConnectionFactories>()
-                    .ConfigureDBConnectionSettings(Configuration.GetSection("DatabaseAccess"));
+                    .ConfigureDBConnectionSettingsMap(Configuration.GetSection("DatabaseAccess"));
 
         }
 
