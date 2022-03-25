@@ -16,7 +16,7 @@ namespace CatenaX.NetworkServices.Provisioning.DBAccess
         private readonly string _dbSchema;
 
         public ProvisioningDBAccess(IDBConnectionFactories dbConnectionFactories)
-        : this(dbConnectionFactories.Get("Provisioning"))
+           : this(dbConnectionFactories.Get("Provisioning"))
         {
         }
 

@@ -66,7 +66,6 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
             {
                 _logger.LogError(e.ToString());
                 return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
-
             }
         }
 
