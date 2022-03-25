@@ -1,3 +1,30 @@
+.page-main-container{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: grid;
+
+}
+
 .page-header{
-  background: url("../../../../assets/images/registration-requests-header-background.svg") 0;
+  width: 100%;
+  height: auto;
+  min-height: 200px;
+
+  img {
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+  }
+
+
+}
+
+.page-header-title-container{
+  padding: 60px 0 0 60px;
+
+  span {
+    font-weight: 300;
+    font-size: 24px;
+  }
 }

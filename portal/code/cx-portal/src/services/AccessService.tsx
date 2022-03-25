@@ -1,4 +1,6 @@
+import React from 'react'
 import Admin from 'components/pages/Admin'
+import RegistrationRequests from 'components/pages/Admin/RegistrationRequests'
 import Appstore from 'components/pages/Appstore'
 import Connector from 'components/pages/Connector'
 import Dashboard from 'components/pages/Dashboard'
@@ -15,7 +17,7 @@ import Translator from 'components/pages/Translator'
 import UserManagement from 'components/pages/UserManagement'
 import { IPage, PAGES, ROLES } from 'types/MainTypes'
 import UserService from './UserService'
-import { Route } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import AppstoreDetail from 'components/pages/Appstore/AppstoreDetail'
 import Help from 'components/pages/Help'
 import Contact from 'components/pages/Contact'
@@ -64,7 +66,16 @@ const ALL_PAGES: IPage[] = [
     role: ROLES.SEMANTICHUB_VIEW,
     element: <SemanticHub />,
   },
-  { name: PAGES.ADMINISTRATION, role: ROLES.CX_ADMIN, element: <Admin /> },
+  {
+    name: PAGES.ADMINISTRATION,
+    role: ROLES.CX_ADMIN,
+    element: <Admin />,
+    route: (
+      <React.Fragment key={PAGES.ADMINISTRATION}>
+        <Route key={"admin-index"} path="admin/*" element={<Admin />} />
+        <Route key={"admin-registration-request"} path="admin/registration-requests" element={<RegistrationRequests />} />
+      </React.Fragment>
+    ), },
   {
     name: PAGES.DEVELOPERHUB,
     role: ROLES.DEVELOPER,

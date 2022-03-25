@@ -30,7 +30,9 @@
   },
   "content": {
     "admin": {
-      "headertitle": "Benutzerverwaltung"
+      "registration-requests": {
+        "headertitle": "Anfragen zur Benutzerregistrierung"
+      }
     },
     "dashboard": {
       "welcome": "Willkommen bei Catena-X - das automotive Netzwerk!"
