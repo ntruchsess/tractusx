@@ -17,7 +17,7 @@ import ReactTooltip from "react-tooltip";
 
 const Button = ({ label, styleClass, handleClick, icon = false, showTooltip = false, tooltipText = '' }) => {
 
-  return (showTooltip) ? (<><ReactTooltip id="tooltipBtn" place="top" effect="solid">
+  return (showTooltip) ? (<><ReactTooltip className="tooltip" id="tooltipBtn" place="top" effect="solid">
     {tooltipText}
   </ReactTooltip><div data-tip data-for="tooltipBtn"><button className={styleClass} onClick={handleClick} color='#939393'  disabled>
       {(!icon) ? label : <><AiOutlineUserAdd className="button-icon" /> <span>{label}</span></>}
