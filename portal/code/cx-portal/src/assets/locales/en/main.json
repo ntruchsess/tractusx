@@ -3,6 +3,7 @@
   "pages": {
     "dashboard": "Dashboard",
     "appstore": "Appstore",
+    "appmarketplace": "App Marketplace",
     "datacatalog": "Data Catalog",
     "applications": "Applications",
     "semantichub": "Semantic Hub",

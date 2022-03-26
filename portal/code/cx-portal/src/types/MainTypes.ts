@@ -8,6 +8,7 @@ export enum PAGES {
   ROOT = '',
   DASHBOARD = 'dashboard',
   APPSTORE = 'appstore',
+  APP_MARKETPLACE = 'appmarketplace',
   DATACATALOG = 'datacatalog',
   DIGITALTWIN = 'digitaltwin',
   SEMANTICHUB = 'semantichub',
