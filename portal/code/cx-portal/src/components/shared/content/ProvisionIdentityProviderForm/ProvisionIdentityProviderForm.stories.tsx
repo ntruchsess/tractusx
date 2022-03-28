@@ -18,8 +18,8 @@ export default {
   styles: ['./components/App.css'],
 } as ComponentMeta<typeof ProvisionIdentityProviderForm>
 
-const Template: ComponentStory<typeof ProvisionIdentityProviderForm> = (args) => (
-  <ProvisionIdentityProviderForm {...args} />
-)
+const Template: ComponentStory<typeof ProvisionIdentityProviderForm> = (
+  args
+) => <ProvisionIdentityProviderForm {...args} />
 
 export const Standard = Template.bind({})

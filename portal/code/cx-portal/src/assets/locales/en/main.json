@@ -68,7 +68,7 @@
         "clientAuthMethod": "IDP client authentication method"
       },
       "success": "Your identity provider was provisioned successfully",
-      "failure": "Processing your request failed"      
+      "failure": "Processing your request failed"
     },
     "usermanagement": {
       "message": "Contents of User Management"

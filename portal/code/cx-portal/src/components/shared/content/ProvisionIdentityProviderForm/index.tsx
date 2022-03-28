@@ -31,7 +31,7 @@ export const ProvisionIdentityProviderForm = ({
           /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/,
           /^.{2,60}$/,
           /^.{2,60}$/,
-          /^[a-z_]{4,20}$/
+          /^[a-z_]{4,20}$/,
         ].map((p, i) => !p.test(expr[i]))
         check.push(
           check.reduce((all, valid) => all || valid),
@@ -58,14 +58,20 @@ export const ProvisionIdentityProviderForm = ({
       metadataUrl: inpExpr[1].trim(),
       clientId: inpExpr[2].trim(),
       clientSecret: inpExpr[3].trim(),
-      clientAuthMethod: inpExpr[4].trim()
+      clientAuthMethod: inpExpr[4].trim(),
     })
 
   return (
     <>
       <form className="ProvisionIdentityProviderForm">
         <Typography variant="h4">{t('content.provisionIdp.title')}</Typography>
-        {['organization', 'metadata', 'clientId', 'clientSecret', 'clientAuthMethod'].map((value, i) => (
+        {[
+          'organization',
+          'metadata',
+          'clientId',
+          'clientSecret',
+          'clientAuthMethod',
+        ].map((value, i) => (
           <Input
             key={i}
             name={value}
