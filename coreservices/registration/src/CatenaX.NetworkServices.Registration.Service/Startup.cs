@@ -24,6 +24,7 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net.Http;
+using Newtonsoft.Json.Converters;
 
 namespace CatenaX.NetworkServices.Registration.Service
 {
@@ -42,7 +43,9 @@ namespace CatenaX.NetworkServices.Registration.Service
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers()
+                    .AddNewtonsoftJson(options => 
+                        options.SerializerSettings.Converters.Add(new StringEnumConverter()));
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -75,6 +78,8 @@ namespace CatenaX.NetworkServices.Registration.Service
             {
                 c.SwaggerDoc(VERSION, new OpenApiInfo { Title = TAG, Version = VERSION });
             });
+
+            services.AddSwaggerGenNewtonsoftSupport();
 
             services.AddTransient<IRegistrationBusinessLogic, RegistrationBusinessLogic>()
                     .ConfigureRegistrationSettings(Configuration.GetSection("Registration"));
