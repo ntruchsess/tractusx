@@ -17,7 +17,7 @@ import Header from "./cax-header";
 import Footer from "./footer";
 import BulletList from "./bulletList";
 import { useTranslation } from 'react-i18next';
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
 export const Finish = () => {
 
@@ -45,7 +45,7 @@ export const Finish = () => {
             <div className="mx-auto col-9 d-flex align-items-center justify-content-center info small-info">
               <span className="">
                 {t("landing.footerText1")}{" "}
-                <a href="">{t("landing.footerText2")}</a>.
+                <Link to="/">{t("landing.footerText2")}</Link>.
               </span>
             </div>
           </Col>
