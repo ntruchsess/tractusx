@@ -1,3 +1,4 @@
+using System.Net.Http;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -7,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using CatenaX.NetworkServices.Framework.DBAccess;
 using CatenaX.NetworkServices.Keycloak.Authentication;
 using CatenaX.NetworkServices.Keycloak.Factory;
 using CatenaX.NetworkServices.Keycloak.Factory.Utils;
@@ -36,7 +38,16 @@ namespace CatenaX.NetworkServices.Provisioning.Service
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(options => Configuration.Bind("JwtBearerOptions",options));
+            }).AddJwtBearer( options => {
+                Configuration.Bind("JwtBearerOptions",options);
+                if (!options.RequireHttpsMetadata)
+                {
+                    options.BackchannelHttpHandler = new HttpClientHandler {
+                        ServerCertificateCustomValidationCallback = (a,b,c,d) => true
+                    };
+                }
+            });
+
             services.AddTransient<IClaimsTransformation, KeycloakClaimsTransformation>()
                     .Configure<JwtBearerOptions>(options => Configuration.Bind("JwtBearerOptions",options));
 
@@ -51,15 +62,17 @@ namespace CatenaX.NetworkServices.Provisioning.Service
                     .ConfigureKeycloakSettingsMap(Configuration.GetSection("Keycloak"))
                     .ConfigureProvisioningSettings(Configuration.GetSection("Provisioning"));
 
-            services.AddTransient<IProvisioningDBAccessFactory, ProvisioningDBAccessFactory>()
-                    .ConfigureProvisioningDBAccessSettings(Configuration.GetSection("ProvisioningDBAccess"));
+            services.AddTransient<IProvisioningDBAccess, ProvisioningDBAccess>();
+
+            services.AddTransient<IDBConnectionFactories, PostgreConnectionFactories>()
+                    .ConfigureDBConnectionSettingsMap(Configuration.GetSection("DatabaseAccess"));
 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger)
         {
-            if (env.IsDevelopment())
+            if (Configuration.GetValue<bool?>("DebugEnabled") != null && Configuration.GetValue<bool>("DebugEnabled"))
             {
                 app.UseDeveloperExceptionPage();
                 KeycloakUntrustedCertExceptionHandler.ConfigureExceptions(Configuration.GetSection("Keycloak"));

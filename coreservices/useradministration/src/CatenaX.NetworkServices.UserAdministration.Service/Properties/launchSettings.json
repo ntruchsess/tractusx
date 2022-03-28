@@ -20,7 +20,7 @@
     "CatenaX.NetworkServices.UserAdministration.Service": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "api/useradministration/swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

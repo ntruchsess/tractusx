@@ -59,6 +59,10 @@ const palette = createPalette({
     dangerHover: '#E5231D',
     dangerBadge: '#FB6540',
   },
+  support: {
+    success: '#00AA55',
+    error: '#D91E18'
+  },
   icon: {
     icon01: '#939393',
     icon02: '#B6B6B6',
@@ -112,6 +116,22 @@ const palette = createPalette({
     focus: 'rgba(15, 113, 203, 0.15)',
     active: 'rgba(15, 113, 203, 0.2)',
   },
+  pending: {
+    main: '#FFECBD',
+    contrastText: '#975B27',
+  },
+  confirmed: {
+    main: '#E2F6C7',
+    contrastText: '#5C8D45',
+  },
+  declined: {
+    main: '#FEE7E2',
+    contrastText: '#FF532F',
+  },
+  label: {
+    main: '#F2F3FB',
+    contrastText: '#676BC6',
+  },
 })
 
 const typography = createTypography(palette, {
@@ -139,7 +159,7 @@ const typography = createTypography(palette, {
     letterSpacing: 0,
   },
   h4: {
-    fontFamily: getFontFamily('LibreFranklin-Medium'),
+    fontFamily: getFontFamily('LibreFranklin-SemiBold'),
     fontSize: 24,
     lineHeight: 36 / 24,
     letterSpacing: 0,
@@ -435,7 +455,7 @@ export const theme = createTheme({
           borderRadius: 25,
         },
         columnHeaders: {
-          backgroundColor: `${palette.background.background03}`,
+          backgroundColor: palette.background.background03,
           fontFamily: getFontFamily('LibreFranklin-SemiBold'),
         },
         columnSeparator: {
@@ -448,6 +468,51 @@ export const theme = createTheme({
           padding: '20px 5px',
         },
       },
+    },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          borderRadius: 6,
+        },
+      },
+      variants: [
+        {
+          props: {
+            color: 'pending',
+          },
+          style: {
+            backgroundColor: palette.pending.main,
+            color: palette.pending.contrastText,
+          },
+        },
+        {
+          props: {
+            color: 'confirmed',
+          },
+          style: {
+            backgroundColor: palette.confirmed.main,
+            color: palette.confirmed.contrastText,
+          },
+        },
+        {
+          props: {
+            color: 'declined',
+          },
+          style: {
+            backgroundColor: palette.declined.main,
+            color: palette.declined.contrastText,
+          },
+        },
+        {
+          props: {
+            color: 'label',
+          },
+          style: {
+            backgroundColor: palette.label.main,
+            color: palette.label.contrastText,
+          },
+        },
+      ],
     },
     MuiLink: {
       styleOverrides: {
@@ -465,6 +530,46 @@ export const theme = createTheme({
         root: {
           fontFamily: typography.label3.fontFamily,
           fontSize: typography.label3.fontSize,
+        },
+      },
+    },
+    MuiDialog: {
+      styleOverrides: {
+        paper: {
+          width: 930,
+          maxWidth: 930,
+          borderRadius: 40,
+        },
+      },
+    },
+    MuiDialogTitle: {
+      styleOverrides: {
+        root: {
+          fontFamily: typography.h4.fontFamily,
+          fontSize: typography.h4.fontSize,
+          padding: 0,
+        },
+      },
+    },
+    MuiDialogActions: {
+      styleOverrides: {
+        root: {
+          padding: 0,
+          justifyContent: 'center',
+          '& .MuiButton-root:not(:first-of-type)': {
+            marginLeft: 24,
+          },
+        },
+      },
+    },
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          justifyContent: 'start',
+          color: 'text.primary',
+          '&:active, &:focus': {
+            boxShadow: 'none',
+          },
         },
       },
     },
