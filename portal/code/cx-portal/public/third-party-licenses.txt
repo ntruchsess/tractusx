@@ -351,6 +351,7 @@
 @types/react,17.0.41,MIT
 @types/react-dom,16.9.14,MIT
 @types/react-dom,17.0.14,MIT
+@types/react-dropzone,5.1.0,MIT
 @types/react-is,17.0.3,MIT
 @types/react-redux,7.1.23,MIT
 @types/react-syntax-highlighter,11.0.5,MIT
@@ -1566,6 +1567,7 @@ react-docgen-typescript,2.2.2,MIT
 react-dom,17.0.2,MIT
 react-draggable,4.4.4,MIT
 react-dropzone,12.0.4,MIT
+react-dropzone-uploader,2.11.0,MIT
 react-element-to-jsx-string,14.3.4,MIT
 react-error-overlay,6.0.10,MIT
 react-fast-compare,3.2.0,MIT

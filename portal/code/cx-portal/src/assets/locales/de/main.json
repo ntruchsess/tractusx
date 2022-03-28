@@ -57,6 +57,19 @@
       "success": "Einladung erfolgreich",
       "failure": "Die Verarbeitung Ihrer Anfrage ist fehlgeschlagen"
     },
+    "provisionIdp": {
+      "title": "Verbinden Sie Ihren IDP",
+      "send": "IDP Provisionierung absenden",
+      "field": {
+        "organization": "Ihre Organisation",
+        "metadata": "Metadaten URL des IDP (well-known)",
+        "clientId": "Client ID des IDP",
+        "clientSecret": "Client secret des IDP",
+        "clientAuthMethod": "Authentisierung des Client"
+      },
+      "success": "Ihr Identitätsprovider wurde erfolgreich eingerichtet",
+      "failure": "Die Verarbeitung Ihrer Anfrage ist fehlgeschlagen"      
+    },
     "usermanagement": {
       "message": "Inhalte der Benutzerverwaltung"
     },
