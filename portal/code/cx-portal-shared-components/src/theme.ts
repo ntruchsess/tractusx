@@ -59,6 +59,10 @@ const palette = createPalette({
     dangerHover: '#E5231D',
     dangerBadge: '#FB6540',
   },
+  support: {
+    success: '#00AA55',
+    error: '#D91E18'
+  },
   icon: {
     icon01: '#939393',
     icon02: '#B6B6B6',
