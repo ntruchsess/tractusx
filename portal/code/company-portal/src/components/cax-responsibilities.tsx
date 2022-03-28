@@ -211,7 +211,7 @@ export const ResponsibilitiesCax = ({
             <div>
               <Button
                 styleClass="button btn-primaryCax"
-                label="Send Invite"
+                label={t("Responsibility.sentInvite")}
                 handleClick={() => handleClick()}
                 icon={true}
               />

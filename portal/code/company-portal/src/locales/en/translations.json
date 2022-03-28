@@ -96,7 +96,8 @@
       "hint":"Optional message in the invitation e-mail. Lorem Ipsum",
       "titleInvite":"Users Invited",
       "userInvite":"Users invited",
-      "userInviteSubHeading":"No users defined, please use the form below to add users:"
+      "userInviteSubHeading":"No users defined, please use the form below to add users:",
+      "sentInvite": "Send Invite"
     },
     "verifyRegistration": {
       "title": "Verify your registration data",
