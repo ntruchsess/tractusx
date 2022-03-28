@@ -68,7 +68,7 @@
         "clientAuthMethod": "Authentisierung des Client"
       },
       "success": "Ihr Identitätsprovider wurde erfolgreich eingerichtet",
-      "failure": "Die Verarbeitung Ihrer Anfrage ist fehlgeschlagen"      
+      "failure": "Die Verarbeitung Ihrer Anfrage ist fehlgeschlagen"
     },
     "usermanagement": {
       "message": "Inhalte der Benutzerverwaltung"
