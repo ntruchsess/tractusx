@@ -1,4 +1,5 @@
 import { ActiveUserTable } from './ActiveUserTable'
+import { AppArea } from './AppArea'
 
 export default function UserManagement() {
   const onAddUserButtonClick = () => {
@@ -7,6 +8,7 @@ export default function UserManagement() {
 
   return (
     <main>
+      <AppArea />
       <ActiveUserTable onAddUserButtonClick={onAddUserButtonClick} />
     </main>
   )

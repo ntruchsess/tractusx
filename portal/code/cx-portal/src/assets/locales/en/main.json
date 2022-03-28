@@ -71,6 +71,9 @@
       "failure": "Processing your request failed"
     },
     "usermanagement": {
+      "apparea": {
+        "headline": "App Access Management"
+      },
       "table": {
         "headline": "Identity Management",
         "title": "User List",
@@ -123,7 +126,8 @@
       "company": "Company Name",
       "status": "Status",
       "role": "Rollen",
-      "active": "Active"
+      "active": "Active",
+      "inactive": "Inactive"
     }
   }
 }
