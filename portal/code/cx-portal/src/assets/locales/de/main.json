@@ -71,7 +71,12 @@
       "failure": "Die Verarbeitung Ihrer Anfrage ist fehlgeschlagen"
     },
     "usermanagement": {
-      "message": "Inhalte der Benutzerverwaltung"
+      "table": {
+        "headline": "Benutzerkontenverwaltung",
+        "title": "User Liste",
+        "details": "Details",
+        "add": "User hinzufügen"
+      }
     },
     "help": {
       "message": "Fügen Sie hier Inhalte hinzu"
@@ -115,7 +120,10 @@
       "first": "Vorname",
       "last": "Nachname",
       "email": "Email",
-      "company": "Firmenname"
+      "company": "Firmenname",
+      "status": "Status",
+      "role": "Role",
+      "active": "Aktiv"
     }
   }
 }
