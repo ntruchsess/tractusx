@@ -202,3 +202,7 @@ jobs:
     - name: Deploy the Portal
       working-directory: ./infrastructure/manifests
       run: cat portal.yaml | envsubst | kubectl apply -n portal -f -
+
+    - name: Rollout the Deployment
+      working-directory: ./infrastructure/manifests
+      run: kubectl rollout restart deployment portal -n portal
