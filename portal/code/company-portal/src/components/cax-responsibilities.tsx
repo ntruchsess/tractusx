@@ -95,11 +95,32 @@ export const ResponsibilitiesCax = ({
       };
 
       addToInviteList(data);
+      
+      var apiData = [];
+      apiData.push(data);
+
+      const fetchData = async () => {
+    const dataRoles = await submitSendInvites(apiData);
+            toast.success(dataRoles);
+      }
+      fetchData()
+      .catch((errorCode: number) => {
+      
+        let message = DataErrorCodes.includes(errorCode)
+          ? t(`ErrorMessage.${errorCode}`)
+          : t(`ErrorMessage.default`);
+        //   alert(message)
+  
+        toast.error(message);
+        //  history.push("/finish");
+      });
+ 
       setEmail("");
       setMessage("");
       if (availableUserRoles && availableUserRoles.length > 0)
         setRole(availableUserRoles[0]);
     }
+
   };
 
   const verifyEntry = () => {
@@ -119,25 +140,7 @@ export const ResponsibilitiesCax = ({
   };
 
   const nextClick = () => {
-    if (userInviteList.length > 0) {
-      const fetchData = async () => {
-    const dataRoles = await submitSendInvites(userInviteList);
-            toast.success(dataRoles);
-      }
-      fetchData()
-      .catch((errorCode: number) => {
-      
-        let message = DataErrorCodes.includes(errorCode)
-          ? t(`ErrorMessage.${errorCode}`)
-          : t(`ErrorMessage.default`);
-        //   alert(message)
   
-        toast.error(message);
-        //  history.push("/finish");
-      });
-  } else {
-    toast.error("Email or User Role empty.");
-  }
     addCurrentStep(currentActiveStep + 1);
   };
 
@@ -157,40 +160,6 @@ export const ResponsibilitiesCax = ({
           </div>
         </div>
         <div className="companydata-form">
-          {userInviteList && (
-            <Row className="mx-auto col-9 send-invite">
-              <h5>Users selected to invite</h5>
-              <Row>
-                <ul className="list-group-cax px-2">
-                  {userInviteList.map((d) => {
-                    return (
-                      <li className="list-group-item-cax">
-                        <Row>
-                          <span className="col-1">
-                            <AiOutlineUser />
-                          </span>
-                          <span className="col-6">{d.email}</span>
-                          <span className="badge-cax  bg-list-group-cax col-4">
-                            {d.role}
-                          </span>
-                          <span className="col-1 list-group-item-delete">
-                            <AiOutlineDelete
-                              onClick={() => removeUser(d.uiId)}
-                            />
-                          </span>
-                        </Row>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </Row>
-            </Row>
-          )}
-
-          <Row className="mx-auto col-9">
-            <h5>Users to invite</h5>
-            <div>No users defined, please use the form below to add users:</div>
-          </Row>
 
           <Row className="mx-auto col-9">
             <div
@@ -200,7 +169,7 @@ export const ResponsibilitiesCax = ({
                   : "form-data calender"
               }
             >
-              <label> E-mail address </label>
+              <label>{t("Responsibility.email")}</label>
               <input
                 type="text"
                 name="email"
@@ -214,7 +183,7 @@ export const ResponsibilitiesCax = ({
 
           <Row className="mx-auto col-9">
             <div className="form-data">
-              <label> User role </label>
+              <label>{t("Responsibility.role")}</label>
               <select value={role} onChange={(e) => onRoleChange(e)}>
                 {availableUserRoles &&
                   availableUserRoles.map((role, index) => (
@@ -226,14 +195,14 @@ export const ResponsibilitiesCax = ({
 
           <Row className="mx-auto col-9">
             <div className="form-data">
-              <label> Personal note</label>
+              <label>{t("Responsibility.note")}</label>
               <textarea
                 name="message"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
               />
               <div className="company-hint">
-                Optional message in the invitation e-mail. Lorem Ipsum
+                {t("Responsibility.hint")}
               </div>
             </div>
           </Row>
@@ -242,13 +211,46 @@ export const ResponsibilitiesCax = ({
             <div>
               <Button
                 styleClass="button btn-primaryCax"
-                label="Add User"
+                label="Send Invite"
                 handleClick={() => handleClick()}
                 icon={true}
               />
             </div>
               <ToastContainer />
           </Row>
+
+          {userInviteList.length > 0 && userInviteList && (
+            <Row className="mx-auto col-9 send-invite">
+              <h5>{t("Responsibility.titleInvite")}</h5>
+              <Row>
+                <ul className="list-group-cax px-2">
+                  {userInviteList.map((d) => {
+                    return (
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-1">
+                            <AiOutlineUser />
+                          </span>
+                          <span className="col-5 list-group-item-email">{d.email}</span>
+                          <span className="badge-cax bg-list-group-cax col-4">
+                            {d.role}
+                          </span>
+                          <span className="col-2 list-group-item-status">
+                            Pending
+                          </span>
+                        </Row>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </Row>
+            </Row>
+          )}
+
+          {/* <Row className="mx-auto col-9">
+            <h5>{t("Responsibility.userInvite")}</h5>
+            <div>{t("Responsibility.userInviteSubHeading")}</div>
+          </Row> */}
         </div>
       </div>
       <FooterButton
