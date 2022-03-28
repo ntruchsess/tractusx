@@ -98,6 +98,7 @@ const ALL_PAGES: IPage[] = [
   },
   {
     name: PAGES.USER_MANAGEMENT,
+    role: ROLES.USERMANAGEMENT_VIEW,
     element: <UserManagement />,
   },
   {

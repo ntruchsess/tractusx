@@ -16,19 +16,17 @@ import { UserRoles } from './UserRoles'
 import GroupOutlinedIcon from '@mui/icons-material/GroupOutlined'
 import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined'
 
-import './AddUserOverlay.scss'
-
 interface AddUserOverlayProps {
-  openDialog?: any,
-  handleClose: any,
-  handleConfirm: any
+  openDialog?: boolean,
+  handleClose: React.MouseEventHandler,
+  handleConfirm: React.MouseEventHandler
 }
 
-export const AddUserOverlay = ({ openDialog, handleClose, handleConfirm }: AddUserOverlayProps) => {
+export const AddUserOverlay = ({ openDialog = false, handleClose, handleConfirm }: AddUserOverlayProps) => {
   const { t } = useTranslation()
 
   const [value, setValue] = useState(0)
-  const handleChange = (event: any, newValue: number) => {
+  const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue)
   }
 

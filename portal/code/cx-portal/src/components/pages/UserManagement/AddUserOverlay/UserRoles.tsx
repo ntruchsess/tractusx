@@ -35,11 +35,10 @@ export const UserRoles = () => {
     <div className="user-roles">
       <Typography sx={{marginBottom: "30px"}} variant="body1">{t('content.addUser.chooseUserRole')}</Typography>
       <div className="checkbox-section">
-        {userRoles.map(({ title }) => (
-        <Checkbox label={title} />
+        {userRoles.map(({ title, id }) => (
+        <Checkbox label={title} key={id} />
       ))}
       </div>
-      
     </div>
   )
 }

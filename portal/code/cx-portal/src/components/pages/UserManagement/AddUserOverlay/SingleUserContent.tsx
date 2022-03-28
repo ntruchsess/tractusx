@@ -26,8 +26,8 @@ export const SingleUserContent = () => {
 
   return (
     <div className="single-user-content">
-        {userInputs.map(({ label, placeholder, helperText, }) => (
-        <Input sx={{marginBottom: "30px"}} label={label} placeholder={placeholder} helperText={helperText} />
+      {userInputs.map(({ label, placeholder, helperText, key }) => (
+        <Input sx={{marginBottom: "30px"}} label={label} placeholder={placeholder} helperText={helperText} key={key} />
       ))}
     </div>
   )
