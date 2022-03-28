@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import Dropzone, { IFileWithMeta } from "react-dropzone-uploader";
 import "react-dropzone-uploader/dist/styles.css";
 import { useTranslation } from "react-i18next";
-import FooterButton from "./footerButton";
+import { FooterButton } from "./footerButton";
 import { connect } from "react-redux";
 import { IState } from "../types/store/redux.store.types";
 import { addCurrentStep, addFileNames } from "../actions/user.action";
@@ -80,7 +80,7 @@ export const DragDrop = ({
       <div className="mx-auto col-9 container-registration">
         <div className="head-section">
           <div className="mx-auto step-highlight d-flex align-items-center justify-content-center">
-            4
+            {t("documentUpload.step")}
           </div>
           <h4 className="mx-auto d-flex align-items-center justify-content-center">
             {t("documentUpload.title")}

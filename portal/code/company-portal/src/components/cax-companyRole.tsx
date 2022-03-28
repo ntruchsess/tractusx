@@ -16,7 +16,7 @@ import {useState, useEffect} from "react";
 import { Row } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
 import { useTranslation } from 'react-i18next';
-import FooterButton from "./footerButton";
+import { FooterButton } from "./footerButton";
 import {connect} from 'react-redux';
 import {IState} from "../types/store/redux.store.types";
 import {addCurrentStep} from "../actions/user.action";
@@ -64,7 +64,7 @@ const nextClick = () => {
         <div className="mx-auto col-9 container-registration">
         <div className="head-section">
           <div className="mx-auto step-highlight d-flex align-items-center justify-content-center">
-            3
+            {t("companyRole.companyRoleStep")}
           </div>
           <h4 className="mx-auto d-flex align-items-center justify-content-center">
           {t("companyRole.title")}
@@ -86,7 +86,7 @@ const nextClick = () => {
               </div>
               <div className="col-11">
                 <label>
-                  Active participant (OEM, supplier, KMU/SME)
+                  {t("companyRole.role1Label")}
                 </label>
                 <div
                   className={
@@ -97,16 +97,14 @@ const nextClick = () => {
                   }
                 >
                   <div>
-                    The role of the 'Active participant' is relevant if
-                    you want to:
+                   {t("companyRole.role1")}
                   </div>
                   <ul>
                     <li>
-                      provide and /or consume business data (e.g. parts
-                      master data)
+                    {t("companyRole.role1li1")}
                     </li>
                     <li>
-                      use the offered portal business applications
+                    {t("companyRole.role1li2")}
                     </li>
                   </ul>
                 </div>
@@ -119,7 +117,7 @@ const nextClick = () => {
                   }
                 >
                   <div>
-                    Please check and agree to the items listed below:
+                  {t("companyRole.TermsAndCond")}
                   </div>
                   <ul>
                     <li>
@@ -128,10 +126,7 @@ const nextClick = () => {
                         className="regular-checkbox"
                       />
                       <span>
-                        Yes, I agree to the <span className="underlineTnc">
-                          terms and conditions
-                        </span> of the
-                        selected role.
+                      {t("companyRole.TermsAndCondSpan1")} <span className="underlineTnc">{t("companyRole.TermsAndCondSpan2")}</span> {t("companyRole.TermsAndCondSpan3")}
                       </span>
                     </li>
                     <li>
@@ -140,8 +135,7 @@ const nextClick = () => {
                         className="regular-checkbox"
                       />
                       <span>
-                        Yes, I agree to the <span className="underlineTnc">security regulations</span> of the
-                        selected role.
+                      {t("companyRole.TermsAndCond2Span1")} <span className="underlineTnc">{t("companyRole.TermsAndCond2Span2")}</span> {t("companyRole.TermsAndCond2Span3")}
                       </span>
                     </li>
                   </ul>
@@ -160,7 +154,7 @@ const nextClick = () => {
                 />
               </div>
               <div className="col-11">
-                <label>App provider</label>
+                <label>{t("companyRole.role2Label")}</label>
                 <div
                   className={
                     !companyRoleChecked.has("appProvider") ||
@@ -170,13 +164,11 @@ const nextClick = () => {
                   }
                 >
                   <div>
-                    The role of the 'App Provider' is relevant if you
-                    want to:
+                  {t("companyRole.role2")}
                   </div>
                   <ul>
                     <li>
-                      provide apps/services within the Catena-X
-                      ecosystem
+                    {t("companyRole.role2li1")}
                     </li>
                   </ul>
                 </div>
@@ -189,7 +181,7 @@ const nextClick = () => {
                   }
                 >
                   <div>
-                    Please check and agree to the items listed below:
+                    {t("companyRole.TermsAndCond")}
                   </div>
                   <ul>
                     <li>
@@ -198,7 +190,7 @@ const nextClick = () => {
                         className="regular-checkbox"
                       />
                       <span>
-                        Yes, I agree to the <span className="underlineTnc">terms and conditions</span> of the selected role.
+                      {t("companyRole.TermsAndCondSpan1")} <span className="underlineTnc">{t("companyRole.TermsAndCondSpan2")}</span> {t("companyRole.TermsAndCondSpan3")}
                       </span>
                     </li>
                     <li>
@@ -207,8 +199,7 @@ const nextClick = () => {
                         className="regular-checkbox"
                       />
                       <span>
-                        Yes, I agree to the <span className="underlineTnc">security regulations</span> of the
-                        selected role.
+                      {t("companyRole.TermsAndCond2Span1")} <span className="underlineTnc">{t("companyRole.TermsAndCond2Span2")}</span> {t("companyRole.TermsAndCond2Span3")}
                       </span>
                     </li>
                   </ul>
@@ -227,7 +218,7 @@ const nextClick = () => {
                 />
               </div>
               <div className="col-11">
-                <label>Operation and infrastructure provider</label>
+                <label>{t("companyRole.role3Label")}</label>
                 <div
                   className={
                     !companyRoleChecked.has("operationAndInfra") ||
@@ -237,12 +228,11 @@ const nextClick = () => {
                   }
                 >
                   <div>
-                    The role of the 'App Provider' is relevant if you:
+                  {t("companyRole.role3")}
                   </div>
                   <ul>
                     <li>
-                      provide operations and /or infrastructure services
-                      within the Catena-X network
+                    {t("companyRole.role3li1")}
                     </li>
                   </ul>
                 </div>
@@ -255,7 +245,7 @@ const nextClick = () => {
                   }
                 >
                   <div>
-                    Please check and agree to the items listed below:
+                  {t("companyRole.TermsAndCond")}
                   </div>
                   <ul>
                     <li>
@@ -264,10 +254,7 @@ const nextClick = () => {
                         className="regular-checkbox"
                       />
                       <span>
-                        Yes, I agree to the <span className="underlineTnc">
-                          terms and conditions
-                        </span> of the
-                        selected role.
+                      {t("companyRole.TermsAndCondSpan1")} <span className="underlineTnc">{t("companyRole.TermsAndCondSpan2")}</span> {t("companyRole.TermsAndCondSpan3")}
                       </span>
                     </li>
                     <li>
@@ -276,8 +263,7 @@ const nextClick = () => {
                         className="regular-checkbox"
                       />
                       <span>
-                        Yes, I agree to the <span className="underlineTnc">security regulations</span> of the
-                        selected role.
+                      {t("companyRole.TermsAndCond2Span1")} <span className="underlineTnc">{t("companyRole.TermsAndCond2Span2")}</span> {t("companyRole.TermsAndCond2Span3")}
                       </span>
                     </li>
                   </ul>
