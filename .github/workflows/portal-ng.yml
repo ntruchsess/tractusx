@@ -157,16 +157,19 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Install Dependencies
+      working-directory: ./portal/code
       run: yarn
 
     - name: Linter Checks
+      working-directory: ./portal/code
       run: yarn lint
 
     - name: Build Library and Portal
+      working-directory: ./portal/code
       run: yarn build
       
     - name: Unit Tests
-      working-directory: ./cx-portal
+      working-directory: ./portal/code/cx-portal
       run: yarn test
 
 #    # activate this step on new repo
@@ -184,9 +187,11 @@ jobs:
         password: ${{secrets.AZURE_REGISTRY_PASSWORD}}
 
     - name: Build Docker Image
+      working-directory: ./portal/code
       run: yarn build:docker
 
     - name: Publish Docker Image
+      working-directory: ./portal/code
       run: yarn publish:docker
 
     - name: Deploy the Portal
