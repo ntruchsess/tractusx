@@ -71,7 +71,12 @@
       "failure": "Processing your request failed"
     },
     "usermanagement": {
-      "message": "Contents of User Management"
+      "table": {
+        "headline": "Identity Management",
+        "title": "User List",
+        "details": "Details",
+        "add": "Add user"
+      }
     },
     "addUser": {
       "headline": "Add User Account",
@@ -144,7 +149,10 @@
       "first": "First Name",
       "last": "Last Name",
       "email": "Email",
-      "company": "Company Name"
+      "company": "Company Name",
+      "status": "Status",
+      "role": "Rollen",
+      "active": "Active"
     },
     "actions": {
       "cancel": "Cancel",

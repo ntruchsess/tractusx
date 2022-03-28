@@ -61,7 +61,7 @@ const palette = createPalette({
   },
   support: {
     success: '#00AA55',
-    error: '#D91E18'
+    error: '#D91E18',
   },
   icon: {
     icon01: '#939393',
@@ -452,20 +452,30 @@ export const theme = createTheme({
     MuiDataGrid: {
       styleOverrides: {
         root: {
-          borderRadius: 25,
+          border: 'none',
+          borderRadius: 0,
+          borderTopLeftRadius: 25,
+          borderTopRightRadius: 25,
+          overflow: 'hidden',
         },
         columnHeaders: {
-          backgroundColor: palette.background.background03,
           fontFamily: getFontFamily('LibreFranklin-SemiBold'),
+          backgroundColor: palette.background.background03,
+        },
+        columnHeader: {
+          padding: '0 32px',
         },
         columnSeparator: {
           display: 'none',
         },
-        main: {
-          borderRadius: 25,
+        row: {
+          '&.MuiDataGrid-row--lastVisible .MuiDataGrid-cell': {
+            borderColor: palette.border.border01,
+          },
         },
         cell: {
-          padding: '20px 5px',
+          padding: '16px 32px',
+          borderColor: palette.border.border01,
         },
       },
     },

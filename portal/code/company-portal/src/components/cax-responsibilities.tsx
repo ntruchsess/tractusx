@@ -33,7 +33,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { withRouter } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import FooterButton from "./footerButton";
+import { FooterButton } from "./footerButton";
 import { DataErrorCodes } from "../helpers/DataError";
 interface ResponsibilitiesCaxProps {
   addToInviteList: (userItem: IUserItem) => void;

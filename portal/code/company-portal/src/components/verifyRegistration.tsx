@@ -15,7 +15,7 @@
 import { Row } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
 import { useTranslation } from "react-i18next";
-import FooterButton from "./footerButton";
+import { FooterButton } from "./footerButton";
 import { connect } from "react-redux";
 import { IState } from "../types/store/redux.store.types";
 import { addCurrentStep } from "../actions/user.action";
@@ -27,7 +27,6 @@ import { useHistory } from "react-router-dom";
 import { DataErrorCodes } from "../helpers/DataError";
 import { ToastContainer, toast } from "react-toastify";
 import { submitCustodianWallet } from "../helpers/utils";
-import { useEffect } from "react";
 
 interface VerifyRegistrationProps {
   currentActiveStep: number;
@@ -197,7 +196,7 @@ export const VerifyRegistration = ({
             <ul className="list-group-cax px-2">
               <li className="list-group-item-cax list-header">
                 <Row>
-                  <span className="col-11">Active Role</span>
+                  <span className="col-11">{t("verifyRegistration.ActiveRole")}</span>
                   <span className="col-1" onClick={() => editClick(2)}>
                     <FaEdit className="editIcon" />
                   </span>
@@ -205,7 +204,7 @@ export const VerifyRegistration = ({
               </li>
               <li className="list-group-item-cax">
                 <Row>
-                  <span className="col-12">Active participant</span>
+                  <span className="col-12">{t("verifyRegistration.ActiveParticipant")}</span>
                 </Row>
               </li>
             </ul>
@@ -214,7 +213,7 @@ export const VerifyRegistration = ({
             <ul className="list-group-cax px-2">
               <li className="list-group-item-cax list-header">
                 <Row>
-                  <span className="col-11">Uploaded certificates</span>
+                  <span className="col-11">{t("verifyRegistration.UploadedCertificates")}</span>
                   <span className="col-1" onClick={() => editClick(3)}>
                     <FaEdit className="editIcon" />
                   </span>
@@ -227,23 +226,6 @@ export const VerifyRegistration = ({
                 </Row>
               </li>)
               })}
-              {/* <li className="list-group-item-cax">
-                <Row>
-                  <span className="col-12">certificate of approval.pdf</span>
-                </Row>
-              </li>
-              <li className="list-group-item-cax">
-                <Row>
-                  <span className="col-12">
-                    certificate of incorporation.pdf
-                  </span>
-                </Row>
-              </li>
-              <li className="list-group-item-cax">
-                <Row>
-                  <span className="col-12">certificate of deposit.pdf</span>
-                </Row>
-              </li> */}
             </ul>
           </Row>
         </div>

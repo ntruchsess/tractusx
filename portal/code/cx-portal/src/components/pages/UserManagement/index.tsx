@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { AddUserOverlay } from './AddUserOverlay'
-import { Button } from 'cx-portal-shared-components'
+import { ActiveUserTable } from './ActiveUserTable'
 
 export default function UserManagement() {
   const { t } = useTranslation()
@@ -21,13 +21,7 @@ export default function UserManagement() {
     
   return (
     <main>
-      <h2>{t('pages.usermanagement')}</h2>
-      
-      <Button
-        name="send"
-        size="medium"
-        onClick={handleClickOpen}
-      >{`${t('content.invite.send')}`}</Button>      
+      <ActiveUserTable onAddUserButtonClick={handleClickOpen} />
       <AddUserOverlay openDialog={open} handleClose={handleClose} handleConfirm={handleConfirm} />
     </main>
   )

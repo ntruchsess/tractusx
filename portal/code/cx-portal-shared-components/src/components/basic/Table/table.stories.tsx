@@ -28,7 +28,7 @@ const columns: GridColDef[] = [
         <Link href="#">{params.value}</Link>
       </div>
     ),
-    flex: 5,
+    flex: 4,
   },
   { field: 'note', headerName: 'Note', flex: 5 },
   {
@@ -49,8 +49,7 @@ const Template: ComponentStory<typeof Component> = (args: any) => (
   <Component {...args} />
 )
 
-export const Table = Template.bind({})
-Table.args = {
+const basicArgs = {
   autoHeight: true,
   headerHeight: 76,
   rowHeight: 76,
@@ -63,4 +62,33 @@ Table.args = {
   loading: false,
   rows,
   columns,
+}
+
+export const Table = Template.bind({})
+Table.args = {
+  ...basicArgs,
+  title: 'Basic table',
+}
+
+export const TableToolbar = Template.bind({})
+TableToolbar.args = {
+  ...basicArgs,
+  title: 'Table with toolbar',
+  numberOfColumns: rows.length,
+  toolbar: {
+    buttonLabel: 'Add user',
+    onButtonClick: () => console.log('on button click'),
+    onSearch: (value) => console.log(`search: "${value}"`),
+    onFilter: (selectedFilter) => console.log('filter:', selectedFilter),
+    filter: [
+      {
+        name: 'role',
+        values: [
+          { value: 'admin', label: 'Admin' },
+          { value: 'editor', label: 'Editor' },
+          { value: 'manager', label: 'Manager' },
+        ],
+      },
+    ],
+  },
 }

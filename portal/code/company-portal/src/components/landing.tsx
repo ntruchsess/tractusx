@@ -18,8 +18,7 @@ import BulletList from "./bulletList";
 import Header from "./cax-header";
 import Button from "./button";
 import { useTranslation } from 'react-i18next';
-import { withRouter } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import { withRouter, useHistory, Link } from "react-router-dom";
 
 export const Landing = () => {
 
@@ -56,7 +55,7 @@ export const Landing = () => {
             <div className="mx-auto col-9 d-flex align-items-center justify-content-center info small-info">
               <span className="">
                 {t("landing.footerText1")}{" "}
-                <a href="">{t("landing.footerText2")}</a>.
+                <Link to="/">{t("landing.footerText2")}</Link>.
               </span>
             </div>
           </Col>
