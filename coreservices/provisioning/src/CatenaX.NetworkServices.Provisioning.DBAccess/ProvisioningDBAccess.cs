@@ -29,7 +29,7 @@ namespace CatenaX.NetworkServices.Provisioning.DBAccess
         public async Task<Sequence> GetNextClientSequenceAsync()
         {
             string sql =
-                $"INSERT INTO {_dbSchema}.iam_client_sequence VALUES(DEFAULT) RETURNING id";
+                $"INSERT INTO {_dbSchema}.client_sequence VALUES(DEFAULT) RETURNING sequence_id";
             using (var connection = _DBConnection.Connection())
             {
                 return await connection.QueryFirstAsync<Sequence>(sql).ConfigureAwait(false);
@@ -39,7 +39,7 @@ namespace CatenaX.NetworkServices.Provisioning.DBAccess
         public async Task<Sequence> GetNextIdentityProviderSequenceAsync()
         {
             string sql =
-                $"INSERT INTO {_dbSchema}.iam_identityprovider_sequence VALUES(DEFAULT) RETURNING id";
+                $"INSERT INTO {_dbSchema}.identity_provider_sequence VALUES(DEFAULT) RETURNING sequence_id";
             using (var connection = _DBConnection.Connection())
             {
                 return await connection.QueryFirstAsync<Sequence>(sql).ConfigureAwait(false);
