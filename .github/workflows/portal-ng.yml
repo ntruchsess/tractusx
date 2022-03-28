@@ -130,6 +130,7 @@ jobs:
     env:
       WORKSPACE: ${{needs.environment.outputs.workspace}}
       CX_ENV: ${{needs.environment.outputs.workspace}}
+      CATENA_PORTAL_URL: catenax${{needs.environment.outputs.workspace}}aksportal.germanywestcentral.cloudapp.azure.com
       # use the commit hash in production?
       VERSION: latest
     steps:
@@ -156,27 +157,38 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Install Dependencies
-      working-directory: ./portal/code
-      run: |
-        yarn
-        
-    - name: Prettier format
-      working-directory: ./portal/code
-      run: |
-        yarn pretty
-  
-    - name: Linter checks
-      working-directory: ./portal/code
-      run: |
-        yarn lint
-  
-    - name: Build Shared UI Library
-      working-directory: ./portal/code/cx-portal-shared-components
-      run: |
-        yarn build:lib
-        
-    - name: Unit Tests
-      working-directory: ./portal/code/cx-portal
-      run: |
-        yarn test
+      run: yarn
 
+    - name: Linter Checks
+      run: yarn lint
+
+    - name: Build Library and Portal
+      run: yarn build
+      
+    - name: Unit Tests
+      working-directory: ./cx-portal
+      run: yarn test
+
+#    # activate this step on new repo
+#    - name: Publish Shared Components to npm
+#      working-directory: ./cx-portal-shared-components
+#      run: echo yarn publish
+#      env:
+#        NODE_AUTH_TOKEN: ${{secrets.NPM_ACCESS_TOKEN}}
+
+    - name: Login to Docker Registry
+      uses: azure/docker-login@v1
+      with:
+        login-server: catenaxacr.azurecr.io
+        username: catenaxacr
+        password: ${{secrets.AZURE_REGISTRY_PASSWORD}}
+
+    - name: Build Docker Image
+      run: yarn build:docker
+
+    - name: Publish Docker Image
+      run: yarn publish:docker
+
+    - name: Deploy the Portal
+      working-directory: ./infrastructure/manifests
+      run: cat portal.yaml | envsubst | kubectl apply -n portal -f -
