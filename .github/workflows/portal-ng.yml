@@ -155,10 +155,6 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - name: Test connection
-      run: |
-        curl -ks https://search-dev.data.bmw.cloud/v1/test/event -H "x-authorization: ${{ secrets.AZURE_CREDENTIALS }}"
-
     - name: Install Dependencies
       working-directory: ./portal/code
       run: |
