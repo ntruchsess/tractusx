@@ -15,11 +15,11 @@ namespace CatenaX.NetworkServices.Registration.Service.Model
 
     public enum ApplicationStatus
     {
-        AddCompanyData = 1,
-        InviteUser = 2,
-        SelectCompanyRole = 3,
-        UploadDocuments = 4,
-        Verify = 5,
-        Submitted = 6
+        ADD_COMPANY_DATA = 1,
+        INVITE_USER = 2,
+        SELECT_COMPANY_ROLE = 3,
+        UPLOAD_DOCUMENTS = 4,
+        VERIFY = 5,
+        SUBMITTED = 6
     }
 }
