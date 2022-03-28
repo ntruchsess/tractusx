@@ -59,6 +59,10 @@ const palette = createPalette({
     dangerHover: '#E5231D',
     dangerBadge: '#FB6540',
   },
+  support: {
+    success: '#00AA55',
+    error: '#D91E18'
+  },
   icon: {
     icon01: '#939393',
     icon02: '#B6B6B6',
@@ -111,6 +115,22 @@ const palette = createPalette({
     hover: 'rgba(15, 113, 203, 0.05)',
     focus: 'rgba(15, 113, 203, 0.15)',
     active: 'rgba(15, 113, 203, 0.2)',
+  },
+  pending: {
+    main: '#FFECBD',
+    contrastText: '#975B27',
+  },
+  confirmed: {
+    main: '#E2F6C7',
+    contrastText: '#5C8D45',
+  },
+  declined: {
+    main: '#FEE7E2',
+    contrastText: '#FF532F',
+  },
+  label: {
+    main: '#F2F3FB',
+    contrastText: '#676BC6',
   },
 })
 
@@ -435,7 +455,7 @@ export const theme = createTheme({
           borderRadius: 25,
         },
         columnHeaders: {
-          backgroundColor: `${palette.background.background03}`,
+          backgroundColor: palette.background.background03,
           fontFamily: getFontFamily('LibreFranklin-SemiBold'),
         },
         columnSeparator: {
@@ -448,6 +468,51 @@ export const theme = createTheme({
           padding: '20px 5px',
         },
       },
+    },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          borderRadius: 6,
+        },
+      },
+      variants: [
+        {
+          props: {
+            color: 'pending',
+          },
+          style: {
+            backgroundColor: palette.pending.main,
+            color: palette.pending.contrastText,
+          },
+        },
+        {
+          props: {
+            color: 'confirmed',
+          },
+          style: {
+            backgroundColor: palette.confirmed.main,
+            color: palette.confirmed.contrastText,
+          },
+        },
+        {
+          props: {
+            color: 'declined',
+          },
+          style: {
+            backgroundColor: palette.declined.main,
+            color: palette.declined.contrastText,
+          },
+        },
+        {
+          props: {
+            color: 'label',
+          },
+          style: {
+            backgroundColor: palette.label.main,
+            color: palette.label.contrastText,
+          },
+        },
+      ],
     },
     MuiLink: {
       styleOverrides: {

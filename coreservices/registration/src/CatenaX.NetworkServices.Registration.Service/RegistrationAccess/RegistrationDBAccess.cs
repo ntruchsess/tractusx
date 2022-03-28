@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Threading.Tasks;
 using CatenaX.NetworkServices.Cosent.Library.Data;
+using CatenaX.NetworkServices.Framework.DBAccess;
 using CatenaX.NetworkServices.Registration.Service.Model;
 
 using Dapper;
@@ -12,37 +12,40 @@ using Npgsql;
 
 namespace CatenaX.NetworkServices.Registration.Service.RegistrationAccess
 {
-    public class RegistrationDBAccess : IRegistrationDBAccess, IDisposable
+    public class RegistrationDBAccess : IRegistrationDBAccess
     {
-        private readonly IDbConnection _dbConnection;
+        private readonly IDBConnectionFactory _dbConnection;
         private readonly string _dbSchema;
 
-        public RegistrationDBAccess(IOptions<RegistrationDBAccessSettings> settings)
-            : this(new NpgsqlConnection(settings.Value.ConnectionString), settings.Value.DatabaseSchema)
+        public RegistrationDBAccess(IDBConnectionFactories dBConnectionFactories)
+        : this(dBConnectionFactories.Get("Registration"))
         {
         }
 
-        private RegistrationDBAccess(IDbConnection dbConnection, string dbSchema)
+        public RegistrationDBAccess(IDBConnectionFactory dbConnection)
         {
             _dbConnection = dbConnection;
-            _dbSchema = dbSchema;
+            _dbSchema = _dbConnection.Schema();
         }
 
-        public void Dispose()
+        public async Task<IEnumerable<CompanyRole>> GetAllCompanyRoles()
         {
-            _dbConnection.Dispose();
+            string sql = $"SELECT * from {_dbSchema}.companyroles";
+
+            using (var connection = _dbConnection.Connection())
+            {
+                return await connection.QueryAsync<CompanyRole>(sql).ConfigureAwait(false);
+            }
         }
 
-        public Task<IEnumerable<CompanyRole>> GetAllCompanyRoles()
-        {
-            string sql = "SELECT * from public.companyroles";
-            return _dbConnection.QueryAsync<CompanyRole>(sql);
-        }
-
-        public Task<IEnumerable<ConsentForCompanyRole>> GetConsentForCompanyRole(int roleId)
+        public async Task<IEnumerable<ConsentForCompanyRole>> GetConsentForCompanyRole(int roleId)
         {
             var sql = $"select * from get_company_role({roleId})";
-            return _dbConnection.QueryAsync<ConsentForCompanyRole>(sql);
+
+            using (var connection = _dbConnection.Connection())
+            {
+                return await connection.QueryAsync<ConsentForCompanyRole>(sql).ConfigureAwait(false);
+            }
         }
 
         public async Task SetCompanyRoles(CompanyToRoles rolesToSet)
@@ -50,35 +53,52 @@ namespace CatenaX.NetworkServices.Registration.Service.RegistrationAccess
             foreach (var role in rolesToSet.roles)
             {
                 var parameters = new { roleId = role, companyId = rolesToSet.CompanyId };
-                string sql = "Insert Into public.company_selected_roles (company_id, role_id) values(@companyId, @roleId)";
-                await _dbConnection.ExecuteAsync(sql, parameters);
+                string sql = $"Insert Into {_dbSchema}.company_selected_roles (company_id, role_id) values(@companyId, @roleId)";
+
+                using (var connection = _dbConnection.Connection())
+                {
+                    await connection.ExecuteAsync(sql, parameters).ConfigureAwait(false);
+                }
             }
         }
 
-        public Task SetIdp(SetIdp idpToSet)
+        public async Task SetIdp(SetIdp idpToSet)
         {
-            var parameters = new { companyId = idpToSet.companyId, idp = idpToSet.idp };
-            string sql = "Insert Into public.company_selected_idp (company_id, idp) values(@companyId, @idp)";
-            return _dbConnection.ExecuteAsync(sql, parameters);
+            using (var connection = _dbConnection.Connection())
+            {
+                    var parameters = new { companyId = idpToSet.companyId, idp = idpToSet.idp };
+                    string sql = $"Insert Into {_dbSchema}.company_selected_idp (company_id, idp) values(@companyId, @idp)";
+                    await connection.ExecuteAsync(sql, parameters).ConfigureAwait(false);
+            }
         }
 
-        public Task SignConsent(SignConsentRequest signedConsent)
+        public async Task SignConsent(SignConsentRequest signedConsent)
         {
             var sql = $"SELECT sign_consent('{signedConsent.companyId}',{signedConsent.consentId},{signedConsent.companyRoleId}, '{signedConsent.userName}')";
-            return _dbConnection.ExecuteAsync(sql);
+
+            using (var connection = _dbConnection.Connection())
+            {
+                await connection.ExecuteAsync(sql).ConfigureAwait(false);
+            }
         }
 
-        public Task<IEnumerable<SignedConsent>> SignedConsentsByCompanyId(string companyId)
+        public async Task<IEnumerable<SignedConsent>> SignedConsentsByCompanyId(string companyId)
         {
             var sql = $"select * from get_signed_consents_for_company_id('{companyId}')";
-            return _dbConnection.QueryAsync<SignedConsent>(sql);
+            using (var connection = _dbConnection.Connection())
+            {
+                return await connection.QueryAsync<SignedConsent>(sql).ConfigureAwait(false);
+            }
         }
 
-        public Task UploadDocument(string name, string document, string hash, string username)
+        public async Task UploadDocument(string name, string document, string hash, string username)
         {
             var parameters = new { documentName = name, document = document, documentHash = hash, documentuser = username, documentuploaddate = DateTime.UtcNow };
-            string sql = "Insert Into public.documents (documentName, document, documentHash, documentuser, documentuploaddate) values(@documentName, @document, @documentHash, @documentuser, @documentuploaddate)";
-            return _dbConnection.ExecuteAsync(sql, parameters);
+            string sql = $"Insert Into {_dbSchema}.documents (documentName, document, documentHash, documentuser, documentuploaddate) values(@documentName, @document, @documentHash, @documentuser, @documentuploaddate)";
+            using (var connection = _dbConnection.Connection())
+            {
+                await connection.ExecuteAsync(sql, parameters).ConfigureAwait(false);
+            }
         }
 
         public async Task<int> UpdateApplicationStatusAsync(string applicationId, string applicationStatus)
@@ -91,15 +111,18 @@ namespace CatenaX.NetworkServices.Registration.Service.RegistrationAccess
                     $@"UPDATE {_dbSchema}.company_applications
                     SET status = @applicationStatus::{_dbSchema}.application_status, date_last_changed = now()
                     WHERE applicationid = @applicationId";
-            var statusResult = (await _dbConnection.ExecuteAsync(sql, new {
-                    applicationId,
-                    applicationStatus
-                }));
-            if (statusResult == 0)
+            using (var connection = _dbConnection.Connection())
             {
-                throw new InvalidOperationException("Application status not updated");
+                var statusResult = await connection.ExecuteAsync(sql, new {
+                        applicationId,
+                        applicationStatus
+                    }).ConfigureAwait(false);
+                if (statusResult == 0)
+                {
+                    throw new InvalidOperationException("Application status not updated");
+                }
+                return statusResult;
             }
-            return statusResult;
         }
     }
 }

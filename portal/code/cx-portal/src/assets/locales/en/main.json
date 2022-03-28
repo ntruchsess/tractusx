@@ -3,6 +3,7 @@
   "pages": {
     "dashboard": "Dashboard",
     "appstore": "Appstore",
+    "appmarketplace": "App Marketplace",
     "datacatalog": "Data Catalog",
     "applications": "Applications",
     "semantichub": "Semantic Hub",
@@ -54,6 +55,19 @@
       "title": "Invite a new Business Partner",
       "send": "Send Invite",
       "success": "Invitation successful",
+      "failure": "Processing your request failed"
+    },
+    "provisionIdp": {
+      "title": "Setup your company IDP",
+      "send": "Submit IDP request",
+      "field": {
+        "organization": "Your Organization",
+        "metadata": "IDP well known metadata URL",
+        "clientId": "IDP client ID",
+        "clientSecret": "IDP client secret",
+        "clientAuthMethod": "IDP client authentication method"
+      },
+      "success": "Your identity provider was provisioned successfully",
       "failure": "Processing your request failed"
     },
     "usermanagement": {

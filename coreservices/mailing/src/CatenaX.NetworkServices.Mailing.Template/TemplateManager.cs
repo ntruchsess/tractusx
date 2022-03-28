@@ -1,8 +1,13 @@
+using CatenaX.NetworkServices.Mailing.Template.Attributes;
+using CatenaX.NetworkServices.Mailing.Template.Enums;
+using CatenaX.NetworkServices.Mailing.Template.Model;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 using System.Text.RegularExpressions;
-using Microsoft.Extensions.Options;
-using CatenaX.NetworkServices.Mailing.Template.Model;
 
 namespace CatenaX.NetworkServices.Mailing.Template
 {
@@ -22,8 +27,10 @@ namespace CatenaX.NetworkServices.Mailing.Template
                 var Template = _Templates[id];
                 return new Mail(
                     replaceValues(Template.Subject,parameters),
-                    replaceValues(Template.Body,parameters),
-                    Template.html
+                    replaceValues(Template.EmailTemplateType.HasValue 
+                        ? GetTemplateStringFromPath(GetTemplatePathFromType(Template.EmailTemplateType.Value))
+                        : Template.Body,parameters),
+                    Template.EmailTemplateType.HasValue
                 );
             }
             catch(ArgumentNullException)
@@ -35,6 +42,15 @@ namespace CatenaX.NetworkServices.Mailing.Template
                 throw new NoSuchTemplateException(id);
             }
         }
+
+        private static string GetTemplatePathFromType(EmailTemplateType value) =>
+             typeof(EmailTemplateType)
+                .GetMember(value.ToString())
+                .FirstOrDefault(m => m.DeclaringType == typeof(EmailTemplateType))
+                .GetCustomAttribute<PathAttribute>().Path;
+
+        private static string GetTemplateStringFromPath(string path) =>
+            File.ReadAllText(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "/EmailTemplates/" + path);
 
         private string replaceValues(string template, IDictionary<string,string> parameters)
         {
