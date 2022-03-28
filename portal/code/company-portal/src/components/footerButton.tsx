@@ -16,7 +16,7 @@ import * as React from "react";
 import {Row} from "react-bootstrap";
 import Button from "./button";
 
-export const FooterButton = ({ labelBack, labelNext, handleBackClick, handleNextClick }) => {    
+export const FooterButton = ({ labelBack, labelNext, handleBackClick, handleNextClick, tooltip = null }) => {    
 
 return(
  <div className="mx-auto col-9 info">
@@ -33,8 +33,10 @@ return(
      />
      <Button
        label={labelNext}
-       styleClass="button btn-primaryCax"
+       styleClass={tooltip ? 'button btn-disabledCax' : 'button btn-primaryCax'}
        handleClick={handleNextClick}
+       showTooltip = {tooltip? true: false}
+       tooltipText = {tooltip}
      />
    </div>
  </Row>

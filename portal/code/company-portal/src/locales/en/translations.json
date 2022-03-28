@@ -95,7 +95,10 @@
       "409": "Service error. Please contact your administrator.",
       "415": "Service error. Please contact your administrator.",
       "500": "This Page isn't working. Server Error.",
-      "default": "This Page isn't working."
+      "default": "This Page isn't working.",
+      "error1": "Registration form cant get submitted, since company data are missing. Please fill out all company data in Step 1.",
+      "error2": "Registration form cant get submitted. CX Terms and Conditions need to get accepted. Please accept the Terms and Conditions under Step 3 to proceed.",
+      "error3": "Registration form cant get submitted. Please upload your company document under Step 4."
     }
   }
 }
