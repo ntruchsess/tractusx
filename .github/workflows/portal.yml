@@ -31,7 +31,7 @@
 
 # name of workflow (as well as subordinate workflows and jobs) start with a "run-level" such that we can
 # depend on them in order to implement workflow dependencies
-name: 9 Frontend Portal NG
+name: 8 Frontend Portal
 
 ####################################################
 # Should trigger upon pushs to the portal related 
@@ -45,9 +45,9 @@ on:
       # This is where the terraform related scripts and manifests reside
       - 'portal/code/cx-portal/**'
       # any deployment manifest
-      - 'infrastructure/manifests/portal-ng.yaml'
+      - 'infrastructure/manifests/portal.yaml'
       # this workflow file
-      - '.github/workflows/portal-ng.yml'
+      - '.github/workflows/portal.yml'
       # ADAPT HERE TO ADD NEW WORKSPACES
     branches:
       # Integration environment
@@ -76,7 +76,7 @@ jobs:
   environment:
     # name of the job starts with a "run-level" subordinate to the workflow such that we can
     # depend on them in order to implement workflow dependencies
-    name: 90 Frontend Portal NG
+    name: 80 Frontend Portal
     runs-on: ubuntu-latest
     outputs:
       workspace: ${{ steps.setvars.outputs.workspace }}
@@ -120,7 +120,7 @@ jobs:
   containerize:
     # name of the job starts with a "run-level" subordinate to the workflow such that we can
     # depend on them in order to implement workflow dependencies
-    name: 99 Frontend Portal NG Build & Deploy
+    name: 89 Frontend Portal NG Build & Deploy
     runs-on: ubuntu-latest
     # rely on the first job
     needs: environment
@@ -145,16 +145,8 @@ jobs:
         wait-interval: 30
         allowed-conclusions: success,skipped,cancelled
 
-    # Checks-out this repo/branch under $GITHUB_WORKSPACE/tractusx, so your job can access it
-    # get the latest sources
     - name: Checkout
       uses: actions/checkout@v2
-
-    # This is needed to interact with the subscription
-    - name: Login to Azure
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Install Dependencies
       working-directory: ./portal/code
@@ -193,6 +185,19 @@ jobs:
     - name: Publish Docker Image
       working-directory: ./portal/code
       run: yarn publish:docker
+
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Kubernetes Login
+      uses: azure/aks-set-context@v1
+      with:
+        creds: '${{ secrets.AZURE_CREDENTIALS }}'
+        resource-group: 'catenax-${{needs.environment.outputs.workspace}}-rg'
+        cluster-name: 'catenax-${{needs.environment.outputs.workspace}}-aks-services'
+      id: login
 
     - name: Deploy the Portal
       working-directory: ./infrastructure/manifests
