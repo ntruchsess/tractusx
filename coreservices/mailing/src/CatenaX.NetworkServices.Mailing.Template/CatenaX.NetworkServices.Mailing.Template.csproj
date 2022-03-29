@@ -27,7 +27,7 @@
     <None Update="EmailTemplates\staticTemplates\buttonTemplate.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="EmailTemplates\additional_user_invitation_without_message.html">
+    <None Update="EmailTemplates\additional_user_invitation.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="EmailTemplates\additional_user_invitation_with_message.html">
