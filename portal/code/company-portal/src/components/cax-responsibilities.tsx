@@ -12,35 +12,35 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import * as React from "react";
-import { Row } from "react-bootstrap";
-import "react-datepicker/dist/react-datepicker.css";
-import { AiOutlineUser, AiOutlineDelete } from "react-icons/ai";
-import Button from "./button";
-import { getClientRolesComposite, submitSendInvites } from "../helpers/utils";
-import { AiOutlineExclamationCircle } from "react-icons/ai";
-import { ToastContainer, toast } from "react-toastify";
-import { connect } from "react-redux";
-import { IUserItem } from "../types/user/user.types";
-import { IState } from "../types/store/redux.store.types";
-import { Dispatch } from "redux";
+import * as React from 'react'
+import { Row } from 'react-bootstrap'
+import 'react-datepicker/dist/react-datepicker.css'
+import { AiOutlineUser, AiOutlineDelete } from 'react-icons/ai'
+import Button from './button'
+import { getClientRolesComposite, submitSendInvites } from '../helpers/utils'
+import { AiOutlineExclamationCircle } from 'react-icons/ai'
+import { ToastContainer, toast } from 'react-toastify'
+import { connect } from 'react-redux'
+import { IUserItem } from '../types/user/user.types'
+import { IState } from '../types/store/redux.store.types'
+import { Dispatch } from 'redux'
 import {
   addToInviteList,
   removeFromInviteList,
   addCurrentStep,
-} from "../actions/user.action";
-import { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { withRouter } from "react-router-dom";
-import { v4 as uuidv4 } from "uuid";
-import FooterButton from "./footerButton";
-import { DataErrorCodes } from "../helpers/DataError";
+} from '../actions/user.action'
+import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { withRouter } from 'react-router-dom'
+import { v4 as uuidv4 } from 'uuid'
+import { FooterButton } from './footerButton'
+import { DataErrorCodes } from '../helpers/DataError'
 interface ResponsibilitiesCaxProps {
-  addToInviteList: (userItem: IUserItem) => void;
-  removeFromInviteList: (userItem: string) => void;
-  userInviteList: IUserItem[];
-  currentActiveStep: number;
-  addCurrentStep: (step: number) => void;
+  addToInviteList: (userItem: IUserItem) => void
+  removeFromInviteList: (userItem: string) => void
+  userInviteList: IUserItem[]
+  currentActiveStep: number
+  addCurrentStep: (step: number) => void
 }
 
 export const ResponsibilitiesCax = ({
@@ -50,24 +50,23 @@ export const ResponsibilitiesCax = ({
   addCurrentStep,
   removeFromInviteList,
 }: ResponsibilitiesCaxProps) => {
-  const { t } = useTranslation();
-  const [email, setEmail] = useState<string | null>("");
-  const [role, setRole] = useState<string | null>("");
-  const [message, setMessage] = useState<string | null>("");
-  const [availableUserRoles, setavailableUserRoles] = useState([]);
+  const { t } = useTranslation()
+  const [email, setEmail] = useState<string | null>('')
+  const [role, setRole] = useState<string | null>('')
+  const [message, setMessage] = useState<string | null>('')
+  const [availableUserRoles, setavailableUserRoles] = useState([])
   const [error, setError] = useState<{ email: string; role: string }>({
-    email: "",
-    role: "",
-  });
+    email: '',
+    role: '',
+  })
 
   useEffect(() => {
-
     const fetchData = async () => {
-      const dataRoles = await getClientRolesComposite();
+      const dataRoles = await getClientRolesComposite()
 
-      setavailableUserRoles(dataRoles);
-      if (dataRoles && dataRoles.length > 0) setRole(dataRoles[0]);
-    };
+      setavailableUserRoles(dataRoles)
+      if (dataRoles && dataRoles.length > 0) setRole(dataRoles[0])
+    }
 
     // call the function
     fetchData()
@@ -75,72 +74,69 @@ export const ResponsibilitiesCax = ({
       .catch((errorCode: number) => {
         let message = DataErrorCodes.includes(errorCode)
           ? t(`ErrorMessage.${errorCode}`)
-          : t(`ErrorMessage.default`);
-        toast.error(message);
-      });
-  }, []);
+          : t(`ErrorMessage.default`)
+        toast.error(message)
+      })
+  }, [])
 
   const onRoleChange = (e) => {
-    setRole(e.target.value);
-  };
+    setRole(e.target.value)
+  }
 
   const handleClick = () => {
-    verifyEntry();
-    if (email !== "") {
+    verifyEntry()
+    if (email !== '') {
       const data = {
         uiId: uuidv4(),
         email: email,
         role: role,
         message: message,
-      };
+      }
 
-      addToInviteList(data);
-      setEmail("");
-      setMessage("");
+      addToInviteList(data)
+
+      var apiData = []
+      apiData.push(data)
+
+      const fetchData = async () => {
+        const dataRoles = await submitSendInvites(apiData)
+        toast.success(dataRoles)
+      }
+      fetchData().catch((errorCode: number) => {
+        const message = DataErrorCodes.includes(errorCode)
+          ? t(`ErrorMessage.${errorCode}`)
+          : t(`ErrorMessage.default`)
+        //   alert(message)
+
+        toast.error(message)
+        //  history.push("/finish");
+      })
+
+      setEmail('')
+      setMessage('')
       if (availableUserRoles && availableUserRoles.length > 0)
-        setRole(availableUserRoles[0]);
+        setRole(availableUserRoles[0])
     }
-  };
+  }
 
   const verifyEntry = () => {
-    if (email === "")
-      setError({ email: "Email is required", role: error.role });
+    if (email === '') setError({ email: 'Email is required', role: error.role })
     else {
-      setError({ email: "", role: error.role });
+      setError({ email: '', role: error.role })
     }
-  };
+  }
 
   const removeUser = (userUiId) => {
-    removeFromInviteList(userUiId);
-  };
+    removeFromInviteList(userUiId)
+  }
 
   const backClick = () => {
-    addCurrentStep(currentActiveStep - 1);
-  };
+    addCurrentStep(currentActiveStep - 1)
+  }
 
   const nextClick = () => {
-    if (userInviteList.length > 0) {
-      const fetchData = async () => {
-    const dataRoles = await submitSendInvites(userInviteList);
-            toast.success(dataRoles);
-      }
-      fetchData()
-      .catch((errorCode: number) => {
-      
-        let message = DataErrorCodes.includes(errorCode)
-          ? t(`ErrorMessage.${errorCode}`)
-          : t(`ErrorMessage.default`);
-        //   alert(message)
-  
-        toast.error(message);
-        //  history.push("/finish");
-      });
-  } else {
-    toast.error("Email or User Role empty.");
+    addCurrentStep(currentActiveStep + 1)
   }
-    addCurrentStep(currentActiveStep + 1);
-  };
-
 
   return (
     <>
@@ -150,57 +146,22 @@ export const ResponsibilitiesCax = ({
             2
           </div>
           <h4 className="mx-auto d-flex align-items-center justify-content-center">
-            {t("Responsibility.responsAndAdmin")}
+            {t('Responsibility.responsAndAdmin')}
           </h4>
           <div className="mx-auto text-center col-9">
-            {t("Responsibility.subTitle")}
+            {t('Responsibility.subTitle')}
           </div>
         </div>
         <div className="companydata-form">
-          {userInviteList && (
-            <Row className="mx-auto col-9 send-invite">
-              <h5>Users selected to invite</h5>
-              <Row>
-                <ul className="list-group-cax px-2">
-                  {userInviteList.map((d) => {
-                    return (
-                      <li className="list-group-item-cax">
-                        <Row>
-                          <span className="col-1">
-                            <AiOutlineUser />
-                          </span>
-                          <span className="col-6">{d.email}</span>
-                          <span className="badge-cax  bg-list-group-cax col-4">
-                            {d.role}
-                          </span>
-                          <span className="col-1 list-group-item-delete">
-                            <AiOutlineDelete
-                              onClick={() => removeUser(d.uiId)}
-                            />
-                          </span>
-                        </Row>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </Row>
-            </Row>
-          )}
-
-          <Row className="mx-auto col-9">
-            <h5>Users to invite</h5>
-            <div>No users defined, please use the form below to add users:</div>
-          </Row>
-
           <Row className="mx-auto col-9">
             <div
               className={
-                error.email !== ""
-                  ? "form-data error calender"
-                  : "form-data calender"
+                error.email !== ''
+                  ? 'form-data error calender'
+                  : 'form-data calender'
               }
             >
-              <label> E-mail address </label>
+              <label>{t('Responsibility.email')}</label>
               <input
                 type="text"
                 name="email"
@@ -214,7 +175,7 @@ export const ResponsibilitiesCax = ({
 
           <Row className="mx-auto col-9">
             <div className="form-data">
-              <label> User role </label>
+              <label>{t('Responsibility.role')}</label>
               <select value={role} onChange={(e) => onRoleChange(e)}>
                 {availableUserRoles &&
                   availableUserRoles.map((role, index) => (
@@ -226,15 +187,13 @@ export const ResponsibilitiesCax = ({
 
           <Row className="mx-auto col-9">
             <div className="form-data">
-              <label> Personal note</label>
+              <label>{t('Responsibility.note')}</label>
               <textarea
                 name="message"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
               />
-              <div className="company-hint">
-                Optional message in the invitation e-mail. Lorem Ipsum
-              </div>
+              <div className="company-hint">{t('Responsibility.hint')}</div>
             </div>
           </Row>
 
@@ -242,36 +201,66 @@ export const ResponsibilitiesCax = ({
             <div>
               <Button
                 styleClass="button btn-primaryCax"
-                label="Add User"
+                label={t('Responsibility.sentInvite')}
                 handleClick={() => handleClick()}
                 icon={true}
               />
             </div>
-              <ToastContainer />
+            <ToastContainer />
           </Row>
+
+          {userInviteList.length > 0 && userInviteList && (
+            <Row className="mx-auto col-9 send-invite">
+              <h5>{t('Responsibility.titleInvite')}</h5>
+              <Row>
+                <ul className="list-group-cax px-2">
+                  {userInviteList.map((d) => {
+                    return (
+                      <li className="list-group-item-cax">
+                        <Row>
+                          <span className="col-1">
+                            <AiOutlineUser />
+                          </span>
+                          <span className="col-5 list-group-item-email">
+                            {d.email}
+                          </span>
+                          <span className="badge-cax bg-list-group-cax col-4">
+                            {d.role}
+                          </span>
+                          <span className="col-2 list-group-item-status">
+                            Pending
+                          </span>
+                        </Row>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </Row>
+            </Row>
+          )}
         </div>
       </div>
       <FooterButton
-        labelBack={t("button.back")}
-        labelNext={t("button.next")}
+        labelBack={t('button.back')}
+        labelNext={t('button.next')}
         handleBackClick={() => backClick()}
         handleNextClick={() => nextClick()}
       />
     </>
-  );
-};
+  )
+}
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
   addToInviteList: (userItem: IUserItem) => {
-    dispatch(addToInviteList(userItem));
+    dispatch(addToInviteList(userItem))
   },
   removeFromInviteList: (userUiId: string) => {
-    dispatch(removeFromInviteList(userUiId));
+    dispatch(removeFromInviteList(userUiId))
   },
   addCurrentStep: (step: number) => {
-    dispatch(addCurrentStep(step));
+    dispatch(addCurrentStep(step))
   },
-});
+})
 
 export default withRouter(
   connect(
@@ -282,4 +271,4 @@ export default withRouter(
     }),
     mapDispatchToProps
   )(ResponsibilitiesCax)
-);
+)

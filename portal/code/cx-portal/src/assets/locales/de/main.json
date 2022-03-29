@@ -3,6 +3,7 @@
   "pages": {
     "dashboard": "Übersicht",
     "appstore": "App Store",
+    "appmarketplace": "App Marketplace",
     "datacatalog": "Datenkatalog",
     "applications": "Anwendungen",
     "semantichub": "Semantischer Hub",
@@ -56,8 +57,29 @@
       "success": "Einladung erfolgreich",
       "failure": "Die Verarbeitung Ihrer Anfrage ist fehlgeschlagen"
     },
+    "provisionIdp": {
+      "title": "Verbinden Sie Ihren IDP",
+      "send": "IDP Provisionierung absenden",
+      "field": {
+        "organization": "Ihre Organisation",
+        "metadata": "Metadaten URL des IDP (well-known)",
+        "clientId": "Client ID des IDP",
+        "clientSecret": "Client secret des IDP",
+        "clientAuthMethod": "Authentisierung des Client"
+      },
+      "success": "Ihr Identitätsprovider wurde erfolgreich eingerichtet",
+      "failure": "Die Verarbeitung Ihrer Anfrage ist fehlgeschlagen"
+    },
     "usermanagement": {
-      "message": "Inhalte der Benutzerverwaltung"
+      "apparea": {
+        "headline": "App Zugriffsmanagement"
+      },
+      "table": {
+        "headline": "Benutzerkontenverwaltung",
+        "title": "User Liste",
+        "details": "Details",
+        "add": "User hinzufügen"
+      }
     },
     "help": {
       "message": "Fügen Sie hier Inhalte hinzu"
@@ -101,7 +123,11 @@
       "first": "Vorname",
       "last": "Nachname",
       "email": "Email",
-      "company": "Firmenname"
+      "company": "Firmenname",
+      "status": "Status",
+      "role": "Role",
+      "active": "Aktiv",
+      "inactive": "Inaktiv"
     }
   }
 }

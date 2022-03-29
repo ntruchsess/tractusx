@@ -98,15 +98,11 @@ namespace CatenaX.NetworkServices.Registration.Service.RegistrationAccess
             }
         }
 
-        public async Task<int> UpdateApplicationStatusAsync(string applicationId, string applicationStatus)
+        public async Task<int> UpdateApplicationStatusAsync(Guid applicationId, ApplicationStatus applicationStatus)
         {
-            if (String.IsNullOrEmpty(applicationStatus))
-            {
-                throw new ArgumentNullException(nameof(applicationStatus));
-            }
             string sql =
                     $@"UPDATE {_dbSchema}.company_applications
-                    SET application_status_id = @applicationStatus::{_dbSchema}.application_status, date_last_changed = now()
+                    SET application_status_id = @applicationStatus, date_last_changed = now()
                     WHERE company_application_id = @applicationId";
             using (var connection = _dbConnection.Connection())
             {

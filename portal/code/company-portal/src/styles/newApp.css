@@ -435,12 +435,20 @@ textarea {
   font-family: "LibreFranklin-bold";
 }
 .send-invite {
-  margin-bottom: 50px;
+  margin-top: 50px !important;
 }
 
-.list-group-item-delete {
+.list-group-item-status {
   text-align: right;
-  cursor: pointer;
+  font-size: 14px;
+  color:#888888 ;
+  font-family: "LibreFranklin-bold";
+}
+
+.list-group-item-email{
+   color: #252525;
+   font-size: 16px;
+   font-family: "Libre Franklin 400";
 }
 
 .badge-cax {
@@ -496,6 +504,12 @@ textarea {
 .btn-primaryCax {
   color: #ffffff;
   background-color: #0f71cb !important;
+}
+
+.btn-disabledCax{
+  color: #ffffff;
+  background-color: #ADADAD !important;
+  cursor: default;
 }
 
 .error label {
@@ -612,4 +626,9 @@ textarea {
 .selected-file {
   color: #000;
   font-weight: bold;
+}
+
+#tooltipBtn{
+  width: 23em;
+  word-break: break-word;
 }

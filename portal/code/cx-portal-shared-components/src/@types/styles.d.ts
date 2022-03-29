@@ -18,6 +18,11 @@ declare module '@mui/material/styles' {
     dangerBadge: string
   }
 
+  interface TypeSupport {
+    success: string
+    error: string
+  }
+
   interface TypeBorders {
     border01: string
     border02: string
@@ -93,6 +98,7 @@ declare module '@mui/material/styles' {
     text: TypeText
     brand: TypeBrand
     danger: TypeDanger
+    support: TypeSupport
     accent: TypeAccent
     selected: TypeSelected
     pending: TypeChipColor
@@ -108,6 +114,7 @@ declare module '@mui/material/styles' {
     text?: Partial<TypeText>
     brand?: Partial<TypeBrand>
     danger?: Partial<TypeDanger>
+    support?: Partial<TypeSupport>
     accent?: Partial<TypeAccent>
     selected?: Partial<TypeSelected>
     pending?: Partial<TypeChipColor>

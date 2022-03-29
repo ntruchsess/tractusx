@@ -36,10 +36,6 @@ export const RegistrationCax = ({currentActiveStep}: RegistrationCaxProps) => {
 
     const { t } = useTranslation();
 
-    // const [currentActiveStep, setcurrentActiveStep] =  useState(1);
-
- 
-
     return (
       <Container>
         <Header/>
