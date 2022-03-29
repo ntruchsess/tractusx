@@ -1,4 +1,5 @@
-﻿Microsoft Visual Studio Solution File, Format Version 12.00
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31717.71
 MinimumVisualStudioVersion = 10.0.40219.1
@@ -57,6 +58,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatenaX.NetworkServices.PortalBackend.DBAccess", "portalbackend\src\CatenaX.NetworkServices.PortalBackend.DBAccess\CatenaX.NetworkServices.PortalBackend.DBAccess.csproj", "{4A76991F-5E08-4882-84D5-A7C1FEC924FC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "portalbackend", "portalbackend", "{5638B3F0-AED0-11EC-9040-016C6A89AD3F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{85DE244C-8F06-4221-8D2D-7CD995BBA82D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatenaX.NetworkServices.Registrations.Tests", "registration\tests\CatenaX.NetworkServices.Registrations.Tests\CatenaX.NetworkServices.Registrations.Tests.csproj", "{74D90840-D864-4B72-85C5-D36345936380}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -136,6 +141,10 @@ Global
 		{4A76991F-5E08-4882-84D5-A7C1FEC924FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A76991F-5E08-4882-84D5-A7C1FEC924FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A76991F-5E08-4882-84D5-A7C1FEC924FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74D90840-D864-4B72-85C5-D36345936380}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74D90840-D864-4B72-85C5-D36345936380}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74D90840-D864-4B72-85C5-D36345936380}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74D90840-D864-4B72-85C5-D36345936380}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -168,6 +177,8 @@ Global
 		{799A6509-F37A-4E2F-926D-7621F4B547DD} = {3E6A8890-ABCC-11EC-8FBD-830E148C8A39}
 		{3E6A8890-ABCC-11EC-8FBD-830E148C8A39} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
 		{4A76991F-5E08-4882-84D5-A7C1FEC924FC} = {5638B3F0-AED0-11EC-9040-016C6A89AD3F}
+		{85DE244C-8F06-4221-8D2D-7CD995BBA82D} = {1A8ADE3E-393B-43D6-BE93-9CDB765CB86E}
+		{74D90840-D864-4B72-85C5-D36345936380} = {85DE244C-8F06-4221-8D2D-7CD995BBA82D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {23E9EF5A-FB26-4AAC-952E-0695A1245B8E}
