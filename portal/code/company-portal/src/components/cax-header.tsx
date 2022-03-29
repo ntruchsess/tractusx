@@ -62,7 +62,7 @@ export const Header = ({ addrolesComposite }: HeaderCaxProps) => {
         toast.error(message);
         //  history.push("/finish");
       });
-  }, [tokenRoles, addrolesComposite]);
+  }, []);
 
   const changeLanguage = (lng) => {
     setlanguage(lng);
@@ -96,7 +96,7 @@ export const Header = ({ addrolesComposite }: HeaderCaxProps) => {
               DE
             </span>
           </div>
-          <div className="profile-link partion"></div>
+          <div className="profile-link partition"></div>
           <div className="profile-link user">
             <input id="myid" type="checkbox" />
             <label htmlFor="myid" className="user-icon"></label>
