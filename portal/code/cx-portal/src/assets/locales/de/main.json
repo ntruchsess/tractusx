@@ -105,6 +105,9 @@
     "account": {
       "token": "Aktuelles Authentisierungstoken"
     },
+    "footer": {
+      "copyright": "Copyright © Catena-X Automotive Network"
+    },
     "logout": {
       "message": "Wir melden Sie nun ab... Wir freuen uns Sie bald wieder hier zu sehen!"
     },
