@@ -62,7 +62,7 @@ export const Header = ({ addrolesComposite }: HeaderCaxProps) => {
         toast.error(message);
         //  history.push("/finish");
       });
-  }, [tokenRoles, addrolesComposite]);
+  }, []);
 
   const changeLanguage = (lng) => {
     setlanguage(lng);
