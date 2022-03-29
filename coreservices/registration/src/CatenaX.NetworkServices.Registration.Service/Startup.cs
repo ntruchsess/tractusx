@@ -25,6 +25,7 @@ using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net.Http;
 using Newtonsoft.Json.Converters;
+using CatenaX.NetworkServices.Registration.Service.Helper;
 
 namespace CatenaX.NetworkServices.Registration.Service
 {
@@ -132,6 +133,7 @@ namespace CatenaX.NetworkServices.Registration.Service
 
             app.UseRouting();
 
+            app.UseMiddleware<GeneralErrorHandler>();
             app.UseAuthentication();
             app.UseAuthorization();
 
