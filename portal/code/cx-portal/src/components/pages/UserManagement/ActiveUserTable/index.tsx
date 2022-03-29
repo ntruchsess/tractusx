@@ -1,4 +1,9 @@
-import { IconButton, Table, Typography } from 'cx-portal-shared-components'
+import {
+  IconButton,
+  StatusTag,
+  Table,
+  Typography,
+} from 'cx-portal-shared-components'
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
@@ -41,7 +46,17 @@ export const ActiveUserTable = ({
           { field: 'lastName', headerName: t('global.field.last'), flex: 1 },
           { field: 'firstName', headerName: t('global.field.first'), flex: 1 },
           { field: 'userName', headerName: t('global.field.email'), flex: 2 },
-          { field: 'status', headerName: t('global.field.status'), flex: 1 },
+          {
+            field: 'enabled',
+            headerName: t('global.field.status'),
+            flex: 1,
+            renderCell: ({ value: enabled }) => {
+              const label = enabled ? 'active' : 'inactive'
+              return (
+                <StatusTag color="label" label={t(`global.field.${label}`)} />
+              )
+            },
+          },
           { field: 'role', headerName: t('global.field.role'), flex: 1 },
           {
             field: 'details',

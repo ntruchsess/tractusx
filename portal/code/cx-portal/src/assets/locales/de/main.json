@@ -71,6 +71,9 @@
       "failure": "Die Verarbeitung Ihrer Anfrage ist fehlgeschlagen"
     },
     "usermanagement": {
+      "apparea": {
+        "headline": "App Zugriffsmanagement"
+      },
       "table": {
         "headline": "Benutzerkontenverwaltung",
         "title": "User Liste",
@@ -123,7 +126,8 @@
       "company": "Firmenname",
       "status": "Status",
       "role": "Role",
-      "active": "Aktiv"
+      "active": "Aktiv",
+      "inactive": "Inaktiv"
     }
   }
 }
