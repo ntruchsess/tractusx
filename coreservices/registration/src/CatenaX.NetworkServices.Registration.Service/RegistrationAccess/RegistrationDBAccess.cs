@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Threading.Tasks;
 using CatenaX.NetworkServices.Cosent.Library.Data;
 using CatenaX.NetworkServices.Framework.DBAccess;
 using CatenaX.NetworkServices.Registration.Service.Model;
 
 using Dapper;
-using Microsoft.Extensions.Options;
-using Npgsql;
 
 namespace CatenaX.NetworkServices.Registration.Service.RegistrationAccess
 {
@@ -109,8 +106,8 @@ namespace CatenaX.NetworkServices.Registration.Service.RegistrationAccess
             }
             string sql =
                     $@"UPDATE {_dbSchema}.company_applications
-                    SET status = @applicationStatus::{_dbSchema}.application_status, date_last_changed = now()
-                    WHERE applicationid = @applicationId";
+                    SET application_status_id = @applicationStatus::{_dbSchema}.application_status, date_last_changed = now()
+                    WHERE company_application_id = @applicationId";
             using (var connection = _dbConnection.Connection())
             {
                 var statusResult = await connection.ExecuteAsync(sql, new {
