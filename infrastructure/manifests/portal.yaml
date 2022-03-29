@@ -26,10 +26,10 @@ spec:
     spec:
       containers:
       - name: portal
-        image: ${CONTAINER_REGISTRY}/frontend/portal${WORKSPACE}:${VERSION}
-        imagePullPolicy: ${IMAGE_PULL_POLICY}
+        image: "catenaxacr.azurecr.io/frontend/portal:latest"
+        imagePullPolicy: "Always"
         ports:
-        - containerPort: 80
+        - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
@@ -40,7 +40,7 @@ spec:
   type: ClusterIP
   ports:
   - port: 80
-    targetPort: 80
+    targetPort: 8080
   selector:
     app: portal
 ---

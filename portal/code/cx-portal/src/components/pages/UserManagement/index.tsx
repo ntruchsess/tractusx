@@ -1,28 +1,28 @@
 import { useState } from 'react'
-import { useTranslation } from 'react-i18next'
 import { AddUserOverlay } from './AddUserOverlay'
 import { ActiveUserTable } from './ActiveUserTable'
+import { AppArea } from './AppArea'
 
 export default function UserManagement() {
-  const { t } = useTranslation()
   const [open, setOpen] = useState(false);
 
-  const handleClickOpen = () => {
+  const openAddUserLayout = () => {
     setOpen(true);
   };
 
-  const handleClose = () => {
+  const closeAddUserLayout = () => {
     setOpen(false);
   };
 
-  const handleConfirm = () => {
+  const confirmNewUser = () => {
     console.log('confirmed')
   };
     
   return (
     <main>
-      <ActiveUserTable onAddUserButtonClick={handleClickOpen} />
-      <AddUserOverlay openDialog={open} handleClose={handleClose} handleConfirm={handleConfirm} />
+      <AddUserOverlay openDialog={open} handleClose={closeAddUserLayout} handleConfirm={confirmNewUser} />
+      <AppArea />
+      <ActiveUserTable onAddUserButtonClick={openAddUserLayout} />
     </main>
   )
 }
