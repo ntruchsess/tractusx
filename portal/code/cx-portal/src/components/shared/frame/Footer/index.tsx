@@ -21,11 +21,7 @@ export const Footer = ({ pages }: { pages: string[] }) => {
   const [showScrollToTop, setShowScrollToTop] = useState(false);
 
   const toggleVisibility = () => {
-    if (window.pageYOffset > 350) {
-      setShowScrollToTop(true);
-    } else {
-      setShowScrollToTop(false);
-    }
+    setShowScrollToTop(window.pageYOffset > 350)
   };
 
   useEffect(() => {
