@@ -24,8 +24,8 @@ export default {
           <p>
             Chip component used the same way as described in the
             <a href='https://mui.com/components/chips/'
-               target='_blank'>MUI Chip</a> documentation with
-            <a href='https://mui.com/api/chips/' target='_blank'>MUI Chip API</a>
+               target='_blank' rel="noreferrer">MUI Chip</a> documentation with
+            <a href='https://mui.com/api/chips/' target='_blank' rel="noreferrer">MUI Chip API</a>
             <p style={{color:"red"}}>
               Please take a look to "Examples" stories doc page for example usages
             </p>
