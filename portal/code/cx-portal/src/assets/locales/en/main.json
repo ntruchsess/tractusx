@@ -31,7 +31,10 @@
   },
   "content": {
     "dashboard": {
-      "welcome": "Welcome to Catena-X - the automotive network!"
+      "welcome": "Welcome to Catena-X - the automotive network!",
+      "searchSection": {
+        "inputPlaceholder": "Search for Apps"
+      }
     },
     "semantichub": {
       "message": "Contents of Semantic Hub"

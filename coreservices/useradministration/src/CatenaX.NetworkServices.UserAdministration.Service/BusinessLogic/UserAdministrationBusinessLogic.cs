@@ -8,6 +8,7 @@ using Microsoft.Extensions.Options;
 using PasswordGenerator;
 
 using CatenaX.NetworkServices.Mailing.SendMail;
+using CatenaX.NetworkServices.PortalBackend.DBAccess;
 using CatenaX.NetworkServices.Provisioning.Library;
 using CatenaX.NetworkServices.Provisioning.Library.Models;
 using CatenaX.NetworkServices.Provisioning.DBAccess;
@@ -19,6 +20,7 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
     {
         private readonly IProvisioningManager _provisioningManager;
         private readonly IProvisioningDBAccess _provisioningDBAccess;
+        private readonly IPortalBackendDBAccess _portalDBAccess;
         private readonly IMailingService _mailingService;
         private readonly ILogger<UserAdministrationBusinessLogic> _logger;
         private readonly UserAdministrationSettings _settings;
@@ -26,12 +28,14 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
         public UserAdministrationBusinessLogic(
             IProvisioningManager provisioningManager,
             IProvisioningDBAccess provisioningDBAccess,
+            IPortalBackendDBAccess portalDBAccess,
             IMailingService mailingService,
             ILogger<UserAdministrationBusinessLogic> logger,
             IOptions<UserAdministrationSettings> settings)
         {
             _provisioningManager = provisioningManager;
             _provisioningDBAccess = provisioningDBAccess;
+            _portalDBAccess = portalDBAccess;
             _mailingService = mailingService;
             _logger = logger;
             _settings = settings.Value;
@@ -98,8 +102,9 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
                     // TODO: revaluate try...catch as soon as BPN can be found at UserCreation
                     try
                     {
-                        var bpn = await _provisioningDBAccess.GetBpnForUserAsync(centralUserId).ConfigureAwait(false);
-                        if (!await _provisioningManager.AddBpnAttributetoUserAsync(centralUserId, bpn).ConfigureAwait(false)) continue;
+                        var centralUserIdGuid = Guid.Parse(centralUserId);
+                        var bpn = await _portalDBAccess.GetBpnForUserAsync(centralUserIdGuid).ConfigureAwait(false);
+                        if (!await _provisioningManager.AddBpnAttributetoUserAsync(centralUserIdGuid, bpn).ConfigureAwait(false)) continue;
                     }
                     catch (InvalidOperationException e)
                     {
@@ -182,17 +187,18 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
                 }
             }))).Where(userName => userName != null);
 
-        public async Task<bool> AddBpnAttributeAtRegistrationApprovalAsync(string companyId)
+        public async Task<bool> AddBpnAttributeAtRegistrationApprovalAsync(Guid companyId)
         {
-            var tenant = await _provisioningDBAccess.GetIdpAliasFromCompanyIdAsync(companyId).ConfigureAwait(false);
+            var tenant = await _portalDBAccess.GetIdpAliasForCompanyIdAsync(companyId).ConfigureAwait(false);
             var usersToUdpate = (await _provisioningManager.GetJoinedUsersAsync(tenant).ConfigureAwait(false))
                 .Select(g => g.userId);
             foreach (var userId in usersToUdpate)
             {
                 try
                 {
-                    var bpns = await _provisioningDBAccess.GetBpnForUserAsync(userId).ConfigureAwait(false);
-                    await _provisioningManager.AddBpnAttributetoUserAsync(userId, bpns);
+                    var userIdGuid = Guid.Parse(userId);
+                    var bpns = await _portalDBAccess.GetBpnForUserAsync(userIdGuid).ConfigureAwait(false);
+                    await _provisioningManager.AddBpnAttributetoUserAsync(userIdGuid, bpns);
                 }
                 catch (Exception e)
                 {
