@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using CatenaX.NetworkServices.Provisioning.Library;
 using CatenaX.NetworkServices.Provisioning.Library.Models;
@@ -21,7 +22,7 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
         Task<IEnumerable<string>> GetAppRolesAsync(string clientId);
         Task<bool> DeleteUserAsync(string tenant, string userId);
         Task<IEnumerable<string>> DeleteUsersAsync(UserIds userList, string tenant);
-        Task<bool> AddBpnAttributeAtRegistrationApprovalAsync(string companyId);
+        Task<bool> AddBpnAttributeAtRegistrationApprovalAsync(Guid companyId);
         Task<bool> AddBpnAttributeAsync(IEnumerable<UserUpdateBpn> userToUpdateWithBpn);
     }
 }
