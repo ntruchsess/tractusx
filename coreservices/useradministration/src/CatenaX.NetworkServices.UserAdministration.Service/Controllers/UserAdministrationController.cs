@@ -131,7 +131,7 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
         [HttpPut]
         [Authorize(Roles="approve_new_partner")]
         [Route("company/{companyId}/bpnAtRegistrationApproval")]
-        public async Task<IActionResult> BpnAttributeAddingAtRegistrationApproval([FromRoute] string companyId)
+        public async Task<IActionResult> BpnAttributeAddingAtRegistrationApproval([FromRoute] Guid companyId)
         {
             try
             {

@@ -25,7 +25,7 @@ namespace CatenaX.NetworkServices.PortalBackend.DBAccess
             _dbSchema = dbConnectionFactory.Schema();
         }
 
-        public async Task<IEnumerable<string>> GetBpnForUserAsync(string userId, string bpn = null)
+        public async Task<IEnumerable<string>> GetBpnForUserAsync(Guid userId, string bpn = null)
         {
             if (userId == null)
             {
@@ -42,7 +42,7 @@ namespace CatenaX.NetworkServices.PortalBackend.DBAccess
             using (var connection = _DBConnection.Connection())
             {
                 var bpnResult = (await connection.QueryAsync<string>(sql, new {
-                        userId = new Guid(userId),
+                        userId,
                         bpn
                     }).ConfigureAwait(false));
                 if (!bpnResult.Any())
@@ -53,7 +53,7 @@ namespace CatenaX.NetworkServices.PortalBackend.DBAccess
             }
         }
 
-        public async Task<string> GetIdpAliasForCompanyIdAsync(string companyId, string idpAlias = null)
+        public async Task<string> GetIdpAliasForCompanyIdAsync(Guid companyId, string idpAlias = null)
         {
             if (companyId == null)
             {

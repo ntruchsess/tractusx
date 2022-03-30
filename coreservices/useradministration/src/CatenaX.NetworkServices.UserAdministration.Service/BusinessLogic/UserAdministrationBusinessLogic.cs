@@ -102,8 +102,9 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
                     // TODO: revaluate try...catch as soon as BPN can be found at UserCreation
                     try
                     {
-                        var bpn = await _portalDBAccess.GetBpnForUserAsync(centralUserId).ConfigureAwait(false);
-                        if (!await _provisioningManager.AddBpnAttributetoUserAsync(centralUserId, bpn).ConfigureAwait(false)) continue;
+                        var centralUserIdGuid = Guid.Parse(centralUserId);
+                        var bpn = await _portalDBAccess.GetBpnForUserAsync(centralUserIdGuid).ConfigureAwait(false);
+                        if (!await _provisioningManager.AddBpnAttributetoUserAsync(centralUserIdGuid, bpn).ConfigureAwait(false)) continue;
                     }
                     catch (InvalidOperationException e)
                     {
@@ -186,7 +187,7 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
                 }
             }))).Where(userName => userName != null);
 
-        public async Task<bool> AddBpnAttributeAtRegistrationApprovalAsync(string companyId)
+        public async Task<bool> AddBpnAttributeAtRegistrationApprovalAsync(Guid companyId)
         {
             var tenant = await _portalDBAccess.GetIdpAliasForCompanyIdAsync(companyId).ConfigureAwait(false);
             var usersToUdpate = (await _provisioningManager.GetJoinedUsersAsync(tenant).ConfigureAwait(false))
@@ -195,8 +196,9 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
             {
                 try
                 {
-                    var bpns = await _portalDBAccess.GetBpnForUserAsync(userId).ConfigureAwait(false);
-                    await _provisioningManager.AddBpnAttributetoUserAsync(userId, bpns);
+                    var userIdGuid = Guid.Parse(userId);
+                    var bpns = await _portalDBAccess.GetBpnForUserAsync(userIdGuid).ConfigureAwait(false);
+                    await _provisioningManager.AddBpnAttributetoUserAsync(userIdGuid, bpns);
                 }
                 catch (Exception e)
                 {
