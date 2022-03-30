@@ -24,8 +24,8 @@ Dropzone.args = {
   maxFilesCount: 3,
   getUploadParams: () => ({ url: 'https://httpbin.org/post' }),
   onSubmit: (files, allFiles) => {
-    console.log(files.map(f => f.meta))
-    allFiles.forEach(f => f.remove())
+    console.log(files.map((f) => f.meta))
+    allFiles.forEach((f) => f.remove())
   },
   onChangeStatus: ({ meta }, status) => {
     if (status === 'headers_received') {
@@ -53,5 +53,11 @@ Dropzone.args = {
     headers_received: 'new headers_received',
     done: 'new done',
   },
-  errorStatus: ['error_upload_params', 'exception_upload', 'error_upload', 'aborted', 'ready']
+  errorStatus: [
+    'error_upload_params',
+    'exception_upload',
+    'error_upload',
+    'aborted',
+    'ready',
+  ],
 }
