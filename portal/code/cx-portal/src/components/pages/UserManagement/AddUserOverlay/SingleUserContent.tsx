@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { Input } from 'cx-portal-shared-components'
+import { Box } from '@mui/material'
 
 export const SingleUserContent = () => {
   const { t } = useTranslation()
@@ -25,10 +26,10 @@ export const SingleUserContent = () => {
   ]
 
   return (
-    <div className="single-user-content">
+    <Box sx={{marginTop: '30px'}}>
       {userInputs.map(({ label, placeholder, helperText, key }) => (
         <Input sx={{marginBottom: "30px"}} label={label} placeholder={placeholder} helperText={helperText} key={key} />
       ))}
-    </div>
+    </Box>
   )
 }
