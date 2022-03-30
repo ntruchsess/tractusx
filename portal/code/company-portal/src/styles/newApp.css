@@ -22,10 +22,22 @@
   font-weight: 600;
 }
 
+:root {
+  --body-text-color: #000000;
+  --blue-color: #0f71cb;
+  --bg-color: #edf0f4;
+  --white-color: #ffffff;
+  --partition-color: #dadada;
+  --input-bg-color: #f7f7f7;
+  --input-border-color: #8e8e8e;
+  --input-text-color: #8d8d8d;
+  --input-error-color: #d91e18
+}
+
 body {
   margin: 0;
   font-family: "LibreFranklin" !important;
-  color: #000000 !important;
+  color: var(--body-text-color) !important;
   font-weight: 300 !important;
   background-image: url(/src/bgNew.svg);
   background-repeat: no-repeat;
@@ -61,7 +73,7 @@ h6 {
 
 .profile-lang {
   margin-right: 10px;
-  color: #0f71cb;
+  color: var(--blue-color);
   cursor: pointer;
 }
 
@@ -71,8 +83,8 @@ h6 {
   cursor: pointer;
 }
 
-.partion {
-  border-right: 2px solid #dadada;
+.partition {
+  border-right: 2px solid var(--partition-color);
 }
 .container-row {
   margin: 60px 0;
@@ -81,8 +93,8 @@ h6 {
 .info {
   border-radius: 0 0 24px 24px;
   height: 200px;
-  background-color: #edf0f4;
-  border: 1px solid #edf0f4;
+  background-color: var(--bg-color);
+  border: 1px solid var(--bg-color);
   box-shadow: 0px 35px 35px 10px rgb(0 0 0 / 20%);
   font-size: 14px;
   padding: 40px;
@@ -95,14 +107,14 @@ h6 {
 .container-body {
   padding: 60px 60px 60px 100px;
   border-radius: 24px 24px 0 0;
-  background-color: #ffffff;
+  background-color: var(--white-color);
   box-shadow: 0px 40px 50px 30px rgba(0, 0, 0, 0.2);
 }
 
 .container-registration {
   padding: 60px 0 60px 0;
   border-radius: 24px 24px 0 0;
-  background-color: #ffffff;
+  background-color: var(--white-color);
   box-shadow: 0px 40px 50px 30px rgba(0, 0, 0, 0.2);
 }
 
@@ -150,19 +162,19 @@ h6 {
 }
 
 .nav-link {
-  color: #000000 !important;
+  color: var(--body-text-color) !important;
   text-decoration: underline !important;
   font-family: "LibreFranklin" !important;
   font-weight: 300;
 }
 
 .lang-sel {
-  color: #000000;
-  border-bottom: 2px solid #000000;
+  color: var(--body-text-color);
+  border-bottom: 2px solid var(--body-text-color);
 }
 
 .stepper-item {
-  border-right: 1px solid #dadada;
+  border-right: 1px solid var(--partition-color);
 }
 
 .stepper-item:last-child {
@@ -176,20 +188,20 @@ h6 {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  border: 2px solid #0f71cb;
-  color: #0f71cb;
+  border: 2px solid var(--blue-color);
+  color: var(--blue-color);
   line-height: 30px;
   margin-left: 15px;
 }
 
 .step-active{
-  background-color: #0f71cb;
-  color: #fff !important;
+  background-color: var(--blue-color);
+  color: var(--white-color) !important;
 }
 
 .step-check {
   font-size: 20px;
-  color: #ffffff;
+  color: var(--white-color);
 }
 .reg-steps {
   margin: 30px 0 60px 0;
@@ -197,7 +209,7 @@ h6 {
 
 .step-tick {
   content: "\2713";
-  color: #ffffff;
+  color: var(--white-color);
 }
 
 .step-highlight {
@@ -206,22 +218,22 @@ h6 {
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  background-color: #0f71cb;
-  color: #ffffff;
+  background-color: var(--blue-color);
+  color: var(--white-color);
   margin-bottom: 15px;
 }
 
 input[type="text"],
 input[type="search"],
 select {
-  background: #f7f7f7;
+  background: var(--input-bg-color);
   border-radius: 6px 6px 0px 0px;
   height: 40px;
   outline: 0;
   border-width: 0 0 1px;
-  border-color: #8e8e8e;
+  border-color: var(--input-border-color);
   width: 100%;
-  color: #8d8d8d;
+  color: var(--input-text-color);
   font-size: 16px;
 }
 
@@ -242,9 +254,9 @@ select {
 }
 
 .regular-checkbox:checked {
-  border: 2px solid #0f71cb;
-  color: #ffffff;
-  background-color: #0f71cb;
+  border: 2px solid var(--blue-color);
+  color: var(--white-color);
+  background-color: var(--blue-color);
 }
 
 .regular-checkbox:checked:after {
@@ -253,7 +265,7 @@ select {
   position: absolute;
   top: -3px;
   left: 3px;
-  color: #ffffff;
+  color: var(--white-color);
   vertical-align: middle;
 }
 
@@ -267,15 +279,15 @@ select {
 }
 
 textarea {
-  background: #f7f7f7;
+  background: var(--input-bg-color);
   border-radius: 6px 6px 0px 0px;
   height: 120px;
   outline: 0;
   border-width: 0 0 1px;
-  border-color: #8e8e8e;
+  border-color: var(--input-border-color);
   margin: 0 10px;
   width: 100%;
-  color: #8d8d8d;
+  color: var(--input-text-color);
   font-size: 16px;
 }
 
@@ -304,7 +316,7 @@ textarea {
 .section-divider:after {
   content: "";
   flex: 1 1;
-  border-bottom: 2px solid #dadada;
+  border-bottom: 2px solid var(--partition-color);
   margin: auto;
 }
 
@@ -347,7 +359,7 @@ textarea {
 }
 
 .user-icon {
-  background-color: #0f71cb;
+  background-color: var(--blue-color);
   background-position: center;
   border-radius: 50%;
   background-repeat: no-repeat;
@@ -371,7 +383,7 @@ textarea {
   justify-content: center;
   background: #303030;
   border-radius: 4px;
-  color: #fff;
+  color: var(--white-color);
   margin: 7px 0 0px -88px;
   font-size: 14px;
   padding: 13px;
@@ -421,16 +433,16 @@ textarea {
   padding: 0.75rem 1rem;
   color: #191715;
   text-decoration: none;
-  background-color: #fff;
-  border-top: 1px solid #dadada;
+  background-color: var(--white-color);
+  border-top: 1px solid var(--partition-color);
 }
 
 .list-group-item-cax:last-child {
-  border-bottom: 1px solid #dadada;
+  border-bottom: 1px solid var(--partition-color);
 }
 
 .list-header {
-  background: #edf0f4;
+  background: var(--bg-color);
   border: none;
   font-family: "LibreFranklin-bold";
 }
@@ -496,33 +508,33 @@ textarea {
 }
 
 .btn-default {
-  border: 1px solid #0f71cb;
-  color: #0f71cb;
+  border: 1px solid var(--blue-color);
+  color: var(--blue-color);
   background-color: transparent;
 }
 
 .btn-primaryCax {
-  color: #ffffff;
-  background-color: #0f71cb !important;
+  color: var(--white-color);
+  background-color: var(--blue-color) !important;
 }
 
 .btn-disabledCax{
-  color: #ffffff;
+  color: var(--white-color);
   background-color: #ADADAD !important;
   cursor: default;
 }
 
 .error label {
-  color: #d91e18;
+  color: var(--input-error-color);
 }
 
 .error input[type="text"],
 .error select {
-  border-color: #d91e18;
+  border-color: var(--input-error-color);
 }
 
 .error-message {
-  color: #d91e18;
+  color: var(--input-error-color);
   font-size: 12px;
   font-family: "Libre Franklin 400";
   padding-top: 10px;
@@ -533,7 +545,7 @@ textarea {
 }
 
 .error .error-icon {
-  color: #d91e18;
+  color: var(--input-error-color);
   visibility: visible;
 }
 
@@ -543,7 +555,7 @@ textarea {
 
 .step-border {
   position: absolute;
-  border-bottom: 2px solid blue;
+  border-bottom: 2px solid var(--blue-color);
   top: 3em;
   left: 1.2em;
 }
@@ -551,8 +563,8 @@ textarea {
 .company-role-section {
   background-image: linear-gradient(
     to right,
-    #dadada 0%,
-    #dadada 50%,
+    var(--partition-color) 0%,
+    var(--partition-color) 50%,
     transparent 50%
   );
   background-size: 28px 1px;
@@ -595,12 +607,12 @@ textarea {
 
 .underlineTnc {
   text-decoration: underline;
-  color: #0f71cb;
+  color: var(--blue-color);
   cursor: pointer;
 }
 
 .editIcon {
-  color: #0f71cb;
+  color: var(--blue-color);
   font-size: 20px;
   cursor: pointer;
 }
@@ -624,7 +636,7 @@ textarea {
 }
 
 .selected-file {
-  color: #000;
+  color: var(--body-text-color);
   font-weight: bold;
 }
 
