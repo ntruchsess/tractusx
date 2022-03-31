@@ -19,7 +19,7 @@ import DatePicker from "react-datepicker";
 import SearchInput from 'react-search-input';
 import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react';
-import FooterButton from './footerButton';
+import { FooterButton } from './footerButton';
 import {connect} from 'react-redux';
 import {IState} from "../types/store/redux.store.types";
 import {addCurrentStep, addCompanyData} from "../actions/user.action";
@@ -162,51 +162,9 @@ export const CompanyDataCax = ({currentActiveStep, addCurrentStep, addCompanyDat
                     <Row className='mx-auto col-9'>
                         <div className='form-data'>
                             <label>{t('registrationStepOne.country')}</label>
-                            {/* <select
-                                defaultValue='Choose your country'
-                            >
-                                <option value="">Choose your country</option>
-                                <option value="test1">test 1</option>
-                                <option value="test2">Test 2</option>
-                                <option value="test3">Test 3</option>
-                            </select> */}
                             <input type="text" value={country}/>
                         </div>
                     </Row>
-
-                    <Row className='mx-auto col-9'>
-                        <span className='form-heading'>{t('registrationStepOne.businessStatus')}</span>
-                    </Row>
-
-                    <Row className='mx-auto col-9'>
-                        <div className='form-data'>
-                            <label>{t('registrationStepOne.stateOfActivity')} </label>
-                            <select
-                                defaultValue='active'
-                            >
-                                <option value="active">Active</option>
-                                <option value="test2">Test 2</option>
-                                <option value="test3">Test 3</option>
-                            </select>
-                        </div>
-                    </Row>
-
-                    <Row className='mx-auto col-9'>
-                        <div className='form-data calender'>
-                            <label> {t('registrationStepOne.validFrom')}</label>
-                            <DatePicker className='date-picker' />
-                            <AiOutlineCalendar className='calender-icon' />
-                        </div>
-                    </Row>
-
-                    <Row className='mx-auto col-9'>
-                        <div className='form-data calender'>
-                            <label>  {t('registrationStepOne.validUntil')}</label>
-                            <DatePicker className='date-picker' />
-                            <AiOutlineCalendar className='calender-icon' />
-                        </div>
-                    </Row>
-
                 </div>
             </div> 
             <FooterButton 

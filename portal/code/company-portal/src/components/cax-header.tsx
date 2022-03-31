@@ -18,7 +18,7 @@ import { Row, Col } from "react-bootstrap";
 import UserService from "../helpers/UserService";
 import { getClientRolesComposite } from "../helpers/utils";
 import { useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { DataErrorCodes } from "../helpers/DataError";
 import { ToastContainer, toast } from "react-toastify";
@@ -26,7 +26,6 @@ import { addrolesComposite } from "../actions/user.action";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { IState } from "../types/store/redux.store.types";
-
 interface HeaderCaxProps {
   addrolesComposite: (rolesComposite: string[]) => void;
 }
@@ -63,7 +62,7 @@ export const Header = ({ addrolesComposite }: HeaderCaxProps) => {
         toast.error(message);
         //  history.push("/finish");
       });
-  }, [tokenRoles, addrolesComposite]);
+  }, []);
 
   const changeLanguage = (lng) => {
     setlanguage(lng);
@@ -97,7 +96,7 @@ export const Header = ({ addrolesComposite }: HeaderCaxProps) => {
               DE
             </span>
           </div>
-          <div className="profile-link partion"></div>
+          <div className="profile-link partition"></div>
           <div className="profile-link user">
             <input id="myid" type="checkbox" />
             <label htmlFor="myid" className="user-icon"></label>
@@ -112,7 +111,7 @@ export const Header = ({ addrolesComposite }: HeaderCaxProps) => {
             </span>
           </div>
           <div className="profile-link">
-            <a href="/help">{t("header.help")}</a>
+          <Link to="/help">{t("header.help")}</Link>
           </div>
         </div>
         <ToastContainer />

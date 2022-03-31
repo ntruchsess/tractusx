@@ -27,6 +27,7 @@ import Terms from 'components/pages/Terms'
 import CookiePolicy from 'components/pages/CookiePolicy'
 import ThirdPartyLicenses from 'components/pages/ThirdPartyLicenses'
 import InviteBusinessPartner from 'components/pages/InviteBusinessPartner'
+import AppMarketplace from 'components/pages/AppMarketplace'
 
 /**
  * ALL_PAGES
@@ -50,6 +51,11 @@ const ALL_PAGES: IPage[] = [
         <Route path=":appId" element={<AppstoreDetail />} />
       </Route>
     ),
+  },
+  {
+    name: PAGES.APP_MARKETPLACE,
+    role: ROLES.APPSTORE_VIEW,
+    element: <AppMarketplace />,
   },
   {
     name: PAGES.DATACATALOG,
@@ -135,7 +141,7 @@ const ALL_PAGES: IPage[] = [
  */
 const mainMenuFull = [
   PAGES.DASHBOARD,
-  PAGES.APPSTORE,
+  PAGES.APP_MARKETPLACE,
   PAGES.DATACATALOG,
   PAGES.DIGITALTWIN,
   PAGES.SEMANTICHUB,

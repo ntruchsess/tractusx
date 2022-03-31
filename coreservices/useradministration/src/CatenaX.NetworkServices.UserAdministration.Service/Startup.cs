@@ -8,15 +8,16 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using CatenaX.NetworkServices.Framework.DBAccess;
 using CatenaX.NetworkServices.Keycloak.Authentication;
 using CatenaX.NetworkServices.Keycloak.DBAccess;
 using CatenaX.NetworkServices.Keycloak.Factory;
 using CatenaX.NetworkServices.Keycloak.Factory.Utils;
 using CatenaX.NetworkServices.Mailing.SendMail;
 using CatenaX.NetworkServices.Mailing.Template;
+using CatenaX.NetworkServices.PortalBackend.DBAccess;
 using CatenaX.NetworkServices.Provisioning.DBAccess;
 using CatenaX.NetworkServices.Provisioning.Library;
 using CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic;
@@ -85,11 +86,14 @@ namespace CatenaX.NetworkServices.UserAdministration.Service
             services.AddTransient<IUserAdministrationBusinessLogic, UserAdministrationBusinessLogic>()
                     .ConfigureUserAdministrationSettings(Configuration.GetSection("Invitation"));
 
-            services.AddTransient<IKeycloakDBAccessFactory, KeycloakDBAccessFactory>()
-                    .ConfigureKeycloakDBAccessSettings(Configuration.GetSection("KeycloakDBAccess"));
+            services.AddTransient<IKeycloakDBAccess, KeycloakDBAccess>();
 
-            services.AddTransient<IProvisioningDBAccessFactory, ProvisioningDBAccessFactory>()
-                    .ConfigureProvisioningDBAccessSettings(Configuration.GetSection("ProvisioningDBAccess"));
+            services.AddTransient<IProvisioningDBAccess, ProvisioningDBAccess>();
+
+            services.AddTransient<IPortalBackendDBAccess, PortalBackendDBAccess>();
+
+            services.AddTransient<IDBConnectionFactories, PostgreConnectionFactories>()
+                    .ConfigureDBConnectionSettingsMap(Configuration.GetSection("DatabaseAccess"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

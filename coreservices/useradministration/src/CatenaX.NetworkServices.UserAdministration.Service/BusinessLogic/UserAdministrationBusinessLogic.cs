@@ -8,25 +8,34 @@ using Microsoft.Extensions.Options;
 using PasswordGenerator;
 
 using CatenaX.NetworkServices.Mailing.SendMail;
+using CatenaX.NetworkServices.PortalBackend.DBAccess;
 using CatenaX.NetworkServices.Provisioning.Library;
 using CatenaX.NetworkServices.Provisioning.Library.Models;
+using CatenaX.NetworkServices.Provisioning.DBAccess;
+using CatenaX.NetworkServices.UserAdministration.Service.Models;
 
 namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
 {
     public class UserAdministrationBusinessLogic : IUserAdministrationBusinessLogic
     {
         private readonly IProvisioningManager _provisioningManager;
+        private readonly IProvisioningDBAccess _provisioningDBAccess;
+        private readonly IPortalBackendDBAccess _portalDBAccess;
         private readonly IMailingService _mailingService;
         private readonly ILogger<UserAdministrationBusinessLogic> _logger;
         private readonly UserAdministrationSettings _settings;
 
         public UserAdministrationBusinessLogic(
             IProvisioningManager provisioningManager,
+            IProvisioningDBAccess provisioningDBAccess,
+            IPortalBackendDBAccess portalDBAccess,
             IMailingService mailingService,
             ILogger<UserAdministrationBusinessLogic> logger,
             IOptions<UserAdministrationSettings> settings)
         {
             _provisioningManager = provisioningManager;
+            _provisioningDBAccess = provisioningDBAccess;
+            _portalDBAccess = portalDBAccess;
             _mailingService = mailingService;
             _logger = logger;
             _settings = settings.Value;
@@ -89,6 +98,18 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
                     };
 
                     if (!await _provisioningManager.AssignClientRolesToCentralUserAsync(centralUserId, clientRoleNames).ConfigureAwait(false)) continue;
+
+                    // TODO: revaluate try...catch as soon as BPN can be found at UserCreation
+                    try
+                    {
+                        var centralUserIdGuid = Guid.Parse(centralUserId);
+                        var bpn = await _portalDBAccess.GetBpnForUserAsync(centralUserIdGuid).ConfigureAwait(false);
+                        if (!await _provisioningManager.AddBpnAttributetoUserAsync(centralUserIdGuid, bpn).ConfigureAwait(false)) continue;
+                    }
+                    catch (InvalidOperationException e)
+                    {
+                        _logger.LogInformation(e, "BPN not found, will continue without");
+                    }
 
                     var inviteTemplateName = "PortalTemplate";
                     if (!string.IsNullOrWhiteSpace(user.Message))
@@ -154,7 +175,7 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
             }
         }
 
-        public async Task<IEnumerable<string>> DeleteUsersAsync(UserDeletionInfo usersToDelete, string tenant) =>
+        public async Task<IEnumerable<string>> DeleteUsersAsync(UserIds usersToDelete, string tenant) =>
             (await Task.WhenAll(usersToDelete.userIds.Select(async userId => { 
                 try {
                     return await _provisioningManager.DeleteSharedAndCentralUserAsync(tenant, userId).ConfigureAwait(false) ? userId : null;
@@ -165,5 +186,42 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
                     return null;
                 }
             }))).Where(userName => userName != null);
+
+        public async Task<bool> AddBpnAttributeAtRegistrationApprovalAsync(Guid companyId)
+        {
+            var tenant = await _portalDBAccess.GetIdpAliasForCompanyIdAsync(companyId).ConfigureAwait(false);
+            var usersToUdpate = (await _provisioningManager.GetJoinedUsersAsync(tenant).ConfigureAwait(false))
+                .Select(g => g.userId);
+            foreach (var userId in usersToUdpate)
+            {
+                try
+                {
+                    var userIdGuid = Guid.Parse(userId);
+                    var bpns = await _portalDBAccess.GetBpnForUserAsync(userIdGuid).ConfigureAwait(false);
+                    await _provisioningManager.AddBpnAttributetoUserAsync(userIdGuid, bpns);
+                }
+                catch (Exception e)
+                {
+                    _logger.LogError(e, $"Error while adding BPN attribute to {userId}");
+                }
+            }
+            return true;
+        }
+
+        public async Task<bool> AddBpnAttributeAsync(IEnumerable<UserUpdateBpn> usersToUdpatewithBpn)
+        {
+            foreach (UserUpdateBpn user in usersToUdpatewithBpn)
+            {
+                try
+                {
+                    await _provisioningManager.AddBpnAttributetoUserAsync(user.userId, user.bpns).ConfigureAwait(false);
+                }
+                catch (Exception e)
+                {
+                    _logger.LogError(e, $"Error while adding BPN attribute to {user.userId}");
+                }
+            }
+            return true;
+        }
     }
 }

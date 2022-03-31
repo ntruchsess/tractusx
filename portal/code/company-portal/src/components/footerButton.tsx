@@ -15,16 +15,14 @@
 import * as React from "react";
 import {Row} from "react-bootstrap";
 import Button from "./button";
+import  FooterHeadline from "./footerHeadline"
 
-export const FooterButton = ({ labelBack, labelNext, handleBackClick, handleNextClick }) => {    
+export const FooterButton = ({ labelBack, labelNext, handleBackClick, handleNextClick, tooltip = null }) => {    
 
 return(
  <div className="mx-auto col-9 info">
  <Row>
-   <div className="col12 d-flex align-items-center justify-content-center">
-     Please enter all the required information before proceeding.
-     More information in our <a href=""> help section</a>.
-   </div>
+   <FooterHeadline />
    <div className="col12 d-flex align-items-center justify-content-center button-section">
      <Button
        styleClass="button btn-default"
@@ -33,8 +31,10 @@ return(
      />
      <Button
        label={labelNext}
-       styleClass="button btn-primaryCax"
+       styleClass={tooltip ? 'button btn-disabledCax' : 'button btn-primaryCax'}
        handleClick={handleNextClick}
+       showTooltip = {tooltip? true: false}
+       tooltipText = {tooltip}
      />
    </div>
  </Row>
@@ -42,4 +42,4 @@ return(
 )
 }
 
-export default FooterButton
+export default FooterButton;

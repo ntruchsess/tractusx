@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { IFileWithMeta } from "react-dropzone-uploader";
 import { CompanyRole, ConsentForCompanyRoles } from "../data/companyDetails";
 import { FetchBusinessPartnerDto } from "../data/companyDetailsById"
 import UserService from '../helpers/UserService';
@@ -164,35 +163,17 @@ export function getClientRolesComposite(): Promise<string[]> {
   return promise;
 }
 
-export function uploadDocument(files:IFileWithMeta): Promise<any> {
+export function uploadDocument(file): Promise<any> {
 
   const token = UserService.getToken();
   const u = `${url}/${endpoint}/documents`;
-  console.log(typeof(files[0]));
   let formdata = new FormData();
-  formdata.append("document", files[0].file);
-  const promise = new Promise<any>((resolve, reject) => {
-    fetch(u, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        // "Content-Type": "multipart/form-data",
-      },
-      body:formdata
-    })
-    .then((res) => res.text().then((data) => {
-      if (res.ok) {
-        resolve('Sent Invite');
-      } else {
-        reject(res.status);
-      }
-      }))
-      .catch((error) => {
-        // alert(error);
-        console.log(error, error.message, error.status);
-        reject(error.status);
-      }); 
-    });
-  return promise
-
+  formdata.append("document", file.file);
+  return fetch(u, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    body:formdata
+  });
 }

@@ -10,4 +10,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\framework\src\CatenaX.NetworkServices.Framework.DBAccess\CatenaX.NetworkServices.Framework.DBAccess.csproj" />
+  </ItemGroup>
+
 </Project>
