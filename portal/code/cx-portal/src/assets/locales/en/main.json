@@ -31,9 +31,26 @@
   },
   "content": {
     "dashboard": {
-      "welcome": "Welcome to Catena-X - the automotive network!",
+      "stage": {
+        "title": "Catena-X",
+        "subtitle": "the gateway to the automotive digital <1></1> network",
+        "cxButton": "My CX",
+        "appButton": "My Apps"
+      },
       "searchSection": {
         "inputPlaceholder": "Search for Apps"
+      },
+      "businessApplicationsSection": {
+        "title": "My Business Applications"
+      },
+      "fromAppStoreSection": {
+        "title": "From the App Store – Aus dem App Store"
+      }
+    },
+    "appstore": {
+      "stage": {
+        "title": "Catena-X App Store",
+        "subtitle": "A scalable & expandable <1></1> ecosystem"
       }
     },
     "semantichub": {
