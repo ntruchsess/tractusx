@@ -51,7 +51,7 @@ export const MultipleUserContent = () => {
       <Typography sx={{margin: "30px 0 10px", textAlign: "center"}} variant="h5">{t('content.addUser.multipleUserHeadline')}</Typography>
       <Typography sx={{marginBottom: "30px", textAlign: "center"}} variant="body2">
         <Trans i18nKey="content.addUser.multipleUserSubheadline">
-          Please use this <a href="#">upload Template</a> to add multiple users by file
+          Please use this <a href="/">upload Template</a> to add multiple users by file
         </Trans>
       </Typography>
       <Dropzone title={dropzoneProps.title} subTitle={dropzoneProps.subTitle} fileTypes={'image/*,audio/*,video/*'} maxFilesCount={3} statusText={dropzoneProps.statusText} errorStatus={dropzoneProps.errorStatus} onChangeStatus={dropzoneProps.onChangeStatus} getUploadParams={dropzoneProps.getUploadParams} />
