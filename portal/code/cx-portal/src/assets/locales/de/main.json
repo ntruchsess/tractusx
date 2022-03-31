@@ -90,7 +90,7 @@
       "singleUser": "Einzel-Upload",
       "multipleUser": "Massen-Upload",
       "multipleUserHeadline": "Mehrere Benutzer per Datei-Upload hinzufügen:",
-      "multipleUserSubheadline": "Bitte verwenden Sie diese Upload-Vorlage, um mehrere Benutzer per Datei hinzuzufügen",
+      "multipleUserSubheadline": "Bitte verwenden Sie diese <1>Upload-Vorlage</1>, um mehrere Benutzer per Datei hinzuzufügen",
       "chooseUserRole": "Benutzer-Rolle für den Portalzugriff auswählen",
       "helperText": "Please enter all required information before proceeding.",
       "userUpload": {
