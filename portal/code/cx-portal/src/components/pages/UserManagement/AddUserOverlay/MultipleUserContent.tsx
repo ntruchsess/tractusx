@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Typography } from 'cx-portal-shared-components'
 import { Box } from '@mui/material'
-import { Dropzone as Drop } from './Dropzone'
+import { Dropzone } from './Dropzone'
 
 export const MultipleUserContent = () => {
   const { t } = useTranslation()
@@ -11,11 +11,12 @@ export const MultipleUserContent = () => {
     fileTypes: 'image/*,audio/*,video/*',
     maxFilesCount: 3,
     getUploadParams: () => ({ url: 'https://httpbin.org/post' }),
-    onSubmit: () => {
-        console.log('onSubmit')
-    },
-    onChangeStatus: () => {
-        console.log('onChangeStatus')
+    onChangeStatus: ({ meta }: { [name: string]: any }, status:string) => {
+      if (status === 'headers_received') {
+        console.log(`${meta.name} uploaded`)
+      } else if (status === 'aborted') {
+        console.log(`${meta.name}, upload failed...`)
+      }
     },
     statusText: {
         rejected_file_type: t('content.addUser.userUpload.uploadStatus.rejected_file_type'),
@@ -49,7 +50,7 @@ export const MultipleUserContent = () => {
     <Box sx={{marginBottom: '30px'}}>
       <Typography sx={{margin: "30px 0 10px", textAlign: "center"}} variant="h5">{t('content.addUser.multipleUserHeadline')}</Typography>
       <Typography sx={{marginBottom: "30px", textAlign: "center"}} variant="body2">{t('content.addUser.multipleUserSubheadline')}</Typography>
-      <Drop title={dropzoneProps.title} subTitle={dropzoneProps.subTitle} fileTypes={'image/*,audio/*,video/*'} maxFilesCount={3} statusText={dropzoneProps.statusText} errorStatus={dropzoneProps.errorStatus} onChangeStatus={dropzoneProps.onChangeStatus} onSubmit={dropzoneProps.onSubmit} getUploadParams={dropzoneProps.getUploadParams} />
+      <Dropzone title={dropzoneProps.title} subTitle={dropzoneProps.subTitle} fileTypes={'image/*,audio/*,video/*'} maxFilesCount={3} statusText={dropzoneProps.statusText} errorStatus={dropzoneProps.errorStatus} onChangeStatus={dropzoneProps.onChangeStatus} getUploadParams={dropzoneProps.getUploadParams} />
     </Box>
   )
 }
