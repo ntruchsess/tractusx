@@ -1,22 +1,12 @@
 import React, { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import 'components/pages/Admin/RegistrationRequests/RegistrationRequests.scss'
-//import HeaderBackgroundImage from 'assets/images/registration-requests-header-background.png'
 import { Table } from 'cx-portal-shared-components'
 import { selectorUserAdministration } from 'state/features/userAdministration/userAdministrationSlice'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchRegistrationRequests } from 'state/features/userAdministration/userAdministrationActions'
 import { RegistrationRequestsTableColumns } from 'components/pages/Admin/RegistrationRequests/registrationTableColumns'
 
-/*
-<div className='page-header'>
-        <img src={HeaderBackgroundImage} alt='Registration Request Background Image' />
-        <div className='page-header-title-container'>
-          <span>{t('content.admin.registration-requests.headertitle')}</span>
-        </div>
-      </div>
-
- */
 
 const RegistrationRequests = () => {
   const { t } = useTranslation()
