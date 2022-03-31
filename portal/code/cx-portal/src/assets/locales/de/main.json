@@ -32,7 +32,22 @@
   "content": {
     "admin": {
       "registration-requests": {
-        "headertitle": "Anfragen zur Benutzerregistrierung"
+        "columns": {
+          "request": "Anfrage",
+          "requestDescription": "ID der Benutzeranfrage",
+          "date": "Datum",
+          "companyinfo": "Bewerbungsinformationen des Unternehmens",
+          "documents": "Unterlagen",
+          "details": "Einzelheiten",
+          "state": "Zustand"
+        },
+        "headertitle": "Anfragen zur Benutzerregistrierung",
+        "tabletitle": "Registrierungsanfragen",
+        "pending": "anstehend",
+        "buttonconfirm": "bestätigen",
+        "buttondecline": "ablehnen",
+        "cellconfirmed": "bestätigt",
+        "celldeclined": "abgelehnt"
       }
     },
     "dashboard": {
