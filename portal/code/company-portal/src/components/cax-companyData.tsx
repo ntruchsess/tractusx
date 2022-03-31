@@ -165,40 +165,6 @@ export const CompanyDataCax = ({currentActiveStep, addCurrentStep, addCompanyDat
                             <input type="text" value={country}/>
                         </div>
                     </Row>
-
-                    <Row className='mx-auto col-9'>
-                        <span className='form-heading'>{t('registrationStepOne.businessStatus')}</span>
-                    </Row>
-
-                    <Row className='mx-auto col-9'>
-                        <div className='form-data'>
-                            <label>{t('registrationStepOne.stateOfActivity')} </label>
-                            <select
-                                defaultValue='active'
-                            >
-                                <option value="active">Active</option>
-                                <option value="test2">Test 2</option>
-                                <option value="test3">Test 3</option>
-                            </select>
-                        </div>
-                    </Row>
-
-                    <Row className='mx-auto col-9'>
-                        <div className='form-data calender'>
-                            <label> {t('registrationStepOne.validFrom')}</label>
-                            <DatePicker className='date-picker' />
-                            <AiOutlineCalendar className='calender-icon' />
-                        </div>
-                    </Row>
-
-                    <Row className='mx-auto col-9'>
-                        <div className='form-data calender'>
-                            <label>  {t('registrationStepOne.validUntil')}</label>
-                            <DatePicker className='date-picker' />
-                            <AiOutlineCalendar className='calender-icon' />
-                        </div>
-                    </Row>
-
                 </div>
             </div> 
             <FooterButton 
