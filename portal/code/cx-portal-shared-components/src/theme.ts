@@ -581,5 +581,15 @@ export const theme = createTheme({
         },
       },
     },
+    MuiFormControlLabel: {
+      styleOverrides: {
+        root: {
+          '.MuiFormControlLabel-label': {
+            fontFamily: typography.label2.fontFamily,
+            fontSize: typography.label2.fontSize,
+          },
+        },
+      },
+    },
   },
 })
