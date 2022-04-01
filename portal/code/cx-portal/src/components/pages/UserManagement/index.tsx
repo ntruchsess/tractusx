@@ -4,23 +4,27 @@ import { ActiveUserTable } from './ActiveUserTable'
 import { AppArea } from './AppArea'
 
 export default function UserManagement() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
 
   const openAddUserLayout = () => {
-    setOpen(true);
-  };
+    setOpen(true)
+  }
 
   const closeAddUserLayout = () => {
-    setOpen(false);
-  };
+    setOpen(false)
+  }
 
   const confirmNewUser = () => {
     console.log('confirmed')
-  };
-    
+  }
+
   return (
     <main>
-      <AddUserOverlay openDialog={open} handleClose={closeAddUserLayout} handleConfirm={confirmNewUser} />
+      <AddUserOverlay
+        openDialog={open}
+        handleClose={closeAddUserLayout}
+        handleConfirm={confirmNewUser}
+      />
       <AppArea />
       <ActiveUserTable onAddUserButtonClick={openAddUserLayout} />
     </main>

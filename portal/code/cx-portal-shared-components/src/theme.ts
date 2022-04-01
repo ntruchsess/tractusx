@@ -589,9 +589,9 @@ export const theme = createTheme({
           '.MuiFormControlLabel-label': {
             fontFamily: typography.label2.fontFamily,
             fontSize: typography.label2.fontSize,
-          }
-        }
-      }
-    }
-  }
+          },
+        },
+      },
+    },
+  },
 })

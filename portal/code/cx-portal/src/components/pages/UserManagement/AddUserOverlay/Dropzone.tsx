@@ -1,5 +1,13 @@
-import ReactDropzone, {IFileWithMeta, StatusValue, IUploadParams} from 'react-dropzone-uploader'
-import { DropzoneLayout, DropzoneInputContent, DropzonePreview } from 'cx-portal-shared-components'
+import ReactDropzone, {
+  IFileWithMeta,
+  StatusValue,
+  IUploadParams,
+} from 'react-dropzone-uploader'
+import {
+  DropzoneLayout,
+  DropzoneInputContent,
+  DropzonePreview,
+} from 'cx-portal-shared-components'
 import uniqueId from 'lodash/uniqueId'
 import { Box } from '@mui/material'
 export interface DropzoneProps {
@@ -7,31 +15,31 @@ export interface DropzoneProps {
   title: string
   subTitle: string
   maxFilesCount: number
-  errorStatus: String[]
+  errorStatus: string[]
   statusText: {
-    rejected_file_type: string,
-    rejected_max_files: string,
-    preparing: string,
-    error_file_size: string,
-    error_validation: string,
-    ready: string,
-    started: string,
-    getting_upload_params: string,
-    error_upload_params: string,
-    uploading: string,
-    exception_upload: string,
-    aborted: string,
-    restarted: string,
-    removed: string,
-    error_upload: string,
-    headers_received: string,
-    done: string,
-  },
-  getUploadParams?(file: IFileWithMeta): IUploadParams | Promise<IUploadParams>,
+    rejected_file_type: string
+    rejected_max_files: string
+    preparing: string
+    error_file_size: string
+    error_validation: string
+    ready: string
+    started: string
+    getting_upload_params: string
+    error_upload_params: string
+    uploading: string
+    exception_upload: string
+    aborted: string
+    restarted: string
+    removed: string
+    error_upload: string
+    headers_received: string
+    done: string
+  }
+  getUploadParams?(file: IFileWithMeta): IUploadParams | Promise<IUploadParams>
   onChangeStatus?(
     file: IFileWithMeta,
     status: StatusValue,
-    allFiles: IFileWithMeta[],
+    allFiles: IFileWithMeta[]
   ): { meta: { [name: string]: any } } | void
 }
 
@@ -45,7 +53,6 @@ export const Dropzone = ({
   statusText,
   errorStatus,
 }: DropzoneProps) => {
-
   return (
     <Box
       sx={{
@@ -53,7 +60,8 @@ export const Dropzone = ({
           backgroundColor: 'background.background01',
           borderRadius: '40px',
           border: 'none',
-          backgroundImage: `url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='40' ry='40' stroke='%23B6B6B6FF' stroke-width='2' stroke-dasharray='16' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e")`,
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='40' ry='40' stroke='%23B6B6B6FF' stroke-width='2' stroke-dasharray='16' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e\")",
           padding: '48px 0',
           textAlign: 'center',
         },
