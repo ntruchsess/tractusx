@@ -8,7 +8,7 @@ export default function Dashboard() {
   const { t } = useTranslation()
 
   return (
-    <main className='dashboard'>
+    <main className="dashboard">
       <StageSection />
       <SearchSection />
       <section>

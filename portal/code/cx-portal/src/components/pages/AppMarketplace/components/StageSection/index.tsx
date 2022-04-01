@@ -7,10 +7,10 @@ export default function SearchSection() {
   return (
     <div className="stage-app-store stage-section">
       <div className="stage-content">
-        <Typography variant='h2'>
+        <Typography variant="h2">
           {t('content.appstore.stage.title')}
         </Typography>
-        <Typography sx={{ fontFamily: 'LibreFranklin-Light' }} variant='h2'>
+        <Typography sx={{ fontFamily: 'LibreFranklin-Light' }} variant="h2">
           <Trans i18nKey="content.appstore.stage.subtitle">
             A scalable & expandable <br /> ecosystem
           </Trans>

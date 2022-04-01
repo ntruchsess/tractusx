@@ -27,7 +27,7 @@ export default function AppMarketplace() {
   }
 
   return (
-    <main className='app-store'>
+    <main className="app-store">
       <StageSection />
       <Typography variant="h4">{t('pages.appmarketplace')}</Typography>
       <div className="GroupSelect">
