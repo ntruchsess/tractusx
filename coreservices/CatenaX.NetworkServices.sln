@@ -58,7 +58,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatenaX.NetworkServices.Por
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "portalbackend", "portalbackend", "{5638B3F0-AED0-11EC-9040-016C6A89AD3F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatenaX.NetworkServices.PortalBackend.PortalDBContext", "portalbackend\src\CatenaX.NetworkServices.PortalBackend.PortalDBContext\CatenaX.NetworkServices.PortalBackend.PortalDBContext.csproj", "{009FE3CE-E4CD-47D7-954C-6966E17BB403}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatenaX.NetworkServices.PortalBackend.PortalEntities", "portalbackend\src\CatenaX.NetworkServices.PortalBackend.PortalEntities\CatenaX.NetworkServices.PortalBackend.PortalEntities.csproj", "{009FE3CE-E4CD-47D7-954C-6966E17BB403}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

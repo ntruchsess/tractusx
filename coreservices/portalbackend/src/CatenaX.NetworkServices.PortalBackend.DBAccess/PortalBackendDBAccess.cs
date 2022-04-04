@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 using CatenaX.NetworkServices.Framework.DBAccess;
-
+using CatenaX.NetworkServices.PortalBackend.PortalEntities;
 namespace CatenaX.NetworkServices.PortalBackend.DBAccess
 
 {
@@ -13,10 +14,12 @@ namespace CatenaX.NetworkServices.PortalBackend.DBAccess
     {
         private readonly IDBConnectionFactory _DBConnection;
         private readonly string _dbSchema;
+        private readonly PortalDBContext _dbContext;
 
-        public PortalBackendDBAccess(IDBConnectionFactories dbConnectionFactories)
+        public PortalBackendDBAccess(IDBConnectionFactories dbConnectionFactories, PortalDBContext dbContext)
            : this(dbConnectionFactories.Get("Portal"))
         {
+            _dbContext = dbContext;
         }
 
         public PortalBackendDBAccess(IDBConnectionFactory dbConnectionFactory)
@@ -78,6 +81,69 @@ namespace CatenaX.NetworkServices.PortalBackend.DBAccess
                 }
                 return idpAliasResult;
             }
+        }
+
+        public Company CreateCompany(string companyName)
+        {
+            return _dbContext.Companies.Add(new Company {
+                CompanyId = Guid.NewGuid(),
+                Name = companyName,
+                Shortname = companyName,
+                CompanyStatusId = CompanyStatusId.PENDING
+            }).Entity;
+        }
+
+        public CompanyApplication CreateCompanyApplication(Company company)
+        {
+            return _dbContext.CompanyApplications.Add(new CompanyApplication {
+                CompanyApplicationId = Guid.NewGuid(),
+                ApplicationStatusId = CompanyApplicationStatusId.ADD_COMPANY_DATA,
+                Company = company
+            }).Entity;
+        }
+
+        public CompanyUser CreateUser(string firstName, string lastName, string email, Company company)
+        {
+            return _dbContext.CompanyUsers.Add(new CompanyUser {
+                CompanyUserId = Guid.NewGuid(),
+                Firstname = firstName,
+                Lastname = lastName,
+                Email = email,
+                Company = company
+            }).Entity;
+        }
+
+        public Invitation CreateInvitation(CompanyApplication application, CompanyUser user)
+        {
+            return _dbContext.Invitations.Add(new Invitation {
+                InvitationId = Guid.NewGuid(),
+                InvitationStatusId = InvitationStatusId.CREATED,
+                CompanyApplication = application,
+                CompanyUser = user
+            }).Entity;
+        }
+
+        public IdentityProvider CreateSharedIdentityProvider(Company company)
+        {
+            var idp = new IdentityProvider() {
+                IdentityProviderId = Guid.NewGuid(),
+                IdentityProviderCategoryId = IdentityProviderCategoryId.KEYCLOAK_SHARED,
+            };
+            idp.Companies.Add(company);
+            return _dbContext.IdentityProviders.Add(idp).Entity;
+        }
+
+        public IamIdentityProvider CreateIamIdentityProvider(IdentityProvider identityProvider, string idpAlias)
+        {
+            return _dbContext.IamIdentityProviders.Add(new IamIdentityProvider {
+                IdentityProvider = identityProvider,
+                IamIdpAlias = idpAlias
+            }).Entity;
+        }
+
+        public Task<int> Save()
+        {
+            return _dbContext.SaveChangesAsync();
         }
     }
 }

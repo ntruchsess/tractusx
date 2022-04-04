@@ -51,6 +51,22 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles="invite_new_partner")]
+        [Route("newinvitation")]
+        public async Task<IActionResult> ExecuteNewInvitation([FromBody] InvitationData InvitationData)
+        {
+            try
+            {
+                return Ok(await _logic.ExecuteNewInvitation(InvitationData).ConfigureAwait(false));
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.ToString());
+                return StatusCode((int)HttpStatusCode.InternalServerError);
+            }
+        }
+
+        [HttpPost]
         [Authorize(Policy = "CheckTenant")]
         [Authorize(Roles="add_user_account")]
         [Route("tenant/{tenant}/users")]

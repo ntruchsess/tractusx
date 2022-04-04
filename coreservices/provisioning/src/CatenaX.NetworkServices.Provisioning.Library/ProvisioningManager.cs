@@ -43,30 +43,28 @@ namespace CatenaX.NetworkServices.Provisioning.Library
         {
         }
 
-        public async Task<string> SetupSharedIdpAsync(string organisationName)
+        public async Task<bool> SetupSharedIdpAsync(string idpName, string organisationName)
         {
-            var idpName = await GetNextCentralIdentityProviderNameAsync().ConfigureAwait(false);
+            if (! await CreateCentralIdentityProviderAsync(idpName, organisationName).ConfigureAwait(false)) return false;
             
-            if (! await CreateCentralIdentityProviderAsync(idpName, organisationName).ConfigureAwait(false)) return null;
+            if (! await CreateSharedRealmAsync(idpName, organisationName).ConfigureAwait(false)) return false;
             
-            if (! await CreateSharedRealmAsync(idpName, organisationName).ConfigureAwait(false)) return null;
+            if (! await UpdateCentralIdentityProviderUrlsAsync(idpName, await GetSharedRealmOpenIDConfigAsync(idpName).ConfigureAwait(false)).ConfigureAwait(false)) return false;
             
-            if (! await UpdateCentralIdentityProviderUrlsAsync(idpName, await GetSharedRealmOpenIDConfigAsync(idpName).ConfigureAwait(false)).ConfigureAwait(false)) return null;
+            if (! await CreateCentralIdentityProviderTenantMapperAsync(idpName).ConfigureAwait(false)) return false;
             
-            if (! await CreateCentralIdentityProviderTenantMapperAsync(idpName).ConfigureAwait(false)) return null;
+            if (! await CreateCentralIdentityProviderOrganisationMapperAsync(idpName, organisationName).ConfigureAwait(false)) return false;
             
-            if (! await CreateCentralIdentityProviderOrganisationMapperAsync(idpName, organisationName).ConfigureAwait(false)) return null;
-            
-            if (! await CreateCentralIdentityProviderUsernameMapperAsync(idpName).ConfigureAwait(false)) return null;
+            if (! await CreateCentralIdentityProviderUsernameMapperAsync(idpName).ConfigureAwait(false)) return false;
             
             if (! await CreateSharedRealmIdentityProviderClientAsync(idpName, new IdentityProviderClientConfig {
                 RedirectUri = await GetCentralBrokerEndpointAsync(idpName).ConfigureAwait(false),
                 JwksUrl = await GetCentralRealmJwksUrlAsync().ConfigureAwait(false)
-            }).ConfigureAwait(false)) return null;
+            }).ConfigureAwait(false)) return false;
 
-            if (! await EnableCentralIdentityProviderAsync(idpName).ConfigureAwait(false)) return null;
+            if (! await EnableCentralIdentityProviderAsync(idpName).ConfigureAwait(false)) return false;
             
-            return idpName;
+            return true;
         }
 
         public async Task<string> SetupOwnIdpAsync(string organisationName, string clientId, string metadataUrl, string clientAuthMethod, string clientSecret)

@@ -10,7 +10,7 @@ namespace CatenaX.NetworkServices.Provisioning.Library
 {
     public partial class ProvisioningManager
     {
-        private async Task<string> GetNextCentralIdentityProviderNameAsync() =>
+        public async Task<string> GetNextCentralIdentityProviderNameAsync() =>
             _Settings.IdpPrefix + (await _ProvisioningDBAccess.GetNextIdentityProviderSequenceAsync().ConfigureAwait(false)).sequence_id;
 
         private Task<bool> CreateCentralIdentityProviderAsync(string alias, string organisationName)
