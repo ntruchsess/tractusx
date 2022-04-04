@@ -1,3 +1,4 @@
+import React from 'react'
 import Admin from 'components/pages/Admin'
 import Appstore from 'components/pages/Appstore'
 import Connector from 'components/pages/Connector'
@@ -25,6 +26,7 @@ import Terms from 'components/pages/Terms'
 import CookiePolicy from 'components/pages/CookiePolicy'
 import ThirdPartyLicenses from 'components/pages/ThirdPartyLicenses'
 import InviteBusinessPartner from 'components/pages/InviteBusinessPartner'
+import AppMarketplace from 'components/pages/AppMarketplace'
 
 /**
  * ALL_PAGES
@@ -50,6 +52,11 @@ const ALL_PAGES: IPage[] = [
     ),
   },
   {
+    name: PAGES.APP_MARKETPLACE,
+    role: ROLES.APPSTORE_VIEW,
+    element: <AppMarketplace />,
+  },
+  {
     name: PAGES.DATACATALOG,
     role: ROLES.DATACATALOG_VIEW,
     element: <DataCatalog />,
@@ -64,7 +71,6 @@ const ALL_PAGES: IPage[] = [
     role: ROLES.SEMANTICHUB_VIEW,
     element: <SemanticHub />,
   },
-  { name: PAGES.ADMINISTRATION, role: ROLES.CX_ADMIN, element: <Admin /> },
   {
     name: PAGES.DEVELOPERHUB,
     role: ROLES.DEVELOPER,
@@ -124,7 +130,7 @@ const ALL_PAGES: IPage[] = [
  */
 const mainMenuFull = [
   PAGES.DASHBOARD,
-  PAGES.APPSTORE,
+  PAGES.APP_MARKETPLACE,
   PAGES.DATACATALOG,
   PAGES.DIGITALTWIN,
   PAGES.SEMANTICHUB,

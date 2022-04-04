@@ -17,6 +17,7 @@ using CatenaX.NetworkServices.Keycloak.Factory;
 using CatenaX.NetworkServices.Keycloak.Factory.Utils;
 using CatenaX.NetworkServices.Mailing.SendMail;
 using CatenaX.NetworkServices.Mailing.Template;
+using CatenaX.NetworkServices.PortalBackend.DBAccess;
 using CatenaX.NetworkServices.Provisioning.DBAccess;
 using CatenaX.NetworkServices.Provisioning.Library;
 using CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic;
@@ -88,6 +89,8 @@ namespace CatenaX.NetworkServices.UserAdministration.Service
             services.AddTransient<IKeycloakDBAccess, KeycloakDBAccess>();
 
             services.AddTransient<IProvisioningDBAccess, ProvisioningDBAccess>();
+
+            services.AddTransient<IPortalBackendDBAccess, PortalBackendDBAccess>();
 
             services.AddTransient<IDBConnectionFactories, PostgreConnectionFactories>()
                     .ConfigureDBConnectionSettingsMap(Configuration.GetSection("DatabaseAccess"));
