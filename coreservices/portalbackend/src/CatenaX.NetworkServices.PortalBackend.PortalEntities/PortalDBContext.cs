@@ -19,43 +19,43 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
         {
         }
 
-        public virtual DbSet<Address> Addresses { get; set; }
-        public virtual DbSet<Agreement> Agreements { get; set; }
-        public virtual DbSet<AgreementAssignedCompanyRole> AgreementAssignedCompanyRoles { get; set; }
-        public virtual DbSet<AgreementAssignedDocumentTemplate> AgreementAssignedDocumentTemplates { get; set; }
-        public virtual DbSet<AgreementCategory> AgreementCategories { get; set; }
-        public virtual DbSet<App> Apps { get; set; }
-        public virtual DbSet<AppAssignedCompanyUserRole> AppAssignedCompanyUserRoles { get; set; }
-        public virtual DbSet<AppAssignedLicense> AppAssignedLicenses { get; set; }
-        public virtual DbSet<AppAssignedUseCase> AppAssignedUseCases { get; set; }
-        public virtual DbSet<AppDescription> AppDescriptions { get; set; }
-        public virtual DbSet<AppLicense> AppLicenses { get; set; }
-        public virtual DbSet<Company> Companies { get; set; }
-        public virtual DbSet<CompanyApplication> CompanyApplications { get; set; }
-        public virtual DbSet<CompanyApplicationStatus> CompanyApplicationStatuses { get; set; }
-        // public virtual DbSet<CompanyAssignedApp> CompanyAssignedApps { get; set; }
-        // public virtual DbSet<CompanyAssignedRole> CompanyAssignedRoles { get; set; }
-        // public virtual DbSet<CompanyAssignedUseCase> CompanyAssignedUseCases { get; set; }
-        // public virtual DbSet<CompanyIdentityProvider> CompanyIdentityProviders { get; set; }
-        public virtual DbSet<CompanyRole> CompanyRoles { get; set; }
-        public virtual DbSet<CompanyStatus> CompanyStatuses { get; set; }
-        public virtual DbSet<CompanyUser> CompanyUsers { get; set; }
-        public virtual DbSet<CompanyUserAssignedAppFavourite> CompanyUserAssignedAppFavourites { get; set; }
-        public virtual DbSet<CompanyUserAssignedRole> CompanyUserAssignedRoles { get; set; }
-        public virtual DbSet<CompanyUserRole> CompanyUserRoles { get; set; }
-        public virtual DbSet<Consent> Consents { get; set; }
-        public virtual DbSet<ConsentStatus> ConsentStatuses { get; set; }
-        public virtual DbSet<Country> Countries { get; set; }
-        public virtual DbSet<Document> Documents { get; set; }
-        public virtual DbSet<DocumentTemplate> DocumentTemplates { get; set; }
-        public virtual DbSet<IamIdentityProvider> IamIdentityProviders { get; set; }
-        public virtual DbSet<IamUser> IamUsers { get; set; }
-        public virtual DbSet<IdentityProvider> IdentityProviders { get; set; }
-        public virtual DbSet<IdentityProviderCategory> IdentityProviderCategories { get; set; }
-        public virtual DbSet<Invitation> Invitations { get; set; }
-        public virtual DbSet<InvitationStatus> InvitationStatuses { get; set; }
-        public virtual DbSet<Language> Languages { get; set; }
-        public virtual DbSet<UseCase> UseCases { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<Agreement> Agreements { get; set; }
+        public DbSet<AgreementAssignedCompanyRole> AgreementAssignedCompanyRoles { get; set; }
+        public DbSet<AgreementAssignedDocumentTemplate> AgreementAssignedDocumentTemplates { get; set; }
+        public DbSet<AgreementCategory> AgreementCategories { get; set; }
+        public DbSet<App> Apps { get; set; }
+        public DbSet<AppAssignedCompanyUserRole> AppAssignedCompanyUserRoles { get; set; }
+        public DbSet<AppAssignedLicense> AppAssignedLicenses { get; set; }
+        public DbSet<AppAssignedUseCase> AppAssignedUseCases { get; set; }
+        public DbSet<AppDescription> AppDescriptions { get; set; }
+        public DbSet<AppLicense> AppLicenses { get; set; }
+        public DbSet<Company> Companies { get; set; }
+        public DbSet<CompanyApplication> CompanyApplications { get; set; }
+        public DbSet<CompanyApplicationStatus> CompanyApplicationStatuses { get; set; }
+        // public DbSet<CompanyAssignedApp> CompanyAssignedApps { get; set; }
+        // public DbSet<CompanyAssignedRole> CompanyAssignedRoles { get; set; }
+        // public DbSet<CompanyAssignedUseCase> CompanyAssignedUseCases { get; set; }
+        // public DbSet<CompanyIdentityProvider> CompanyIdentityProviders { get; set; }
+        public DbSet<CompanyRole> CompanyRoles { get; set; }
+        public DbSet<CompanyStatus> CompanyStatuses { get; set; }
+        public DbSet<CompanyUser> CompanyUsers { get; set; }
+        public DbSet<CompanyUserAssignedAppFavourite> CompanyUserAssignedAppFavourites { get; set; }
+        public DbSet<CompanyUserAssignedRole> CompanyUserAssignedRoles { get; set; }
+        public DbSet<CompanyUserRole> CompanyUserRoles { get; set; }
+        public DbSet<Consent> Consents { get; set; }
+        public DbSet<ConsentStatus> ConsentStatuses { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<Document> Documents { get; set; }
+        public DbSet<DocumentTemplate> DocumentTemplates { get; set; }
+        public DbSet<IamIdentityProvider> IamIdentityProviders { get; set; }
+        public DbSet<IamUser> IamUsers { get; set; }
+        public DbSet<IdentityProvider> IdentityProviders { get; set; }
+        public DbSet<IdentityProviderCategory> IdentityProviderCategories { get; set; }
+        public DbSet<Invitation> Invitations { get; set; }
+        public DbSet<InvitationStatus> InvitationStatuses { get; set; }
+        public DbSet<Language> Languages { get; set; }
+        public DbSet<UseCase> UseCases { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
