@@ -261,8 +261,7 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
 
                 entity.Property(e => e.VendorCompanyId).HasColumnName("vendor_company_id");
 
-                //entity.Ignore(d => d.VendorCompany);
-                entity.HasOne(d => d.VendorCompany) // FIXME - conflict with relationship Company.App <-> App.Company
+                entity.HasOne(d => d.VendorCompany)
                     .WithMany(p => p.ProvidedApps)
                     .HasForeignKey(d => d.VendorCompanyId)
                     .HasConstraintName("fk_68a9joedhyf43smfx2xc4rgm");
