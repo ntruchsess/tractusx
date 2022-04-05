@@ -1,56 +1,54 @@
 using AutoFixture;
-
+using AutoFixture.AutoFakeItEasy;
 using CatenaX.NetworkServices.Registration.Service.BPN;
 using CatenaX.NetworkServices.Registration.Service.BPN.Model;
 using CatenaX.NetworkServices.Registration.Service.CustomException;
-
-using NSubstitute;
-
+using FakeItEasy;
 using System;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text.Json;
-using System.Threading;
 using System.Threading.Tasks;
-
 using Xunit;
 
 namespace CatenaX.NetworkServices.Registrations.Tests
 {
-
-    public class MockHttpMessageHandler : HttpMessageHandler
-    {
-        public FetchBusinessPartnerDto returnData { get; set; }
-        public HttpStatusCode returnStatusCode { get; set; }
-
-        protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-        {
-            var response = new HttpResponseMessage(returnStatusCode);
-            response.Content = new StringContent(JsonSerializer.Serialize(returnData));
-            return Task.FromResult(response);
-
-        }
-
-    }
-
     public class BPNAccessTest
     {
+        private readonly IFixture _fixture;
+
+        public BPNAccessTest()
+        {
+            _fixture = new Fixture().Customize(new AutoFakeItEasyCustomization { ConfigureMembers = true});
+        }
+
+        private void ConfigureHttpClientFactoryFixture(HttpResponseMessage httpResponseMessage)
+        {
+            var messageHandler = A.Fake<HttpMessageHandler>();
+            A.CallTo(messageHandler) // mock protected method
+                .Where(x => x.Method.Name == "SendAsync") 
+                .WithReturnType<Task<HttpResponseMessage>>()
+                .Returns(httpResponseMessage);
+            var httpClient = new HttpClient(messageHandler) { BaseAddress = new Uri("http://localhost") };
+            _fixture.Inject(httpClient);
+
+            var httpClientFactory = _fixture.Freeze<Fake<IHttpClientFactory>>();
+            A.CallTo(() => httpClientFactory.FakedObject.CreateClient("bpn")).Returns(httpClient);
+        }
+
         [Fact]
         public async Task FetchBusinessPartner_Success()
         {
-            var messageHandler = new MockHttpMessageHandler();
+            var resultSet = _fixture.Create<FetchBusinessPartnerDto>();
+            ConfigureHttpClientFactoryFixture(new HttpResponseMessage
+            {
+                StatusCode = HttpStatusCode.OK,
+                Content = new StringContent(JsonSerializer.Serialize(resultSet))
+            });
 
-            var fixture = new Fixture();
-            var resultSet = fixture.Create<FetchBusinessPartnerDto>();
-            messageHandler.returnData = resultSet;
-            messageHandler.returnStatusCode = HttpStatusCode.OK;
-            var httpClientFactory = Substitute.For<IHttpClientFactory>();
-
-            var httpClient = new HttpClient(messageHandler) { BaseAddress = new Uri("http://localhost") };
-            httpClientFactory.CreateClient("bpn").Returns(httpClient);
-
-            var sut = new BPNAccess(httpClientFactory);
+            var httpClient = _fixture.Create<HttpClient>();
+            var sut = _fixture.Create<BPNAccess>();
 
             var result = await sut.FetchBusinessPartner("testpbn", "token");
             Assert.Equal(resultSet.bpn, result.First().bpn);
@@ -60,18 +58,10 @@ namespace CatenaX.NetworkServices.Registrations.Tests
         [Fact]
         public async Task FetchBusinessPartner_Failure()
         {
-            var messageHandler = new MockHttpMessageHandler();
+            ConfigureHttpClientFactoryFixture(new HttpResponseMessage { StatusCode = HttpStatusCode.InternalServerError });
 
-            var fixture = new Fixture();
-            var resultSet = fixture.Create<FetchBusinessPartnerDto>();
-            messageHandler.returnStatusCode = HttpStatusCode.InternalServerError;
-
-            var httpClientFactory = Substitute.For<IHttpClientFactory>();
-
-            var httpClient = new HttpClient(messageHandler) { BaseAddress = new Uri("http://localhost") };
-            httpClientFactory.CreateClient("bpn").Returns(httpClient);
-
-            var sut = new BPNAccess(httpClientFactory);
+            var httpClient = _fixture.Create<HttpClient>();
+            var sut = _fixture.Create<BPNAccess>();
 
             await Assert.ThrowsAsync<ServiceException>(async () => await sut.FetchBusinessPartner("testpbn", "token"));
             Assert.Equal("token", httpClient.DefaultRequestHeaders.Authorization.Parameter);
