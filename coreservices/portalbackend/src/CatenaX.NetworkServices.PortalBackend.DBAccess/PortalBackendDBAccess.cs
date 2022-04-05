@@ -105,7 +105,7 @@ namespace CatenaX.NetworkServices.PortalBackend.DBAccess
             }).Entity;
         }
 
-        public CompanyUser CreateUser(string firstName, string lastName, string email, Company company)
+        public CompanyUser CreateCompanyUser(string firstName, string lastName, string email, Company company)
         {
             return _dbContext.CompanyUsers.Add(new CompanyUser {
                 CompanyUserId = Guid.NewGuid(),
@@ -141,6 +141,14 @@ namespace CatenaX.NetworkServices.PortalBackend.DBAccess
             return _dbContext.IamIdentityProviders.Add(new IamIdentityProvider {
                 IdentityProvider = identityProvider,
                 IamIdpAlias = idpAlias
+            }).Entity;
+        }
+
+        public IamUser CreateIamUser(CompanyUser user, Guid iamUserId)
+        {
+            return _dbContext.IamUsers.Add(new IamUser {
+                CompanyUser = user,
+                IamUserId = iamUserId
             }).Entity;
         }
 

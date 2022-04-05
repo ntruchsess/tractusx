@@ -12,10 +12,11 @@ namespace CatenaX.NetworkServices.PortalBackend.DBAccess
 
         Company CreateCompany(string companyName);
         CompanyApplication CreateCompanyApplication(Company company);
-        CompanyUser CreateUser(string firstName, string lastName, string email, Company company);
+        CompanyUser CreateCompanyUser(string firstName, string lastName, string email, Company company);
         Invitation CreateInvitation(CompanyApplication application, CompanyUser user);
         IdentityProvider CreateSharedIdentityProvider(Company company);
         IamIdentityProvider CreateIamIdentityProvider(IdentityProvider identityProvider, string idpAlias);
+        IamUser CreateIamUser(CompanyUser companyUser, Guid iamUserId);
         Task<int> Save();
     }
 }

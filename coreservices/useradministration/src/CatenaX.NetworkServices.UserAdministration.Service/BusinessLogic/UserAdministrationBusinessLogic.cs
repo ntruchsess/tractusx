@@ -63,6 +63,16 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
 
             if (!await _provisioningManager.AssignInvitedUserInitialRoles(centralUserId).ConfigureAwait(false)) return false;
 
+            var company = _portalDBAccess.CreateCompany(invitationData.organisationName);
+            var application = _portalDBAccess.CreateCompanyApplication(company);
+            var companyUser = _portalDBAccess.CreateCompanyUser(invitationData.firstName, invitationData.lastName, invitationData.email, company);
+            _portalDBAccess.CreateInvitation(application, companyUser);
+            var identityprovider = _portalDBAccess.CreateSharedIdentityProvider(company);
+            _portalDBAccess.CreateIamIdentityProvider(identityprovider,idpName);
+            _portalDBAccess.CreateIamUser(companyUser,Guid.Parse(centralUserId));
+          
+            await _portalDBAccess.Save().ConfigureAwait(false);
+
             var mailParameters = new Dictionary<string, string>
             {
                 { "password", password },
@@ -71,19 +81,8 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
             };
 
             await _mailingService.SendMails(invitationData.email, mailParameters, new List<string> { "RegistrationTemplate", "PasswordForRegistrationTemplate"} );
-            return true;
-        }
 
-        public async Task<int> ExecuteNewInvitation(InvitationData invitationData)
-        {
-            var iamIdpAlias = await _provisioningManager.GetNextCentralIdentityProviderNameAsync().ConfigureAwait(false);
-            var company = _portalDBAccess.CreateCompany(invitationData.organisationName);
-            var application = _portalDBAccess.CreateCompanyApplication(company);
-            var user = _portalDBAccess.CreateUser(invitationData.firstName, invitationData.lastName, invitationData.email, company);
-            var invitation = _portalDBAccess.CreateInvitation(application, user);
-            var identityprovider = _portalDBAccess.CreateSharedIdentityProvider(company);
-            var iam_identityprovider = _portalDBAccess.CreateIamIdentityProvider(identityprovider,iamIdpAlias);
-            return await _portalDBAccess.Save().ConfigureAwait(false);
+            return true;
         }
 
         public async Task<IEnumerable<string>> CreateUsersAsync(IEnumerable<UserCreationInfo> usersToCreate, string tenant, string createdByName)
