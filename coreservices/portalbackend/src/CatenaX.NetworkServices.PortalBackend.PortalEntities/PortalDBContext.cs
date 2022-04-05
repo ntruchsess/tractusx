@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Linq;
+using CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities;
+using CatenaX.NetworkServices.PortalBackend.PortalEntities.Enums;
 using Microsoft.EntityFrameworkCore;
 
 #nullable disable
 
 namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
 {
-    public partial class PortalDBContext : DbContext
+    public class PortalDBContext : DbContext
     {
         public PortalDBContext()
         {
@@ -1115,10 +1117,6 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
                     .HasMaxLength(255)
                     .HasColumnName("shortname");
             });
-
-            OnModelCreatingPartial(modelBuilder);
         }
-
-        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }
