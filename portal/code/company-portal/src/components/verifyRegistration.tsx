@@ -166,30 +166,6 @@ export const VerifyRegistration = ({
                   <span className="col-6">{companyDetailsData?.country}</span>
                 </Row>
               </li>
-              <li className="list-group-item-cax">
-                <Row>
-                  <span className="col-6">
-                    {t("verifyRegistration.stateOfActivity")}
-                  </span>
-                  <span className="col-6"></span>
-                </Row>
-              </li>
-              <li className="list-group-item-cax">
-                <Row>
-                  <span className="col-6">
-                    {t("verifyRegistration.validFrom")}
-                  </span>
-                  <span className="col-6"></span>
-                </Row>
-              </li>
-              <li className="list-group-item-cax">
-                <Row>
-                  <span className="col-6">
-                    {t("verifyRegistration.validUntil")}
-                  </span>
-                  <span className="col-6"></span>
-                </Row>
-              </li>
             </ul>
           </Row>
           <Row>
