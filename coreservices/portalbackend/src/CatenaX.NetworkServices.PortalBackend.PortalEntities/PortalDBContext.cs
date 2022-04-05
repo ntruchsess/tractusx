@@ -261,11 +261,35 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
 
                 entity.Property(e => e.VendorCompanyId).HasColumnName("vendor_company_id");
 
-                entity.Ignore(d => d.VendorCompany);
-                // entity.HasOne(d => d.VendorCompany) // FIXME - conflict with relationship Company.App <-> App.Company
-                //     .WithMany(p => p.Apps)
-                //     .HasForeignKey(d => d.VendorCompanyId)
-                //     .HasConstraintName("fk_68a9joedhyf43smfx2xc4rgm");
+                //entity.Ignore(d => d.VendorCompany);
+                entity.HasOne(d => d.VendorCompany) // FIXME - conflict with relationship Company.App <-> App.Company
+                    .WithMany(p => p.ProvidedApps)
+                    .HasForeignKey(d => d.VendorCompanyId)
+                    .HasConstraintName("fk_68a9joedhyf43smfx2xc4rgm");
+
+                entity.HasMany(p => p.Companies)
+                    .WithMany(p => p.BoughtApps)
+                    .UsingEntity<CompanyAssignedApp>(
+                        j => j
+                            .HasOne(d => d.Company)
+                            .WithMany()
+                            .HasForeignKey(d => d.CompanyId)
+                            .OnDelete(DeleteBehavior.ClientSetNull)
+                            .HasConstraintName("fk_k1dqlv81463yes0k8f2giyaf"),
+                        j => j
+                            .HasOne(d => d.App)
+                            .WithMany()
+                            .HasForeignKey(d => d.AppId)
+                            .OnDelete(DeleteBehavior.ClientSetNull)
+                            .HasConstraintName("fk_t365qpfvehuq40om25dyrnn5"),
+                        j =>
+                        {
+                            j.HasKey(e => new { e.CompanyId, e.AppId }).HasName("pk_company_assigned_apps");
+                            j.ToTable("company_assigned_apps", "portal");
+                            j.Property(e => e.AppId).HasColumnName("app_id");
+                            j.Property(e => e.CompanyId).HasColumnName("company_id");
+                        }
+                    );
 
                 entity.HasMany(p => p.CompanyUserRoles)
                     .WithMany(p => p.Apps)
@@ -458,30 +482,6 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
                             j.ToTable("company_assigned_roles", "portal");
                             j.Property(e => e.CompanyId).HasColumnName("company_id");
                             j.Property(e => e.CompanyRoleId).HasColumnName("company_role_id");
-                        }
-                    );
-
-                entity.HasMany(p => p.Apps)
-                    .WithMany(p => p.Companies)
-                    .UsingEntity<CompanyAssignedApp>(
-                        j => j
-                            .HasOne(d => d.App)
-                            .WithMany()
-                            .HasForeignKey(d => d.AppId)
-                            .OnDelete(DeleteBehavior.ClientSetNull)
-                            .HasConstraintName("fk_t365qpfvehuq40om25dyrnn5"),
-                        j => j
-                            .HasOne(d => d.Company)
-                            .WithMany()
-                            .HasForeignKey(d => d.CompanyId)
-                            .OnDelete(DeleteBehavior.ClientSetNull)
-                            .HasConstraintName("fk_k1dqlv81463yes0k8f2giyaf"),
-                        j =>
-                        {
-                            j.HasKey(e => new { e.CompanyId, e.AppId }).HasName("pk_company_assigned_apps");
-                            j.ToTable("company_assigned_apps", "portal");
-                            j.Property(e => e.AppId).HasColumnName("app_id");
-                            j.Property(e => e.CompanyId).HasColumnName("company_id");
                         }
                     );
 
