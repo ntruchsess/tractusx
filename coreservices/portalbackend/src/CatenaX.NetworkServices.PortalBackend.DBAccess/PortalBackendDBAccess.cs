@@ -7,6 +7,9 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 using CatenaX.NetworkServices.Framework.DBAccess;
 using CatenaX.NetworkServices.PortalBackend.PortalEntities;
+using CatenaX.NetworkServices.PortalBackend.PortalEntities.Enums;
+using CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities;
+
 namespace CatenaX.NetworkServices.PortalBackend.DBAccess
 
 {
