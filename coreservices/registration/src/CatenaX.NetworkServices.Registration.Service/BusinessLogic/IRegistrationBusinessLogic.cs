@@ -1,8 +1,8 @@
 ﻿using CatenaX.NetworkServices.Cosent.Library.Data;
-using CatenaX.NetworkServices.Mockups;
 using CatenaX.NetworkServices.Provisioning.Library;
 using CatenaX.NetworkServices.Registration.Service.BPN.Model;
 using CatenaX.NetworkServices.Registration.Service.Model;
+using CatenaX.NetworkServices.PortalBackend.DBAccess.Models;
 
 using Microsoft.AspNetCore.Http;
 
@@ -24,5 +24,6 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
         Task<IEnumerable<SignedConsent>> SignedConsentsByCompanyIdAsync(string companyId);
         Task SetIdpAsync(SetIdp idpToSet);
         Task CreateCustodianWalletAsync(WalletInformation information);
+        Task<CompanyWithAddress> GetCompanyWithAddress(string applicationId);
     }
 }

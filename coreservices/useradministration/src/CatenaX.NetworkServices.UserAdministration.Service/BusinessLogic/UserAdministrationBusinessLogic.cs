@@ -71,7 +71,7 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
             _portalDBAccess.CreateIamIdentityProvider(identityprovider,idpName);
             _portalDBAccess.CreateIamUser(companyUser,Guid.Parse(centralUserId));
           
-            await _portalDBAccess.Save().ConfigureAwait(false);
+            await _portalDBAccess.SaveAsync().ConfigureAwait(false);
 
             var mailParameters = new Dictionary<string, string>
             {

@@ -4,6 +4,7 @@ using CatenaX.NetworkServices.Provisioning.Library;
 using CatenaX.NetworkServices.Registration.Service.BusinessLogic;
 using CatenaX.NetworkServices.Registration.Service.CustomException;
 using CatenaX.NetworkServices.Registration.Service.Model;
+using CatenaX.NetworkServices.PortalBackend.DBAccess.Models;
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -170,6 +171,23 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
                 return Ok(result.ToList());
 
             } catch(Exception e)
+            {
+                _logger.LogError(e.ToString());
+                return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+            }
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "view_registration")]
+        [Route("application/{applicationId}/companyDetailsWithAddress")]
+        [ProducesResponseType(typeof(CompanyWithAddress), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> GetCompanyWithAddressAsync([FromRoute] string applicationId)
+        {
+            try
+            {
+                return Ok(await _registrationBusinessLogic.GetCompanyWithAddress(applicationId).ConfigureAwait(false));
+            }
+            catch(Exception e)
             {
                 _logger.LogError(e.ToString());
                 return new StatusCodeResult((int)HttpStatusCode.InternalServerError);

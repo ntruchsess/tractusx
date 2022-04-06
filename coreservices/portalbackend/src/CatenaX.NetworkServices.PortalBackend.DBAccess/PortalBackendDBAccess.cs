@@ -7,7 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Microsoft.EntityFrameworkCore;
+using CatenaX.NetworkServices.PortalBackend.DBAccess.Models;
 namespace CatenaX.NetworkServices.PortalBackend.DBAccess
 
 {
@@ -149,9 +150,25 @@ namespace CatenaX.NetworkServices.PortalBackend.DBAccess
             }).Entity;
         }
 
-        public Task<int> Save()
-        {
-            return _dbContext.SaveChangesAsync();
-        }
+        public Task<CompanyWithAddress> GetCompanyWithAdressUntrackedAsync(Guid companyApplicationId) =>
+            _dbContext.CompanyApplications
+                .Where(companyApplication => companyApplication.Id == companyApplicationId)
+                .Select(
+                    companyApplication => new CompanyWithAddress {
+                        Bpn = companyApplication.Company.Bpn,
+                        Name = companyApplication.Company.Name,
+                        City = companyApplication.Company.Address.City,
+                        Region = companyApplication.Company.Address.Region,
+                        Streetadditional = companyApplication.Company.Address.Streetadditional,
+                        Streetname = companyApplication.Company.Address.Streetname,
+                        Streetnumber = companyApplication.Company.Address.Streetnumber,
+                        Zipcode = companyApplication.Company.Address.Zipcode,
+                        Country = companyApplication.Company.Address.Country.CountryNameDe // FIXME internationalization
+                    })
+                .AsNoTracking()
+                .SingleAsync();
+
+        public Task<int> SaveAsync() =>
+            _dbContext.SaveChangesAsync();
     }
 }
