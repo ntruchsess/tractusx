@@ -4,6 +4,7 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
 {
     public class CompanyAssignedRole
     {
+        public CompanyAssignedRole() {}
         public CompanyAssignedRole(Company company, CompanyRole companyRole)
         {
             Company = company;

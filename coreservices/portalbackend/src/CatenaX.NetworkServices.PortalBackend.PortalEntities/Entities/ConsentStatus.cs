@@ -10,6 +10,7 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
             Consents = new HashSet<Consent>();
         }
 
+        [Key]
         public int ConsentStatusId { get; set; }
 
         [MaxLength(255)]

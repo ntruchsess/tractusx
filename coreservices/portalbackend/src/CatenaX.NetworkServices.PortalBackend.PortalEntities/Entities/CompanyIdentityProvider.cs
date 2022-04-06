@@ -4,6 +4,7 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
 {
     public class CompanyIdentityProvider
     {
+        public CompanyIdentityProvider() {}
         public CompanyIdentityProvider(Company company, IdentityProvider identityProvider)
         {
             Company = company;

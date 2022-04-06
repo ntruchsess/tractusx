@@ -4,6 +4,7 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
 {
     public class CompanyUserAssignedAppFavourite
     {
+        public CompanyUserAssignedAppFavourite() {}
         public CompanyUserAssignedAppFavourite(App app, CompanyUser companyUser)
         {
             App = app;

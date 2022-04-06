@@ -11,6 +11,7 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
             IdentityProviders = new HashSet<IdentityProvider>();
         }
 
+        [Key]
         public IdentityProviderCategoryId IdentityProviderCategoryId { get; set; }
 
         [MaxLength(255)]

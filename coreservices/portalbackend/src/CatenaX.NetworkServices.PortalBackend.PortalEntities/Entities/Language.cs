@@ -5,6 +5,7 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
 {
     public class Language
     {
+        public Language() {}
         public Language(string languageShortName)
         {
             LanguageShortName = languageShortName;

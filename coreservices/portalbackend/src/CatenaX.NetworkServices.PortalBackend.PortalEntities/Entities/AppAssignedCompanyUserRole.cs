@@ -4,6 +4,7 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
 {
     public class AppAssignedCompanyUserRole
     {
+        public AppAssignedCompanyUserRole() {}
         public AppAssignedCompanyUserRole(App app, CompanyUserRole companyUserRole)
         {
             App = app;

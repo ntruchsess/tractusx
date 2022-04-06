@@ -6,6 +6,7 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
 {
     public class Agreement : BaseEntity
     {
+        public Agreement() {}
         public Agreement(string name)
         {
             Consents = new HashSet<Consent>();

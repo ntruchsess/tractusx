@@ -10,6 +10,7 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
             Agreements = new HashSet<Agreement>();
         }
 
+        [Key]
         public int AgreementCategoryId { get; set; }
 
         [MaxLength(255)]

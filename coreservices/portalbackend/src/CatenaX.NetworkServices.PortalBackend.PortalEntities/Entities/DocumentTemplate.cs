@@ -4,6 +4,7 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
 {
     public class DocumentTemplate : BaseEntity
     {
+        public DocumentTemplate() {}
         public DocumentTemplate(string documenttemplatename, string documenttemplateversion)
         {
             Documenttemplatename = documenttemplatename;

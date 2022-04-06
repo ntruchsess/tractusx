@@ -5,6 +5,7 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
 {
     public class Consent : BaseEntity
     {
+        public Consent() {}
         public Consent(byte[] timestamp)
         {
             Timestamp = timestamp;

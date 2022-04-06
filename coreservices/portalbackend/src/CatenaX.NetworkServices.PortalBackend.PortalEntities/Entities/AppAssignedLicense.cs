@@ -4,6 +4,7 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
 {
     public class AppAssignedLicense
     {
+        public AppAssignedLicense() {}
         public AppAssignedLicense(App app, AppLicense appLicense)
         {
             App = app;

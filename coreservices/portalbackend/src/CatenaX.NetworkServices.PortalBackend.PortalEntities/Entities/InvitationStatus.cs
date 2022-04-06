@@ -11,6 +11,7 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
             Invitations = new HashSet<Invitation>();
         }
 
+        [Key]
         public InvitationStatusId InvitationStatusId { get; set; }
 
         [MaxLength(255)]

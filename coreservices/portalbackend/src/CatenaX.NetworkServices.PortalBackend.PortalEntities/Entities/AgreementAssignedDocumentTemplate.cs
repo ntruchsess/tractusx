@@ -4,6 +4,7 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
 {
     public class AgreementAssignedDocumentTemplate
     {
+        public AgreementAssignedDocumentTemplate() {}
         public AgreementAssignedDocumentTemplate(Agreement agreement, DocumentTemplate documentTemplate)
         {
             Agreement = agreement;

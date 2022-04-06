@@ -4,6 +4,7 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
 {
     public class CompanyAssignedApp
     {
+        public CompanyAssignedApp() {}
         public CompanyAssignedApp(App app, Company company)
         {
             App = app;

@@ -4,6 +4,7 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
 {
     public class AppAssignedUseCase
     {
+        public AppAssignedUseCase() {}
         public AppAssignedUseCase(App app, UseCase useCase)
         {
             App = app;

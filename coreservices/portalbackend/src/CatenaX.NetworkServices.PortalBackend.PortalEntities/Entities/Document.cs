@@ -4,8 +4,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
 {
-    public class Document
+    public class Document : BaseEntity
     {
+        public Document() {}
         public Document(string documentHash, string documentname, byte[] documentuploaddate, string documentversion)
         {
             Consents = new HashSet<Consent>();

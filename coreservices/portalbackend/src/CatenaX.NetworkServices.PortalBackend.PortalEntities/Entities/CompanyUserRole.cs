@@ -5,6 +5,7 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
 {
     public class CompanyUserRole : BaseEntity
     {
+        public CompanyUserRole() {}
         public CompanyUserRole(string companyUserRoleText, string namede, string nameen)
         {
             Apps = new HashSet<App>();

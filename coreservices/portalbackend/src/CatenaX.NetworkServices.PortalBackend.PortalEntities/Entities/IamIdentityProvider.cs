@@ -5,6 +5,7 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
 {
     public class IamIdentityProvider
     {
+        public IamIdentityProvider() {}
         public IamIdentityProvider(string iamIdpAlias)
         {
             IamIdpAlias = iamIdpAlias;

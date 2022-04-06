@@ -4,6 +4,7 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
 {
     public class AgreementAssignedCompanyRole
     {
+        public AgreementAssignedCompanyRole() {}
         public AgreementAssignedCompanyRole(Agreement agreement, CompanyRole companyRole)
         {
             Agreement = agreement;

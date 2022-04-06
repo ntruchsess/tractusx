@@ -11,6 +11,7 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
             Companies = new HashSet<Company>();
         }
 
+        [Key]
         public CompanyStatusId CompanyStatusId { get; set; }
 
         [MaxLength(255)]
