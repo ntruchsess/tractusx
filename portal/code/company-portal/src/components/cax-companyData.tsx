@@ -47,8 +47,11 @@ export const CompanyDataCax = ({currentActiveStep, addCurrentStep, addCompanyDat
     const [city, setcity] = useState("");
     const [country, setcountry] = useState("");
 
-    
-      const onSeachChange = (x: any) => {
+    const setInputValue = (value, name) => {
+        if(name === 'bpn') setbpn(value);
+    }
+
+    const onSeachChange = (x: any) => {
         setsearch(x);
         const fetchData = async () => {
         const companyDetails = await getCompanyDetails(x);
@@ -117,7 +120,7 @@ export const CompanyDataCax = ({currentActiveStep, addCurrentStep, addCompanyDat
                     <Row className='mx-auto col-9'>
                         <div className='form-data'>
                             <label> {t('registrationStepOne.bpn')} <AiOutlineQuestionCircle color='#939393' data-tip="hello world" /></label>
-                            <input type="text" value={bpn}/>
+                            <input type="text" value={bpn} onChange={e => setInputValue(e.target.value, 'bpn')} />
                             <div className='company-hint'>{t('registrationStepOne.helperText')}</div>
                         </div>
                     </Row>
