@@ -69,9 +69,10 @@ class SearchInput extends Viewable {
   constructor() {
     super()
     this.view = addEvents(
-      N('input', null, { class: 'search', placeholder: 'sign in with', value: localStorage.getItem('IDP') || ''}),
+      N('input', null, { type: 'search', class: 'search', placeholder: 'sign in with', value: localStorage.getItem('IDP') || ''}),
       {
-        keyup: e => processChange(e.target.value)
+        keyup: e => processChange(e.target.value),
+        search: e => processChange(e.target.value)
       }
     )
     this.view.select()

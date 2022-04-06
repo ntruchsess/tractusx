@@ -22,7 +22,7 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/enable-cors: "true"
     nginx.ingress.kubernetes.io/cors-allow-methods: "PUT, GET, POST, OPTIONS"
-    nginx.ingress.kubernetes.io/cors-allow-origin: ${CATENA_REGISTRATION_URL}, ${CATENA_SERVICE_URL}, http://localhost:3000
+    nginx.ingress.kubernetes.io/cors-allow-origin: ${CATENA_REGISTRATION_URL}, ${CATENA_SERVICE_URL}, http://localhost:3000, https://*.demo.catena-x.net
     nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
     nginx.ingress.kubernetes.io/proxy-buffering: "on"
     nginx.ingress.kubernetes.io/proxy-buffers-number: "20"

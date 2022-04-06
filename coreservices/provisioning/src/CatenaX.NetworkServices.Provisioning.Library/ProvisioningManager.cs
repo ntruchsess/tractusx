@@ -7,6 +7,7 @@ using CatenaX.NetworkServices.Keycloak.Factory;
 using CatenaX.NetworkServices.Provisioning.DBAccess;
 using CatenaX.NetworkServices.Provisioning.Library.Models;
 using CatenaX.NetworkServices.Keycloak.DBAccess;
+using System;
 
 namespace CatenaX.NetworkServices.Provisioning.Library
 {
@@ -18,22 +19,22 @@ namespace CatenaX.NetworkServices.Provisioning.Library
         private readonly IProvisioningDBAccess _ProvisioningDBAccess;
         private readonly ProvisioningSettings _Settings;
 
-        public ProvisioningManager(IKeycloakFactory keycloakFactory, IKeycloakDBAccessFactory keycloakDBAccessFactory, IProvisioningDBAccessFactory provisioningDBAccessFactory, IOptions<ProvisioningSettings> options)
+        public ProvisioningManager(IKeycloakFactory keycloakFactory, IKeycloakDBAccess keycloakDBAccess, IProvisioningDBAccess provisioningDBAccess, IOptions<ProvisioningSettings> options)
         {
             _CentralIdp = keycloakFactory.CreateKeycloakClient("central");
             _SharedIdp = keycloakFactory.CreateKeycloakClient("shared");
             _Settings = options.Value;
-            _KeycloakDBAccess = keycloakDBAccessFactory?.CreateKeycloakDBAccess();
-            _ProvisioningDBAccess = provisioningDBAccessFactory?.CreateProvisioningDBAccess();
+            _KeycloakDBAccess = keycloakDBAccess;
+            _ProvisioningDBAccess = provisioningDBAccess;
         }
 
-        public ProvisioningManager(IKeycloakFactory keycloakFactory, IKeycloakDBAccessFactory keycloakDBAccessFactory, IOptions<ProvisioningSettings> options)
-            : this(keycloakFactory,keycloakDBAccessFactory,null,options)
+        public ProvisioningManager(IKeycloakFactory keycloakFactory, IKeycloakDBAccess keycloakDBAccess, IOptions<ProvisioningSettings> options)
+            : this(keycloakFactory,keycloakDBAccess,null,options)
         {
         }
 
-        public ProvisioningManager(IKeycloakFactory keycloakFactory, IProvisioningDBAccessFactory provisioningDBAccessFactory, IOptions<ProvisioningSettings> options)
-            : this(keycloakFactory,null,provisioningDBAccessFactory,options)
+        public ProvisioningManager(IKeycloakFactory keycloakFactory, IProvisioningDBAccess provisioningDBAccess, IOptions<ProvisioningSettings> options)
+            : this(keycloakFactory,null,provisioningDBAccess,options)
         {
         }
 
@@ -179,6 +180,21 @@ namespace CatenaX.NetworkServices.Provisioning.Library
             var internalId = (await CreateCentralOIDCClientAsync(clientId,redirectUrl).ConfigureAwait(false));
             await CreateCentralOIDCClientAudienceMapperAsync(internalId, clientId).ConfigureAwait(false);
             return clientId;
+        }
+
+        public async Task<bool> AddBpnAttributetoUserAsync(Guid userId, IEnumerable<string> bpns)
+        {
+            var user = await _CentralIdp.GetUserAsync(_Settings.CentralRealm, userId.ToString()).ConfigureAwait(false);
+            if (user.Attributes == null)
+            {
+                user.Attributes = new Dictionary<string, IEnumerable<string>>();
+            }
+            if (user.Attributes.TryGetValue("bpn", out var existingBpns))
+            {
+                bpns = existingBpns.Concat(bpns).Distinct();
+            }
+            user.Attributes["bpn"] = bpns.ToList();
+            return await _CentralIdp.UpdateUserAsync(_Settings.CentralRealm, userId.ToString(), user).ConfigureAwait(false);
         }
     }
 }

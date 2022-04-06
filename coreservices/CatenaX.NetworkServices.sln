@@ -1,15 +1,10 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31717.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "consent", "consent", "{5BA50973-B032-4C3B-B82F-4136AC6B7DEC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "membershipcompany", "membershipcompany", "{06B37DE0-6F10-4D40-97E8-184BA9F6AEA9}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "useradministration", "useradministration", "{7A5F84BE-3B45-483A-8EF1-4E1E94F144DC}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.MembershipCompany.Service", "membershipcompany\src\CatenaX.NetworkServices.MembershipCompany.Service\CatenaX.NetworkServices.MembershipCompany.Service.csproj", "{14346800-3A31-4463-91A2-42DCA1E4BFC4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C34FEF41-7935-481B-BD92-BB2A99199BE3}"
 EndProject
@@ -33,8 +28,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Con
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "provisioning", "provisioning", "{41E2D910-2D1D-11EC-A4AF-635467519A0C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Provisioning.Mail", "provisioning\src\CatenaX.NetworkServices.Provisioning.Mail\CatenaX.NetworkServices.Provisioning.Mail.csproj", "{C30D1EC2-2AA6-4802-8988-7972F22BF90F}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Provisioning.Utils", "provisioning\src\CatenaX.NetworkServices.Provisioning.Utils\CatenaX.NetworkServices.Provisioning.Utils.csproj", "{1E68BC44-0476-43A8-8504-B55B83DACF6F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "registration", "registration", "{1A8ADE3E-393B-43D6-BE93-9CDB765CB86E}"
@@ -43,19 +36,27 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Reg
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "keycloak", "keycloak", "{361B4010-82C0-11EC-8131-8BF7616386B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Keycloak.Net", "keycloak\src\Keycloak.Net\Keycloak.Net.csproj", "{2CEDAD69-E09D-48CA-838B-65D93C26C938}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Keycloak.Net", "keycloak\src\Keycloak.Net\Keycloak.Net.csproj", "{2CEDAD69-E09D-48CA-838B-65D93C26C938}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatenaX.NetworkServices.Keycloak.Factory", "keycloak\src\CatenaX.NetworkServices.Keycloak.Factory\CatenaX.NetworkServices.Keycloak.Factory.csproj", "{917F0EB5-8D6F-4819-9607-0682248DFF49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Keycloak.Factory", "keycloak\src\CatenaX.NetworkServices.Keycloak.Factory\CatenaX.NetworkServices.Keycloak.Factory.csproj", "{917F0EB5-8D6F-4819-9607-0682248DFF49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatenaX.NetworkServices.Keycloak.Authentication", "keycloak\src\CatenaX.NetworkServices.Keycloak.Authentication\CatenaX.NetworkServices.Keycloak.Authentication.csproj", "{FE4A5E1E-2CB8-4149-9D22-C8C8D7FF5708}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Keycloak.Authentication", "keycloak\src\CatenaX.NetworkServices.Keycloak.Authentication\CatenaX.NetworkServices.Keycloak.Authentication.csproj", "{FE4A5E1E-2CB8-4149-9D22-C8C8D7FF5708}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatenaX.NetworkServices.Provisioning.Library", "provisioning\src\CatenaX.NetworkServices.Provisioning.Library\CatenaX.NetworkServices.Provisioning.Library.csproj", "{655B039F-508A-430D-A942-960DDFED465B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Provisioning.Library", "provisioning\src\CatenaX.NetworkServices.Provisioning.Library\CatenaX.NetworkServices.Provisioning.Library.csproj", "{655B039F-508A-430D-A942-960DDFED465B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatenaX.NetworkServices.Provisioning.Service", "provisioning\src\CatenaX.NetworkServices.Provisioning.Service\CatenaX.NetworkServices.Provisioning.Service.csproj", "{AFB6DF80-7E9B-4E85-82DF-74686C904ABE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Provisioning.Service", "provisioning\src\CatenaX.NetworkServices.Provisioning.Service\CatenaX.NetworkServices.Provisioning.Service.csproj", "{AFB6DF80-7E9B-4E85-82DF-74686C904ABE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatenaX.NetworkServices.Keycloak.DBAccess", "keycloak\src\CatenaX.NetworkServices.Keycloak.DBAccess\CatenaX.NetworkServices.Keycloak.DBAccess.csproj", "{345AB1AF-8E2E-4669-B468-4F191554E340}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Keycloak.DBAccess", "keycloak\src\CatenaX.NetworkServices.Keycloak.DBAccess\CatenaX.NetworkServices.Keycloak.DBAccess.csproj", "{345AB1AF-8E2E-4669-B468-4F191554E340}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatenaX.NetworkServices.Provisioning.DBAccess", "provisioning\src\CatenaX.NetworkServices.Provisioning.DBAccess\CatenaX.NetworkServices.Provisioning.DBAccess.csproj", "{090C46A4-64BD-4512-B027-8AB6E1A56558}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Provisioning.DBAccess", "provisioning\src\CatenaX.NetworkServices.Provisioning.DBAccess\CatenaX.NetworkServices.Provisioning.DBAccess.csproj", "{090C46A4-64BD-4512-B027-8AB6E1A56558}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Framework.DBAccess", "framework\src\CatenaX.NetworkServices.Framework.DBAccess\CatenaX.NetworkServices.Framework.DBAccess.csproj", "{799A6509-F37A-4E2F-926D-7621F4B547DD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "framework", "framework", "{3E6A8890-ABCC-11EC-8FBD-830E148C8A39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatenaX.NetworkServices.PortalBackend.DBAccess", "portalbackend\src\CatenaX.NetworkServices.PortalBackend.DBAccess\CatenaX.NetworkServices.PortalBackend.DBAccess.csproj", "{4A76991F-5E08-4882-84D5-A7C1FEC924FC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "portalbackend", "portalbackend", "{5638B3F0-AED0-11EC-9040-016C6A89AD3F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,10 +64,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{14346800-3A31-4463-91A2-42DCA1E4BFC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{14346800-3A31-4463-91A2-42DCA1E4BFC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{14346800-3A31-4463-91A2-42DCA1E4BFC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{14346800-3A31-4463-91A2-42DCA1E4BFC4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{97FE948B-D083-4BE2-9E5A-2AA0A0D7B44D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{97FE948B-D083-4BE2-9E5A-2AA0A0D7B44D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97FE948B-D083-4BE2-9E5A-2AA0A0D7B44D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -95,10 +92,6 @@ Global
 		{63F6633F-467A-449E-92E5-145CB8F495A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63F6633F-467A-449E-92E5-145CB8F495A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63F6633F-467A-449E-92E5-145CB8F495A4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C30D1EC2-2AA6-4802-8988-7972F22BF90F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C30D1EC2-2AA6-4802-8988-7972F22BF90F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C30D1EC2-2AA6-4802-8988-7972F22BF90F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C30D1EC2-2AA6-4802-8988-7972F22BF90F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1E68BC44-0476-43A8-8504-B55B83DACF6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1E68BC44-0476-43A8-8504-B55B83DACF6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E68BC44-0476-43A8-8504-B55B83DACF6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -135,16 +128,22 @@ Global
 		{090C46A4-64BD-4512-B027-8AB6E1A56558}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{090C46A4-64BD-4512-B027-8AB6E1A56558}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{090C46A4-64BD-4512-B027-8AB6E1A56558}.Release|Any CPU.Build.0 = Release|Any CPU
+		{799A6509-F37A-4E2F-926D-7621F4B547DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{799A6509-F37A-4E2F-926D-7621F4B547DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{799A6509-F37A-4E2F-926D-7621F4B547DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{799A6509-F37A-4E2F-926D-7621F4B547DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A76991F-5E08-4882-84D5-A7C1FEC924FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A76991F-5E08-4882-84D5-A7C1FEC924FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A76991F-5E08-4882-84D5-A7C1FEC924FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A76991F-5E08-4882-84D5-A7C1FEC924FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{361B4010-82C0-11EC-8131-8BF7616386B6} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
+		{5638B3F0-AED0-11EC-9040-016C6A89AD3F} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
 		{5BA50973-B032-4C3B-B82F-4136AC6B7DEC} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
-		{06B37DE0-6F10-4D40-97E8-184BA9F6AEA9} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
 		{7A5F84BE-3B45-483A-8EF1-4E1E94F144DC} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
-		{14346800-3A31-4463-91A2-42DCA1E4BFC4} = {06B37DE0-6F10-4D40-97E8-184BA9F6AEA9}
 		{97FE948B-D083-4BE2-9E5A-2AA0A0D7B44D} = {F5E59460-211B-11EC-B6E9-75CD881C6D34}
 		{F5E59460-211B-11EC-B6E9-75CD881C6D34} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
 		{59FC0798-2A3B-4EAA-B4F2-43B1DAB259DB} = {F5E59460-211B-11EC-B6E9-75CD881C6D34}
@@ -155,10 +154,10 @@ Global
 		{591E90F7-9607-4F82-8DF3-0AC657695D4B} = {5BA50973-B032-4C3B-B82F-4136AC6B7DEC}
 		{63F6633F-467A-449E-92E5-145CB8F495A4} = {5BA50973-B032-4C3B-B82F-4136AC6B7DEC}
 		{41E2D910-2D1D-11EC-A4AF-635467519A0C} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
-		{C30D1EC2-2AA6-4802-8988-7972F22BF90F} = {41E2D910-2D1D-11EC-A4AF-635467519A0C}
 		{1E68BC44-0476-43A8-8504-B55B83DACF6F} = {41E2D910-2D1D-11EC-A4AF-635467519A0C}
 		{1A8ADE3E-393B-43D6-BE93-9CDB765CB86E} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
 		{B472A6B7-8B43-4BDB-98C5-AD76C9D05297} = {1A8ADE3E-393B-43D6-BE93-9CDB765CB86E}
+		{361B4010-82C0-11EC-8131-8BF7616386B6} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
 		{2CEDAD69-E09D-48CA-838B-65D93C26C938} = {361B4010-82C0-11EC-8131-8BF7616386B6}
 		{917F0EB5-8D6F-4819-9607-0682248DFF49} = {361B4010-82C0-11EC-8131-8BF7616386B6}
 		{FE4A5E1E-2CB8-4149-9D22-C8C8D7FF5708} = {361B4010-82C0-11EC-8131-8BF7616386B6}
@@ -166,6 +165,9 @@ Global
 		{AFB6DF80-7E9B-4E85-82DF-74686C904ABE} = {41E2D910-2D1D-11EC-A4AF-635467519A0C}
 		{345AB1AF-8E2E-4669-B468-4F191554E340} = {361B4010-82C0-11EC-8131-8BF7616386B6}
 		{090C46A4-64BD-4512-B027-8AB6E1A56558} = {41E2D910-2D1D-11EC-A4AF-635467519A0C}
+		{799A6509-F37A-4E2F-926D-7621F4B547DD} = {3E6A8890-ABCC-11EC-8FBD-830E148C8A39}
+		{3E6A8890-ABCC-11EC-8FBD-830E148C8A39} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
+		{4A76991F-5E08-4882-84D5-A7C1FEC924FC} = {5638B3F0-AED0-11EC-9040-016C6A89AD3F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {23E9EF5A-FB26-4AAC-952E-0695A1245B8E}

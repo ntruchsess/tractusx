@@ -3,6 +3,7 @@
   "pages": {
     "dashboard": "Dashboard",
     "appstore": "Appstore",
+    "appmarketplace": "App Marketplace",
     "datacatalog": "Data Catalog",
     "applications": "Applications",
     "semantichub": "Semantic Hub",
@@ -29,8 +30,48 @@
     "notfound": "Page not found"
   },
   "content": {
+    "admin": {
+      "registration-requests": {
+        "columns": {
+          "request": "Request",
+          "requestDescription": "ID of user request",
+          "date": "Date",
+          "companyinfo": "Company Application Info",
+          "documents": "Documents",
+          "details": "Details",
+          "state": "State"
+        },
+        "headertitle": "User Registration Requests",
+        "tabletitle": "Registration requests",
+        "pending": "pending",
+        "buttonconfirm": "confirm",
+        "buttondecline": "decline",
+        "cellconfirmed": "confirmed",
+        "celldeclined": "declined"
+      }
+    },
     "dashboard": {
-      "welcome": "Welcome to Catena-X - the automotive network!"
+      "stage": {
+        "title": "Catena-X",
+        "subtitle": "the gateway to the automotive digital <1></1> network",
+        "cxButton": "My CX",
+        "appButton": "My Apps"
+      },
+      "searchSection": {
+        "inputPlaceholder": "Search for Apps"
+      },
+      "businessApplicationsSection": {
+        "title": "My Business Applications"
+      },
+      "fromAppStoreSection": {
+        "title": "From the App Store – Aus dem App Store"
+      }
+    },
+    "appstore": {
+      "stage": {
+        "title": "Catena-X App Store",
+        "subtitle": "A scalable & expandable <1></1> ecosystem"
+      }
     },
     "semantichub": {
       "message": "Contents of Semantic Hub"
@@ -56,8 +97,62 @@
       "success": "Invitation successful",
       "failure": "Processing your request failed"
     },
+    "provisionIdp": {
+      "title": "Setup your company IDP",
+      "send": "Submit IDP request",
+      "field": {
+        "organization": "Your Organization",
+        "metadata": "IDP well known metadata URL",
+        "clientId": "IDP client ID",
+        "clientSecret": "IDP client secret",
+        "clientAuthMethod": "IDP client authentication method"
+      },
+      "success": "Your identity provider was provisioned successfully",
+      "failure": "Processing your request failed"
+    },
     "usermanagement": {
-      "message": "Contents of User Management"
+      "apparea": {
+        "headline": "App Access Management"
+      },
+      "table": {
+        "headline": "Identity Management",
+        "title": "User List",
+        "details": "Details",
+        "add": "Add user"
+      }
+    },
+    "addUser": {
+      "headline": "Add User Account",
+      "subheadline": "tbd",
+      "singleUser": "Single User",
+      "multipleUser": "Multiple User",
+      "multipleUserHeadline": "Add multiple users by file upload:",
+      "multipleUserSubheadline": "Please use this <1>upload template</1>, to add multiple users by file",
+      "chooseUserRole": "Select CX Portal User Role",
+      "helperText": "Bitte geben Sie alle erforderlichen Informationen ein, bevor Sie fortfahren.",
+      "userUpload": {
+        "title": "Drag & drop your files here",
+        "subtitle": "or browse files on your computer.",
+        "uploadStatus": {
+          "rejected_file_type": "rejected (file type)",
+          "rejected_max_files": "rejected (max files)",
+          "preparing": "preparing",
+          "error_file_size": "error (file_size)",
+          "error_validation": "error (validation)",
+          "ready": "ready",
+          "started": "started",
+          "getting_upload_params": "getting (upload_params)",
+          "error_upload_params": "error (upload_params)",
+          "uploading": "uploading",
+          "exception_upload": "exception_upload",
+          "aborted": "aborted",
+          "restarted": "restarted",
+          "removed": "removed",
+          "error_upload": "upload error",
+          "headers_received": "headers received",
+          "done": "done"
+        }
+      }
     },
     "help": {
       "message": "add content here"
@@ -83,6 +178,9 @@
     "account": {
       "token": "Current authentication token"
     },
+    "footer": {
+      "copyright": "Copyright © Catena-X Automotive Network"
+    },
     "logout": {
       "message": "We are logging you out now... Hope to see you again soon!"
     },
@@ -101,7 +199,23 @@
       "first": "First Name",
       "last": "Last Name",
       "email": "Email",
-      "company": "Company Name"
+      "company": "Company Name",
+      "status": "Status",
+      "role": "Rollen",
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "actions": {
+      "cancel": "Cancel",
+      "confirm": "Confirm"
+    },
+    "userRoles": {
+      "itAdmin": "IT Admin",
+      "businessAdmin": "Business Admin",
+      "cxUser": "CX User",
+      "dataSpecialist": "Data Specialist",
+      "appDeveloper": "App Developer",
+      "appAdmin": "App Developer"
     }
   }
 }
