@@ -61,7 +61,8 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
                 try
                 {
                     var password = pwd.Next();
-                    var centralUserId = await _provisioningManager.CreateSharedUserLinkedToCentralAsync(idpName, new UserProfile {
+                    var centralUserId = await _provisioningManager.CreateSharedUserLinkedToCentralAsync(idpName, new UserProfile
+                    {
                         UserName = user.userName ?? user.eMail,
                         FirstName = user.firstName,
                         LastName = user.lastName,
@@ -80,7 +81,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
 
                     var inviteTemplateName = "invite";
                     if (!string.IsNullOrWhiteSpace(user.Message))
-                    { 
+                    {
                         inviteTemplateName = "inviteWithMessage";
                     }
 
@@ -92,7 +93,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
                         { "nameCreatedBy", createdByName},
                         { "url", $"{_settings.BasePortalAddress}"},
                         { "username", user.eMail},
-                    
+
                     };
 
                     await _mailingService.SendMails(user.eMail, mailParameters, new List<string> { inviteTemplateName, "password" }).ConfigureAwait(false);
@@ -144,7 +145,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
                 using (SHA256 hashSHA256 = SHA256.Create())
                 {
                     byte[] hashValue = hashSHA256.ComputeHash(Encoding.UTF8.GetBytes(documentContent));
-                    hash = Encoding.UTF8.GetString(hashValue); 
+                    hash = Encoding.UTF8.GetString(hashValue);
                     StringBuilder builder = new StringBuilder();
                     for (int i = 0; i < hashValue.Length; i++)
                     {
@@ -153,9 +154,23 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
                     hash = builder.ToString();
                 }
             }
-            await _dbAccess.UploadDocument(name,documentContent,hash,userName);
+            await _dbAccess.UploadDocument(name, documentContent, hash, userName);
         }
         public Task CreateCustodianWalletAsync(WalletInformation information) =>
             _custodianService.CreateWallet(information.bpn, information.name);
+
+        public async Task<bool> SubmitRegistrationAsync(string userEmail)
+        {
+            var password = new Password().Next();
+
+            var mailParameters = new Dictionary<string, string>
+            {
+                { "password", password },
+                { "url", $"{_settings.BasePortalAddress}"},
+            };
+
+            await _mailingService.SendMails(userEmail, mailParameters, new List<string> { "SubmitRegistrationTemplate" });
+            return true;
+        }
     }
 }
