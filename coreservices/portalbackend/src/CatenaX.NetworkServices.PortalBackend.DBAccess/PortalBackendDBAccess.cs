@@ -1,14 +1,12 @@
+using CatenaX.NetworkServices.Framework.DBAccess;
+using CatenaX.NetworkServices.PortalBackend.PortalEntities;
+using CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities;
+using CatenaX.NetworkServices.PortalBackend.PortalEntities.Enums;
+using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Dapper;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
-
-using CatenaX.NetworkServices.Framework.DBAccess;
-using CatenaX.NetworkServices.PortalBackend.PortalEntities;
-using CatenaX.NetworkServices.PortalBackend.PortalEntities.Enums;
-using CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities;
 
 namespace CatenaX.NetworkServices.PortalBackend.DBAccess
 
@@ -89,7 +87,7 @@ namespace CatenaX.NetworkServices.PortalBackend.DBAccess
         public Company CreateCompany(string companyName)
         {
             return _dbContext.Companies.Add(new Company {
-                CompanyId = Guid.NewGuid(),
+                Id = Guid.NewGuid(),
                 Name = companyName,
                 Shortname = companyName,
                 CompanyStatusId = CompanyStatusId.PENDING
@@ -99,7 +97,7 @@ namespace CatenaX.NetworkServices.PortalBackend.DBAccess
         public CompanyApplication CreateCompanyApplication(Company company)
         {
             return _dbContext.CompanyApplications.Add(new CompanyApplication {
-                CompanyApplicationId = Guid.NewGuid(),
+                Id = Guid.NewGuid(),
                 ApplicationStatusId = CompanyApplicationStatusId.ADD_COMPANY_DATA,
                 Company = company
             }).Entity;
@@ -108,7 +106,7 @@ namespace CatenaX.NetworkServices.PortalBackend.DBAccess
         public CompanyUser CreateCompanyUser(string firstName, string lastName, string email, Company company)
         {
             return _dbContext.CompanyUsers.Add(new CompanyUser {
-                CompanyUserId = Guid.NewGuid(),
+                Id = Guid.NewGuid(),
                 Firstname = firstName,
                 Lastname = lastName,
                 Email = email,
@@ -119,7 +117,7 @@ namespace CatenaX.NetworkServices.PortalBackend.DBAccess
         public Invitation CreateInvitation(CompanyApplication application, CompanyUser user)
         {
             return _dbContext.Invitations.Add(new Invitation {
-                InvitationId = Guid.NewGuid(),
+                Id = Guid.NewGuid(),
                 InvitationStatusId = InvitationStatusId.CREATED,
                 CompanyApplication = application,
                 CompanyUser = user
@@ -129,7 +127,7 @@ namespace CatenaX.NetworkServices.PortalBackend.DBAccess
         public IdentityProvider CreateSharedIdentityProvider(Company company)
         {
             var idp = new IdentityProvider() {
-                IdentityProviderId = Guid.NewGuid(),
+                Id = Guid.NewGuid(),
                 IdentityProviderCategoryId = IdentityProviderCategoryId.KEYCLOAK_SHARED,
             };
             idp.Companies.Add(company);
@@ -138,9 +136,8 @@ namespace CatenaX.NetworkServices.PortalBackend.DBAccess
 
         public IamIdentityProvider CreateIamIdentityProvider(IdentityProvider identityProvider, string idpAlias)
         {
-            return _dbContext.IamIdentityProviders.Add(new IamIdentityProvider {
-                IdentityProvider = identityProvider,
-                IamIdpAlias = idpAlias
+            return _dbContext.IamIdentityProviders.Add(new IamIdentityProvider(idpAlias) {
+                IdentityProvider = identityProvider
             }).Entity;
         }
 
@@ -148,7 +145,7 @@ namespace CatenaX.NetworkServices.PortalBackend.DBAccess
         {
             return _dbContext.IamUsers.Add(new IamUser {
                 CompanyUser = user,
-                IamUserId = iamUserId
+                Id = iamUserId
             }).Entity;
         }
 

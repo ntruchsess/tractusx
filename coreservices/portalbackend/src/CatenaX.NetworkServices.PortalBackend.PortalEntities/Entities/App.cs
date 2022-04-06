@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-
-#nullable disable
+using System.ComponentModel.DataAnnotations;
 
 namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
 {
-    public class App
+    public class App : BaseEntity
     {
         public App()
         {
@@ -18,17 +17,24 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
             CompanyUsers = new HashSet<CompanyUser>();
         }
 
-        public Guid AppId { get; set; }
-        public DateTime? DateCreated { get; set; }
-        public DateTime? DateLastChanged { get; set; }
-        public string Name { get; set; }
+        [MaxLength(255)]
+        public string? Name { get; set; }
+
         public DateTime? DateReleased { get; set; }
-        public string ThumbnailUrl { get; set; }
+
+        [MaxLength(255)]
+        public string? ThumbnailUrl { get; set; }
+
+        [MaxLength(255)]
+        public string? AppUrl { get; set; }
+
+        [MaxLength(255)]
+        public string? MarketingUrl { get; set; }
+
         public Guid? VendorCompanyId { get; set; }
 
-        public virtual Company VendorCompany { get; set; }
+        public virtual Company? VendorCompany { get; set; }
         public virtual ICollection<Company> Companies { get; set; }
-
         public virtual ICollection<Agreement> Agreements { get; set; }
         public virtual ICollection<AppDescription> AppDescriptions { get; set; }
         public virtual ICollection<CompanyUserRole> CompanyUserRoles { get; set; }

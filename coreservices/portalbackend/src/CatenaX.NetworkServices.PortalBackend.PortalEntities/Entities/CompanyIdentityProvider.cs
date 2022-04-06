@@ -1,11 +1,15 @@
 ﻿using System;
 
-#nullable disable
-
 namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
 {
     public class CompanyIdentityProvider
     {
+        public CompanyIdentityProvider(Company company, IdentityProvider identityProvider)
+        {
+            Company = company;
+            IdentityProvider = identityProvider;
+        }
+
         public Guid CompanyId { get; set; }
         public Guid IdentityProviderId { get; set; }
 

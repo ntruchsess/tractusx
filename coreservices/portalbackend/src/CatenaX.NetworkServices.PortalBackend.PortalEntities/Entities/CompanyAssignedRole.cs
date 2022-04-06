@@ -1,11 +1,15 @@
 ﻿using System;
 
-#nullable disable
-
 namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
 {
     public class CompanyAssignedRole
     {
+        public CompanyAssignedRole(Company company, CompanyRole companyRole)
+        {
+            Company = company;
+            CompanyRole = companyRole;
+        }
+
         public Guid CompanyId { get; set; }
         public int CompanyRoleId { get; set; }
 

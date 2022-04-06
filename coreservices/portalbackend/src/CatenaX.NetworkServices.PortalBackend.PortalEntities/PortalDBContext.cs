@@ -4,17 +4,19 @@ using CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities;
 using CatenaX.NetworkServices.PortalBackend.PortalEntities.Enums;
 using Microsoft.EntityFrameworkCore;
 
-#nullable disable
-
 namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
 {
     public class PortalDBContext : DbContext
     {
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public PortalDBContext()
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         {
         }
 
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public PortalDBContext(DbContextOptions<PortalDBContext> options)
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
             : base(options)
         {
         }
@@ -69,37 +71,23 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
             {
                 entity.ToTable("addresses", "portal");
 
-                entity.Property(e => e.AddressId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("address_id");
-
                 entity.Property(e => e.City)
-                    .HasMaxLength(255)
                     .HasColumnName("city");
 
                 entity.Property(e => e.CountryAlpha2Code)
-                    .HasMaxLength(2)
                     .HasColumnName("country_alpha_2_code")
                     .IsFixedLength(true);
 
-                entity.Property(e => e.DateCreated).HasColumnName("date_created");
-
-                entity.Property(e => e.DateLastChanged).HasColumnName("date_last_changed");
-
                 entity.Property(e => e.Region)
-                    .HasMaxLength(255)
                     .HasColumnName("region");
 
                 entity.Property(e => e.Streetadditional)
-                    .HasMaxLength(255)
                     .HasColumnName("streetadditional");
 
                 entity.Property(e => e.Streetname)
-                    .HasMaxLength(255)
                     .HasColumnName("streetname");
 
                 entity.Property(e => e.Streetnumber)
-                    .HasMaxLength(255)
                     .HasColumnName("streetnumber");
 
                 entity.Property(e => e.Zipcode)
@@ -107,7 +95,7 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
                     .HasColumnName("zipcode");
 
                 entity.HasOne(d => d.Country)
-                    .WithMany(p => p.Addresses)
+                    .WithMany(p => p!.Addresses)
                     .HasForeignKey(d => d.CountryAlpha2Code)
                     .HasConstraintName("fk_6jg6itw07d2qww62deuyk0kh");
             });
@@ -116,50 +104,39 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
             {
                 entity.ToTable("agreements", "portal");
 
-                entity.Property(e => e.AgreementId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("agreement_id");
-
                 entity.Property(e => e.AgreementCategoryId).HasColumnName("agreement_category_id");
 
                 entity.Property(e => e.AgreementType)
-                    .HasMaxLength(255)
                     .HasColumnName("agreement_type");
 
                 entity.Property(e => e.AppId).HasColumnName("app_id");
 
-                entity.Property(e => e.DateCreated).HasColumnName("date_created");
-
-                entity.Property(e => e.DateLastChanged).HasColumnName("date_last_changed");
-
                 entity.Property(e => e.IssuerCompanyId).HasColumnName("issuer_company_id");
 
                 entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasMaxLength(255)
                     .HasColumnName("name");
 
                 entity.Property(e => e.UseCaseId).HasColumnName("use_case_id");
 
                 entity.HasOne(d => d.AgreementCategory)
-                    .WithMany(p => p.Agreements)
+                    .WithMany(p => p!.Agreements)
                     .HasForeignKey(d => d.AgreementCategoryId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_owqie84qkle78dasifljiwer");
 
                 entity.HasOne(d => d.App)
-                    .WithMany(p => p.Agreements)
+                    .WithMany(p => p!.Agreements)
                     .HasForeignKey(d => d.AppId)
                     .HasConstraintName("fk_ooy9ydkah696jxh4lq7pn0xe");
 
                 entity.HasOne(d => d.IssuerCompany)
-                    .WithMany(p => p.Agreements)
+                    .WithMany(p => p!.Agreements)
                     .HasForeignKey(d => d.IssuerCompanyId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_n4nnf5bn8i3i9ijrf7kchfvc");
 
                 entity.HasOne(d => d.UseCase)
-                    .WithMany(p => p.Agreements)
+                    .WithMany(p => p!.Agreements)
                     .HasForeignKey(d => d.UseCaseId)
                     .HasConstraintName("fk_whby66dika71srejhja6g75a");
 
@@ -167,10 +144,10 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
 
             modelBuilder.Entity<AgreementAssignedCompanyRole>(entity =>
             {
+                entity.ToTable("agreement_assigned_company_roles", "portal");
+
                 entity.HasKey(e => new { e.AgreementId, e.CompanyRoleId })
                     .HasName("pk_agreement_ass_comp_roles");
-
-                entity.ToTable("agreement_assigned_company_roles", "portal");
 
                 entity.HasIndex(e => e.CompanyRoleId, "uk_6df9o1r7dy987w1pt9qnkopc")
                     .IsUnique();
@@ -186,7 +163,7 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
                     .HasConstraintName("fk_ljol11mdo76f4kv7fwqn1qc6");
 
                 entity.HasOne(d => d.CompanyRole)
-                    .WithOne(p => p.AgreementAssignedCompanyRole)
+                    .WithOne(p => p.AgreementAssignedCompanyRole!)
                     .HasForeignKey<AgreementAssignedCompanyRole>(d => d.CompanyRoleId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_qh1hby9qcrr3gmy1cvi7nd3h");
@@ -194,10 +171,10 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
 
             modelBuilder.Entity<AgreementAssignedDocumentTemplate>(entity =>
             {
+                entity.ToTable("agreement_assigned_document_templates", "portal");
+
                 entity.HasKey(e => new { e.AgreementId, e.DocumentTemplateId })
                     .HasName("pk_agreement_ass_doc_templa");
-
-                entity.ToTable("agreement_assigned_document_templates", "portal");
 
                 entity.HasIndex(e => e.DocumentTemplateId, "uk_9ib7xuc1vke96s9rvlyhxbtu")
                     .IsUnique();
@@ -213,7 +190,7 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
                     .HasConstraintName("fk_fvcwoptsuer9p23m055osose");
 
                 entity.HasOne(d => d.DocumentTemplate)
-                    .WithOne(p => p.AgreementAssignedDocumentTemplate)
+                    .WithOne(p => p.AgreementAssignedDocumentTemplate!)
                     .HasForeignKey<AgreementAssignedDocumentTemplate>(d => d.DocumentTemplateId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_bvrvs5aktrcn4t6565pnj3ur");
@@ -228,7 +205,6 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
                     .HasColumnName("agreement_category_id");
 
                 entity.Property(e => e.Label)
-                    .HasMaxLength(255)
                     .HasColumnName("label");
             });
 
@@ -236,28 +212,24 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
             {
                 entity.ToTable("apps", "portal");
 
-                entity.Property(e => e.AppId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("app_id");
-
-                entity.Property(e => e.DateCreated).HasColumnName("date_created");
-
-                entity.Property(e => e.DateLastChanged).HasColumnName("date_last_changed");
-
                 entity.Property(e => e.DateReleased).HasColumnName("date_released");
 
                 entity.Property(e => e.Name)
-                    .HasMaxLength(255)
                     .HasColumnName("name");
 
                 entity.Property(e => e.ThumbnailUrl)
-                    .HasMaxLength(255)
                     .HasColumnName("thumbnail_url");
+
+                entity.Property(e => e.AppUrl)
+                    .HasColumnName("app_url");
+
+                entity.Property(e => e.MarketingUrl)
+                    .HasColumnName("marketing_url");
 
                 entity.Property(e => e.VendorCompanyId).HasColumnName("vendor_company_id");
 
                 entity.HasOne(d => d.VendorCompany)
-                    .WithMany(p => p.ProvidedApps)
+                    .WithMany(p => p!.ProvidedApps)
                     .HasForeignKey(d => d.VendorCompanyId)
                     .HasConstraintName("fk_68a9joedhyf43smfx2xc4rgm");
 
@@ -356,15 +328,14 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
 
             modelBuilder.Entity<AppDescription>(entity =>
             {
+                entity.ToTable("app_descriptions", "portal");
+
                 entity.HasKey(e => new { e.AppId, e.LanguageShortName })
                     .HasName("app_descriptions_pkey");
-
-                entity.ToTable("app_descriptions", "portal");
 
                 entity.Property(e => e.AppId).HasColumnName("app_id");
 
                 entity.Property(e => e.LanguageShortName)
-                    .HasMaxLength(2)
                     .HasColumnName("language_short_name")
                     .IsFixedLength(true);
 
@@ -373,21 +344,19 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
                 entity.Property(e => e.DateLastChanged).HasColumnName("date_last_changed");
 
                 entity.Property(e => e.DescriptionLong)
-                    .HasMaxLength(4096)
                     .HasColumnName("description_long");
 
                 entity.Property(e => e.DescriptionShort)
-                    .HasMaxLength(255)
                     .HasColumnName("description_short");
 
                 entity.HasOne(d => d.App)
-                    .WithMany(p => p.AppDescriptions)
+                    .WithMany(p => p!.AppDescriptions)
                     .HasForeignKey(d => d.AppId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_qamy6j7s3klebrf2s69v9k0i");
 
                 entity.HasOne(d => d.Language)
-                    .WithMany(p => p.AppDescriptions)
+                    .WithMany(p => p!.AppDescriptions)
                     .HasForeignKey(d => d.LanguageShortName)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_vrom2pjij9x6stgovhaqkfxf");
@@ -397,16 +366,7 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
             {
                 entity.ToTable("app_licenses", "portal");
 
-                entity.Property(e => e.AppLicenseId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("app_license_id");
-
-                entity.Property(e => e.DateCreated).HasColumnName("date_created");
-
-                entity.Property(e => e.DateLastChanged).HasColumnName("date_last_changed");
-
                 entity.Property(e => e.Licensetext)
-                    .HasMaxLength(255)
                     .HasColumnName("licensetext");
             });
 
@@ -414,44 +374,31 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
             {
                 entity.ToTable("companies", "portal");
 
-                entity.Property(e => e.CompanyId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("company_id");
-
                 entity.Property(e => e.AddressId).HasColumnName("address_id");
 
                 entity.Property(e => e.Bpn)
-                    .IsRequired()
-                    .HasMaxLength(20)
                     .HasColumnName("bpn");
 
                 entity.Property(e => e.CompanyStatusId)
                     .HasColumnName("company_status_id")
                     .HasConversion<int>();
 
-                entity.Property(e => e.DateCreated).HasColumnName("date_created");
-
-                entity.Property(e => e.DateLastChanged).HasColumnName("date_last_changed");
-
                 entity.Property(e => e.Name)
-                    .HasMaxLength(255)
                     .HasColumnName("name");
 
                 entity.Property(e => e.Parent)
-                    .HasMaxLength(255)
                     .HasColumnName("parent");
 
                 entity.Property(e => e.Shortname)
-                    .HasMaxLength(255)
                     .HasColumnName("shortname");
 
                 entity.HasOne(d => d.Address)
-                    .WithMany(p => p.Companies)
+                    .WithMany(p => p!.Companies)
                     .HasForeignKey(d => d.AddressId)
                     .HasConstraintName("fk_w70yf6urddd0ky7ev90okenf");
 
                 entity.HasOne(d => d.CompanyStatus)
-                    .WithMany(p => p.Companies)
+                    .WithMany(p => p!.Companies)
                     .HasForeignKey(d => d.CompanyStatusId)
                     .HasConstraintName("fk_owihadhfweilwefhaf682khj");
 
@@ -533,27 +480,19 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
             {
                 entity.ToTable("company_applications", "portal");
 
-                entity.Property(e => e.CompanyApplicationId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("company_application_id");
-
                 entity.Property(e => e.ApplicationStatusId)
                     .HasColumnName("application_status_id")
                     .HasConversion<int>();
 
                 entity.Property(e => e.CompanyId).HasColumnName("company_id");
 
-                entity.Property(e => e.DateCreated).HasColumnName("date_created");
-
-                entity.Property(e => e.DateLastChanged).HasColumnName("date_last_changed");
-
                 entity.HasOne(d => d.ApplicationStatus)
-                    .WithMany(p => p.CompanyApplications)
+                    .WithMany(p => p!.CompanyApplications)
                     .HasForeignKey(d => d.ApplicationStatusId)
                     .HasConstraintName("fk_akuwiehfiadf8928fhefhuda");
 
                 entity.HasOne(d => d.Company)
-                    .WithMany(p => p.CompanyApplications)
+                    .WithMany(p => p!.CompanyApplications)
                     .HasForeignKey(d => d.CompanyId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_3prv5i3o84vwvh7v0hh3sav7");
@@ -572,7 +511,6 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
                     .HasConversion<int>();
 
                 entity.Property(e => e.Label)
-                    .HasMaxLength(255)
                     .HasColumnName("label");
 
                 entity.HasData(
@@ -589,27 +527,13 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
             {
                 entity.ToTable("company_roles", "portal");
 
-                entity.Property(e => e.CompanyRoleId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("company_role_id");
-
-                entity.Property(e => e.CompanyRole1)
-                    .IsRequired()
-                    .HasMaxLength(255)
+                entity.Property(e => e.CompanyRoleText)
                     .HasColumnName("company_role");
 
-                entity.Property(e => e.DateCreated).HasColumnName("date_created");
-
-                entity.Property(e => e.DateLastChanged).HasColumnName("date_last_changed");
-
                 entity.Property(e => e.NameDe)
-                    .IsRequired()
-                    .HasMaxLength(255)
                     .HasColumnName("name_de");
 
                 entity.Property(e => e.NameEn)
-                    .IsRequired()
-                    .HasMaxLength(255)
                     .HasColumnName("name_en");
             });
 
@@ -623,7 +547,6 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
                     .HasConversion<int>();
 
                 entity.Property(e => e.Label)
-                    .HasMaxLength(255)
                     .HasColumnName("label");
 
                 entity.HasData(
@@ -640,32 +563,21 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
             {
                 entity.ToTable("company_users", "portal");
 
-                entity.Property(e => e.CompanyUserId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("company_user_id");
-
                 entity.Property(e => e.CompanyId).HasColumnName("company_id");
 
-                entity.Property(e => e.DateCreated).HasColumnName("date_created");
-
-                entity.Property(e => e.DateLastChanged).HasColumnName("date_last_changed");
-
                 entity.Property(e => e.Email)
-                    .HasMaxLength(255)
                     .HasColumnName("email");
 
                 entity.Property(e => e.Firstname)
-                    .HasMaxLength(255)
                     .HasColumnName("firstname");
 
                 entity.Property(e => e.Lastlogin).HasColumnName("lastlogin");
 
                 entity.Property(e => e.Lastname)
-                    .HasMaxLength(255)
                     .HasColumnName("lastname");
 
                 entity.HasOne(d => d.Company)
-                    .WithMany(p => p.CompanyUsers)
+                    .WithMany(p => p!.CompanyUsers)
                     .HasForeignKey(d => d.CompanyId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_ku01366dbcqk8h32lh8k5sx1");
@@ -721,27 +633,13 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
             {
                 entity.ToTable("company_user_roles", "portal");
 
-                entity.Property(e => e.CompanyUserRoleId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("company_user_role_id");
-
-                entity.Property(e => e.CompanyUserRole1)
-                    .IsRequired()
-                    .HasMaxLength(255)
+                entity.Property(e => e.CompanyUserRoleText)
                     .HasColumnName("company_user_role");
 
-                entity.Property(e => e.DateCreated).HasColumnName("date_created");
-
-                entity.Property(e => e.DateLastChanged).HasColumnName("date_last_changed");
-
                 entity.Property(e => e.Namede)
-                    .IsRequired()
-                    .HasMaxLength(255)
                     .HasColumnName("namede");
 
                 entity.Property(e => e.Nameen)
-                    .IsRequired()
-                    .HasMaxLength(255)
                     .HasColumnName("nameen");
             });
 
@@ -749,14 +647,9 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
             {
                 entity.ToTable("consents", "portal");
 
-                entity.Property(e => e.ConsentId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("consent_id");
-
                 entity.Property(e => e.AgreementId).HasColumnName("agreement_id");
 
                 entity.Property(e => e.Comment)
-                    .HasMaxLength(255)
                     .HasColumnName("comment");
 
                 entity.Property(e => e.CompanyId).HasColumnName("company_id");
@@ -765,46 +658,40 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
 
                 entity.Property(e => e.ConsentStatusId).HasColumnName("consent_status_id");
 
-                entity.Property(e => e.DateCreated).HasColumnName("date_created");
-
-                entity.Property(e => e.DateLastChanged).HasColumnName("date_last_changed");
-
                 entity.Property(e => e.DocumentsId).HasColumnName("documents_id");
 
                 entity.Property(e => e.Target)
-                    .HasMaxLength(255)
                     .HasColumnName("target");
 
                 entity.Property(e => e.Timestamp)
-                    .IsRequired()
                     .HasColumnName("timestamp");
 
                 entity.HasOne(d => d.Agreement)
-                    .WithMany(p => p.Consents)
+                    .WithMany(p => p!.Consents)
                     .HasForeignKey(d => d.AgreementId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_39a5cbiv35v59ysgfon5oole");
 
                 entity.HasOne(d => d.Company)
-                    .WithMany(p => p.Consents)
+                    .WithMany(p => p!.Consents)
                     .HasForeignKey(d => d.CompanyId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_asqxie2r7yr06cdrw9ifaex8");
 
                 entity.HasOne(d => d.CompanyUser)
-                    .WithMany(p => p.Consents)
+                    .WithMany(p => p!.Consents)
                     .HasForeignKey(d => d.CompanyUserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_cnrtafckouq96m0fw2qtpwbs");
 
                 entity.HasOne(d => d.ConsentStatus)
-                    .WithMany(p => p.Consents)
+                    .WithMany(p => p!.Consents)
                     .HasForeignKey(d => d.ConsentStatusId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_aiodhuwehw8wee20adskdfo2");
 
                 entity.HasOne(d => d.Documents)
-                    .WithMany(p => p.Consents)
+                    .WithMany(p => p!.Consents)
                     .HasForeignKey(d => d.DocumentsId)
                     .HasConstraintName("fk_36j22f34lgi2444n4tynxamh");
             });
@@ -818,35 +705,28 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
                     .HasColumnName("consent_status_id");
 
                 entity.Property(e => e.Label)
-                    .HasMaxLength(255)
                     .HasColumnName("label");
             });
 
             modelBuilder.Entity<Country>(entity =>
             {
+                entity.ToTable("countries", "portal");
+
                 entity.HasKey(e => e.Alpha2Code)
                     .HasName("countries_pkey");
 
-                entity.ToTable("countries", "portal");
-
                 entity.Property(e => e.Alpha2Code)
-                    .HasMaxLength(2)
                     .HasColumnName("alpha_2_code")
                     .IsFixedLength(true);
 
                 entity.Property(e => e.Alpha3Code)
-                    .HasMaxLength(3)
                     .HasColumnName("alpha_3_code")
                     .IsFixedLength(true);
 
                 entity.Property(e => e.CountryNameDe)
-                    .IsRequired()
-                    .HasMaxLength(255)
                     .HasColumnName("country_name_de");
 
                 entity.Property(e => e.CountryNameEn)
-                    .IsRequired()
-                    .HasMaxLength(255)
                     .HasColumnName("country_name_en");
             });
 
@@ -854,41 +734,26 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
             {
                 entity.ToTable("documents", "portal");
 
-                entity.Property(e => e.DocumentId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("document_id");
-
                 entity.Property(e => e.CompanyUserId).HasColumnName("company_user_id");
-
-                entity.Property(e => e.DateCreated).HasColumnName("date_created");
-
-                entity.Property(e => e.DateLastChanged).HasColumnName("date_last_changed");
 
                 entity.Property(e => e.DocumentOid)
                     .HasColumnType("oid")
                     .HasColumnName("document");
 
                 entity.Property(e => e.Documenthash)
-                    .IsRequired()
-                    .HasMaxLength(255)
                     .HasColumnName("documenthash");
 
                 entity.Property(e => e.Documentname)
-                    .IsRequired()
-                    .HasMaxLength(255)
                     .HasColumnName("documentname");
 
                 entity.Property(e => e.Documentuploaddate)
-                    .IsRequired()
                     .HasColumnName("documentuploaddate");
 
                 entity.Property(e => e.Documentversion)
-                    .IsRequired()
-                    .HasMaxLength(255)
                     .HasColumnName("documentversion");
 
                 entity.HasOne(d => d.CompanyUser)
-                    .WithMany(p => p.Documents)
+                    .WithMany(p => p!.Documents)
                     .HasForeignKey(d => d.CompanyUserId)
                     .HasConstraintName("fk_xcgobngn7vk56k8nfkuaysvn");
             });
@@ -897,43 +762,30 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
             {
                 entity.ToTable("document_templates", "portal");
 
-                entity.Property(e => e.DocumentTemplateId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("document_template_id");
-
-                entity.Property(e => e.DateCreated).HasColumnName("date_created");
-
-                entity.Property(e => e.DateLastChanged).HasColumnName("date_last_changed");
-
                 entity.Property(e => e.Documenttemplatename)
-                    .IsRequired()
-                    .HasMaxLength(255)
                     .HasColumnName("documenttemplatename");
 
                 entity.Property(e => e.Documenttemplateversion)
-                    .IsRequired()
-                    .HasMaxLength(255)
                     .HasColumnName("documenttemplateversion");
             });
 
             modelBuilder.Entity<IamIdentityProvider>(entity =>
             {
+                entity.ToTable("iam_identity_providers", "portal");
+
                 entity.HasKey(e => e.IamIdpAlias)
                     .HasName("iam_identity_providers_pkey");
-
-                entity.ToTable("iam_identity_providers", "portal");
 
                 entity.HasIndex(e => e.IdentityProviderId, "uk_aiehoat94wlhasdfiwlkefisi")
                     .IsUnique();
 
                 entity.Property(e => e.IamIdpAlias)
-                    .HasMaxLength(255)
                     .HasColumnName("iam_idp_alias");
 
                 entity.Property(e => e.IdentityProviderId).HasColumnName("identity_provider_id");
 
                 entity.HasOne(d => d.IdentityProvider)
-                    .WithOne(p => p.IamIdentityProvider)
+                    .WithOne(p => p!.IamIdentityProvider!)
                     .HasForeignKey<IamIdentityProvider>(d => d.IdentityProviderId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_9balkda89j2498dkj2lkjd9s3");
@@ -946,18 +798,10 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
                 entity.HasIndex(e => e.CompanyUserId, "uk_wiodwiowhdfo84f0sd9afsd2")
                     .IsUnique();
 
-                entity.Property(e => e.IamUserId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("iam_user_id");
-
                 entity.Property(e => e.CompanyUserId).HasColumnName("company_user_id");
 
-                entity.Property(e => e.DateCreated).HasColumnName("date_created");
-
-                entity.Property(e => e.DateLastChanged).HasColumnName("date_last_changed");
-
                 entity.HasOne(d => d.CompanyUser)
-                    .WithOne(p => p.IamUser)
+                    .WithOne(p => p!.IamUser!)
                     .HasForeignKey<IamUser>(d => d.CompanyUserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_iweorqwaeilskjeijekkalwo");
@@ -967,20 +811,12 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
             {
                 entity.ToTable("identity_providers", "portal");
 
-                entity.Property(e => e.IdentityProviderId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("identity_provider_id");
-
-                entity.Property(e => e.DateCreated).HasColumnName("date_created");
-
-                entity.Property(e => e.DateLastChanged).HasColumnName("date_last_changed");
-
                 entity.Property(e => e.IdentityProviderCategoryId)
                     .HasColumnName("identity_provider_category_id")
                     .HasConversion<int>();
 
                 entity.HasOne(d => d.IdentityProviderCategory)
-                    .WithMany(p => p.IdentityProviders)
+                    .WithMany(p => p!.IdentityProviders)
                     .HasForeignKey(d => d.IdentityProviderCategoryId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_iwohgwi9342adf9asdnfuie28");
@@ -996,7 +832,6 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
                     .HasConversion<int>();
 
                 entity.Property(e => e.Label)
-                    .HasMaxLength(255)
                     .HasColumnName("label");
 
                 entity.HasData(
@@ -1013,35 +848,27 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
             {
                 entity.ToTable("invitations", "portal");
 
-                entity.Property(e => e.InvitationId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("invitation_id");
-
                 entity.Property(e => e.CompanyApplicationId).HasColumnName("company_application_id");
 
                 entity.Property(e => e.CompanyUserId).HasColumnName("company_user_id");
-
-                entity.Property(e => e.DateCreated).HasColumnName("date_created");
-
-                entity.Property(e => e.DateLastChanged).HasColumnName("date_last_changed");
 
                 entity.Property(e => e.InvitationStatusId)
                     .HasColumnName("invitation_status_id")
                     .HasConversion<int>();
 
                 entity.HasOne(d => d.CompanyApplication)
-                    .WithMany(p => p.Invitations)
+                    .WithMany(p => p!.Invitations)
                     .HasForeignKey(d => d.CompanyApplicationId)
                     .HasConstraintName("fk_dlrst4ju9d0wcgkh4w1nnoj3");
 
                 entity.HasOne(d => d.CompanyUser)
-                    .WithMany(p => p.Invitations)
+                    .WithMany(p => p!.Invitations)
                     .HasForeignKey(d => d.CompanyUserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_9tgenb7p09hr5c24haxjw259");
 
                 entity.HasOne(d => d.InvitationStatus)
-                    .WithMany(p => p.Invitations)
+                    .WithMany(p => p!.Invitations)
                     .HasForeignKey(d => d.InvitationStatusId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_woihaodhawoeir72alfidosd");
@@ -1057,7 +884,6 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
                     .HasConversion<int>();
 
                 entity.Property(e => e.Label)
-                    .HasMaxLength(255)
                     .HasColumnName("label");
 
                 entity.HasData(
@@ -1072,22 +898,19 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
 
             modelBuilder.Entity<Language>(entity =>
             {
+                entity.ToTable("languages", "portal");
+
                 entity.HasKey(e => e.LanguageShortName)
                     .HasName("languages_pkey");
 
-                entity.ToTable("languages", "portal");
-
                 entity.Property(e => e.LanguageShortName)
-                    .HasMaxLength(2)
                     .HasColumnName("language_short_name")
                     .IsFixedLength(true);
 
                 entity.Property(e => e.LongNameDe)
-                    .HasMaxLength(255)
                     .HasColumnName("long_name_de");
 
                 entity.Property(e => e.LongNameEn)
-                    .HasMaxLength(255)
                     .HasColumnName("long_name_en");
             });
 
@@ -1095,20 +918,10 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities
             {
                 entity.ToTable("use_cases", "portal");
 
-                entity.Property(e => e.UseCaseId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("use_case_id");
-
-                entity.Property(e => e.DateCreated).HasColumnName("date_created");
-
-                entity.Property(e => e.DateLastChanged).HasColumnName("date_last_changed");
-
                 entity.Property(e => e.Name)
-                    .HasMaxLength(255)
                     .HasColumnName("name");
 
                 entity.Property(e => e.Shortname)
-                    .HasMaxLength(255)
                     .HasColumnName("shortname");
             });
         }

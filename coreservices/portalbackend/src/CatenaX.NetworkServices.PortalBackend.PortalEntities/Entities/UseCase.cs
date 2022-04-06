@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-
-#nullable disable
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
 {
-    public class UseCase
+    public class UseCase : BaseEntity
     {
         public UseCase()
         {
@@ -14,11 +12,11 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
             Apps = new HashSet<App>();
         }
 
-        public Guid UseCaseId { get; set; }
-        public DateTime? DateCreated { get; set; }
-        public DateTime? DateLastChanged { get; set; }
-        public string Name { get; set; }
-        public string Shortname { get; set; }
+        [MaxLength(255)]
+        public string? Name { get; set; }
+
+        [MaxLength(255)]
+        public string? Shortname { get; set; }
 
         public virtual ICollection<Agreement> Agreements { get; set; }
         public virtual ICollection<Company> Companies { get; set; }

@@ -1,11 +1,15 @@
 ﻿using System;
 
-#nullable disable
-
 namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
 {
     public class AgreementAssignedDocumentTemplate
     {
+        public AgreementAssignedDocumentTemplate(Agreement agreement, DocumentTemplate documentTemplate)
+        {
+            Agreement = agreement;
+            DocumentTemplate = documentTemplate;
+        }
+
         public Guid AgreementId { get; set; }
         public Guid DocumentTemplateId { get; set; }
 

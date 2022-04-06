@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-
-#nullable disable
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
 {
-    public class AppLicense
+    public class AppLicense : BaseEntity
     {
         public AppLicense()
         {
             Apps = new HashSet<App>();
         }
 
-        public Guid AppLicenseId { get; set; }
-        public DateTime? DateCreated { get; set; }
-        public DateTime? DateLastChanged { get; set; }
-        public string Licensetext { get; set; }
+        [MaxLength(255)]
+        public string? Licensetext { get; set; }
+
         public virtual ICollection<App> Apps { get; set; }
     }
 }

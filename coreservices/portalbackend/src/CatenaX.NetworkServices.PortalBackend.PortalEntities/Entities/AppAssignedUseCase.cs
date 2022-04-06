@@ -1,11 +1,15 @@
 ﻿using System;
 
-#nullable disable
-
 namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
 {
     public class AppAssignedUseCase
     {
+        public AppAssignedUseCase(App app, UseCase useCase)
+        {
+            App = app;
+            UseCase = useCase;
+        }
+
         public Guid AppId { get; set; }
         public Guid UseCaseId { get; set; }
 

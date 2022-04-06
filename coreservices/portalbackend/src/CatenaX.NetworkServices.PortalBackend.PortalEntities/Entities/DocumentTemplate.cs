@@ -1,16 +1,21 @@
-﻿using System;
-
-#nullable disable
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
 {
-    public class DocumentTemplate
+    public class DocumentTemplate : BaseEntity
     {
-        public Guid DocumentTemplateId { get; set; }
-        public DateTime? DateCreated { get; set; }
-        public DateTime? DateLastChanged { get; set; }
+        public DocumentTemplate(string documenttemplatename, string documenttemplateversion)
+        {
+            Documenttemplatename = documenttemplatename;
+            Documenttemplateversion = documenttemplateversion;
+        }
+
+        [MaxLength(255)]
         public string Documenttemplatename { get; set; }
+
+        [MaxLength(255)]
         public string Documenttemplateversion { get; set; }
-        public virtual AgreementAssignedDocumentTemplate AgreementAssignedDocumentTemplate { get; set; }
+
+        public virtual AgreementAssignedDocumentTemplate? AgreementAssignedDocumentTemplate { get; set; }
     }
 }

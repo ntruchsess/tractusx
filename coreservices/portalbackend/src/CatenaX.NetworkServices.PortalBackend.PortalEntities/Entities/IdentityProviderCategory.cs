@@ -1,8 +1,6 @@
 ﻿using CatenaX.NetworkServices.PortalBackend.PortalEntities.Enums;
-using System;
 using System.Collections.Generic;
-
-#nullable disable
+using System.ComponentModel.DataAnnotations;
 
 namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
 {
@@ -14,7 +12,9 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
         }
 
         public IdentityProviderCategoryId IdentityProviderCategoryId { get; set; }
-        public string Label { get; set; }
+
+        [MaxLength(255)]
+        public string? Label { get; set; }
 
         public virtual ICollection<IdentityProvider> IdentityProviders { get; set; }
     }

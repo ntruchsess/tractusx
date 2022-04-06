@@ -1,12 +1,11 @@
 ﻿using CatenaX.NetworkServices.PortalBackend.PortalEntities.Enums;
 using System;
 using System.Collections.Generic;
-
-#nullable disable
+using System.ComponentModel.DataAnnotations;
 
 namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
 {
-    public class Company
+    public class Company : BaseEntity
     {
         public Company()
         {
@@ -21,21 +20,26 @@ namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
             UseCases = new HashSet<UseCase>();
         }
 
-        public Guid CompanyId { get; set; }
-        public DateTime? DateCreated { get; set; }
-        public DateTime? DateLastChanged { get; set; }
-        public string Bpn { get; set; }
-        public string Name { get; set; }
-        public string Parent { get; set; }
-        public string Shortname { get; set; }
+        [MaxLength(20)]
+        public string? Bpn { get; set; }
+
+        [MaxLength(255)]
+        public string? Name { get; set; }
+
+        [MaxLength(255)]
+        public string? Parent { get; set; }
+
+        [MaxLength(255)]
+        public string? Shortname { get; set; }
+
         public CompanyStatusId? CompanyStatusId { get; set; }
+
         public Guid? AddressId { get; set; }
 
+        public virtual Address? Address { get; set; }
+        public virtual CompanyStatus? CompanyStatus { get; set; }
         public virtual ICollection<App> ProvidedApps { get; set; }
         public virtual ICollection<App> BoughtApps { get; set; }
-
-        public virtual Address Address { get; set; }
-        public virtual CompanyStatus CompanyStatus { get; set; }
         public virtual ICollection<Agreement> Agreements { get; set; }
         public virtual ICollection<CompanyApplication> CompanyApplications { get; set; }
         public virtual ICollection<IdentityProvider> IdentityProviders { get; set; }

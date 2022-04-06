@@ -1,12 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-
-#nullable disable
 
 namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
 {
     public class CompanyUserAssignedRole
     {
+        public CompanyUserAssignedRole(CompanyUser companyUser, CompanyUserRole userRole)
+        {
+            CompanyUser = companyUser;
+            UserRole = userRole;
+        }
+
         public Guid CompanyUserId { get; set; }
         public Guid UserRoleId { get; set; }
 

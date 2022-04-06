@@ -1,24 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-
-#nullable disable
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
 {
-    public class CompanyRole
+    public class CompanyRole : BaseEntity
     {
-        public CompanyRole()
+        public CompanyRole(string companyRoleText, string nameDe, string nameEn)
         {
             Companies = new HashSet<Company>();
+            CompanyRoleText = companyRoleText;
+            NameDe = nameDe;
+            NameEn = nameEn;
         }
 
-        public int CompanyRoleId { get; set; }
-        public string CompanyRole1 { get; set; }
-        public DateTime? DateCreated { get; set; }
-        public DateTime? DateLastChanged { get; set; }
+        [MaxLength(255)]
+        public string CompanyRoleText { get; set; }
+
+        [MaxLength(255)]
         public string NameDe { get; set; }
+
+        [MaxLength(255)]
         public string NameEn { get; set; }
-        public virtual AgreementAssignedCompanyRole AgreementAssignedCompanyRole { get; set; }
+
+
+        public virtual AgreementAssignedCompanyRole? AgreementAssignedCompanyRole { get; set; }
         public virtual ICollection<Company> Companies { get; set; }
     }
 }

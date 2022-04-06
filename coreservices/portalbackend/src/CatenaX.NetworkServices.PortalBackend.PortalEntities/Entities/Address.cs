@@ -1,29 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-
-#nullable disable
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace CatenaX.NetworkServices.PortalBackend.PortalEntities.Entities
 {
-    public class Address
+    public class Address : BaseEntity
     {
         public Address()
         {
             Companies = new HashSet<Company>();
         }
 
-        public Guid AddressId { get; set; }
-        public DateTime? DateCreated { get; set; }
-        public DateTime? DateLastChanged { get; set; }
-        public string City { get; set; }
-        public string Region { get; set; }
-        public string Streetadditional { get; set; }
-        public string Streetname { get; set; }
-        public string Streetnumber { get; set; }
-        public decimal? Zipcode { get; set; }
-        public string CountryAlpha2Code { get; set; }
+        [MaxLength(255)]
+        public string? City { get; set; }
 
-        public virtual Country Country { get; set; }
+        [MaxLength(255)]
+        public string? Region { get; set; }
+
+        [MaxLength(255)]
+        public string? Streetadditional { get; set; }
+
+        [MaxLength(255)]
+        public string? Streetname { get; set; }
+
+        [MaxLength(255)]
+        public string? Streetnumber { get; set; }
+
+        public decimal? Zipcode { get; set; }
+
+        [StringLength(2, MinimumLength = 2)]
+        public string? CountryAlpha2Code { get; set; }
+
+        public virtual Country? Country { get; set; }
         public virtual ICollection<Company> Companies { get; set; }
     }
 }
