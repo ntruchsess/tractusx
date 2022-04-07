@@ -154,22 +154,19 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
                     hash = builder.ToString();
                 }
             }
-            await _dbAccess.UploadDocument(name, documentContent, hash, userName);
+            await _dbAccess.UploadDocument(name,documentContent,hash,userName);
         }
         public Task CreateCustodianWalletAsync(WalletInformation information) =>
             _custodianService.CreateWallet(information.bpn, information.name);
 
         public async Task<bool> SubmitRegistrationAsync(string userEmail)
         {
-            var password = new Password().Next();
-
             var mailParameters = new Dictionary<string, string>
             {
-                { "password", password },
                 { "url", $"{_settings.BasePortalAddress}"},
             };
 
-            await _mailingService.SendMails(userEmail, mailParameters, new List<string> { "SubmitRegistrationTemplate" });
+            await _mailingService.SendMails(userEmail,mailParameters, new List<string> { "SubmitRegistrationTemplate" });
             return true;
         }
     }
