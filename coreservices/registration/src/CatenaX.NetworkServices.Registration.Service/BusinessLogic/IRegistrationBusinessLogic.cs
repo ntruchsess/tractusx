@@ -24,5 +24,6 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
         Task<IEnumerable<SignedConsent>> SignedConsentsByCompanyIdAsync(string companyId);
         Task SetIdpAsync(SetIdp idpToSet);
         Task CreateCustodianWalletAsync(WalletInformation information);
+        Task<bool> SubmitRegistrationAsync(string userEmail);
     }
 }
