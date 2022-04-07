@@ -1,4 +1,3 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31717.71
@@ -55,13 +54,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Fra
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "framework", "framework", "{3E6A8890-ABCC-11EC-8FBD-830E148C8A39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatenaX.NetworkServices.PortalBackend.DBAccess", "portalbackend\src\CatenaX.NetworkServices.PortalBackend.DBAccess\CatenaX.NetworkServices.PortalBackend.DBAccess.csproj", "{4A76991F-5E08-4882-84D5-A7C1FEC924FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.PortalBackend.DBAccess", "portalbackend\src\CatenaX.NetworkServices.PortalBackend.DBAccess\CatenaX.NetworkServices.PortalBackend.DBAccess.csproj", "{4A76991F-5E08-4882-84D5-A7C1FEC924FC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "portalbackend", "portalbackend", "{5638B3F0-AED0-11EC-9040-016C6A89AD3F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{85DE244C-8F06-4221-8D2D-7CD995BBA82D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatenaX.NetworkServices.Registrations.Tests", "registration\tests\CatenaX.NetworkServices.Registrations.Tests\CatenaX.NetworkServices.Registrations.Tests.csproj", "{74D90840-D864-4B72-85C5-D36345936380}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatenaX.NetworkServices.Registration.Tests", "registration\tests\CatenaX.NetworkServices.Registrations.Tests\CatenaX.NetworkServices.Registration.Tests.csproj", "{74D90840-D864-4B72-85C5-D36345936380}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -150,7 +149,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{5638B3F0-AED0-11EC-9040-016C6A89AD3F} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
 		{5BA50973-B032-4C3B-B82F-4136AC6B7DEC} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
 		{7A5F84BE-3B45-483A-8EF1-4E1E94F144DC} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
 		{97FE948B-D083-4BE2-9E5A-2AA0A0D7B44D} = {F5E59460-211B-11EC-B6E9-75CD881C6D34}
@@ -177,6 +175,7 @@ Global
 		{799A6509-F37A-4E2F-926D-7621F4B547DD} = {3E6A8890-ABCC-11EC-8FBD-830E148C8A39}
 		{3E6A8890-ABCC-11EC-8FBD-830E148C8A39} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
 		{4A76991F-5E08-4882-84D5-A7C1FEC924FC} = {5638B3F0-AED0-11EC-9040-016C6A89AD3F}
+		{5638B3F0-AED0-11EC-9040-016C6A89AD3F} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
 		{85DE244C-8F06-4221-8D2D-7CD995BBA82D} = {1A8ADE3E-393B-43D6-BE93-9CDB765CB86E}
 		{74D90840-D864-4B72-85C5-D36345936380} = {85DE244C-8F06-4221-8D2D-7CD995BBA82D}
 	EndGlobalSection

@@ -12,7 +12,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace CatenaX.NetworkServices.Registrations.Tests
+namespace CatenaX.NetworkServices.Registration.Tests
 {
     public class BPNAccessTest
     {
