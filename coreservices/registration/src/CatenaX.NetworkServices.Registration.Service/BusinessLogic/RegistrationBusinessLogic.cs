@@ -158,7 +158,13 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
         public Task CreateCustodianWalletAsync(WalletInformation information) =>
             _custodianService.CreateWallet(information.bpn, information.name);
 
-        public Task<CompanyWithAddress> GetCompanyWithAddress(string applicationId) =>
-            _portalDBAccess.GetCompanyWithAdressUntrackedAsync(Guid.Parse(applicationId));
+        public Task<CompanyWithAddress> GetCompanyWithAddressAsync(Guid applicationId) =>
+            _portalDBAccess.GetCompanyWithAdressUntrackedAsync(applicationId);
+
+        public Task SetCompanyWithAddressAsync(Guid applicationId, CompanyWithAddress companyWithAddress)
+        {
+            //FIXMX: add update of company status within same transpaction
+            return _portalDBAccess.SetCompanyWithAdressAsync(applicationId, companyWithAddress);
+        }
     }
 }

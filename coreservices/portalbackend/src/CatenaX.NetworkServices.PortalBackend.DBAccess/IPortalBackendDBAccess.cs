@@ -19,6 +19,7 @@ namespace CatenaX.NetworkServices.PortalBackend.DBAccess
         IamIdentityProvider CreateIamIdentityProvider(IdentityProvider identityProvider, string idpAlias);
         IamUser CreateIamUser(CompanyUser companyUser, Guid iamUserId);
         public Task<CompanyWithAddress> GetCompanyWithAdressUntrackedAsync(Guid companyApplicationId);
+        public Task SetCompanyWithAdressAsync(Guid companyApplicationId, CompanyWithAddress companyWithAddress);
         Task<int> SaveAsync();
     }
 }

@@ -155,18 +155,42 @@ namespace CatenaX.NetworkServices.PortalBackend.DBAccess
                 .Where(companyApplication => companyApplication.Id == companyApplicationId)
                 .Select(
                     companyApplication => new CompanyWithAddress {
+                        CompanyId = companyApplication.CompanyId,
                         Bpn = companyApplication.Company.Bpn,
                         Name = companyApplication.Company.Name,
+                        Shortname = companyApplication.Company.Shortname,
                         City = companyApplication.Company.Address.City,
                         Region = companyApplication.Company.Address.Region,
                         Streetadditional = companyApplication.Company.Address.Streetadditional,
                         Streetname = companyApplication.Company.Address.Streetname,
                         Streetnumber = companyApplication.Company.Address.Streetnumber,
                         Zipcode = companyApplication.Company.Address.Zipcode,
-                        Country = companyApplication.Company.Address.Country.CountryNameDe // FIXME internationalization
+                        CountryAlpha2Code = companyApplication.Company.Address.CountryAlpha2Code,
+                        CountryDe = companyApplication.Company.Address.Country.CountryNameDe // FIXME internationalization, maybe move to separate endpoint that returns Contrynames for all (or a specific) language
                     })
                 .AsNoTracking()
                 .SingleAsync();
+
+        public async Task SetCompanyWithAdressAsync(Guid companyApplicationId, CompanyWithAddress companyWithAddress)
+        {
+            var company = (await _dbContext.CompanyApplications
+                .Include(companyApplication => companyApplication.Company)
+                .ThenInclude(company => company.Address)
+                .Where(companyApplication => companyApplication.Id == companyApplicationId && companyApplication.Company.Id == companyWithAddress.CompanyId)
+                .SingleAsync()
+                .ConfigureAwait(false)).Company;
+            company.Bpn = companyWithAddress.Bpn;
+            company.Name = companyWithAddress.Name;
+            company.Shortname = companyWithAddress.Shortname;
+            company.Address.City = companyWithAddress.City;
+            company.Address.Region = companyWithAddress.Region;
+            company.Address.Streetadditional = companyWithAddress.Streetadditional;
+            company.Address.Streetname = companyWithAddress.Streetname;
+            company.Address.Streetnumber = companyWithAddress.Streetnumber;
+            company.Address.Zipcode = companyWithAddress.Zipcode;
+            company.Address.CountryAlpha2Code = companyWithAddress.CountryAlpha2Code;
+            await _dbContext.SaveChangesAsync();
+        }
 
         public Task<int> SaveAsync() =>
             _dbContext.SaveChangesAsync();
