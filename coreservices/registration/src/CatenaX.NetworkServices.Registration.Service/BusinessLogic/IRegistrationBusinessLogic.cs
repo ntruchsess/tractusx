@@ -27,5 +27,6 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
         Task CreateCustodianWalletAsync(WalletInformation information);
         Task<CompanyWithAddress> GetCompanyWithAddressAsync(Guid applicationId);
         Task SetCompanyWithAddressAsync(Guid applicationId, CompanyWithAddress companyWithAddress);
+        Task<bool> SubmitRegistrationAsync(string userEmail);
     }
 }
