@@ -8,6 +8,8 @@ using CatenaX.NetworkServices.Registration.Service.RegistrationAccess;
 using CatenaX.NetworkServices.Keycloak.Authentication;
 using CatenaX.NetworkServices.Keycloak.Factory;
 using CatenaX.NetworkServices.Keycloak.Factory.Utils;
+using CatenaX.NetworkServices.PortalBackend.DBAccess;
+using CatenaX.NetworkServices.PortalBackend.PortalEntities;
 using CatenaX.NetworkServices.Provisioning.Library;
 
 using Microsoft.AspNetCore.Authentication;
@@ -20,6 +22,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Microsoft.EntityFrameworkCore;
 
 using System;
 using System.IdentityModel.Tokens.Jwt;
@@ -109,6 +112,11 @@ namespace CatenaX.NetworkServices.Registration.Service
 
             services.AddTransient<IDBConnectionFactories, PostgreConnectionFactories>()
                     .ConfigureDBConnectionSettingsMap(Configuration.GetSection("DatabaseAccess"));
+
+            services.AddTransient<IPortalBackendDBAccess, PortalBackendDBAccess>();
+
+            services.AddDbContext<PortalDBContext>(options =>
+                options.UseNpgsql(Configuration.GetConnectionString("PortalDB")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

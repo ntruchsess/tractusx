@@ -4,6 +4,7 @@ using CatenaX.NetworkServices.Provisioning.Library;
 using CatenaX.NetworkServices.Registration.Service.BusinessLogic;
 using CatenaX.NetworkServices.Registration.Service.CustomException;
 using CatenaX.NetworkServices.Registration.Service.Model;
+using CatenaX.NetworkServices.PortalBackend.DBAccess.Models;
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -170,6 +171,40 @@ namespace CatenaX.NetworkServices.Registration.Service.Controllers
                 return Ok(result.ToList());
 
             } catch(Exception e)
+            {
+                _logger.LogError(e.ToString());
+                return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+            }
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "view_registration")]
+        [Route("application/{applicationId}/companyDetailsWithAddress")]
+        [ProducesResponseType(typeof(CompanyWithAddress), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> GetCompanyWithAddressAsync([FromRoute] Guid applicationId)
+        {
+            try
+            {
+                return Ok(await _registrationBusinessLogic.GetCompanyWithAddressAsync(applicationId).ConfigureAwait(false));
+            }
+            catch(Exception e)
+            {
+                _logger.LogError(e.ToString());
+                return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+            }
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "add_company_data")]
+        [Route("application/{applicationId}/companyDetailsWithAddress")]
+        public async Task<IActionResult> SetCompanyWithAddressAsync([FromRoute] Guid applicationId, [FromBody] CompanyWithAddress companyWithAddress)
+        {
+            try
+            {
+                await _registrationBusinessLogic.SetCompanyWithAddressAsync(applicationId, companyWithAddress).ConfigureAwait(false);
+                return Ok();
+            }
+            catch(Exception e)
             {
                 _logger.LogError(e.ToString());
                 return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
