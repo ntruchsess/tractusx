@@ -60,6 +60,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "portalbackend", "portalback
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatenaX.NetworkServices.PortalBackend.PortalEntities", "portalbackend\src\CatenaX.NetworkServices.PortalBackend.PortalEntities\CatenaX.NetworkServices.PortalBackend.PortalEntities.csproj", "{009FE3CE-E4CD-47D7-954C-6966E17BB403}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatenaX.NetworkServices.Registration.Tests", "registration\tests\CatenaX.NetworkServices.Registrations.Tests\CatenaX.NetworkServices.Registration.Tests.csproj", "{B1C1FC03-B62F-48B6-B91C-0BD3D21D7107}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{D70E1A20-B64F-11EC-8706-B3AA323ADFB3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "registration", "registration", "{DB8BB300-B64F-11EC-8706-B3AA323ADFB3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -142,11 +148,16 @@ Global
 		{009FE3CE-E4CD-47D7-954C-6966E17BB403}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{009FE3CE-E4CD-47D7-954C-6966E17BB403}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{009FE3CE-E4CD-47D7-954C-6966E17BB403}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1C1FC03-B62F-48B6-B91C-0BD3D21D7107}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1C1FC03-B62F-48B6-B91C-0BD3D21D7107}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1C1FC03-B62F-48B6-B91C-0BD3D21D7107}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1C1FC03-B62F-48B6-B91C-0BD3D21D7107}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{DB8BB300-B64F-11EC-8706-B3AA323ADFB3} = {D70E1A20-B64F-11EC-8706-B3AA323ADFB3}
 		{5638B3F0-AED0-11EC-9040-016C6A89AD3F} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
 		{5BA50973-B032-4C3B-B82F-4136AC6B7DEC} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
 		{7A5F84BE-3B45-483A-8EF1-4E1E94F144DC} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
@@ -175,6 +186,7 @@ Global
 		{3E6A8890-ABCC-11EC-8FBD-830E148C8A39} = {C34FEF41-7935-481B-BD92-BB2A99199BE3}
 		{4A76991F-5E08-4882-84D5-A7C1FEC924FC} = {5638B3F0-AED0-11EC-9040-016C6A89AD3F}
 		{009FE3CE-E4CD-47D7-954C-6966E17BB403} = {5638B3F0-AED0-11EC-9040-016C6A89AD3F}
+		{B1C1FC03-B62F-48B6-B91C-0BD3D21D7107} = {DB8BB300-B64F-11EC-8706-B3AA323ADFB3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {23E9EF5A-FB26-4AAC-952E-0695A1245B8E}
