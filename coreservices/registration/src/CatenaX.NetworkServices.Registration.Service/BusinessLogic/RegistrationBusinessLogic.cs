@@ -1,6 +1,5 @@
 ﻿using CatenaX.NetworkServices.Cosent.Library.Data;
 using CatenaX.NetworkServices.Mailing.SendMail;
-using CatenaX.NetworkServices.Mockups;
 using CatenaX.NetworkServices.Provisioning.Library;
 using CatenaX.NetworkServices.Provisioning.Library.Models;
 using CatenaX.NetworkServices.Registration.Service.BPN;
@@ -8,9 +7,8 @@ using CatenaX.NetworkServices.Registration.Service.BPN.Model;
 using CatenaX.NetworkServices.Registration.Service.Custodian;
 using CatenaX.NetworkServices.Registration.Service.Model;
 using CatenaX.NetworkServices.Registration.Service.RegistrationAccess;
-
-using Keycloak.Net;
-using Keycloak.Net.Models.Users;
+using CatenaX.NetworkServices.PortalBackend.DBAccess;
+using CatenaX.NetworkServices.PortalBackend.DBAccess.Models;
 
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
@@ -36,9 +34,10 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
         private readonly IBPNAccess _bpnAccess;
         private readonly ICustodianService _custodianService;
         private readonly IProvisioningManager _provisioningManager;
+        private readonly IPortalBackendDBAccess _portalDBAccess;
         private readonly ILogger<RegistrationBusinessLogic> _logger;
 
-        public RegistrationBusinessLogic(IOptions<RegistrationSettings> settings, IRegistrationDBAccess registrationDBAccess, IMailingService mailingService, IBPNAccess bpnAccess, ICustodianService custodianService, IProvisioningManager provisioningManager, ILogger<RegistrationBusinessLogic> logger)
+        public RegistrationBusinessLogic(IOptions<RegistrationSettings> settings, IRegistrationDBAccess registrationDBAccess, IMailingService mailingService, IBPNAccess bpnAccess, ICustodianService custodianService, IProvisioningManager provisioningManager, IPortalBackendDBAccess portalDBAccess, ILogger<RegistrationBusinessLogic> logger)
         {
             _settings = settings.Value;
             _dbAccess = registrationDBAccess;
@@ -46,6 +45,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
             _bpnAccess = bpnAccess;
             _custodianService = custodianService;
             _provisioningManager = provisioningManager;
+            _portalDBAccess = portalDBAccess;
             _logger = logger;
         }
 
@@ -61,7 +61,8 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
                 try
                 {
                     var password = pwd.Next();
-                    var centralUserId = await _provisioningManager.CreateSharedUserLinkedToCentralAsync(idpName, new UserProfile {
+                    var centralUserId = await _provisioningManager.CreateSharedUserLinkedToCentralAsync(idpName, new UserProfile
+                    {
                         UserName = user.userName ?? user.eMail,
                         FirstName = user.firstName,
                         LastName = user.lastName,
@@ -80,7 +81,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
 
                     var inviteTemplateName = "invite";
                     if (!string.IsNullOrWhiteSpace(user.Message))
-                    { 
+                    {
                         inviteTemplateName = "inviteWithMessage";
                     }
 
@@ -92,7 +93,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
                         { "nameCreatedBy", createdByName},
                         { "url", $"{_settings.BasePortalAddress}"},
                         { "username", user.eMail},
-                    
+
                     };
 
                     await _mailingService.SendMails(user.eMail, mailParameters, new List<string> { inviteTemplateName, "password" }).ConfigureAwait(false);
@@ -144,7 +145,7 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
                 using (SHA256 hashSHA256 = SHA256.Create())
                 {
                     byte[] hashValue = hashSHA256.ComputeHash(Encoding.UTF8.GetBytes(documentContent));
-                    hash = Encoding.UTF8.GetString(hashValue); 
+                    hash = Encoding.UTF8.GetString(hashValue);
                     StringBuilder builder = new StringBuilder();
                     for (int i = 0; i < hashValue.Length; i++)
                     {
@@ -155,7 +156,30 @@ namespace CatenaX.NetworkServices.Registration.Service.BusinessLogic
             }
             await _dbAccess.UploadDocument(name,documentContent,hash,userName);
         }
+        
         public Task CreateCustodianWalletAsync(WalletInformation information) =>
             _custodianService.CreateWallet(information.bpn, information.name);
+
+        
+        public Task<CompanyWithAddress> GetCompanyWithAddressAsync(Guid applicationId) =>
+            _portalDBAccess.GetCompanyWithAdressUntrackedAsync(applicationId);
+
+        
+        public Task SetCompanyWithAddressAsync(Guid applicationId, CompanyWithAddress companyWithAddress)
+        {
+            //FIXMX: add update of company status within same transpaction
+            return _portalDBAccess.SetCompanyWithAdressAsync(applicationId, companyWithAddress);
+        }
+        
+        public async Task<bool> SubmitRegistrationAsync(string userEmail)
+        {
+            var mailParameters = new Dictionary<string, string>
+            {
+                { "url", $"{_settings.BasePortalAddress}"},
+            };
+
+            await _mailingService.SendMails(userEmail,mailParameters, new List<string> { "SubmitRegistrationTemplate" });
+            return true;
+        }
     }
 }

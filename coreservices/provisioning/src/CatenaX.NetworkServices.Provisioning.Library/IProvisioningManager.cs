@@ -7,7 +7,8 @@ namespace CatenaX.NetworkServices.Provisioning.Library
 {
     public interface IProvisioningManager
     {
-        Task<string> SetupSharedIdpAsync(string organisationName);
+        Task<string> GetNextCentralIdentityProviderNameAsync();
+        Task<bool> SetupSharedIdpAsync(string idpName, string organisationName);
         Task<string> CreateSharedUserLinkedToCentralAsync(string idpName, UserProfile userProfile, string companyName);
         Task<bool> AssignInvitedUserInitialRoles(string centralUserId);
         Task<bool> AssignClientRolesToCentralUserAsync(string centralUserId, IDictionary<string,IEnumerable<string>> clientRoleNames);

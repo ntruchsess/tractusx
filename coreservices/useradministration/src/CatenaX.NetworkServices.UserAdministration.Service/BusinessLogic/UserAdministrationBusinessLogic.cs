@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 using PasswordGenerator;
 
@@ -13,6 +14,7 @@ using CatenaX.NetworkServices.Provisioning.Library;
 using CatenaX.NetworkServices.Provisioning.Library.Models;
 using CatenaX.NetworkServices.Provisioning.DBAccess;
 using CatenaX.NetworkServices.UserAdministration.Service.Models;
+using CatenaX.NetworkServices.PortalBackend.PortalEntities;
 
 namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
 {
@@ -43,9 +45,11 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
 
         public async Task<bool> ExecuteInvitation(InvitationData invitationData)
         {
-            var idpName = await _provisioningManager.SetupSharedIdpAsync(invitationData.organisationName).ConfigureAwait(false);
+            var idpName = await _provisioningManager.GetNextCentralIdentityProviderNameAsync().ConfigureAwait(false);
             if (idpName == null) return false;
-
+            
+            if (! await _provisioningManager.SetupSharedIdpAsync(idpName, invitationData.organisationName).ConfigureAwait(false)) return false;
+            
             var password = new Password().Next();
             var centralUserId = await _provisioningManager.CreateSharedUserLinkedToCentralAsync(idpName, new UserProfile {
                     UserName = invitationData.userName ?? invitationData.email,
@@ -59,6 +63,16 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
 
             if (!await _provisioningManager.AssignInvitedUserInitialRoles(centralUserId).ConfigureAwait(false)) return false;
 
+            var company = _portalDBAccess.CreateCompany(invitationData.organisationName);
+            var application = _portalDBAccess.CreateCompanyApplication(company);
+            var companyUser = _portalDBAccess.CreateCompanyUser(invitationData.firstName, invitationData.lastName, invitationData.email, company);
+            _portalDBAccess.CreateInvitation(application, companyUser);
+            var identityprovider = _portalDBAccess.CreateSharedIdentityProvider(company);
+            _portalDBAccess.CreateIamIdentityProvider(identityprovider,idpName);
+            _portalDBAccess.CreateIamUser(companyUser,Guid.Parse(centralUserId));
+          
+            await _portalDBAccess.SaveAsync().ConfigureAwait(false);
+
             var mailParameters = new Dictionary<string, string>
             {
                 { "password", password },
@@ -67,6 +81,7 @@ namespace CatenaX.NetworkServices.UserAdministration.Service.BusinessLogic
             };
 
             await _mailingService.SendMails(invitationData.email, mailParameters, new List<string> { "RegistrationTemplate", "PasswordForRegistrationTemplate"} );
+
             return true;
         }
 
